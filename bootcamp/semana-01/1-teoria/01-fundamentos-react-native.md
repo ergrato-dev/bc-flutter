@@ -51,15 +51,15 @@ Al finalizar este módulo, serás capaz de:
 
 ### Comparativa Rápida
 
-| Aspecto                  | Dart                   | JavaScript            | Kotlin                | Swift                  |
-| ------------------------ | ---------------------- | --------------------- | --------------------- | ---------------------- |
-| **Tipado**               | Fuerte + Inferencia    | Débil (dinámico)      | Fuerte + Inferencia   | Fuerte + Inferencia    |
-| **Null Safety**          | ✅ Sí (desde 2.12)     | ⚠️ Parcial            | ✅ Sí                 | ✅ Sí                  |
-| **Compilación**          | AOT y JIT              | JIT (interpretado)    | JVM / Native          | Native                 |
-| **Curva aprendizaje**    | ⭐⭐⭐ Moderada        | ⭐⭐ Fácil            | ⭐⭐⭐⭐ Alta         | ⭐⭐⭐⭐ Alta          |
-| **Hot Reload**           | ✅ Excelente           | ✅ Con frameworks     | ⚠️ Limitado           | ⚠️ Limitado            |
-| **Plataformas**          | ⭐⭐⭐⭐⭐ Todas       | ⭐⭐⭐⭐⭐ Todas      | ⭐⭐⭐ Android+JVM    | ⭐⭐ Solo Apple        |
-| **Ecosistema**           | Flutter, server, web   | Universal             | Android, backend      | iOS, macOS             |
+| Aspecto               | Dart                 | JavaScript         | Kotlin              | Swift               |
+| --------------------- | -------------------- | ------------------ | ------------------- | ------------------- |
+| **Tipado**            | Fuerte + Inferencia  | Débil (dinámico)   | Fuerte + Inferencia | Fuerte + Inferencia |
+| **Null Safety**       | ✅ Sí (desde 2.12)   | ⚠️ Parcial         | ✅ Sí               | ✅ Sí               |
+| **Compilación**       | AOT y JIT            | JIT (interpretado) | JVM / Native        | Native              |
+| **Curva aprendizaje** | ⭐⭐⭐ Moderada      | ⭐⭐ Fácil         | ⭐⭐⭐⭐ Alta       | ⭐⭐⭐⭐ Alta       |
+| **Hot Reload**        | ✅ Excelente         | ✅ Con frameworks  | ⚠️ Limitado         | ⚠️ Limitado         |
+| **Plataformas**       | ⭐⭐⭐⭐⭐ Todas     | ⭐⭐⭐⭐⭐ Todas   | ⭐⭐⭐ Android+JVM  | ⭐⭐ Solo Apple     |
+| **Ecosistema**        | Flutter, server, web | Universal          | Android, backend    | iOS, macOS          |
 
 ### ¿Por qué aprender Dart?
 
@@ -87,10 +87,10 @@ Al finalizar este módulo, serás capaz de:
 /**
  * What?
  * Función que saluda a una persona
- * 
+ *
  * For?
  * Demostrar la sintaxis básica de Dart
- * 
+ *
  * Impact?
  * Código legible y fácil de mantener
  */
@@ -109,212 +109,344 @@ void main() {
 
 ### 2. **Null Safety (Seguridad de Nulos)**
 
-1. Escribes código en JavaScript/React
-2. React Native traduce tus componentes a equivalentes nativos
-3. El bridge comunica entre JS y nativo
-4. El sistema operativo renderiza UI nativa real
+```dart
+/**
+ * What?
+ * Sistema de null safety para prevenir errores de nulos
+ *
+ * For?
+ * Evitar los temidos "Null Pointer Exceptions"
+ *
+ * Impact?
+ * Código más seguro y menos bugs en producción
+ */
 
-**Ejemplo:**
+// Variable nullable (puede ser null)
+String? name;  // El '?' indica que puede ser null
 
-```tsx
-// Tu código JavaScript:
-<View>
-  <Text>Hola Mundo</Text>
-</View>
+// Variable non-nullable (NO puede ser null)
+String definiteName = 'Flutter';  // Debe tener un valor
 
-// Se convierte en:
-iOS → UIView + UILabel
-Android → ViewGroup + TextView
+// Operador null-aware
+String displayName = name ?? 'Guest';  // Si name es null, usa 'Guest'
+
+// Null-aware access
+print(name?.length);  // Solo accede a length si name NO es null
+```
+
+### 3. **Tipado Fuerte con Inferencia**
+
+```dart
+/**
+ * What?
+ * Dart infiere el tipo de variable automáticamente
+ *
+ * For?
+ * Escribir menos código manteniendo seguridad de tipos
+ *
+ * Impact?
+ * Código más limpio sin sacrificar type safety
+ */
+
+// Declaración explícita
+int age = 25;
+String name = 'Ana';
+bool isStudent = true;
+
+// Inferencia de tipo (Dart deduce el tipo)
+var age2 = 25;        // Dart sabe que es int
+var name2 = 'Ana';    // Dart sabe que es String
+var isStudent2 = true; // Dart sabe que es bool
+
+// Una vez definido, el tipo no cambia
+var number = 10;
+// number = 'text';  // ❌ ERROR: no puede cambiar de int a String
+```
+
+### 4. **Funciones como First-Class Citizens**
+
+```dart
+/**
+ * What?
+ * Las funciones son objetos y pueden asignarse a variables
+ *
+ * For?
+ * Programación funcional y callbacks
+ *
+ * Impact?
+ * Mayor flexibilidad en el diseño del código
+ */
+
+// Función normal
+int add(int a, int b) {
+  return a + b;
+}
+
+// Arrow function (expresión lambda)
+int multiply(int a, int b) => a * b;
+
+// Función como parámetro (callback)
+void executeOperation(int a, int b, int Function(int, int) operation) {
+  print('Result: ${operation(a, b)}');
+}
+
+void main() {
+  executeOperation(5, 3, add);      // Result: 8
+  executeOperation(5, 3, multiply); // Result: 15
+}
+```
+
+### 5. **Asincronía Nativa (async/await)**
+
+```dart
+/**
+ * What?
+ * Manejo de operaciones asíncronas de forma sencilla
+ *
+ * For?
+ * Trabajar con APIs, bases de datos, I/O sin bloquear la UI
+ *
+ * Impact?
+ * Código asíncrono que se lee como código síncrono
+ */
+
+// Función asíncrona que simula una petición API
+Future<String> fetchUserData() async {
+  // Simula un delay de red
+  await Future.delayed(Duration(seconds: 2));
+  return 'User data loaded';
+}
+
+void main() async {
+  print('Loading...');
+  String data = await fetchUserData();
+  print(data);  // Se ejecuta después de 2 segundos
+}
 ```
 
 ---
 
-## 🌟 Casos de Éxito
+## 🌟 Herramientas para Dart
 
-### Apps Famosas Hechas con React Native
+### 1. **DartPad - Editor Online**
 
-| App           | Descripción          | Usuarios            |
-| ------------- | -------------------- | ------------------- |
-| **Facebook**  | Red social           | 3+ mil millones     |
-| **Instagram** | Foto/Video sharing   | 2+ mil millones     |
-| **WhatsApp**  | Mensajería           | 2+ mil millones     |
-| **Discord**   | Comunicación gamers  | 150+ millones       |
-| **Shopify**   | eCommerce            | Millones de tiendas |
-| **Uber Eats** | Delivery comida      | 66+ millones        |
-| **Pinterest** | Inspiración visual   | 450+ millones       |
-| **Coinbase**  | Crypto exchange      | 110+ millones       |
-| **Skype**     | Videollamadas        | 300+ millones       |
-| **Bloomberg** | Noticias financieras | Millones            |
+**What?**  
+Editor web para escribir y ejecutar código Dart sin instalación.
 
-**¿Por qué lo usan?**
+**For?**  
+Practicar rápidamente y compartir código.
 
-- Desarrollo más rápido (un solo equipo para ambas plataformas)
-- Actualizaciones sin pasar por app stores (over-the-air updates)
-- Reutilización de talento web
-- Hot Reload acelera desarrollo
+**Impact?**  
+Aprendizaje inmediato sin setup.
 
----
+🔗 **Link:** [dartpad.dev](https://dartpad.dev/)
 
-## 🔥 Ventajas de React Native
+```dart
+// Prueba este código en DartPad:
+void main() {
+  print('Hello, Dart!');
 
-### 1. **Reutilización de Código**
-
-```
-Desarrollo Tradicional:
-iOS app → 3 meses (equipo Swift)
-Android app → 3 meses (equipo Kotlin)
-Total: 6 meses, 2 equipos
-
-React Native:
-Ambas plataformas → 3.5 meses (un equipo)
-Ahorro: ~40-50% tiempo y costo
+  var numbers = [1, 2, 3, 4, 5];
+  var doubled = numbers.map((n) => n * 2).toList();
+  print(doubled);  // [2, 4, 6, 8, 10]
+}
 ```
 
-### 2. **Fast Refresh (Hot Reload)**
+### 2. **Dart SDK**
 
-- Cambios en código se reflejan **instantáneamente** sin perder el estado de la app
-- Desarrollo ~2-3x más rápido que nativo puro
-- No necesitas recompilar toda la app
+Incluye:
 
-### 3. **Ecosistema JavaScript**
+- **dart** - Ejecutar programas Dart
+- **dart pub** - Gestor de paquetes
+- **dart format** - Formateador de código
+- **dart analyze** - Analizador estático
+- **dart compile** - Compilador AOT/JIT
 
-- Acceso a **npm** con millones de paquetes
-- Librerías de React Web compatibles
-- Herramientas de desarrollo maduras
+### 3. **IDEs Recomendados**
 
-### 4. **Comunidad Gigante**
-
-- Meta (Facebook) como principal sponsor
-- Microsoft, Expo, Shopify contribuyen activamente
-- Miles de librerías de terceros
-- Documentación extensa
-
-### 5. **Over-The-Air Updates**
-
-- Actualiza la app sin pasar por App Store review
-- Despliega fixes críticos en minutos
-- A/B testing en tiempo real
+| IDE                | Ventajas                        | Mejor para             |
+| ------------------ | ------------------------------- | ---------------------- |
+| **VS Code**        | Ligero, rápido, extensiones     | Desarrollo rápido      |
+| **Android Studio** | Completo, emuladores integrados | Proyectos grandes      |
+| **IntelliJ IDEA**  | Poderoso, refactoring avanzado  | Desarrollo profesional |
 
 ---
 
-## ⚠️ Limitaciones y Consideraciones
+## 🎯 Tu Primer Programa en Dart
 
-### Desventajas de React Native
+### Ejemplo Completo
 
-1. **Performance en casos extremos**
+```dart
+/**
+ * What?
+ * Programa que calcula el área de un rectángulo
+ *
+ * For?
+ * Demostrar sintaxis básica de Dart
+ *
+ * Impact?
+ * Base para entender funciones, variables y entrada/salida
+ */
 
-   - Animaciones complejas 60fps
-   - Procesamiento intensivo de imágenes
-   - Juegos 3D/AR avanzado
+// Función que calcula área
+double calculateArea(double width, double height) {
+  return width * height;
+}
 
-2. **Bridge overhead**
+// Función main - punto de entrada del programa
+void main() {
+  // Variables
+  var width = 5.0;
+  var height = 10.0;
 
-   - Comunicación JS ↔ Native tiene costo
-   - En apps simples: imperceptible
-   - En apps complejas: requiere optimización
+  // Cálculo
+  double area = calculateArea(width, height);
 
-3. **Dependencia de librerías de terceros**
+  // Output
+  print('Rectangle dimensions: ${width}x${height}');
+  print('Area: $area square units');
+}
 
-   - Algunas APIs nativas requieren módulos nativos
-   - Necesitas verificar compatibilidad con versiones
-
-4. **Debugging más complejo**
-
-   - Stack traces pueden ser confusos
-   - Errores nativos requieren conocimiento de Swift/Kotlin
-
-5. **Tamaño de la app**
-   - Apps RN son ~5-10MB más grandes que nativas puras
-   - Incluye runtime de JavaScript (Hermes)
-
----
-
-## 🛠️ Herramientas del Ecosistema
-
-### Core
-
-- **React Native** - Framework principal
-- **Metro** - Bundler (como Webpack)
-- **Hermes** - Engine de JavaScript optimizado para móviles
-- **Flipper** - Debugger avanzado
-
-### Frameworks y Plataformas
-
-- **Expo** - Plataforma que simplifica desarrollo RN (usaremos este)
-- **Ignite** - Boilerplate con mejores prácticas
-- **NativeBase** - Librería de componentes UI
-
-### Navegación y Estado
-
-- **React Navigation** - Navegación entre pantallas
-- **Expo Router** - Enrutamiento basado en archivos (Next.js style)
-- **Redux / Zustand / Context API** - Manejo de estado global
-
----
-
-## 🎯 ¿Por Qué Aprender React Native en 2025?
-
-### Demanda Laboral
-
-- Salario promedio: $70,000 - $120,000 USD/año
-- Crecimiento de ofertas: +35% anual
-- Empresas buscan desarrolladores fullstack (web + móvil)
-
-### Versatilidad
-
-```
-Aprende React Native →
-  ✅ Apps iOS
-  ✅ Apps Android
-  ✅ React Web (mismo conocimiento)
-  ✅ Apps de escritorio (React Native Windows/macOS)
-  ✅ tvOS / Apple TV
-  ✅ Web con React Native Web
+// Output:
+// Rectangle dimensions: 5.0x10.0
+// Area: 50.0 square units
 ```
 
-### Futuro del Framework
+### Ejecutar el Programa
 
-- Meta invierte fuertemente (es core para Instagram/Facebook)
-- Nueva arquitectura (Fabric + TurboModules) mejora performance
-- Compatibilidad con React 18+ y Server Components
-- Adopción empresarial en crecimiento
+**Opción 1: DartPad**
 
----
+1. Ve a [dartpad.dev](https://dartpad.dev/)
+2. Copia el código
+3. Click en "Run"
 
-## 🚀 Demostración en Vivo
+**Opción 2: Terminal (si tienes Dart instalado)**
 
-### Durante la clase presencial veremos:
+```bash
+# Crear archivo
+echo 'void main() { print("Hello Dart!"); }' > hello.dart
 
-1. **App funcionando en Expo Go**
-
-   - Escanear QR code
-   - Ver cambios en tiempo real (Fast Refresh)
-   - Navegar por diferentes pantallas
-
-2. **Comparativa visual**
-
-   - Misma app en iOS y Android
-   - Diferencias sutiles en UI
-   - Cómo adaptar estilos por plataforma
-
-3. **Código real**
-   - Estructura de un proyecto
-   - Cómo se ve un componente
-   - Herramientas de debugging
-
-**Nota:** Esta demostración es **fundamental** para comprender el flujo de desarrollo. Presta atención y toma notas de las preguntas que surjan.
+# Ejecutar
+dart hello.dart
+```
 
 ---
 
-## 📝 Ejercicio de Reflexión (Presencial)
+## 🔥 Características Modernas de Dart
 
-### Discusión en Clase (10 minutos)
+### 1. **Collection Literals**
 
-**Pregunta 1:** Piensa en una app que usas diariamente. ¿Crees que está hecha con React Native? ¿Por qué?
+```dart
+// Listas
+var numbers = [1, 2, 3, 4, 5];
+var fruits = <String>['apple', 'banana', 'orange'];
 
-**Pregunta 2:** ¿Qué ventaja de React Native te parece más valiosa para tu carrera?
+// Sets (sin duplicados)
+var uniqueNumbers = {1, 2, 3, 3, 3};  // {1, 2, 3}
 
-**Pregunta 3:** ¿Qué tipo de app NO harías con React Native y por qué?
+// Maps (diccionarios)
+var user = {
+  'name': 'Ana',
+  'age': 25,
+  'isStudent': true,
+};
+```
+
+### 2. **Spread Operator**
+
+```dart
+var list1 = [1, 2, 3];
+var list2 = [4, 5, 6];
+var combined = [...list1, ...list2];  // [1, 2, 3, 4, 5, 6]
+```
+
+### 3. **Collection If**
+
+```dart
+var includeZero = true;
+var numbers = [
+  if (includeZero) 0,
+  1,
+  2,
+  3,
+];  // [0, 1, 2, 3] si includeZero es true
+```
+
+### 4. **Cascade Notation**
+
+```dart
+// Llamar múltiples métodos en el mismo objeto
+var paint = Paint()
+  ..color = Colors.blue
+  ..strokeWidth = 5.0
+  ..style = PaintingStyle.stroke;
+```
+
+---
+
+## ⚠️ Errores Comunes de Principiantes
+
+### 1. **Olvidar el punto y coma**
+
+```dart
+// ❌ Error
+var name = 'Dart'
+
+// ✅ Correcto
+var name = 'Dart';
+```
+
+### 2. **Confundir `var`, `final` y `const`**
+
+```dart
+// var - puede cambiar
+var age = 25;
+age = 26;  // ✅ OK
+
+// final - asignación única, valor en runtime
+final currentTime = DateTime.now();
+// currentTime = DateTime.now();  // ❌ ERROR
+
+// const - valor conocido en compile-time
+const pi = 3.14159;
+// const now = DateTime.now();  // ❌ ERROR: no es compile-time constant
+```
+
+### 3. **No manejar null safety**
+
+```dart
+// ❌ Error
+String? name;
+print(name.length);  // Error: name puede ser null
+
+// ✅ Correcto
+String? name;
+print(name?.length ?? 0);  // Maneja el caso null
+```
+
+---
+
+## 📊 Dart en el Ecosistema de Desarrollo
+
+### Usos de Dart
+
+```
+Dart Language
+    ├── Flutter (móvil, web, desktop)
+    ├── AngularDart (web frameworks)
+    ├── Server-side (Aqueduct, Shelf)
+    └── Command-line tools
+```
+
+### Popularidad y Adopción
+
+| Métrica              | Dato                             |
+| -------------------- | -------------------------------- |
+| **GitHub Stars**     | 10k+ proyectos Dart              |
+| **Pub.dev Packages** | 40,000+ paquetes                 |
+| **StackOverflow**    | 50,000+ preguntas                |
+| **Google Trends**    | Crecimiento constante desde 2018 |
+| **Empresas usando**  | Google, Alibaba, BMW, eBay       |
 
 ---
 
@@ -322,43 +454,41 @@ Aprende React Native →
 
 Al finalizar este módulo deberías poder:
 
-- [ ] Explicar qué es React Native en 2-3 frases
-- [ ] Mencionar al menos 3 apps famosas hechas con RN
-- [ ] Diferenciar entre React Native y desarrollo nativo
-- [ ] Identificar cuándo usar o no usar React Native
-- [ ] Entender el concepto de "bridge" entre JS y nativo
-- [ ] Explicar qué es Fast Refresh y por qué es útil
+- [ ] Explicar qué es Dart y para qué se usa
+- [ ] Identificar las ventajas de Dart vs otros lenguajes
+- [ ] Usar DartPad para escribir código
+- [ ] Entender null safety y por qué es importante
+- [ ] Escribir funciones básicas en Dart
+- [ ] Comprender la diferencia entre `var`, `final` y `const`
 
 ---
 
-## 🔗 Recursos para Profundizar (Autónomo)
+## 🔗 Recursos para Profundizar
 
 ### Documentación Oficial
 
-- [React Native Docs](https://reactnative.dev/docs/getting-started)
-- [Expo Documentation](https://docs.expo.dev/)
-- [React Docs](https://react.dev/)
+- [Dart Language Tour](https://dart.dev/guides/language/language-tour)
+- [Dart Documentation](https://dart.dev/guides)
+- [DartPad](https://dartpad.dev/)
 
-### Videos Recomendados (30 minutos total)
+### Videos Recomendados (1 hora total)
 
-- [React Native en 100 segundos](https://www.youtube.com/watch?v=gvkqT_Uoahw) - Fireship (2min)
-- [¿Qué es React Native?](https://www.youtube.com/watch?v=0-S5a0eXPoc) - Traversy Media (15min)
-- [React Native vs Flutter vs Native](https://www.youtube.com/watch?v=X8ipUgXH6jw) - Fireship (10min)
+- [Dart en 100 segundos](https://www.youtube.com/watch?v=NrO0CJCbYLA) - Fireship (2min)
+- [Dart Tutorial for Beginners](https://www.youtube.com/watch?v=Ej_Pcr4uC2Q) - freeCodeCamp (3h - ver primeros 30min)
 
 ### Artículos
 
-- [State of React Native 2024](https://reactnative.dev/blog)
-- [Airbnb's React Native Story](https://medium.com/airbnb-engineering/react-native-at-airbnb-f95aa460be1c)
-- [Discord's React Native Journey](https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native)
+- [Why Flutter Uses Dart](https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf)
+- [Dart Null Safety Guide](https://dart.dev/null-safety)
 
 ---
 
 ## 🎓 Próximo Módulo
 
-**Siguiente clase presencial:**  
-[02. Setup y Primer Proyecto](./02-setup-y-primer-proyecto.md) - Configuraremos el entorno y crearemos nuestra primera app juntos.
+**Siguiente:**  
+[02. Variables, Tipos de Datos y Operadores](./02-setup-y-componentes-basicos.md)
 
 ---
 
-**Tiempo presencial:** 45 minutos ✓  
-**Tiempo autónomo recomendado:** ~30 minutos (videos + lectura opcional)
+**Tiempo de estudio:** 2 horas ✓  
+**Tiempo autónomo recomendado:** ~1 hora (práctica en DartPad)
