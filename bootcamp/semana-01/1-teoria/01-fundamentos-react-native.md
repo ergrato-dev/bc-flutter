@@ -1,102 +1,113 @@
-# 01. Fundamentos de React Native
+# 01. Fundamentos de Dart
 
-**Duración:** 45 minutos (PRESENCIAL)  
-**Modalidad:** Explicación + Demo en vivo  
-**Objetivo:** Comprender qué es React Native y ver una app real funcionando
+**Duración:** 2 horas  
+**Modalidad:** Teoría + Ejemplos prácticos  
+**Objetivo:** Comprender qué es Dart y dominar sus conceptos fundamentales
 
 ---
 
 ## 🎯 Objetivos de Aprendizaje
 
-Al finalizar este módulo presencial, serás capaz de:
+Al finalizar este módulo, serás capaz de:
 
-- ✅ Explicar qué es React Native y cómo funciona
-- ✅ Identificar diferencias entre React Native y desarrollo nativo
-- ✅ Reconocer cuándo usar React Native
-- ✅ Ver una aplicación real en funcionamiento
-
----
-
-## 📱 ¿Qué es React Native?
-
-**React Native** es un framework de código abierto creado por Meta (Facebook) que permite desarrollar aplicaciones móviles **nativas** usando **JavaScript y React**.
-
-### Concepto Clave: "Learn Once, Write Anywhere"
-
-```
-      Código JavaScript + React
-               ↓
-        React Native Bridge
-               ↓
-        ┌──────┴──────┐
-        ↓             ↓
-   iOS Native    Android Native
-   (Swift/ObjC)  (Java/Kotlin)
-```
-
-**¿Qué significa "Nativo"?**
-
-- No es una WebView (no es HTML/CSS ejecutándose en el navegador del móvil)
-- Usa componentes nativos reales del sistema operativo
-- Performance comparable a apps nativas puras
+- ✅ Explicar qué es Dart y por qué se usa con Flutter
+- ✅ Identificar las características principales del lenguaje
+- ✅ Usar DartPad para escribir y probar código
+- ✅ Comprender la sintaxis básica de Dart
 
 ---
 
-## 🆚 React Native vs Alternativas
+## 🎯 ¿Qué es Dart?
+
+**Dart** es un lenguaje de programación de código abierto creado por Google, optimizado para crear aplicaciones en **múltiples plataformas** (móvil, web, desktop, servidor).
+
+### Concepto Clave: "Optimized for UI"
+
+```
+      Código Dart
+         ↓
+   Dart Compiler
+         ↓
+    ┌────┴────┐
+    ↓         ↓
+  Native   JavaScript
+   Code      Code
+    ↓         ↓
+  Mobile    Web
+  Desktop   Server
+```
+
+**¿Por qué Dart para Flutter?**
+
+- **Alto rendimiento:** Compila a código nativo (ARM, x64)
+- **Hot Reload:** Cambios instantáneos durante desarrollo
+- **Productivo:** Sintaxis clara y expresiva
+- **Type-safe:** Sistema de tipos sólido con null safety
+- **Orientado a objetos:** Todo es un objeto en Dart
+
+---
+
+## 🆚 Dart vs Otros Lenguajes
 
 ### Comparativa Rápida
 
-| Aspecto                     | React Native          | Flutter              | Nativo Puro           |
-| --------------------------- | --------------------- | -------------------- | --------------------- |
-| **Lenguaje**                | JavaScript/TypeScript | Dart                 | Swift/Kotlin          |
-| **Performance**             | ⭐⭐⭐⭐ Muy buena    | ⭐⭐⭐⭐⭐ Excelente | ⭐⭐⭐⭐⭐ Excelente  |
-| **Curva de aprendizaje**    | ⭐⭐⭐ Moderada       | ⭐⭐⭐⭐ Alta        | ⭐⭐⭐⭐⭐ Muy alta   |
-| **Comunidad**               | ⭐⭐⭐⭐⭐ Enorme     | ⭐⭐⭐⭐ Grande      | ⭐⭐⭐⭐⭐ Enorme     |
-| **Hot Reload**              | ✅ Sí (Fast Refresh)  | ✅ Sí                | ❌ No (recompilación) |
-| **Reutilización de código** | ~80-95%               | ~90-95%              | 0% (separado)         |
-| **Ecosistema JS**           | ✅ Compatible         | ❌ No                | ❌ No                 |
+| Aspecto                  | Dart                   | JavaScript            | Kotlin                | Swift                  |
+| ------------------------ | ---------------------- | --------------------- | --------------------- | ---------------------- |
+| **Tipado**               | Fuerte + Inferencia    | Débil (dinámico)      | Fuerte + Inferencia   | Fuerte + Inferencia    |
+| **Null Safety**          | ✅ Sí (desde 2.12)     | ⚠️ Parcial            | ✅ Sí                 | ✅ Sí                  |
+| **Compilación**          | AOT y JIT              | JIT (interpretado)    | JVM / Native          | Native                 |
+| **Curva aprendizaje**    | ⭐⭐⭐ Moderada        | ⭐⭐ Fácil            | ⭐⭐⭐⭐ Alta         | ⭐⭐⭐⭐ Alta          |
+| **Hot Reload**           | ✅ Excelente           | ✅ Con frameworks     | ⚠️ Limitado           | ⚠️ Limitado            |
+| **Plataformas**          | ⭐⭐⭐⭐⭐ Todas       | ⭐⭐⭐⭐⭐ Todas      | ⭐⭐⭐ Android+JVM    | ⭐⭐ Solo Apple        |
+| **Ecosistema**           | Flutter, server, web   | Universal             | Android, backend      | iOS, macOS             |
 
-### ¿Cuándo usar React Native?
+### ¿Por qué aprender Dart?
 
-✅ **SÍ usar React Native cuando:**
+✅ **Ventajas clave:**
 
-- Ya conoces JavaScript/React
-- Necesitas apps para iOS y Android rápidamente
-- El equipo tiene experiencia web
-- Quieres reutilizar código con React Web
-- Necesitas iterar rápido (startups, MVPs)
+- **Fácil de aprender:** Sintaxis familiar si conoces Java, C#, JavaScript
+- **Moderno:** Incluye características actuales (async/await, streams, null safety)
+- **Flutter:** El framework móvil multiplataforma más popular
+- **Versátil:** Sirve para móvil, web, desktop y backend
+- **Comunidad creciente:** Gran soporte y recursos
 
-⚠️ **CONSIDERAR alternativas cuando:**
+⚠️ **Consideraciones:**
 
-- La app requiere performance extremo (juegos 3D, AR/VR complejo)
-- Necesitas acceso profundo a APIs nativas específicas
-- El equipo no tiene experiencia con JavaScript
+- Principalmente usado con Flutter (menos adopción fuera de Flutter)
+- Ecosistema más pequeño que JavaScript o Python
+- Menos librerías de terceros comparado con lenguajes más antiguos
 
 ---
 
-## 🏗️ Arquitectura de React Native
+## 🏗️ Características Principales de Dart
 
-### Modelo Simplificado
+### 1. **Sintaxis Limpia y Expresiva**
 
+```dart
+/**
+ * What?
+ * Función que saluda a una persona
+ * 
+ * For?
+ * Demostrar la sintaxis básica de Dart
+ * 
+ * Impact?
+ * Código legible y fácil de mantener
+ */
+String greet(String name) {
+  return 'Hello, $name!';
+}
+
+// Versión más concisa con arrow function
+String greetShort(String name) => 'Hello, $name!';
+
+void main() {
+  print(greet('Flutter Developer'));
+  // Output: Hello, Flutter Developer!
+}
 ```
-┌─────────────────────────────────┐
-│  JavaScript Thread (Tu código)  │
-│  • Lógica de negocio             │
-│  • Componentes React             │
-│  • Estado (state)                │
-└──────────────┬──────────────────┘
-               ↓
-          Bridge (JSON)
-               ↓
-┌──────────────┴──────────────────┐
-│    Native Thread (SO)            │
-│  • UI Components                 │
-│  • API nativas                   │
-│  • Renderizado                   │
-└──────────────────────────────────┘
-```
 
-**Flujo de trabajo:**
+### 2. **Null Safety (Seguridad de Nulos)**
 
 1. Escribes código en JavaScript/React
 2. React Native traduce tus componentes a equivalentes nativos
