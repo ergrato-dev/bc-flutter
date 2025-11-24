@@ -78,11 +78,13 @@ Presiona `Ctrl+C` para detener el auto-commit en cualquier momento.
 Script para configurar una tarea cron que ejecuta auto-commit.sh cada 5 minutos en Fedora 43.
 
 **For?**
+
 - Automatizar la ejecución de auto-commit sin intervención manual
 - Mantener commits automáticos durante horas de trabajo
 - Simplificar la configuración de cron
 
 **Impact?**
+
 - Habilita control de versiones continuo y automático
 - Elimina necesidad de ejecutar manualmente el script
 - Crea logs centralizados para monitoreo
