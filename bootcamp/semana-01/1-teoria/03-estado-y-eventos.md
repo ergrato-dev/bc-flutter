@@ -1,153 +1,449 @@
-# 03. Estado y Eventos - Haciendo Apps Interactivas
+# 03. Estructuras de Control y Funciones en Dart
 
-**Duración:** 1.5 horas (PRESENCIAL)  
-**Modalidad:** Live coding (escribir código juntos)  
-**Objetivo:** Aprender a manejar estado y eventos para crear apps interactivas
+**Duración:** 2 horas  
+**Modalidad:** Teoría + Ejercicios prácticos  
+**Objetivo:** Dominar el flujo de control y creación de funciones en Dart
 
 ---
 
 ## 🎯 Objetivos de Aprendizaje
 
-Al finalizar este módulo presencial, serás capaz de:
+Al finalizar este módulo, serás capaz de:
 
-- ✅ Usar el hook `useState` para gestionar estado local
-- ✅ Manejar eventos táctiles (onPress, onChangeText)
-- ✅ Crear formularios controlados
-- ✅ Comprender el flujo de datos unidireccional
-- ✅ Usar `useEffect` para efectos secundarios básicos
-
----
-
-## 🔄 Concepto Central: El Estado
-
-### ¿Qué es el Estado?
-
-**Estado (state)** = Datos que pueden cambiar y afectan lo que se muestra en pantalla.
-
-```
-Estado cambia → React re-renderiza → UI se actualiza
-```
-
-### Ejemplo visual:
-
-```
-Usuario presiona "+1"
-     ↓
-setCount(count + 1)  ← Cambia el estado
-     ↓
-React detecta cambio
-     ↓
-Componente se re-renderiza
-     ↓
-Número nuevo aparece en pantalla
-```
+- ✅ Usar condicionales (if-else, switch-case) efectivamente
+- ✅ Implementar bucles (for, while, do-while, for-in)
+- ✅ Crear funciones con diferentes tipos de parámetros
+- ✅ Usar funciones flecha (arrow functions)
+- ✅ Comprender el scope de variables
+- ✅ Aplicar control de flujo (break, continue, return)
 
 ---
 
-## 📝 EJERCICIO 1: Contador Simple (20 min)
+## PARTE 1: Estructuras Condicionales (40 minutos)
 
-### Objetivo: Crear un contador con botones +/- y reset
+### 1️⃣ **if-else - Condicional Básico**
 
-**¡TODOS JUNTOS!** Vamos a escribir este código paso a paso:
+```dart
+/**
+ * What?
+ * Estructura condicional básica para tomar decisiones
+ * 
+ * For?
+ * Ejecutar código basado en condiciones
+ * 
+ * Impact?
+ * Base del control de flujo en cualquier programa
+ */
 
-```tsx
-import { View, Text, TouchableOpacity } from 'react-native'
-import { useState } from 'react'
-
-export default function App() {
-  // PASO 1: Declarar estado
-  // useState devuelve [valor actual, función para actualizarlo]
-  const [count, setCount] = useState(0)
-
-  // PASO 2: Funciones para modificar el estado
-  const increment = () => {
-    setCount(count + 1) // Suma 1
+void main() {
+  int age = 20;
+  
+  // if simple
+  if (age >= 18) {
+    print('Es mayor de edad');
   }
-
-  const decrement = () => {
-    setCount(count - 1) // Resta 1
+  
+  // if-else
+  if (age >= 18) {
+    print('Puede votar');
+  } else {
+    print('No puede votar');
   }
-
-  const reset = () => {
-    setCount(0) // Vuelve a 0
+  
+  // if-else if-else (múltiples condiciones)
+  if (age < 13) {
+    print('Niño');
+  } else if (age < 18) {
+    print('Adolescente');
+  } else if (age < 65) {
+    print('Adulto');
+  } else {
+    print('Adulto mayor');
   }
-
-  // PASO 3: Renderizar UI
-  return (
-    <View className="flex-1 bg-white items-center justify-center">
-      {/* Mostrar el contador */}
-      <Text className="text-8xl font-bold text-gray-900 mb-10">{count}</Text>
-
-      {/* Botones */}
-      <View className="flex-row gap-4">
-        {/* Botón - */}
-        <TouchableOpacity
-          onPress={decrement}
-          className="bg-red-500 w-16 h-16 rounded-full items-center justify-center"
-        >
-          <Text className="text-white text-3xl font-bold">−</Text>
-        </TouchableOpacity>
-
-        {/* Botón Reset */}
-        <TouchableOpacity
-          onPress={reset}
-          className="bg-gray-500 w-16 h-16 rounded-full items-center justify-center"
-        >
-          <Text className="text-white text-sm font-bold">0</Text>
-        </TouchableOpacity>
-
-        {/* Botón + */}
-        <TouchableOpacity
-          onPress={increment}
-          className="bg-green-500 w-16 h-16 rounded-full items-center justify-center"
-        >
-          <Text className="text-white text-3xl font-bold">+</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Información adicional */}
-      <Text className="text-gray-500 mt-8">
-        {count === 0 ? 'En cero' : count > 0 ? 'Positivo' : 'Negativo'}
-      </Text>
-    </View>
-  )
+  
+  // Condiciones compuestas
+  bool hasLicense = true;
+  
+  if (age >= 18 && hasLicense) {
+    print('Puede conducir');
+  }
+  
+  if (age < 16 || !hasLicense) {
+    print('No puede conducir');
+  }
 }
 ```
 
-### 🎯 Conceptos Clave:
+### 2️⃣ **Operador Ternario - Condicional Compacto**
 
-1. **`useState(0)`** - Inicializa el estado en 0
-2. **`setCount(...)`** - Única forma de actualizar el estado
-3. **`onPress={() => ...}`** - Evento al presionar
-4. **Re-render automático** - React actualiza la UI solo cuando cambia el estado
+```dart
+/**
+ * What?
+ * Expresión condicional en una sola línea
+ * 
+ * For?
+ * Asignar valores basados en condiciones de forma concisa
+ * 
+ * Impact?
+ * Código más limpio para condiciones simples
+ */
 
-### ⚠️ Errores Comunes:
+void main() {
+  int age = 20;
+  
+  // Sintaxis: condición ? valorSiTrue : valorSiFalse
+  String status = age >= 18 ? 'Adulto' : 'Menor';
+  print(status);  // 'Adulto'
+  
+  // Útil para asignaciones condicionales
+  int score = 85;
+  String grade = score >= 90 ? 'A' :
+                 score >= 80 ? 'B' :
+                 score >= 70 ? 'C' :
+                 score >= 60 ? 'D' : 'F';
+  print(grade);  // 'B'
+  
+  // En argumentos de funciones
+  print('Resultado: ${age >= 18 ? "Aprobado" : "Rechazado"}');
+}
+```
 
-```tsx
-// ❌ MAL: Modificar directamente (NO FUNCIONA)
-count = count + 1 // NO hace nada
+### 3️⃣ **switch-case - Múltiples Opciones**
 
-// ✅ BIEN: Usar la función set
-setCount(count + 1) // React detecta el cambio
+```dart
+/**
+ * What?
+ * Estructura para comparar un valor contra múltiples opciones
+ * 
+ * For?
+ * Código más limpio que múltiples if-else cuando hay muchas opciones
+ * 
+ * Impact?
+ * Mejor legibilidad en comparaciones de igualdad
+ */
+
+void main() {
+  String day = 'Monday';
+  
+  switch (day) {
+    case 'Monday':
+      print('Inicio de semana');
+      break;
+    
+    case 'Tuesday':
+    case 'Wednesday':
+    case 'Thursday':
+      print('Mitad de semana');
+      break;
+    
+    case 'Friday':
+      print('Fin de semana laboral');
+      break;
+    
+    case 'Saturday':
+    case 'Sunday':
+      print('Fin de semana');
+      break;
+    
+    default:
+      print('Día no válido');
+  }
+  
+  // Ejemplo con números
+  int month = 3;
+  
+  switch (month) {
+    case 12:
+    case 1:
+    case 2:
+      print('Verano');
+      break;
+    case 3:
+    case 4:
+    case 5:
+      print('Otoño');
+      break;
+    case 6:
+    case 7:
+    case 8:
+      print('Invierno');
+      break;
+    case 9:
+    case 10:
+    case 11:
+      print('Primavera');
+      break;
+    default:
+      print('Mes inválido');
+  }
+}
+```
+
+### ⚠️ **Importante sobre switch:**
+
+```dart
+// ❌ ERROR: Olvidar break causa error en Dart
+switch (value) {
+  case 1:
+    print('Uno');
+    // Falta break - Dart requiere break o continue
+  case 2:  // Error de compilación
+    print('Dos');
+}
+
+// ✅ CORRECTO: Siempre usar break, return, throw o continue
+switch (value) {
+  case 1:
+    print('Uno');
+    break;  // ✓
+  case 2:
+    print('Dos');
+    break;  // ✓
+}
 ```
 
 ---
 
-## 📝 EJERCICIO 2: Input Controlado (25 min)
+## PARTE 2: Estructuras Repetitivas (40 minutos)
 
-### Objetivo: Crear un formulario de saludo personalizado
+### 1️⃣ **for - Bucle con Contador**
 
-**¡TODOS JUNTOS!** Live coding:
+```dart
+/**
+ * What?
+ * Bucle que se repite un número específico de veces
+ * 
+ * For?
+ * Iterar cuando sabes cuántas veces necesitas repetir
+ * 
+ * Impact?
+ * El bucle más común para iteraciones controladas
+ */
 
-```tsx
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
-import { useState } from 'react'
+void main() {
+  // Sintaxis básica: for (inicialización; condición; incremento)
+  
+  // Contar del 0 al 4
+  for (int i = 0; i < 5; i++) {
+    print('i = $i');
+  }
+  // Output: i = 0, i = 1, i = 2, i = 3, i = 4
+  
+  // Contar hacia atrás
+  for (int i = 10; i >= 0; i--) {
+    print(i);
+  }
+  
+  // Incremento personalizado
+  for (int i = 0; i <= 20; i += 5) {
+    print(i);  // 0, 5, 10, 15, 20
+  }
+  
+  // Múltiples variables
+  for (int i = 0, j = 10; i < j; i++, j--) {
+    print('i=$i, j=$j');
+  }
+}
+```
 
-export default function App() {
-  // Estado para el nombre
-  const [name, setName] = useState('')
+### 2️⃣ **for-in - Iterar Colecciones**
 
-  // Estado para mostrar/ocultar el saludo
+```dart
+/**
+ * What?
+ * Bucle para iterar elementos de una colección
+ * 
+ * For?
+ * Recorrer listas, sets, o cualquier iterable
+ * 
+ * Impact?
+ * Sintaxis más limpia para iterar colecciones
+ */
+
+void main() {
+  // Iterar lista
+  var fruits = ['Apple', 'Banana', 'Orange'];
+  
+  for (var fruit in fruits) {
+    print(fruit);
+  }
+  // Output: Apple, Banana, Orange
+  
+  // Iterar string (cada carácter)
+  var word = 'Dart';
+  for (var char in word.split('')) {
+    print(char);
+  }
+  // Output: D, a, r, t
+  
+  // Iterar con índice (usando asMap())
+  for (var entry in fruits.asMap().entries) {
+    print('${entry.key}: ${entry.value}');
+  }
+  // Output: 0: Apple, 1: Banana, 2: Orange
+}
+```
+
+### 3️⃣ **while - Bucle con Condición**
+
+```dart
+/**
+ * What?
+ * Bucle que se repite mientras una condición sea verdadera
+ * 
+ * For?
+ * Cuando no sabes cuántas iteraciones necesitas
+ * 
+ * Impact?
+ * Útil para procesos hasta que se cumpla una condición
+ */
+
+void main() {
+  // Ejemplo 1: Contador simple
+  int count = 0;
+  
+  while (count < 5) {
+    print('Count: $count');
+    count++;
+  }
+  
+  // Ejemplo 2: Input validation (simulado)
+  String? input;
+  int attempts = 0;
+  
+  while (input == null && attempts < 3) {
+    print('Intento ${attempts + 1}');
+    // input = getUserInput();  // Simulado
+    attempts++;
+  }
+  
+  // Ejemplo 3: Búsqueda en lista
+  var numbers = [10, 20, 30, 40, 50];
+  int target = 30;
+  int index = 0;
+  bool found = false;
+  
+  while (index < numbers.length && !found) {
+    if (numbers[index] == target) {
+      found = true;
+      print('Found at index $index');
+    }
+    index++;
+  }
+}
+```
+
+### 4️⃣ **do-while - Ejecutar al Menos Una Vez**
+
+```dart
+/**
+ * What?
+ * Bucle que ejecuta el código al menos una vez antes de verificar condición
+ * 
+ * For?
+ * Cuando necesitas que el código se ejecute mínimo una vez
+ * 
+ * Impact?
+ * Útil para validaciones y menús
+ */
+
+void main() {
+  // Diferencia con while: se ejecuta PRIMERO, verifica DESPUÉS
+  
+  int number = 0;
+  
+  do {
+    print('Number: $number');
+    number++;
+  } while (number < 5);
+  
+  // Caso donde se ejecuta solo una vez
+  int x = 10;
+  
+  do {
+    print('Esto se imprime aunque x >= 5');
+  } while (x < 5);  // Condición false, pero ya se ejecutó
+  
+  // Ejemplo práctico: Menú
+  String option = '';
+  
+  do {
+    print('1. Opción A');
+    print('2. Opción B');
+    print('3. Salir');
+    // option = readInput();  // Simulado
+    option = '3';  // Para el ejemplo
+  } while (option != '3');
+}
+```
+
+### 5️⃣ **Control de Flujo: break y continue**
+
+```dart
+/**
+ * What?
+ * Palabras clave para controlar el flujo dentro de bucles
+ * 
+ * For?
+ * break: Salir del bucle inmediatamente
+ * continue: Saltar a la siguiente iteración
+ * 
+ * Impact?
+ * Mayor control sobre la ejecución de bucles
+ */
+
+void main() {
+  // BREAK - Salir del bucle
+  print('=== BREAK ===');
+  for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+      break;  // Sale del bucle cuando i es 5
+    }
+    print(i);
+  }
+  // Output: 0, 1, 2, 3, 4
+  
+  // CONTINUE - Saltar iteración actual
+  print('\n=== CONTINUE ===');
+  for (int i = 0; i < 10; i++) {
+    if (i % 2 == 0) {
+      continue;  // Salta números pares
+    }
+    print(i);
+  }
+  // Output: 1, 3, 5, 7, 9
+  
+  // Ejemplo práctico: Buscar y detener
+  print('\n=== BÚSQUEDA ===');
+  var names = ['Ana', 'Carlos', 'Diana', 'Eduardo'];
+  String searchName = 'Diana';
+  
+  for (var name in names) {
+    if (name == searchName) {
+      print('¡Encontrado: $name!');
+      break;
+    }
+    print('Buscando... $name');
+  }
+  
+  // Continue con condiciones
+  print('\n=== FILTRADO ===');
+  var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  
+  for (var num in numbers) {
+    if (num < 3) continue;     // Saltar menores a 3
+    if (num > 7) break;        // Detener en mayores a 7
+    print(num);
+  }
+  // Output: 3, 4, 5, 6, 7
+}
+```
+
+---
+
+## PARTE 3: Funciones en Dart (40 minutos)
+
+### 1️⃣ **Funciones Básicas**
   const [showGreeting, setShowGreeting] = useState(false)
 
   const handleSubmit = () => {

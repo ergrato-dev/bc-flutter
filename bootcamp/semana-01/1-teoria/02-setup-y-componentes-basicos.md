@@ -1,162 +1,389 @@
-# 02. Setup y Componentes Básicos
+# 02. Variables, Tipos de Datos y Operadores
 
-**Duración:** 2.5 horas (PRESENCIAL)  
-**Modalidad:** Hands-on (hacer juntos)  
-**Objetivo:** Configurar entorno, crear primer proyecto y conocer componentes básicos
+**Duración:** 2 horas  
+**Modalidad:** Teoría + Ejercicios prácticos  
+**Objetivo:** Dominar variables, tipos de datos y operadores en Dart
 
 ---
 
 ## 🎯 Objetivos de Aprendizaje
 
-Al finalizar este módulo presencial, serás capaz de:
+Al finalizar este módulo, serás capaz de:
 
-- ✅ Configurar un entorno de desarrollo completo
-- ✅ Crear y ejecutar un proyecto Expo
-- ✅ Usar los 7 componentes básicos de React Native
-- ✅ Aplicar estilos con TailwindCSS (NativeWind)
-- ✅ Crear layouts básicos con Flexbox
-
----
-
-## PARTE 1: Configuración del Entorno (60 minutos)
-
-### 📋 Prerequisitos
-
-Antes de comenzar, necesitas tener instalado:
-
-**Obligatorio:**
-
-- ✅ **Node.js 22.20+** (nunca menor) - [Descargar](https://nodejs.org/)
-- ✅ **pnpm 9.x** - Gestor de paquetes
-- ✅ **VS Code** - Editor de código
-- ✅ **Git** - Control de versiones
-
-**En tu dispositivo móvil:**
-
-- ✅ **Expo Go** - App para ver tu proyecto en el celular
-  - [iOS App Store](https://apps.apple.com/app/expo-go/id982107779)
-  - [Android Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)
+- ✅ Declarar variables con `var`, `final` y `const`
+- ✅ Trabajar con todos los tipos de datos primitivos
+- ✅ Aplicar operadores aritméticos, lógicos y de comparación
+- ✅ Usar operadores null-aware para código seguro
+- ✅ Convertir entre diferentes tipos de datos
 
 ---
 
-### Paso 1: Verificar Instalaciones (10 min)
+## PARTE 1: Variables en Dart (30 minutos)
 
-Abre la terminal y verifica las versiones:
+### 📋 Declaración de Variables
 
-```bash
-# Verificar Node.js (debe ser 22.20 o superior)
-node --version
-# Resultado esperado: v22.20.0 o mayor
+Dart ofrece tres formas de declarar variables:
 
-# Verificar pnpm
-pnpm --version
-# Resultado esperado: 9.x.x
+**1. `var` - Variable mutable con inferencia de tipo**
 
-# Si no tienes pnpm instalado:
-npm install -g pnpm
+```dart
+/**
+ * What?
+ * Declaración de variable con tipo inferido
+ *
+ * For?
+ * Cuando el tipo es obvio por el valor asignado
+ *
+ * Impact?
+ * Código más conciso sin perder type safety
+ */
 
-# Verificar Git
-git --version
+var name = 'Flutter';  // Dart infiere que es String
+var age = 25;          // Dart infiere que es int
+var isStudent = true;  // Dart infiere que es bool
+
+// El tipo se fija en la primera asignación
+name = 'Dart';        // ✅ OK - sigue siendo String
+// age = 'twenty';    // ❌ ERROR - no puede cambiar a String
 ```
 
-**⚠️ IMPORTANTE:** Si Node.js es menor a 22.20, actualiza AHORA:
+**2. `final` - Variable inmutable (asignación única)**
 
-```bash
-# Descargar e instalar desde: https://nodejs.org/
-# O usar nvm (Node Version Manager):
-nvm install 22
-nvm use 22
+```dart
+/**
+ * What?
+ * Variable que solo puede asignarse una vez
+ *
+ * For?
+ * Cuando el valor se conoce en runtime pero no debe cambiar
+ *
+ * Impact?
+ * Previene modificaciones accidentales
+ */
+
+final currentTime = DateTime.now();  // Se evalúa en runtime
+final userName = 'Ana';
+
+// userName = 'Carlos';  // ❌ ERROR - no puede reasignarse
+
+// Útil para valores que vienen de APIs, inputs, etc.
+final userInput = getUserInput();  // Se ejecuta al inicializar
+```
+
+**3. `const` - Constante en tiempo de compilación**
+
+```dart
+/**
+ * What?
+ * Constante conocida en tiempo de compilación
+ *
+ * For?
+ * Valores que nunca cambian y son conocidos antes de ejecutar
+ *
+ * Impact?
+ * Mejor performance - se optimiza en compilación
+ */
+
+const pi = 3.14159;
+const appName = 'My Flutter App';
+const maxUsers = 100;
+
+// const now = DateTime.now();  // ❌ ERROR - no es compile-time constant
+
+// Listas y Maps constantes
+const colors = ['red', 'green', 'blue'];
+const config = {'version': '1.0', 'debug': false};
+```
+
+### 📊 Comparativa: var, final, const
+
+| Característica    | `var`                | `final`        | `const`    |
+| ----------------- | -------------------- | -------------- | ---------- |
+| **Reasignable**   | ✅ Sí                | ❌ No          | ❌ No      |
+| **Tipo inferido** | ✅ Sí                | ✅ Sí          | ✅ Sí      |
+| **Runtime value** | ✅ Sí                | ✅ Sí          | ❌ No      |
+| **Compile-time**  | ❌ No                | ❌ No          | ✅ Sí      |
+| **Uso típico**    | Variables cambiantes | Valores únicos | Constantes |
+
+### 💡 Mejores Prácticas
+
+```dart
+// ✅ BUENAS PRÁCTICAS
+
+// Usa const para valores conocidos
+const String apiUrl = 'https://api.example.com';
+const int maxRetries = 3;
+
+// Usa final para valores que se asignan una vez
+final String userId = fetchUserId();
+final DateTime sessionStart = DateTime.now();
+
+// Usa var solo cuando el valor cambia
+var counter = 0;
+counter++;  // Necesita cambiar
+
+// ❌ MALAS PRÁCTICAS
+
+var pi = 3.14;  // Debería ser const
+final x = 1; final y = x + 1;  // Ambas podrían ser const
 ```
 
 ---
 
-### Paso 2: Configurar VS Code (10 min)
+## PARTE 2: Tipos de Datos Primitivos (40 minutos)
 
-#### Extensiones Obligatorias
+### 1️⃣ **Números (int, double, num)**
 
-Instala estas extensiones en VS Code:
+```dart
+/**
+ * What?
+ * Tipos numéricos en Dart
+ *
+ * For?
+ * Representar valores enteros y decimales
+ *
+ * Impact?
+ * Base para cálculos matemáticos
+ */
 
-1. **ES7+ React/Redux/React-Native snippets**
+// int - Números enteros
+int age = 25;
+int quantity = -10;
+int hex = 0xFF;  // Hexadecimal
 
-   - ID: `dsznajder.es7-react-js-snippets`
-   - Para: Snippets de React Native
+// double - Números con decimales
+double height = 1.75;
+double price = 99.99;
+double scientific = 1.42e5;  // 142000.0
 
-2. **Prettier - Code formatter**
+// num - Puede ser int o double
+num temperature = 36.5;  // double
+temperature = 37;        // ahora int
 
-   - ID: `esbenp.prettier-vscode`
-   - Para: Formateo automático
+// Operaciones
+int sum = 10 + 5;         // 15
+double division = 10 / 3;  // 3.3333...
+int intDivision = 10 ~/ 3; // 3 (división entera)
+int remainder = 10 % 3;    // 1 (módulo)
 
-3. **ESLint**
-
-   - ID: `dbaeumer.vscode-eslint`
-   - Para: Detectar errores
-
-4. **Tailwind CSS IntelliSense**
-
-   - ID: `bradlc.vscode-tailwindcss`
-   - Para: Autocompletado de Tailwind
-
-5. **React Native Tools**
-   - ID: `msjsdiag.vscode-react-native`
-   - Para: Debugging
-
-**Instalar desde terminal:**
-
-```bash
-code --install-extension dsznajder.es7-react-js-snippets
-code --install-extension esbenp.prettier-vscode
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension bradlc.vscode-tailwindcss
-code --install-extension msjsdiag.vscode-react-native
+// Métodos útiles
+print(age.toString());           // '25'
+print(height.toStringAsFixed(1)); // '1.8'
+print(price.round());            // 100
+print(price.floor());            // 99
+print(price.ceil());             // 100
 ```
 
-#### Configuración de VS Code
+### 2️⃣ **Strings (Cadenas de texto)**
 
-Crear archivo `.vscode/settings.json` en la raíz de tus proyectos:
+```dart
+/**
+ * What?
+ * Cadenas de texto en Dart
+ *
+ * For?
+ * Manipular y mostrar texto
+ *
+ * Impact?
+ * Fundamental para UI y procesamiento de datos
+ */
 
-```json
-{
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["className\\s*=\\s*['\"]([^'\"]*)['\"]"]
-  ]
+// Declaración básica
+String name = 'Flutter';
+String greeting = "Hello";
+
+// Strings multilínea
+String multiline = '''
+  Esta es una
+  cadena de
+  múltiples líneas
+''';
+
+// String interpolation (interpolación)
+var firstName = 'Ana';
+var lastName = 'García';
+var fullName = '$firstName $lastName';  // 'Ana García'
+var message = 'Hola, ${fullName.toUpperCase()}!';  // 'Hola, ANA GARCÍA!'
+
+// Concatenación
+var hello = 'Hello' + ' ' + 'World';  // 'Hello World'
+var repeated = 'Ha' * 3;              // 'HaHaHa'
+
+// Métodos útiles
+print(name.length);              // 7
+print(name.toUpperCase());       // 'FLUTTER'
+print(name.toLowerCase());       // 'flutter'
+print(name.contains('Flu'));     // true
+print(name.startsWith('F'));     // true
+print(name.substring(0, 3));     // 'Flu'
+print(name.split('t'));          // ['Flu', '', 'er']
+print('  text  '.trim());        // 'text'
+
+// Raw strings (ignora escape sequences)
+var path = r'C:\Users\Documents\file.txt';  // No interpreta \
+
+// Escape sequences
+var quote = 'She said, "Hello"';
+var newLine = 'Line 1\nLine 2';
+var tab = 'Name:\tJohn';
+```
+
+### 3️⃣ **Booleanos (bool)**
+
+```dart
+/**
+ * What?
+ * Tipo de dato lógico (verdadero/falso)
+ *
+ * For?
+ * Tomar decisiones y controlar flujo
+ *
+ * Impact?
+ * Base de toda lógica condicional
+ */
+
+bool isActive = true;
+bool isCompleted = false;
+
+// En expresiones
+bool isAdult = age >= 18;
+bool hasAccess = isActive && !isCompleted;
+
+// Dart NO hace coerción implícita
+var value = 0;
+// if (value) { }  // ❌ ERROR - value no es bool
+
+// Correcto:
+if (value != 0) {  // ✅ OK
+  print('Value is not zero');
 }
 ```
 
+### 4️⃣ **Tipos Especiales: dynamic y Object**
+
+```dart
+/**
+ * What?
+ * Tipos que aceptan cualquier valor
+ *
+ * For?
+ * Cuando el tipo no se conoce en tiempo de compilación
+ *
+ * Impact?
+ * Flexibilidad pero pérdida de type safety
+ */
+
+// dynamic - tipo completamente dinámico
+dynamic variable = 'text';
+variable = 123;        // ✅ OK
+variable = true;       // ✅ OK
+variable.anyMethod();  // ✅ Compila (falla en runtime si no existe)
+
+// Object - tipo base de todo
+Object obj = 'text';
+obj = 123;            // ✅ OK
+// obj.length;        // ❌ ERROR - Object no tiene length
+
+// ⚠️ USA CON PRECAUCIÓN
+// Pierde los beneficios del sistema de tipos
+// Prefiere usar tipos específicos cuando sea posible
+```
+
 ---
 
-### Paso 3: Crear Primer Proyecto (20 min)
+## PARTE 3: Operadores (30 minutos)
 
-#### 3.1 Crear Proyecto con Expo
+### ➕ **Operadores Aritméticos**
 
-```bash
-# Crear proyecto (TODOS JUNTOS en clase)
-npx create-expo-app@latest mi-primera-app --template blank-typescript
+```dart
+/**
+ * What?
+ * Operadores para cálculos matemáticos
+ *
+ * For?
+ * Realizar operaciones numéricas
+ *
+ * Impact?
+ * Base de la lógica computacional
+ */
 
-# Entrar al directorio
-cd mi-primera-app
+int a = 10;
+int b = 3;
 
-# Ver estructura de archivos
-ls -la
+print(a + b);   // 13 - Suma
+print(a - b);   // 7  - Resta
+print(a * b);   // 30 - Multiplicación
+print(a / b);   // 3.333... - División (double)
+print(a ~/ b);  // 3  - División entera
+print(a % b);   // 1  - Módulo (resto)
+
+// Incremento/Decremento
+var count = 0;
+count++;        // count = count + 1
+count--;        // count = count - 1
+
+// Pre/Post incremento
+var x = 5;
+print(++x);     // 6 (incrementa primero, luego retorna)
+x = 5;
+print(x++);     // 5 (retorna primero, luego incrementa)
+
+// Operadores de asignación compuestos
+var num = 10;
+num += 5;       // num = num + 5
+num -= 3;       // num = num - 3
+num *= 2;       // num = num * 2
+num ~/= 4;      // num = num ~/ 4
 ```
 
-**Estructura del proyecto:**
+### ⚖️ **Operadores de Comparación**
 
+```dart
+/**
+ * What?
+ * Operadores para comparar valores
+ *
+ * For?
+ * Tomar decisiones basadas en comparaciones
+ *
+ * Impact?
+ * Fundamental para control de flujo
+ */
+
+int x = 10;
+int y = 20;
+
+print(x == y);  // false - Igual a
+print(x != y);  // true  - Diferente de
+print(x > y);   // false - Mayor que
+print(x < y);   // true  - Menor que
+print(x >= 10); // true  - Mayor o igual
+print(x <= 5);  // false - Menor o igual
+
+// Comparación de objetos
+String a = 'hello';
+String b = 'hello';
+print(a == b);  // true - compara contenido
+
+// identical() - compara identidad (misma instancia)
+var list1 = [1, 2, 3];
+var list2 = [1, 2, 3];
+print(list1 == list2);          // true - mismo contenido
+print(identical(list1, list2));  // false - diferentes instancias
 ```
-mi-primera-app/
-├── app/                # Carpeta principal (Expo Router)
-├── assets/             # Imágenes, fuentes, etc.
-├── node_modules/       # Dependencias (NO tocar)
-├── .gitignore          # Archivos ignorados por Git
-├── app.json            # Configuración de Expo
-├── package.json        # Dependencias del proyecto
-├── tsconfig.json       # Configuración de TypeScript
-└── README.md           # Documentación
-```
+
+### 🔀 **Operadores Lógicos**
+
+├── app/ # Carpeta principal (Expo Router)
+├── assets/ # Imágenes, fuentes, etc.
+├── node_modules/ # Dependencias (NO tocar)
+├── .gitignore # Archivos ignorados por Git
+├── app.json # Configuración de Expo
+├── package.json # Dependencias del proyecto
+├── tsconfig.json # Configuración de TypeScript
+└── README.md # Documentación
+
+````
 
 #### 3.2 Instalar Dependencias Adicionales
 
@@ -167,7 +394,7 @@ pnpm add -D tailwindcss
 
 # Inicializar Tailwind
 npx tailwindcss init
-```
+````
 
 #### 3.3 Configurar NativeWind
 
@@ -185,19 +412,19 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
 ```
 
 **Editar `babel.config.js`:**
 
 ```js
 module.exports = function (api) {
-  api.cache(true)
+  api.cache(true);
   return {
     presets: ['babel-preset-expo'],
     plugins: ['nativewind/babel'],
-  }
-}
+  };
+};
 ```
 
 **Crear `nativewind-env.d.ts` en la raíz:**
@@ -227,7 +454,7 @@ pnpm start
 **Editar `App.tsx`:**
 
 ```tsx
-import { View, Text } from 'react-native'
+import { View, Text } from 'react-native';
 
 export default function App() {
   return (
@@ -237,7 +464,7 @@ export default function App() {
         Mi primera app con React Native
       </Text>
     </View>
-  )
+  );
 }
 ```
 
@@ -425,19 +652,20 @@ import { Image } from 'react-native'
 **Ejemplo en vivo:**
 
 ```tsx
-import { ScrollView, View, Text } from 'react-native'
-
-;<ScrollView className="flex-1 bg-gray-50">
+import { ScrollView, View, Text } from 'react-native';
+<ScrollView className="flex-1 bg-gray-50">
   <View className="p-5">
     {/* Contenido largo */}
     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-      <View key={item} className="bg-white p-5 mb-3 rounded-lg">
+      <View
+        key={item}
+        className="bg-white p-5 mb-3 rounded-lg">
         <Text className="text-lg font-bold">Item {item}</Text>
         <Text className="text-gray-600">Descripción del item</Text>
       </View>
     ))}
   </View>
-</ScrollView>
+</ScrollView>;
 ```
 
 **Props importantes:**
@@ -458,11 +686,11 @@ import { ScrollView, View, Text } from 'react-native'
 **Ejemplo en vivo:**
 
 ```tsx
-import { TextInput, View, Text } from 'react-native'
-import { useState } from 'react'
+import { TextInput, View, Text } from 'react-native';
+import { useState } from 'react';
 
 export default function App() {
-  const [text, setText] = useState('')
+  const [text, setText] = useState('');
 
   return (
     <View className="flex-1 p-5 justify-center bg-white">
@@ -479,7 +707,7 @@ export default function App() {
         Escribiste: {text || '(vacío)'}
       </Text>
     </View>
-  )
+  );
 }
 ```
 
@@ -523,13 +751,12 @@ export default function App() {
 **⚠️ En producción:** Mejor usar `TouchableOpacity` con estilos personalizados.
 
 ```tsx
-import { Button, Alert } from 'react-native'
-
-;<Button
+import { Button, Alert } from 'react-native';
+<Button
   title="Presionar"
   onPress={() => Alert.alert('¡Botón presionado!')}
   color="#3b82f6"
-/>
+/>;
 ```
 
 ---
@@ -689,8 +916,8 @@ Eje Cruzado (Cross Axis)
 **Objetivo:** Aplicar TODO lo aprendido en un componente real.
 
 ```tsx
-import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
@@ -758,7 +985,7 @@ export default function App() {
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
 ```
 
