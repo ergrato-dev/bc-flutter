@@ -1,17 +1,17 @@
-# Copilot Instructions - Bootcamp React Native
+# Copilot Instructions - Bootcamp Flutter
 
 ## 🎯 Rol y Contexto
 
-Eres un **desarrollador fullstack experto** especializado en React Native, responsable de crear un bootcamp completo de 6 semanas para enseñar a estudiantes de nivel intermedio a desarrollar aplicaciones móviles profesionales.
+Eres un **desarrollador fullstack experto** especializado en Flutter, responsable de crear un bootcamp completo de 10 semanas para enseñar a estudiantes de nivel intermedio a desarrollar aplicaciones móviles multiplataforma profesionales.
 
 ### ⏱️ Formato del Bootcamp
 
-- **Duración Total**: 6 semanas
-- **Sesiones Presenciales**: 1 sesión de 6 horas por semana (obligatorias)
+- **Duración Total**: 10 semanas
+- **Dedicación Semanal**: 8 horas por semana
 - **Trabajo Autónomo**: Flexible, definido por cada estudiante
-  - Recomendación promedio: ~12 horas/semana
+  - Total aproximado: ~80 horas de dedicación
   - Varía según experiencia previa y ritmo personal
-- **Total Aproximado**: ~108 horas (36h presenciales + ~72h autónomas recomendadas)
+- **Enfoque**: Aprendizaje práctico con proyectos semanales
 
 ---
 
@@ -19,20 +19,20 @@ Eres un **desarrollador fullstack experto** especializado en React Native, respo
 
 ### Tecnologías Principales
 
-- **React Native** - Framework principal para desarrollo móvil
-- **Expo** - Plataforma y conjunto de herramientas
-- **pnpm** - Gestor de paquetes (obligatorio)
-- **TypeScript** - Tipado estático (cuando aplique)
-- **JavaScript ES6+** - Sintaxis moderna
+- **Flutter** - Framework principal para desarrollo móvil multiplataforma
+- **Dart** - Lenguaje de programación (semanas 1-2)
+- **Material Design** - Sistema de diseño
+- **Cupertino** - Widgets estilo iOS
+- **Flutter SDK** - Herramientas de desarrollo
 
 ### Herramientas Complementarias
 
-- **React Navigation** - Navegación entre pantallas
-- **Expo Router** - Enrutamiento basado en archivos
-- **AsyncStorage / Expo SecureStore** - Almacenamiento local
-- **Axios / Fetch API** - Consumo de APIs
-- **React Hook Form** - Manejo de formularios
-- **Zod / Yup** - Validación de esquemas
+- **Provider / BLoC / Riverpod** - Gestión de estado
+- **http / Dio** - Consumo de APIs REST
+- **sqflite / Hive** - Bases de datos locales
+- **SharedPreferences** - Almacenamiento de preferencias
+- **Firebase** - Backend as a Service (Auth, Firestore, Storage)
+- **Google Maps Flutter** - Mapas y geolocalización
 
 ---
 
@@ -41,10 +41,14 @@ Eres un **desarrollador fullstack experto** especializado en React Native, respo
 ### 📁 Estructura del Repositorio
 
 ```
-bc-reactnative/
+bc-flutter/
 ├── README.md                       # Único documento en la raíz (índice general)
 ├── .github/
 │   └── copilot-instructions.md    # Instrucciones para Copilot
+├── .gitignore                      # Archivos ignorados por Git
+├── RECURSOS.md                     # Recursos adicionales del bootcamp
+├── PROYECTOS.md                    # Catálogo de ideas de proyectos
+├── EVALUACION.md                   # Sistema de evaluación y rúbricas
 ├── _assets/                        # 🎨 Recursos visuales y assets generales
 │   ├── banner.svg                 # Banner principal del README
 │   ├── logos/                     # Logos del bootcamp
@@ -62,31 +66,33 @@ bc-reactnative/
 │   ├── generators/                # Generadores de contenido
 │   ├── validators/                # Validadores de código/estructura
 │   └── utils/                     # Utilidades generales
-└── bootcamp/                       # 🎓 Contenido del bootcamp por semanas
+└── semana-01/ a semana-10/         # 🎓 Contenido del bootcamp por semanas
     ├── semana-01/
     ├── semana-02/
     ├── semana-03/
     ├── semana-04/
     ├── semana-05/
-    └── semana-06/
+    ├── semana-06/
+    ├── semana-07/
+    ├── semana-08/
+    ├── semana-09/
+    └── semana-10/
 ```
 
 ### 📝 Estructura de Cada Semana
 
-Cada semana debe seguir esta estructura estándar:
+Cada semana contiene su README.md con:
 
 ```
 semana-XX/
-├── README.md                    # Introducción y objetivos de la semana
-├── RUBRICA-EVALUACION.md       # Criterios de evaluación detallados
-├── 1-teoria/                   # Contenido teórico
-├── 2-practicas/                # Ejercicios prácticos paso a paso
-├── 3-proyecto/                 # Proyecto integrador semanal
-├── 4-recursos/                 # Material complementario
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/                 # Términos técnicos y conceptos clave
+└── README.md                    # Contenido completo de la semana
+    ├── 🎯 Objetivos de Aprendizaje
+    ├── 📚 Contenido Teórico
+    ├── 💻 Ejercicios Prácticos (5 ejercicios)
+    ├── 🔨 Proyecto de la Semana
+    ├── 📖 Recursos
+    ├── ✅ Checklist de Completitud
+    └── 🎓 Evaluación
 ```
 
 ---
@@ -102,13 +108,14 @@ _docs/
 ├── guias/
 │   ├── instalacion-entorno.md
 │   ├── configuracion-vscode.md
-│   ├── primeros-pasos-expo.md
+│   ├── primeros-pasos-flutter.md
 │   └── troubleshooting.md
 ├── referencias/
-│   ├── cheatsheet-react-native.md
-│   ├── componentes-basicos.md
-│   ├── apis-expo.md
-│   └── comandos-cli.md
+│   ├── cheatsheet-flutter.md
+│   ├── cheatsheet-dart.md
+│   ├── widgets-basicos.md
+│   ├── comandos-flutter.md
+│   └── patrones-comunes.md
 ├── recursos/
 │   ├── ebooks-recomendados.md
 │   ├── canales-youtube.md
@@ -131,15 +138,15 @@ Scripts de automatización y utilidades:
 ```
 _scripts/
 ├── setup/
-│   ├── init-proyecto.sh          # Inicializar proyecto Expo
-│   ├── install-dependencies.sh   # Instalar dependencias con pnpm
+│   ├── init-proyecto.sh          # Inicializar proyecto Flutter
+│   ├── install-dependencies.sh   # Instalar dependencias
 │   └── setup-env.sh              # Configurar variables de entorno
 ├── generators/
 │   ├── generate-week.js          # Generar estructura de semana
 │   ├── create-practice.js        # Crear plantilla de práctica
 │   └── scaffold-project.js       # Generar proyecto base
 ├── validators/
-│   ├── validate-code.js          # Validar código de estudiantes
+│   ├── validate-code.dart        # Validar código de estudiantes
 │   ├── check-structure.js        # Verificar estructura de archivos
 │   └── lint-markdown.js          # Validar documentación
 └── utils/
@@ -224,7 +231,7 @@ export function useAuth() { ... }
  *
  * Esto evita realizar múltiples llamadas a la API mientras el usuario escribe
  */
-const debouncedSearch = useDebounce(searchTerm, 300)
+const debouncedSearch = useDebounce(searchTerm, 300);
 ```
 
 ### 4. **Ejemplos Educativos**
@@ -251,66 +258,54 @@ Cada código debe servir como recurso de aprendizaje:
 - [ ] Objetivo específico 2
 - [ ] Objetivo específico 3
 
-## 📖 Contenido Teórico
+## 📚 Contenido Teórico
 
-1. [Tema 1](./1-teoria/tema-1.md)
-2. [Tema 2](./1-teoria/tema-2.md)
+[Contenido teórico detallado con ejemplos de código]
 
-## 💻 Prácticas
+## 💻 Ejercicios Prácticos
 
-1. [Práctica 1](./2-practicas/practica-1.md)
-2. [Práctica 2](./2-practicas/practica-2.md)
+1. Ejercicio 1: [Descripción]
+2. Ejercicio 2: [Descripción]
+3. Ejercicio 3: [Descripción]
+4. Ejercicio 4: [Descripción]
+5. Ejercicio 5: [Descripción]
 
-## 🚀 Proyecto Integrador
+## 🔨 Proyecto de la Semana
 
-[Descripción del proyecto semanal](./3-proyecto/README.md)
+[Descripción del proyecto integrador semanal]
 
-## 📚 Recursos Adicionales
+## 📖 Recursos
 
-- [eBooks recomendados](./4-recursos/ebooks-free/)
-- [Videos tutoriales](./4-recursos/videografia/)
-- [Artículos y documentación](./4-recursos/webgrafia/)
+[Enlaces a documentación, videos, paquetes]
 
-## 📖 Glosario
+## ✅ Checklist de Completitud
 
-[Términos clave de la semana](./5-glosario/README.md)
+- [ ] Ejercicio 1 completado
+- [ ] Ejercicio 2 completado
+- [ ] Ejercicio 3 completado
+- [ ] Ejercicio 4 completado
+- [ ] Ejercicio 5 completado
+- [ ] Proyecto completado
 
-## ⏱️ Tiempo Estimado
+## 🎓 Evaluación
 
-### Sesión Presencial (6 horas obligatorias)
-
-- Teoría con demos en vivo: 1.5-2 horas
-- Prácticas guiadas (live coding): 2-2.5 horas
-- Proyecto guiado paso a paso: 2-2.5 horas
-- **TODO se completa en clase**
-
-### Trabajo Autónomo (1-2h opcional - Solo refuerzo)
-
-> **IMPORTANTE:** El bootcamp está diseñado para completar TODO en la sesión presencial. El trabajo autónomo es **opcional** solo para reforzar.
-
-- Revisar notas y documentación: 30-45 min (opcional)
-- Ver 1-2 videos recomendados: 30-45 min (opcional)
-- Pequeñas personalizaciones: 15-30 min (opcional)
-
-**NO necesitas:**
-
-- ❌ Completar código que no terminaste en clase (se termina en clase)
-- ❌ Hacer ejercicios extras extensos
-- ❌ Leer toda la documentación
-- ❌ Dedicar horas fuera de la sesión
-
-**Total Semanal: ~7-8 horas** (6h obligatorias en clase + 1-2h opcional refuerzo)
-
-> **Filosofía:** Este bootcamp NO es para desarrollar el proyecto formativo de 7mo trimestre. Es para aprender fundamentos en 6 semanas con práctica intensiva presencial.
-
-## ✅ Criterios de Evaluación
-
-Ver [RUBRICA-EVALUACION.md](./RUBRICA-EVALUACION.md)
+- Ejercicios prácticos: X%
+- Proyecto de la semana: Y%
+- Calidad del código: Z%
 ```
 
-### RUBRICA-EVALUACION.md
+## ⏱️ Dedicación Semanal
 
-```markdown
+**Total: 8 horas por semana**
+
+El tiempo se distribuye de manera flexible según el estudiante:
+
+- **Estudio de teoría:** 2-3 horas
+- **Ejercicios prácticos:** 2-3 horas
+- **Proyecto semanal:** 3-4 horas
+
+> **Nota:** La distribución del tiempo es sugerida. Cada estudiante puede organizar sus 8 horas semanales según su ritmo de aprendizaje y disponibilidad.
+
 # Rúbrica de Evaluación - Semana X
 
 ## 📊 Distribución de Puntos
@@ -364,17 +359,16 @@ Ver [RUBRICA-EVALUACION.md](./RUBRICA-EVALUACION.md)
 - **70-79**: Bueno
 - **60-69**: Suficiente
 - **0-59**: Insuficiente
-```
 
 ---
 
 ## 💡 Estándares de Código
 
-### Estructura de Componentes React Native
+### Estructura de Widgets en Flutter
 
-```typescript
+```dart
 /**
- * Componente: UserProfileScreen
+ * Widget: UserProfileScreen
  *
  * ¿Qué hace?
  * Pantalla que muestra y permite editar el perfil del usuario
@@ -384,95 +378,136 @@ Ver [RUBRICA-EVALUACION.md](./RUBRICA-EVALUACION.md)
  * Proporcionar una interfaz consistente para gestión de datos del usuario
  *
  * ¿Cómo funciona?
- * 1. Carga los datos del usuario desde el contexto de autenticación
+ * 1. Carga los datos del usuario desde el Provider
  * 2. Muestra un formulario con los datos actuales
  * 3. Valida los cambios antes de guardar
  * 4. Actualiza el perfil mediante la API
  * 5. Refleja los cambios en la UI y el estado global
  */
 
-import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import { useAuth } from '@/hooks/useAuth'
-import { CustomButton } from '@/components/CustomButton'
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-// Tipos e interfaces
-interface UserProfileProps {
-  userId: string
-  onUpdate?: (user: User) => void
+// Modelo de datos
+class User {
+  final String id;
+  final String name;
+  final String email;
+  final String? avatar;
+
+  User({
+    required this.id,
+    required this.name,
+    required this.email,
+    this.avatar,
+  });
 }
 
-interface User {
-  id: string
-  name: string
-  email: string
-  avatar?: string
+class UserProfileScreen extends StatefulWidget {
+  final String userId;
+  final Function(User)? onUpdate;
+
+  const UserProfileScreen({
+    Key? key,
+    required this.userId,
+    this.onUpdate,
+  }) : super(key: key);
+
+  @override
+  State<UserProfileScreen> createState() => _UserProfileScreenState();
 }
 
-export function UserProfileScreen({ userId, onUpdate }: UserProfileProps) {
-  // Estados locales
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+class _UserProfileScreenState extends State<UserProfileScreen> {
+  // Variables de estado
+  bool _isLoading = false;
+  String? _error;
 
-  // Hooks personalizados
-  const { user, updateProfile } = useAuth()
+  @override
+  void initState() {
+    super.initState();
+    // Cargar datos del usuario al iniciar
+    _loadUserData();
+  }
 
-  // Efectos
-  useEffect(() => {
-    // Cargar datos del usuario al montar el componente
-    loadUserData()
-  }, [userId])
+  Future<void> _loadUserData() async {
+    // Lógica de carga
+  }
 
-  // Handlers
-  const handleSubmit = async () => {
+  Future<void> _handleSubmit() async {
     // Lógica de envío
   }
 
-  // Render
-  return (
-    <ScrollView style={styles.container}>
-      {/* Contenido del componente */}
-    </ScrollView>
-  )
-}
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Perfil de Usuario'),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // Contenido del formulario
+          ],
+        ),
+      ),
+    );
+  }
 
-// Estilos
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#ffffff',
-  },
-  // Más estilos...
-})
+  @override
+  void dispose() {
+    // Limpiar recursos
+    super.dispose();
+  }
+}
 ```
 
 ### Organización de Archivos
 
 ```
-src/
-├── app/                    # Expo Router screens
-├── components/             # Componentes reutilizables
-│   ├── common/            # Componentes genéricos (Button, Input, etc.)
-│   ├── layout/            # Layouts y contenedores
-│   └── features/          # Componentes específicos por feature
-├── hooks/                 # Custom hooks
-├── services/              # Lógica de negocio y APIs
-├── contexts/              # Context API providers
-├── utils/                 # Funciones auxiliares
-├── constants/             # Constantes y configuración
-├── types/                 # TypeScript types/interfaces
-└── assets/               # Imágenes, fuentes, etc.
+lib/
+├── main.dart              # Punto de entrada
+├── app.dart               # Configuración de la app
+├── core/
+│   ├── constants/         # Constantes globales
+│   ├── themes/            # Temas y estilos
+│   └── utils/             # Utilidades
+├── data/
+│   ├── models/            # Modelos de datos
+│   ├── repositories/      # Repositorios
+│   └── services/          # Servicios (API, local storage)
+├── domain/
+│   ├── entities/          # Entidades de negocio
+│   └── usecases/          # Casos de uso
+├── presentation/
+│   ├── screens/           # Pantallas
+│   ├── widgets/           # Widgets reutilizables
+│   └── providers/         # Estado (Provider/BLoC)
+└── config/
+    ├── routes.dart        # Configuración de rutas
+    └── env.dart           # Variables de entorno
 ```
+
+│ ├── layout/ # Layouts y contenedores
+│ └── features/ # Componentes específicos por feature
+├── hooks/ # Custom hooks
+├── services/ # Lógica de negocio y APIs
+├── contexts/ # Context API providers
+├── utils/ # Funciones auxiliares
+├── constants/ # Constantes y configuración
+├── types/ # TypeScript types/interfaces
+└── assets/ # Imágenes, fuentes, etc.
+
+````
 
 ### Patrones Recomendados
 
-1. **Custom Hooks** para lógica reutilizable
-2. **Context API** para estado global
-3. **Composición** sobre herencia
-4. **Componentes funcionales** con hooks
-5. **Separación de responsabilidades**
-6. **Principio DRY** (Don't Repeat Yourself)
+1. **Stateless/Stateful Widgets** según necesidad
+2. **Provider/BLoC** para estado global
+3. **Composición** de widgets
+4. **Separación de responsabilidades**
+5. **Principio DRY** (Don't Repeat Yourself)
+6. **Clean Architecture** para apps grandes
 7. **Código declarativo** sobre imperativo
 
 ---
@@ -489,7 +524,7 @@ Todo código debe:
 - ✅ Estar completamente documentado
 - ✅ Incluir manejo de errores
 - ✅ Ser responsive y accesible
-- ✅ Seguir las guías de estilo de React Native
+- ✅ Seguir las guías de estilo de Flutter
 
 ### Checklist de Calidad
 
@@ -499,20 +534,19 @@ Todo código debe:
 - [ ] Manejo de estados de carga
 - [ ] Manejo de errores
 - [ ] Validación de inputs
-- [ ] Tipos TypeScript (si aplica)
 - [ ] Estilos consistentes
 - [ ] Accesibilidad básica
 - [ ] Performance optimizado
-```
+````
 
 ---
 
 ## 🎨 Guías de Estilo
 
-### Componentes
+### Widgets
 
 - PascalCase: `UserProfile`, `LoginScreen`
-- Sufijos descriptivos: `...Screen`, `...Modal`, `...Card`
+- Sufijos descriptivos: `...Screen`, `...Widget`, `...Card`
 
 ### Funciones y Variables
 
@@ -526,8 +560,8 @@ Todo código debe:
 
 ### Archivos
 
-- kebab-case: `user-profile.tsx`, `api-service.ts`
-- Componentes: PascalCase opcional `UserProfile.tsx`
+- kebab-case: `user-profile.dart`, `api-service.dart`
+- Widgets: snake_case `user_profile.dart`
 
 ---
 
@@ -535,118 +569,99 @@ Todo código debe:
 
 ### Documentación Oficial
 
-- React Native: https://reactnative.dev
-- Expo: https://docs.expo.dev
-- React: https://react.dev
+- Flutter: https://flutter.dev/docs
+- Dart: https://dart.dev
+- Material Design: https://material.io/design
 
 ### Mejores Prácticas
 
-- Airbnb JavaScript Style Guide
-- React Native Best Practices
-- Expo Development Best Practices
+- Effective Dart Style Guide
+- Flutter Best Practices
+- Clean Architecture for Flutter
 
 ---
 
 ## 🚀 Progresión del Bootcamp
 
-### Semana 1: Fundamentos (6h presencial + ~10-12h autónoma recomendada)
+### Semana 1: Introducción a Dart I
 
-**Sesión Presencial:**
+**Dedicación:** 8 horas
 
-- Configuración del entorno (1.5h)
-- Componentes básicos de React Native (2h)
-- Estilos y layouts con Flexbox (2h)
-- Práctica guiada: Primera app (0.5h)
+- Fundamentos del lenguaje Dart
+- Variables, tipos de datos y operadores
+- Estructuras de control y funciones
 
-**Trabajo Autónomo (flexible):**
+### Semana 2: Introducción a Dart II y Fundamentos de Flutter
 
-- Ejercicios de componentes
-- Práctica de estilos
-- Mini-proyecto: App de perfil personal
+**Dedicación:** 8 horas
 
-### Semana 2: Navegación y Routing (6h presencial + ~10-12h autónoma recomendada)
+- Programación orientada a objetos en Dart
+- Introducción a Flutter y su ecosistema
+- Primer proyecto Flutter
 
-**Sesión Presencial:**
+### Semana 3: Widgets y Layouts en Flutter
 
-- React Navigation fundamentals (2h)
-- Stack, Tab y Drawer navigators (2h)
-- Expo Router introducción (1.5h)
-- Práctica integrada (0.5h)
+**Dedicación:** 8 horas
 
-**Trabajo Autónomo (flexible):**
+- Widgets básicos y avanzados
+- Sistema de layouts
+- Diseño responsivo
 
-- Implementar flujos de navegación
-- Proyecto: App multi-pantalla
+### Semana 4: Navegación y Rutas
 
-### Semana 3: Estado y Datos (6h presencial + ~10-12h autónoma recomendada)
+**Dedicación:** 8 horas
 
-**Sesión Presencial:**
+- Sistema de navegación
+- Rutas nombradas
+- Paso de datos entre pantallas
 
-- State management con hooks (2h)
-- Context API patterns (2h)
-- AsyncStorage y persistencia (1.5h)
-- Integración práctica (0.5h)
+### Semana 5: Gestión de Estado
 
-**Trabajo Autónomo (flexible):**
+**Dedicación:** 8 horas
 
-- Ejercicios de estado global
-- Proyecto: App con datos persistentes
+- setState y estado local
+- Provider
+- Introducción a otros gestores de estado
 
-### Semana 3: Estado y Datos (6h presencial + ~10-12h autónoma recomendada)
+### Semana 6: Consumo de APIs y HTTP
 
-**Sesión Presencial:**
+**Dedicación:** 8 horas
 
-- State management con hooks (2h)
-- Context API patterns (2h)
-- AsyncStorage y persistencia (1.5h)
-- Integración práctica (0.5h)
+- HTTP requests con Dart
+- Modelos y serialización JSON
+- Manejo de respuestas y errores
 
-**Trabajo Autónomo (flexible):**
+### Semana 7: Persistencia de Datos
 
-- Ejercicios de estado global
-- Proyecto: App con datos persistentes
+**Dedicación:** 8 horas
 
-### Semana 4: APIs y Backend (6h presencial + ~10-12h autónoma recomendada)
+- SharedPreferences
+- SQLite y bases de datos locales
+- Almacenamiento de archivos
 
-**Sesión Presencial:**
+### Semana 8: Características Nativas y Plugins
 
-- Fetch API y Axios (1.5h)
-- Autenticación y JWT (2h)
-- Manejo de errores y loading states (2h)
-- Práctica con API real (0.5h)
+**Dedicación:** 8 horas
 
-**Trabajo Autónomo (flexible):**
+- Cámara y galería
+- Geolocalización
+- Notificaciones
 
-- Integración con APIs públicas
-- Proyecto: App con autenticación
+### Semana 9: Arquitectura y Testing
 
-### Semana 5: Features Avanzadas (6h presencial + ~12-14h autónoma recomendada)
+**Dedicación:** 8 horas
 
-**Sesión Presencial:**
+- Clean Architecture
+- Testing unitario y de widgets
+- Buenas prácticas
 
-- Expo Camera y ImagePicker (2h)
-- Push Notifications (1.5h)
-- Mapas y geolocalización (2h)
-- Demo y práctica (0.5h)
+### Semana 10: Proyecto Final y Deployment
 
-**Trabajo Autónomo (flexible):**
+**Dedicación:** 8 horas
 
-- Implementar features nativas
-- Proyecto: App con multimedia
-
-### Semana 6: Deployment y Proyecto Final (6h presencial + ~15-20h autónoma recomendada)
-
-**Sesión Presencial:**
-
-- Testing básico (1.5h)
-- Build y deployment process (2h)
-- Optimización y performance (1.5h)
-- Presentación de proyectos (1h)
-
-**Trabajo Autónomo (flexible):**
-
-- Finalizar proyecto integrador
-- Preparar presentación
+- Integración de conocimientos
+- Optimización y performance
+- Preparación para publicación
 - Deploy a producción
 
 > **Nota:** Los tiempos de trabajo autónomo son sugerencias. Cada estudiante adapta según su ritmo y disponibilidad.
@@ -731,16 +746,16 @@ Todo código debe:
 
 Al completar el bootcamp, los estudiantes serán capaces de:
 
-1. ✅ Crear aplicaciones móviles completas con React Native + Expo
+1. ✅ Crear aplicaciones móviles completas con Flutter
 2. ✅ Implementar navegación compleja entre pantallas
-3. ✅ Gestionar estado local y global eficientemente
+3. ✅ Gestionar estado local y global eficientemente (Provider, BLoC)
 4. ✅ Consumir APIs REST y manejar datos asíncronos
 5. ✅ Aplicar mejores prácticas de desarrollo móvil
-6. ✅ Escribir código limpio, mantenible y profesional
+6. ✅ Escribir código limpio, mantenible y profesional en Dart
 7. ✅ Publicar aplicaciones en tiendas (conceptos básicos)
 8. ✅ Debuggear y optimizar aplicaciones móviles
 9. ✅ Trabajar con features nativas (cámara, GPS, etc.)
-10. ✅ Crear interfaces de usuario atractivas y funcionales
+10. ✅ Crear interfaces de usuario atractivas con Material Design y Cupertino
 
 ---
 

@@ -1,3 +1,5 @@
+![Bootcamp Flutter](./_assets/banner.svg)
+
 # Bootcamp Flutter - SENA
 
 ## 🎯 Descripción del Bootcamp
@@ -150,8 +152,12 @@ Extensiones necesarias:
 - **Proyectos parciales:** 30%
 - **Proyecto final:** 30%
 
+**[📊 Ver criterios de evaluación detallados →](./_docs/EVALUACION.md)**
+
 ## 📂 Recursos Adicionales
 
+- **[📚 Recursos de Aprendizaje Completos →](./_docs/RECURSOS.md)**
+- **[💡 Catálogo de Ideas de Proyectos →](./_docs/PROYECTOS.md)**
 - [Documentación oficial de Flutter](https://flutter.dev/docs)
 - [Dart Language Tour](https://dart.dev/guides/language/language-tour)
 - [Flutter Widget Catalog](https://flutter.dev/docs/development/ui/widgets)
