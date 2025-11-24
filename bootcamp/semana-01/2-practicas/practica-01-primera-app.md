@@ -1,103 +1,321 @@
-# 💻 Práctica 1: Mi Primera App - Perfil Personal
+# 💻 Práctica 1: Variables y Operadores - Calculadora Personal
 
 **⏱️ Duración:** 45 minutos  
-**👥 Modalidad:** 🎓 **PRESENCIAL - Con instrucciones paso a paso**  
 **📊 Dificultad:** ⭐ Fácil  
-**🎯 Conceptos:** Componentes básicos, estilos con TailwindCSS, Layouts
+**🎯 Conceptos:** Variables, tipos de datos, operadores, entrada/salida
 
 ---
 
 ## 🎯 Objetivo
 
-Crear juntos (instructor + estudiantes) tu primera aplicación de React Native: una **pantalla de perfil personal** con foto, nombre, información de contacto y biografía.
-
-**Importante:** Esta práctica se hace **EN CLASE, PASO A PASO** con el instructor. No es para trabajo autónomo.
+Crear un programa en Dart que funcione como una **calculadora personal** con múltiples operaciones matemáticas y conversiones.
 
 ---
 
-## 📚 Conceptos que Aplicaremos Juntos
+## 📚 Conceptos que Aplicaremos
 
-Durante esta práctica guiada veremos:
-
-- ✅ Estructura de un componente funcional con TypeScript
-- ✅ `View` y `SafeAreaView` para contenedores seguros
-- ✅ `Text` con diferentes estilos tipográficos
-- ✅ `Image` para mostrar avatar circular
-- ✅ `ScrollView` para contenido scrollable
-- ✅ Estilos con TailwindCSS (NativeWind)
-- ✅ Layouts con Flexbox (column, center, spacing)
-- ✅ Organización de código limpio y comentado
+- ✅ Declaración de variables (`var`, `final`, `const`)
+- ✅ Tipos de datos primitivos (`int`, `double`, `String`)
+- ✅ Operadores aritméticos
+- ✅ Conversión de tipos
+- ✅ String interpolation
+- ✅ Funciones `print()` para output
 
 ---
 
 ## 🖼️ Resultado Esperado
 
-Tu app debe verse similar a esto:
+Tu programa debe ejecutarse y mostrar:
 
 ```
-┌─────────────────────────┐
-│                         │
-│      ╔═══════╗         │  ← Banner de fondo
-│      ║ Foto  ║         │  ← Avatar circular
-│      ╚═══════╝         │
-│                         │
-│     Juan Pérez         │  ← Nombre
-│   Desarrollador Mobile │  ← Título
-│                         │
-│  ┌─────────────────┐   │
-│  │ 📧 Email        │   │  ← Sección de información
-│  │ juan@email.com  │   │
----
+=== CALCULADORA PERSONAL ===
 
-## 🖼️ Resultado que Construiremos Juntos
+--- Operaciones Básicas ---
+10 + 5 = 15
+10 - 5 = 5
+10 * 5 = 50
+10 / 5 = 2.0
+10 ~/ 3 = 3 (división entera)
+10 % 3 = 1 (módulo)
 
+--- Conversiones ---
+Temperatura: 25°C = 77.0°F
+Distancia: 100 km = 62.137 mi
+Peso: 70 kg = 154.324 lb
+
+--- Cálculo de IMC ---
+Peso: 70.0 kg
+Altura: 1.75 m
+IMC: 22.86
+Categoría: Normal
 ```
 
-┌─────────────────────────┐
-│ [Fondo color] │ ← Header con gradiente
-│ ╔═══════╗ │
-│ ║ Foto ║ │ ← Avatar circular 120x120
-│ ╚═══════╝ │
-│ │
-│ Tu Nombre │ ← Texto grande y bold
-│ Tu Profesión │ ← Subtítulo gris
-│ │
-│ 📧 tu@email.com │ ← Info de contacto
-│ 📱 +1 234 567 890 │
-│ 📍 Tu Ciudad │
-│ │
-│ ┌─────────────────┐ │
-│ │ Sobre Mí │ │ ← Card con biografía
-│ │ Tu descripción │ │
-│ │ personal aquí │ │
-│ └─────────────────┘ │
-└─────────────────────────┘
+---
 
-````
+## 🛠️ Instrucciones Paso a Paso
+
+### Paso 1: Crear el Archivo
+
+1. Ve a [DartPad](https://dartpad.dev/)
+2. O crea un archivo `calculadora.dart` en tu computadora
+
+### Paso 2: Variables Básicas
+
+```dart
+void main() {
+  // Constantes para operaciones
+  const int a = 10;
+  const int b = 5;
+
+  print('=== CALCULADORA PERSONAL ===\n');
+  print('--- Operaciones Básicas ---');
+
+  // TODO: Agregar operaciones aquí
+}
+```
+
+### Paso 3: Operaciones Aritméticas
+
+Agrega estas operaciones dentro de `main()`:
+
+```dart
+// Suma
+int suma = a + b;
+print('$a + $b = $suma');
+
+// Resta
+int resta = a - b;
+print('$a - $b = $resta');
+
+// Multiplicación
+int multiplicacion = a * b;
+print('$a * $b = $multiplicacion');
+
+// División (resultado double)
+double division = a / b;
+print('$a / $b = $division');
+
+// División entera
+int divisionEntera = a ~/ 3;
+print('$a ~/ 3 = $divisionEntera (división entera)');
+
+// Módulo
+int modulo = a % 3;
+print('$a % 3 = $modulo (módulo)');
+```
+
+### Paso 4: Conversiones
+
+Agrega una sección de conversiones:
+
+```dart
+print('\n--- Conversiones ---');
+
+// Celsius a Fahrenheit
+double celsius = 25.0;
+double fahrenheit = (celsius * 9 / 5) + 32;
+print('Temperatura: ${celsius}°C = $fahrenheit°F');
+
+// Kilómetros a Millas
+double km = 100.0;
+double miles = km * 0.62137;
+print('Distancia: $km km = ${miles.toStringAsFixed(3)} mi');
+
+// Kilogramos a Libras
+double kg = 70.0;
+double lb = kg * 2.20462;
+print('Peso: $kg kg = ${lb.toStringAsFixed(3)} lb');
+```
+
+### Paso 5: Cálculo de IMC
+
+Agrega el cálculo del Índice de Masa Corporal:
+
+```dart
+print('\n--- Cálculo de IMC ---');
+
+double weight = 70.0;  // kg
+double height = 1.75;  // metros
+
+double bmi = weight / (height * height);
+String category = bmi < 18.5
+    ? 'Bajo peso'
+    : bmi < 25
+        ? 'Normal'
+        : bmi < 30
+            ? 'Sobrepeso'
+            : 'Obesidad';
+
+print('Peso: $weight kg');
+print('Altura: $height m');
+print('IMC: ${bmi.toStringAsFixed(2)}');
+print('Categoría: $category');
+```
 
 ---
 
-## �‍🏫 Dinámica de la Clase (45 minutos)
+## ✅ Código Completo
 
-### Estructura:
-1. **Introducción (5 min):** Instructor explica el objetivo y muestra resultado final
-2. **Setup inicial (10 min):** Todos configuran el proyecto juntos
-3. **Desarrollo guiado (25 min):** Codear paso a paso con el instructor
-4. **Review y Q&A (5 min):** Resolver dudas y mostrar resultados
+<details>
+<summary>👁️ Ver solución completa (intenta hacerlo primero)</summary>
 
-### Reglas:
-- ✅ **Seguir al instructor** paso a paso
-- ✅ **Preguntar inmediatamente** si algo no funciona
-- ✅ **Experimentar después** con tu propia información
-- ❌ **NO adelantarse** (esperamos que todos estén en el mismo punto)
+```dart
+void main() {
+  // Constantes para operaciones
+  const int a = 10;
+  const int b = 5;
+
+  print('=== CALCULADORA PERSONAL ===\n');
+
+  // ==========================================
+  // OPERACIONES BÁSICAS
+  // ==========================================
+  print('--- Operaciones Básicas ---');
+
+  int suma = a + b;
+  print('$a + $b = $suma');
+
+  int resta = a - b;
+  print('$a - $b = $resta');
+
+  int multiplicacion = a * b;
+  print('$a * $b = $multiplicacion');
+
+  double division = a / b;
+  print('$a / $b = $division');
+
+  int divisionEntera = a ~/ 3;
+  print('$a ~/ 3 = $divisionEntera (división entera)');
+
+  int modulo = a % 3;
+  print('$a % 3 = $modulo (módulo)');
+
+  // ==========================================
+  // CONVERSIONES
+  // ==========================================
+  print('\n--- Conversiones ---');
+
+  // Celsius a Fahrenheit
+  double celsius = 25.0;
+  double fahrenheit = (celsius * 9 / 5) + 32;
+  print('Temperatura: ${celsius}°C = $fahrenheit°F');
+
+  // Kilómetros a Millas
+  double km = 100.0;
+  double miles = km * 0.62137;
+  print('Distancia: $km km = ${miles.toStringAsFixed(3)} mi');
+
+  // Kilogramos a Libras
+  double kg = 70.0;
+  double lb = kg * 2.20462;
+  print('Peso: $kg kg = ${lb.toStringAsFixed(3)} lb');
+
+  // ==========================================
+  // CÁLCULO DE IMC
+  // ==========================================
+  print('\n--- Cálculo de IMC ---');
+
+  double weight = 70.0;
+  double height = 1.75;
+
+  double bmi = weight / (height * height);
+  String category = bmi < 18.5
+      ? 'Bajo peso'
+      : bmi < 25
+          ? 'Normal'
+          : bmi < 30
+              ? 'Sobrepeso'
+              : 'Obesidad';
+
+  print('Peso: $weight kg');
+  print('Altura: $height m');
+  print('IMC: ${bmi.toStringAsFixed(2)}');
+  print('Categoría: $category');
+}
+```
+
+</details>
 
 ---
 
-## �️ Preparación (El instructor guiará esto)
+## 🎨 Desafíos Adicionales
 
-**NOTA:** Ya deberías tener instalado en la sesión anterior:
-- Node.js 22.20+
-- pnpm 9+
+Una vez que termines el ejercicio básico, intenta estos desafíos:
+
+### ⭐ Nivel 1: Personalizar
+
+- Cambia los valores de `a` y `b` a tus números favoritos
+- Agrega más conversiones (pulgadas a cm, galones a litros)
+- Cambia los valores de peso y altura por los tuyos
+
+### ⭐⭐ Nivel 2: Más Operaciones
+
+- Agrega potencia: `a elevado a b`
+- Agrega raíz cuadrada (usa `import 'dart:math'` y `sqrt()`)
+- Calcula el promedio de 5 números
+
+### ⭐⭐⭐ Nivel 3: Avanzado
+
+- Crea una función `calculate()` que reciba operación como parámetro
+- Valida que las operaciones sean seguras (ej: división por cero)
+- Formatea la salida con colores usando ANSI codes
+
+---
+
+## 🐛 Problemas Comunes
+
+### Error: "Expected to find ';'"
+
+**Problema:** Olvidaste el punto y coma al final de una línea.
+
+```dart
+print('Hola')  // ❌ Falta ;
+print('Hola'); // ✅ Correcto
+```
+
+### Error: "The getter 'length' isn't defined"
+
+**Problema:** Intentaste usar un método de String en un número.
+
+```dart
+int number = 42;
+// number.length;  // ❌ int no tiene length
+number.toString().length;  // ✅ Convierte a String primero
+```
+
+### Error: "A value of type 'int' can't be assigned to 'String'"
+
+**Problema:** Tipos incompatibles.
+
+```dart
+String text = 42;  // ❌
+String text = '42';  // ✅ String
+String text = 42.toString();  // ✅ Conversión
+```
+
+---
+
+## 📝 Entregables
+
+Al finalizar deberías tener:
+
+- [ ] Programa que ejecuta sin errores
+- [ ] Todas las operaciones funcionando correctamente
+- [ ] Output formateado y legible
+- [ ] Al menos 1 desafío adicional completado (opcional)
+
+---
+
+## 🔗 Recursos
+
+- [Dart Operators](https://dart.dev/guides/language/language-tour#operators)
+- [Dart Numbers](https://dart.dev/guides/language/numbers)
+- [DartPad para practicar](https://dartpad.dev/)
+
+---
+
+**💡 Tip:** Usa `print()` frecuentemente para verificar valores intermedios mientras desarrollas.
+
 - Expo Go en tu celular
 - Editor VS Code
 
@@ -115,7 +333,7 @@ El instructor iniciará el proyecto base y todos seguirán los mismos pasos.
 
 ```typescript
 // App.tsx
-import { SafeAreaView, ScrollView, View, Text, Image } from 'react-native'
+import { SafeAreaView, ScrollView, View, Text, Image } from 'react-native';
 
 export default function App() {
   return (
@@ -125,9 +343,9 @@ export default function App() {
         <Text>Hola Mundo!</Text>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
-````
+```
 
 **Todos escriben esto juntos.**
 
@@ -145,27 +363,27 @@ export default function App() {
 {
   /* Header con color de fondo */
 }
-;<View className="bg-blue-600 h-40 items-center justify-end pb-10">
+<View className="bg-blue-600 h-40 items-center justify-end pb-10">
   <Text className="text-white text-2xl font-bold">Mi Perfil</Text>
-</View>
+</View>;
 
 {
   /* Avatar circular */
 }
-;<View className="items-center -mt-16">
+<View className="items-center -mt-16">
   <Image
     source={{ uri: 'https://i.pravatar.cc/150?img=12' }}
     className="w-32 h-32 rounded-full border-4 border-white"
   />
-</View>
+</View>;
 
 {
   /* Nombre y profesión */
 }
-;<View className="items-center mt-4 px-5">
+<View className="items-center mt-4 px-5">
   <Text className="text-3xl font-bold text-gray-900">Tu Nombre Aquí</Text>
   <Text className="text-lg text-gray-600 mt-1">Tu Profesión</Text>
-</View>
+</View>;
 ```
 
 **✅ Checkpoint:** Todos deben ver el header azul, avatar circular y nombre antes de continuar.
@@ -184,7 +402,7 @@ export default function App() {
 {
   /* Card de información */
 }
-;<View className="mx-5 mt-6 bg-gray-50 rounded-xl p-5">
+<View className="mx-5 mt-6 bg-gray-50 rounded-xl p-5">
   {/* Email */}
   <View className="flex-row items-center mb-4">
     <Text className="text-2xl mr-3">📧</Text>
@@ -213,7 +431,7 @@ export default function App() {
       <Text className="text-base text-gray-900 font-medium">Tu Ciudad</Text>
     </View>
   </View>
-</View>
+</View>;
 ```
 
 **✅ Checkpoint:** Verificar que todos tienen la card con la info de contacto.
@@ -232,13 +450,13 @@ export default function App() {
 {
   /* Sobre mí */
 }
-;<View className="mx-5 mt-6 mb-10 bg-white rounded-xl p-5 border border-gray-200">
+<View className="mx-5 mt-6 mb-10 bg-white rounded-xl p-5 border border-gray-200">
   <Text className="text-xl font-bold text-gray-900 mb-3">Sobre Mí</Text>
   <Text className="text-base text-gray-600 leading-6">
     Escribe aquí una breve descripción sobre ti. Qué te gusta hacer, tus
     hobbies, tu experiencia, etc. Puedes escribir varias líneas.
   </Text>
-</View>
+</View>;
 ```
 
 **✅ Checkpoint Final:** ¡Todos deben tener la app completa funcionando!
@@ -251,7 +469,7 @@ export default function App() {
 <summary>👉 Ver código completo del App.tsx</summary>
 
 ```typescript
-import { SafeAreaView, ScrollView, View, Text, Image } from 'react-native'
+import { SafeAreaView, ScrollView, View, Text, Image } from 'react-native';
 
 export default function App() {
   return (
@@ -321,7 +539,7 @@ export default function App() {
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
 ```
 
@@ -456,8 +674,8 @@ Después de la información de contacto:
  * 5. Image para el avatar con estilo circular
  */
 
-import { ScrollView, View, Text, Image } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { ScrollView, View, Text, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App(): JSX.Element {
   // Datos del perfil (podrían venir de un API más adelante)
@@ -469,7 +687,7 @@ export default function App(): JSX.Element {
     phone: '+52 123 456 7890',
     location: 'Ciudad de México, México',
     bio: 'Desarrollador apasionado por crear experiencias móviles increíbles. Me encanta aprender nuevas tecnologías y compartir conocimiento con la comunidad. Especializado en React Native, TypeScript y desarrollo cross-platform.',
-  }
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -573,7 +791,7 @@ export default function App(): JSX.Element {
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
 ```
 
@@ -608,13 +826,13 @@ export default function App(): JSX.Element {
 **`components/InfoItem.tsx`:**
 
 ```tsx
-import { View, Text } from 'react-native'
+import { View, Text } from 'react-native';
 
 interface InfoItemProps {
-  icon: string
-  label: string
-  value: string
-  showDivider?: boolean
+  icon: string;
+  label: string;
+  value: string;
+  showDivider?: boolean;
 }
 
 export function InfoItem({
@@ -634,7 +852,7 @@ export function InfoItem({
       </View>
       {showDivider && <View className="h-px bg-gray-200 mb-4" />}
     </>
-  )
+  );
 }
 
 // Uso:
@@ -654,11 +872,11 @@ export function InfoItem({
 
 ```tsx
 // Usar una imagen local como fallback
-import { Image } from 'react-native'
-;<Image
+import { Image } from 'react-native';
+<Image
   source={require('./assets/avatar.png')} // Imagen local
   className="w-32 h-32 rounded-full"
-/>
+/>;
 ```
 
 ### Problema 2: Los estilos de TailwindCSS no funcionan
@@ -697,10 +915,10 @@ pnpm start --clear
 **Solución:**
 
 ```tsx
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Envolver todo en SafeAreaView
-;<SafeAreaView className="flex-1">{/* contenido */}</SafeAreaView>
+<SafeAreaView className="flex-1">{/* contenido */}</SafeAreaView>;
 ```
 
 ---
