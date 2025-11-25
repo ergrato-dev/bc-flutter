@@ -49,16 +49,16 @@ El diseño responsivo permite que una aplicación se adapte automáticamente a d
 ```dart
 /**
  * Razones para implementar diseño responsivo:
- * 
+ *
  * 1. VARIEDAD DE DISPOSITIVOS
  *    - Smartphones (320px - 480px)
- *    - Tablets (600px - 1024px)  
+ *    - Tablets (600px - 1024px)
  *    - Desktop/Web (1024px+)
- * 
+ *
  * 2. ORIENTACIONES
  *    - Portrait (vertical)
  *    - Landscape (horizontal)
- * 
+ *
  * 3. EXPERIENCIA DE USUARIO
  *    - Contenido legible
  *    - Navegación accesible
@@ -79,11 +79,11 @@ El diseño responsivo permite que una aplicación se adapte automáticamente a d
 ```dart
 /**
  * MediaQuery - Obtener información del dispositivo
- * 
+ *
  * ¿Qué hace?
  * Proporciona datos sobre el tamaño de pantalla, orientación,
  * densidad de píxeles y preferencias del sistema.
- * 
+ *
  * ¿Para qué?
  * Tomar decisiones de diseño basadas en el dispositivo actual.
  */
@@ -95,20 +95,20 @@ class ResponsiveExample extends StatelessWidget {
   Widget build(BuildContext context) {
     // Obtener MediaQueryData
     final mediaQuery = MediaQuery.of(context);
-    
+
     // Dimensiones de la pantalla
     final screenWidth = mediaQuery.size.width;
     final screenHeight = mediaQuery.size.height;
-    
+
     // Orientación
     final orientation = mediaQuery.orientation;
-    
+
     // Densidad de píxeles
     final devicePixelRatio = mediaQuery.devicePixelRatio;
-    
+
     // Padding del sistema (notch, barra de estado)
     final padding = mediaQuery.padding;
-    
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -136,62 +136,62 @@ class ResponsiveExample extends StatelessWidget {
 
 Widget build(BuildContext context) {
   final mq = MediaQuery.of(context);
-  
+
   // ═══════════════════════════════════════════════════════
   // DIMENSIONES
   // ═══════════════════════════════════════════════════════
-  
+
   // Tamaño total de la pantalla
   final Size size = mq.size;
   final double width = mq.size.width;   // Ancho en píxeles lógicos
   final double height = mq.size.height; // Alto en píxeles lógicos
-  
+
   // ═══════════════════════════════════════════════════════
   // ORIENTACIÓN
   // ═══════════════════════════════════════════════════════
-  
+
   // Portrait o Landscape
   final Orientation orientation = mq.orientation;
   final bool isPortrait = orientation == Orientation.portrait;
   final bool isLandscape = orientation == Orientation.landscape;
-  
+
   // ═══════════════════════════════════════════════════════
   // PADDING Y ÁREAS SEGURAS
   // ═══════════════════════════════════════════════════════
-  
+
   // Padding del sistema (notch, barra de estado, etc.)
   final EdgeInsets padding = mq.padding;
   final double statusBarHeight = mq.padding.top;
   final double bottomInset = mq.padding.bottom;
-  
+
   // Área de visualización segura
   final EdgeInsets viewInsets = mq.viewInsets;
   final double keyboardHeight = mq.viewInsets.bottom;
-  
+
   // ═══════════════════════════════════════════════════════
   // PREFERENCIAS DEL USUARIO
   // ═══════════════════════════════════════════════════════
-  
+
   // Factor de escala del texto (accesibilidad)
   final double textScaleFactor = mq.textScaleFactor;
-  
+
   // Modo oscuro activado
   final Brightness brightness = mq.platformBrightness;
   final bool isDarkMode = brightness == Brightness.dark;
-  
+
   // Animaciones reducidas (accesibilidad)
   final bool reduceMotion = mq.disableAnimations;
-  
+
   // Alto contraste
   final bool highContrast = mq.highContrast;
-  
+
   // ═══════════════════════════════════════════════════════
   // DENSIDAD DE PÍXELES
   // ═══════════════════════════════════════════════════════
-  
+
   // Ratio de píxeles del dispositivo
   final double pixelRatio = mq.devicePixelRatio;
-  
+
   return const Placeholder();
 }
 ```
@@ -209,7 +209,7 @@ class AdaptiveLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    
+
     // Decisión basada en ancho
     if (width < 600) {
       return const MobileLayout();
@@ -273,7 +273,7 @@ class DesktopLayout extends StatelessWidget {
 // Widget auxiliar
 class ProductCard extends StatelessWidget {
   final String title;
-  
+
   const ProductCard({super.key, required this.title});
 
   @override
@@ -291,7 +291,7 @@ class ProductCard extends StatelessWidget {
 ```dart
 /**
  * MediaQuery.sizeOf() vs MediaQuery.of()
- * 
+ *
  * ¿Por qué usar sizeOf?
  * - Más eficiente cuando solo necesitas el tamaño
  * - Evita rebuilds innecesarios
@@ -305,16 +305,16 @@ class OptimizedResponsive extends StatelessWidget {
   Widget build(BuildContext context) {
     // ❌ Menos eficiente - escucha TODOS los cambios de MediaQuery
     // final width = MediaQuery.of(context).size.width;
-    
+
     // ✅ Más eficiente - solo escucha cambios de tamaño
     final size = MediaQuery.sizeOf(context);
-    
+
     // Otros métodos optimizados disponibles:
     // MediaQuery.orientationOf(context)
     // MediaQuery.paddingOf(context)
     // MediaQuery.viewInsetsOf(context)
     // MediaQuery.platformBrightnessOf(context)
-    
+
     return Container(
       width: size.width * 0.8,
       height: size.height * 0.5,
@@ -358,11 +358,11 @@ class OptimizedResponsive extends StatelessWidget {
 ```dart
 /**
  * LayoutBuilder - Construir según constraints del padre
- * 
+ *
  * ¿Qué hace?
  * Proporciona las constraints (restricciones) que el widget
  * padre impone, permitiendo adaptar el contenido.
- * 
+ *
  * ¿Para qué?
  * Ideal para componentes reutilizables que deben adaptarse
  * al espacio disponible donde se coloquen.
@@ -379,10 +379,10 @@ class LayoutBuilderExample extends StatelessWidget {
           // constraints contiene:
           // - minWidth, maxWidth
           // - minHeight, maxHeight
-          
+
           print('Ancho disponible: ${constraints.maxWidth}');
           print('Alto disponible: ${constraints.maxHeight}');
-          
+
           if (constraints.maxWidth < 400) {
             return const CompactView();
           } else {
@@ -435,26 +435,26 @@ LayoutBuilder(
     // Dimensiones mínimas permitidas
     final double minW = constraints.minWidth;
     final double minH = constraints.minHeight;
-    
+
     // Dimensiones máximas permitidas
     final double maxW = constraints.maxWidth;
     final double maxH = constraints.maxHeight;
-    
+
     // Propiedades útiles
     final bool hasBoundedWidth = constraints.hasBoundedWidth;
     final bool hasBoundedHeight = constraints.hasBoundedHeight;
     final bool hasInfiniteWidth = constraints.maxWidth == double.infinity;
     final bool hasInfiniteHeight = constraints.maxHeight == double.infinity;
-    
+
     // Obtener el tamaño más grande posible
     final Size biggest = constraints.biggest;
-    
+
     // Obtener el tamaño más pequeño posible
     final Size smallest = constraints.smallest;
-    
+
     // Verificar si es "tight" (min == max)
     final bool isTight = constraints.isTight;
-    
+
     return Container(
       constraints: BoxConstraints(
         maxWidth: maxW * 0.8,
@@ -479,7 +479,7 @@ class AdaptiveInfoCard extends StatelessWidget {
   final String title;
   final String description;
   final IconData icon;
-  
+
   const AdaptiveInfoCard({
     super.key,
     required this.title,
@@ -603,11 +603,11 @@ class CardShowcase extends StatelessWidget {
 ```dart
 /**
  * OrientationBuilder - Responder a cambios de orientación
- * 
+ *
  * ¿Qué hace?
  * Detecta si el dispositivo está en portrait o landscape
  * y permite adaptar el UI.
- * 
+ *
  * ¿Cuándo usar?
  * Cuando necesitas layouts completamente diferentes
  * según la orientación del dispositivo.
@@ -669,7 +669,7 @@ class FullyAdaptiveLayout extends StatelessWidget {
             builder: (context, constraints) {
               final isPortrait = orientation == Orientation.portrait;
               final isNarrow = constraints.maxWidth < 600;
-              
+
               // Lógica combinada
               if (isPortrait && isNarrow) {
                 return const MobilePortraitLayout();
@@ -735,7 +735,7 @@ class TabletLandscapeLayout extends StatelessWidget {
 ```dart
 /**
  * Breakpoints estándar para diseño responsivo
- * 
+ *
  * Estos valores son convenciones comunes, puedes ajustarlos
  * según las necesidades de tu aplicación.
  */
@@ -743,22 +743,22 @@ class TabletLandscapeLayout extends StatelessWidget {
 abstract class Breakpoints {
   // Móvil pequeño (iPhone SE, etc.)
   static const double mobileSmall = 320;
-  
+
   // Móvil normal
   static const double mobile = 480;
-  
+
   // Tablet pequeña
   static const double tabletSmall = 600;
-  
+
   // Tablet
   static const double tablet = 768;
-  
+
   // Tablet grande / Desktop pequeño
   static const double tabletLarge = 1024;
-  
+
   // Desktop
   static const double desktop = 1200;
-  
+
   // Desktop grande
   static const double desktopLarge = 1440;
 }
@@ -769,57 +769,57 @@ abstract class Breakpoints {
 ```dart
 /**
  * Clase utilitaria para consultas responsivas
- * 
+ *
  * ¿Qué hace?
  * Centraliza la lógica de detección de tipo de dispositivo.
- * 
+ *
  * ¿Para qué?
  * Reutilizar la lógica en toda la aplicación sin repetir código.
  */
 
 class ResponsiveHelper {
   final BuildContext context;
-  
+
   ResponsiveHelper(this.context);
-  
+
   // Obtener ancho de pantalla
   double get screenWidth => MediaQuery.sizeOf(context).width;
-  
+
   // Obtener alto de pantalla
   double get screenHeight => MediaQuery.sizeOf(context).height;
-  
+
   // Verificaciones de tipo de dispositivo
   bool get isMobile => screenWidth < 600;
   bool get isTablet => screenWidth >= 600 && screenWidth < 1024;
   bool get isDesktop => screenWidth >= 1024;
-  
+
   // Orientación
-  bool get isPortrait => 
+  bool get isPortrait =>
       MediaQuery.orientationOf(context) == Orientation.portrait;
-  bool get isLandscape => 
+  bool get isLandscape =>
       MediaQuery.orientationOf(context) == Orientation.landscape;
-  
+
   // Número de columnas sugerido para grids
   int get gridColumns {
     if (isMobile) return 2;
     if (isTablet) return 3;
     return 4;
   }
-  
+
   // Padding adaptativo
   double get horizontalPadding {
     if (isMobile) return 16;
     if (isTablet) return 24;
     return 32;
   }
-  
+
   // Factor de escala para fuentes
   double get fontScale {
     if (isMobile) return 1.0;
     if (isTablet) return 1.1;
     return 1.2;
   }
-  
+
   // Método para obtener valor según dispositivo
   T value<T>({
     required T mobile,
@@ -839,7 +839,7 @@ class ResponsiveScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final responsive = ResponsiveHelper(context);
-    
+
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -878,7 +878,7 @@ class ResponsiveWidget extends StatelessWidget {
   final Widget mobile;
   final Widget? tablet;
   final Widget? desktop;
-  
+
   const ResponsiveWidget({
     super.key,
     required this.mobile,
@@ -1021,7 +1021,7 @@ class AdaptiveDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    
+
     // Layout completamente diferente según breakpoint
     if (width < 600) {
       return const _MobileLayout();
@@ -1162,7 +1162,7 @@ class _DesktopLayout extends StatelessWidget {
 ```dart
 /**
  * SafeArea - Evitar obstrucciones del sistema
- * 
+ *
  * ¿Qué hace?
  * Añade padding automáticamente para evitar:
  * - Notch/Dynamic Island (iOS)
@@ -1183,10 +1183,10 @@ class SafeAreaExample extends StatelessWidget {
         bottom: true,   // Proteger abajo (home indicator)
         left: true,     // Proteger izquierda
         right: true,    // Proteger derecha
-        
+
         // Padding mínimo adicional
         minimum: const EdgeInsets.all(16),
-        
+
         child: Column(
           children: const [
             Text('Este texto está en área segura'),
@@ -1219,13 +1219,13 @@ class ManualSafeArea extends StatelessWidget {
   Widget build(BuildContext context) {
     // Obtener el padding del sistema
     final padding = MediaQuery.paddingOf(context);
-    
+
     return Scaffold(
       body: Column(
         children: [
           // Espacio para la barra de estado
           SizedBox(height: padding.top),
-          
+
           // Contenido
           Expanded(
             child: Container(
@@ -1235,7 +1235,7 @@ class ManualSafeArea extends StatelessWidget {
               ),
             ),
           ),
-          
+
           // Espacio para el indicador de home
           SizedBox(height: padding.bottom),
         ],
@@ -1265,7 +1265,7 @@ class SliverSafeAreaExample extends StatelessWidget {
             title: Text('Mi App'),
             floating: true,
           ),
-          
+
           // Safe area para el contenido
           SliverSafeArea(
             // Solo aplicar en la parte inferior
@@ -1295,7 +1295,7 @@ class SliverSafeAreaExample extends StatelessWidget {
 ```dart
 /**
  * EJERCICIO 1: Crear una tarjeta que cambie su layout
- * 
+ *
  * Requisitos:
  * - En pantallas < 400px: layout vertical (imagen arriba, texto abajo)
  * - En pantallas >= 400px: layout horizontal (imagen izquierda, texto derecha)
@@ -1312,7 +1312,7 @@ class ResponsiveCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String description;
-  
+
   const ResponsiveCard({
     super.key,
     required this.imageUrl,
@@ -1327,7 +1327,7 @@ class ResponsiveCard extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           final isNarrow = constraints.maxWidth < 400;
-          
+
           if (isNarrow) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1357,7 +1357,7 @@ class ResponsiveCard extends StatelessWidget {
               ],
             );
           }
-          
+
           return Row(
             children: [
               Image.network(
@@ -1402,7 +1402,7 @@ class ResponsiveCard extends StatelessWidget {
 ```dart
 /**
  * EJERCICIO 2: Crear un grid que ajuste columnas automáticamente
- * 
+ *
  * Requisitos:
  * - < 400px: 1 columna
  * - 400-800px: 2 columnas
@@ -1419,7 +1419,7 @@ class ResponsiveCard extends StatelessWidget {
 ```dart
 class AdaptiveGrid extends StatelessWidget {
   final List<Widget> children;
-  
+
   const AdaptiveGrid({
     super.key,
     required this.children,
@@ -1437,7 +1437,7 @@ class AdaptiveGrid extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final columns = _getColumnCount(constraints.maxWidth);
-        
+
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: columns,
@@ -1490,7 +1490,7 @@ class GridDemo extends StatelessWidget {
 ```dart
 /**
  * EJERCICIO 3: Crear un layout master-detail responsivo
- * 
+ *
  * Requisitos:
  * - En móvil: solo lista, navegar a detalle en otra pantalla
  * - En tablet/desktop: lista a la izquierda, detalle a la derecha
@@ -1512,7 +1512,7 @@ class MasterDetailLayout extends StatefulWidget {
 
 class _MasterDetailLayoutState extends State<MasterDetailLayout> {
   int? selectedIndex;
-  
+
   final items = List.generate(
     20,
     (index) => 'Item ${index + 1}',
@@ -1523,7 +1523,7 @@ class _MasterDetailLayoutState extends State<MasterDetailLayout> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final isWide = constraints.maxWidth >= 600;
-        
+
         if (isWide) {
           // Tablet/Desktop: lado a lado
           return Row(
@@ -1545,7 +1545,7 @@ class _MasterDetailLayoutState extends State<MasterDetailLayout> {
             ],
           );
         }
-        
+
         // Móvil: solo lista (navegación para detalle)
         return _buildList();
       },
@@ -1565,7 +1565,7 @@ class _MasterDetailLayoutState extends State<MasterDetailLayout> {
               setState(() {
                 selectedIndex = index;
               });
-              
+
               // En móvil, navegar a otra pantalla
               final isWide = MediaQuery.sizeOf(context).width >= 600;
               if (!isWide) {
@@ -1623,14 +1623,14 @@ class BadExample extends StatefulWidget {
 
 class _BadExampleState extends State<BadExample> {
   late double screenWidth;
-  
+
   @override
   void initState() {
     super.initState();
     // ❌ Esto causará un error
     screenWidth = MediaQuery.of(context).size.width;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Container();
@@ -1645,14 +1645,14 @@ class GoodExample extends StatefulWidget {
 
 class _GoodExampleState extends State<GoodExample> {
   late double screenWidth;
-  
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     // ✅ Aquí sí está disponible
     screenWidth = MediaQuery.of(context).size.width;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     // ✅ También aquí
@@ -1724,7 +1724,7 @@ Container(
 LayoutBuilder(
   builder: (context, constraints) {
     final padding = constraints.maxWidth < 600 ? 16.0 : 24.0;
-    
+
     return Container(
       width: constraints.maxWidth * 0.9,
       padding: EdgeInsets.all(padding),
