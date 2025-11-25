@@ -18,6 +18,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### 🇺🇸 Contenido en Inglés
 
 #### 1. **"Flutter Apprentice" - Razeware** ⭐
+
 **Autor**: Razeware Team  
 **Páginas**: ~600 páginas  
 **Nivel**: 🟢 Básico - 🟡 Intermedio  
@@ -26,6 +27,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [Flutter Apprentice](https://www.raywenderlich.com/books/flutter-apprentice)
 
 **Contenido**:
+
 - Setup y primer proyecto
 - Widgets fundamentales
 - Layouts y responsive design
@@ -36,6 +38,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 - 4 proyectos completos
 
 **Capítulos Clave para Semana 02**:
+
 - Chapter 1-2: Getting Started
 - Chapter 3: Basic Widgets
 - Chapter 4: Understanding Widgets
@@ -46,6 +49,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ---
 
 #### 2. **"Beginning Flutter" - Marco L. Napoli**
+
 **Autor**: Marco L. Napoli  
 **Páginas**: ~400 páginas  
 **Nivel**: 🟢 Básico  
@@ -54,6 +58,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [Beginning Flutter - Apress](https://www.apress.com/gp/book/9781484251805)
 
 **Contenido**:
+
 - Flutter architecture
 - Material Design widgets
 - Layouts: Column, Row, Stack
@@ -63,6 +68,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 - Animation basics
 
 **Capítulos Destacados**:
+
 - Chapter 3: Dart Crash Course
 - Chapter 5: Widgets Deep Dive
 - Chapter 7: State Management
@@ -72,6 +78,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ---
 
 #### 3. **"Flutter Complete Reference" - Alberto Miola** ⭐
+
 **Autor**: Alberto Miola  
 **Páginas**: ~800 páginas  
 **Nivel**: 🟢 Básico - 🔴 Avanzado  
@@ -80,6 +87,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [Flutter Complete Reference](https://fluttercompletereference.com/)
 
 **Contenido**:
+
 - Dart 3.x completo
 - Todos los widgets de Flutter
 - State management (Provider, BLoC, Riverpod)
@@ -96,6 +104,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### 📖 Recursos Web Gratuitos (100%)
 
 #### 4. **"Flutter Documentation" - flutter.dev (Official)** ⭐
+
 **Autor**: Google Flutter Team  
 **Formato**: Web (HTML)  
 **Nivel**: Todos  
@@ -104,6 +113,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [https://flutter.dev/docs](https://flutter.dev/docs)
 
 **Secciones Principales**:
+
 - Get Started Guide
 - Widget Catalog
 - Cookbook (recetas de código)
@@ -111,6 +121,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 - Samples
 
 **Secciones Clave para Semana 02**:
+
 - [Get Started](https://flutter.dev/docs/get-started/install)
 - [Introduction to Widgets](https://flutter.dev/docs/development/ui/widgets-intro)
 - [Layout Tutorial](https://flutter.dev/docs/development/ui/layout/tutorial)
@@ -121,6 +132,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ---
 
 #### 5. **"Flutter Cookbook" - flutter.dev**
+
 **Autor**: Google  
 **Formato**: Web  
 **Nivel**: 🟢 Básico - 🟡 Intermedio  
@@ -129,6 +141,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [https://flutter.dev/docs/cookbook](https://flutter.dev/docs/cookbook)
 
 **Recetas Disponibles** (~100 ejemplos):
+
 - Design basics
 - Images and assets
 - Lists
@@ -139,6 +152,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 - Forms
 
 **Recetas para Semana 02**:
+
 - Create a grid list
 - Work with tabs
 - Navigate to a new screen
@@ -150,6 +164,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ---
 
 #### 6. **"Flutter by Example"**
+
 **Autor**: Eric Windmill  
 **Formato**: Web  
 **Nivel**: 🟢 Básico - 🟡 Intermedio  
@@ -158,6 +173,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [https://flutterbyexample.com/](https://flutterbyexample.com/)
 
 **Contenido**:
+
 - 100+ ejemplos de código
 - Widgets explicados
 - State management patterns
@@ -171,6 +187,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### 🇪🇸 Contenido en Español
 
 #### 7. **"Flutter - Curso Completo" - Fernando Herrera (incluye Material Escrito)**
+
 **Autor**: Fernando Herrera  
 **Formato**: Curso con PDFs descargables  
 **Nivel**: 🟢 Básico - 🔴 Avanzado  
@@ -179,12 +196,14 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [Flutter - Curso Completo Udemy](https://www.udemy.com/course/flutter-ios-android-fernando-herrera/)
 
 **Material del Curso** (incluye):
+
 - PDFs descargables (~300 páginas total)
 - Código fuente de 20+ apps
 - Cheatsheets
 - Diagramas y mapas conceptuales
 
 **Proyectos Incluidos**:
+
 - App de tareas
 - Películas (API TMDb)
 - QR Scanner
@@ -196,6 +215,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ---
 
 #### 8. **"Guía de Flutter en Español" - DevTalles**
+
 **Autor**: Equipo DevTalles  
 **Formato**: Web + PDF  
 **Nivel**: 🟢 Básico  
@@ -204,6 +224,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [DevTalles Flutter](https://devtalles.com/flutter)
 
 **Contenido Gratuito**:
+
 - Instalación paso a paso
 - Widgets básicos explicados
 - Layouts fundamentales
@@ -216,11 +237,13 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ## 📚 Libros de Referencia Rápida
 
 #### 9. **"Flutter Widget Catalog" - PDF Compilado**
+
 **Formato**: PDF (creado por comunidad)  
 **Nivel**: Todos  
 **Gratuito**: Sí
 
 **Contenido**:
+
 - Todos los widgets Material
 - Todos los widgets Cupertino
 - Layout widgets
@@ -232,6 +255,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ---
 
 #### 10. **"Flutter Cheatsheet"**
+
 **Formato**: PDF/Imagen  
 **Nivel**: Todos  
 **Gratuito**: Sí
@@ -239,6 +263,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 **URL**: [Flutter Cheatsheet](https://github.com/Temidtech/Flutter-Cheat-Sheet)
 
 **Contenido**:
+
 - Widgets más usados
 - Layout patterns
 - Sintaxis común
@@ -253,10 +278,12 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### Día 1-2: Setup y Primer Proyecto (2 horas)
 
 **Lectura**:
+
 - 📖 Flutter Docs - Get Started
 - 📖 Flutter Cookbook - Create a simple app
 
 **Práctica**:
+
 - ✍️ Practica 04: Hola Mundo Flutter
 
 ---
@@ -264,11 +291,13 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### Día 3-4: Widgets y Layouts (2 horas)
 
 **Lectura**:
+
 - 📖 Flutter Docs - Introduction to Widgets
 - 📖 Flutter Docs - Layout Tutorial
 - 📖 Flutter by Example - Widget sections
 
 **Práctica**:
+
 - ✍️ Practica 05: Contador Flutter
 - 🔨 Comenzar estructura del proyecto
 
@@ -277,10 +306,12 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### Día 5-6: Estado y Navegación (2 horas)
 
 **Lectura**:
+
 - 📖 Flutter Docs - Adding Interactivity
 - 📖 Flutter Cookbook - Navigation recipes
 
 **Práctica**:
+
 - 🔨 Implementar pantallas del proyecto
 - 🔨 Navegación entre Home, Tasks, Notes, Contacts
 
@@ -289,10 +320,12 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### Día 7: Integración y Proyecto (2 horas)
 
 **Lectura**:
+
 - 📖 Revisar Flutter Cookbook recetas relevantes
 - 📖 Widget Catalog para widgets específicos
 
 **Práctica**:
+
 - 🔨 Completar Agenda Personal
 - 🔨 Pulir detalles y testing manual
 
@@ -303,25 +336,30 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### Método PQRST para Libros Técnicos
 
 **P - Preview (Vista Previa)**
+
 - Lee índice completo
 - Revisa títulos de capítulos
 - Identifica secciones relevantes para tu objetivo actual
 
 **Q - Question (Pregunta)**
+
 - Convierte títulos en preguntas
 - Ejemplo: "Chapter 3: Widgets" → "¿Qué es un widget y cómo funciona?"
 
 **R - Read (Lee)**
+
 - Lee activamente con código abierto
 - Escribe los ejemplos
 - Experimenta modificando
 
 **S - Self-recite (Auto-recita)**
+
 - Explica en voz alta lo que leíste
 - Sin mirar el libro
 - Identifica gaps en tu comprensión
 
 **T - Test (Prueba)**
+
 - Haz los ejercicios del capítulo
 - Crea un mini proyecto aplicando lo aprendido
 - Enseña a alguien más
@@ -331,6 +369,7 @@ Aprender Flutter desde fundamentos hasta nivel intermedio mediante libros estruc
 ### Lectura con Código Paralelo
 
 **Setup Ideal**:
+
 ```
 Monitor 1: eBook (50%)   | VS Code (50%)
 Monitor 2: Flutter App Running | DevTools
@@ -341,6 +380,7 @@ Si solo tienes 1 monitor:
 ```
 
 **Workflow**:
+
 1. Lee una sección completa (10-15 min)
 2. Cierra el libro
 3. Implementa desde cero lo que leíste
@@ -354,15 +394,17 @@ Si solo tienes 1 monitor:
 
 ### Template de Notas por Capítulo
 
-```markdown
+````markdown
 # Capítulo X: [Título]
 
 ## 📚 Conceptos Clave
+
 - Widget: Elemento de UI inmutable
 - StatelessWidget: No cambia estado
 - StatefulWidget: Mantiene estado mutable
 
 ## 💻 Código Importante
+
 ```dart
 class MyWidget extends StatelessWidget {
   @override
@@ -373,25 +415,31 @@ class MyWidget extends StatelessWidget {
   }
 }
 ```
+````
 
 ## ❓ Preguntas Generadas
+
 - ¿Cuándo usar Stateless vs Stateful?
 - ¿Qué es BuildContext?
 
 ## ✅ Checklist Capítulo
+
 - [x] Leí sección 3.1
 - [x] Escribí código ejemplo
 - [x] Hice ejercicio 3.1
 - [ ] Ejercicio challenge
 
 ## 🔗 Relacionado con
+
 - Glosario: Widget, build(), BuildContext
 - Práctica 04: Hola Mundo
 - Video: Widgets Fundamentals
 
 ## 🎯 Aplicación Proyecto
+
 - Usar StatefulWidget en TasksScreen
 - Implementar setState() para actualizar lista
+
 ```
 
 ---
@@ -471,3 +519,4 @@ Después de dominar estos libros:
 ---
 
 **Actualizado**: Noviembre 2025 | **Nivel**: Semana 02 | **Tipo**: Recurso Bibliográfico
+```

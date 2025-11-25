@@ -18,6 +18,7 @@ Profundizar en POO mediante artículos especializados que cubren herencia, mixin
 ### 🏆 Artículos Oficiales (dart.dev)
 
 #### 1. **"Object-Oriented Programming in Dart"**
+
 **Fuente**: dart.dev (Official)  
 **Nivel**: 🟢 Básico  
 **Tiempo**: 15 min
@@ -25,6 +26,7 @@ Profundizar en POO mediante artículos especializados que cubren herencia, mixin
 **URL**: [https://dart.dev/guides/language/language-tour#classes](https://dart.dev/guides/language/language-tour#classes)
 
 **Contenido**:
+
 - Definición de clases
 - Constructores (default, named, factory, redirecting)
 - Getters y setters
@@ -37,6 +39,7 @@ Profundizar en POO mediante artículos especializados que cubren herencia, mixin
 ---
 
 #### 2. **"Understanding Mixins in Dart"**
+
 **Fuente**: Medium - Dart Team  
 **Nivel**: 🟡 Intermedio  
 **Tiempo**: 12 min
@@ -44,6 +47,7 @@ Profundizar en POO mediante artículos especializados que cubren herencia, mixin
 **URL**: [https://medium.com/dartlang/dart-mixins-beyond-the-basics-8a3c0c0b4e56](https://medium.com/dartlang/dart-mixins-beyond-the-basics-8a3c0c0b4e56)
 
 **Contenido**:
+
 - ¿Qué son los mixins?
 - Diferencia entre herencia y mixins
 - Orden de aplicación de mixins
@@ -51,6 +55,7 @@ Profundizar en POO mediante artículos especializados que cubren herencia, mixin
 - Casos de uso reales
 
 **Ejemplo Clave**:
+
 ```dart
 mixin Musical {
   void playMusic() => print('♪♫');
@@ -72,6 +77,7 @@ class Performer extends Person with Musical, Dancing {
 ### 🌟 Artículos de Comunidad (Calidad Alta)
 
 #### 3. **"Dart's Type System: Generics and Beyond"**
+
 **Autor**: Bob Nystrom (Google)  
 **Fuente**: Medium  
 **Nivel**: 🟡 Intermedio  
@@ -80,6 +86,7 @@ class Performer extends Person with Musical, Dancing {
 **URL**: [https://medium.com/@munificentbob/darts-type-system-generics-and-beyond-d45e5e3c6f88](https://medium.com/@munificentbob/darts-type-system-generics-and-beyond-d45e5e3c6f88)
 
 **Contenido**:
+
 - Generics en clases
 - Type bounds
 - Covariance y contravariance
@@ -90,6 +97,7 @@ class Performer extends Person with Musical, Dancing {
 ---
 
 #### 4. **"Effective Dart: Design"**
+
 **Fuente**: dart.dev (Official)  
 **Nivel**: 🟡 Intermedio  
 **Tiempo**: 25 min
@@ -97,6 +105,7 @@ class Performer extends Person with Musical, Dancing {
 **URL**: [https://dart.dev/guides/language/effective-dart/design](https://dart.dev/guides/language/effective-dart/design)
 
 **Secciones Clave**:
+
 - Naming conventions
 - Cuándo usar clases vs funciones
 - Public vs private members
@@ -104,6 +113,7 @@ class Performer extends Person with Musical, Dancing {
 - Avoid returning null
 
 **Ejemplos de Mejores Prácticas**:
+
 ```dart
 // ✅ BUENO: Nombre descriptivo
 class UserRepository {}
@@ -126,6 +136,7 @@ class Car extends Engine {}
 ---
 
 #### 5. **"Dart Design Patterns: Factory Pattern"**
+
 **Autor**: Mangirdas Kazlauskas  
 **Fuente**: Medium  
 **Nivel**: 🟡 Intermedio  
@@ -134,12 +145,14 @@ class Car extends Engine {}
 **URL**: [https://medium.com/flutter-community/dart-design-patterns-factory-pattern-c2f6f60c2f88](https://medium.com/flutter-community/dart-design-patterns-factory-pattern-c2f6f60c2f88)
 
 **Contenido**:
+
 - Factory constructors
 - Abstract factories
 - Casos de uso en Flutter
 - Ejemplo: Parseo de JSON
 
 **Implementación Práctica**:
+
 ```dart
 class Shape {
   factory Shape.fromType(String type) {
@@ -160,6 +173,7 @@ class Shape {
 ---
 
 #### 6. **"Understanding Super Constructor Calls in Dart"**
+
 **Autor**: Remi Rousselet  
 **Fuente**: Medium  
 **Nivel**: 🟢 Básico  
@@ -168,12 +182,14 @@ class Shape {
 **URL**: [https://medium.com/flutter-community/understanding-super-constructor-calls-in-dart-5e7f8f7c6a7c](https://medium.com/flutter-community/understanding-super-constructor-calls-in-dart-5e7f8f7c6a7c)
 
 **Contenido**:
+
 - Llamadas al constructor padre
 - Constructor initialization lists
 - Orden de inicialización
 - Errores comunes
 
 **Ejemplo**:
+
 ```dart
 class Animal {
   final String name;
@@ -182,7 +198,7 @@ class Animal {
 
 class Dog extends Animal {
   final String breed;
-  
+
   // Constructor con super call
   Dog(String name, this.breed) : super(name);
 }
@@ -195,11 +211,13 @@ class Dog extends Animal {
 ### 📚 Series de Artículos
 
 #### 7. **"Dart OOP Series" - FlutterCommunity**
+
 **Fuente**: Medium - Flutter Community  
 **Nivel**: 🟢 Básico - 🟡 Intermedio  
 **Total**: 5 artículos (~1 hora)
 
 **Artículos de la Serie**:
+
 1. **Classes and Objects** (12 min)
 2. **Inheritance and Polymorphism** (15 min)
 3. **Abstract Classes and Interfaces** (10 min)
@@ -215,6 +233,7 @@ class Dog extends Animal {
 ### 🇪🇸 Artículos en Español
 
 #### 8. **"POO en Dart: Guía Completa"**
+
 **Autor**: DevExperto (Antonio Leiva)  
 **Fuente**: devexperto.com  
 **Nivel**: 🟢 Básico  
@@ -223,6 +242,7 @@ class Dog extends Animal {
 **URL**: [https://devexperto.com/programacion-orientada-objetos-dart/](https://devexperto.com/programacion-orientada-objetos-dart/)
 
 **Contenido**:
+
 - Clases y objetos en Dart
 - Herencia y polimorfismo
 - Encapsulamiento
@@ -233,6 +253,7 @@ class Dog extends Animal {
 ---
 
 #### 9. **"Mixins en Dart Explicados con Ejemplos"**
+
 **Autor**: Flutter Español (Blog)  
 **Fuente**: flutter-es.io  
 **Nivel**: 🟢 Básico  
@@ -241,6 +262,7 @@ class Dog extends Animal {
 **URL**: [https://flutter-es.io/articulos/mixins-dart](https://flutter-es.io/articulos/mixins-dart)
 
 **Contenido**:
+
 - ¿Qué son los mixins?
 - Diferencias con herencia
 - Ejemplos paso a paso
@@ -279,21 +301,25 @@ class Dog extends Animal {
 ### Semana 02 - Enfoque POO
 
 **Día 1: Fundamentos (45 min)**
+
 - ✅ Artículo #1: OOP in Dart (Official)
 - ✅ Artículo #6: Super Constructor Calls
 - ✍️ Práctica 01: Sistema Biblioteca
 
 **Día 2: Herencia y Mixins (1 hora)**
+
 - ✅ Artículo #2: Understanding Mixins
 - ✅ Artículo #7: OOP Series (Parte 2 y 4)
 - ✍️ Práctica 03: Sistema Habilidades
 
 **Día 3: Mejores Prácticas (45 min)**
+
 - ✅ Artículo #4: Effective Dart Design
 - ✅ Artículo #5: Factory Pattern
 - 🔨 Aplicar en Proyecto Agenda
 
 **Día 4-7: Lectura Opcional Profundización**
+
 - ✅ Artículo #3: Type System and Generics
 - ✅ Serie completa #7 (si no la completaste)
 - 🔨 Refinar código del proyecto
@@ -305,6 +331,7 @@ class Dog extends Animal {
 ### Antes de Leer
 
 1. **Define Objetivo**:
+
    ```
    ❌ "Voy a leer sobre POO"
    ✅ "Voy a leer sobre mixins para entender cuándo usarlos vs herencia"
@@ -318,6 +345,7 @@ class Dog extends Animal {
 ### Durante la Lectura
 
 1. **Lectura Activa SQ3R**:
+
    - **S**urvey: Escanea títulos y subtítulos
    - **Q**uestion: Genera preguntas antes de leer
    - **R**ead: Lee activamente
@@ -325,6 +353,7 @@ class Dog extends Animal {
    - **R**eview: Repasa puntos clave
 
 2. **Ejecuta Todos los Ejemplos**:
+
    ```dart
    // Copia el código del artículo
    // Ejecútalo en DartPad
@@ -333,30 +362,36 @@ class Dog extends Animal {
    ```
 
 3. **Toma Notas Cornell**:
+
    ```markdown
    ## Mixins (Artículo #2)
-   
+
    ### Notas
+
    - Mixin = clase sin constructor
    - Se aplica con `with`
    - Múltiples mixins: orden importa
-   
+
    ### Preguntas
+
    - ¿Puedo usar super en un mixin?
    - ¿Qué pasa si dos mixins tienen mismo método?
-   
+
    ### Resumen
+
    Mixins permiten composición de comportamiento sin herencia.
    ```
 
 ### Después de Leer
 
 1. **Práctica Inmediata**:
+
    - Implementa concepto en código propio
    - NO copies/pegues, escribe desde cero
    - Crea variaciones
 
 2. **Enseña lo Aprendido**:
+
    - Explica a un compañero
    - Escribe un post de blog
    - Crea un gist de GitHub con ejemplo
@@ -370,33 +405,37 @@ class Dog extends Animal {
 
 ## 📊 Matriz de Artículos
 
-| # | Artículo | Tema | Nivel | Tiempo | Prioridad |
-|---|----------|------|-------|--------|-----------|
-| 1 | OOP in Dart (Official) | Fundamentos | 🟢 | 15 min | 🔴 Alta |
-| 2 | Understanding Mixins | Mixins | 🟡 | 12 min | 🔴 Alta |
-| 3 | Type System | Generics | 🟡 | 18 min | 🟡 Media |
-| 4 | Effective Dart Design | Best Practices | 🟡 | 25 min | 🔴 Alta |
-| 5 | Factory Pattern | Patterns | 🟡 | 10 min | 🟡 Media |
-| 6 | Super Constructor | Constructors | 🟢 | 8 min | 🔴 Alta |
-| 7 | OOP Series | Todos | 🟢-🟡 | 60 min | 🟡 Media |
-| 8 | POO Guía (ES) | Fundamentos | 🟢 | 20 min | 🟢 Opcional |
-| 9 | Mixins (ES) | Mixins | 🟢 | 12 min | 🟢 Opcional |
+| #   | Artículo               | Tema           | Nivel | Tiempo | Prioridad   |
+| --- | ---------------------- | -------------- | ----- | ------ | ----------- |
+| 1   | OOP in Dart (Official) | Fundamentos    | 🟢    | 15 min | 🔴 Alta     |
+| 2   | Understanding Mixins   | Mixins         | 🟡    | 12 min | 🔴 Alta     |
+| 3   | Type System            | Generics       | 🟡    | 18 min | 🟡 Media    |
+| 4   | Effective Dart Design  | Best Practices | 🟡    | 25 min | 🔴 Alta     |
+| 5   | Factory Pattern        | Patterns       | 🟡    | 10 min | 🟡 Media    |
+| 6   | Super Constructor      | Constructors   | 🟢    | 8 min  | 🔴 Alta     |
+| 7   | OOP Series             | Todos          | 🟢-🟡 | 60 min | 🟡 Media    |
+| 8   | POO Guía (ES)          | Fundamentos    | 🟢    | 20 min | 🟢 Opcional |
+| 9   | Mixins (ES)            | Mixins         | 🟢    | 12 min | 🟢 Opcional |
 
 ---
 
 ## 🔗 Recursos Complementarios
 
 ### Videos Relacionados
+
 - Ver: [`01-videos-poo.md`](01-videos-poo.md) - Videos POO
 - Ver: [`02-videos-colecciones.md`](02-videos-colecciones.md)
 
 ### Libros
+
 - Ver: [`04-ebooks-dart-avanzado.md`](04-ebooks-dart-avanzado.md)
 
 ### Documentación
+
 - Ver: [`08-documentacion-oficial.md`](08-documentacion-oficial.md#dart-language)
 
 ### Cross-References
+
 - **Teoría**: [`1-teoria/01-poo-dart.md`](../1-teoria/01-poo-dart.md)
 - **Prácticas**: [`2-practicas/practica-01-poo-biblioteca.md`](../2-practicas/practica-01-poo-biblioteca.md)
 - **Glosario**: [class](../5-glosario/README.md#class), [mixin](../5-glosario/README.md#mixin), [extends](../5-glosario/README.md#extends)
@@ -444,6 +483,7 @@ class Dog extends Animal {
 ## 🎯 Siguiente Paso
 
 Después de leer los artículos:
+
 - 🔗 [07 - Artículos Flutter](07-articulos-flutter.md)
 - 📖 [04 - eBooks Dart](04-ebooks-dart-avanzado.md) para profundizar
 - ✍️ Aplicar conceptos en prácticas 01-03

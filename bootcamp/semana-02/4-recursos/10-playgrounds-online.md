@@ -19,6 +19,7 @@ Practicar Dart y Flutter sin instalar nada, directamente desde el navegador.
 **URL**: [https://dartpad.dev/](https://dartpad.dev/)
 
 **Características**:
+
 - ✅ Editor Dart oficial de Google
 - ✅ Syntax highlighting
 - ✅ Autocomplete
@@ -28,10 +29,12 @@ Practicar Dart y Flutter sin instalar nada, directamente desde el navegador.
 - ✅ Compartir código con URL
 
 **Modos**:
+
 1. **Dart**: Solo código Dart puro
 2. **Flutter**: Widgets y UI preview
 
 **Cómo Usar**:
+
 ```dart
 // 1. Ve a dartpad.dev
 // 2. Escribe código
@@ -44,6 +47,7 @@ void main() {
 ```
 
 **Flutter Mode**:
+
 ```dart
 import 'package:flutter/material.dart';
 
@@ -66,6 +70,7 @@ class MyApp extends StatelessWidget {
 ```
 
 **Casos de Uso**:
+
 - 🟢 Probar snippets rápidamente
 - 🟢 Experimentar con widgets
 - 🟢 Compartir código en foros/chats
@@ -73,6 +78,7 @@ class MyApp extends StatelessWidget {
 - 🟢 Hacer ejercicios del bootcamp
 
 **Limitaciones**:
+
 - ❌ No soporta packages externos (solo core)
 - ❌ No persiste código (usa "Share")
 - ❌ No testing avanzado
@@ -84,6 +90,7 @@ class MyApp extends StatelessWidget {
 **URL**: [https://replit.com/languages/dart](https://replit.com/languages/dart)
 
 **Características**:
+
 - ✅ Ejecuta Dart code
 - ✅ Multiplayer mode (pair programming)
 - ✅ Guarda proyectos en cuenta
@@ -91,16 +98,19 @@ class MyApp extends StatelessWidget {
 - ✅ Packages soportados
 
 **Ventajas sobre DartPad**:
+
 - Múltiples archivos
 - Packages de pub.dev
 - Persistencia en la nube
 - Colaboración en tiempo real
 
 **Desventajas**:
+
 - No preview de Flutter UI
 - Requiere crear cuenta
 
 **Uso**:
+
 ```bash
 # 1. Crear cuenta en replit.com
 # 2. Click "Create Repl"
@@ -117,6 +127,7 @@ class MyApp extends StatelessWidget {
 **URL**: [https://zapp.run/](https://zapp.run/)
 
 **Características**:
+
 - ✅ Flutter completo en navegador
 - ✅ Hot reload en web
 - ✅ Múltiples archivos
@@ -125,6 +136,7 @@ class MyApp extends StatelessWidget {
 - ✅ Compartir proyectos con URL
 
 **Ejemplo de Uso**:
+
 1. Ve a zapp.run
 2. Click "New Project"
 3. Edita `main.dart`
@@ -132,6 +144,7 @@ class MyApp extends StatelessWidget {
 5. Agrega packages en `pubspec.yaml`
 
 **Packages Soportados** (parcial):
+
 - provider
 - http
 - intl
@@ -139,12 +152,14 @@ class MyApp extends StatelessWidget {
 - Y muchos más
 
 **Casos de Uso**:
+
 - 🟢 Probar apps Flutter completas
 - 🟢 Demos y prototipos
 - 🟢 Compartir código funcionando
 - 🟢 Aprender sin instalar SDK
 
 **Limitaciones**:
+
 - ❌ Performance no tan buena como nativo
 - ❌ Algunos packages no funcionan
 - ❌ No acceso a features nativas (cámara, GPS)
@@ -156,6 +171,7 @@ class MyApp extends StatelessWidget {
 **URL**: [https://flutlab.io/](https://flutlab.io/)
 
 **Características**:
+
 - ✅ IDE Flutter online completo
 - ✅ Emulador en navegador
 - ✅ GitHub integration
@@ -163,15 +179,18 @@ class MyApp extends StatelessWidget {
 - ✅ Firebase integration
 
 **Versiones**:
+
 - Free tier: Limitado
 - Pro: $9/mes - Sin limitaciones
 
 **Ventajas**:
+
 - IDE más completo que Zapp
 - Debugging tools
 - Terminal integrado
 
 **Desventajas**:
+
 - Requiere cuenta
 - Free tier muy limitado
 - Puede ser lento
@@ -183,6 +202,7 @@ class MyApp extends StatelessWidget {
 **URL**: [https://codepen.io/](https://codepen.io/)
 
 **Limitado para Flutter**, pero útil para:
+
 - Demos visuales
 - Compartir snippets
 - Experimentación rápida
@@ -196,11 +216,13 @@ class MyApp extends StatelessWidget {
 **URL**: [https://dart.dev/codelabs](https://dart.dev/codelabs)
 
 **Codelabs Interactivos**:
+
 - Todos ejecutables en DartPad
 - Guías paso a paso
 - Ejercicios con soluciones
 
 **Destacados**:
+
 - Iterable collections
 - Asynchronous programming
 - Null safety
@@ -212,11 +234,13 @@ class MyApp extends StatelessWidget {
 **URL**: [https://flutter.dev/docs/codelabs](https://flutter.dev/docs/codelabs)
 
 **Tutoriales Interactivos**:
+
 - Ejecutar en DartPad o localmente
 - Apps completas
 - Material Design
 
 **Recomendados para Semana 02**:
+
 - "Write your first Flutter app"
 - "Building layouts"
 - "Adding interactivity"
@@ -225,16 +249,16 @@ class MyApp extends StatelessWidget {
 
 ## 🔧 Comparativa de Playgrounds
 
-| Feature | DartPad | Zapp.run | FlutLab | Repl.it |
-|---------|---------|----------|---------|---------|
-| **Dart Puro** | ✅ | ✅ | ✅ | ✅ |
-| **Flutter UI** | ✅ | ✅ | ✅ | ❌ |
-| **Packages** | ❌ | ✅ Parcial | ✅ Completo | ✅ |
-| **Multi-file** | ❌ | ✅ | ✅ | ✅ |
-| **Gratis** | ✅ | ✅ | 🟡 Limitado | ✅ |
-| **Colaboración** | ❌ | ❌ | ✅ Pro | ✅ |
-| **Persistencia** | ❌ | ✅ | ✅ | ✅ |
-| **Hot Reload** | ✅ | ✅ | ✅ | ❌ |
+| Feature          | DartPad | Zapp.run   | FlutLab     | Repl.it |
+| ---------------- | ------- | ---------- | ----------- | ------- |
+| **Dart Puro**    | ✅      | ✅         | ✅          | ✅      |
+| **Flutter UI**   | ✅      | ✅         | ✅          | ❌      |
+| **Packages**     | ❌      | ✅ Parcial | ✅ Completo | ✅      |
+| **Multi-file**   | ❌      | ✅         | ✅          | ✅      |
+| **Gratis**       | ✅      | ✅         | 🟡 Limitado | ✅      |
+| **Colaboración** | ❌      | ❌         | ✅ Pro      | ✅      |
+| **Persistencia** | ❌      | ✅         | ✅          | ✅      |
+| **Hot Reload**   | ✅      | ✅         | ✅          | ❌      |
 
 ---
 
@@ -250,21 +274,22 @@ Mientras lees [`1-teoria/01-poo-dart.md`](../1-teoria/01-poo-dart.md):
 4. Modifica para probar variaciones
 
 **Ejemplo**:
+
 ```dart
 // De la teoría sobre clases
 class Person {
   String name;
   int age;
-  
+
   Person(this.name, this.age);
-  
+
   void greet() => print('Hi, I\'m $name');
 }
 
 void main() {
   var person = Person('Ana', 25);
   person.greet();
-  
+
   // TU EXPERIMENTO: Agregar más métodos
   // Probar diferentes constructores
 }
@@ -278,6 +303,7 @@ void main() {
 **Ejercicios Flutter** → Zapp.run
 
 **Workflow**:
+
 1. Lee enunciado de práctica
 2. Abre playground
 3. Intenta resolver (30 min)
@@ -289,6 +315,7 @@ void main() {
 ### Para Proyecto (Local recomendado)
 
 Si NO puedes instalar Flutter localmente:
+
 - Usa **FlutLab** (mejor opción)
 - O **Zapp.run** (más ligero)
 
@@ -301,12 +328,14 @@ Si NO puedes instalar Flutter localmente:
 ### DartPad
 
 1. **Keyboard Shortcuts**:
+
    - `Ctrl+Enter`: Run
    - `Ctrl+/`: Comment line
    - `Ctrl+Space`: Autocomplete
    - `Ctrl+Shift+F`: Format code
 
 2. **Compartir Código**:
+
    ```
    1. Click "Share" (arriba derecha)
    2. Copia URL generada
@@ -320,15 +349,17 @@ Si NO puedes instalar Flutter localmente:
 ### Zapp.run
 
 1. **Agregar Package**:
+
    ```yaml
    # En pubspec.yaml (tab arriba)
    dependencies:
      flutter:
        sdk: flutter
-     http: ^1.1.0  # Agregar aquí
+     http: ^1.1.0 # Agregar aquí
    ```
 
 2. **Hot Reload Automático**:
+
    - Guarda archivo (Ctrl+S)
    - Preview se actualiza automáticamente
 
@@ -347,6 +378,7 @@ Si NO puedes instalar Flutter localmente:
 ## 🎯 Casos de Uso por Semana
 
 **Semana 02**:
+
 - 📖 Teoría POO → DartPad (probar clases, herencia, mixins)
 - 📖 Teoría Colecciones → DartPad (map, where, fold)
 - 💻 Práctica 01-03 → DartPad
@@ -354,6 +386,7 @@ Si NO puedes instalar Flutter localmente:
 - 🔨 Proyecto → Local (o FlutLab si no puedes instalar)
 
 **Semana 03-04**:
+
 - Continuar con DartPad para snippets rápidos
 - Zapp.run para prototipos de features
 - Local para proyecto principal
@@ -363,12 +396,14 @@ Si NO puedes instalar Flutter localmente:
 ## ✅ Checklist
 
 **Configuración Inicial**:
+
 - [ ] Bookmark DartPad ([dartpad.dev](https://dartpad.dev/))
 - [ ] Crear cuenta en Repl.it (opcional)
 - [ ] Probar Zapp.run con proyecto de ejemplo
 - [ ] Familiarizarte con keyboard shortcuts DartPad
 
 **Durante Bootcamp**:
+
 - [ ] Usar DartPad para probar cada ejemplo de teoría
 - [ ] Resolver prácticas Dart en DartPad
 - [ ] Experimentar con Flutter en Zapp.run
@@ -387,17 +422,20 @@ Si NO puedes instalar Flutter localmente:
 ## 🚀 Ventajas de Playgrounds
 
 **Para Aprender**:
+
 - ✅ Cero configuración
 - ✅ Feedback inmediato
 - ✅ Bajo commitment
 - ✅ Accesible desde cualquier dispositivo
 
 **Para Enseñar/Compartir**:
+
 - ✅ Enlaces directos a código funcionando
 - ✅ No requiere que otros instalen nada
 - ✅ Ideal para demos y tutoriales
 
 **Para Experimentar**:
+
 - ✅ Probar ideas rápidamente
 - ✅ Sin miedo a "romper" nada local
 - ✅ Iterar velozmente

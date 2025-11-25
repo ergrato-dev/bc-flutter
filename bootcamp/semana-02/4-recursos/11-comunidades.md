@@ -15,11 +15,13 @@ Conectar con la comunidad Flutter/Dart para aprender, resolver dudas y manteners
 ## 💬 Discord Servers
 
 ### 1. **Flutter Community** ⭐
+
 **Miembros**: ~60,000  
 **Idioma**: 🇺🇸 English  
 **Link**: [https://discord.gg/flutter](https://discord.gg/flutter)
 
 **Canales Útiles**:
+
 - `#help` - Preguntas generales
 - `#beginners` - Para principiantes
 - `#showcase` - Muestra tus proyectos
@@ -28,6 +30,7 @@ Conectar con la comunidad Flutter/Dart para aprender, resolver dudas y manteners
 - `#packages` - Recomendaciones de packages
 
 **Reglas**:
+
 - Busca antes de preguntar
 - Usa code blocks para código
 - Sé específico con errores
@@ -35,11 +38,13 @@ Conectar con la comunidad Flutter/Dart para aprender, resolver dudas y manteners
 ---
 
 ### 2. **Flutter España** 🇪🇸
+
 **Miembros**: ~5,000  
 **Idioma**: 🇪🇸 Español  
 **Link**: Buscar "Flutter España" en Discord
 
 **Canales**:
+
 - `#ayuda` - Preguntas en español
 - `#recursos` - Tutoriales y artículos
 - `#proyectos` - Muestra tus apps
@@ -47,6 +52,7 @@ Conectar con la comunidad Flutter/Dart para aprender, resolver dudas y manteners
 ---
 
 ### 3. **Flutter Devs (Latam)** 🇪🇸
+
 **Miembros**: ~3,000  
 **Idioma**: 🇪🇸 Español  
 **Enfoque**: Comunidad latinoamericana
@@ -56,10 +62,12 @@ Conectar con la comunidad Flutter/Dart para aprender, resolver dudas y manteners
 ## 🗣️ Reddit
 
 ### r/FlutterDev ⭐
+
 **Miembros**: ~120,000  
 **URL**: [https://reddit.com/r/FlutterDev](https://reddit.com/r/FlutterDev)
 
 **Tipos de Posts**:
+
 - **[Question]**: Dudas técnicas
 - **[Help]**: Pide ayuda con código
 - **[Showcase]**: Muestra tu app
@@ -67,6 +75,7 @@ Conectar con la comunidad Flutter/Dart para aprender, resolver dudas y manteners
 - **[News]**: Noticias de Flutter
 
 **Cómo Participar**:
+
 1. Lee reglas del subreddit
 2. Usa flair apropiado
 3. Formato de código con triple backticks
@@ -75,6 +84,7 @@ Conectar con la comunidad Flutter/Dart para aprender, resolver dudas y manteners
 ---
 
 ### r/dartlang
+
 **Miembros**: ~15,000  
 **URL**: [https://reddit.com/r/dartlang](https://reddit.com/r/dartlang)
 
@@ -85,6 +95,7 @@ Específico para Dart language.
 ## 📚 Stack Overflow
 
 **Tags Principales**:
+
 - `[flutter]` - 170,000+ preguntas
 - `[dart]` - 40,000+ preguntas
 - `[flutter-layout]`
@@ -94,6 +105,7 @@ Específico para Dart language.
 **URL**: [https://stackoverflow.com/questions/tagged/flutter](https://stackoverflow.com/questions/tagged/flutter)
 
 **Cómo Preguntar Bien**:
+
 1. **Busca primero** - Probablemente ya existe
 2. **Título descriptivo** - "Error X al hacer Y"
 3. **MCVE** - Minimal Complete Verifiable Example
@@ -102,30 +114,37 @@ Específico para Dart language.
 6. **Qué intentaste** - Muestra tu research
 
 **Ejemplo Buena Pregunta**:
+
 ```markdown
 ## Title: setState() not updating ListView in Flutter
 
 ### Problem
-I have a ListView showing a list of tasks. When I add a new task 
+
+I have a ListView showing a list of tasks. When I add a new task
 using `setState()`, the UI doesn't update.
 
 ### Code
+
 [dart]
 class TaskList extends StatefulWidget { ... }
 [/dart]
 
 ### Expected
+
 ListView should show new task immediately
 
 ### Actual
+
 ListView remains unchanged until hot reload
 
 ### What I tried
+
 - Called setState() after adding to list ✅
 - Checked if list is updating (it is) ✅
 - Tried using ListView.builder 🤷
 
 ### Environment
+
 - Flutter 3.16.0
 - Dart 3.2.0
 ```
@@ -135,10 +154,12 @@ ListView remains unchanged until hot reload
 ## 🐦 Twitter / X
 
 ### Cuentas Oficiales
+
 - **@FlutterDev** - Official Flutter account
 - **@dart_lang** - Official Dart account
 
 ### Desarrolladores Influyentes
+
 - **@remi_rousselet** - Creator of Provider, Riverpod
 - **@hillelcoren** - Invoice Ninja creator
 - **@roaa94** - UI specialist
@@ -146,6 +167,7 @@ ListView remains unchanged until hot reload
 - **@Nash0x7E2** - Package maintainer
 
 ### Hashtags
+
 - `#Flutter`
 - `#FlutterDev`
 - `#Dart`
@@ -159,10 +181,12 @@ ListView remains unchanged until hot reload
 ## 📱 Telegram
 
 ### Flutter Developers
+
 **Miembros**: ~20,000  
 **Link**: Buscar "Flutter Developers" en Telegram
 
 **Grupos en Español**:
+
 - **Flutter España**
 - **Flutter México**
 - **Flutter LATAM**
@@ -174,6 +198,7 @@ ListView remains unchanged until hot reload
 Ver [`12-canales-youtube.md`](12-canales-youtube.md) para lista completa de canales.
 
 **Canales con Comunidad Activa**:
+
 - Flutter (Official) - Comentarios en videos
 - The Net Ninja - Responde preguntas
 - Reso Coder - Comunidad Discord
@@ -183,6 +208,7 @@ Ver [`12-canales-youtube.md`](12-canales-youtube.md) para lista completa de cana
 ## 🌐 Otros Foros
 
 ### 1. **Flutter Community Medium**
+
 **URL**: [https://medium.com/flutter-community](https://medium.com/flutter-community)
 
 - Artículos de la comunidad
@@ -192,6 +218,7 @@ Ver [`12-canales-youtube.md`](12-canales-youtube.md) para lista completa de cana
 ---
 
 ### 2. **Dev.to Flutter**
+
 **URL**: [https://dev.to/t/flutter](https://dev.to/t/flutter)
 
 - Artículos técnicos
@@ -201,6 +228,7 @@ Ver [`12-canales-youtube.md`](12-canales-youtube.md) para lista completa de cana
 ---
 
 ### 3. **Hashnode Flutter**
+
 **URL**: [https://hashnode.com/n/flutter](https://hashnode.com/n/flutter)
 
 Similar a Dev.to, enfoque técnico.
@@ -212,11 +240,13 @@ Similar a Dev.to, enfoque técnico.
 ### Foros y Grupos
 
 1. **Flutter Español (Facebook)**
+
    - ~30,000 miembros
    - Muy activo
    - Preguntas y respuestas diarias
 
 2. **Flutter Developers LATAM (LinkedIn)**
+
    - Profesionales
    - Ofertas de trabajo
    - Networking
@@ -231,15 +261,18 @@ Similar a Dev.to, enfoque técnico.
 ### Meetups y Eventos
 
 **FlutterDays**:
+
 - Eventos oficiales por ciudad
 - Charlas y workshops
 - Networking presencial
 
 **Google Developer Groups (GDG)**:
+
 - Meetups locales
 - Busca tu ciudad: [gdg.community.dev](https://gdg.community.dev)
 
 **Flutter Latam**:
+
 - Conferencias anuales
 - Online y presenciales
 
@@ -250,11 +283,13 @@ Similar a Dev.to, enfoque técnico.
 ### Para Principiantes
 
 1. **Lurk Primero** (1-2 semanas)
+
    - Lee conversaciones existentes
    - Entiende dinámica de la comunidad
    - Aprende de preguntas de otros
 
 2. **Haz Buenas Preguntas**
+
    - Específicas y enfocadas
    - Incluye contexto suficiente
    - Muestra qué intentaste
@@ -268,11 +303,13 @@ Similar a Dev.to, enfoque técnico.
 ### Para Intermedios/Avanzados
 
 1. **Responde Preguntas**
+
    - Ayuda a principiantes
    - Consolida tu conocimiento
    - Construye reputación
 
 2. **Comparte Proyectos**
+
    - Muestra tus apps
    - Open source tus packages
    - Recibe feedback
@@ -287,21 +324,25 @@ Similar a Dev.to, enfoque técnico.
 ## 🎯 Comunidades por Uso
 
 **Para Aprender** (Semana 02):
+
 - 🥇 Stack Overflow - Buscar soluciones
 - 🥈 Reddit r/FlutterDev - Discusiones y recursos
 - 🥉 Discord Flutter Community - Ayuda en tiempo real
 
 **Para Networking**:
+
 - LinkedIn Flutter Groups
 - GDG local
 - Meetups presenciales
 
 **Para Inspiración**:
+
 - Twitter #FlutterUI
 - Reddit r/FlutterDev - [Showcase]
 - Dribbble (Flutter designs)
 
 **Para Mantenerse Actualizado**:
+
 - Twitter @FlutterDev
 - Flutter Weekly newsletter
 - r/FlutterDev - Sort by "New"
@@ -311,6 +352,7 @@ Similar a Dev.to, enfoque técnico.
 ## 📧 Newsletters
 
 ### 1. **Flutter Weekly**
+
 **URL**: [https://flutterweekly.net/](https://flutterweekly.net/)
 
 - Curación semanal de contenido
@@ -318,6 +360,7 @@ Similar a Dev.to, enfoque técnico.
 - Gratis, suscripción por email
 
 ### 2. **Dart Weekly**
+
 **URL**: No oficial, pero varias opciones en Medium
 
 ---
@@ -325,18 +368,21 @@ Similar a Dev.to, enfoque técnico.
 ## ✅ Checklist de Integración
 
 **Semana 02**:
+
 - [ ] Únete a Discord Flutter Community
 - [ ] Únete a r/FlutterDev
 - [ ] Crea cuenta Stack Overflow (si no tienes)
 - [ ] Sigue @FlutterDev en Twitter/X
 
 **Semana 03-04**:
+
 - [ ] Haz tu primera pregunta en Discord/Reddit
 - [ ] Responde una pregunta de principiante (si puedes)
 - [ ] Comparte tu proyecto en #showcase
 - [ ] Únete a GDG local (si existe)
 
 **Semana 05+**:
+
 - [ ] Suscríbete a Flutter Weekly
 - [ ] Escribe un artículo sobre tu aprendizaje
 - [ ] Contribuye a un package open source
@@ -347,6 +393,7 @@ Similar a Dev.to, enfoque técnico.
 ## 🚫 Qué Evitar
 
 **En Comunidades**:
+
 - ❌ Preguntar sin buscar primero
 - ❌ Código sin formatear
 - ❌ "No funciona" sin detalles
@@ -355,6 +402,7 @@ Similar a Dev.to, enfoque técnico.
 - ❌ Ser impaciente o grosero
 
 **Ejemplos Malos**:
+
 ```
 ❌ "Mi app no funciona ayuda"
 ❌ "Alguien que me haga este proyecto pago $X"
@@ -363,6 +411,7 @@ Similar a Dev.to, enfoque técnico.
 ```
 
 **Ejemplos Buenos**:
+
 ```
 ✅ "setState() no actualiza ListView - código incluido"
 ✅ "Recomendaciones para arquitectura de app X"
@@ -383,16 +432,19 @@ Similar a Dev.to, enfoque técnico.
 ## 🌟 Beneficios de Participar
 
 **Aprendizaje**:
+
 - Resolución rápida de dudas
 - Múltiples perspectivas
 - Trends y mejores prácticas
 
 **Networking**:
+
 - Conocer otros developers
 - Colaboraciones
 - Oportunidades laborales
 
 **Motivación**:
+
 - Ver proyectos inspiradores
 - Feedback constructivo
 - Sentido de comunidad
