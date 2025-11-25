@@ -402,22 +402,133 @@ print(!isAdult);  // false
 bool result = isAdult && checkDatabase();  // Si isAdult es false, no llama checkDatabase()
 ```
 
-````
+---
 
-#### 3.2 Instalar Dependencias Adicionales
+## 📝 Resumen de Operadores
 
-```bash
-# Instalar NativeWind (TailwindCSS para React Native)
-pnpm add nativewind
-pnpm add -D tailwindcss
+### Tabla de Referencia Rápida
 
-# Inicializar Tailwind
-npx tailwindcss init
-````
+| Categoría | Operadores | Descripción |
+|-----------|-----------|-------------|
+| **Aritméticos** | `+`, `-`, `*`, `/`, `~/`, `%` | Operaciones matemáticas |
+| **Asignación** | `=`, `+=`, `-=`, `*=`, `/=` | Asignar valores |
+| **Comparación** | `==`, `!=`, `>`, `<`, `>=`, `<=` | Comparar valores |
+| **Lógicos** | `&&`, `||`, `!` | Combinar condiciones booleanas |
+| **Null-aware** | `??`, `??=`, `?.`, `!` | Trabajar con valores nulos |
+| **Tipo** | `is`, `is!`, `as` | Verificar y castear tipos |
 
-#### 3.3 Configurar NativeWind
+### Ejemplo Integrador
 
-**Editar `tailwind.config.js`:**
+```dart
+/**
+ * Ejemplo que integra variables, tipos y operadores
+ * Simulación de validación de usuario
+ */
+
+void main() {
+  // Variables con diferentes tipos
+  final String username = 'Juan';
+  int age = 17;
+  double balance = 1500.50;
+  bool isPremium = false;
+  String? email;  // Puede ser null
+  
+  // Operadores aritméticos
+  double discount = isPremium ? balance * 0.1 : balance * 0.05;
+  double finalBalance = balance - discount;
+  
+  // Operadores de comparación
+  bool isAdult = age >= 18;
+  bool hasEnoughBalance = balance > 1000;
+  
+  // Operadores lógicos
+  bool canPurchase = isAdult && hasEnoughBalance;
+  
+  // Operadores null-aware
+  String contactEmail = email ?? 'no-email@example.com';
+  
+  // Operadores de tipo
+  if (age is int && age > 0) {
+    print('✓ Edad válida: $age años');
+  }
+  
+  // Resultado
+  print('Usuario: $username');
+  print('Es adulto: ${isAdult ? "Sí" : "No"}');
+  print('Puede comprar: ${canPurchase ? "Sí" : "No"}');
+  print('Balance final: \$${finalBalance.toStringAsFixed(2)}');
+  print('Email de contacto: $contactEmail');
+}
+```
+
+**Salida esperada:**
+```
+✓ Edad válida: 17 años
+Usuario: Juan
+Es adulto: No
+Puede comprar: No
+Balance final: $1425.48
+Email de contacto: no-email@example.com
+```
+
+---
+
+## 🎯 Puntos Clave para Recordar
+
+### Variables
+
+✅ **`var`** → Tipo inferido, mutable
+✅ **`final`** → Valor asignado una vez, inmutable en tiempo de ejecución
+✅ **`const`** → Constante en tiempo de compilación
+
+### Tipos de Datos
+
+✅ **`int`** → Números enteros
+✅ **`double`** → Números decimales
+✅ **`String`** → Cadenas de texto
+✅ **`bool`** → Valores booleanos (true/false)
+✅ **Null safety** → Sistema que previene errores de null
+
+### Operadores Esenciales
+
+✅ **Aritméticos** → `+`, `-`, `*`, `/`, `~/`, `%`
+✅ **Null-aware** → `??`, `??=`, `?.`, `!`
+✅ **Comparación** → `==`, `!=`, `>`, `<`, `>=`, `<=`
+✅ **Lógicos** → `&&`, `||`, `!`
+
+---
+
+## 🔗 Próximo Módulo
+
+**Siguiente tema:**  
+[03. Control de Flujo y Funciones](./03-control-flujo-funciones.md) - Aprenderemos estructuras de control (if, for, while) y cómo crear funciones reutilizables en Dart.
+
+---
+
+## 📚 Recursos Adicionales
+
+### Documentación Oficial
+
+- [Dart Language Tour - Variables](https://dart.dev/language/variables)
+- [Dart Language Tour - Built-in Types](https://dart.dev/language/built-in-types)
+- [Dart Language Tour - Operators](https://dart.dev/language/operators)
+- [Understanding Null Safety](https://dart.dev/null-safety/understanding-null-safety)
+
+### Ejercicios Interactivos
+
+- [DartPad - Practica en línea](https://dartpad.dev/)
+- [Dart Tutorial - Variables](https://dart-tutorial.com/introduction-and-basics/variables-in-dart/)
+
+### Videos Recomendados
+
+- [Dart in 100 Seconds - Fireship](https://www.youtube.com/watch?v=5rtujDjt50I)
+- [Null Safety in Dart - Flutter](https://www.youtube.com/watch?v=iYhOU9AuaFs)
+
+---
+
+**⏱️ Tiempo de estudio:** 2 horas  
+**📖 Nivel:** Fundamentos  
+**🎯 Progreso:** 2/10 módulos completados
 
 ```js
 /** @type {import('tailwindcss').Config} */
