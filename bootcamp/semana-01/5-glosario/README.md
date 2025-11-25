@@ -1,6 +1,6 @@
-# 📖 Glosario - Semana 1: Fundamentos de React Native
+# 📖 Glosario - Semana 1: Introducción a Dart
 
-Términos técnicos, conceptos clave y definiciones del vocabulario de React Native.
+Términos técnicos, conceptos clave y definiciones del vocabulario de Dart.
 
 ---
 

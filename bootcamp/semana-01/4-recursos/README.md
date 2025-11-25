@@ -1,6 +1,6 @@
 # 📚 Recursos Complementarios - Semana 1
 
-Material adicional para reforzar los conceptos de la Semana 1: Fundamentos de React Native.
+Material adicional para reforzar los conceptos de la Semana 1: Introducción a Dart.
 
 ---
 
@@ -53,10 +53,10 @@ Estos recursos son **complementarios y opcionales**. No es necesario consumir to
 
 ### eBooks Gratuitos (5-10 libros)
 
-- Guías completas de React Native
+- Guías completas de Dart
 - Tutoriales paso a paso
-- Best practices y patrones
-- TypeScript para principiantes
+- Best practices y patrones de Dart
+- Programación orientada a objetos
 
 ### Videografía (10-15 videos)
 
