@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <!-- Fondo oscuro -->
+  <rect width="900" height="650" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Operadores de Null Safety en Dart
+  </text>
+  
+  <!-- Operador ? (Nullable Type) -->
+  <g id="nullable-type">
+    <rect x="50" y="80" width="380" height="100" fill="#2d2d2d" stroke="#c586c0" stroke-width="2" rx="8"/>
+    <text x="240" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#c586c0" text-anchor="middle">
+      ? (Tipo Nullable)
+    </text>
+    <text x="240" y="140" font-family="Consolas, monospace" font-size="16" fill="#dcdcaa" text-anchor="middle">
+      String? nombre;  // Puede ser null
+    </text>
+    <text x="240" y="165" font-family="Arial, sans-serif" font-size="14" fill="#cccccc" text-anchor="middle">
+      Declara que la variable puede contener null
+    </text>
+  </g>
+  
+  <!-- Operador ! (Null Assertion) -->
+  <g id="null-assertion">
+    <rect x="470" y="80" width="380" height="100" fill="#2d2d2d" stroke="#f48771" stroke-width="2" rx="8"/>
+    <text x="660" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f48771" text-anchor="middle">
+      ! (Null Assertion)
+    </text>
+    <text x="660" y="140" font-family="Consolas, monospace" font-size="16" fill="#dcdcaa" text-anchor="middle">
+      String texto = nombre!;  // ⚠️ Forzar non-null
+    </text>
+    <text x="660" y="165" font-family="Arial, sans-serif" font-size="14" fill="#cccccc" text-anchor="middle">
+      Asegura que el valor NO es null (error si lo es)
+    </text>
+  </g>
+  
+  <!-- Operador ?? (If-null) -->
+  <g id="if-null">
+    <rect x="50" y="210" width="380" height="120" fill="#2d2d2d" stroke="#4ec9b0" stroke-width="2" rx="8"/>
+    <text x="240" y="240" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4ec9b0" text-anchor="middle">
+      ?? (If-null Operator)
+    </text>
+    <text x="240" y="270" font-family="Consolas, monospace" font-size="15" fill="#dcdcaa" text-anchor="middle">
+      String? nombre;
+    </text>
+    <text x="240" y="295" font-family="Consolas, monospace" font-size="15" fill="#4ec9b0" text-anchor="middle">
+      String saludo = nombre ?? 'Invitado';
+    </text>
+    <text x="240" y="320" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      Si nombre es null, usa 'Invitado'
+    </text>
+  </g>
+  
+  <!-- Operador ?. (Conditional Access) -->
+  <g id="conditional-access">
+    <rect x="470" y="210" width="380" height="120" fill="#2d2d2d" stroke="#569cd6" stroke-width="2" rx="8"/>
+    <text x="660" y="240" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#569cd6" text-anchor="middle">
+      ?. (Conditional Access)
+    </text>
+    <text x="660" y="270" font-family="Consolas, monospace" font-size="15" fill="#dcdcaa" text-anchor="middle">
+      String? texto;
+    </text>
+    <text x="660" y="295" font-family="Consolas, monospace" font-size="15" fill="#569cd6" text-anchor="middle">
+      int? longitud = texto?.length;
+    </text>
+    <text x="660" y="320" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      Solo accede si texto no es null
+    </text>
+  </g>
+  
+  <!-- Operador ??= (Null-aware Assignment) -->
+  <g id="null-aware-assignment">
+    <rect x="50" y="360" width="380" height="120" fill="#2d2d2d" stroke="#dcdcaa" stroke-width="2" rx="8"/>
+    <text x="240" y="390" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#dcdcaa" text-anchor="middle">
+      ??= (Null-aware Assignment)
+    </text>
+    <text x="240" y="420" font-family="Consolas, monospace" font-size="15" fill="#dcdcaa" text-anchor="middle">
+      String? nombre;
+    </text>
+    <text x="240" y="445" font-family="Consolas, monospace" font-size="15" fill="#dcdcaa" text-anchor="middle">
+      nombre ??= 'Por defecto';
+    </text>
+    <text x="240" y="470" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      Asigna solo si nombre es null
+    </text>
+  </g>
+  
+  <!-- Ejemplo Completo -->
+  <g id="ejemplo-completo">
+    <rect x="470" y="360" width="380" height="120" fill="#01579b" stroke="#0175c2" stroke-width="3" rx="8"/>
+    <text x="660" y="390" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      💡 Ejemplo Combinado
+    </text>
+    <text x="660" y="420" font-family="Consolas, monospace" font-size="14" fill="#ffffff" text-anchor="middle">
+      String? usuario;
+    </text>
+    <text x="660" y="440" font-family="Consolas, monospace" font-size="14" fill="#4ec9b0" text-anchor="middle">
+      int longitud = usuario?.length ?? 0;
+    </text>
+    <text x="660" y="465" font-family="Arial, sans-serif" font-size="12" fill="#cccccc" text-anchor="middle">
+      Usa ?. para acceso seguro y ?? para valor por defecto
+    </text>
+  </g>
+  
+  <!-- Comparación -->
+  <g id="comparacion">
+    <rect x="50" y="510" width="800" height="110" fill="#2d2d2d" stroke="#666666" stroke-width="2" rx="8"/>
+    <text x="450" y="540" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      🎯 Cuándo Usar Cada Operador
+    </text>
+    
+    <text x="70" y="570" font-family="Arial, sans-serif" font-size="14" fill="#c586c0">
+      • ? → Al declarar que una variable puede ser null
+    </text>
+    <text x="70" y="593" font-family="Arial, sans-serif" font-size="14" fill="#4ec9b0">
+      • ?? → Para proporcionar un valor por defecto
+    </text>
+    
+    <text x="480" y="570" font-family="Arial, sans-serif" font-size="14" fill="#569cd6">
+      • ?. → Para acceder a propiedades de forma segura
+    </text>
+    <text x="480" y="593" font-family="Arial, sans-serif" font-size="14" fill="#f48771">
+      • ! → Solo cuando estés 100% seguro de que NO es null
+    </text>
+  </g>
+  
+  <!-- Logo Dart -->
+  <g id="dart-logo" transform="translate(20, 580)">
+    <polygon points="30,0 60,0 60,60 0,60" fill="#0175c2"/>
+    <polygon points="0,60 30,30 60,60" fill="#01579b"/>
+  </g>
+  
+  <text x="95" y="620" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0175c2">
+    Dart 3.x • Sound Null Safety
+  </text>
+</svg>
