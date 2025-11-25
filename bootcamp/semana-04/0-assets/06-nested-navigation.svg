@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+  <defs>
+    <marker id="arrowNested" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#81C784"/>
+    </marker>
+    <marker id="arrowBack" markerWidth="8" markerHeight="8" refX="0" refY="3" orient="auto">
+      <path d="M7,0 L7,6 L0,3 z" fill="#EF5350"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="550" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    6. Navegación Anidada
+  </text>
+  <text x="400" y="58" font-family="Arial, sans-serif" font-size="14" fill="#B0B0B0" text-anchor="middle">
+    Múltiples Navigators con stacks independientes
+  </text>
+  
+  <!-- Main Container -->
+  <rect x="50" y="80" width="700" height="350" rx="12" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <text x="70" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6">🌐 Root Navigator (MaterialApp)</text>
+  
+  <!-- App Bar -->
+  <rect x="70" y="120" width="660" height="40" fill="#1565C0" rx="6"/>
+  <text x="400" y="145" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Mi Aplicación</text>
+  
+  <!-- Bottom Nav Tabs -->
+  <rect x="70" y="170" width="660" height="240" fill="#252525" rx="6"/>
+  
+  <!-- Tab 1 - Home (Active) -->
+  <rect x="90" y="185" width="200" height="200" rx="8" fill="#1B5E20" opacity="0.3" stroke="#81C784" stroke-width="2"/>
+  <text x="190" y="210" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#81C784" text-anchor="middle">🏠 Home Tab</text>
+  <text x="190" y="230" font-family="Arial, sans-serif" font-size="10" fill="#A5D6A7" text-anchor="middle">Navigator propio</text>
+  
+  <!-- Home Stack -->
+  <rect x="105" y="245" width="80" height="50" rx="4" fill="#81C784"/>
+  <text x="145" y="275" font-family="Arial, sans-serif" font-size="9" fill="#1E1E1E" text-anchor="middle">HomeList</text>
+  
+  <path d="M 195 270 L 220 270" stroke="#81C784" stroke-width="2" marker-end="url(#arrowNested)"/>
+  
+  <rect x="195" y="245" width="80" height="50" rx="4" fill="#A5D6A7"/>
+  <text x="235" y="275" font-family="Arial, sans-serif" font-size="9" fill="#1E1E1E" text-anchor="middle">HomeDetail</text>
+  
+  <text x="190" y="320" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">Stack independiente</text>
+  <text x="190" y="335" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">del tab padre</text>
+  
+  <!-- Tab 2 - Search -->
+  <rect x="310" y="185" width="200" height="200" rx="8" fill="#2D2D2D" stroke="#64B5F6" stroke-width="1" stroke-dasharray="4"/>
+  <text x="410" y="210" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#64B5F6" text-anchor="middle">🔍 Search Tab</text>
+  <text x="410" y="230" font-family="Arial, sans-serif" font-size="10" fill="#90CAF9" text-anchor="middle">Navigator propio</text>
+  
+  <!-- Search Stack -->
+  <rect x="325" y="245" width="70" height="45" rx="4" fill="#64B5F6" opacity="0.5"/>
+  <text x="360" y="272" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" text-anchor="middle">Search</text>
+  
+  <rect x="405" y="245" width="70" height="45" rx="4" fill="#64B5F6" opacity="0.3" stroke="#64B5F6" stroke-dasharray="3"/>
+  <text x="440" y="272" font-family="Arial, sans-serif" font-size="9" fill="#64B5F6" text-anchor="middle">Results</text>
+  
+  <text x="410" y="320" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">Cada tab mantiene</text>
+  <text x="410" y="335" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">su propio historial</text>
+  
+  <!-- Tab 3 - Profile -->
+  <rect x="530" y="185" width="180" height="200" rx="8" fill="#2D2D2D" stroke="#FFB74D" stroke-width="1" stroke-dasharray="4"/>
+  <text x="620" y="210" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFB74D" text-anchor="middle">👤 Profile Tab</text>
+  <text x="620" y="230" font-family="Arial, sans-serif" font-size="10" fill="#FFCC80" text-anchor="middle">Navigator propio</text>
+  
+  <!-- Profile Stack -->
+  <rect x="545" y="245" width="60" height="40" rx="4" fill="#FFB74D" opacity="0.5"/>
+  <text x="575" y="270" font-family="Arial, sans-serif" font-size="8" fill="#1E1E1E" text-anchor="middle">Profile</text>
+  
+  <rect x="615" y="245" width="60" height="40" rx="4" fill="#FFB74D" opacity="0.3" stroke="#FFB74D" stroke-dasharray="3"/>
+  <text x="645" y="270" font-family="Arial, sans-serif" font-size="8" fill="#FFB74D" text-anchor="middle">Edit</text>
+  
+  <!-- Bottom Navigation -->
+  <rect x="70" y="380" width="660" height="40" fill="#1A1A1A" rx="6"/>
+  <rect x="90" y="388" width="60" height="25" fill="#81C784" opacity="0.3" rx="4"/>
+  <text x="120" y="405" font-family="Arial, sans-serif" font-size="10" fill="#81C784" text-anchor="middle">🏠</text>
+  <text x="250" y="405" font-family="Arial, sans-serif" font-size="10" fill="#757575" text-anchor="middle">🔍</text>
+  <text x="380" y="405" font-family="Arial, sans-serif" font-size="10" fill="#757575" text-anchor="middle">❤️</text>
+  <text x="510" y="405" font-family="Arial, sans-serif" font-size="10" fill="#757575" text-anchor="middle">👤</text>
+  
+  <!-- Code Implementation -->
+  <rect x="50" y="445" width="340" height="85" rx="6" fill="#2D2D2D" stroke="#404040"/>
+  <text x="70" y="470" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">Navigator Anidado:</text>
+  <text x="70" y="490" font-family="monospace" font-size="9" fill="#64B5F6">Navigator(</text>
+  <text x="80" y="505" font-family="monospace" font-size="9" fill="#FFB74D">key: _homeNavKey,</text>
+  <text x="80" y="520" font-family="monospace" font-size="9" fill="#E0E0E0">onGenerateRoute: (settings) {...}</text>
+  
+  <!-- Key Points -->
+  <rect x="410" y="445" width="340" height="85" rx="6" fill="#1B5E20" opacity="0.2" stroke="#81C784"/>
+  <text x="430" y="470" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#81C784">✅ Características:</text>
+  <text x="430" y="490" font-family="Arial, sans-serif" font-size="10" fill="#A5D6A7">• Cada tab tiene GlobalKey&lt;NavigatorState&gt;</text>
+  <text x="430" y="508" font-family="Arial, sans-serif" font-size="10" fill="#A5D6A7">• Back button afecta solo el tab activo</text>
+  <text x="430" y="526" font-family="Arial, sans-serif" font-size="10" fill="#A5D6A7">• Estado preservado al cambiar tabs</text>
+  
+  <!-- Footer -->
+  <text x="400" y="545" font-family="Arial, sans-serif" font-size="11" fill="#757575" text-anchor="middle">
+    Semana 04 - Navegación y Rutas en Flutter
+  </text>
+</svg>

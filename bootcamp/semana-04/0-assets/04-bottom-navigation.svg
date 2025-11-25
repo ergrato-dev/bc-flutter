@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="tabGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#64B5F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#42A5F5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    4. Bottom Navigation
+  </text>
+  <text x="400" y="58" font-family="Arial, sans-serif" font-size="14" fill="#B0B0B0" text-anchor="middle">
+    Navegación por pestañas inferior con IndexedStack
+  </text>
+  
+  <!-- Main Phone Mockup -->
+  <rect x="280" y="80" width="240" height="380" rx="24" fill="#2D2D2D" stroke="#404040" stroke-width="3"/>
+  
+  <!-- Status Bar -->
+  <rect x="280" y="80" width="240" height="30" rx="24" fill="#1A1A1A"/>
+  <circle cx="400" cy="95" r="5" fill="#404040"/>
+  
+  <!-- Content Area -->
+  <rect x="290" y="115" width="220" height="280" fill="#252525"/>
+  
+  <!-- IndexedStack indicator -->
+  <text x="400" y="145" font-family="Arial, sans-serif" font-size="12" fill="#64B5F6" text-anchor="middle">IndexedStack</text>
+  <text x="400" y="165" font-family="Arial, sans-serif" font-size="10" fill="#757575" text-anchor="middle">index: 0</text>
+  
+  <!-- Stacked screens representation -->
+  <rect x="310" y="185" width="180" height="100" rx="6" fill="#3D5AFE" opacity="0.3"/>
+  <rect x="315" y="190" width="170" height="90" rx="6" fill="#3D5AFE" opacity="0.5"/>
+  <rect x="320" y="195" width="160" height="80" rx="6" fill="url(#tabGrad)"/>
+  <text x="400" y="240" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">🏠 Home</text>
+  <text x="400" y="258" font-family="Arial, sans-serif" font-size="10" fill="#E3F2FD" text-anchor="middle">Pantalla activa</text>
+  
+  <!-- Hidden screens labels -->
+  <text x="400" y="305" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">← Otras pantallas en memoria →</text>
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">(preservan estado)</text>
+  
+  <!-- Bottom Navigation Bar -->
+  <rect x="290" y="395" width="220" height="55" fill="#2D2D2D" stroke="#404040" stroke-width="1"/>
+  
+  <!-- Nav Items -->
+  <g>
+    <rect x="300" y="400" width="50" height="45" fill="#64B5F6" opacity="0.2" rx="4"/>
+    <text x="325" y="420" font-family="Arial, sans-serif" font-size="16" fill="#64B5F6" text-anchor="middle">🏠</text>
+    <text x="325" y="438" font-family="Arial, sans-serif" font-size="9" fill="#64B5F6" text-anchor="middle">Home</text>
+  </g>
+  <g>
+    <text x="380" y="420" font-family="Arial, sans-serif" font-size="16" fill="#757575" text-anchor="middle">🔍</text>
+    <text x="380" y="438" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">Buscar</text>
+  </g>
+  <g>
+    <text x="430" y="420" font-family="Arial, sans-serif" font-size="16" fill="#757575" text-anchor="middle">❤️</text>
+    <text x="430" y="438" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">Favoritos</text>
+  </g>
+  <g>
+    <text x="480" y="420" font-family="Arial, sans-serif" font-size="16" fill="#757575" text-anchor="middle">👤</text>
+    <text x="480" y="438" font-family="Arial, sans-serif" font-size="9" fill="#757575" text-anchor="middle">Perfil</text>
+  </g>
+  
+  <!-- Left side - Structure -->
+  <rect x="30" y="100" width="220" height="250" rx="6" fill="#2D2D2D" stroke="#404040"/>
+  <text x="50" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">Estructura:</text>
+  
+  <text x="50" y="155" font-family="monospace" font-size="10" fill="#64B5F6">Scaffold(</text>
+  <text x="60" y="175" font-family="monospace" font-size="10" fill="#E0E0E0">body: IndexedStack(</text>
+  <text x="70" y="195" font-family="monospace" font-size="10" fill="#FFB74D">index: _currentIndex,</text>
+  <text x="70" y="215" font-family="monospace" font-size="10" fill="#E0E0E0">children: [</text>
+  <text x="80" y="235" font-family="monospace" font-size="10" fill="#81C784">HomeScreen(),</text>
+  <text x="80" y="255" font-family="monospace" font-size="10" fill="#81C784">SearchScreen(),</text>
+  <text x="80" y="275" font-family="monospace" font-size="10" fill="#81C784">FavoritesScreen(),</text>
+  <text x="80" y="295" font-family="monospace" font-size="10" fill="#81C784">ProfileScreen(),</text>
+  <text x="70" y="315" font-family="monospace" font-size="10" fill="#E0E0E0">],</text>
+  <text x="60" y="335" font-family="monospace" font-size="10" fill="#E0E0E0">),</text>
+  
+  <!-- Right side - BottomNavigationBar -->
+  <rect x="550" y="100" width="220" height="200" rx="6" fill="#2D2D2D" stroke="#404040"/>
+  <text x="570" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">BottomNavigationBar:</text>
+  
+  <text x="570" y="155" font-family="monospace" font-size="10" fill="#64B5F6">bottomNavigationBar:</text>
+  <text x="580" y="175" font-family="monospace" font-size="10" fill="#E0E0E0">BottomNavigationBar(</text>
+  <text x="590" y="195" font-family="monospace" font-size="10" fill="#FFB74D">currentIndex: _index,</text>
+  <text x="590" y="215" font-family="monospace" font-size="10" fill="#CE93D8">onTap: (i) {</text>
+  <text x="600" y="235" font-family="monospace" font-size="10" fill="#E0E0E0">setState(() {</text>
+  <text x="610" y="255" font-family="monospace" font-size="10" fill="#E0E0E0">_index = i;</text>
+  <text x="600" y="275" font-family="monospace" font-size="10" fill="#E0E0E0">});</text>
+  <text x="590" y="295" font-family="monospace" font-size="10" fill="#CE93D8">},</text>
+  
+  <!-- Benefits -->
+  <rect x="550" y="320" width="220" height="130" rx="6" fill="#1B5E20" opacity="0.2" stroke="#81C784"/>
+  <text x="570" y="345" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#81C784">✅ Ventajas:</text>
+  <text x="570" y="370" font-family="Arial, sans-serif" font-size="10" fill="#A5D6A7">• Estado preservado</text>
+  <text x="570" y="390" font-family="Arial, sans-serif" font-size="10" fill="#A5D6A7">• Navegación instantánea</text>
+  <text x="570" y="410" font-family="Arial, sans-serif" font-size="10" fill="#A5D6A7">• Scroll position mantenida</text>
+  <text x="570" y="430" font-family="Arial, sans-serif" font-size="10" fill="#A5D6A7">• Sin animación de transición</text>
+  
+  <!-- Tip -->
+  <rect x="30" y="370" width="220" height="80" rx="6" fill="#E65100" opacity="0.2" stroke="#FFB74D"/>
+  <text x="50" y="395" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFB74D">💡 Material 3:</text>
+  <text x="50" y="415" font-family="Arial, sans-serif" font-size="10" fill="#FFCC80">Usa NavigationBar en</text>
+  <text x="50" y="435" font-family="Arial, sans-serif" font-size="10" fill="#FFCC80">lugar de BottomNavigationBar</text>
+  
+  <!-- Footer -->
+  <text x="400" y="485" font-family="Arial, sans-serif" font-size="11" fill="#757575" text-anchor="middle">
+    Semana 04 - Navegación y Rutas en Flutter
+  </text>
+</svg>
