@@ -6,12 +6,12 @@
 
 ## 📋 Información General
 
-| Aspecto | Detalle |
-|---------|---------|
-| **Semana** | 04 de 10 |
-| **Tema** | Navegación y Rutas |
-| **Dedicación** | 8 horas |
-| **Nivel** | Intermedio |
+| Aspecto            | Detalle                   |
+| ------------------ | ------------------------- |
+| **Semana**         | 04 de 10                  |
+| **Tema**           | Navegación y Rutas        |
+| **Dedicación**     | 8 horas                   |
+| **Nivel**          | Intermedio                |
 | **Prerrequisitos** | Semanas 01-03 completadas |
 
 ---
@@ -37,11 +37,11 @@ Al finalizar esta semana, serás capaz de:
 
 ### 📖 Teoría (3 módulos)
 
-| # | Módulo | Contenido | Tiempo |
-|---|--------|-----------|--------|
-| 01 | [Navegación Básica](./1-teoria/01-navegacion-basica.md) | Navigator, push/pop, MaterialPageRoute, paso de datos | 45 min |
-| 02 | [Rutas Nombradas](./1-teoria/02-rutas-nombradas.md) | Routes map, arguments, onGenerateRoute, AppRoutes | 45 min |
-| 03 | [Navegación Avanzada](./1-teoria/03-navegacion-avanzada.md) | BottomNav, Drawer, TabBar, navegación anidada | 60 min |
+| #   | Módulo                                                      | Contenido                                             | Tiempo |
+| --- | ----------------------------------------------------------- | ----------------------------------------------------- | ------ |
+| 01  | [Navegación Básica](./1-teoria/01-navegacion-basica.md)     | Navigator, push/pop, MaterialPageRoute, paso de datos | 45 min |
+| 02  | [Rutas Nombradas](./1-teoria/02-rutas-nombradas.md)         | Routes map, arguments, onGenerateRoute, AppRoutes     | 45 min |
+| 03  | [Navegación Avanzada](./1-teoria/03-navegacion-avanzada.md) | BottomNav, Drawer, TabBar, navegación anidada         | 60 min |
 
 **Tiempo estimado teoría:** 2.5 horas
 
@@ -49,13 +49,13 @@ Al finalizar esta semana, serás capaz de:
 
 ### 💻 Prácticas (5 ejercicios)
 
-| # | Práctica | Descripción | Nivel | Pts |
-|---|----------|-------------|-------|-----|
-| 01 | [Navegación Básica](./2-practicas/practica-01-navegacion-basica.md) | App de tareas con push/pop | ⭐ | 5 |
-| 02 | [Rutas Nombradas](./2-practicas/practica-02-rutas-nombradas.md) | Catálogo de productos | ⭐⭐ | 6 |
-| 03 | [Bottom Navigation](./2-practicas/practica-03-bottom-navigation.md) | App social con tabs | ⭐⭐ | 6 |
-| 04 | [Drawer Menu](./2-practicas/practica-04-drawer-menu.md) | App empresarial | ⭐⭐⭐ | 6 |
-| 05 | [App Multinivel](./2-practicas/practica-05-app-multinivel.md) | E-commerce completo | ⭐⭐⭐ | 7 |
+| #   | Práctica                                                            | Descripción                | Nivel  | Pts |
+| --- | ------------------------------------------------------------------- | -------------------------- | ------ | --- |
+| 01  | [Navegación Básica](./2-practicas/practica-01-navegacion-basica.md) | App de tareas con push/pop | ⭐     | 5   |
+| 02  | [Rutas Nombradas](./2-practicas/practica-02-rutas-nombradas.md)     | Catálogo de productos      | ⭐⭐   | 6   |
+| 03  | [Bottom Navigation](./2-practicas/practica-03-bottom-navigation.md) | App social con tabs        | ⭐⭐   | 6   |
+| 04  | [Drawer Menu](./2-practicas/practica-04-drawer-menu.md)             | App empresarial            | ⭐⭐⭐ | 6   |
+| 05  | [App Multinivel](./2-practicas/practica-05-app-multinivel.md)       | E-commerce completo        | ⭐⭐⭐ | 7   |
 
 **Tiempo estimado prácticas:** 2.5 horas
 
@@ -63,19 +63,21 @@ Al finalizar esta semana, serás capaz de:
 
 ### 🔨 Proyecto Integrador: TravelApp
 
-| Aspecto | Detalle |
-|---------|---------|
-| **Nombre** | TravelApp - Viajes y Reservas |
+| Aspecto         | Detalle                                          |
+| --------------- | ------------------------------------------------ |
+| **Nombre**      | TravelApp - Viajes y Reservas                    |
 | **Descripción** | App de viajes con navegación compleja multinivel |
-| **Puntos** | 50 pts (50% de la nota) |
-| **Tiempo** | 3 horas |
+| **Puntos**      | 50 pts (50% de la nota)                          |
+| **Tiempo**      | 3 horas                                          |
 
 **Documentación del Proyecto:**
+
 - 📋 [README - Especificación completa](./3-proyecto/README.md)
 - 🎨 [Guía de Diseño](./3-proyecto/GUIA-DISENO.md)
 - 📊 [Datos de Ejemplo](./3-proyecto/EJEMPLOS-DATOS.md)
 
 **Características principales:**
+
 - BottomNavigationBar con 4 tabs
 - Drawer con navegación secundaria
 - Flujo de reservas completo
@@ -119,33 +121,33 @@ semana-04/
 
 ## ⏱️ Distribución del Tiempo (8 horas)
 
-| Actividad | Horas | Porcentaje |
-|-----------|-------|------------|
-| Teoría (3 módulos) | 2.5 h | 31% |
-| Prácticas (5 ejercicios) | 2.5 h | 31% |
-| Proyecto TravelApp | 3 h | 38% |
-| **TOTAL** | **8 h** | **100%** |
+| Actividad                | Horas   | Porcentaje |
+| ------------------------ | ------- | ---------- |
+| Teoría (3 módulos)       | 2.5 h   | 31%        |
+| Prácticas (5 ejercicios) | 2.5 h   | 31%        |
+| Proyecto TravelApp       | 3 h     | 38%        |
+| **TOTAL**                | **8 h** | **100%**   |
 
 ---
 
 ## 📊 Sistema de Evaluación
 
-| Componente | Puntos | Porcentaje |
-|------------|--------|------------|
-| Evaluación Teórica | 20 pts | 20% |
-| Prácticas (5) | 30 pts | 30% |
-| Proyecto TravelApp | 50 pts | 50% |
-| **TOTAL** | **100 pts** | **100%** |
+| Componente         | Puntos      | Porcentaje |
+| ------------------ | ----------- | ---------- |
+| Evaluación Teórica | 20 pts      | 20%        |
+| Prácticas (5)      | 30 pts      | 30%        |
+| Proyecto TravelApp | 50 pts      | 50%        |
+| **TOTAL**          | **100 pts** | **100%**   |
 
 ### Escala de Calificación
 
-| Rango | Calificación |
-|-------|--------------|
-| 90-100 | ⭐ Excelente |
-| 80-89 | ✅ Muy Bueno |
-| 70-79 | 👍 Bueno |
-| 60-69 | ⚠️ Suficiente |
-| 0-59 | ❌ Insuficiente |
+| Rango  | Calificación    |
+| ------ | --------------- |
+| 90-100 | ⭐ Excelente    |
+| 80-89  | ✅ Muy Bueno    |
+| 70-79  | 👍 Bueno        |
+| 60-69  | ⚠️ Suficiente   |
+| 0-59   | ❌ Insuficiente |
 
 📋 [Ver Rúbrica Detallada](./RUBRICA-EVALUACION.md)
 
@@ -154,6 +156,7 @@ semana-04/
 ## 🛣️ Ruta de Aprendizaje Sugerida
 
 ### Día 1-2: Fundamentos (3 horas)
+
 ```
 1. 📖 Leer: 01-navegacion-basica.md (45 min)
 2. 💻 Hacer: practica-01 - Navegación básica (30 min)
@@ -162,6 +165,7 @@ semana-04/
 ```
 
 ### Día 3-4: Navegación Avanzada (2.5 horas)
+
 ```
 1. 📖 Leer: 03-navegacion-avanzada.md (60 min)
 2. 💻 Hacer: practica-03 - Bottom Navigation (30 min)
@@ -170,6 +174,7 @@ semana-04/
 ```
 
 ### Día 5-7: Proyecto Integrador (2.5 horas)
+
 ```
 1. 📋 Revisar: Especificación TravelApp (15 min)
 2. 🎨 Consultar: Guía de diseño (15 min)
@@ -181,6 +186,7 @@ semana-04/
 ## 🔑 Conceptos Clave
 
 ### Navigator Stack
+
 ```dart
 // El Navigator funciona como una pila (LIFO)
 Navigator.push(context, MaterialPageRoute(
@@ -190,6 +196,7 @@ Navigator.pop(context);
 ```
 
 ### Rutas Nombradas
+
 ```dart
 MaterialApp(
   routes: {
@@ -201,6 +208,7 @@ Navigator.pushNamed(context, '/detail', arguments: item);
 ```
 
 ### Bottom Navigation con IndexedStack
+
 ```dart
 Scaffold(
   body: IndexedStack(
@@ -216,11 +224,13 @@ Scaffold(
 ## ✅ Checklist de Completitud
 
 ### Teoría
+
 - [ ] Módulo 01: Navegación Básica
 - [ ] Módulo 02: Rutas Nombradas
 - [ ] Módulo 03: Navegación Avanzada
 
 ### Prácticas
+
 - [ ] Práctica 01: Navegación Básica (5 pts)
 - [ ] Práctica 02: Rutas Nombradas (6 pts)
 - [ ] Práctica 03: Bottom Navigation (6 pts)
@@ -228,6 +238,7 @@ Scaffold(
 - [ ] Práctica 05: App Multinivel (7 pts)
 
 ### Proyecto
+
 - [ ] Estructura de navegación implementada
 - [ ] BottomNavigationBar con 4 tabs
 - [ ] Drawer con menú lateral
@@ -248,8 +259,8 @@ Scaffold(
 
 ## 🔗 Navegación del Bootcamp
 
-| ⬅️ Anterior | 🏠 Inicio | ➡️ Siguiente |
-|-------------|-----------|--------------|
+| ⬅️ Anterior                                            | 🏠 Inicio                              | ➡️ Siguiente                                           |
+| ------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------ |
 | [Semana 03: Widgets y Layouts](../semana-03/README.md) | [Índice del Bootcamp](../../README.md) | [Semana 05: Gestión de Estado](../semana-05/README.md) |
 
 ---
@@ -264,10 +275,11 @@ Scaffold(
 
 ---
 
-*Semana 04 - Navegación y Rutas en Flutter*  
-*Bootcamp Flutter - 8 horas de dedicación*  
-*¡Domina la navegación y crea apps con flujos profesionales! 🚀*
-```
+_Semana 04 - Navegación y Rutas en Flutter_  
+_Bootcamp Flutter - 8 horas de dedicación_  
+_¡Domina la navegación y crea apps con flujos profesionales! 🚀_
+
+````
 
 ### 2. Rutas Nombradas (2 horas)
 
@@ -282,7 +294,7 @@ MaterialApp(
     '/perfil': (context) => PerfilScreen(),
   },
 )
-```
+````
 
 #### Navegación con Rutas Nombradas
 
