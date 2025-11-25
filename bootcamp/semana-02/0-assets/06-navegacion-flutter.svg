@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1e1e1e"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#569cd6" text-anchor="middle">
+    Sistema de Navegación en Flutter
+  </text>
+  
+  <!-- Navigator Stack Visualization -->
+  <g id="navigator-stack">
+    <text x="400" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4ec9b0" text-anchor="middle">
+      Navigator Stack (Pila de Pantallas)
+    </text>
+    
+    <!-- Stack representation -->
+    
+    <!-- Screen 4 (Top) -->
+    <g id="screen-4">
+      <rect x="150" y="100" width="500" height="80" rx="8" fill="#2d2d30" stroke="#c586c0" stroke-width="3"/>
+      <text x="180" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c586c0">
+        🔝 Screen 4 (Top) - Visible
+      </text>
+      <text x="180" y="150" font-family="Consolas, monospace" font-size="11" fill="#9cdcfe">
+        DetailScreen (Usuario seleccionado)
+      </text>
+      <text x="180" y="167" font-family="Arial, sans-serif" font-size="10" fill="#d4d4d4">
+        La pantalla actual que ve el usuario
+      </text>
+      
+      <!-- Pop button -->
+      <rect x="530" y="120" width="100" height="35" rx="4" fill="#f48771" stroke="#f48771"/>
+      <text x="580" y="142" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e1e1e" text-anchor="middle">
+        pop()
+      </text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M 630 155 L 630 195" stroke="#dcdcaa" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="645" y="180" font-family="Arial, sans-serif" font-size="10" fill="#dcdcaa">Elimina</text>
+    
+    <!-- Screen 3 -->
+    <g id="screen-3">
+      <rect x="150" y="195" width="500" height="70" rx="8" fill="#252526" stroke="#dcdcaa" stroke-width="2" opacity="0.9"/>
+      <text x="180" y="220" font-family="Arial, sans-serif" font-size="13" fill="#dcdcaa">
+        Screen 3
+      </text>
+      <text x="180" y="237" font-family="Consolas, monospace" font-size="10" fill="#9cdcfe">
+        UserListScreen
+      </text>
+      <text x="180" y="253" font-family="Arial, sans-serif" font-size="9" fill="#d4d4d4">
+        Oculta (debajo de Screen 4)
+      </text>
+    </g>
+    
+    <!-- Screen 2 -->
+    <g id="screen-2">
+      <rect x="150" y="275" width="500" height="60" rx="8" fill="#1e1e1e" stroke="#569cd6" stroke-width="2" opacity="0.7"/>
+      <text x="180" y="297" font-family="Arial, sans-serif" font-size="12" fill="#569cd6">
+        Screen 2
+      </text>
+      <text x="180" y="312" font-family="Consolas, monospace" font-size="10" fill="#9cdcfe">
+        SettingsScreen
+      </text>
+      <text x="180" y="327" font-family="Arial, sans-serif" font-size="9" fill="#d4d4d4">
+        Oculta (debajo)
+      </text>
+    </g>
+    
+    <!-- Screen 1 (Bottom/Base) -->
+    <g id="screen-1">
+      <rect x="150" y="345" width="500" height="60" rx="8" fill="#1e1e1e" stroke="#4ec9b0" stroke-width="2" opacity="0.5"/>
+      <text x="180" y="367" font-family="Arial, sans-serif" font-size="12" fill="#4ec9b0">
+        Screen 1 (Base) - HomeScreen
+      </text>
+      <text x="180" y="382" font-family="Consolas, monospace" font-size="10" fill="#9cdcfe">
+        Primera pantalla de la app
+      </text>
+      <text x="180" y="397" font-family="Arial, sans-serif" font-size="9" fill="#d4d4d4">
+        Siempre en la base del stack
+      </text>
+    </g>
+    
+    <!-- Push Arrow -->
+    <g id="push-operation">
+      <path d="M 80 370 L 80 140 L 140 140" stroke="#4ec9b0" stroke-width="3" marker-end="url(#arrow-green)"/>
+      <rect x="15" y="240" width="50" height="30" rx="4" fill="#4ec9b0"/>
+      <text x="40" y="260" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e1e1e" text-anchor="middle">
+        push()
+      </text>
+      <text x="40" y="225" font-family="Arial, sans-serif" font-size="10" fill="#4ec9b0" text-anchor="middle">
+        Añade
+      </text>
+      <text x="40" y="285" font-family="Arial, sans-serif" font-size="10" fill="#4ec9b0" text-anchor="middle">
+        arriba
+      </text>
+    </g>
+  </g>
+  
+  <!-- Navigation Methods -->
+  <g id="navigation-methods">
+    <text x="50" y="440" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#dcdcaa">
+      Métodos de Navegación
+    </text>
+    
+    <!-- push -->
+    <g id="method-push">
+      <rect x="50" y="455" width="340" height="60" rx="6" fill="#2d2d30" stroke="#4ec9b0" stroke-width="2"/>
+      <text x="70" y="477" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#4ec9b0">
+        Navigator.push()
+      </text>
+      <text x="70" y="496" font-family="Arial, sans-serif" font-size="10" fill="#9cdcfe">
+        Añade una nueva pantalla al stack (encima)
+      </text>
+      <text x="70" y="509" font-family="Consolas, monospace" font-size="9" fill="#d4d4d4">
+        Navigator.push(context, MaterialPageRoute(...));
+      </text>
+    </g>
+    
+    <!-- pop -->
+    <g id="method-pop">
+      <rect x="410" y="455" width="340" height="60" rx="6" fill="#2d2d30" stroke="#f48771" stroke-width="2"/>
+      <text x="430" y="477" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#f48771">
+        Navigator.pop()
+      </text>
+      <text x="430" y="496" font-family="Arial, sans-serif" font-size="10" fill="#9cdcfe">
+        Elimina la pantalla actual (retrocede)
+      </text>
+      <text x="430" y="509" font-family="Consolas, monospace" font-size="9" fill="#d4d4d4">
+        Navigator.pop(context);
+      </text>
+    </g>
+    
+    <!-- pushReplacement -->
+    <g id="method-push-replacement">
+      <rect x="50" y="525" width="340" height="60" rx="6" fill="#2d2d30" stroke="#c586c0" stroke-width="2"/>
+      <text x="70" y="547" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#c586c0">
+        Navigator.pushReplacement()
+      </text>
+      <text x="70" y="566" font-family="Arial, sans-serif" font-size="10" fill="#9cdcfe">
+        Reemplaza la pantalla actual con una nueva
+      </text>
+      <text x="70" y="579" font-family="Consolas, monospace" font-size="9" fill="#d4d4d4">
+        Navigator.pushReplacement(context, route);
+      </text>
+    </g>
+    
+    <!-- pushAndRemoveUntil -->
+    <g id="method-push-remove">
+      <rect x="410" y="525" width="340" height="60" rx="6" fill="#2d2d30" stroke="#569cd6" stroke-width="2"/>
+      <text x="430" y="547" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#569cd6">
+        Navigator.pushAndRemoveUntil()
+      </text>
+      <text x="430" y="566" font-family="Arial, sans-serif" font-size="10" fill="#9cdcfe">
+        Limpia stack y navega (ej: logout → login)
+      </text>
+      <text x="430" y="579" font-family="Consolas, monospace" font-size="9" fill="#d4d4d4">
+        Navigator.pushAndRemoveUntil(context, route, (_) => false);
+      </text>
+    </g>
+  </g>
+  
+  <!-- Arrow marker definitions -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#dcdcaa"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4ec9b0"/>
+    </marker>
+  </defs>
+</svg>
