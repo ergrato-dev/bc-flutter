@@ -6,28 +6,28 @@
 
 ## 🌐 Comunidades Globales
 
-| Comunidad | Plataforma | URL |
-|-----------|------------|-----|
-| r/FlutterDev | Reddit | https://reddit.com/r/FlutterDev |
-| Flutter Community | Discord | https://discord.gg/flutter |
-| Flutter Dev | Slack | https://fluttercommunity.slack.com |
-| Stack Overflow | Q&A | https://stackoverflow.com/questions/tagged/flutter |
+| Comunidad         | Plataforma | URL                                                |
+| ----------------- | ---------- | -------------------------------------------------- |
+| r/FlutterDev      | Reddit     | https://reddit.com/r/FlutterDev                    |
+| Flutter Community | Discord    | https://discord.gg/flutter                         |
+| Flutter Dev       | Slack      | https://fluttercommunity.slack.com                 |
+| Stack Overflow    | Q&A        | https://stackoverflow.com/questions/tagged/flutter |
 
 ## 🇪🇸 Comunidades en Español
 
-| Comunidad | Plataforma | URL |
-|-----------|------------|-----|
-| Flutter España | Meetup | https://www.meetup.com/es-ES/FlutterMadrid/ |
-| Flutter Latam | Discord | Buscar en Discord |
-| Flutter en Español | Telegram | https://t.me/flutter_es |
+| Comunidad          | Plataforma | URL                                         |
+| ------------------ | ---------- | ------------------------------------------- |
+| Flutter España     | Meetup     | https://www.meetup.com/es-ES/FlutterMadrid/ |
+| Flutter Latam      | Discord    | Buscar en Discord                           |
+| Flutter en Español | Telegram   | https://t.me/flutter_es                     |
 
 ## 🐦 Redes Sociales
 
-| Cuenta | Red | URL |
-|--------|-----|-----|
-| @FlutterDev | Twitter/X | https://twitter.com/FlutterDev |
-| Flutter | LinkedIn | https://linkedin.com/company/flutter-dev |
-| r/Flutter | Reddit | https://reddit.com/r/Flutter |
+| Cuenta      | Red       | URL                                      |
+| ----------- | --------- | ---------------------------------------- |
+| @FlutterDev | Twitter/X | https://twitter.com/FlutterDev           |
+| Flutter     | LinkedIn  | https://linkedin.com/company/flutter-dev |
+| r/Flutter   | Reddit    | https://reddit.com/r/Flutter             |
 
 ---
 

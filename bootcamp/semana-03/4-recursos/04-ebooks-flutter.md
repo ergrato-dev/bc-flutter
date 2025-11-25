@@ -8,17 +8,17 @@
 
 ### Oficiales
 
-| Libro | Autor | Descripción |
-|-------|-------|-------------|
+| Libro                                              | Autor        | Descripción                    |
+| -------------------------------------------------- | ------------ | ------------------------------ |
 | [Flutter Documentation](https://docs.flutter.dev/) | Flutter Team | Documentación oficial completa |
-| [Dart Language Tour](https://dart.dev/language) | Dart Team | Guía del lenguaje Dart |
+| [Dart Language Tour](https://dart.dev/language)    | Dart Team    | Guía del lenguaje Dart         |
 
 ### Comunidad
 
-| Libro | Autor | Descripción |
-|-------|-------|-------------|
-| [Flutter Apprentice](https://www.kodeco.com/books/flutter-apprentice) | Kodeco | Tutorial paso a paso (parcialmente gratis) |
-| [Flutter Complete Reference](https://fluttercompletereference.com/) | Alberto Miola | Referencia completa |
+| Libro                                                                 | Autor         | Descripción                                |
+| --------------------------------------------------------------------- | ------------- | ------------------------------------------ |
+| [Flutter Apprentice](https://www.kodeco.com/books/flutter-apprentice) | Kodeco        | Tutorial paso a paso (parcialmente gratis) |
+| [Flutter Complete Reference](https://fluttercompletereference.com/)   | Alberto Miola | Referencia completa                        |
 
 ---
 

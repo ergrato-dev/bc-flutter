@@ -6,23 +6,25 @@
 
 ## 🌐 Playgrounds Oficiales
 
-| Plataforma | Descripción | URL |
-|------------|-------------|-----|
-| **DartPad** | Playground oficial | https://dartpad.dev |
-| **Zapp!** | IDE Flutter online | https://zapp.run |
-| **FlutLab** | IDE completo online | https://flutlab.io |
+| Plataforma  | Descripción         | URL                 |
+| ----------- | ------------------- | ------------------- |
+| **DartPad** | Playground oficial  | https://dartpad.dev |
+| **Zapp!**   | IDE Flutter online  | https://zapp.run    |
+| **FlutLab** | IDE completo online | https://flutlab.io  |
 
 ---
 
 ## 🎯 DartPad - Cómo Usar
 
 ### Características
+
 - ✅ Ejecutar código Dart y Flutter
 - ✅ Ejemplos preconfigurados
 - ✅ Compartir código
 - ✅ Sin registro necesario
 
 ### Ejemplos de Widgets
+
 1. Ir a https://dartpad.dev
 2. Seleccionar "New Pad" → "Flutter"
 3. Probar los widgets de la semana
@@ -56,8 +58,8 @@ class MyApp extends StatelessWidget {
 
 ## 📚 Ejemplos en DartPad
 
-| Ejemplo | Tema | URL |
-|---------|------|-----|
-| Counter App | StatefulWidget | [Abrir](https://dartpad.dev/?sample=counter) |
-| Layouts | Row/Column | [Abrir](https://dartpad.dev/?sample=layouts) |
-| ListView | Listas | [Abrir](https://dartpad.dev/?sample=listview) |
+| Ejemplo     | Tema           | URL                                           |
+| ----------- | -------------- | --------------------------------------------- |
+| Counter App | StatefulWidget | [Abrir](https://dartpad.dev/?sample=counter)  |
+| Layouts     | Row/Column     | [Abrir](https://dartpad.dev/?sample=layouts)  |
+| ListView    | Listas         | [Abrir](https://dartpad.dev/?sample=listview) |

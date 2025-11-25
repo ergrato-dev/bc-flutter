@@ -6,36 +6,36 @@
 
 ## 🎨 Diseño
 
-| Herramienta | Descripción | URL |
-|-------------|-------------|-----|
-| Figma | Diseño de UI/UX | https://figma.com |
-| FlutterFlow | Builder visual | https://flutterflow.io |
-| Supernova | Design to code | https://supernova.io |
+| Herramienta | Descripción     | URL                    |
+| ----------- | --------------- | ---------------------- |
+| Figma       | Diseño de UI/UX | https://figma.com      |
+| FlutterFlow | Builder visual  | https://flutterflow.io |
+| Supernova   | Design to code  | https://supernova.io   |
 
 ## 🔧 Desarrollo
 
-| Herramienta | Descripción | URL |
-|-------------|-------------|-----|
-| DevTools | Debug Flutter | Incluido en Flutter |
+| Herramienta      | Descripción          | URL                  |
+| ---------------- | -------------------- | -------------------- |
+| DevTools         | Debug Flutter        | Incluido en Flutter  |
 | Widget Inspector | Inspeccionar widgets | Incluido en DevTools |
-| Layout Explorer | Explorar layouts | Incluido en DevTools |
+| Layout Explorer  | Explorar layouts     | Incluido en DevTools |
 
 ## 📱 Testing Visual
 
-| Herramienta | Descripción | URL |
-|-------------|-------------|-----|
-| Device Preview | Vista previa dispositivos | [pub.dev](https://pub.dev/packages/device_preview) |
-| Responsiveness Testing | Test responsive | Chrome DevTools |
+| Herramienta            | Descripción               | URL                                                |
+| ---------------------- | ------------------------- | -------------------------------------------------- |
+| Device Preview         | Vista previa dispositivos | [pub.dev](https://pub.dev/packages/device_preview) |
+| Responsiveness Testing | Test responsive           | Chrome DevTools                                    |
 
 ## 🎯 Extensiones VS Code
 
-| Extensión | Descripción |
-|-----------|-------------|
-| Flutter | Extensión oficial |
-| Dart | Soporte Dart |
-| Flutter Widget Snippets | Snippets de widgets |
-| Awesome Flutter Snippets | Más snippets |
-| Flutter Color | Preview de colores |
+| Extensión                | Descripción         |
+| ------------------------ | ------------------- |
+| Flutter                  | Extensión oficial   |
+| Dart                     | Soporte Dart        |
+| Flutter Widget Snippets  | Snippets de widgets |
+| Awesome Flutter Snippets | Más snippets        |
+| Flutter Color            | Preview de colores  |
 
 ---
 
@@ -49,7 +49,7 @@ devtools
 # Hot reload
 r  # en terminal con flutter run
 
-# Hot restart  
+# Hot restart
 R  # en terminal con flutter run
 
 # Inspeccionar widgets
