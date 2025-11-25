@@ -63,7 +63,7 @@ Flutter usa un sistema de **constraints** (restricciones) para determinar el tam
 /**
  * Bounded: El widget tiene un tamaño máximo definido
  * Unbounded: El widget puede crecer infinitamente
- * 
+ *
  * ⚠️ ERRORES COMUNES:
  * - Column dentro de Column sin bounded height
  * - ListView dentro de Column sin Expanded
@@ -109,7 +109,7 @@ Organiza hijos en una columna vertical.
 ```dart
 /**
  * Column - Layout vertical
- * 
+ *
  * Main Axis: Vertical (↓)
  * Cross Axis: Horizontal (→)
  */
@@ -117,20 +117,20 @@ Organiza hijos en una columna vertical.
 Column(
   // Alineación en el eje principal (vertical)
   mainAxisAlignment: MainAxisAlignment.start,
-  
+
   // Alineación en el eje cruzado (horizontal)
   crossAxisAlignment: CrossAxisAlignment.center,
-  
+
   // Tamaño del eje principal
   mainAxisSize: MainAxisSize.max,  // Ocupa todo el espacio disponible
   // mainAxisSize: MainAxisSize.min,  // Solo lo necesario
-  
+
   // Dirección del texto (afecta el orden)
   textDirection: TextDirection.ltr,
-  
+
   // Dirección vertical
   verticalDirection: VerticalDirection.down,
-  
+
   children: [
     Container(height: 50, color: Colors.red),
     Container(height: 50, color: Colors.green),
@@ -146,7 +146,7 @@ Organiza hijos en una fila horizontal.
 ```dart
 /**
  * Row - Layout horizontal
- * 
+ *
  * Main Axis: Horizontal (→)
  * Cross Axis: Vertical (↓)
  */
@@ -154,13 +154,13 @@ Organiza hijos en una fila horizontal.
 Row(
   // Alineación en el eje principal (horizontal)
   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  
+
   // Alineación en el eje cruzado (vertical)
   crossAxisAlignment: CrossAxisAlignment.center,
-  
+
   // Tamaño del eje principal
   mainAxisSize: MainAxisSize.max,
-  
+
   children: [
     Container(width: 50, height: 50, color: Colors.red),
     Container(width: 50, height: 50, color: Colors.green),
@@ -232,7 +232,7 @@ Column con diferentes CrossAxisAlignment:
 ```dart
 /**
  * Custom AppBar usando Row
- * 
+ *
  * Demuestra uso de MainAxisAlignment y CrossAxisAlignment
  */
 
@@ -258,7 +258,7 @@ Container(
         icon: Icon(Icons.menu),
         onPressed: () {},
       ),
-      
+
       // Centro: Título
       Text(
         'Mi App',
@@ -267,7 +267,7 @@ Container(
           fontWeight: FontWeight.bold,
         ),
       ),
-      
+
       // Derecha: Acciones
       Row(
         mainAxisSize: MainAxisSize.min,
@@ -292,7 +292,7 @@ Expande un hijo para ocupar todo el espacio disponible.
 ```dart
 /**
  * Expanded - Ocupar espacio disponible
- * 
+ *
  * Solo funciona dentro de Column, Row, o Flex
  * flex: determina la proporción de espacio (default: 1)
  */
@@ -330,7 +330,7 @@ Similar a Expanded pero el hijo puede ser más pequeño que el espacio asignado.
 ```dart
 /**
  * Flexible vs Expanded
- * 
+ *
  * Expanded: hijo DEBE ocupar todo el espacio asignado
  * Flexible: hijo PUEDE ocupar hasta el espacio asignado
  */
@@ -374,7 +374,7 @@ Widget conveniente para crear espacio vacío expandible.
 ```dart
 /**
  * Spacer - Espacio expandible
- * 
+ *
  * Equivalente a Expanded(child: SizedBox.shrink())
  * Útil para empujar widgets a los extremos
  */
@@ -411,7 +411,7 @@ Row(
     // Ícono fijo
     Icon(Icons.search),
     SizedBox(width: 8),
-    
+
     // Campo de texto expandido
     Expanded(
       child: TextField(
@@ -421,7 +421,7 @@ Row(
         ),
       ),
     ),
-    
+
     // Botón fijo
     IconButton(
       icon: Icon(Icons.filter_list),
@@ -442,7 +442,7 @@ Apila widgets uno sobre otro.
 ```dart
 /**
  * Stack - Apilar widgets
- * 
+ *
  * Los hijos se dibujan en orden: primero el índice 0 (fondo)
  * alignment: alineación de hijos no posicionados
  * fit: cómo dimensionar hijos no posicionados
@@ -451,15 +451,15 @@ Apila widgets uno sobre otro.
 Stack(
   // Alineación de hijos sin Positioned
   alignment: Alignment.center,
-  
+
   // Cómo dimensionar el Stack
   fit: StackFit.loose,       // Tamaño del hijo más grande
   // fit: StackFit.expand,   // Expandir al padre
   // fit: StackFit.passthrough, // Pasar constraints del padre
-  
+
   // Comportamiento del clipeo
   clipBehavior: Clip.hardEdge,
-  
+
   children: [
     // Fondo (primer hijo)
     Container(
@@ -467,14 +467,14 @@ Stack(
       height: 200,
       color: Colors.blue,
     ),
-    
+
     // Capa media
     Container(
       width: 200,
       height: 150,
       color: Colors.green,
     ),
-    
+
     // Frente (último hijo)
     Container(
       width: 100,
@@ -492,7 +492,7 @@ Posiciona un hijo dentro del Stack con coordenadas específicas.
 ```dart
 /**
  * Positioned - Posicionamiento absoluto
- * 
+ *
  * Usa top, right, bottom, left para posicionar
  * Usa width, height para dimensionar
  */
@@ -501,21 +501,21 @@ Stack(
   children: [
     // Fondo
     Container(color: Colors.grey.shade200),
-    
+
     // Esquina superior izquierda
     Positioned(
       top: 10,
       left: 10,
       child: Icon(Icons.star, color: Colors.yellow),
     ),
-    
+
     // Esquina superior derecha
     Positioned(
       top: 10,
       right: 10,
       child: Icon(Icons.close, color: Colors.red),
     ),
-    
+
     // Centrado horizontalmente, abajo
     Positioned(
       bottom: 20,
@@ -528,7 +528,7 @@ Stack(
         ),
       ),
     ),
-    
+
     // Llenando un área específica
     Positioned(
       top: 50,
@@ -551,7 +551,7 @@ Llena todo el Stack.
 ```dart
 /**
  * Positioned.fill - Llenar todo el espacio
- * 
+ *
  * Equivalente a Positioned(top: 0, right: 0, bottom: 0, left: 0)
  */
 
@@ -564,14 +564,14 @@ Stack(
         fit: BoxFit.cover,
       ),
     ),
-    
+
     // Overlay oscuro
     Positioned.fill(
       child: Container(
         color: Colors.black.withOpacity(0.4),
       ),
     ),
-    
+
     // Contenido centrado
     Center(
       child: Text(
@@ -620,7 +620,7 @@ Stack(
         ],
       ),
     ),
-    
+
     // Badge de descuento
     Positioned(
       top: 8,
@@ -641,7 +641,7 @@ Stack(
         ),
       ),
     ),
-    
+
     // Botón favorito
     Positioned(
       top: 8,
@@ -667,7 +667,7 @@ Lista de widgets con scroll.
 ```dart
 /**
  * ListView - Lista con scroll
- * 
+ *
  * Renderiza TODOS los hijos inmediatamente
  * ⚠️ Solo para listas cortas (< 20 items)
  */
@@ -675,22 +675,22 @@ Lista de widgets con scroll.
 ListView(
   // Padding de la lista
   padding: EdgeInsets.all(16),
-  
+
   // Dirección del scroll
   scrollDirection: Axis.vertical,
   // scrollDirection: Axis.horizontal,
-  
+
   // Invertir orden
   reverse: false,
-  
+
   // Física del scroll
   physics: BouncingScrollPhysics(),      // iOS style
   // physics: ClampingScrollPhysics(),   // Android style
   // physics: NeverScrollableScrollPhysics(), // Sin scroll
-  
+
   // Reducir espacio si hay pocos items
   shrinkWrap: false,  // true cuando está dentro de otro scrollable
-  
+
   children: [
     ListTile(title: Text('Item 1')),
     ListTile(title: Text('Item 2')),
@@ -707,7 +707,7 @@ Lista optimizada para muchos elementos.
 ```dart
 /**
  * ListView.builder - Lista optimizada
- * 
+ *
  * Solo renderiza los items visibles (lazy loading)
  * ✅ Recomendado para listas largas
  */
@@ -717,7 +717,7 @@ final List<String> items = List.generate(100, (i) => 'Item $i');
 ListView.builder(
   // Número de items (null = infinito)
   itemCount: items.length,
-  
+
   // Constructor de cada item
   itemBuilder: (context, index) {
     return ListTile(
@@ -728,7 +728,7 @@ ListView.builder(
       onTap: () => print('Tap en $index'),
     );
   },
-  
+
   // Altura estimada de cada item (mejora performance)
   itemExtent: 72.0,  // Si todos los items tienen la misma altura
   // prototypeItem: ListTile(...),  // O usar un prototipo
@@ -742,20 +742,20 @@ Lista con separadores personalizados.
 ```dart
 /**
  * ListView.separated - Lista con separadores
- * 
+ *
  * Permite personalizar el widget entre items
  */
 
 ListView.separated(
   itemCount: 20,
-  
+
   // Constructor de items
   itemBuilder: (context, index) {
     return ListTile(
       title: Text('Item $index'),
     );
   },
-  
+
   // Constructor de separadores
   separatorBuilder: (context, index) {
     return Divider(
@@ -847,24 +847,24 @@ Grid con número fijo de columnas.
 ```dart
 /**
  * GridView.count - Columnas fijas
- * 
+ *
  * crossAxisCount: número de columnas
  */
 
 GridView.count(
   // Número de columnas
   crossAxisCount: 2,
-  
+
   // Espaciado
   mainAxisSpacing: 10,    // Espacio vertical entre filas
   crossAxisSpacing: 10,   // Espacio horizontal entre columnas
-  
+
   // Proporción de cada celda (ancho / alto)
   childAspectRatio: 1.0,  // 1.0 = cuadrado
-  
+
   // Padding
   padding: EdgeInsets.all(16),
-  
+
   children: [
     Container(color: Colors.red),
     Container(color: Colors.green),
@@ -883,13 +883,13 @@ Grid optimizado para muchos elementos.
 ```dart
 /**
  * GridView.builder - Grid optimizado
- * 
+ *
  * Usa SliverGridDelegate para configurar el grid
  */
 
 GridView.builder(
   padding: EdgeInsets.all(16),
-  
+
   // Configuración del grid
   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     crossAxisCount: 3,          // 3 columnas
@@ -897,9 +897,9 @@ GridView.builder(
     crossAxisSpacing: 10,
     childAspectRatio: 0.75,     // Más alto que ancho
   ),
-  
+
   itemCount: 50,
-  
+
   itemBuilder: (context, index) {
     return Card(
       child: Column(
@@ -927,7 +927,7 @@ Grid con tamaño máximo de celda.
 ```dart
 /**
  * GridView.extent - Tamaño máximo por celda
- * 
+ *
  * Flutter calcula cuántas columnas caben
  * Útil para diseño responsivo
  */
@@ -967,9 +967,9 @@ GridView.extent(
 
 class PhotoGallery extends StatelessWidget {
   final List<String> imageUrls;
-  
+
   const PhotoGallery({Key? key, required this.imageUrls}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -995,7 +995,7 @@ class PhotoGallery extends StatelessWidget {
                   child: Center(
                     child: CircularProgressIndicator(
                       value: progress.expectedTotalBytes != null
-                          ? progress.cumulativeBytesLoaded / 
+                          ? progress.cumulativeBytesLoaded /
                             progress.expectedTotalBytes!
                           : null,
                     ),
@@ -1008,7 +1008,7 @@ class PhotoGallery extends StatelessWidget {
       },
     );
   }
-  
+
   void _openFullScreen(BuildContext context, int index) {
     // Navegar a vista de pantalla completa
   }
@@ -1026,7 +1026,7 @@ Contenedor que hace wrap cuando no hay espacio.
 ```dart
 /**
  * Wrap - Flow layout con wrap automático
- * 
+ *
  * Ideal para tags, chips, botones de filtro
  */
 
@@ -1034,15 +1034,15 @@ Wrap(
   // Espaciado
   spacing: 8,         // Espacio horizontal entre hijos
   runSpacing: 8,      // Espacio vertical entre líneas
-  
+
   // Alineación
   alignment: WrapAlignment.start,
   runAlignment: WrapAlignment.start,
   crossAxisAlignment: WrapCrossAlignment.start,
-  
+
   // Dirección
   direction: Axis.horizontal,
-  
+
   children: [
     Chip(label: Text('Flutter')),
     Chip(label: Text('Dart')),
@@ -1076,23 +1076,23 @@ Hace scrollable un widget único.
 ```dart
 /**
  * SingleChildScrollView - Scroll para un solo hijo
- * 
+ *
  * Útil para formularios largos o contenido que puede exceder la pantalla
  */
 
 SingleChildScrollView(
   // Padding
   padding: EdgeInsets.all(16),
-  
+
   // Dirección
   scrollDirection: Axis.vertical,
-  
+
   // Física
   physics: BouncingScrollPhysics(),
-  
+
   // Controlador (para scroll programático)
   controller: _scrollController,
-  
+
   child: Column(
     children: [
       // Contenido largo...
@@ -1121,7 +1121,7 @@ Páginas deslizables horizontalmente.
 ```dart
 /**
  * PageView - Carrusel de páginas
- * 
+ *
  * Ideal para onboarding, galerías, wizards
  */
 
@@ -1133,7 +1133,7 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _controller = PageController();
   int _currentPage = 0;
-  
+
   final List<OnboardingPage> pages = [
     OnboardingPage(
       title: 'Bienvenido',
@@ -1151,7 +1151,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       image: 'assets/onboarding3.png',
     ),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1190,7 +1190,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
             ),
           ),
-          
+
           // Indicadores de página
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -1200,17 +1200,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 width: _currentPage == index ? 24 : 8,
                 height: 8,
                 decoration: BoxDecoration(
-                  color: _currentPage == index 
-                      ? Colors.blue 
+                  color: _currentPage == index
+                      ? Colors.blue
                       : Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(4),
                 ),
               );
             }),
           ),
-          
+
           SizedBox(height: 32),
-          
+
           // Botón
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 40),
@@ -1231,13 +1231,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
           ),
-          
+
           SizedBox(height: 40),
         ],
       ),
     );
   }
-  
+
   @override
   void dispose() {
     _controller.dispose();
@@ -1253,7 +1253,7 @@ Tabla con filas y columnas definidas.
 ```dart
 /**
  * Table - Tabla estructurada
- * 
+ *
  * Útil para datos tabulares con estructura fija
  */
 
@@ -1264,16 +1264,16 @@ Table(
     1: FlexColumnWidth(1),    // 1 parte
     2: FixedColumnWidth(100), // 100px fijo
   },
-  
+
   // Borde
   border: TableBorder.all(
     color: Colors.grey.shade300,
     width: 1,
   ),
-  
+
   // Alineación vertical por defecto
   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-  
+
   children: [
     // Header
     TableRow(
@@ -1340,7 +1340,7 @@ Column(
         ],
       ),
     ),
-    
+
     // Lista scrolleable
     Expanded(
       child: ListView.builder(
@@ -1372,7 +1372,7 @@ LayoutBuilder(
     } else {
       crossAxisCount = 2;
     }
-    
+
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
@@ -1414,7 +1414,7 @@ Scaffold(
           ),
         ),
       ),
-      
+
       // Botón fijo en la parte inferior
       Container(
         padding: EdgeInsets.all(16),
@@ -1448,12 +1448,15 @@ Scaffold(
 ### 🤔 Preguntas de Comprensión
 
 1. **¿Cuándo usar ListView.builder vs ListView?**
+
    - Piensa en el rendimiento con muchos items
 
 2. **¿Por qué Expanded solo funciona dentro de Column/Row/Flex?**
+
    - Reflexiona sobre el sistema de constraints
 
 3. **¿Cuál es la diferencia entre Stack y Column/Row?**
+
    - Considera el posicionamiento y superposición
 
 4. **¿Cómo decidir entre GridView.count y GridView.extent?**
@@ -1462,6 +1465,7 @@ Scaffold(
 ### ✍️ Mini-ejercicio Mental
 
 Diseña la estructura de widgets para:
+
 - Una pantalla de e-commerce con:
   - AppBar con búsqueda
   - Carrusel de ofertas
