@@ -1,6 +1,6 @@
 # 🎥 Videografía - Semana 1
 
-Colección curada de videos, tutoriales y canales de YouTube sobre React Native y tecnologías relacionadas.
+Colección curada de videos, tutoriales y canales de YouTube sobre Dart y fundamentos de programación.
 
 ---
 
@@ -13,48 +13,9 @@ Colección curada de videos, tutoriales y canales de YouTube sobre React Native 
 
 ---
 
-## ⚛️ React Native - Fundamentos
+## 🎯 Dart - Fundamentos
 
-### 1. React Native Crash Course 2024 (Traversy Media) ⭐
-
-**Canal:** Traversy Media  
-**Link:** https://www.youtube.com/c/TraversyMedia  
-**Duración:** ~1 hora  
-**Idioma:** Inglés  
-**Nivel:** Principiante
-
-**Contenido:**
-
-- Setup completo de entorno
-- Componentes básicos explicados
-- Estilos y layouts
-- Proyecto práctico paso a paso
-
-**Por qué verlo:** Brad Traversy explica excelente, ritmo perfecto para principiantes.
-
----
-
-### 2. React Native Tutorial for Beginners (Programming with Mosh) ⭐ (RECOMENDADO)
-
-**Canal:** Programming with Mosh  
-**Link:** https://www.youtube.com/c/programmingwithmosh  
-**Duración:** ~1 hora 30 min  
-**Idioma:** Inglés  
-**Nivel:** Principiante
-
-**Contenido:**
-
-- Fundamentos sólidos de RN
-- Buenas prácticas desde el inicio
-- Componentes y props
-- Estado y eventos
-- Proyecto completo
-
-**Por qué verlo:** Mosh es uno de los mejores instructores, explicaciones cristalinas.
-
----
-
-### 3. React Native in 100 Seconds (Fireship) ⚡
+### 1. Dart in 100 Seconds (Fireship) ⚡
 
 **Canal:** Fireship  
 **Link:** https://www.youtube.com/c/Fireship  
@@ -64,295 +25,348 @@ Colección curada de videos, tutoriales y canales de YouTube sobre React Native 
 
 **Contenido:**
 
-- Overview rápido de React Native
+- Overview rápido de Dart
 - Qué es y para qué sirve
-- Ventajas y desventajas
+- Ventajas y características principales
 - Conceptos clave resumidos
 
 **Por qué verlo:** Perfecto para entender el panorama general en 2 minutos.
 
 ---
 
-### 4. Build Your First React Native App (freeCodeCamp) ⭐⭐
+### 2. Dart Programming Tutorial - Full Course (freeCodeCamp) ⭐⭐⭐ (RECOMENDADO)
 
 **Canal:** freeCodeCamp.org  
 **Link:** https://www.youtube.com/c/Freecodecamp  
-**Duración:** ~2 horas  
+**Duración:** ~5 horas  
 **Idioma:** Inglés  
 **Nivel:** Principiante → Intermedio
 
 **Contenido:**
 
-- Proyecto completo desde cero
-- Setup, componentes, estilos
-- Navegación básica
-- Conectar con API
+- Dart desde cero completo
+- Variables, tipos de datos, operadores
+- Control de flujo y funciones
+- Colecciones (List, Set, Map)
+- Programación orientada a objetos
+- Null safety
+- Async/await y Futures
+- Proyecto práctico completo
 
-**Por qué verlo:** Proyecto real completo, aprendes haciendo.
+**Por qué verlo:** Curso completo y gratuito, cubre todo lo que necesitas.
 
 ---
 
-## 📘 TypeScript
+### 3. Dart Programming Tutorial for Beginners (Code with Andrea) ⭐⭐
 
-### 5. TypeScript Crash Course (Traversy Media) ⭐
+**Canal:** Code with Andrea  
+**Link:** https://www.youtube.com/c/CodeWithAndrea  
+**Duración:** ~2 horas  
+**Idioma:** Inglés  
+**Nivel:** Principiante
+
+**Contenido:**
+
+- Fundamentos de Dart explicados claramente
+- Null safety desde el inicio
+- Buenas prácticas
+- Ejercicios prácticos
+- Preparación para Flutter
+
+**Por qué verlo:** Andrea es uno de los mejores instructores de Flutter/Dart.
+
+---
+
+### 4. Dart Crash Course (Traversy Media) ⭐
 
 **Canal:** Traversy Media  
-**Link:** https://www.youtube.com/watch?v=BCg4U1FzODs  
-**Duración:** 50 minutos  
-**Idioma:** Inglés  
-**Nivel:** Principiante
-
-**Contenido:**
-
-- Fundamentos de TypeScript
-- Tipos básicos y avanzados
-- Interfaces y tipos personalizados
-- TypeScript con React
-
-**Por qué verlo:** Aprende lo esencial de TS en menos de 1 hora.
-
----
-
-### 6. TypeScript for Beginners (Net Ninja) ⭐
-
-**Canal:** The Net Ninja  
-**Link:** https://www.youtube.com/c/TheNetNinja  
-**Duración:** 10 videos × 10-15 min  
-**Idioma:** Inglés  
-**Nivel:** Principiante
-
-**Contenido:**
-
-- Serie completa de TypeScript
-- Desde básico a intermedio
-- Ejemplos prácticos
-- Ejercicios sugeridos
-
-**Por qué verlo:** Serie bien estructurada, perfecta para principiantes.
-
----
-
-## 🎨 Expo y Herramientas
-
-### 7. Expo Explained in 100 Seconds (Fireship) ⚡
-
-**Canal:** Fireship  
-**Link:** https://www.youtube.com/watch?v=xAjkLNn-T_k  
-**Duración:** 2 minutos  
-**Idioma:** Inglés  
-**Nivel:** Todos
-
-**Contenido:**
-
-- Qué es Expo
-- Ventajas sobre React Native CLI
-- Cuándo usar Expo
-
-**Por qué verlo:** Entiende Expo en 2 minutos.
-
----
-
-### 8. Getting Started with Expo (Official) ⭐
-
-**Canal:** Expo  
-**Link:** https://www.youtube.com/c/Expo  
-**Duración:** ~20 minutos  
-**Idioma:** Inglés  
-**Nivel:** Principiante
-
-**Contenido:**
-
-- Setup oficial de Expo
-- Primera app con Expo
-- Expo Go y desarrollo
-- Comandos básicos
-
-**Por qué verlo:** Tutorial oficial, siempre actualizado.
-
----
-
-## 🎨 UI/UX y Diseño
-
-### 9. TailwindCSS Crash Course (Traversy Media) ⭐
-
-**Canal:** Traversy Media  
-**Link:** https://www.youtube.com/watch?v=UBOj6rqRUME  
+**Link:** https://www.youtube.com/c/TraversyMedia  
 **Duración:** ~1 hora  
 **Idioma:** Inglés  
 **Nivel:** Principiante
 
 **Contenido:**
 
-- Fundamentos de TailwindCSS
-- Utility-first CSS
-- Responsive design
-- Customización
+- Setup completo del entorno
+- Sintaxis básica
+- Variables y tipos
+- Funciones y colecciones
+- Proyecto práctico
 
-**Por qué verlo:** NativeWind usa sintaxis de Tailwind, esto te prepara.
-
----
-
-### 10. UI Design for Developers (DesignCourse) ⭐⭐
-
-**Canal:** DesignCourse  
-**Link:** https://www.youtube.com/c/DesignCourse  
-**Duración:** Varios videos 10-20 min  
-**Idioma:** Inglés  
-**Nivel:** Intermedio
-
-**Contenido:**
-
-- Principios de diseño UI
-- Colores y tipografía
-- Espaciado y jerarquía
-- Tips para developers no diseñadores
-
-**Por qué verlo:** Mejora drásticamente tus diseños sin ser diseñador.
+**Por qué verlo:** Brad Traversy explica excelente, ritmo perfecto para principiantes.
 
 ---
 
-## ⚛️ React (Base para RN)
+### 5. Learn Dart in a Day (The Net Ninja) ⭐⭐
 
-### 11. React JS Crash Course (Traversy Media) ⭐ (RECOMENDADO)
-
-**Canal:** Traversy Media  
-**Link:** https://www.youtube.com/watch?v=w7ejDZ8SWv8  
-**Duración:** ~1 hora 45 min  
+**Canal:** The Net Ninja  
+**Link:** https://www.youtube.com/c/TheNetNinja  
+**Duración:** Serie de ~20 videos × 8-12 min  
 **Idioma:** Inglés  
 **Nivel:** Principiante
 
 **Contenido:**
 
-- React desde cero
-- Componentes, props, state
-- Hooks (useState, useEffect)
-- Proyecto práctico
+- Serie completa bien estructurada
+- Un concepto por video
+- Variables, tipos, operadores
+- Control de flujo
+- Funciones y clases
+- Colecciones
+- Ejercicios sugeridos
 
-**Por qué verlo:** React es la base de RN, domina React primero.
+**Por qué verlo:** Serie perfecta para aprender paso a paso.
 
 ---
 
-### 12. React Hooks Tutorial (Net Ninja) ⭐
+## 🎓 Conceptos Específicos de Dart
 
-**Canal:** The Net Ninja  
-**Link:** https://www.youtube.com/watch?v=O6P86uwfdR0  
-**Duración:** 9 videos × 10 min  
+### 6. Dart Null Safety Explained (Flutter Explained) ⭐
+
+**Canal:** Flutter Explained  
+**Link:** https://www.youtube.com/c/FlutterExplained  
+**Duración:** 15 minutos  
 **Idioma:** Inglés  
 **Nivel:** Principiante → Intermedio
 
 **Contenido:**
 
-- useState explicado
-- useEffect en profundidad
-- Custom hooks
-- Context API
+- Qué es null safety
+- Por qué es importante
+- Operadores `?`, `!`, `??`, `?.`
+- Migrando código a null safety
+- Errores comunes y soluciones
 
-**Por qué verlo:** Los hooks son fundamentales, esta es la mejor serie.
+**Por qué verlo:** Null safety es fundamental en Dart moderno.
 
 ---
 
-## 🔧 JavaScript Moderno (ES6+)
+### 7. Dart Functions Deep Dive (Reso Coder) ⭐⭐
 
-### 13. Modern JavaScript Tutorial (Net Ninja) ⭐
+**Canal:** Reso Coder  
+**Link:** https://www.youtube.com/c/ResoCoder  
+**Duración:** 20 minutos  
+**Idioma:** Inglés  
+**Nivel:** Intermedio
 
-**Canal:** The Net Ninja  
-**Link:** https://www.youtube.com/playlist?list=PL4cUxeGkcC9haFPT7J25Q9GRB_ZkFrQAc  
-**Duración:** 12 videos × 8-12 min  
+**Contenido:**
+
+- Funciones con parámetros opcionales
+- Named parameters
+- Arrow functions
+- Funciones como first-class citizens
+- Closures
+- Higher-order functions
+
+**Por qué verlo:** Entender funciones profundamente es clave.
+
+---
+
+### 8. Dart Collections (List, Set, Map) Tutorial (Marcus Ng) ⭐
+
+**Canal:** Marcus Ng  
+**Link:** https://www.youtube.com/c/MarcusNg  
+**Duración:** 25 minutos  
 **Idioma:** Inglés  
 **Nivel:** Principiante
 
 **Contenido:**
 
-- Arrow functions
-- Destructuring
-- Spread operator
-- Template literals
-- Async/Await
+- Listas y operaciones comunes
+- Sets y diferencias con Lists
+- Maps (key-value pairs)
+- Métodos útiles (map, where, fold, etc.)
+- Cuándo usar cada colección
 
-**Por qué verlo:** ES6+ es esencial para React Native moderno.
+**Por qué verlo:** Dominar colecciones es esencial para cualquier programa.
 
 ---
 
-### 14. JavaScript ES6 Features (Fireship) ⚡
+### 9. Dart OOP Crash Course (Academind) ⭐⭐
 
-**Canal:** Fireship  
-**Link:** https://www.youtube.com/watch?v=h33Srr5J9nY  
+**Canal:** Academind  
+**Link:** https://www.youtube.com/c/Academind  
+**Duración:** 35 minutos  
+**Idioma:** Inglés  
+**Nivel:** Intermedio
+
+**Contenido:**
+
+- Clases y objetos
+- Constructores (named, factory)
+- Herencia e interfaces
+- Mixins
+- Abstract classes
+- Encapsulación
+
+**Por qué verlo:** POO es fundamental para Flutter.
+
+---
+
+### 10. Async/Await and Futures in Dart (Flutter Mapp) ⭐⭐
+
+**Canal:** Flutter Mapp  
+**Link:** https://www.youtube.com/c/FlutterMapp  
+**Duración:** 18 minutos  
+**Idioma:** Inglés  
+**Nivel:** Intermedio
+
+**Contenido:**
+
+- Qué son Futures
+- async y await explicados
+- then() y catchError()
+- Manejo de errores
+- Stream vs Future
+
+**Por qué verlo:** Async es crucial para apps que consumen APIs.
+
+---
+
+## 🛠️ Herramientas y Entorno
+
+### 11. Dart DevTools Overview (Google Developers) ⭐
+
+**Canal:** Google Developers  
+**Link:** https://www.youtube.com/c/GoogleDevelopers  
 **Duración:** 12 minutos  
 **Idioma:** Inglés  
 **Nivel:** Todos
 
 **Contenido:**
 
-- Todas las features de ES6 explicadas rápido
-- Ejemplos concisos
-- Cuándo usar cada feature
+- Qué es Dart DevTools
+- Debugging paso a paso
+- Profiling y performance
+- Inspector de memoria
+- Logging efectivo
 
-**Por qué verlo:** Repaso rápido y completo de ES6.
+**Por qué verlo:** Aprende a debuggear como un profesional.
 
 ---
 
-## 📦 Git & GitHub
+### 12. VS Code Setup for Dart Development (Techie Blossom) ⭐
 
-### 15. Git and GitHub Crash Course (Traversy Media) ⭐
-
-**Canal:** Traversy Media  
-**Link:** https://www.youtube.com/watch?v=SWYqp7iY_Tc  
-**Duración:** 30 minutos  
+**Canal:** Techie Blossom  
+**Link:** https://www.youtube.com/c/TechieBlossom  
+**Duración:** 10 minutos  
 **Idioma:** Inglés  
 **Nivel:** Principiante
 
 **Contenido:**
 
-- Git básico (add, commit, push)
-- GitHub setup
-- Branches y merge
-- Workflow básico
+- Instalación de Dart SDK
+- Extensiones esenciales de VS Code
+- Configuración de snippets
+- Debugging setup
+- Tips de productividad
 
-**Por qué verlo:** Git es esencial para entregar proyectos.
+**Por qué verlo:** Un entorno bien configurado te ahorra mucho tiempo.
+
+---
+
+### 13. DartPad Tutorial (Official Dart) ⭐
+
+**Canal:** Dart  
+**Link:** https://www.youtube.com/c/dart-lang  
+**Duración:** 5 minutos  
+**Idioma:** Inglés  
+**Nivel:** Principiante
+
+**Contenido:**
+
+- Cómo usar DartPad online
+- Escribir y ejecutar código
+- Compartir código
+- Debugging básico
+
+**Por qué verlo:** DartPad es perfecto para practicar sin instalar nada.
+
+---
+
+## 💡 Mejores Prácticas y Patrones
+
+### 14. Dart Best Practices (Flutter Explained) ⭐⭐
+
+**Canal:** Flutter Explained  
+**Link:** https://www.youtube.com/c/FlutterExplained  
+**Duración:** 22 minutos  
+**Idioma:** Inglés  
+**Nivel:** Intermedio
+
+**Contenido:**
+
+- Nomenclatura y convenciones
+- Código limpio en Dart
+- Organización de archivos
+- Manejo de errores efectivo
+- Performance tips
+
+**Por qué verlo:** Aprende a escribir código profesional desde el inicio.
+
+---
+
+### 15. Common Dart Mistakes (Reso Coder) ⭐
+
+**Canal:** Reso Coder  
+**Link:** https://www.youtube.com/c/ResoCoder  
+**Duración:** 18 minutos  
+**Idioma:** Inglés  
+**Nivel:** Principiante → Intermedio
+
+**Contenido:**
+
+- Errores frecuentes de principiantes
+- Anti-patrones comunes
+- Cómo evitar bugs típicos
+- Soluciones correctas
+- Tips para debugging
+
+**Por qué verlo:** Evita los errores que todos cometemos al empezar.
 
 ---
 
 ## 📺 Canales de YouTube Recomendados
 
-### 1. Traversy Media ⭐⭐⭐
+### 1. Dart (Official) ⭐⭐⭐
 
-**Link:** https://www.youtube.com/c/TraversyMedia  
-**Por qué seguir:** Crash courses excelentes, explicaciones claras, muchos temas.
+**Link:** https://www.youtube.com/c/dart-lang  
+**Por qué seguir:** Canal oficial, siempre actualizado, mejores prácticas.
 
-### 2. Programming with Mosh ⭐⭐⭐
-
-**Link:** https://www.youtube.com/c/programmingwithmosh  
-**Por qué seguir:** Instructor profesional, cursos completos, alta calidad.
-
-### 3. The Net Ninja ⭐⭐⭐
-
-**Link:** https://www.youtube.com/c/TheNetNinja  
-**Por qué seguir:** Series completas bien estructuradas, muchos temas.
-
-### 4. Fireship ⭐⭐
-
-**Link:** https://www.youtube.com/c/Fireship  
-**Por qué seguir:** Videos cortos "en 100 segundos", overview rápidos, contenido moderno.
-
-### 5. freeCodeCamp.org ⭐⭐⭐
+### 2. freeCodeCamp.org ⭐⭐⭐
 
 **Link:** https://www.youtube.com/c/Freecodecamp  
 **Por qué seguir:** Cursos completos gratuitos (2-8 horas), proyectos reales.
 
-### 6. Academind ⭐⭐
+### 3. Code with Andrea ⭐⭐⭐
 
-**Link:** https://www.youtube.com/c/Academind  
-**Por qué seguir:** React y RN en profundidad, conceptos avanzados.
+**Link:** https://www.youtube.com/c/CodeWithAndrea  
+**Por qué seguir:** Uno de los mejores instructores de Dart/Flutter, explicaciones claras.
 
-### 7. DesignCourse ⭐⭐
+### 4. The Net Ninja ⭐⭐⭐
 
-**Link:** https://www.youtube.com/c/DesignCourse  
-**Por qué seguir:** UI/UX para developers, diseño práctico.
+**Link:** https://www.youtube.com/c/TheNetNinja  
+**Por qué seguir:** Series completas bien estructuradas, muchos temas.
 
-### 8. Ben Awad ⭐
+### 5. Traversy Media ⭐⭐
 
-**Link:** https://www.youtube.com/c/BenAwad97  
-**Por qué seguir:** Live coding, tips avanzados, opiniones tech.
+**Link:** https://www.youtube.com/c/TraversyMedia  
+**Por qué seguir:** Crash courses excelentes, explicaciones claras.
+
+### 6. Reso Coder ⭐⭐
+
+**Link:** https://www.youtube.com/c/ResoCoder  
+**Por qué seguir:** Dart y Flutter en profundidad, conceptos avanzados.
+
+### 7. Flutter Explained ⭐⭐
+
+**Link:** https://www.youtube.com/c/FlutterExplained  
+**Por qué seguir:** Explicaciones detalladas, conceptos complejos simplificados.
+
+### 8. Fireship ⭐⭐
+
+**Link:** https://www.youtube.com/c/Fireship  
+**Por qué seguir:** Videos cortos "en 100 segundos", overview rápidos, contenido moderno.
 
 ---
 
@@ -362,20 +376,23 @@ Colección curada de videos, tutoriales y canales de YouTube sobre React Native 
 
 #### Playlist 1: Fundamentos (3-4 horas)
 
-1. React Native in 100 Seconds (2 min)
-2. React JS Crash Course (1h 45min)
-3. React Native Crash Course (1h)
-4. TypeScript Crash Course (50 min)
+1. Dart in 100 Seconds (2 min)
+2. Dart Crash Course - Traversy Media (1h)
+3. Dart Tutorial for Beginners - The Net Ninja (serie completa, 3h)
 
-#### Playlist 2: UI/UX (1-2 horas)
+#### Playlist 2: Conceptos Clave (2 horas)
 
-1. TailwindCSS Crash Course (1h)
-2. UI Design for Developers (varios 10-15 min)
+1. Dart Null Safety Explained (15 min)
+2. Dart Functions Deep Dive (20 min)
+3. Dart Collections Tutorial (25 min)
+4. Async/Await and Futures (18 min)
 
-#### Playlist 3: JavaScript Moderno (1 hora)
+#### Playlist 3: Práctica y Herramientas (1 hora)
 
-1. JavaScript ES6 Features (12 min)
-2. Modern JavaScript Tutorial (serie completa)
+1. VS Code Setup for Dart (10 min)
+2. DartPad Tutorial (5 min)
+3. Dart Best Practices (22 min)
+4. Common Dart Mistakes (18 min)
 
 ---
 
@@ -388,6 +405,7 @@ Colección curada de videos, tutoriales y canales de YouTube sobre React Native 
 - **Velocidad 1.25x-1.5x:** Ahorras tiempo sin perder comprensión
 - **Sigue el código:** Escribe el código mientras ves
 - **Repite secciones:** Si no entendiste, vuelve a ver
+- **Usa DartPad:** Practica el código directamente en el navegador
 
 ### ❌ Evita:
 
@@ -396,92 +414,95 @@ Colección curada de videos, tutoriales y canales de YouTube sobre React Native 
 - Ver sin tomar notas
 - Saltar entre videos sin terminar ninguno
 - Ver sin codear junto
+- Copiar código sin entenderlo
 
 ---
 
-## 📝 Plan de Video Sugerido (Semana 1)
+## 🎯 Ruta de Aprendizaje Sugerida
 
-### Lunes (Pre-clase):
+### Día 1 (Sesión Presencial + 1h):
 
-- **React Native in 100 Seconds** (2 min)
-- **Expo Explained** (2 min)
-- Total: 5 min de overview
+1. Ver: Dart in 100 Seconds
+2. Clase presencial (6h)
+3. Revisar: Dart Crash Course (Traversy Media)
 
-### Martes (Post-clase):
+### Día 2-3 (2h cada día):
 
-- **React Native Crash Course** (1h)
-- Practicar lo visto (1h)
-- Total: 2h
+1. Serie completa: Dart Tutorial for Beginners (The Net Ninja)
+2. Practicar cada concepto en DartPad
+3. Completar ejercicios del bootcamp
 
-### Miércoles:
+### Día 4 (2h):
 
-- **TypeScript Crash Course** (50 min)
-- Aplicar TS a tu código (1h)
-- Total: 2h
+1. Dart Null Safety Explained
+2. Dart Functions Deep Dive
+3. Dart Collections Tutorial
 
-### Jueves:
+### Día 5 (2h):
 
-- **TailwindCSS Crash Course** (1h)
-- Mejorar estilos (1h)
-- Total: 2h
+1. Async/Await and Futures
+2. Dart Best Practices
+3. Common Dart Mistakes
 
-### Fin de Semana (Opcional):
+### Día 6-7 (Proyecto):
 
-- **Proyecto completo** (freeCodeCamp 2h)
-- Comparar con tu proyecto
-
-**Total recomendado:** 6-8 horas de video + práctica en la semana
-
----
-
-## 🎯 Videos por Objetivo
-
-### ¿Necesitas...?
-
-**Entender React Native rápido:**
-→ React Native in 100 Seconds + React Native Crash Course
-
-**Dominar TypeScript:**
-→ TypeScript Crash Course + Serie de Net Ninja
-
-**Mejorar tu diseño:**
-→ TailwindCSS + UI Design for Developers
-
-**Reforzar JavaScript:**
-→ JavaScript ES6 Features + Modern JS Tutorial
-
-**Aprender Git:**
-→ Git and GitHub Crash Course
+1. Trabajar en el proyecto integrador
+2. Ver videos específicos según necesidad
+3. Revisar Dart Best Practices
 
 ---
 
-## ⚠️ Disclaimer
+## 🔥 Videos Imprescindibles (Must Watch)
 
-- Los links de YouTube pueden cambiar
-- Algunos videos pueden ser actualizados (busca versión 2024/2025)
-- La duración aproximada puede variar
-- Si un link no funciona, busca el título + canal en YouTube
+Si tienes poco tiempo, estos son los videos que **SÍ o SÍ** debes ver:
 
----
+1. ⚡ **Dart in 100 Seconds** (2 min) - Overview general
+2. ⭐ **Dart Crash Course** (1h) - Fundamentos completos
+3. ⭐⭐ **Dart Null Safety Explained** (15 min) - Feature clave
+4. ⭐⭐ **Dart Best Practices** (22 min) - Código profesional
+5. ⭐ **Async/Await and Futures** (18 min) - Para APIs
 
-## 🆕 Actualizaciones
-
-Esta lista se actualiza regularmente con nuevos videos relevantes.  
-**Última revisión:** Octubre 2025
+**Total: ~2 horas** - Mínimo absoluto para entender Dart.
 
 ---
 
-## 🎬 Video del Día (Recomendación)
+## 📱 Canales en Español (Opcionales)
 
-**Para Semana 1:** _React Native Tutorial for Beginners (Programming with Mosh)_
+### 1. Fernando Herrera - Flutter Desarrollo Móvil ⭐⭐⭐
 
-Es el video más completo, mejor explicado y cubre exactamente lo que necesitas para la Semana 1. Si solo puedes ver un video, que sea este.
+**Link:** https://www.youtube.com/@fernando_herrera  
+**Por qué seguir:** Mejor instructor en español, cursos completos de Flutter (incluye Dart).
+
+### 2. MoureDev by Brais Moure ⭐⭐
+
+**Link:** https://www.youtube.com/@mouredev  
+**Por qué seguir:** Contenido variado sobre programación, incluye Dart.
+
+### 3. Programación en Español ⭐
+
+**Link:** Buscar "Dart tutorial español" en YouTube  
+**Por qué seguir:** Para complementar si el inglés es difícil.
 
 ---
 
-**📌 Recuerda:** Ver videos NO reemplaza la práctica. Máximo 30% video, 70% codear.
+## 📝 Notas Finales
+
+- **Prioriza práctica sobre videos:** Ver 10 videos sin codear = 0 aprendizaje
+- **Inglés es esencial:** La mayoría del contenido de calidad está en inglés
+- **Velocidad:** 1.25x-1.5x te permite ver más contenido en menos tiempo
+- **Comunidad:** Únete a Discord/Slack del bootcamp para compartir recursos
+- **Constancia:** 30 min diarios de video + práctica > 4h un solo día
 
 ---
 
-_Videografía curada para Semana 1 - Fundamentos de React Native_  
-_Bootcamp React Native 2025_
+## 🎓 Recursos Adicionales
+
+- **Playlist del Instructor:** [Será compartida en clase]
+- **Discord:** [Canal #recursos-videos]
+- **Notion:** [Página de recursos compartidos]
+
+---
+
+_Última actualización: Noviembre 2024_
+
+**Contribuye:** ¿Encontraste un video excelente? Compártelo en el Discord.
