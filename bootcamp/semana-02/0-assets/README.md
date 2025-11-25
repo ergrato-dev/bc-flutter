@@ -14,13 +14,14 @@
    - Diagrama de clases, herencia y mixins
    - Ilustra jerarquía de ejemplo (Animal → Dog, Cat)
    - Muestra relaciones: extends, implements, with
-   
 2. **[02-diagrama-colecciones.svg](./02-diagrama-colecciones.svg)**
+
    - Visualización de List, Set, Map
    - Operaciones comunes de cada colección
    - Comparativa de características
 
 3. **[03-estructura-flutter.svg](./03-estructura-flutter.svg)**
+
    - Arquitectura de una app Flutter
    - Capas: Material/Cupertino, Widgets, Rendering, Foundation
    - Flujo de construcción de UI
@@ -33,6 +34,7 @@
 ### Diagramas de Flujo
 
 5. **[05-ciclo-vida-widget.svg](./05-ciclo-vida-widget.svg)**
+
    - Lifecycle de StatefulWidget
    - Estados: initState, build, setState, dispose
    - Flujo de actualización
@@ -76,14 +78,14 @@
 
 ## 📐 Dimensiones
 
-| Asset | Ancho | Alto | Ratio |
-|-------|-------|------|-------|
-| 01-diagrama-poo.svg | 800px | 600px | 4:3 |
-| 02-diagrama-colecciones.svg | 900px | 600px | 3:2 |
-| 03-estructura-flutter.svg | 800px | 800px | 1:1 |
-| 04-widget-tree.svg | 700px | 900px | 7:9 |
-| 05-ciclo-vida-widget.svg | 800px | 600px | 4:3 |
-| 06-navegacion-flutter.svg | 800px | 700px | 8:7 |
+| Asset                       | Ancho | Alto  | Ratio |
+| --------------------------- | ----- | ----- | ----- |
+| 01-diagrama-poo.svg         | 800px | 600px | 4:3   |
+| 02-diagrama-colecciones.svg | 900px | 600px | 3:2   |
+| 03-estructura-flutter.svg   | 800px | 800px | 1:1   |
+| 04-widget-tree.svg          | 700px | 900px | 7:9   |
+| 05-ciclo-vida-widget.svg    | 800px | 600px | 4:3   |
+| 06-navegacion-flutter.svg   | 800px | 700px | 8:7   |
 
 ---
 
@@ -98,7 +100,10 @@
 ### En HTML (con tamaño)
 
 ```html
-<img src="./0-assets/01-diagrama-poo.svg" width="600" alt="Diagrama POO">
+<img
+  src="./0-assets/01-diagrama-poo.svg"
+  width="600"
+  alt="Diagrama POO" />
 ```
 
 ### Centrado
@@ -117,15 +122,18 @@
 Los assets están vinculados en:
 
 ### Teoría
+
 - **[01-poo-dart.md](../1-teoria/01-poo-dart.md)** → usa `01-diagrama-poo.svg`
 - **[02-colecciones-estructuras.md](../1-teoria/02-colecciones-estructuras.md)** → usa `02-diagrama-colecciones.svg`
 - **[03-intro-flutter.md](../1-teoria/03-intro-flutter.md)** → usa `03-estructura-flutter.svg`, `04-widget-tree.svg`
 
 ### Prácticas
+
 - **[practica-01-poo-biblioteca.md](../2-practicas/practica-01-poo-biblioteca.md)** → referencia `01-diagrama-poo.svg`
 - **[practica-05-flutter-contador.md](../2-practicas/practica-05-flutter-contador.md)** → referencia `05-ciclo-vida-widget.svg`
 
 ### Proyecto
+
 - **[README.md](../3-proyecto/README.md)** → usa `03-estructura-flutter.svg`, `04-widget-tree.svg`
 
 ---
@@ -133,6 +141,7 @@ Los assets están vinculados en:
 ## 🛠️ Herramientas de Creación
 
 Los SVGs fueron creados con:
+
 - **Diseño**: Figma / Excalidraw
 - **Optimización**: SVGO
 - **Validación**: SVG Validator
@@ -142,6 +151,7 @@ Los SVGs fueron creados con:
 ## 📱 Responsive
 
 Todos los SVGs son:
+
 - ✅ **Escalables**: Se adaptan a cualquier tamaño
 - ✅ **Vectoriales**: Sin pérdida de calidad
 - ✅ **Accesibles**: Incluyen atributos `aria-label`
@@ -153,16 +163,19 @@ Todos los SVGs son:
 ## 🎯 Convenciones
 
 ### Nomenclatura
+
 ```
 [número]-[descripción-kebab-case].svg
 ```
 
 Ejemplos:
+
 - `01-diagrama-poo.svg`
 - `02-diagrama-colecciones.svg`
 - `03-estructura-flutter.svg`
 
 ### Contenido
+
 - Fondo oscuro (#1e1e1e)
 - Texto legible (contraste mínimo 4.5:1)
 - Iconos consistentes
@@ -173,16 +186,21 @@ Ejemplos:
 ## 💡 Tips de Visualización
 
 ### En VS Code
+
 Instala extensión: **SVG Preview**
+
 - Ver SVG en panel lateral
 - Zoom y pan
 - Export a PNG
 
 ### En GitHub
+
 Los SVGs se renderizan automáticamente en README.md
 
 ### En Navegador
+
 Abre directamente el archivo .svg
+
 - Ctrl/Cmd + / para inspeccionar
 - Responsive por defecto
 
@@ -202,25 +220,25 @@ Si necesitas modificar un SVG:
 
 ## 📊 Uso por Documento
 
-| Documento | Assets Usados | Cantidad |
-|-----------|---------------|----------|
-| 01-poo-dart.md | 01 | 1 |
-| 02-colecciones-estructuras.md | 02 | 1 |
-| 03-intro-flutter.md | 03, 04, 05 | 3 |
-| practica-01-poo-biblioteca.md | 01 | 1 |
-| practica-05-flutter-contador.md | 05 | 1 |
-| Proyecto README.md | 03, 04, 06 | 3 |
+| Documento                       | Assets Usados | Cantidad |
+| ------------------------------- | ------------- | -------- |
+| 01-poo-dart.md                  | 01            | 1        |
+| 02-colecciones-estructuras.md   | 02            | 1        |
+| 03-intro-flutter.md             | 03, 04, 05    | 3        |
+| practica-01-poo-biblioteca.md   | 01            | 1        |
+| practica-05-flutter-contador.md | 05            | 1        |
+| Proyecto README.md              | 03, 04, 06    | 3        |
 
 ---
 
 ## ⚡ Performance
 
-| Métrica | Valor |
-|---------|-------|
-| Tamaño promedio | 35 KB |
-| Tiempo de carga | < 100ms |
-| Formato | SVG 1.1 |
-| Compresión | SVGO optimizado |
+| Métrica         | Valor           |
+| --------------- | --------------- |
+| Tamaño promedio | 35 KB           |
+| Tiempo de carga | < 100ms         |
+| Formato         | SVG 1.1         |
+| Compresión      | SVGO optimizado |
 
 ---
 

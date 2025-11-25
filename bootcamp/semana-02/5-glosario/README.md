@@ -14,6 +14,7 @@
 - **Para exámenes**: Repaso sistemático
 
 **Convenciones**:
+
 - 📦 = Término de POO
 - 📚 = Término de Colecciones
 - 🎨 = Término de Flutter
@@ -24,9 +25,11 @@
 ## A
 
 ### abstract (📦)
+
 **Definición**: Palabra clave para declarar clases o métodos que no pueden ser instanciados directamente y deben ser implementados por subclases.
 
 **Sintaxis**:
+
 ```dart
 abstract class Animal {
   void makeSound(); // Método abstracto
@@ -40,9 +43,11 @@ abstract class Animal {
 ---
 
 ### AppBar (🎨)
+
 **Definición**: Widget de Material Design que muestra una barra superior con título, acciones y navegación.
 
 **Sintaxis**:
+
 ```dart
 AppBar(
   title: Text('Mi App'),
@@ -57,9 +62,11 @@ AppBar(
 ---
 
 ### async/await (⚙️)
+
 **Definición**: Palabras clave para manejar código asíncrono de forma secuencial.
 
 **Sintaxis**:
+
 ```dart
 Future<void> fetchData() async {
   final data = await apiCall();
@@ -75,9 +82,11 @@ Future<void> fetchData() async {
 ## B
 
 ### build() (🎨)
+
 **Definición**: Método obligatorio en widgets que retorna la estructura de UI.
 
 **Sintaxis**:
+
 ```dart
 @override
 Widget build(BuildContext context) {
@@ -92,9 +101,11 @@ Widget build(BuildContext context) {
 ---
 
 ### BuildContext (🎨)
+
 **Definición**: Objeto que contiene información sobre la ubicación de un widget en el árbol.
 
 **Uso común**:
+
 ```dart
 Theme.of(context)
 Navigator.of(context)
@@ -110,16 +121,18 @@ MediaQuery.of(context)
 ## C
 
 ### class (📦)
+
 **Definición**: Plantilla para crear objetos con propiedades y métodos.
 
 **Sintaxis**:
+
 ```dart
 class Person {
   String name;
   int age;
-  
+
   Person(this.name, this.age);
-  
+
   void greet() => print('Hola, soy $name');
 }
 ```
@@ -131,9 +144,11 @@ class Person {
 ---
 
 ### Column (🎨)
+
 **Definición**: Widget que organiza hijos verticalmente.
 
 **Sintaxis**:
+
 ```dart
 Column(
   mainAxisAlignment: MainAxisAlignment.center,
@@ -151,9 +166,11 @@ Column(
 ---
 
 ### const (⚙️)
+
 **Definición**: Palabra clave para valores constantes en tiempo de compilación.
 
 **Sintaxis**:
+
 ```dart
 const myWidget = Text('Constante');
 const pi = 3.14159;
@@ -166,9 +183,11 @@ const pi = 3.14159;
 ---
 
 ### constructor (📦)
+
 **Definición**: Método especial que inicializa objetos de una clase.
 
 **Tipos**:
+
 ```dart
 // Constructor por defecto
 Person(this.name, this.age);
@@ -189,9 +208,11 @@ factory Person.fromJson(Map<String, dynamic> json) {
 ---
 
 ### Container (🎨)
+
 **Definición**: Widget versátil para crear cajas con decoración, padding, margen, etc.
 
 **Sintaxis**:
+
 ```dart
 Container(
   width: 100,
@@ -211,9 +232,11 @@ Container(
 ## D
 
 ### Dart (⚙️)
+
 **Definición**: Lenguaje de programación desarrollado por Google, base de Flutter.
 
 **Características**:
+
 - Orientado a objetos
 - Strongly typed
 - Null safety
@@ -224,9 +247,11 @@ Container(
 ---
 
 ### dynamic (⚙️)
+
 **Definición**: Tipo que desactiva el chequeo de tipos en tiempo de compilación.
 
 **Sintaxis**:
+
 ```dart
 dynamic variable = 'String';
 variable = 42; // OK, pero no recomendado
@@ -241,9 +266,11 @@ variable = 42; // OK, pero no recomendado
 ## E
 
 ### enum (⚙️)
+
 **Definición**: Tipo especial para representar un conjunto fijo de valores.
 
 **Sintaxis**:
+
 ```dart
 enum Status {
   pending,
@@ -261,9 +288,11 @@ Status current = Status.active;
 ---
 
 ### extends (📦)
+
 **Definición**: Palabra clave para crear una clase que hereda de otra.
 
 **Sintaxis**:
+
 ```dart
 class Dog extends Animal {
   @override
@@ -280,15 +309,17 @@ class Dog extends Animal {
 ## F
 
 ### factory (📦)
+
 **Definición**: Constructor especial que puede retornar una instancia existente.
 
 **Sintaxis**:
+
 ```dart
 class Singleton {
   static final Singleton _instance = Singleton._internal();
-  
+
   factory Singleton() => _instance;
-  
+
   Singleton._internal();
 }
 ```
@@ -300,9 +331,11 @@ class Singleton {
 ---
 
 ### final (⚙️)
+
 **Definición**: Palabra clave para variables que se asignan una sola vez.
 
 **Sintaxis**:
+
 ```dart
 final String name = 'Juan';
 final now = DateTime.now(); // Tipo inferido
@@ -315,9 +348,11 @@ final now = DateTime.now(); // Tipo inferido
 ---
 
 ### Flutter (🎨)
+
 **Definición**: Framework de Google para crear apps nativas multiplataforma.
 
 **Características**:
+
 - Usa Dart
 - Hot reload
 - Widget-based
@@ -328,9 +363,11 @@ final now = DateTime.now(); // Tipo inferido
 ---
 
 ### Future (⚙️)
+
 **Definición**: Objeto que representa un valor o error que estará disponible en el futuro.
 
 **Sintaxis**:
+
 ```dart
 Future<String> fetchData() async {
   await Future.delayed(Duration(seconds: 2));
@@ -347,13 +384,15 @@ Future<String> fetchData() async {
 ## G
 
 ### getter (📦)
+
 **Definición**: Método que accede a una propiedad privada.
 
 **Sintaxis**:
+
 ```dart
 class Circle {
   double radius;
-  
+
   double get area => 3.14 * radius * radius;
 }
 ```
@@ -367,9 +406,11 @@ class Circle {
 ## H
 
 ### Hot Reload (🎨)
+
 **Definición**: Característica de Flutter que actualiza la UI sin perder el estado.
 
 **Uso**:
+
 - Guarda el archivo (Cmd/Ctrl + S)
 - Presiona `r` en terminal
 - Cambios visuales reflejados instantáneamente
@@ -381,9 +422,11 @@ class Circle {
 ---
 
 ### Hot Restart (🎨)
+
 **Definición**: Reinicia la app completamente, perdiendo el estado.
 
 **Uso**:
+
 - Presiona `R` en terminal
 - Shift + Cmd/Ctrl + F5 en VS Code
 
@@ -396,9 +439,11 @@ class Circle {
 ## I
 
 ### implements (📦)
+
 **Definición**: Palabra clave para implementar una interfaz (clase abstracta).
 
 **Sintaxis**:
+
 ```dart
 class Dog implements Animal {
   @override
@@ -413,9 +458,11 @@ class Dog implements Animal {
 ---
 
 ### immutable (🎨)
+
 **Definición**: Concepto de objetos que no pueden cambiar después de creación.
 
 **Sintaxis**:
+
 ```dart
 @immutable
 class Person {
@@ -433,9 +480,11 @@ class Person {
 ## L
 
 ### late (⚙️)
+
 **Definición**: Modificador que indica que una variable se inicializará después.
 
 **Sintaxis**:
+
 ```dart
 late String description;
 
@@ -451,9 +500,11 @@ void init() {
 ---
 
 ### List (📚)
+
 **Definición**: Colección ordenada de elementos.
 
 **Sintaxis**:
+
 ```dart
 List<int> numbers = [1, 2, 3];
 numbers.add(4);
@@ -471,9 +522,11 @@ final first = numbers[0];
 ## M
 
 ### main() (⚙️)
+
 **Definición**: Función de entrada de toda aplicación Dart/Flutter.
 
 **Sintaxis**:
+
 ```dart
 void main() {
   runApp(MyApp());
@@ -487,9 +540,11 @@ void main() {
 ---
 
 ### Map (📚)
+
 **Definición**: Colección de pares clave-valor.
 
 **Sintaxis**:
+
 ```dart
 Map<String, int> ages = {
   'Juan': 25,
@@ -507,11 +562,13 @@ ages['Pedro'] = 28;
 ---
 
 ### Material (🎨)
+
 **Definición**: Sistema de diseño de Google implementado en Flutter.
 
 **Componentes**: AppBar, Card, Button, etc.
 
 **Uso**:
+
 ```dart
 MaterialApp(
   theme: ThemeData(...),
@@ -526,9 +583,11 @@ MaterialApp(
 ---
 
 ### MaterialApp (🎨)
+
 **Definición**: Widget raíz para apps Material Design.
 
 **Sintaxis**:
+
 ```dart
 MaterialApp(
   title: 'Mi App',
@@ -544,9 +603,11 @@ MaterialApp(
 ---
 
 ### mixin (📦)
+
 **Definición**: Forma de reutilizar código en múltiples jerarquías de clases.
 
 **Sintaxis**:
+
 ```dart
 mixin Swimming {
   void swim() => print('Swimming');
@@ -564,9 +625,11 @@ class Duck extends Animal with Swimming {}
 ## N
 
 ### Navigator (🎨)
+
 **Definición**: Gestor de rutas y navegación entre pantallas.
 
 **Sintaxis**:
+
 ```dart
 // Ir a nueva pantalla
 Navigator.push(
@@ -585,9 +648,11 @@ Navigator.pop(context);
 ---
 
 ### null (⚙️)
+
 **Definición**: Valor que representa ausencia de valor.
 
 **Sintaxis**:
+
 ```dart
 String? nullable = null; // Puede ser null
 String nonNull = 'value'; // No puede ser null
@@ -602,9 +667,11 @@ String nonNull = 'value'; // No puede ser null
 ## O
 
 ### Object (📦)
+
 **Definición**: Instancia de una clase.
 
 **Sintaxis**:
+
 ```dart
 Person person = Person('Juan', 25);
 // person es un objeto de la clase Person
@@ -617,9 +684,11 @@ Person person = Person('Juan', 25);
 ---
 
 ### @override (📦)
+
 **Definición**: Anotación que indica que un método sobrescribe uno de la superclase.
 
 **Sintaxis**:
+
 ```dart
 class Dog extends Animal {
   @override
@@ -636,9 +705,11 @@ class Dog extends Animal {
 ## P
 
 ### package (⚙️)
+
 **Definición**: Conjunto reutilizable de código Dart.
 
 **Uso**:
+
 ```yaml
 # pubspec.yaml
 dependencies:
@@ -656,9 +727,11 @@ import 'package:http/http.dart' as http;
 ---
 
 ### private (📦)
+
 **Definición**: Modificador de acceso usando `_` (guion bajo).
 
 **Sintaxis**:
+
 ```dart
 class Person {
   String _privateField; // Solo visible en este archivo
@@ -675,9 +748,11 @@ class Person {
 ## R
 
 ### Row (🎨)
+
 **Definición**: Widget que organiza hijos horizontalmente.
 
 **Sintaxis**:
+
 ```dart
 Row(
   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -695,9 +770,11 @@ Row(
 ---
 
 ### runApp() (🎨)
+
 **Definición**: Función que inicia una aplicación Flutter.
 
 **Sintaxis**:
+
 ```dart
 void main() {
   runApp(MyApp());
@@ -713,9 +790,11 @@ void main() {
 ## S
 
 ### Scaffold (🎨)
+
 **Definición**: Estructura básica de una pantalla Material.
 
 **Sintaxis**:
+
 ```dart
 Scaffold(
   appBar: AppBar(title: Text('Título')),
@@ -731,9 +810,11 @@ Scaffold(
 ---
 
 ### Set (📚)
+
 **Definición**: Colección sin elementos duplicados.
 
 **Sintaxis**:
+
 ```dart
 Set<int> numbers = {1, 2, 3};
 numbers.add(2); // No duplica
@@ -748,9 +829,11 @@ numbers.add(2); // No duplica
 ---
 
 ### setState() (🎨)
+
 **Definición**: Método que notifica cambios de estado en StatefulWidget.
 
 **Sintaxis**:
+
 ```dart
 setState(() {
   counter++;
@@ -764,13 +847,15 @@ setState(() {
 ---
 
 ### setter (📦)
+
 **Definición**: Método que modifica una propiedad privada.
 
 **Sintaxis**:
+
 ```dart
 class Person {
   String _name;
-  
+
   set name(String value) {
     if (value.isNotEmpty) _name = value;
   }
@@ -784,13 +869,15 @@ class Person {
 ---
 
 ### State (🎨)
+
 **Definición**: Objeto que contiene datos mutables de un StatefulWidget.
 
 **Sintaxis**:
+
 ```dart
 class _MyWidgetState extends State<MyWidget> {
   int counter = 0;
-  
+
   @override
   Widget build(BuildContext context) { ... }
 }
@@ -803,9 +890,11 @@ class _MyWidgetState extends State<MyWidget> {
 ---
 
 ### StatefulWidget (🎨)
+
 **Definición**: Widget que tiene estado mutable.
 
 **Sintaxis**:
+
 ```dart
 class Counter extends StatefulWidget {
   @override
@@ -825,15 +914,17 @@ class _CounterState extends State<Counter> {
 ---
 
 ### StatelessWidget (🎨)
+
 **Definición**: Widget sin estado mutable.
 
 **Sintaxis**:
+
 ```dart
 class Greeting extends StatelessWidget {
   final String name;
-  
+
   const Greeting({required this.name});
-  
+
   @override
   Widget build(BuildContext context) {
     return Text('Hola, $name');
@@ -848,13 +939,15 @@ class Greeting extends StatelessWidget {
 ---
 
 ### super (📦)
+
 **Definición**: Referencia a la superclase.
 
 **Sintaxis**:
+
 ```dart
 class Dog extends Animal {
   Dog(String name) : super(name);
-  
+
   @override
   void makeSound() {
     super.makeSound(); // Llama al método de Animal
@@ -872,9 +965,11 @@ class Dog extends Animal {
 ## T
 
 ### Text (🎨)
+
 **Definición**: Widget para mostrar texto.
 
 **Sintaxis**:
+
 ```dart
 Text(
   'Hola Mundo',
@@ -892,15 +987,17 @@ Text(
 ---
 
 ### this (📦)
+
 **Definición**: Referencia al objeto actual.
 
 **Sintaxis**:
+
 ```dart
 class Person {
   String name;
-  
+
   Person(this.name); // Shorthand
-  
+
   void introduce() {
     print('Soy ${this.name}');
   }
@@ -914,9 +1011,11 @@ class Person {
 ---
 
 ### ThemeData (🎨)
+
 **Definición**: Configuración de colores y estilos de la app.
 
 **Sintaxis**:
+
 ```dart
 ThemeData(
   primarySwatch: Colors.blue,
@@ -934,9 +1033,11 @@ ThemeData(
 ## V
 
 ### var (⚙️)
+
 **Definición**: Palabra clave para inferencia de tipos.
 
 **Sintaxis**:
+
 ```dart
 var name = 'Juan'; // Infiere String
 var age = 25; // Infiere int
@@ -949,9 +1050,11 @@ var age = 25; // Infiere int
 ---
 
 ### void (⚙️)
+
 **Definición**: Tipo que indica que una función no retorna valor.
 
 **Sintaxis**:
+
 ```dart
 void printMessage(String message) {
   print(message);
@@ -967,9 +1070,11 @@ void printMessage(String message) {
 ## W
 
 ### Widget (🎨)
+
 **Definición**: Pieza básica de la UI en Flutter.
 
 **Todo en Flutter es un widget**:
+
 - Layout: Row, Column, Container
 - Interacción: Button, TextField
 - Estilo: Text, Icon
@@ -980,9 +1085,11 @@ void printMessage(String message) {
 ---
 
 ### with (📦)
+
 **Definición**: Palabra clave para aplicar mixins.
 
 **Sintaxis**:
+
 ```dart
 class Duck extends Animal with Swimming, Flying {}
 ```
@@ -996,15 +1103,19 @@ class Duck extends Animal with Swimming, Flying {}
 ## 📊 Resumen por Categorías
 
 ### POO (Programación Orientada a Objetos) - 15 términos
+
 `abstract`, `class`, `constructor`, `extends`, `factory`, `getter`, `implements`, `mixin`, `Object`, `@override`, `private`, `setter`, `super`, `this`, `with`
 
 ### Colecciones - 3 términos
+
 `List`, `Map`, `Set`
 
 ### Flutter UI - 20 términos
+
 `AppBar`, `build()`, `BuildContext`, `Column`, `Container`, `Flutter`, `Hot Reload`, `Hot Restart`, `immutable`, `main()`, `Material`, `MaterialApp`, `Navigator`, `Row`, `runApp()`, `Scaffold`, `setState()`, `State`, `StatefulWidget`, `StatelessWidget`, `Text`, `ThemeData`, `Widget`
 
 ### Dart General - 12 términos
+
 `async/await`, `const`, `Dart`, `dynamic`, `enum`, `final`, `Future`, `late`, `null`, `package`, `var`, `void`
 
 ---
@@ -1012,17 +1123,21 @@ class Duck extends Animal with Swimming, Flying {}
 ## 🎯 Estudio Recomendado
 
 ### Semana 02
+
 **Prioridad Alta** (debes dominar):
+
 - class, constructor, extends, List, Map, Set
 - Widget, StatelessWidget, StatefulWidget, build()
 - MaterialApp, Scaffold, Column, Row, Text
 
 **Prioridad Media** (debes conocer):
+
 - mixin, abstract, implements, getter, setter
 - setState(), Container, AppBar, Navigator
 - final, const, async/await
 
 **Prioridad Baja** (para profundizar):
+
 - factory, late, BuildContext, ThemeData
 - Hot Reload, immutable, private
 

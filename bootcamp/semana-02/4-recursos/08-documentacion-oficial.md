@@ -15,9 +15,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 📚 Documentación Oficial de Dart
 
 ### 1. Dart Language Tour
+
 **URL**: https://dart.dev/guides/language/language-tour
 
 **Contenido**:
+
 - Sintaxis completa del lenguaje
 - Variables, operadores, control de flujo
 - Clases, objetos, herencia, mixins
@@ -26,9 +28,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Referencia completa del lenguaje
 
 ### 2. Effective Dart
+
 **URL**: https://dart.dev/guides/language/effective-dart
 
 **Contenido**:
+
 - **Style**: Convenciones de código
 - **Documentation**: Cómo documentar
 - **Usage**: Mejores prácticas
@@ -37,9 +41,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Guía de estilo y buenas prácticas
 
 ### 3. Dart API Documentation
+
 **URL**: https://api.dart.dev/
 
 **Contenido**:
+
 - dart:core (List, Map, Set, String, etc.)
 - dart:collection (colecciones especializadas)
 - dart:async (Future, Stream)
@@ -52,9 +58,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 📚 Documentación Oficial de Flutter
 
 ### 4. Flutter Documentation
+
 **URL**: https://docs.flutter.dev/
 
 **Contenido**:
+
 - Get Started (instalación, setup)
 - Codelabs (tutoriales interactivos)
 - Cookbook (recetas de código)
@@ -63,9 +71,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Hub principal de Flutter
 
 ### 5. Widget Catalog
+
 **URL**: https://docs.flutter.dev/development/ui/widgets
 
 **Contenido**:
+
 - Accessibility widgets
 - Animation widgets
 - Basic widgets (Container, Row, Column)
@@ -75,9 +85,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Explorar todos los widgets disponibles
 
 ### 6. Flutter API Reference
+
 **URL**: https://api.flutter.dev/
 
 **Contenido**:
+
 - flutter/material
 - flutter/widgets
 - flutter/cupertino
@@ -90,9 +102,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 🔍 Referencias Rápidas (Cheatsheets)
 
 ### 7. Dart Cheatsheet
+
 **URL**: https://dart.dev/codelabs/dart-cheatsheet
 
 **Contenido**:
+
 - String interpolation
 - Null safety
 - Conditional expressions
@@ -103,9 +117,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Consulta rápida de sintaxis
 
 ### 8. Flutter Widget Index
+
 **URL**: https://docs.flutter.dev/reference/widgets
 
 **Contenido**:
+
 - Lista alfabética de widgets
 - Categorías por función
 - Links directos a documentación
@@ -117,9 +133,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 📖 Guías de Aprendizaje
 
 ### 9. Dart Tutorials
+
 **URL**: https://dart.dev/tutorials
 
 **Contenido**:
+
 - Language basics
 - Asynchronous programming
 - Command-line apps
@@ -129,9 +147,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Tutoriales oficiales paso a paso
 
 ### 10. Flutter Codelabs
+
 **URL**: https://docs.flutter.dev/codelabs
 
 **Contenido**:
+
 - Write your first Flutter app
 - Building layouts
 - Adding interactivity
@@ -145,9 +165,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 🎨 Diseño y UI
 
 ### 11. Material Design 3
+
 **URL**: https://m3.material.io/
 
 **Contenido**:
+
 - Componentes Material
 - Guías de diseño
 - Tokens de diseño
@@ -156,9 +178,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Referencia de diseño Material
 
 ### 12. Human Interface Guidelines (iOS)
+
 **URL**: https://developer.apple.com/design/human-interface-guidelines/
 
 **Contenido**:
+
 - Diseño iOS/macOS
 - Componentes nativos
 - Patrones de interacción
@@ -170,9 +194,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 🛠️ Herramientas y DevTools
 
 ### 13. Flutter DevTools
+
 **URL**: https://docs.flutter.dev/development/tools/devtools
 
 **Contenido**:
+
 - Inspector (árbol de widgets)
 - Performance view
 - Memory profiler
@@ -182,9 +208,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Debug y optimización
 
 ### 14. DartPad
+
 **URL**: https://dartpad.dev/
 
 **Contenido**:
+
 - Editor Dart online
 - Soporte para Flutter
 - Ejemplos interactivos
@@ -196,9 +224,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 📦 Packages y Plugins
 
 ### 15. pub.dev
+
 **URL**: https://pub.dev/
 
 **Contenido**:
+
 - Paquetes Dart oficiales
 - Plugins Flutter verificados
 - Documentación de packages
@@ -207,9 +237,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Buscar librerías y plugins
 
 ### 16. Flutter Favorites
+
 **URL**: https://docs.flutter.dev/development/packages-and-plugins/favorites
 
 **Contenido**:
+
 - Packages recomendados por Flutter team
 - Librerías de alta calidad
 - Categorías: UI, networking, storage, etc.
@@ -221,9 +253,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 🎓 Recursos de Aprendizaje Oficiales
 
 ### 17. Flutter Cookbook
+
 **URL**: https://docs.flutter.dev/cookbook
 
 **Contenido**:
+
 - Animation recipes
 - Forms and validation
 - Lists and grids
@@ -234,9 +268,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Soluciones a problemas comunes
 
 ### 18. Flutter Samples
+
 **URL**: https://flutter.github.io/samples/
 
 **Contenido**:
+
 - Apps de ejemplo completas
 - Código fuente en GitHub
 - Diferentes niveles de complejidad
@@ -248,9 +284,11 @@ Referencias oficiales y recursos de consulta rápida.
 ## 🔧 Configuración y Setup
 
 ### 19. Flutter Installation
+
 **URL**: https://docs.flutter.dev/get-started/install
 
 **Contenido**:
+
 - Instalación por plataforma
 - System requirements
 - Editor setup
@@ -259,9 +297,11 @@ Referencias oficiales y recursos de consulta rápida.
 **Uso**: Guía de instalación oficial
 
 ### 20. flutter doctor
+
 **URL**: https://docs.flutter.dev/get-started/install#run-flutter-doctor
 
 **Contenido**:
+
 - Verificar instalación
 - Detectar problemas
 - Soluciones comunes
@@ -273,16 +313,19 @@ Referencias oficiales y recursos de consulta rápida.
 ## 💡 Cómo Usar esta Documentación
 
 ### Durante el Estudio Teórico
+
 1. Lee primero el **Language Tour** (sección específica)
 2. Consulta **Effective Dart** para buenas prácticas
 3. Revisa **API Docs** para métodos específicos
 
 ### Durante la Práctica
+
 1. Abre **DartPad** para experimentar
 2. Consulta **Widget Catalog** para UI
 3. Usa **Cookbook** para soluciones rápidas
 
 ### Durante el Proyecto
+
 1. **pub.dev** para buscar packages
 2. **API Reference** para documentación detallada
 3. **Flutter Samples** para inspiración
@@ -317,6 +360,7 @@ Agrega estos a tus favoritos del navegador:
 ## 🔍 Técnicas de Búsqueda
 
 ### En Documentación
+
 ```
 Sintaxis: "dart [concepto]" o "flutter [widget]"
 Ejemplo: "dart list methods"
@@ -324,6 +368,7 @@ Ejemplo: "flutter column widget"
 ```
 
 ### En API Reference
+
 ```
 Usa Ctrl+F / Cmd+F para buscar en página
 Navega por clases relacionadas (hierarchy)
@@ -331,6 +376,7 @@ Revisa "See also" para alternativas
 ```
 
 ### En pub.dev
+
 ```
 Filtros: Platform, SDK
 Ordena por: Likes, Pub Points, Popularity
@@ -342,12 +388,14 @@ Lee README completo antes de usar
 ## 📚 Lectura Recomendada por Semana
 
 ### Semana 02 (Esta semana)
+
 - ✅ Dart Language Tour: Classes
 - ✅ Dart Language Tour: Collections
 - ✅ Flutter: Building layouts
 - ✅ Widget Catalog: Basic widgets
 
 ### Semana 03-04 (Siguiente)
+
 - Flutter: Adding interactivity
 - Widget Catalog: Material Components
 - Cookbook: Navigation
@@ -373,6 +421,7 @@ Lee README completo antes de usar
 ---
 
 **Recursos Relacionados**:
+
 - 📖 [Teoría: Fundamentos Dart](../../1-teoria/01-fundamentos-dart.md)
 - 📖 [Teoría: Intro a Flutter](../../1-teoria/03-intro-flutter.md)
 - 🛠️ [09 - Herramientas de Desarrollo](./09-herramientas-desarrollo.md)

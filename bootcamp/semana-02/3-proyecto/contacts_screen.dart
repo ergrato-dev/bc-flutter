@@ -5,13 +5,13 @@ import '../models/contact.dart';
 import '../services/contact_manager.dart';
 
 /// Pantalla de Gestión de Contactos
-/// 
+///
 /// ¿Qué hace?
 /// Permite ver, crear, editar y eliminar contactos
-/// 
+///
 /// ¿Para qué?
 /// Proporcionar una agenda personal completa
-/// 
+///
 /// ¿Cómo funciona?
 /// - Lista de contactos con avatar e información
 /// - Búsqueda por nombre, teléfono o email
@@ -20,10 +20,7 @@ import '../services/contact_manager.dart';
 class ContactsScreen extends StatefulWidget {
   final ContactManager contactManager;
 
-  const ContactsScreen({
-    super.key,
-    required this.contactManager,
-  });
+  const ContactsScreen({super.key, required this.contactManager});
 
   @override
   State<ContactsScreen> createState() => _ContactsScreenState();
@@ -86,7 +83,8 @@ class _ContactsScreenState extends State<ContactsScreen> {
                     itemCount: contacts.length,
                     itemBuilder: (context, index) {
                       // Mostrar separador de letra si cambia la inicial
-                      final showHeader = index == 0 ||
+                      final showHeader =
+                          index == 0 ||
                           contacts[index].name[0].toUpperCase() !=
                               contacts[index - 1].name[0].toUpperCase();
 
@@ -142,9 +140,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
                   },
                 )
               : null,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           filled: true,
           fillColor: Colors.white,
         ),
@@ -162,10 +158,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
       margin: const EdgeInsets.only(bottom: 8),
       elevation: 1,
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 8,
-        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         leading: CircleAvatar(
           radius: 28,
           backgroundColor: Theme.of(context).colorScheme.primaryContainer,
@@ -207,11 +200,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
               ),
             ),
             if (contact.isFavorite)
-              const Icon(
-                Icons.star,
-                size: 18,
-                color: Colors.amber,
-              ),
+              const Icon(Icons.star, size: 18, color: Colors.amber),
           ],
         ),
         subtitle: Column(
@@ -299,11 +288,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.contacts,
-            size: 80,
-            color: Colors.grey[300],
-          ),
+          Icon(Icons.contacts, size: 80, color: Colors.grey[300]),
           const SizedBox(height: 16),
           Text(
             'No hay contactos',
@@ -318,10 +303,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
             _searchQuery.isNotEmpty
                 ? 'No se encontraron resultados'
                 : 'Agrega tu primer contacto',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[500],
-            ),
+            style: TextStyle(fontSize: 14, color: Colors.grey[500]),
           ),
         ],
       ),
@@ -352,10 +334,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
             const SizedBox(height: 16),
             Text(
               contact.name,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 24),
 
@@ -403,7 +382,9 @@ class _ContactsScreenState extends State<ContactsScreen> {
                   icon: Icon(
                     contact.isFavorite ? Icons.star : Icons.star_border,
                   ),
-                  label: Text(contact.isFavorite ? 'Quitar favorito' : 'Favorito'),
+                  label: Text(
+                    contact.isFavorite ? 'Quitar favorito' : 'Favorito',
+                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: contact.isFavorite
                         ? Colors.amber
@@ -452,10 +433,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label),
-          Text(
-            value,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -490,9 +468,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
                 const SnackBar(content: Text('Contacto eliminado')),
               );
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
             child: const Text('Eliminar'),
           ),
         ],
@@ -505,7 +481,9 @@ class _ContactsScreenState extends State<ContactsScreen> {
     final nameController = TextEditingController(text: contact?.name ?? '');
     final phoneController = TextEditingController(text: contact?.phone ?? '');
     final emailController = TextEditingController(text: contact?.email ?? '');
-    final addressController = TextEditingController(text: contact?.address ?? '');
+    final addressController = TextEditingController(
+      text: contact?.address ?? '',
+    );
     bool isFavorite = contact?.isFavorite ?? false;
 
     showModalBottomSheet(
@@ -625,13 +603,15 @@ class _ContactsScreenState extends State<ContactsScreen> {
                             contact.email = emailController.text.trim().isEmpty
                                 ? null
                                 : emailController.text.trim();
-                            contact.address = addressController.text.trim().isEmpty
+                            contact.address =
+                                addressController.text.trim().isEmpty
                                 ? null
                                 : addressController.text.trim();
                             contact.isFavorite = isFavorite;
                           } else {
                             final newContact = Contact(
-                              id: DateTime.now().millisecondsSinceEpoch.toString(),
+                              id: DateTime.now().millisecondsSinceEpoch
+                                  .toString(),
                               name: nameController.text.trim(),
                               phone: phoneController.text.trim().isEmpty
                                   ? null

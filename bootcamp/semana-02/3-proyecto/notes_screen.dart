@@ -5,13 +5,13 @@ import '../models/note.dart';
 import '../services/note_manager.dart';
 
 /// Pantalla de Gestión de Notas
-/// 
+///
 /// ¿Qué hace?
 /// Permite ver, crear, editar y eliminar notas con categorías
-/// 
+///
 /// ¿Para qué?
 /// Proporcionar un bloc de notas organizado por categorías
-/// 
+///
 /// ¿Cómo funciona?
 /// - Lista de notas con vista previa
 /// - Filtro por categoría
@@ -20,10 +20,7 @@ import '../services/note_manager.dart';
 class NotesScreen extends StatefulWidget {
   final NoteManager noteManager;
 
-  const NotesScreen({
-    super.key,
-    required this.noteManager,
-  });
+  const NotesScreen({super.key, required this.noteManager});
 
   @override
   State<NotesScreen> createState() => _NotesScreenState();
@@ -91,12 +88,13 @@ class _NotesScreenState extends State<NotesScreen> {
                 ? _buildEmptyState()
                 : GridView.builder(
                     padding: const EdgeInsets.all(16),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      childAspectRatio: 0.75,
-                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 12,
+                          mainAxisSpacing: 12,
+                          childAspectRatio: 0.75,
+                        ),
                     itemCount: notes.length,
                     itemBuilder: (context, index) {
                       return _buildNoteCard(notes[index]);
@@ -130,9 +128,7 @@ class _NotesScreenState extends State<NotesScreen> {
                   },
                 )
               : null,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           filled: true,
           fillColor: Colors.white,
         ),
@@ -162,19 +158,21 @@ class _NotesScreenState extends State<NotesScreen> {
             },
           ),
           const SizedBox(width: 8),
-          ...NoteCategory.values.map((category) => Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: _buildCategoryChip(
-                  label: category.label,
-                  color: Color(category.colorValue),
-                  isSelected: _filterCategory == category,
-                  onTap: () {
-                    setState(() {
-                      _filterCategory = category;
-                    });
-                  },
-                ),
-              )),
+          ...NoteCategory.values.map(
+            (category) => Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: _buildCategoryChip(
+                label: category.label,
+                color: Color(category.colorValue),
+                isSelected: _filterCategory == category,
+                onTap: () {
+                  setState(() {
+                    _filterCategory = category;
+                  });
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -191,10 +189,14 @@ class _NotesScreenState extends State<NotesScreen> {
       selected: isSelected,
       onSelected: (_) => onTap(),
       backgroundColor: color?.withOpacity(0.1),
-      selectedColor: color?.withOpacity(0.3) ?? Theme.of(context).colorScheme.primaryContainer,
+      selectedColor:
+          color?.withOpacity(0.3) ??
+          Theme.of(context).colorScheme.primaryContainer,
       checkmarkColor: color,
       labelStyle: TextStyle(
-        color: isSelected ? (color ?? Theme.of(context).colorScheme.primary) : null,
+        color: isSelected
+            ? (color ?? Theme.of(context).colorScheme.primary)
+            : null,
         fontWeight: isSelected ? FontWeight.bold : null,
       ),
     );
@@ -235,7 +237,7 @@ class _NotesScreenState extends State<NotesScreen> {
                       ),
                     ),
                   ),
-                  
+
                   // Favorito
                   IconButton(
                     icon: Icon(
@@ -253,9 +255,9 @@ class _NotesScreenState extends State<NotesScreen> {
                   ),
                 ],
               ),
-              
+
               const SizedBox(height: 8),
-              
+
               // Título
               Text(
                 note.title,
@@ -266,24 +268,21 @@ class _NotesScreenState extends State<NotesScreen> {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              
+
               const SizedBox(height: 8),
-              
+
               // Vista previa del contenido
               Expanded(
                 child: Text(
                   note.content.isEmpty ? 'Sin contenido' : note.content,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey[600],
-                  ),
+                  style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              
+
               const SizedBox(height: 8),
-              
+
               // Footer con fecha y menú
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -291,12 +290,9 @@ class _NotesScreenState extends State<NotesScreen> {
                   // Fecha de actualización
                   Text(
                     _formatDate(note.updatedAt),
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.grey[500],
-                    ),
+                    style: TextStyle(fontSize: 10, color: Colors.grey[500]),
                   ),
-                  
+
                   // Menú de opciones
                   PopupMenuButton(
                     padding: EdgeInsets.zero,
@@ -317,7 +313,10 @@ class _NotesScreenState extends State<NotesScreen> {
                           children: [
                             Icon(Icons.delete, size: 18, color: Colors.red),
                             SizedBox(width: 8),
-                            Text('Eliminar', style: TextStyle(color: Colors.red)),
+                            Text(
+                              'Eliminar',
+                              style: TextStyle(color: Colors.red),
+                            ),
                           ],
                         ),
                       ),
@@ -344,11 +343,7 @@ class _NotesScreenState extends State<NotesScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.note_add,
-            size: 80,
-            color: Colors.grey[300],
-          ),
+          Icon(Icons.note_add, size: 80, color: Colors.grey[300]),
           const SizedBox(height: 16),
           Text(
             'No hay notas',
@@ -363,10 +358,7 @@ class _NotesScreenState extends State<NotesScreen> {
             _searchQuery.isNotEmpty
                 ? 'No se encontraron resultados'
                 : 'Crea tu primera nota',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[500],
-            ),
+            style: TextStyle(fontSize: 14, color: Colors.grey[500]),
           ),
         ],
       ),
@@ -381,13 +373,13 @@ class _NotesScreenState extends State<NotesScreen> {
     if (difference.inHours < 1) return 'Hace ${difference.inMinutes} min';
     if (difference.inDays < 1) return 'Hace ${difference.inHours}h';
     if (difference.inDays < 7) return 'Hace ${difference.inDays}d';
-    
+
     return '${date.day}/${date.month}/${date.year}';
   }
 
   void _showStatistics() {
     final stats = widget.noteManager.getStatistics();
-    
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -399,18 +391,20 @@ class _NotesScreenState extends State<NotesScreen> {
             children: [
               _buildStatRow('Total de notas:', '${stats['total']}'),
               _buildStatRow('Favoritas:', '${stats['favorites']}'),
-              
+
               const Divider(height: 30),
-              
+
               const Text(
                 'Por Categoría:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              ...NoteCategory.values.map((category) => _buildStatRow(
-                    '${category.label}:',
-                    '${stats['byCategory'][category.name]}',
-                  )),
+              ...NoteCategory.values.map(
+                (category) => _buildStatRow(
+                  '${category.label}:',
+                  '${stats['byCategory'][category.name]}',
+                ),
+              ),
             ],
           ),
         ),
@@ -431,10 +425,7 @@ class _NotesScreenState extends State<NotesScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label),
-          Text(
-            value,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -465,13 +456,11 @@ class _NotesScreenState extends State<NotesScreen> {
                 widget.noteManager.removeNote(note.id);
               });
               Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Nota eliminada')),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(const SnackBar(content: Text('Nota eliminada')));
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
             child: const Text('Eliminar'),
           ),
         ],
@@ -524,9 +513,9 @@ class _NotesScreenState extends State<NotesScreen> {
                   ),
                 ],
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Título
               TextField(
                 controller: titleController,
@@ -535,9 +524,9 @@ class _NotesScreenState extends State<NotesScreen> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Categoría
               DropdownButtonFormField<NoteCategory>(
                 value: selectedCategory,
@@ -572,9 +561,9 @@ class _NotesScreenState extends State<NotesScreen> {
                   }
                 },
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Contenido
               TextField(
                 controller: contentController,
@@ -585,9 +574,9 @@ class _NotesScreenState extends State<NotesScreen> {
                 ),
                 maxLines: 8,
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Botones
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -617,7 +606,8 @@ class _NotesScreenState extends State<NotesScreen> {
                           note.updatedAt = DateTime.now();
                         } else {
                           final newNote = Note(
-                            id: DateTime.now().millisecondsSinceEpoch.toString(),
+                            id: DateTime.now().millisecondsSinceEpoch
+                                .toString(),
                             title: titleController.text.trim(),
                             content: contentController.text.trim(),
                             category: selectedCategory,

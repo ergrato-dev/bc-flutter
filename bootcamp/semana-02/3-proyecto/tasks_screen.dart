@@ -5,13 +5,13 @@ import '../models/task.dart';
 import '../services/task_manager.dart';
 
 /// Pantalla de Gestión de Tareas
-/// 
+///
 /// ¿Qué hace?
 /// Permite ver, crear, editar y eliminar tareas
-/// 
+///
 /// ¿Para qué?
 /// Proporcionar una interfaz completa para gestionar tareas diarias
-/// 
+///
 /// ¿Cómo funciona?
 /// - Muestra lista de tareas con filtros
 /// - Permite cambiar estado con tap
@@ -20,10 +20,7 @@ import '../services/task_manager.dart';
 class TasksScreen extends StatefulWidget {
   final TaskManager taskManager;
 
-  const TasksScreen({
-    super.key,
-    required this.taskManager,
-  });
+  const TasksScreen({super.key, required this.taskManager});
 
   @override
   State<TasksScreen> createState() => _TasksScreenState();
@@ -115,9 +112,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   },
                 )
               : null,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           filled: true,
           fillColor: Colors.white,
         ),
@@ -187,7 +182,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       });
                     },
                   ),
-                  
+
                   // Título
                   Expanded(
                     child: Text(
@@ -202,7 +197,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       ),
                     ),
                   ),
-                  
+
                   // Badge de prioridad
                   Container(
                     padding: const EdgeInsets.symmetric(
@@ -222,7 +217,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       ),
                     ),
                   ),
-                  
+
                   // Menú de opciones
                   PopupMenuButton(
                     itemBuilder: (context) => [
@@ -242,7 +237,10 @@ class _TasksScreenState extends State<TasksScreen> {
                           children: [
                             Icon(Icons.delete, size: 20, color: Colors.red),
                             SizedBox(width: 8),
-                            Text('Eliminar', style: TextStyle(color: Colors.red)),
+                            Text(
+                              'Eliminar',
+                              style: TextStyle(color: Colors.red),
+                            ),
                           ],
                         ),
                       ),
@@ -257,21 +255,18 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ],
               ),
-              
+
               // Descripción
               if (task.description.isNotEmpty) ...[
                 const SizedBox(height: 8),
                 Text(
                   task.description,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[600],
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ],
-              
+
               // Fecha y tags
               const SizedBox(height: 12),
               Row(
@@ -282,19 +277,21 @@ class _TasksScreenState extends State<TasksScreen> {
                     label: task.status.label,
                     color: _getStatusColor(task.status),
                   ),
-                  
+
                   const SizedBox(width: 8),
-                  
+
                   // Fecha de vencimiento
                   if (task.dueDate != null)
                     _buildInfoChip(
-                      icon: task.isOverdue ? Icons.warning : Icons.calendar_today,
+                      icon: task.isOverdue
+                          ? Icons.warning
+                          : Icons.calendar_today,
                       label: _formatDate(task.dueDate!),
                       color: task.isOverdue ? Colors.red : Colors.blue,
                     ),
-                  
+
                   const Spacer(),
-                  
+
                   // Tags
                   if (task.tags.isNotEmpty)
                     Chip(
@@ -348,11 +345,7 @@ class _TasksScreenState extends State<TasksScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.task_alt,
-            size: 80,
-            color: Colors.grey[300],
-          ),
+          Icon(Icons.task_alt, size: 80, color: Colors.grey[300]),
           const SizedBox(height: 16),
           Text(
             'No hay tareas',
@@ -367,10 +360,7 @@ class _TasksScreenState extends State<TasksScreen> {
             _searchQuery.isNotEmpty
                 ? 'No se encontraron resultados'
                 : 'Crea tu primera tarea',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[500],
-            ),
+            style: TextStyle(fontSize: 14, color: Colors.grey[500]),
           ),
         ],
       ),
@@ -394,15 +384,15 @@ class _TasksScreenState extends State<TasksScreen> {
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
     final dateToCheck = DateTime(date.year, date.month, date.day);
-    
+
     final difference = dateToCheck.difference(today).inDays;
-    
+
     if (difference == 0) return 'Hoy';
     if (difference == 1) return 'Mañana';
     if (difference == -1) return 'Ayer';
     if (difference > 1 && difference < 7) return 'En $difference días';
     if (difference < -1) return 'Hace ${-difference} días';
-    
+
     return '${date.day}/${date.month}/${date.year}';
   }
 
@@ -418,15 +408,15 @@ class _TasksScreenState extends State<TasksScreen> {
             children: [
               const Text(
                 'Filtros',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
-              
+
               // Filtro por estado
-              const Text('Estado:', style: TextStyle(fontWeight: FontWeight.bold)),
+              const Text(
+                'Estado:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,
@@ -440,22 +430,27 @@ class _TasksScreenState extends State<TasksScreen> {
                       });
                     },
                   ),
-                  ...TaskStatus.values.map((status) => FilterChip(
-                        label: Text(status.label),
-                        selected: _filterStatus == status,
-                        onSelected: (selected) {
-                          setModalState(() {
-                            _filterStatus = selected ? status : null;
-                          });
-                        },
-                      )),
+                  ...TaskStatus.values.map(
+                    (status) => FilterChip(
+                      label: Text(status.label),
+                      selected: _filterStatus == status,
+                      onSelected: (selected) {
+                        setModalState(() {
+                          _filterStatus = selected ? status : null;
+                        });
+                      },
+                    ),
+                  ),
                 ],
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Filtro por prioridad
-              const Text('Prioridad:', style: TextStyle(fontWeight: FontWeight.bold)),
+              const Text(
+                'Prioridad:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,
@@ -469,20 +464,22 @@ class _TasksScreenState extends State<TasksScreen> {
                       });
                     },
                   ),
-                  ...Priority.values.map((priority) => FilterChip(
-                        label: Text(priority.label),
-                        selected: _filterPriority == priority,
-                        onSelected: (selected) {
-                          setModalState(() {
-                            _filterPriority = selected ? priority : null;
-                          });
-                        },
-                      )),
+                  ...Priority.values.map(
+                    (priority) => FilterChip(
+                      label: Text(priority.label),
+                      selected: _filterPriority == priority,
+                      onSelected: (selected) {
+                        setModalState(() {
+                          _filterPriority = selected ? priority : null;
+                        });
+                      },
+                    ),
+                  ),
                 ],
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Botones de acción
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -515,7 +512,7 @@ class _TasksScreenState extends State<TasksScreen> {
 
   void _showStatistics() {
     final stats = widget.taskManager.getStatistics();
-    
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -529,10 +526,13 @@ class _TasksScreenState extends State<TasksScreen> {
               _buildStatRow('Completadas:', '${stats['completed']}'),
               _buildStatRow('Pendientes:', '${stats['pending']}'),
               _buildStatRow('Atrasadas:', '${stats['overdue']}'),
-              _buildStatRow('Tasa de completitud:', '${stats['completionRate']}%'),
-              
+              _buildStatRow(
+                'Tasa de completitud:',
+                '${stats['completionRate']}%',
+              ),
+
               const Divider(height: 30),
-              
+
               const Text(
                 'Por Prioridad:',
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -562,10 +562,7 @@ class _TasksScreenState extends State<TasksScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label),
-          Text(
-            value,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -596,13 +593,11 @@ class _TasksScreenState extends State<TasksScreen> {
                 widget.taskManager.removeTask(task.id);
               });
               Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Tarea eliminada')),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(const SnackBar(content: Text('Tarea eliminada')));
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
             child: const Text('Eliminar'),
           ),
         ],
@@ -613,7 +608,9 @@ class _TasksScreenState extends State<TasksScreen> {
   void _showTaskForm({Task? task}) {
     final isEditing = task != null;
     final titleController = TextEditingController(text: task?.title ?? '');
-    final descriptionController = TextEditingController(text: task?.description ?? '');
+    final descriptionController = TextEditingController(
+      text: task?.description ?? '',
+    );
     Priority selectedPriority = task?.priority ?? Priority.medium;
     DateTime? selectedDate = task?.dueDate;
 
@@ -640,7 +637,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              
+
               // Título
               TextField(
                 controller: titleController,
@@ -649,9 +646,9 @@ class _TasksScreenState extends State<TasksScreen> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Descripción
               TextField(
                 controller: descriptionController,
@@ -661,9 +658,9 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
                 maxLines: 3,
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Prioridad
               DropdownButtonFormField<Priority>(
                 value: selectedPriority,
@@ -685,9 +682,9 @@ class _TasksScreenState extends State<TasksScreen> {
                   }
                 },
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Fecha de vencimiento
               ListTile(
                 contentPadding: EdgeInsets.zero,
@@ -721,9 +718,9 @@ class _TasksScreenState extends State<TasksScreen> {
                   }
                 },
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Botones
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -755,7 +752,8 @@ class _TasksScreenState extends State<TasksScreen> {
                           widget.taskManager.updateTask(task.id, updated);
                         } else {
                           final newTask = Task(
-                            id: DateTime.now().millisecondsSinceEpoch.toString(),
+                            id: DateTime.now().millisecondsSinceEpoch
+                                .toString(),
                             title: titleController.text.trim(),
                             description: descriptionController.text.trim(),
                             priority: selectedPriority,
