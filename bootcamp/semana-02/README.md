@@ -1,12 +1,64 @@
-# Semana 2: Introducción a Dart II y Fundamentos de Flutter
+# 🎯 Semana 02: POO en Dart y Fundamentos de Flutter
+
+> **Duración**: 8 horas de dedicación semanal  
+> **Nivel**: 🟢 Básico-Intermedio  
+> **Enfoque**: Programación Orientada a Objetos, Colecciones y Primera App Flutter
+
+---
+
+## 📋 Índice de Contenidos
+
+1. [Objetivos de Aprendizaje](#-objetivos-de-aprendizaje)
+2. [Estructura de la Semana](#-estructura-de-la-semana)
+3. [Teoría (6 horas)](#-teoría)
+4. [Prácticas (3.75 horas)](#-prácticas)
+5. [Proyecto Integrador (3-4 horas)](#-proyecto-integrador)
+6. [Recursos Complementarios](#-recursos-complementarios)
+7. [Glosario Técnico](#-glosario-técnico)
+8. [Evaluación](#-evaluación)
+
+---
 
 ## 🎯 Objetivos de Aprendizaje
 
-- Dominar la programación orientada a objetos en Dart
-- Comprender las colecciones y estructuras de datos
-- Configurar el entorno de desarrollo Flutter
-- Crear la primera aplicación Flutter
-- Entender la estructura de un proyecto Flutter
+Al completar esta semana, serás capaz de:
+
+- ✅ **POO**: Crear clases con herencia, mixins e interfaces en Dart
+- ✅ **Colecciones**: Manipular List, Set y Map con operaciones avanzadas
+- ✅ **Flutter**: Configurar entorno y crear tu primera aplicación
+- ✅ **Widgets**: Entender y usar widgets básicos de Flutter
+- ✅ **Estado**: Diferenciar StatelessWidget y StatefulWidget
+- ✅ **Proyecto**: Integrar POO, colecciones y Flutter en una app completa
+
+---
+
+## 📂 Estructura de la Semana
+
+```
+semana-02/
+├── 0-assets/              # 🎨 Diagramas y recursos visuales (6 SVGs)
+├── 1-teoria/              # 📚 Módulos teóricos (6.5 horas)
+│   ├── 01-poo-dart.md            (2 horas)
+│   ├── 02-colecciones-estructuras.md (2 horas)
+│   └── 03-intro-flutter.md       (2.5 horas)
+├── 2-practicas/           # 💻 Ejercicios guiados (3.75 horas)
+│   ├── practica-01-poo-biblioteca.md     (45 min)
+│   ├── practica-02-colecciones-gestor-tareas.md (45 min)
+│   ├── practica-03-mixins-habilidades.md (45 min)
+│   ├── practica-04-flutter-hola-mundo.md (45 min)
+│   └── practica-05-flutter-contador.md   (45 min)
+├── 3-proyecto/            # 🔨 Proyecto integrador (3-4 horas)
+│   ├── README.md                 (Guía completa)
+│   ├── tasks_screen.dart         (Pantalla tareas)
+│   ├── notes_screen.dart         (Pantalla notas)
+│   └── contacts_screen.dart      (Pantalla contactos)
+├── 4-recursos/            # 📖 Material complementario (12 recursos)
+│   ├── 01-videos-poo.md
+│   ├── 08-documentacion-oficial.md
+│   └── README.md
+└── 5-glosario/            # 📚 Términos técnicos (50+ definiciones)
+    └── README.md
+```
 
 ## 📚 Contenido Teórico
 
