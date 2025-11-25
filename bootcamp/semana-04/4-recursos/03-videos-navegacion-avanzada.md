@@ -10,15 +10,16 @@ Videos sobre BottomNavigationBar, Drawer, TabBar y navegación anidada.
 
 ### 1. BottomNavigationBar Tutorial
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Flutter |
-| **Duración** | 15:30 |
-| **Idioma** | Inglés (subtítulos) |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+bottomnavigationbar+tutorial) |
+| Campo        | Valor                                                                                                        |
+| ------------ | ------------------------------------------------------------------------------------------------------------ |
+| **Canal**    | Flutter                                                                                                      |
+| **Duración** | 15:30                                                                                                        |
+| **Idioma**   | Inglés (subtítulos)                                                                                          |
+| **Nivel**    | 🟡 Intermedio                                                                                                |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+bottomnavigationbar+tutorial) |
 
 **Contenido:**
+
 - BottomNavigationBar básico
 - Cambio de páginas
 - Estilos y personalización
@@ -28,15 +29,16 @@ Videos sobre BottomNavigationBar, Drawer, TabBar y navegación anidada.
 
 ### 2. IndexedStack - Preservar Estado
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Reso Coder |
-| **Duración** | 12:45 |
-| **Idioma** | Inglés |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+indexedstack+preserve+state) |
+| Campo        | Valor                                                                                                       |
+| ------------ | ----------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Reso Coder                                                                                                  |
+| **Duración** | 12:45                                                                                                       |
+| **Idioma**   | Inglés                                                                                                      |
+| **Nivel**    | 🟡 Intermedio                                                                                               |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+indexedstack+preserve+state) |
 
 **Contenido:**
+
 - Problema de pérdida de estado
 - IndexedStack explicado
 - Comparación con PageView
@@ -46,15 +48,16 @@ Videos sobre BottomNavigationBar, Drawer, TabBar y navegación anidada.
 
 ### 3. Drawer Navigation Flutter
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Johannes Milke |
-| **Duración** | 20:15 |
-| **Idioma** | Inglés |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+drawer+navigation+tutorial) |
+| Campo        | Valor                                                                                                      |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Johannes Milke                                                                                             |
+| **Duración** | 20:15                                                                                                      |
+| **Idioma**   | Inglés                                                                                                     |
+| **Nivel**    | 🟡 Intermedio                                                                                              |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+drawer+navigation+tutorial) |
 
 **Contenido:**
+
 - Drawer widget
 - UserAccountsDrawerHeader
 - NavigationDrawer (Material 3)
@@ -64,15 +67,16 @@ Videos sobre BottomNavigationBar, Drawer, TabBar y navegación anidada.
 
 ### 4. TabBar y TabBarView
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | The Flutter Way |
-| **Duración** | 18:00 |
-| **Idioma** | Inglés |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+tabbar+tabbarview+tutorial) |
+| Campo        | Valor                                                                                                      |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| **Canal**    | The Flutter Way                                                                                            |
+| **Duración** | 18:00                                                                                                      |
+| **Idioma**   | Inglés                                                                                                     |
+| **Nivel**    | 🟡 Intermedio                                                                                              |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+tabbar+tabbarview+tutorial) |
 
 **Contenido:**
+
 - DefaultTabController
 - TabBar personalizado
 - TabBarView con contenido
@@ -82,15 +86,16 @@ Videos sobre BottomNavigationBar, Drawer, TabBar y navegación anidada.
 
 ### 5. Nested Navigation Flutter
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Flutter Explained |
-| **Duración** | 25:30 |
-| **Idioma** | Inglés |
-| **Nivel** | 🔴 Avanzado |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+nested+navigation+tutorial) |
+| Campo        | Valor                                                                                                      |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Flutter Explained                                                                                          |
+| **Duración** | 25:30                                                                                                      |
+| **Idioma**   | Inglés                                                                                                     |
+| **Nivel**    | 🔴 Avanzado                                                                                                |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+nested+navigation+tutorial) |
 
 **Contenido:**
+
 - Navigator por tab
 - GlobalKey<NavigatorState>
 - Manejo de back button
@@ -100,15 +105,16 @@ Videos sobre BottomNavigationBar, Drawer, TabBar y navegación anidada.
 
 ### 6. Navegación Avanzada Flutter - Español
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Fernando Herrera |
-| **Duración** | 55:00 |
-| **Idioma** | Español |
-| **Nivel** | 🔴 Avanzado |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+navegacion+avanzada+fernando+herrera) |
+| Campo        | Valor                                                                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Fernando Herrera                                                                                                     |
+| **Duración** | 55:00                                                                                                                |
+| **Idioma**   | Español                                                                                                              |
+| **Nivel**    | 🔴 Avanzado                                                                                                          |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+navegacion+avanzada+fernando+herrera) |
 
 **Contenido:**
+
 - Bottom Navigation completo
 - Drawer con estado
 - Combinación de patrones

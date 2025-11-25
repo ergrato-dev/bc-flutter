@@ -10,15 +10,16 @@ Videos sobre named routes, argumentos y gestión centralizada de rutas.
 
 ### 1. Named Routes in Flutter
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Flutter |
-| **Duración** | 10:15 |
-| **Idioma** | Inglés (subtítulos) |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+named+routes+official) |
+| Campo        | Valor                                                                                                 |
+| ------------ | ----------------------------------------------------------------------------------------------------- |
+| **Canal**    | Flutter                                                                                               |
+| **Duración** | 10:15                                                                                                 |
+| **Idioma**   | Inglés (subtítulos)                                                                                   |
+| **Nivel**    | 🟡 Intermedio                                                                                         |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+named+routes+official) |
 
 **Contenido:**
+
 - Definir rutas en MaterialApp
 - pushNamed y popNamed
 - Organización de rutas
@@ -28,15 +29,16 @@ Videos sobre named routes, argumentos y gestión centralizada de rutas.
 
 ### 2. Rutas Nombradas Flutter - Tutorial Completo
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Fernando Herrera |
-| **Duración** | 28:30 |
-| **Idioma** | Español |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+rutas+nombradas+fernando+herrera) |
+| Campo        | Valor                                                                                                            |
+| ------------ | ---------------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Fernando Herrera                                                                                                 |
+| **Duración** | 28:30                                                                                                            |
+| **Idioma**   | Español                                                                                                          |
+| **Nivel**    | 🟡 Intermedio                                                                                                    |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+rutas+nombradas+fernando+herrera) |
 
 **Contenido:**
+
 - Configuración de routes map
 - Clase AppRoutes centralizada
 - Pasar argumentos con pushNamed
@@ -46,15 +48,16 @@ Videos sobre named routes, argumentos y gestión centralizada de rutas.
 
 ### 3. Pass Arguments to Named Routes
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | The Net Ninja |
-| **Duración** | 14:20 |
-| **Idioma** | Inglés |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+pass+arguments+named+routes) |
+| Campo        | Valor                                                                                                       |
+| ------------ | ----------------------------------------------------------------------------------------------------------- |
+| **Canal**    | The Net Ninja                                                                                               |
+| **Duración** | 14:20                                                                                                       |
+| **Idioma**   | Inglés                                                                                                      |
+| **Nivel**    | 🟡 Intermedio                                                                                               |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+pass+arguments+named+routes) |
 
 **Contenido:**
+
 - RouteSettings y arguments
 - Extraer argumentos en destino
 - Clases de argumentos tipadas
@@ -64,15 +67,16 @@ Videos sobre named routes, argumentos y gestión centralizada de rutas.
 
 ### 4. onGenerateRoute Tutorial
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Reso Coder |
-| **Duración** | 22:45 |
-| **Idioma** | Inglés |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+onGenerateRoute+tutorial) |
+| Campo        | Valor                                                                                                    |
+| ------------ | -------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Reso Coder                                                                                               |
+| **Duración** | 22:45                                                                                                    |
+| **Idioma**   | Inglés                                                                                                   |
+| **Nivel**    | 🟡 Intermedio                                                                                            |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+onGenerateRoute+tutorial) |
 
 **Contenido:**
+
 - onGenerateRoute vs routes map
 - Routing dinámico
 - Validación de argumentos
@@ -82,15 +86,16 @@ Videos sobre named routes, argumentos y gestión centralizada de rutas.
 
 ### 5. Flutter Routes Best Practices
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Flutter Mapp |
-| **Duración** | 35:00 |
-| **Idioma** | Inglés |
-| **Nivel** | 🔴 Avanzado |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+routes+best+practices) |
+| Campo        | Valor                                                                                                 |
+| ------------ | ----------------------------------------------------------------------------------------------------- |
+| **Canal**    | Flutter Mapp                                                                                          |
+| **Duración** | 35:00                                                                                                 |
+| **Idioma**   | Inglés                                                                                                |
+| **Nivel**    | 🔴 Avanzado                                                                                           |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+routes+best+practices) |
 
 **Contenido:**
+
 - Arquitectura de rutas escalable
 - Route generators
 - Deep linking básico

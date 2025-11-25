@@ -10,15 +10,16 @@ Artículos sobre GoRouter, AutoRoute y otros paquetes de navegación.
 
 ### 1. GoRouter: The Official Flutter Router
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Flutter Team |
-| **Fuente** | pub.dev / flutter.dev |
-| **Tiempo lectura** | 20 min |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [pub.dev/packages/go_router](https://pub.dev/packages/go_router) |
+| Campo              | Valor                                                            |
+| ------------------ | ---------------------------------------------------------------- |
+| **Autor**          | Flutter Team                                                     |
+| **Fuente**         | pub.dev / flutter.dev                                            |
+| **Tiempo lectura** | 20 min                                                           |
+| **Nivel**          | 🟡 Intermedio                                                    |
+| **URL**            | [pub.dev/packages/go_router](https://pub.dev/packages/go_router) |
 
 **Resumen:**
+
 - Routing declarativo simplificado
 - Deep linking automático
 - Redirects y guards
@@ -29,15 +30,16 @@ Artículos sobre GoRouter, AutoRoute y otros paquetes de navegación.
 
 ### 2. Getting Started with GoRouter
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Chris Sells |
-| **Fuente** | Medium |
-| **Tiempo lectura** | 15 min |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [medium.com/flutter](https://medium.com/flutter) |
+| Campo              | Valor                                            |
+| ------------------ | ------------------------------------------------ |
+| **Autor**          | Chris Sells                                      |
+| **Fuente**         | Medium                                           |
+| **Tiempo lectura** | 15 min                                           |
+| **Nivel**          | 🟡 Intermedio                                    |
+| **URL**            | [medium.com/flutter](https://medium.com/flutter) |
 
 **Resumen:**
+
 - Instalación y configuración
 - Definir rutas básicas
 - Parámetros de ruta
@@ -48,15 +50,16 @@ Artículos sobre GoRouter, AutoRoute y otros paquetes de navegación.
 
 ### 3. AutoRoute: Code Generation for Routes
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Milad Akarie |
-| **Fuente** | pub.dev |
-| **Tiempo lectura** | 25 min |
-| **Nivel** | 🔴 Avanzado |
-| **URL** | [pub.dev/packages/auto_route](https://pub.dev/packages/auto_route) |
+| Campo              | Valor                                                              |
+| ------------------ | ------------------------------------------------------------------ |
+| **Autor**          | Milad Akarie                                                       |
+| **Fuente**         | pub.dev                                                            |
+| **Tiempo lectura** | 25 min                                                             |
+| **Nivel**          | 🔴 Avanzado                                                        |
+| **URL**            | [pub.dev/packages/auto_route](https://pub.dev/packages/auto_route) |
 
 **Resumen:**
+
 - Generación de código para rutas
 - Type-safe navigation
 - Nested navigation
@@ -67,15 +70,16 @@ Artículos sobre GoRouter, AutoRoute y otros paquetes de navegación.
 
 ### 4. Comparativa de Paquetes de Routing
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Varios |
-| **Fuente** | Dev.to |
-| **Tiempo lectura** | 18 min |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [dev.to/flutter](https://dev.to/t/flutter) |
+| Campo              | Valor                                      |
+| ------------------ | ------------------------------------------ |
+| **Autor**          | Varios                                     |
+| **Fuente**         | Dev.to                                     |
+| **Tiempo lectura** | 18 min                                     |
+| **Nivel**          | 🟡 Intermedio                              |
+| **URL**            | [dev.to/flutter](https://dev.to/t/flutter) |
 
 **Paquetes comparados:**
+
 - go_router
 - auto_route
 - beamer
@@ -86,12 +90,12 @@ Artículos sobre GoRouter, AutoRoute y otros paquetes de navegación.
 
 ## 📊 Comparativa de Paquetes
 
-| Paquete | Popularidad | Curva | Deep Link | Type-Safe |
-|---------|-------------|-------|-----------|-----------|
-| **go_router** | ⭐⭐⭐⭐⭐ | Media | ✅ | Parcial |
-| **auto_route** | ⭐⭐⭐⭐ | Alta | ✅ | ✅ |
-| **beamer** | ⭐⭐⭐ | Alta | ✅ | Parcial |
-| **routemaster** | ⭐⭐ | Media | ✅ | No |
+| Paquete         | Popularidad | Curva | Deep Link | Type-Safe |
+| --------------- | ----------- | ----- | --------- | --------- |
+| **go_router**   | ⭐⭐⭐⭐⭐  | Media | ✅        | Parcial   |
+| **auto_route**  | ⭐⭐⭐⭐    | Alta  | ✅        | ✅        |
+| **beamer**      | ⭐⭐⭐      | Alta  | ✅        | Parcial   |
+| **routemaster** | ⭐⭐        | Media | ✅        | No        |
 
 ---
 
@@ -207,11 +211,13 @@ GoRouter(
 ## 🔗 Recursos de Paquetes
 
 ### GoRouter
+
 - [Documentación oficial](https://pub.dev/packages/go_router)
 - [Migration guide](https://docs.flutter.dev/development/ui/navigation)
 - [Examples repository](https://github.com/flutter/packages/tree/main/packages/go_router/example)
 
 ### AutoRoute
+
 - [pub.dev/packages/auto_route](https://pub.dev/packages/auto_route)
 - [GitHub repository](https://github.com/Milad-Akarie/auto_route_library)
 

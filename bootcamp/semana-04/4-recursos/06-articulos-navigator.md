@@ -10,15 +10,16 @@ Artículos detallados sobre Navigator 1.0, 2.0 y conceptos avanzados.
 
 ### 1. Understanding Navigator 1.0
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Flutter Team |
-| **Fuente** | Medium / flutter.dev |
-| **Tiempo lectura** | 15 min |
-| **Nivel** | 🟢 Principiante |
-| **URL** | [medium.com/flutter](https://medium.com/flutter/learning-flutters-new-navigation-and-routing-system-7c9068155ade) |
+| Campo              | Valor                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **Autor**          | Flutter Team                                                                                                      |
+| **Fuente**         | Medium / flutter.dev                                                                                              |
+| **Tiempo lectura** | 15 min                                                                                                            |
+| **Nivel**          | 🟢 Principiante                                                                                                   |
+| **URL**            | [medium.com/flutter](https://medium.com/flutter/learning-flutters-new-navigation-and-routing-system-7c9068155ade) |
 
 **Resumen:**
+
 - Cómo funciona el Navigator stack
 - Métodos push, pop, pushReplacement
 - MaterialPageRoute explicado
@@ -28,15 +29,16 @@ Artículos detallados sobre Navigator 1.0, 2.0 y conceptos avanzados.
 
 ### 2. Navigator 2.0 Explained
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | John Ryan (Flutter Team) |
-| **Fuente** | Medium |
-| **Tiempo lectura** | 25 min |
-| **Nivel** | 🔴 Avanzado |
-| **URL** | [medium.com/flutter](https://medium.com/flutter/learning-flutters-new-navigation-and-routing-system-7c9068155ade) |
+| Campo              | Valor                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **Autor**          | John Ryan (Flutter Team)                                                                                          |
+| **Fuente**         | Medium                                                                                                            |
+| **Tiempo lectura** | 25 min                                                                                                            |
+| **Nivel**          | 🔴 Avanzado                                                                                                       |
+| **URL**            | [medium.com/flutter](https://medium.com/flutter/learning-flutters-new-navigation-and-routing-system-7c9068155ade) |
 
 **Resumen:**
+
 - Router widget
 - RouteInformationParser
 - RouterDelegate
@@ -47,15 +49,16 @@ Artículos detallados sobre Navigator 1.0, 2.0 y conceptos avanzados.
 
 ### 3. Flutter Navigation: The Complete Guide
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Reso Coder |
-| **Fuente** | resocoder.com |
-| **Tiempo lectura** | 30 min |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [resocoder.com](https://resocoder.com/category/tutorials/flutter/) |
+| Campo              | Valor                                                              |
+| ------------------ | ------------------------------------------------------------------ |
+| **Autor**          | Reso Coder                                                         |
+| **Fuente**         | resocoder.com                                                      |
+| **Tiempo lectura** | 30 min                                                             |
+| **Nivel**          | 🟡 Intermedio                                                      |
+| **URL**            | [resocoder.com](https://resocoder.com/category/tutorials/flutter/) |
 
 **Resumen:**
+
 - Navigator 1.0 en profundidad
 - Named routes best practices
 - Passing arguments correctly
@@ -65,15 +68,16 @@ Artículos detallados sobre Navigator 1.0, 2.0 y conceptos avanzados.
 
 ### 4. Deep Linking in Flutter
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Suragch |
-| **Fuente** | Medium |
-| **Tiempo lectura** | 20 min |
-| **Nivel** | 🔴 Avanzado |
-| **URL** | [medium.com](https://medium.com/flutter-community) |
+| Campo              | Valor                                              |
+| ------------------ | -------------------------------------------------- |
+| **Autor**          | Suragch                                            |
+| **Fuente**         | Medium                                             |
+| **Tiempo lectura** | 20 min                                             |
+| **Nivel**          | 🔴 Avanzado                                        |
+| **URL**            | [medium.com](https://medium.com/flutter-community) |
 
 **Resumen:**
+
 - Qué es deep linking
 - Configuración Android/iOS
 - Manejo de URIs
@@ -83,15 +87,16 @@ Artículos detallados sobre Navigator 1.0, 2.0 y conceptos avanzados.
 
 ### 5. Navegación Declarativa vs Imperativa
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Varios |
-| **Fuente** | Dev.to |
-| **Tiempo lectura** | 12 min |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [dev.to/flutter](https://dev.to/t/flutter) |
+| Campo              | Valor                                      |
+| ------------------ | ------------------------------------------ |
+| **Autor**          | Varios                                     |
+| **Fuente**         | Dev.to                                     |
+| **Tiempo lectura** | 12 min                                     |
+| **Nivel**          | 🟡 Intermedio                              |
+| **URL**            | [dev.to/flutter](https://dev.to/t/flutter) |
 
 **Resumen:**
+
 - Diferencias conceptuales
 - Cuándo usar cada enfoque
 - Pros y contras
@@ -101,15 +106,15 @@ Artículos detallados sobre Navigator 1.0, 2.0 y conceptos avanzados.
 
 ## 📊 Comparativa Navigator 1.0 vs 2.0
 
-| Aspecto | Navigator 1.0 | Navigator 2.0 |
-|---------|---------------|---------------|
-| Estilo | Imperativo | Declarativo |
-| Deep Linking | Manual | Integrado |
-| Complejidad | Baja | Alta |
-| Control | Limitado | Completo |
-| URL Sync | No | Sí |
-| Web Support | Básico | Completo |
-| Caso de uso | Apps simples | Apps complejas, web |
+| Aspecto      | Navigator 1.0 | Navigator 2.0       |
+| ------------ | ------------- | ------------------- |
+| Estilo       | Imperativo    | Declarativo         |
+| Deep Linking | Manual        | Integrado           |
+| Complejidad  | Baja          | Alta                |
+| Control      | Limitado      | Completo            |
+| URL Sync     | No            | Sí                  |
+| Web Support  | Básico        | Completo            |
+| Caso de uso  | Apps simples  | Apps complejas, web |
 
 ---
 
@@ -151,11 +156,13 @@ class MyRouterDelegate extends RouterDelegate<MyRoutePath> {
 ## 🔗 Enlaces Adicionales
 
 ### Documentación Oficial
+
 - [Navigator class](https://api.flutter.dev/flutter/widgets/Navigator-class.html)
 - [Router class](https://api.flutter.dev/flutter/widgets/Router-class.html)
 - [Navigation cookbook](https://docs.flutter.dev/cookbook/navigation)
 
 ### Artículos Complementarios
+
 - Flutter Navigation Patterns
 - When to use Navigator 2.0
 - Migration guide 1.0 to 2.0

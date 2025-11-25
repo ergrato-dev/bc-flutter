@@ -10,15 +10,16 @@ Videos tutoriales sobre Navigator, push, pop y navegación fundamental.
 
 ### 1. Flutter Navigation Basics (Oficial)
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Flutter |
-| **Duración** | 12:34 |
-| **Idioma** | Inglés (subtítulos) |
-| **Nivel** | 🟢 Principiante |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+navigation+basics) |
+| Campo        | Valor                                                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------- |
+| **Canal**    | Flutter                                                                                           |
+| **Duración** | 12:34                                                                                             |
+| **Idioma**   | Inglés (subtítulos)                                                                               |
+| **Nivel**    | 🟢 Principiante                                                                                   |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+navigation+basics) |
 
 **Contenido:**
+
 - Introducción a Navigator
 - Método push y pop
 - MaterialPageRoute
@@ -28,15 +29,16 @@ Videos tutoriales sobre Navigator, push, pop y navegación fundamental.
 
 ### 2. Navegación en Flutter - Curso Completo
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Fernando Herrera |
-| **Duración** | 45:00 |
-| **Idioma** | Español |
-| **Nivel** | 🟢 Principiante |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+navegacion+fernando+herrera) |
+| Campo        | Valor                                                                                                       |
+| ------------ | ----------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Fernando Herrera                                                                                            |
+| **Duración** | 45:00                                                                                                       |
+| **Idioma**   | Español                                                                                                     |
+| **Nivel**    | 🟢 Principiante                                                                                             |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+navegacion+fernando+herrera) |
 
 **Contenido:**
+
 - Navigator.push explicado
 - Navigator.pop con datos
 - Transiciones entre pantallas
@@ -46,15 +48,16 @@ Videos tutoriales sobre Navigator, push, pop y navegación fundamental.
 
 ### 3. Push, Pop & Routes in Flutter
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | The Net Ninja |
-| **Duración** | 18:22 |
-| **Idioma** | Inglés |
-| **Nivel** | 🟢 Principiante |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+push+pop+routes+net+ninja) |
+| Campo        | Valor                                                                                                     |
+| ------------ | --------------------------------------------------------------------------------------------------------- |
+| **Canal**    | The Net Ninja                                                                                             |
+| **Duración** | 18:22                                                                                                     |
+| **Idioma**   | Inglés                                                                                                    |
+| **Nivel**    | 🟢 Principiante                                                                                           |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+push+pop+routes+net+ninja) |
 
 **Contenido:**
+
 - Stack de navegación
 - Push y pop visualizado
 - Pasar datos entre screens
@@ -64,15 +67,16 @@ Videos tutoriales sobre Navigator, push, pop y navegación fundamental.
 
 ### 4. Flutter Navigation - MaterialPageRoute vs CupertinoPageRoute
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Reso Coder |
-| **Duración** | 15:45 |
-| **Idioma** | Inglés |
-| **Nivel** | 🟡 Intermedio |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+materialPageRoute+cupertinoPageRoute) |
+| Campo        | Valor                                                                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Reso Coder                                                                                                           |
+| **Duración** | 15:45                                                                                                                |
+| **Idioma**   | Inglés                                                                                                               |
+| **Nivel**    | 🟡 Intermedio                                                                                                        |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+materialPageRoute+cupertinoPageRoute) |
 
 **Contenido:**
+
 - Diferencias Material vs Cupertino
 - Animaciones de transición
 - PageRouteBuilder personalizado
@@ -82,15 +86,16 @@ Videos tutoriales sobre Navigator, push, pop y navegación fundamental.
 
 ### 5. Navegación Flutter desde Cero
 
-| Campo | Valor |
-|-------|-------|
-| **Canal** | Código Facilito |
-| **Duración** | 32:10 |
-| **Idioma** | Español |
-| **Nivel** | 🟢 Principiante |
-| **URL** | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+navegacion+codigo+facilito) |
+| Campo        | Valor                                                                                                      |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| **Canal**    | Código Facilito                                                                                            |
+| **Duración** | 32:10                                                                                                      |
+| **Idioma**   | Español                                                                                                    |
+| **Nivel**    | 🟢 Principiante                                                                                            |
+| **URL**      | [youtube.com/watch?v=...](https://www.youtube.com/results?search_query=flutter+navegacion+codigo+facilito) |
 
 **Contenido:**
+
 - Conceptos fundamentales
 - Navigator explicado
 - Ejemplo app multi-pantalla

@@ -10,15 +10,16 @@ Libros sobre arquitectura, patrones y mejores prácticas en Flutter.
 
 ### 1. Flutter Architecture Blueprints
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | wasabeef |
-| **Formato** | GitHub Repository |
-| **Idioma** | Inglés |
-| **Precio** | Gratis |
-| **URL** | [github.com/wasabeef/flutter-architecture-blueprints](https://github.com/wasabeef/flutter-architecture-blueprints) |
+| Campo       | Valor                                                                                                              |
+| ----------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Autor**   | wasabeef                                                                                                           |
+| **Formato** | GitHub Repository                                                                                                  |
+| **Idioma**  | Inglés                                                                                                             |
+| **Precio**  | Gratis                                                                                                             |
+| **URL**     | [github.com/wasabeef/flutter-architecture-blueprints](https://github.com/wasabeef/flutter-architecture-blueprints) |
 
 **Contenido:**
+
 - Clean Architecture
 - MVVM Pattern
 - Repository Pattern
@@ -29,16 +30,17 @@ Libros sobre arquitectura, patrones y mejores prácticas en Flutter.
 
 ### 2. Pragmatic Flutter
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Priyanka Tyagi |
-| **Editorial** | CRC Press |
-| **Capítulos Relevantes** | 6, 7, 8 |
-| **Idioma** | Inglés |
-| **Precio** | Pago |
-| **URL** | [amazon.com](https://www.amazon.com/Pragmatic-Flutter-Building-Cross-Platform-Applications/dp/0367612070) |
+| Campo                    | Valor                                                                                                     |
+| ------------------------ | --------------------------------------------------------------------------------------------------------- |
+| **Autor**                | Priyanka Tyagi                                                                                            |
+| **Editorial**            | CRC Press                                                                                                 |
+| **Capítulos Relevantes** | 6, 7, 8                                                                                                   |
+| **Idioma**               | Inglés                                                                                                    |
+| **Precio**               | Pago                                                                                                      |
+| **URL**                  | [amazon.com](https://www.amazon.com/Pragmatic-Flutter-Building-Cross-Platform-Applications/dp/0367612070) |
 
 **Contenido:**
+
 - App architecture
 - State management
 - Navigation strategies
@@ -48,15 +50,16 @@ Libros sobre arquitectura, patrones y mejores prácticas en Flutter.
 
 ### 3. Clean Architecture for Flutter
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Reso Coder |
-| **Formato** | Tutorial Series + eBook |
-| **Idioma** | Inglés |
-| **Precio** | Gratis |
-| **URL** | [resocoder.com/flutter-clean-architecture](https://resocoder.com/category/tutorials/flutter/tdd-clean-architecture/) |
+| Campo       | Valor                                                                                                                |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Autor**   | Reso Coder                                                                                                           |
+| **Formato** | Tutorial Series + eBook                                                                                              |
+| **Idioma**  | Inglés                                                                                                               |
+| **Precio**  | Gratis                                                                                                               |
+| **URL**     | [resocoder.com/flutter-clean-architecture](https://resocoder.com/category/tutorials/flutter/tdd-clean-architecture/) |
 
 **Contenido:**
+
 - Capas de arquitectura
 - Casos de uso
 - Entities y Models
@@ -67,15 +70,16 @@ Libros sobre arquitectura, patrones y mejores prácticas en Flutter.
 
 ### 4. Design Patterns in Dart and Flutter
 
-| Campo | Valor |
-|-------|-------|
-| **Autor** | Varios |
-| **Formato** | Web/PDF |
-| **Idioma** | Inglés |
-| **Precio** | Gratis |
-| **URL** | [dart.dev/guides/language/effective-dart](https://dart.dev/guides/language/effective-dart) |
+| Campo       | Valor                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------ |
+| **Autor**   | Varios                                                                                     |
+| **Formato** | Web/PDF                                                                                    |
+| **Idioma**  | Inglés                                                                                     |
+| **Precio**  | Gratis                                                                                     |
+| **URL**     | [dart.dev/guides/language/effective-dart](https://dart.dev/guides/language/effective-dart) |
 
 **Patrones Cubiertos:**
+
 - Singleton
 - Factory
 - Builder
@@ -90,7 +94,7 @@ Libros sobre arquitectura, patrones y mejores prácticas en Flutter.
 
 ```dart
 /// Servicio centralizado de navegación
-/// 
+///
 /// ¿Qué hace? Abstrae la navegación del contexto
 /// ¿Para qué? Testing y desacoplamiento
 class NavigationService {
@@ -134,11 +138,11 @@ class AppRouter {
 
 ## 📁 Carpeta ebooks-free/
 
-| Archivo | Descripción |
-|---------|-------------|
-| `clean-architecture-flutter.pdf` | Guía de arquitectura limpia |
-| `design-patterns-dart.pdf` | Patrones en Dart |
-| `flutter-scalable-folder-structure.pdf` | Estructura de proyectos |
+| Archivo                                 | Descripción                 |
+| --------------------------------------- | --------------------------- |
+| `clean-architecture-flutter.pdf`        | Guía de arquitectura limpia |
+| `design-patterns-dart.pdf`              | Patrones en Dart            |
+| `flutter-scalable-folder-structure.pdf` | Estructura de proyectos     |
 
 ---
 
@@ -146,13 +150,13 @@ class AppRouter {
 
 ### Principios SOLID en Flutter
 
-| Principio | Aplicación en Navegación |
-|-----------|-------------------------|
-| **S**ingle Responsibility | Una clase para rutas |
-| **O**pen/Closed | Rutas extensibles |
-| **L**iskov Substitution | Screens intercambiables |
-| **I**nterface Segregation | Interfaces específicas |
-| **D**ependency Inversion | Inyectar NavigationService |
+| Principio                 | Aplicación en Navegación   |
+| ------------------------- | -------------------------- |
+| **S**ingle Responsibility | Una clase para rutas       |
+| **O**pen/Closed           | Rutas extensibles          |
+| **L**iskov Substitution   | Screens intercambiables    |
+| **I**nterface Segregation | Interfaces específicas     |
+| **D**ependency Inversion  | Inyectar NavigationService |
 
 ### Checklist de Arquitectura
 
