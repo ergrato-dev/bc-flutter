@@ -118,11 +118,11 @@ Al completar este módulo teórico, serás capaz de:
 
 ## ⏱️ Distribución del Tiempo
 
-| Actividad                     | Estudio | Práctica | Total   |
-| ----------------------------- | ------- | -------- | ------- |
-| **1. Fundamentos de Dart**    | 1.5h    | 0.5h     | ~2h     |
-| **2. Variables y Operadores** | 1.5h    | 0.5h     | ~2h     |
-| **3. Control y Funciones**    | 1.5h    | 0.5h     | ~2h     |
+| Actividad                     | Estudio  | Práctica | Total   |
+| ----------------------------- | -------- | -------- | ------- |
+| **1. Fundamentos de Dart**    | 1.5h     | 0.5h     | ~2h     |
+| **2. Variables y Operadores** | 1.5h     | 0.5h     | ~2h     |
+| **3. Control y Funciones**    | 1.5h     | 0.5h     | ~2h     |
 | **Total Teoría**              | **4.5h** | **1.5h** | **~6h** |
 
 **Proporción:** ~75% teoría / 25% práctica inicial ✅
