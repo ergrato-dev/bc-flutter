@@ -1,53 +1,272 @@
-# Semana 4: Navegación y Rutas
+# 🧭 Semana 04: Navegación y Rutas en Flutter
+
+![Navegación Flutter](./0-assets/01-navigator-stack.svg)
+
+---
+
+## 📋 Información General
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Semana** | 04 de 10 |
+| **Tema** | Navegación y Rutas |
+| **Dedicación** | 8 horas |
+| **Nivel** | Intermedio |
+| **Prerrequisitos** | Semanas 01-03 completadas |
+
+---
 
 ## 🎯 Objetivos de Aprendizaje
 
-- Implementar navegación entre pantallas
-- Gestionar rutas nombradas
-- Pasar datos entre pantallas
-- Crear navegación con tabs y drawers
-- Manejar el stack de navegación
-- Implementar navegación anidada
+Al finalizar esta semana, serás capaz de:
 
-## 📚 Contenido Teórico
+- [ ] Comprender el funcionamiento del **Navigator Stack** (LIFO)
+- [ ] Implementar navegación con **push**, **pop** y **pushReplacement**
+- [ ] Configurar y usar **rutas nombradas** centralizadas
+- [ ] Pasar y recuperar **argumentos** entre pantallas
+- [ ] Implementar **BottomNavigationBar** con preservación de estado
+- [ ] Crear **Drawer** para navegación lateral
+- [ ] Usar **TabBar/TabBarView** para navegación por pestañas
+- [ ] Manejar **navegación anidada** con múltiples navigators
+- [ ] Controlar el **back button** con PopScope
+- [ ] Aplicar mejores prácticas de UX en navegación
 
-### 1. Navegación Básica (2 horas)
+---
 
-#### Navigator Push y Pop
+## 📚 Contenido de la Semana
 
+### 📖 Teoría (3 módulos)
+
+| # | Módulo | Contenido | Tiempo |
+|---|--------|-----------|--------|
+| 01 | [Navegación Básica](./1-teoria/01-navegacion-basica.md) | Navigator, push/pop, MaterialPageRoute, paso de datos | 45 min |
+| 02 | [Rutas Nombradas](./1-teoria/02-rutas-nombradas.md) | Routes map, arguments, onGenerateRoute, AppRoutes | 45 min |
+| 03 | [Navegación Avanzada](./1-teoria/03-navegacion-avanzada.md) | BottomNav, Drawer, TabBar, navegación anidada | 60 min |
+
+**Tiempo estimado teoría:** 2.5 horas
+
+---
+
+### 💻 Prácticas (5 ejercicios)
+
+| # | Práctica | Descripción | Nivel | Pts |
+|---|----------|-------------|-------|-----|
+| 01 | [Navegación Básica](./2-practicas/practica-01-navegacion-basica.md) | App de tareas con push/pop | ⭐ | 5 |
+| 02 | [Rutas Nombradas](./2-practicas/practica-02-rutas-nombradas.md) | Catálogo de productos | ⭐⭐ | 6 |
+| 03 | [Bottom Navigation](./2-practicas/practica-03-bottom-navigation.md) | App social con tabs | ⭐⭐ | 6 |
+| 04 | [Drawer Menu](./2-practicas/practica-04-drawer-menu.md) | App empresarial | ⭐⭐⭐ | 6 |
+| 05 | [App Multinivel](./2-practicas/practica-05-app-multinivel.md) | E-commerce completo | ⭐⭐⭐ | 7 |
+
+**Tiempo estimado prácticas:** 2.5 horas
+
+---
+
+### 🔨 Proyecto Integrador: TravelApp
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Nombre** | TravelApp - Viajes y Reservas |
+| **Descripción** | App de viajes con navegación compleja multinivel |
+| **Puntos** | 50 pts (50% de la nota) |
+| **Tiempo** | 3 horas |
+
+**Documentación del Proyecto:**
+- 📋 [README - Especificación completa](./3-proyecto/README.md)
+- 🎨 [Guía de Diseño](./3-proyecto/GUIA-DISENO.md)
+- 📊 [Datos de Ejemplo](./3-proyecto/EJEMPLOS-DATOS.md)
+
+**Características principales:**
+- BottomNavigationBar con 4 tabs
+- Drawer con navegación secundaria
+- Flujo de reservas completo
+- Navegación anidada por secciones
+- Control del back button
+
+---
+
+## 🗂️ Estructura de la Semana
+
+```
+semana-04/
+├── README.md                    # 📍 Este documento
+├── RUBRICA-EVALUACION.md        # 📊 Criterios de evaluación
+├── 0-assets/                    # 🎨 Diagramas SVG
+│   ├── 01-navigator-stack.svg
+│   ├── 02-push-pop-flow.svg
+│   ├── 03-named-routes.svg
+│   ├── 04-bottom-navigation.svg
+│   ├── 05-drawer-navigation.svg
+│   └── 06-nested-navigation.svg
+├── 1-teoria/                    # 📖 Módulos teóricos
+│   ├── 01-navegacion-basica.md
+│   ├── 02-rutas-nombradas.md
+│   └── 03-navegacion-avanzada.md
+├── 2-practicas/                 # 💻 Ejercicios prácticos
+│   ├── practica-01-navegacion-basica.md
+│   ├── practica-02-rutas-nombradas.md
+│   ├── practica-03-bottom-navigation.md
+│   ├── practica-04-drawer-menu.md
+│   └── practica-05-app-multinivel.md
+├── 3-proyecto/                  # 🔨 Proyecto integrador
+│   ├── README.md
+│   ├── GUIA-DISENO.md
+│   └── EJEMPLOS-DATOS.md
+├── 4-recursos/                  # 📚 Material de apoyo (12 docs)
+└── 5-glosario/                  # 📖 Términos técnicos
+```
+
+---
+
+## ⏱️ Distribución del Tiempo (8 horas)
+
+| Actividad | Horas | Porcentaje |
+|-----------|-------|------------|
+| Teoría (3 módulos) | 2.5 h | 31% |
+| Prácticas (5 ejercicios) | 2.5 h | 31% |
+| Proyecto TravelApp | 3 h | 38% |
+| **TOTAL** | **8 h** | **100%** |
+
+---
+
+## 📊 Sistema de Evaluación
+
+| Componente | Puntos | Porcentaje |
+|------------|--------|------------|
+| Evaluación Teórica | 20 pts | 20% |
+| Prácticas (5) | 30 pts | 30% |
+| Proyecto TravelApp | 50 pts | 50% |
+| **TOTAL** | **100 pts** | **100%** |
+
+### Escala de Calificación
+
+| Rango | Calificación |
+|-------|--------------|
+| 90-100 | ⭐ Excelente |
+| 80-89 | ✅ Muy Bueno |
+| 70-79 | 👍 Bueno |
+| 60-69 | ⚠️ Suficiente |
+| 0-59 | ❌ Insuficiente |
+
+📋 [Ver Rúbrica Detallada](./RUBRICA-EVALUACION.md)
+
+---
+
+## 🛣️ Ruta de Aprendizaje Sugerida
+
+### Día 1-2: Fundamentos (3 horas)
+```
+1. 📖 Leer: 01-navegacion-basica.md (45 min)
+2. 💻 Hacer: practica-01 - Navegación básica (30 min)
+3. 📖 Leer: 02-rutas-nombradas.md (45 min)
+4. 💻 Hacer: practica-02 - Rutas nombradas (45 min)
+```
+
+### Día 3-4: Navegación Avanzada (2.5 horas)
+```
+1. 📖 Leer: 03-navegacion-avanzada.md (60 min)
+2. 💻 Hacer: practica-03 - Bottom Navigation (30 min)
+3. 💻 Hacer: practica-04 - Drawer Menu (30 min)
+4. 💻 Hacer: practica-05 - App Multinivel (30 min)
+```
+
+### Día 5-7: Proyecto Integrador (2.5 horas)
+```
+1. 📋 Revisar: Especificación TravelApp (15 min)
+2. 🎨 Consultar: Guía de diseño (15 min)
+3. 🔨 Desarrollar: Implementación del proyecto (2 horas)
+```
+
+---
+
+## 🔑 Conceptos Clave
+
+### Navigator Stack
 ```dart
-// Navegar a nueva pantalla
-Navigator.push(
-  context,
-  MaterialPageRoute(builder: (context) => PantallaDestino()),
-);
-
-// Regresar
+// El Navigator funciona como una pila (LIFO)
+Navigator.push(context, MaterialPageRoute(
+  builder: (context) => DetailScreen(),
+));
 Navigator.pop(context);
 ```
 
-#### Tipos de Transiciones
-
-- `MaterialPageRoute`: Transición Material
-- `CupertinoPageRoute`: Transición iOS
-- `PageRouteBuilder`: Transiciones personalizadas
-
-#### Pasar Datos
-
+### Rutas Nombradas
 ```dart
-// Enviar datos
-Navigator.push(
-  context,
-  MaterialPageRoute(
-    builder: (context) => DetalleScreen(item: miItem),
-  ),
+MaterialApp(
+  routes: {
+    '/': (context) => HomeScreen(),
+    '/detail': (context) => DetailScreen(),
+  },
 );
+Navigator.pushNamed(context, '/detail', arguments: item);
+```
 
-// Recibir datos en constructor
-class DetalleScreen extends StatelessWidget {
-  final Item item;
-  const DetalleScreen({required this.item});
-}
+### Bottom Navigation con IndexedStack
+```dart
+Scaffold(
+  body: IndexedStack(
+    index: _currentIndex,
+    children: _screens, // Preserva estado
+  ),
+  bottomNavigationBar: BottomNavigationBar(...),
+);
+```
+
+---
+
+## ✅ Checklist de Completitud
+
+### Teoría
+- [ ] Módulo 01: Navegación Básica
+- [ ] Módulo 02: Rutas Nombradas
+- [ ] Módulo 03: Navegación Avanzada
+
+### Prácticas
+- [ ] Práctica 01: Navegación Básica (5 pts)
+- [ ] Práctica 02: Rutas Nombradas (6 pts)
+- [ ] Práctica 03: Bottom Navigation (6 pts)
+- [ ] Práctica 04: Drawer Menu (6 pts)
+- [ ] Práctica 05: App Multinivel (7 pts)
+
+### Proyecto
+- [ ] Estructura de navegación implementada
+- [ ] BottomNavigationBar con 4 tabs
+- [ ] Drawer con menú lateral
+- [ ] Flujos de usuario completos
+- [ ] Código documentado
+
+---
+
+## 📚 Recursos de Apoyo
+
+- 📖 [Documentación Oficial](./4-recursos/08-documentacion-oficial.md)
+- 📹 [Videos Recomendados](./4-recursos/01-videos-navegacion-basica.md)
+- 🔧 [Herramientas](./4-recursos/09-herramientas-desarrollo.md)
+- 📚 [Ver Todos los Recursos](./4-recursos/README.md)
+- 📖 [Glosario de Términos](./5-glosario/README.md)
+
+---
+
+## 🔗 Navegación del Bootcamp
+
+| ⬅️ Anterior | 🏠 Inicio | ➡️ Siguiente |
+|-------------|-----------|--------------|
+| [Semana 03: Widgets y Layouts](../semana-03/README.md) | [Índice del Bootcamp](../../README.md) | [Semana 05: Gestión de Estado](../semana-05/README.md) |
+
+---
+
+## 💡 Tips para esta Semana
+
+1. **Practica el Stack Mental**: Visualiza siempre el estado del stack
+2. **Centraliza las Rutas**: Usa AppRoutes class desde el inicio
+3. **IndexedStack es tu Amigo**: Para preservar estado en tabs
+4. **Cierra el Drawer**: Siempre pop() antes de pushNamed desde drawer
+5. **PopScope para UX**: Controla el back button en flujos críticos
+
+---
+
+*Semana 04 - Navegación y Rutas en Flutter*  
+*Bootcamp Flutter - 8 horas de dedicación*  
+*¡Domina la navegación y crea apps con flujos profesionales! 🚀*
 ```
 
 ### 2. Rutas Nombradas (2 horas)
