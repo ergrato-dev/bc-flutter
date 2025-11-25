@@ -36,8 +36,8 @@
     </g>
     
     <!-- Arrow down -->
-    <path d="M 630 155 L 630 195" stroke="#dcdcaa" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="645" y="180" font-family="Arial, sans-serif" font-size="10" fill="#dcdcaa">Elimina</text>
+    <path d="M 580 155 L 580 195" stroke="#dcdcaa" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="555" y="180" font-family="Arial, sans-serif" font-size="10" fill="#dcdcaa">Elimina</text>
     
     <!-- Screen 3 -->
     <g id="screen-3">
