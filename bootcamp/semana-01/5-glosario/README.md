@@ -26,7 +26,7 @@ Términos técnicos, conceptos clave y definiciones del vocabulario de Dart y pr
 ```dart
 abstract class Animal {
   void makeSound(); // Método abstracto
-  
+
   void sleep() { // Método concreto
     print('Zzz...');
   }
@@ -109,7 +109,7 @@ void main() async {
 class Person {
   String? name;
   int? age;
-  
+
   void describe() {
     print('$name tiene $age años');
   }
@@ -138,13 +138,13 @@ class User {
   // Propiedades
   String name;
   int age;
-  
+
   // Constructor
   User(this.name, this.age);
-  
+
   // Named constructor
   User.guest() : name = 'Guest', age = 0;
-  
+
   // Método
   void greet() {
     print('Hola, soy $name');
@@ -154,7 +154,7 @@ class User {
 void main() {
   User user1 = User('Pedro', 30);
   User user2 = User.guest();
-  
+
   user1.greet(); // Hola, soy Pedro
 }
 ```
@@ -174,7 +174,7 @@ void main() {
 ```dart
 Function makeCounter() {
   int count = 0;
-  
+
   return () {
     count++;
     return count;
@@ -249,13 +249,13 @@ const List<int> numeros = [1, 2, 3]; // Lista inmutable
 class User {
   String name;
   int age;
-  
+
   // Constructor principal
   User(this.name, this.age);
-  
+
   // Named constructor
   User.guest() : name = 'Guest', age = 0;
-  
+
   // Factory constructor
   factory User.fromJson(Map<String, dynamic> json) {
     return User(json['name'], json['age']);
@@ -343,13 +343,13 @@ enum Priority {
 class Task {
   String title;
   Priority priority;
-  
+
   Task(this.title, this.priority);
 }
 
 void main() {
   Task task = Task('Estudiar Dart', Priority.high);
-  
+
   if (task.priority == Priority.high) {
     print('¡Urgente!');
   }
@@ -402,12 +402,12 @@ void main() {
 ```dart
 class Database {
   static Database? _instance;
-  
+
   factory Database() {
     _instance ??= Database._internal();
     return _instance!;
   }
-  
+
   Database._internal();
 }
 
@@ -516,9 +516,9 @@ void main() async {
 class Rectangle {
   double width;
   double height;
-  
+
   Rectangle(this.width, this.height);
-  
+
   // Getter
   double get area => width * height;
   double get perimeter => 2 * (width + height);
@@ -570,9 +570,9 @@ otros.add(4); // OK, la lista es mutable
 ```dart
 class Animal {
   String name;
-  
+
   Animal(this.name);
-  
+
   void makeSound() {
     print('$name hace un sonido');
   }
@@ -580,7 +580,7 @@ class Animal {
 
 class Dog extends Animal {
   Dog(String name) : super(name);
-  
+
   @override
   void makeSound() {
     print('$name ladra: Woof!');
@@ -618,7 +618,7 @@ class Duck implements Swimmer, Flyer {
   void swim() {
     print('El pato nada');
   }
-  
+
   @override
   void fly() {
     print('El pato vuela');
@@ -669,11 +669,11 @@ print(suma(5, 3)); // 8
 ```dart
 class User {
   late String name; // Será inicializada después
-  
+
   void init() {
     name = 'Juan'; // Inicialización posterior
   }
-  
+
   void greet() {
     print('Hola $name'); // OK si init() fue llamado antes
   }
@@ -801,7 +801,7 @@ class Calculator {
   int suma(int a, int b) {
     return a + b;
   }
-  
+
   // Static method
   static int multiplicar(int a, int b) {
     return a * b;
@@ -868,15 +868,15 @@ void main() {
 class User {
   String name;
   int age;
-  
+
   // Constructor principal
   User(this.name, this.age);
-  
+
   // Named constructors
   User.guest() : name = 'Guest', age = 0;
-  
-  User.fromJson(Map<String, dynamic> json) 
-      : name = json['name'], 
+
+  User.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
         age = json['age'];
 }
 
@@ -961,7 +961,7 @@ class User {
 
 void main() {
   User user = User('Ana'); // user es un objeto
-  
+
   print(user is Object); // true
   print(user.runtimeType); // User
 }
@@ -991,7 +991,7 @@ void configurar({String host = 'localhost', int port = 80}) {
 void main() {
   saludar('Juan'); // OK
   saludar('Juan', 'Pérez'); // OK
-  
+
   configurar(); // OK
   configurar(port: 443); // OK
 }
@@ -1075,7 +1075,7 @@ class User {
   // Properties
   String name;
   int age;
-  
+
   User(this.name, this.age);
 }
 
@@ -1104,7 +1104,7 @@ void main() {
 class User {
   String name;
   int age;
-  
+
   User({
     required this.name, // Obligatorio
     required this.age,   // Obligatorio
@@ -1134,14 +1134,14 @@ int global = 10; // Scope global
 
 void funcion() {
   int local = 20; // Scope local
-  
+
   if (true) {
     int bloque = 30; // Scope de bloque
     print(global); // OK
     print(local); // OK
     print(bloque); // OK
   }
-  
+
   // print(bloque); // ERROR: fuera de scope
 }
 ```
@@ -1189,16 +1189,16 @@ print(numeros.intersection(otros)); // {3, 4}
 ```dart
 class Temperature {
   double _celsius = 0;
-  
+
   // Getter
   double get celsius => _celsius;
   double get fahrenheit => _celsius * 9/5 + 32;
-  
+
   // Setter
   set celsius(double value) {
     _celsius = value;
   }
-  
+
   set fahrenheit(double value) {
     _celsius = (value - 32) * 5/9;
   }
@@ -1226,7 +1226,7 @@ void main() {
 ```dart
 class Math {
   static const double pi = 3.14159;
-  
+
   static int suma(int a, int b) {
     return a + b;
   }
@@ -1305,15 +1305,15 @@ print('La lista tiene ${numeros.length} elementos');
 class User {
   String name;
   int age;
-  
+
   User(this.name, this.age); // Shorthand
-  
+
   // Equivalente a:
   // User(String name, int age) {
   //   this.name = name;
   //   this.age = age;
   // }
-  
+
   void describe() {
     print('${this.name} tiene ${this.age} años');
   }
@@ -1503,6 +1503,7 @@ nombre = null;
 Este glosario cubre los términos fundamentales de Dart para la semana 1. Consulta regularmente mientras programas.
 
 **Recursos adicionales:**
+
 - Documentación oficial: https://dart.dev/guides
 - DartPad: https://dartpad.dev/
 - API Reference: https://api.dart.dev/
