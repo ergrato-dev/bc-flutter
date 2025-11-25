@@ -8,7 +8,7 @@ Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar 
 
 ## 🎨 Assets Disponibles
 
-### 1. `tipos-datos-dart.svg`
+### 1. `01-tipos-datos-dart.svg`
 
 **Concepto**: Tipos de datos fundamentales en Dart
 
@@ -33,7 +33,7 @@ Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar 
 
 ---
 
-### 2. `null-safety-operadores.svg`
+### 2. `02-null-safety-operadores.svg`
 
 **Concepto**: Operadores de Null Safety en Dart
 
@@ -59,7 +59,7 @@ Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar 
 
 ---
 
-### 3. `funciones-parametros.svg`
+### 3. `03-funciones-parametros.svg`
 
 **Concepto**: Tipos de parámetros en funciones Dart
 
@@ -123,14 +123,14 @@ Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar 
 ### En Markdown
 
 ```markdown
-![Tipos de Datos en Dart](./0-assets/tipos-datos-dart.svg)
+![Tipos de Datos en Dart](./0-assets/01-tipos-datos-dart.svg)
 ```
 
 ### En HTML
 
 ```html
 <img
-  src="./0-assets/null-safety-operadores.svg"
+  src="./0-assets/02-null-safety-operadores.svg"
   alt="Operadores Null Safety" />
 ```
 
@@ -149,6 +149,18 @@ Si necesitas modificar los SVGs:
 3. **Editor de Texto**: Cualquier editor (son archivos XML)
 
 **Importante**: Mantén el mismo esquema de colores y fuentes para consistencia.
+
+---
+
+## 🔢 Sistema de Numeración
+
+Todos los assets en esta carpeta utilizan un sistema de numeración secuencial para facilitar la consulta lógica:
+
+- `01-tipos-datos-dart.svg` - Primer concepto fundamental
+- `02-null-safety-operadores.svg` - Segundo concepto fundamental  
+- `03-funciones-parametros.svg` - Tercer concepto fundamental
+
+Este sistema se mantiene consistente con **semana-02** y posteriores para una mejor organización del bootcamp.
 
 ---
 
