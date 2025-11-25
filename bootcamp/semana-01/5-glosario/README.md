@@ -27,7 +27,7 @@ Términos técnicos, conceptos clave y definiciones del vocabulario de Dart.
 // API de Fetch para llamar a un servidor
 fetch('https://api.example.com/users')
   .then((response) => response.json())
-  .then((data) => console.log(data))
+  .then((data) => console.log(data));
 ```
 
 **Ver también:** [REST API](#rest-api), [Fetch](#fetch)
@@ -45,11 +45,11 @@ fetch('https://api.example.com/users')
 ```typescript
 // Función tradicional
 function suma(a, b) {
-  return a + b
+  return a + b;
 }
 
 // Arrow function
-const suma = (a, b) => a + b
+const suma = (a, b) => a + b;
 
 // Arrow function en componente
 const MiComponente = () => {
@@ -57,8 +57,8 @@ const MiComponente = () => {
     <View>
       <Text>Hola</Text>
     </View>
-  )
-}
+  );
+};
 ```
 
 **Ver también:** [ES6](#es6), [Function Component](#function-component)
@@ -76,13 +76,13 @@ const MiComponente = () => {
 ```typescript
 const fetchUser = async () => {
   try {
-    const response = await fetch('https://api.example.com/user')
-    const data = await response.json()
-    console.log(data)
+    const response = await fetch('https://api.example.com/user');
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-}
+};
 ```
 
 **Ver también:** [Promise](#promise), [API](#api)
@@ -98,13 +98,13 @@ const fetchUser = async () => {
 **Ejemplo:**
 
 ```typescript
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Guardar
-await AsyncStorage.setItem('user', JSON.stringify(userData))
+await AsyncStorage.setItem('user', JSON.stringify(userData));
 
 // Leer
-const user = await AsyncStorage.getItem('user')
+const user = await AsyncStorage.getItem('user');
 ```
 
 **Ver también:** [Storage](#storage), [Expo SecureStore](#expo-securestore)
@@ -126,7 +126,7 @@ const user = await AsyncStorage.getItem('user')
 module.exports = {
   presets: ['babel-preset-expo'],
   plugins: ['nativewind/babel'],
-}
+};
 ```
 
 **Ver también:** [JSX](#jsx), [TypeScript](#typescript)
@@ -159,11 +159,11 @@ module.exports = {
 ```typescript
 // Componente funcional
 function Saludo({ nombre }: { nombre: string }) {
-  return <Text>Hola {nombre}</Text>
+  return <Text>Hola {nombre}</Text>;
 }
 
 // Uso
-;<Saludo nombre="Juan" />
+<Saludo nombre="Juan" />;
 ```
 
 **Ver también:** [Props](#props), [State](#state), [Hooks](#hooks)
@@ -195,19 +195,19 @@ function Saludo({ nombre }: { nombre: string }) {
 ```typescript
 // Con &&
 {
-  isLoggedIn && <Text>Bienvenido</Text>
+  isLoggedIn && <Text>Bienvenido</Text>;
 }
 
 // Con ternario
 {
-  isLoggedIn ? <Text>Bienvenido</Text> : <Text>Inicia sesión</Text>
+  isLoggedIn ? <Text>Bienvenido</Text> : <Text>Inicia sesión</Text>;
 }
 
 // Con if/else (fuera del JSX)
 if (isLoggedIn) {
-  return <Dashboard />
+  return <Dashboard />;
 } else {
-  return <Login />
+  return <Login />;
 }
 ```
 
@@ -225,16 +225,16 @@ if (isLoggedIn) {
 
 ```typescript
 // Objetos
-const user = { name: 'Juan', age: 25 }
-const { name, age } = user
+const user = { name: 'Juan', age: 25 };
+const { name, age } = user;
 
 // Arrays
-const colors = ['red', 'green', 'blue']
-const [first, second] = colors
+const colors = ['red', 'green', 'blue'];
+const [first, second] = colors;
 
 // Props
 function Card({ title, description }: CardProps) {
-  return <View>...</View>
+  return <View>...</View>;
 }
 ```
 
@@ -317,13 +317,13 @@ pnpm start
 **Ejemplo:**
 
 ```typescript
-import * as SecureStore from 'expo-secure-store'
+import * as SecureStore from 'expo-secure-store';
 
 // Guardar
-await SecureStore.setItemAsync('token', authToken)
+await SecureStore.setItemAsync('token', authToken);
 
 // Leer
-const token = await SecureStore.getItemAsync('token')
+const token = await SecureStore.getItemAsync('token');
 ```
 
 **Ver también:** [AsyncStorage](#asyncstorage)
@@ -340,15 +340,15 @@ const token = await SecureStore.getItemAsync('token')
 
 ```typescript
 // GET request
-const response = await fetch('https://api.example.com/users')
-const data = await response.json()
+const response = await fetch('https://api.example.com/users');
+const data = await response.json();
 
 // POST request
 const response = await fetch('https://api.example.com/users', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ name: 'Juan', email: 'juan@example.com' }),
-})
+});
 ```
 
 **Ver también:** [API](#api), [Async/Await](#asyncawait)
@@ -400,14 +400,14 @@ const response = await fetch('https://api.example.com/users', {
 
 ```typescript
 function MiComponente() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <View>
       <Text>{count}</Text>
       <Button onPress={() => setCount(count + 1)} />
     </View>
-  )
+  );
 }
 ```
 
@@ -460,13 +460,13 @@ git push              # Subir a GitHub
 
 ```typescript
 function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log(`Count: ${count}`)
-  }, [count])
+    console.log(`Count: ${count}`);
+  }, [count]);
 
-  return <Text>{count}</Text>
+  return <Text>{count}</Text>;
 }
 ```
 
@@ -494,20 +494,20 @@ function Counter() {
 
 ```typescript
 interface User {
-  id: string
-  name: string
-  email: string
-  age?: number // opcional
+  id: string;
+  name: string;
+  email: string;
+  age?: number; // opcional
 }
 
 interface CardProps {
-  title: string
-  description: string
-  onPress: () => void
+  title: string;
+  description: string;
+  onPress: () => void;
 }
 
 function Card({ title, description, onPress }: CardProps) {
-  return <View>...</View>
+  return <View>...</View>;
 }
 ```
 
@@ -525,21 +525,24 @@ function Card({ title, description, onPress }: CardProps) {
 
 ```typescript
 // JSX
-const element = <Text>Hola Mundo</Text>
+const element = <Text>Hola Mundo</Text>;
 
 // Con expresiones JS
-const name = 'Juan'
-const greeting = <Text>Hola {name}</Text>
+const name = 'Juan';
+const greeting = <Text>Hola {name}</Text>;
 
 // Con componentes
 const App = () => {
   return (
     <View>
       <Text>Título</Text>
-      <Button title="Click" onPress={() => {}} />
+      <Button
+        title="Click"
+        onPress={() => {}}
+      />
     </View>
-  )
-}
+  );
+};
 ```
 
 **Reglas:**
@@ -562,15 +565,20 @@ const App = () => {
 
 ```typescript
 {
-  items.map((item) => <Card key={item.id} title={item.title} />)
+  items.map((item) => (
+    <Card
+      key={item.id}
+      title={item.title}
+    />
+  ));
 }
 
 // Con FlatList
-;<FlatList
+<FlatList
   data={items}
   keyExtractor={(item) => item.id}
   renderItem={({ item }) => <Card {...item} />}
-/>
+/>;
 ```
 
 **Importante:** Las keys deben ser únicas y estables (no usar índices).
@@ -602,12 +610,12 @@ const App = () => {
 **Ejemplo:**
 
 ```typescript
-const numbers = [1, 2, 3, 4]
-const doubled = numbers.map((n) => n * 2) // [2, 4, 6, 8]
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map((n) => n * 2); // [2, 4, 6, 8]
 
 // Renderizar lista
 {
-  users.map((user) => <Text key={user.id}>{user.name}</Text>)
+  users.map((user) => <Text key={user.id}>{user.name}</Text>);
 }
 ```
 
@@ -710,8 +718,8 @@ pnpm start          # Iniciar proyecto
 ```typescript
 // Definir componente con props
 interface CardProps {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
 function Card({ title, description }: CardProps) {
@@ -720,11 +728,14 @@ function Card({ title, description }: CardProps) {
       <Text>{title}</Text>
       <Text>{description}</Text>
     </View>
-  )
+  );
 }
 
 // Usar componente
-;<Card title="Mi Título" description="Mi descripción" />
+<Card
+  title="Mi Título"
+  description="Mi descripción"
+/>;
 ```
 
 **Ver también:** [Component](#component), [Interface](#interface-typescript)
@@ -743,14 +754,14 @@ function Card({ title, description }: CardProps) {
 fetch('https://api.example.com/users')
   .then((response) => response.json())
   .then((data) => console.log(data))
-  .catch((error) => console.error(error))
+  .catch((error) => console.error(error));
 
 // Con async/await (preferido)
 try {
-  const response = await fetch('...')
-  const data = await response.json()
+  const response = await fetch('...');
+  const data = await response.json();
 } catch (error) {
-  console.error(error)
+  console.error(error);
 }
 ```
 
@@ -901,14 +912,17 @@ const updatedUser = { ...user, age: 26 }
 
 ```typescript
 function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <View>
       <Text>{count}</Text>
-      <Button title="+" onPress={() => setCount(count + 1)} />
+      <Button
+        title="+"
+        onPress={() => setCount(count + 1)}
+      />
     </View>
-  )
+  );
 }
 ```
 
@@ -977,18 +991,18 @@ const styles = StyleSheet.create({
 **Ejemplo:**
 
 ```typescript
-const name = 'Juan'
-const age = 25
+const name = 'Juan';
+const age = 25;
 
 // Interpolación
-const greeting = `Hola ${name}, tienes ${age} años`
+const greeting = `Hola ${name}, tienes ${age} años`;
 
 // Multilínea
 const text = `
   Primera línea
   Segunda línea
   Tercera línea
-`
+`;
 ```
 
 **Ver también:** [ES6](#es6)
@@ -1029,12 +1043,12 @@ const text = `
 ```typescript
 // JavaScript (sin tipos)
 function suma(a, b) {
-  return a + b
+  return a + b;
 }
 
 // TypeScript (con tipos)
 function suma(a: number, b: number): number {
-  return a + b
+  return a + b;
 }
 ```
 
@@ -1073,8 +1087,8 @@ useEffect(() => {
 
   return () => {
     // Limpieza (opcional)
-  }
-}, [dependencies]) // Array de dependencias
+  };
+}, [dependencies]); // Array de dependencias
 ```
 
 **Ejemplos:**
@@ -1082,18 +1096,18 @@ useEffect(() => {
 ```typescript
 // Ejecutar solo una vez (al montar)
 useEffect(() => {
-  fetchData()
-}, [])
+  fetchData();
+}, []);
 
 // Ejecutar cuando cambie 'count'
 useEffect(() => {
-  console.log(`Count: ${count}`)
-}, [count])
+  console.log(`Count: ${count}`);
+}, [count]);
 
 // Ejecutar en cada render (evitar!)
 useEffect(() => {
-  console.log('Cada render')
-})
+  console.log('Cada render');
+});
 ```
 
 **Ver también:** [Hooks](#hooks), [useState](#usestate)
@@ -1107,26 +1121,26 @@ useEffect(() => {
 **Sintaxis:**
 
 ```typescript
-const [valor, setValor] = useState(valorInicial)
+const [valor, setValor] = useState(valorInicial);
 ```
 
 **Ejemplos:**
 
 ```typescript
 // String
-const [name, setName] = useState('Juan')
+const [name, setName] = useState('Juan');
 
 // Number
-const [count, setCount] = useState(0)
+const [count, setCount] = useState(0);
 
 // Boolean
-const [isVisible, setIsVisible] = useState(true)
+const [isVisible, setIsVisible] = useState(true);
 
 // Object
-const [user, setUser] = useState({ name: 'Juan', age: 25 })
+const [user, setUser] = useState({ name: 'Juan', age: 25 });
 
 // Array
-const [items, setItems] = useState([])
+const [items, setItems] = useState([]);
 ```
 
 **Ver también:** [Hooks](#hooks), [State](#state)
@@ -1171,14 +1185,14 @@ const [items, setItems] = useState([])
 
 ```typescript
 function Container({ children }) {
-  return <View style={styles.container}>{children}</View>
+  return <View style={styles.container}>{children}</View>;
 }
 
 // Uso
-;<Container>
+<Container>
   <Text>Contenido</Text>
   <Button title="Click" />
-</Container>
+</Container>;
 ```
 
 ---
@@ -1213,11 +1227,11 @@ Ver [Spread Operator](#spread-operator)
 **Ejemplo:**
 
 ```typescript
-const name = user?.profile?.name
+const name = user?.profile?.name;
 // Si user o profile es undefined, name será undefined (no error)
 
 // Sin optional chaining (antigua forma)
-const name = user && user.profile && user.profile.name
+const name = user && user.profile && user.profile.name;
 ```
 
 ### `??` (Nullish Coalescing)
@@ -1227,12 +1241,12 @@ const name = user && user.profile && user.profile.name
 **Ejemplo:**
 
 ```typescript
-const value = data ?? 'default'
+const value = data ?? 'default';
 // Si data es null o undefined, usa 'default'
 
-const count = 0
-const result = count ?? 10 // result = 0 (no usa 10)
-const result2 = count || 10 // result2 = 10 (|| considera 0 como falsy)
+const count = 0;
+const result = count ?? 10; // result = 0 (no usa 10)
+const result2 = count || 10; // result2 = 10 (|| considera 0 como falsy)
 ```
 
 ---
