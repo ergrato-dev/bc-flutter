@@ -40,17 +40,17 @@ void main() {
   var numbers = [1, 2, 3, 4, 5];  // Tipo inferido: List<int>
   List<String> fruits = ['manzana', 'pera', 'uva'];
   List<double> prices = [10.5, 20.0, 15.75];
-  
+
   // Lista vacía con tipo
   List<String> names = [];
   List<int> ages = <int>[];
-  
+
   // Lista con longitud fija
   var fixedList = List<int>.filled(5, 0);  // [0, 0, 0, 0, 0]
-  
+
   // Lista generada
   var squares = List.generate(5, (index) => index * index);  // [0, 1, 4, 9, 16]
-  
+
   print('Números: $numbers');
   print('Frutas: $fruits');
   print('Cuadrados: $squares');
@@ -73,38 +73,38 @@ void main() {
 
 void main() {
   var languages = ['Dart', 'JavaScript', 'Python', 'Java', 'Go'];
-  
+
   // Acceso por índice
   print('Primer elemento: ${languages[0]}');
   print('Último elemento: ${languages[languages.length - 1]}');
   print('Último elemento (alt): ${languages.last}');
-  
+
   // Modificar elemento
   languages[1] = 'TypeScript';
   print('Modificado: $languages');
-  
+
   // Agregar elementos
   languages.add('Rust');                    // Al final
   languages.insert(0, 'C++');               // En posición específica
   languages.addAll(['Swift', 'Kotlin']);    // Múltiples al final
-  
+
   print('Después de agregar: $languages');
-  
+
   // Eliminar elementos
   languages.remove('Java');                  // Por valor
   languages.removeAt(0);                     // Por índice
   languages.removeLast();                    // Último elemento
-  
+
   print('Después de eliminar: $languages');
-  
+
   // Verificar existencia
   print('¿Tiene Python? ${languages.contains("Python")}');
   print('Índice de Dart: ${languages.indexOf("Dart")}');
-  
+
   // Sublistas
   var slice = languages.sublist(1, 4);
   print('Sublista [1-4]: $slice');
-  
+
   // Limpiar lista
   // languages.clear();
 }
@@ -126,38 +126,38 @@ void main() {
 
 void main() {
   var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  
+
   // map() - Transformar cada elemento
   var doubled = numbers.map((n) => n * 2);
   print('Duplicados: ${doubled.toList()}');
-  
+
   var squared = numbers.map((n) => n * n).toList();
   print('Cuadrados: $squared');
-  
+
   // where() - Filtrar elementos
   var evens = numbers.where((n) => n % 2 == 0).toList();
   print('Pares: $evens');
-  
+
   var greaterThan5 = numbers.where((n) => n > 5).toList();
   print('Mayores a 5: $greaterThan5');
-  
+
   // Combinar map y where
   var result = numbers
       .where((n) => n % 2 == 0)
       .map((n) => n * n)
       .toList();
   print('Pares al cuadrado: $result');
-  
+
   // any() - ¿Alguno cumple?
   print('¿Alguno mayor a 8? ${numbers.any((n) => n > 8)}');
-  
+
   // every() - ¿Todos cumplen?
   print('¿Todos positivos? ${numbers.every((n) => n > 0)}');
-  
+
   // firstWhere() - Primer elemento que cumple
   var firstEven = numbers.firstWhere((n) => n % 2 == 0);
   print('Primer par: $firstEven');
-  
+
   // lastWhere() - Último elemento que cumple
   var lastEven = numbers.lastWhere((n) => n % 2 == 0);
   print('Último par: $lastEven');
@@ -180,30 +180,30 @@ void main() {
 
 void main() {
   var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  
+
   // reduce() - Combinar elementos
   var sum = numbers.reduce((a, b) => a + b);
   print('Suma total: $sum');
-  
+
   var product = numbers.reduce((a, b) => a * b);
   print('Producto: $product');
-  
+
   // fold() - Reducir con valor inicial
   var sumFold = numbers.fold(0, (prev, element) => prev + element);
   print('Suma con fold: $sumFold');
-  
+
   var sumOfSquares = numbers.fold(0, (sum, n) => sum + n * n);
   print('Suma de cuadrados: $sumOfSquares');
-  
+
   // Concatenar strings
   var words = ['Hola', 'mundo', 'desde', 'Dart'];
   var sentence = words.fold('', (prev, word) => prev.isEmpty ? word : '$prev $word');
   print('Frase: $sentence');
-  
+
   // Calcular promedio
   var average = numbers.reduce((a, b) => a + b) / numbers.length;
   print('Promedio: ${average.toStringAsFixed(2)}');
-  
+
   // Encontrar máximo y mínimo
   var max = numbers.reduce((a, b) => a > b ? a : b);
   var min = numbers.reduce((a, b) => a < b ? a : b);
@@ -228,22 +228,22 @@ void main() {
 void main() {
   var numbers = [5, 2, 8, 1, 9, 3, 7, 4, 6];
   var names = ['Carlos', 'Ana', 'Beatriz', 'David'];
-  
+
   // sort() - Ordenar in-place (modifica la lista original)
   numbers.sort();
   print('Números ordenados: $numbers');
-  
+
   names.sort();
   print('Nombres ordenados: $names');
-  
+
   // Ordenar descendente
   numbers.sort((a, b) => b.compareTo(a));
   print('Números desc: $numbers');
-  
+
   // reversed - Invertir orden (retorna Iterable)
   var reversed = numbers.reversed.toList();
   print('Invertidos: $reversed');
-  
+
   // Ordenar objetos complejos
   var products = [
     {'name': 'Laptop', 'price': 1200},
@@ -251,18 +251,18 @@ void main() {
     {'name': 'Keyboard', 'price': 80},
     {'name': 'Monitor', 'price': 350},
   ];
-  
+
   // Ordenar por precio
   products.sort((a, b) => (a['price'] as int).compareTo(b['price'] as int));
-  
+
   print('\nProductos por precio:');
   for (var product in products) {
     print('${product['name']}: \$${product['price']}');
   }
-  
+
   // Ordenar por nombre
   products.sort((a, b) => (a['name'] as String).compareTo(b['name'] as String));
-  
+
   print('\nProductos por nombre:');
   for (var product in products) {
     print('${product['name']}: \$${product['price']}');
@@ -292,26 +292,26 @@ void main() {
   // Crear sets
   var numbers = {1, 2, 3, 4, 5};
   Set<String> colors = {'rojo', 'verde', 'azul'};
-  
+
   // Set vacío (importante: usar tipo explícito)
   var emptySet = <String>{};  // Set
   // var notASet = {};           // Map!
-  
+
   // Set desde lista (elimina duplicados)
   var list = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
   var uniqueNumbers = Set<int>.from(list);
   print('Lista: $list');
   print('Set: $uniqueNumbers');
-  
+
   // Agregar elementos
   colors.add('amarillo');
   colors.add('rojo');  // No se agrega (ya existe)
   print('Colores: $colors');
-  
+
   // Agregar múltiples
   colors.addAll(['naranja', 'violeta', 'verde']);  // 'verde' no se duplica
   print('Colores actualizados: $colors');
-  
+
   print('Cantidad de colores: ${colors.length}');
 }
 ```
@@ -333,30 +333,30 @@ void main() {
 void main() {
   var setA = {1, 2, 3, 4, 5};
   var setB = {4, 5, 6, 7, 8};
-  
+
   print('Set A: $setA');
   print('Set B: $setB');
-  
+
   // Unión - elementos en A o B
   var union = setA.union(setB);
   print('\nUnión (A ∪ B): $union');
-  
+
   // Intersección - elementos en A y B
   var intersection = setA.intersection(setB);
   print('Intersección (A ∩ B): $intersection');
-  
+
   // Diferencia - elementos en A pero no en B
   var difference = setA.difference(setB);
   print('Diferencia (A - B): $difference');
-  
+
   // Verificar pertenencia
   print('\n¿3 está en A? ${setA.contains(3)}');
   print('¿7 está en A? ${setA.contains(7)}');
-  
+
   // Verificar si es subconjunto
   var setC = {2, 3};
   print('\n¿C es subconjunto de A? ${setC.difference(setA).isEmpty}');
-  
+
   // Convertir a lista
   var listFromSet = setA.toList();
   print('\nSet como lista: $listFromSet');
@@ -373,15 +373,15 @@ void main() {
 class Article {
   String title;
   Set<String> tags;
-  
+
   Article(this.title, this.tags);
-  
+
   bool hasTag(String tag) => tags.contains(tag);
-  
+
   void addTag(String tag) {
     tags.add(tag);
   }
-  
+
   void addTags(List<String> newTags) {
     tags.addAll(newTags);
   }
@@ -394,31 +394,31 @@ void main() {
     Article('Flutter Basics', {'flutter', 'dart', 'móvil', 'tutorial'}),
     Article('State Management', {'flutter', 'programación', 'avanzado'}),
   ];
-  
+
   // Obtener todas las etiquetas únicas
   var allTags = <String>{};
   for (var article in articles) {
     allTags.addAll(article.tags);
   }
   print('Todas las etiquetas: $allTags');
-  
+
   // Artículos con etiqueta específica
   var dartArticles = articles.where((a) => a.hasTag('dart')).toList();
   print('\nArtículos sobre Dart: ${dartArticles.length}');
   for (var article in dartArticles) {
     print('  - ${article.title}');
   }
-  
+
   // Artículos con múltiples etiquetas
-  var advancedDart = articles.where((a) => 
+  var advancedDart = articles.where((a) =>
     a.hasTag('dart') && a.hasTag('avanzado')
   ).toList();
-  
+
   print('\nArtículos avanzados de Dart:');
   for (var article in advancedDart) {
     print('  - ${article.title}');
   }
-  
+
   // Etiquetas comunes entre artículos
   if (articles.length >= 2) {
     var commonTags = articles[0].tags.intersection(articles[1].tags);
@@ -454,39 +454,39 @@ void main() {
     'city': 'Madrid',
     'isActive': true,
   };
-  
+
   // Map con tipos específicos
   Map<String, int> scores = {
     'math': 95,
     'science': 88,
     'history': 92,
   };
-  
+
   // Map vacío
   var emptyMap = <String, dynamic>{};
   Map<int, String> months = {};
-  
+
   // Acceder a valores
   print('Nombre: ${person['name']}');
   print('Edad: ${person['age']}');
-  
+
   // Acceso seguro (retorna null si no existe)
   print('Email: ${person['email']}');  // null
-  
+
   // Valor por defecto si no existe
   var email = person['email'] ?? 'no-email@example.com';
   print('Email: $email');
-  
+
   // Modificar valores
   person['age'] = 29;
   person['email'] = 'ana@example.com';  // Agregar nueva clave
-  
+
   print('\nPerson actualizado: $person');
-  
+
   // Verificar existencia de clave
   print('¿Tiene nombre? ${person.containsKey('name')}');
   print('¿Tiene teléfono? ${person.containsKey('phone')}');
-  
+
   // Verificar existencia de valor
   print('¿Tiene valor 28? ${person.containsValue(28)}');
 }
@@ -513,42 +513,42 @@ void main() {
     'keyboard': 80.0,
     'monitor': 350.0,
   };
-  
+
   // Iterar sobre claves
   print('Productos disponibles:');
   for (var key in products.keys) {
     print('  - $key');
   }
-  
+
   // Iterar sobre valores
   print('\nPrecios:');
   for (var price in products.values) {
     print('  \$${price.toStringAsFixed(2)}');
   }
-  
+
   // Iterar sobre pares clave-valor
   print('\nCatálogo completo:');
   for (var entry in products.entries) {
     print('  ${entry.key}: \$${entry.value.toStringAsFixed(2)}');
   }
-  
+
   // forEach()
   print('\nCon descuento del 10%:');
   products.forEach((name, price) {
     var discounted = price * 0.9;
     print('  $name: \$${discounted.toStringAsFixed(2)}');
   });
-  
+
   // map() - Transformar (retorna Iterable)
   var productNames = products.keys.map((name) => name.toUpperCase()).toList();
   print('\nNombres en mayúsculas: $productNames');
-  
+
   // Crear nuevo map transformado
   var discountedProducts = products.map(
     (name, price) => MapEntry(name, price * 0.9)
   );
   print('\nProductos con descuento: $discountedProducts');
-  
+
   // Filtrar map
   var expensiveProducts = Map.fromEntries(
     products.entries.where((entry) => entry.value > 100)
@@ -577,35 +577,35 @@ void main() {
     'name': 'Carlos',
     'email': 'carlos@example.com',
   };
-  
+
   // addAll() - Combinar maps
   var additionalInfo = {
     'age': 30,
     'city': 'Barcelona',
     'country': 'España',
   };
-  
+
   user.addAll(additionalInfo);
   print('Usuario completo: $user');
-  
+
   // remove() - Eliminar por clave
   user.remove('country');
   print('Sin país: $user');
-  
+
   // removeWhere() - Eliminar con condición
   user.removeWhere((key, value) => key == 'age');
   print('Sin edad: $user');
-  
+
   // putIfAbsent() - Agregar solo si no existe
   user.putIfAbsent('phone', () => '+34-600-000-000');
   user.putIfAbsent('email', () => 'nuevo@example.com');  // No se agrega
-  
+
   print('Con teléfono: $user');
-  
+
   // update() - Actualizar valor existente
   user.update('id', (value) => value + 100);
   print('ID actualizado: $user');
-  
+
   // update con valor por defecto si no existe
   user.update(
     'score',
@@ -613,7 +613,7 @@ void main() {
     ifAbsent: () => 0,
   );
   print('Con score: $user');
-  
+
   // clear() - Limpiar map
   // user.clear();
 }
@@ -666,40 +666,40 @@ void main() {
       'management': ['Ana López'],
     },
   };
-  
+
   // Acceder a datos anidados
   print('Compañía: ${company['name']}');
   print('Fundada en: ${company['founded']}');
-  
+
   // Acceder a lista dentro del map
   var employees = company['employees'] as List;
   print('\nEmpleados: ${employees.length}');
-  
+
   for (var employee in employees) {
     var emp = employee as Map;
     print('  - ${emp['name']}: ${emp['position']}');
   }
-  
+
   // Calcular nómina total
   var totalSalary = employees.fold(0.0, (sum, emp) {
     var e = emp as Map;
     return sum + (e['salary'] as int);
   });
   print('\nNómina total: \$${totalSalary.toStringAsFixed(2)}');
-  
+
   // Encontrar empleados con skill específico
   var flutterDevs = employees.where((emp) {
     var e = emp as Map;
     var skills = e['skills'] as List;
     return skills.contains('flutter');
   }).toList();
-  
+
   print('\nDesarrolladores Flutter:');
   for (var dev in flutterDevs) {
     var d = dev as Map;
     print('  - ${d['name']}');
   }
-  
+
   // Acceder a map anidado
   var departments = company['departments'] as Map;
   print('\nDepartamentos:');
@@ -720,10 +720,10 @@ void main() {
 class InventorySystem {
   // Map de productos: id -> detalles
   Map<String, Map<String, dynamic>> products = {};
-  
+
   // Map de categorías: nombre -> Set de IDs
   Map<String, Set<String>> categories = {};
-  
+
   void addProduct(String id, String name, double price, String category, int stock) {
     products[id] = {
       'name': name,
@@ -732,27 +732,27 @@ class InventorySystem {
       'stock': stock,
       'sales': 0,
     };
-    
+
     // Agregar a categoría
     if (!categories.containsKey(category)) {
       categories[category] = <String>{};
     }
     categories[category]!.add(id);
-    
+
     print('✓ Producto agregado: $name');
   }
-  
+
   void updateStock(String id, int quantity) {
     if (products.containsKey(id)) {
       products[id]!['stock'] = quantity;
       print('✓ Stock actualizado: ${products[id]!['name']} = $quantity');
     }
   }
-  
+
   void registerSale(String id, int quantity) {
     if (products.containsKey(id)) {
       var product = products[id]!;
-      
+
       if (product['stock'] >= quantity) {
         product['stock'] -= quantity;
         product['sales'] += quantity;
@@ -762,49 +762,49 @@ class InventorySystem {
       }
     }
   }
-  
+
   List<Map<String, dynamic>> getProductsByCategory(String category) {
     if (!categories.containsKey(category)) return [];
-    
+
     return categories[category]!
         .map((id) => {...products[id]!, 'id': id})
         .toList();
   }
-  
+
   List<Map<String, dynamic>> getLowStock(int threshold) {
     return products.entries
         .where((entry) => entry.value['stock'] <= threshold)
         .map((entry) => {...entry.value, 'id': entry.key})
         .toList();
   }
-  
+
   Map<String, double> getSalesByCategory() {
     var salesMap = <String, double>{};
-    
+
     for (var entry in products.entries) {
       var product = entry.value;
       var category = product['category'] as String;
       var revenue = (product['price'] as double) * (product['sales'] as int);
-      
+
       salesMap[category] = (salesMap[category] ?? 0) + revenue;
     }
-    
+
     return salesMap;
   }
-  
+
   void showReport() {
     print('\n╔═══════════════════════════════════════════╗');
     print('║        REPORTE DE INVENTARIO              ║');
     print('╚═══════════════════════════════════════════╝');
-    
+
     print('\n📦 Total de productos: ${products.length}');
     print('📂 Categorías: ${categories.length}');
-    
+
     print('\n📊 Productos por categoría:');
     categories.forEach((category, productIds) {
       print('  $category: ${productIds.length} productos');
     });
-    
+
     print('\n⚠️  Stock bajo (≤5):');
     var lowStock = getLowStock(5);
     if (lowStock.isEmpty) {
@@ -814,23 +814,23 @@ class InventorySystem {
         print('  ${product['name']}: ${product['stock']} unidades');
       }
     }
-    
+
     print('\n💰 Ventas por categoría:');
     var sales = getSalesByCategory();
     var totalRevenue = 0.0;
-    
+
     sales.forEach((category, revenue) {
       print('  $category: \$${revenue.toStringAsFixed(2)}');
       totalRevenue += revenue;
     });
-    
+
     print('\n💵 Ingresos totales: \$${totalRevenue.toStringAsFixed(2)}');
   }
 }
 
 void main() {
   var inventory = InventorySystem();
-  
+
   // Agregar productos
   inventory.addProduct('P001', 'Laptop HP', 1200.0, 'Electrónica', 10);
   inventory.addProduct('P002', 'Mouse Logitech', 25.0, 'Electrónica', 50);
@@ -838,21 +838,21 @@ void main() {
   inventory.addProduct('P004', 'Zapatillas Adidas', 120.0, 'Ropa', 15);
   inventory.addProduct('P005', 'Monitor Samsung', 350.0, 'Electrónica', 8);
   inventory.addProduct('P006', 'Libro Dart', 35.0, 'Libros', 3);
-  
+
   // Registrar ventas
   print('\n═══ VENTAS ═══\n');
   inventory.registerSale('P001', 2);
   inventory.registerSale('P002', 10);
   inventory.registerSale('P003', 5);
   inventory.registerSale('P006', 2);
-  
+
   // Actualizar stock
   print('\n═══ ACTUALIZACIÓN DE STOCK ═══\n');
   inventory.updateStock('P006', 20);
-  
+
   // Mostrar reporte
   inventory.showReport();
-  
+
   // Consultar productos por categoría
   print('\n═══ PRODUCTOS DE ELECTRÓNICA ═══\n');
   var electronics = inventory.getProductsByCategory('Electrónica');
@@ -866,14 +866,14 @@ void main() {
 
 ## 📝 Comparación de Colecciones
 
-| Característica | List | Set | Map |
-|---------------|------|-----|-----|
-| **Orden** | Ordenado | No ordenado | No ordenado |
-| **Duplicados** | Sí | No | Claves únicas |
-| **Acceso** | Por índice | Por valor | Por clave |
-| **Uso típico** | Secuencias | Valores únicos | Pares clave-valor |
-| **Performance búsqueda** | O(n) | O(1) | O(1) |
-| **Performance inserción** | O(1) final | O(1) | O(1) |
+| Característica            | List       | Set            | Map               |
+| ------------------------- | ---------- | -------------- | ----------------- |
+| **Orden**                 | Ordenado   | No ordenado    | No ordenado       |
+| **Duplicados**            | Sí         | No             | Claves únicas     |
+| **Acceso**                | Por índice | Por valor      | Por clave         |
+| **Uso típico**            | Secuencias | Valores únicos | Pares clave-valor |
+| **Performance búsqueda**  | O(n)       | O(1)           | O(1)              |
+| **Performance inserción** | O(1) final | O(1)           | O(1)              |
 
 ---
 
