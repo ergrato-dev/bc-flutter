@@ -129,7 +129,9 @@ Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar 
 ### En HTML
 
 ```html
-<img src="./0-assets/null-safety-operadores.svg" alt="Operadores Null Safety" />
+<img
+  src="./0-assets/null-safety-operadores.svg"
+  alt="Operadores Null Safety" />
 ```
 
 ### Visualización Directa

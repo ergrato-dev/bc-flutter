@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <!-- Fondo oscuro -->
+  <rect width="900" height="700" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Parámetros de Funciones en Dart
+  </text>
+  
+  <!-- Parámetros Posicionales Requeridos -->
+  <g id="posicionales-requeridos">
+    <rect x="50" y="80" width="380" height="110" fill="#01579b" stroke="#0175c2" stroke-width="2" rx="8"/>
+    <text x="240" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Posicionales Requeridos
+    </text>
+    <text x="240" y="140" font-family="Consolas, monospace" font-size="15" fill="#dcdcaa" text-anchor="middle">
+      void saludar(String nombre, int edad) {
+    </text>
+    <text x="240" y="165" font-family="Consolas, monospace" font-size="15" fill="#cccccc" text-anchor="middle">
+      print('Hola $nombre, tienes $edad años');
+    </text>
+    <text x="240" y="185" font-family="Consolas, monospace" font-size="15" fill="#dcdcaa" text-anchor="middle">
+      }
+    </text>
+  </g>
+  
+  <!-- Llamada Posicionales -->
+  <g id="llamada-posicionales">
+    <rect x="470" y="80" width="380" height="110" fill="#2d2d2d" stroke="#4ec9b0" stroke-width="2" rx="8"/>
+    <text x="660" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4ec9b0" text-anchor="middle">
+      💡 Uso
+    </text>
+    <text x="660" y="140" font-family="Consolas, monospace" font-size="16" fill="#4ec9b0" text-anchor="middle">
+      saludar('Ana', 25);
+    </text>
+    <text x="660" y="170" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      ✓ Orden importa
+    </text>
+    <text x="660" y="188" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      ✓ Todos obligatorios
+    </text>
+  </g>
+  
+  <!-- Parámetros Opcionales Posicionales -->
+  <g id="opcionales-posicionales">
+    <rect x="50" y="220" width="380" height="110" fill="#01579b" stroke="#0175c2" stroke-width="2" rx="8"/>
+    <text x="240" y="250" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Opcionales Posicionales [ ]
+    </text>
+    <text x="240" y="280" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      void saludar(String nombre, [String? saludo]) {
+    </text>
+    <text x="240" y="305" font-family="Consolas, monospace" font-size="14" fill="#cccccc" text-anchor="middle">
+      print('${saludo ?? 'Hola'} $nombre');
+    </text>
+    <text x="240" y="325" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      }
+    </text>
+  </g>
+  
+  <!-- Llamada Opcionales Posicionales -->
+  <g id="llamada-opcionales-pos">
+    <rect x="470" y="220" width="380" height="110" fill="#2d2d2d" stroke="#c586c0" stroke-width="2" rx="8"/>
+    <text x="660" y="250" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#c586c0" text-anchor="middle">
+      💡 Uso
+    </text>
+    <text x="660" y="280" font-family="Consolas, monospace" font-size="15" fill="#c586c0" text-anchor="middle">
+      saludar('Ana');  // OK
+    </text>
+    <text x="660" y="305" font-family="Consolas, monospace" font-size="15" fill="#c586c0" text-anchor="middle">
+      saludar('Ana', 'Buenos días');
+    </text>
+    <text x="660" y="325" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      ✓ Orden importa • ✓ Opcionales
+    </text>
+  </g>
+  
+  <!-- Parámetros Named -->
+  <g id="named-params">
+    <rect x="50" y="360" width="380" height="130" fill="#01579b" stroke="#0175c2" stroke-width="2" rx="8"/>
+    <text x="240" y="390" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Parámetros Named { }
+    </text>
+    <text x="240" y="420" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      void configurar({
+    </text>
+    <text x="240" y="440" font-family="Consolas, monospace" font-size="14" fill="#cccccc" text-anchor="middle">
+      String host = 'localhost',
+    </text>
+    <text x="240" y="460" font-family="Consolas, monospace" font-size="14" fill="#cccccc" text-anchor="middle">
+      int port = 80,
+    </text>
+    <text x="240" y="480" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      }) { }
+    </text>
+  </g>
+  
+  <!-- Llamada Named -->
+  <g id="llamada-named">
+    <rect x="470" y="360" width="380" height="130" fill="#2d2d2d" stroke="#dcdcaa" stroke-width="2" rx="8"/>
+    <text x="660" y="390" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#dcdcaa" text-anchor="middle">
+      💡 Uso
+    </text>
+    <text x="660" y="420" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      configurar();  // OK, usa defaults
+    </text>
+    <text x="660" y="445" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      configurar(port: 443);
+    </text>
+    <text x="660" y="470" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      configurar(host: 'api.com', port: 8080);
+    </text>
+    <text x="660" y="488" font-family="Arial, sans-serif" font-size="12" fill="#cccccc" text-anchor="middle">
+      ✗ Orden NO importa • ✓ Legible
+    </text>
+  </g>
+  
+  <!-- Parámetros Required -->
+  <g id="required-params">
+    <rect x="50" y="520" width="380" height="130" fill="#2d2d2d" stroke="#f48771" stroke-width="3" rx="8"/>
+    <text x="240" y="550" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f48771" text-anchor="middle">
+      ⚡ required (obligatorio)
+    </text>
+    <text x="240" y="580" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      void crear({
+    </text>
+    <text x="240" y="600" font-family="Consolas, monospace" font-size="14" fill="#f48771" text-anchor="middle">
+      required String nombre,
+    </text>
+    <text x="240" y="620" font-family="Consolas, monospace" font-size="14" fill="#cccccc" text-anchor="middle">
+      int edad = 0,
+    </text>
+    <text x="240" y="640" font-family="Consolas, monospace" font-size="14" fill="#dcdcaa" text-anchor="middle">
+      }) { }
+    </text>
+  </g>
+  
+  <!-- Llamada Required -->
+  <g id="llamada-required">
+    <rect x="470" y="520" width="380" height="130" fill="#2d2d2d" stroke="#569cd6" stroke-width="2" rx="8"/>
+    <text x="660" y="550" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#569cd6" text-anchor="middle">
+      💡 Uso
+    </text>
+    <text x="660" y="580" font-family="Consolas, monospace" font-size="14" fill="#f48771" text-anchor="middle">
+      crear(nombre: 'Ana');  // OK
+    </text>
+    <text x="660" y="605" font-family="Consolas, monospace" font-size="14" fill="#569cd6" text-anchor="middle">
+      crear(nombre: 'Luis', edad: 30);
+    </text>
+    <text x="660" y="635" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      ⚠️ nombre es obligatorio
+    </text>
+  </g>
+  
+  <!-- Logo Dart -->
+  <g id="dart-logo" transform="translate(760, 20)">
+    <polygon points="30,0 60,0 60,60 0,60" fill="#0175c2"/>
+    <polygon points="0,60 30,30 60,60" fill="#01579b"/>
+  </g>
+  
+  <text x="20" y="685" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0175c2">
+    Dart 3.x • Named Parameters • required
+  </text>
+</svg>
