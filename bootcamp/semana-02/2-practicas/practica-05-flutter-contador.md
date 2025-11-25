@@ -28,6 +28,7 @@ Crear una **aplicación de contador personalizada** que responda a la interacci�
 ## 🖼️ Resultado Esperado
 
 Una app de contador con:
+
 - Contador visible grande
 - Botón para incrementar
 - Botón para decrementar
@@ -114,6 +115,7 @@ class _CounterPageState extends State<CounterPage> {
 ```
 
 **Tareas:**
+
 1. Crea el proyecto
 2. Copia el código base
 3. Verifica que compile y ejecute
@@ -126,34 +128,34 @@ Agrega métodos para manipular el contador en `_CounterPageState`:
 ```dart
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
-  
+
   // Método para incrementar
   void _increment() {
     setState(() {
       _counter++;
     });
   }
-  
+
   // Método para decrementar
   void _decrement() {
     setState(() {
       _counter--;
     });
   }
-  
+
   // Método para resetear
   void _reset() {
     setState(() {
       _counter = 0;
     });
   }
-  
+
   // Método auxiliar: verificar si es par
   bool _isEven() => _counter % 2 == 0;
-  
+
   // Método auxiliar: verificar si es positivo
   bool _isPositive() => _counter > 0;
-  
+
   // Método auxiliar: obtener color según valor
   Color _getCounterColor() {
     if (_counter > 0) return Colors.green;
@@ -185,6 +187,7 @@ class _CounterPageState extends State<CounterPage> {
 ```
 
 **Tareas:**
+
 1. Copia los métodos
 2. Entiende qué hace `setState()`
 3. Observa los métodos auxiliares
@@ -223,9 +226,9 @@ Widget build(BuildContext context) {
                 color: Colors.grey[600],
               ),
             ),
-            
+
             const SizedBox(height: 20),
-            
+
             // Contador grande
             Container(
               width: 200,
@@ -249,9 +252,9 @@ Widget build(BuildContext context) {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 30),
-            
+
             // Indicadores de estado
             Wrap(
               spacing: 10,
@@ -264,15 +267,15 @@ Widget build(BuildContext context) {
                   color: Colors.blue,
                 ),
                 _buildBadge(
-                  label: _isPositive() 
-                      ? 'Positivo' 
-                      : _counter < 0 
-                          ? 'Negativo' 
+                  label: _isPositive()
+                      ? 'Positivo'
+                      : _counter < 0
+                          ? 'Negativo'
                           : 'Cero',
-                  icon: _isPositive() 
-                      ? Icons.arrow_upward 
-                      : _counter < 0 
-                          ? Icons.arrow_downward 
+                  icon: _isPositive()
+                      ? Icons.arrow_upward
+                      : _counter < 0
+                          ? Icons.arrow_downward
                           : Icons.remove,
                   color: _getCounterColor(),
                 ),
@@ -283,9 +286,9 @@ Widget build(BuildContext context) {
                 ),
               ],
             ),
-            
+
             const SizedBox(height: 40),
-            
+
             // Botones de acción
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -298,9 +301,9 @@ Widget build(BuildContext context) {
                   label: const Text('Restar'),
                   backgroundColor: Colors.red,
                 ),
-                
+
                 const SizedBox(width: 20),
-                
+
                 // Botón incrementar
                 FloatingActionButton.extended(
                   onPressed: _increment,
@@ -311,9 +314,9 @@ Widget build(BuildContext context) {
                 ),
               ],
             ),
-            
+
             const SizedBox(height: 30),
-            
+
             // Acciones rápidas
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -423,6 +426,7 @@ Widget _buildQuickButton({
 ```
 
 **Tareas:**
+
 1. Copia todo el código
 2. Observa cómo cambian los colores según el valor
 3. Prueba todos los botones
@@ -437,7 +441,7 @@ Ahora agrega historial y más funciones. Actualiza `_CounterPageState`:
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
   List<String> _history = [];
-  
+
   // Método para incrementar (con historial)
   void _increment() {
     setState(() {
@@ -445,7 +449,7 @@ class _CounterPageState extends State<CounterPage> {
       _addToHistory('Incrementó a $_counter');
     });
   }
-  
+
   // Método para decrementar (con historial)
   void _decrement() {
     setState(() {
@@ -453,7 +457,7 @@ class _CounterPageState extends State<CounterPage> {
       _addToHistory('Decrementó a $_counter');
     });
   }
-  
+
   // Método para resetear (con historial)
   void _reset() {
     setState(() {
@@ -462,7 +466,7 @@ class _CounterPageState extends State<CounterPage> {
       _addToHistory('Reseteó desde $oldValue a 0');
     });
   }
-  
+
   // Agregar acción al historial
   void _addToHistory(String action) {
     _history.insert(0, action);
@@ -471,13 +475,13 @@ class _CounterPageState extends State<CounterPage> {
       _history.removeLast();
     }
   }
-  
+
   // Método auxiliar: verificar si es par
   bool _isEven() => _counter % 2 == 0;
-  
+
   // Método auxiliar: verificar si es positivo
   bool _isPositive() => _counter > 0;
-  
+
   // Método auxiliar: obtener color según valor
   Color _getCounterColor() {
     if (_counter > 0) return Colors.green;
@@ -512,11 +516,11 @@ class _CounterPageState extends State<CounterPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // ... (mantén todo el código anterior del body)
-              
+
               // Agrega al final, después de los botones rápidos:
-              
+
               const SizedBox(height: 30),
-              
+
               // Información adicional
               Card(
                 elevation: 2,
@@ -543,7 +547,7 @@ class _CounterPageState extends State<CounterPage> {
       ),
     );
   }
-  
+
   // Widget para fila de estadística
   Widget _buildStatRow(String label, String value) {
     return Padding(
@@ -560,7 +564,7 @@ class _CounterPageState extends State<CounterPage> {
       ),
     );
   }
-  
+
   // Mostrar historial en un diálogo
   void _showHistory(BuildContext context) {
     showDialog(
@@ -603,12 +607,13 @@ class _CounterPageState extends State<CounterPage> {
       ),
     );
   }
-  
+
   // ... (mantén los widgets auxiliares _buildBadge y _buildQuickButton)
 }
 ```
 
 **Tareas:**
+
 1. Agrega el historial de acciones
 2. Implementa el diálogo de historial
 3. Agrega la tarjeta de estadísticas
@@ -643,7 +648,7 @@ class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
   final int _maxValue = 100;
   final int _minValue = -100;
-  
+
   void _increment() {
     setState(() {
       if (_counter < _maxValue) {
@@ -654,7 +659,7 @@ class _CounterPageState extends State<CounterPage> {
       }
     });
   }
-  
+
   void _decrement() {
     setState(() {
       if (_counter > _minValue) {
@@ -665,7 +670,7 @@ class _CounterPageState extends State<CounterPage> {
       }
     });
   }
-  
+
   void _showLimitMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -688,7 +693,7 @@ class _CounterPageState extends State<CounterPage>
   int _counter = 0;
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
-  
+
   @override
   void initState() {
     super.initState();
@@ -703,7 +708,7 @@ class _CounterPageState extends State<CounterPage>
       ),
     );
   }
-  
+
   void _increment() {
     setState(() {
       _counter++;
@@ -713,7 +718,7 @@ class _CounterPageState extends State<CounterPage>
       _animationController.reverse();
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -733,7 +738,7 @@ class _CounterPageState extends State<CounterPage>
       ),
     );
   }
-  
+
   @override
   void dispose() {
     _animationController.dispose();
@@ -753,13 +758,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
-  
+
   @override
   void initState() {
     super.initState();
     _loadCounter();
   }
-  
+
   // Cargar contador guardado
   Future<void> _loadCounter() async {
     final prefs = await SharedPreferences.getInstance();
@@ -767,13 +772,13 @@ class _CounterPageState extends State<CounterPage> {
       _counter = prefs.getInt('counter') ?? 0;
     });
   }
-  
+
   // Guardar contador
   Future<void> _saveCounter() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt('counter', _counter);
   }
-  
+
   void _increment() {
     setState(() {
       _counter++;
@@ -781,7 +786,7 @@ class _CounterPageState extends State<CounterPage> {
     });
     _saveCounter();
   }
-  
+
   void _decrement() {
     setState(() {
       _counter--;
@@ -798,7 +803,7 @@ class _CounterPageState extends State<CounterPage> {
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
   int _step = 1;  // Paso actual
-  
+
   void _showStepDialog() {
     showDialog(
       context: context,
@@ -842,21 +847,21 @@ class _CounterPageState extends State<CounterPage> {
       },
     );
   }
-  
+
   void _increment() {
     setState(() {
       _counter += _step;
       _addToHistory('Incrementó $_step (total: $_counter)');
     });
   }
-  
+
   void _decrement() {
     setState(() {
       _counter -= _step;
       _addToHistory('Decrementó $_step (total: $_counter)');
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -886,7 +891,7 @@ class _CounterPageState extends State<CounterPage> {
     Counter(name: 'Contador 2', value: 0, color: Colors.green),
     Counter(name: 'Contador 3', value: 0, color: Colors.red),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -946,7 +951,7 @@ class Counter {
   String name;
   int value;
   Color color;
-  
+
   Counter({required this.name, required this.value, required this.color});
 }
 ```
@@ -956,6 +961,7 @@ class Counter {
 ## 📸 Verificación Visual
 
 Tu app debe mostrar:
+
 - ✅ Círculo grande con el número del contador
 - ✅ Color verde para positivos, rojo para negativos
 - ✅ Badges indicando par/impar y signo
@@ -979,21 +985,25 @@ Tu app debe mostrar:
 ## 💡 Conceptos Clave
 
 **StatelessWidget:**
+
 - No tiene estado mutable
 - Se usa para UI estática
 - Más eficiente en performance
 
 **StatefulWidget:**
+
 - Tiene estado que puede cambiar
 - Se usa para UI interactiva
 - Requiere `setState()` para actualizar
 
 **setState():**
+
 - Notifica a Flutter que el estado cambió
 - Provoca que el widget se reconstruya
 - SIEMPRE úsalo para cambiar variables de estado
 
 **State Lifecycle:**
+
 1. `initState()` - Inicialización
 2. `build()` - Construye UI
 3. `setState()` - Actualiza estado

@@ -28,6 +28,7 @@ Crear tu **primera aplicación Flutter personalizada** que muestre información 
 ## 🖼️ Resultado Esperado
 
 Una app con:
+
 - AppBar con título personalizado
 - Ícono grande central
 - Título de bienvenida
@@ -57,6 +58,7 @@ flutter run
 ```
 
 **Tareas:**
+
 1. Crea el proyecto Flutter
 2. Abre `lib/main.dart`
 3. Ejecuta la app para verificar que funciona
@@ -109,6 +111,7 @@ class HomePage extends StatelessWidget {
 ```
 
 **Tareas:**
+
 1. Copia el código base
 2. Guarda y verifica que compile
 3. Ve tu app básica en el emulador
@@ -133,7 +136,7 @@ class MyFirstApp extends StatelessWidget {
           seedColor: Colors.deepPurple,
           brightness: Brightness.light,
         ),
-        
+
         // Tipografía
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
@@ -146,10 +149,10 @@ class MyFirstApp extends StatelessWidget {
             color: Colors.grey,
           ),
         ),
-        
+
         // Usar Material 3
         useMaterial3: true,
-        
+
         // Personalizar AppBar
         appBarTheme: const AppBarTheme(
           centerTitle: true,
@@ -163,6 +166,7 @@ class MyFirstApp extends StatelessWidget {
 ```
 
 **Tareas:**
+
 1. Cambia el `seedColor` a tu color favorito
 2. Experimenta con diferentes colores: `Colors.teal`, `Colors.orange`, etc.
 3. Observa cómo cambia toda la app con hot reload
@@ -204,27 +208,27 @@ class HomePage extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              
+
               const SizedBox(height: 30),
-              
+
               // Título principal
               Text(
                 '¡Bienvenido a Flutter!',
                 style: Theme.of(context).textTheme.headlineLarge,
                 textAlign: TextAlign.center,
               ),
-              
+
               const SizedBox(height: 10),
-              
+
               // Subtítulo
               Text(
                 'Tu primera aplicación móvil multiplataforma',
                 style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              
+
               const SizedBox(height: 40),
-              
+
               // Tarjetas de información
               _buildInfoCard(
                 context,
@@ -232,27 +236,27 @@ class HomePage extends StatelessWidget {
                 title: 'Multiplataforma',
                 description: 'Una base de código para iOS y Android',
               ),
-              
+
               const SizedBox(height: 15),
-              
+
               _buildInfoCard(
                 context,
                 icon: Icons.flash_on,
                 title: 'Hot Reload',
                 description: 'Ver cambios instantáneamente',
               ),
-              
+
               const SizedBox(height: 15),
-              
+
               _buildInfoCard(
                 context,
                 icon: Icons.palette,
                 title: 'Hermosas UIs',
                 description: 'Widgets ricos y personalizables',
               ),
-              
+
               const SizedBox(height: 30),
-              
+
               // Botón de acción
               ElevatedButton.icon(
                 onPressed: () {
@@ -278,7 +282,7 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-  
+
   // Método auxiliar para crear tarjetas
   Widget _buildInfoCard(
     BuildContext context, {
@@ -316,9 +320,9 @@ class HomePage extends StatelessWidget {
               size: 28,
             ),
           ),
-          
+
           const SizedBox(width: 15),
-          
+
           // Texto
           Expanded(
             child: Column(
@@ -350,6 +354,7 @@ class HomePage extends StatelessWidget {
 ```
 
 **Tareas:**
+
 1. Copia el código completo
 2. Observa cómo se estructura el layout
 3. Experimenta cambiando íconos (busca en [Material Icons](https://fonts.google.com/icons))
@@ -392,6 +397,7 @@ _buildInfoCard(
 ```
 
 **Experimenta con:**
+
 - Diferentes íconos
 - Colores del tema
 - Textos personalizados
@@ -573,16 +579,19 @@ flutter screenshot
 ## 💡 Tips
 
 **Hot Reload:**
+
 - Usa `r` en la terminal o `Cmd/Ctrl + S` en VS Code
 - Mantiene el estado de la app
 - Ideal para cambios visuales
 
 **Hot Restart:**
+
 - Usa `R` en la terminal o `Shift + Cmd/Ctrl + F5`
 - Reinicia la app completamente
 - Necesario para cambios en `main()`
 
 **Debug Console:**
+
 - Usa `print()` para depurar
 - Verás los mensajes en la consola de VS Code
 
