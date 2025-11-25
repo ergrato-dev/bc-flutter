@@ -55,99 +55,106 @@ Al completar este módulo teórico, serás capaz de:
 
 **Contenido:**
 
-- **Parte 1: Configuración (60 min)**
-  - Instalación Node.js 22.20+, pnpm, VS Code
-  - Crear proyecto con Expo
-  - Configurar NativeWind (TailwindCSS)
-  - Ejecutar en Expo Go
-- **Parte 2: Componentes (90 min)**
-  - View, Text, Image
-  - ScrollView, TextInput
-  - TouchableOpacity
-  - Layouts con Flexbox
-- **Parte 3: Ejercicio (40 min)**
-  - Crear Card de Perfil completa
-  - Aplicar todo lo aprendido
+- **Parte 1: Variables (30 min)**
+  - Declaración con `var`, `final`, `const`
+  - Cuándo usar cada una
+  - Mejores prácticas
+- **Parte 2: Tipos de Datos (40 min)**
+  - Números: `int`, `double`, `num`
+  - Strings y string interpolation
+  - Booleanos
+  - Tipos especiales: `dynamic`, `Object`
+- **Parte 3: Operadores (30 min)**
+  - Aritméticos y de asignación
+  - Comparación y lógicos
+  - Null-aware (`??`, `?.`, `!`)
+  - Operador ternario
+- **Parte 4: Conversiones (20 min)**
+  - String ↔ int/double
+  - Conversiones seguras
+  - Manejo de errores
 
 **🎯 Al finalizar podrás:**
 
-- Tener tu entorno 100% configurado
-- Usar los 7 componentes básicos
-- Crear layouts con Flexbox
-- Ver tu app funcionando en tu celular
+- Declarar variables correctamente
+- Trabajar con todos los tipos primitivos
+- Usar operadores null-aware de forma segura
+- Convertir entre tipos de datos
 
 ---
 
-### 3. [Estado y Eventos](./03-estado-y-eventos.md)
+### 3. [Estructuras de Control y Funciones](./03-control-flujo-funciones.md)
 
-**⏱️ Duración:** 1.5 horas (PRESENCIAL)  
-**Modalidad:** Live coding (escribir código juntos)
+**⏱️ Duración:** 2 horas  
+**Modalidad:** Teoría + Ejercicios prácticos
 
 **Contenido:**
 
-- **Ejercicio 1:** Contador Simple (20 min)
-  - useState básico
-  - Eventos onPress
-  - Re-renderizado automático
-- **Ejercicio 2:** Input Controlado (25 min)
-  - TextInput con estado
-  - Validación básica
-  - Renderizado condicional
-- **Ejercicio 3:** TODO List (45 min)
-  - Arrays en el estado
-  - Agregar, completar, eliminar tareas
-  - Estilos condicionales
-  - App completa funcional
-- **Bonus:** Introducción a useEffect (10 min)
+- **Parte 1: Condicionales (40 min)**
+  - if-else y operador ternario
+  - switch-case
+  - Expresiones booleanas complejas
+- **Parte 2: Bucles (40 min)**
+  - for y for-in
+  - while y do-while
+  - break y continue
+  - Control de flujo
+- **Parte 3: Funciones (40 min)**
+  - Funciones básicas y arrow functions
+  - Parámetros posicionales y nombrados
+  - Parámetros opcionales
+  - Funciones anónimas (lambdas)
+  - Funciones de orden superior
+  - Scope de variables
 
 **🎯 Al finalizar podrás:**
 
-- Usar useState para estado local
-- Manejar eventos del usuario
-- Crear formularios funcionales
-- Trabajar con arrays en el estado
+- Implementar lógica condicional compleja
+- Usar bucles apropiadamente
+- Crear funciones reutilizables
+- Aplicar programación funcional básica
 
 ---
 
-## ⏱️ Nueva Distribución del Tiempo
+## ⏱️ Distribución del Tiempo
 
-| Actividad                  | Presencial | Autónoma | Total     |
-| -------------------------- | ---------- | -------- | --------- |
-| **1. Fundamentos RN**      | 45 min     | ~30 min  | ~1.25h    |
-| **2. Setup + Componentes** | 2.5h       | ~45 min  | ~3.25h    |
-| **3. Estado + Eventos**    | 1.5h       | ~45 min  | ~2.25h    |
-| **Total Teoría**           | **4.5h**   | **~2h**  | **~6.5h** |
+| Actividad                     | Estudio | Práctica | Total   |
+| ----------------------------- | ------- | -------- | ------- |
+| **1. Fundamentos de Dart**    | 1.5h    | 0.5h     | ~2h     |
+| **2. Variables y Operadores** | 1.5h    | 0.5h     | ~2h     |
+| **3. Control y Funciones**    | 1.5h    | 0.5h     | ~2h     |
+| **Total Teoría**              | **4.5h** | **1.5h** | **~6h** |
 
-**Proporción:** ~69% presencial / 31% autónomo ✅
+**Proporción:** ~75% teoría / 25% práctica inicial ✅
 
-> **Nota:** Los tiempos autónomos son para reforzar con videos y documentación oficial. Son opcionales y flexibles.
+> **Nota:** Los tiempos son flexibles. Cada estudiante puede ajustar según su ritmo de aprendizaje.
 
 ---
 
 ## 📋 Cómo Usar Este Material
 
-### Durante la Sesión Presencial (2.5h)
+### Durante el Estudio
 
-1. **Sigue la explicación del instructor** mientras lee los temas
-2. **Toma notas** de conceptos clave y dudas
-3. **Participa activamente** en las demostraciones en vivo
-4. **Haz preguntas** cuando algo no esté claro
+1. **Lee los documentos** de forma secuencial
+2. **Prueba los ejemplos** en [DartPad](https://dartpad.dev/)
+3. **Toma notas** de conceptos clave
+4. **Experimenta** modificando el código de ejemplo
 
-### En Trabajo Autónomo (~3h recomendadas)
+### Para Practicar
 
-1. **Repasa los documentos** a tu propio ritmo
-2. **Completa los ejercicios de reflexión** al final de cada tema
-3. **Consulta los recursos adicionales** (videos, documentación)
-4. **Anota dudas** para la próxima sesión presencial
+1. **Completa los ejercicios** de cada documento
+2. **Intenta los desafíos adicionales** si quieres profundizar
+3. **Escribe tus propios ejemplos** para reforzar
+4. **Consulta la documentación oficial** cuando tengas dudas
 
 ---
 
 ## 🎯 Ejercicios de Reflexión
 
-Al finalizar cada documento teórico, encontrarás ejercicios de reflexión como:
+Al finalizar cada documento teórico, encontrarás:
 
-- **¿Qué aprendí?** - Resume los conceptos clave
-- **¿Para qué me sirve?** - Relaciona con aplicaciones reales
+- **Checklist de comprensión** - Verifica tu aprendizaje
+- **Ejemplos prácticos completos** - Casos de uso reales
 - **¿Qué dudas tengo?** - Identifica puntos a profundizar
 
 ---
