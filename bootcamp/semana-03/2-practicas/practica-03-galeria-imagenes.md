@@ -39,12 +39,14 @@ Crear una galería de imágenes usando `GridView.builder` que se adapte al tama�
 ## 📝 Requisitos
 
 ### Funcionales
+
 1. Grid de imágenes con 3 columnas (móvil) o más (tablet)
 2. Tap en imagen abre vista completa
 3. Indicador de carga en cada imagen
 4. Manejo de errores de imagen
 
 ### Técnicos
+
 1. `GridView.builder` para eficiencia
 2. `LayoutBuilder` para columnas adaptativas
 3. `Hero` para animación de transición
@@ -150,7 +152,7 @@ class ImageGrid extends StatelessWidget {
       builder: (context, constraints) {
         // Calcular columnas según ancho
         final columns = _calculateColumns(constraints.maxWidth);
-        
+
         return GridView.builder(
           padding: const EdgeInsets.all(8),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

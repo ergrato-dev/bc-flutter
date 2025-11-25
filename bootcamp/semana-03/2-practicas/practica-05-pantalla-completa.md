@@ -170,7 +170,7 @@ class DashboardScreen extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final isWide = constraints.maxWidth >= 800;
-            
+
             if (isWide) {
               return _buildWideLayout();
             }
@@ -255,7 +255,7 @@ class StatsGrid extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final columns = constraints.maxWidth < 400 ? 2 : 4;
-        
+
         return GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
