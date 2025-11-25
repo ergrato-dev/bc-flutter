@@ -8,54 +8,79 @@ Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar 
 
 ## 🎨 Assets Disponibles
 
-### 1. `componentes-jerarquia.svg`
+### 1. `tipos-datos-dart.svg`
 
-**Concepto**: Jerarquía de componentes en React Native
+**Concepto**: Tipos de datos fundamentales en Dart
 
 **Qué ilustra**:
 
-- Estructura de árbol de componentes
-- Componente raíz (App)
-- Screens/Pantallas
-- Componentes personalizados
-- Componentes básicos de RN (`<Text>`, `<Image>`, etc.)
+- Tipos numéricos: `int`, `double`, `num`
+- Tipos de texto: `String`
+- Tipo booleano: `bool`
+- Colecciones: `List`, `Set`, `Map`
+- Null safety: tipos nullable (`?`)
 
 **Cuándo usar**:
 
-- Al explicar arquitectura de componentes
-- En teoría de composición
-- Al introducir el concepto de "component tree"
+- Al explicar sistema de tipos de Dart
+- En teoría de variables y tipos
+- Como referencia rápida de tipos básicos
 
 **Vinculado en**:
 
 - README principal de la semana
-- Documentación de teoría sobre componentes
+- Documentación de teoría sobre variables
 
 ---
 
-### 2. `flexbox-layout.svg`
+### 2. `null-safety-operadores.svg`
 
-**Concepto**: Sistema Flexbox en React Native
+**Concepto**: Operadores de Null Safety en Dart
 
 **Qué ilustra**:
 
-- `flexDirection: 'column'` (default en RN)
-- `flexDirection: 'row'`
-- `justifyContent` (alineación en eje principal)
-- `alignItems` (alineación en eje transversal)
-- Valores comunes: `flex-start`, `center`, `space-between`, `stretch`
+- `?` - Tipo nullable
+- `!` - Null assertion operator
+- `??` - If-null operator
+- `?.` - Conditional member access
+- `??=` - Null-aware assignment
 
 **Cuándo usar**:
 
-- Al enseñar layouts con Flexbox
-- En ejercicios de estilos
-- Como referencia rápida para alineación
+- Al enseñar null safety
+- En ejercicios de manejo de null
+- Como referencia rápida de operadores
 
 **Vinculado en**:
 
 - README principal de la semana
-- Documentación de teoría sobre layouts
-- Guías de prácticas de estilos
+- Documentación de teoría sobre null safety
+- Guías de prácticas
+
+---
+
+### 3. `funciones-parametros.svg`
+
+**Concepto**: Tipos de parámetros en funciones Dart
+
+**Qué ilustra**:
+
+- Parámetros posicionales requeridos
+- Parámetros opcionales posicionales `[]`
+- Parámetros named `{}`
+- Parámetro `required`
+- Valores por defecto
+
+**Cuándo usar**:
+
+- Al explicar funciones y parámetros
+- En teoría de sintaxis de funciones
+- Como guía de mejores prácticas
+
+**Vinculado en**:
+
+- README principal de la semana
+- Documentación de teoría sobre funciones
 
 ---
 
@@ -81,10 +106,13 @@ Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar 
 
 ### Colores Consistentes
 
-- **#61DAFB** - React/Componente raíz (cyan)
-- **#4EC9B0** - Verde menta (componentes principales)
-- **#C586C0** - Púrpura (componentes secundarios)
-- **#DCDCAA** - Amarillo pálido (componentes básicos)
+- **#0175C2** - Dart Blue (color oficial de Dart)
+- **#01579B** - Dart Dark Blue (acento)
+- **#4EC9B0** - Verde menta (colecciones)
+- **#C586C0** - Púrpura (funciones)
+- **#DCDCAA** - Amarillo pálido (variables)
+- **#CE9178** - Naranja suave (strings)
+- **#B5CEA8** - Verde claro (números)
 - **#CCCCCC** - Gris claro (texto secundario)
 - **#FFFFFF** - Blanco (títulos y texto principal)
 
@@ -95,13 +123,13 @@ Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar 
 ### En Markdown
 
 ```markdown
-![Jerarquía de Componentes](./0-assets/componentes-jerarquia.svg)
+![Tipos de Datos en Dart](./0-assets/tipos-datos-dart.svg)
 ```
 
 ### En HTML
 
 ```html
-<img src="./0-assets/flexbox-layout.svg" alt="Flexbox Layout" />
+<img src="./0-assets/null-safety-operadores.svg" alt="Operadores Null Safety" />
 ```
 
 ### Visualización Directa
@@ -128,11 +156,14 @@ Si necesitas modificar los SVGs:
 /* Fondo */
 background: #1e1e1e;
 
-/* Colores principales */
-react-blue: #61dafb;
+/* Colores principales - Dart */
+dart-blue: #0175c2;
+dart-dark-blue: #01579b;
 green-mint: #4ec9b0;
 purple: #c586c0;
 yellow-pale: #dcdcaa;
+orange-soft: #ce9178;
+green-light: #b5cea8;
 
 /* Texto */
 text-primary: #ffffff;
@@ -145,7 +176,7 @@ border-dark: #2d2d2d;
 
 /* Fuentes */
 font-family: Arial, Helvetica, sans-serif;
-font-family-code: Consolas, Monaco, monospace;
+font-family-code: Consolas, Monaco, 'Courier New', monospace;
 ```
 
 ---
@@ -154,12 +185,12 @@ font-family-code: Consolas, Monaco, monospace;
 
 Ideas para futuras visualizaciones:
 
-- [ ] Ciclo de vida de componentes
-- [ ] Props vs State
-- [ ] Event handling flow
-- [ ] StyleSheet examples
-- [ ] Component patterns (Container/Presentational)
+- [ ] Ciclo de vida de variables (var, final, const)
+- [ ] Colecciones comparadas (List, Set, Map)
+- [ ] Async/await y Futures
+- [ ] Clases y constructors
+- [ ] Herencia vs Mixins vs Interfaces
 
 ---
 
-**Última actualización**: Semana 1 - Fundamentos de React Native
+**Última actualización**: Semana 1 - Fundamentos de Dart

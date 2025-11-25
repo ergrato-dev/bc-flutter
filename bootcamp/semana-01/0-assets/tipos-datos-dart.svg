@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Fondo oscuro -->
+  <rect width="800" height="600" fill="#1e1e1e"/>
+  
+  <!-- Título -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Tipos de Datos en Dart
+  </text>
+  
+  <!-- Números -->
+  <g id="numeros">
+    <rect x="50" y="80" width="200" height="120" fill="#01579b" stroke="#0175c2" stroke-width="2" rx="8"/>
+    <text x="150" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Números
+    </text>
+    <text x="150" y="140" font-family="Consolas, monospace" font-size="16" fill="#b5cea8" text-anchor="middle">
+      int numero = 42;
+    </text>
+    <text x="150" y="165" font-family="Consolas, monospace" font-size="16" fill="#b5cea8" text-anchor="middle">
+      double pi = 3.14;
+    </text>
+    <text x="150" y="190" font-family="Consolas, monospace" font-size="16" fill="#b5cea8" text-anchor="middle">
+      num valor = 10;
+    </text>
+  </g>
+  
+  <!-- String -->
+  <g id="string">
+    <rect x="300" y="80" width="200" height="120" fill="#01579b" stroke="#0175c2" stroke-width="2" rx="8"/>
+    <text x="400" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Texto
+    </text>
+    <text x="400" y="140" font-family="Consolas, monospace" font-size="16" fill="#ce9178" text-anchor="middle">
+      String nombre = 
+    </text>
+    <text x="400" y="165" font-family="Consolas, monospace" font-size="16" fill="#ce9178" text-anchor="middle">
+      'Juan';
+    </text>
+    <text x="400" y="190" font-family="Consolas, monospace" font-size="14" fill="#cccccc" text-anchor="middle">
+      (inmutable)
+    </text>
+  </g>
+  
+  <!-- Boolean -->
+  <g id="boolean">
+    <rect x="550" y="80" width="200" height="120" fill="#01579b" stroke="#0175c2" stroke-width="2" rx="8"/>
+    <text x="650" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Booleano
+    </text>
+    <text x="650" y="140" font-family="Consolas, monospace" font-size="16" fill="#569cd6" text-anchor="middle">
+      bool activo = 
+    </text>
+    <text x="650" y="165" font-family="Consolas, monospace" font-size="16" fill="#569cd6" text-anchor="middle">
+      true;
+    </text>
+    <text x="650" y="190" font-family="Consolas, monospace" font-size="16" fill="#569cd6" text-anchor="middle">
+      bool inactivo = false;
+    </text>
+  </g>
+  
+  <!-- List -->
+  <g id="list">
+    <rect x="50" y="240" width="200" height="140" fill="#01579b" stroke="#4ec9b0" stroke-width="2" rx="8"/>
+    <text x="150" y="270" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      List (Lista)
+    </text>
+    <text x="150" y="300" font-family="Consolas, monospace" font-size="15" fill="#4ec9b0" text-anchor="middle">
+      List&lt;int&gt; numeros = 
+    </text>
+    <text x="150" y="325" font-family="Consolas, monospace" font-size="15" fill="#4ec9b0" text-anchor="middle">
+      [1, 2, 3];
+    </text>
+    <text x="150" y="355" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      ✓ Ordenada
+    </text>
+    <text x="150" y="375" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      ✓ Permite duplicados
+    </text>
+  </g>
+  
+  <!-- Set -->
+  <g id="set">
+    <rect x="300" y="240" width="200" height="140" fill="#01579b" stroke="#4ec9b0" stroke-width="2" rx="8"/>
+    <text x="400" y="270" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Set (Conjunto)
+    </text>
+    <text x="400" y="300" font-family="Consolas, monospace" font-size="15" fill="#4ec9b0" text-anchor="middle">
+      Set&lt;String&gt; colores
+    </text>
+    <text x="400" y="325" font-family="Consolas, monospace" font-size="15" fill="#4ec9b0" text-anchor="middle">
+      = {'rojo', 'azul'};
+    </text>
+    <text x="400" y="355" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      ✗ No ordenado
+    </text>
+    <text x="400" y="375" font-family="Arial, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">
+      ✗ Sin duplicados
+    </text>
+  </g>
+  
+  <!-- Map -->
+  <g id="map">
+    <rect x="550" y="240" width="200" height="140" fill="#01579b" stroke="#4ec9b0" stroke-width="2" rx="8"/>
+    <text x="650" y="270" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Map (Diccionario)
+    </text>
+    <text x="650" y="300" font-family="Consolas, monospace" font-size="14" fill="#4ec9b0" text-anchor="middle">
+      Map&lt;String, int&gt;
+    </text>
+    <text x="650" y="325" font-family="Consolas, monospace" font-size="14" fill="#4ec9b0" text-anchor="middle">
+      edades = {
+    </text>
+    <text x="650" y="345" font-family="Consolas, monospace" font-size="14" fill="#4ec9b0" text-anchor="middle">
+      'Ana': 25
+    </text>
+    <text x="650" y="365" font-family="Consolas, monospace" font-size="14" fill="#4ec9b0" text-anchor="middle">
+      };
+    </text>
+  </g>
+  
+  <!-- Null Safety -->
+  <g id="nullable">
+    <rect x="175" y="420" width="450" height="140" fill="#2d2d2d" stroke="#c586c0" stroke-width="3" rx="8" stroke-dasharray="8,4"/>
+    <text x="400" y="450" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      ⚡ Null Safety
+    </text>
+    <text x="400" y="485" font-family="Consolas, monospace" font-size="16" fill="#dcdcaa" text-anchor="middle">
+      String nombre = 'Ana';  // Non-nullable ✓
+    </text>
+    <text x="400" y="515" font-family="Consolas, monospace" font-size="16" fill="#c586c0" text-anchor="middle">
+      String? apellido;  // Nullable (puede ser null)
+    </text>
+    <text x="400" y="545" font-family="Arial, sans-serif" font-size="14" fill="#cccccc" text-anchor="middle">
+      El símbolo ? indica que la variable puede ser null
+    </text>
+  </g>
+  
+  <!-- Logo Dart -->
+  <g id="dart-logo" transform="translate(20, 520)">
+    <polygon points="30,0 60,0 60,60 0,60" fill="#0175c2"/>
+    <polygon points="0,60 30,30 60,60" fill="#01579b"/>
+  </g>
+  
+  <text x="95" y="560" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0175c2">
+    Dart 3.x • Null Safety
+  </text>
+</svg>
