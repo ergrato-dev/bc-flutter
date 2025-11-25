@@ -350,258 +350,171 @@ class _MyWidgetState extends State<MyWidget> {
 
 ### 📊 Criterios de Evaluación (100 puntos)
 
-- Definición de clases
-- Constructores (default, nombrados, factory)
-- Propiedades y métodos
-- `this` keyword
-- Getters y setters
+**Rúbrica Detallada**: [`RUBRICA-EVALUACION.md`](RUBRICA-EVALUACION.md)
 
-#### Herencia
+| Categoría | Peso | Puntos | Descripción |
+|-----------|------|--------|-------------|
+| **POO en Dart** | 30% | 30 | Clases, herencia, mixins, polimorfismo |
+| **Colecciones** | 20% | 20 | List, Map, Set y sus métodos |
+| **Flutter Básico** | 30% | 30 | Widgets, estado, ciclo de vida |
+| **Proyecto Integrador** | 20% | 20 | Agenda personal completa y funcional |
+| **TOTAL** | 100% | **100** | |
 
-- Extensión de clases
-- `super` keyword
-- Override de métodos
-- Clases abstractas
+### 📋 Criterios Específicos
 
-#### Encapsulamiento
+#### POO en Dart (30 puntos)
+- ✅ **Práctica 01 - Biblioteca** (10 pts): Herencia, polimorfismo, encapsulamiento
+- ✅ **Práctica 03 - Mixins** (10 pts): Uso correcto de mixins y composición
+- ✅ **Modelos del Proyecto** (10 pts): Task, Note, Contact bien diseñados
 
-- Modificadores de acceso (private `_`)
-- Propiedades privadas
+#### Colecciones (20 puntos)
+- ✅ **Práctica 02 - Gestor Tareas** (10 pts): Operaciones con List/Map
+- ✅ **Services del Proyecto** (10 pts): Gestión eficiente de colecciones
 
-#### Otros Conceptos
+#### Flutter Básico (30 puntos)
+- ✅ **Práctica 04 - Hola Mundo** (5 pts): StatelessWidget básico
+- ✅ **Práctica 05 - Contador** (10 pts): StatefulWidget y setState()
+- ✅ **Navegación** (15 pts): Navegación funcional entre pantallas
 
-- Interfaces
-- Mixins
-- Enumeraciones
+#### Proyecto Integrador (20 puntos)
+- ✅ **Funcionalidad** (10 pts): CRUD completo en las 3 pantallas
+- ✅ **Calidad del Código** (5 pts): Código limpio y bien estructurado
+- ✅ **UX/UI** (5 pts): Interfaz usable y atractiva
 
-### 2. Colecciones y Estructuras de Datos (2 horas)
+### 🎯 Escala de Calificación
 
-#### Listas (List)
+| Rango | Nivel | Descripción |
+|-------|-------|-------------|
+| 90-100 | 🏆 **Excelente** | Dominio completo de todos los conceptos |
+| 80-89 | ⭐ **Muy Bueno** | Comprensión sólida con implementación correcta |
+| 70-79 | ✅ **Bueno** | Comprende conceptos, algunos detalles mejorables |
+| 60-69 | 🔄 **Suficiente** | Comprensión básica, requiere refuerzo |
+| 0-59 | ❌ **Insuficiente** | No alcanza los objetivos mínimos |
 
-```dart
-List<int> numeros = [1, 2, 3];
-List<String> nombres = ['Ana', 'Luis'];
-```
-
-#### Conjuntos (Set)
-
-```dart
-Set<String> frutas = {'manzana', 'pera'};
-```
-
-#### Mapas (Map)
-
-```dart
-Map<String, int> edades = {'Ana': 25, 'Luis': 30};
-```
-
-#### Métodos de Colecciones
-
-- `map()`, `where()`, `reduce()`
-- `forEach()`, `any()`, `every()`
-- `sort()`, `reversed`
-
-### 3. Introducción a Flutter (3 horas)
-
-#### ¿Qué es Flutter?
-
-- Framework UI de Google
-- Desarrollo multiplataforma
-- Arquitectura de Flutter
-- Widget tree
-
-#### Instalación y Configuración
-
-- Instalación de Flutter SDK
-- Configuración de Android Studio/VS Code
-- Flutter Doctor
-- Creación de emuladores
-
-#### Estructura de un Proyecto Flutter
-
-```
-mi_app/
-├── android/
-├── ios/
-├── lib/
-│   └── main.dart
-├── test/
-├── pubspec.yaml
-└── README.md
-```
-
-#### Hot Reload y Hot Restart
-
-- Diferencias
-- Casos de uso
-- Atajos de teclado
-
-## 💻 Ejercicios Prácticos
-
-### Ejercicio 1: POO - Sistema de Biblioteca
-
-Crea clases para modelar:
-
-- Clase `Libro` (título, autor, ISBN, disponible)
-- Clase `Usuario` (nombre, ID, libros prestados)
-- Clase `Biblioteca` (catálogo, usuarios)
-- Métodos: prestar libro, devolver libro, buscar libro
-
-### Ejercicio 2: Colecciones - Gestor de Tareas
-
-Implementa un gestor de tareas usando:
-
-- Lista de tareas
-- Métodos: agregar, eliminar, marcar completada
-- Filtrar tareas completadas/pendientes
-- Contar tareas por estado
-
-### Ejercicio 3: Mixins - Animal Kingdom
-
-Crea una jerarquía de animales usando mixins:
-
-```dart
-mixin Nadador {
-  void nadar() => print('Nadando');
-}
-
-mixin Volador {
-  void volar() => print('Volando');
-}
-
-class Pato extends Animal with Nadador, Volador {}
-```
-
-### Ejercicio 4: Primera App Flutter
-
-Crea tu primera aplicación Flutter:
-
-- App "Hola Mundo"
-- Personaliza el título
-- Cambia colores del tema
-- Agrega un botón que muestre un mensaje
-
-### Ejercicio 5: Contador Flutter
-
-Modifica la app de contador por defecto:
-
-- Agrega botón de decremento
-- Agrega botón de reset
-- Cambia el diseño y colores
-- Muestra un mensaje cuando llegue a 10
-
-## 🔨 Proyecto de la Semana
-
-**App de Perfil Personal**
-
-Desarrolla una aplicación Flutter que muestre tu perfil profesional:
-
-**Características:**
-
-1. Pantalla principal con tu información:
-   - Foto de perfil (usar `CircleAvatar`)
-   - Nombre completo
-   - Título profesional
-   - Descripción breve
-2. Tarjetas de información:
-   - Habilidades técnicas
-   - Proyectos realizados
-   - Información de contacto
-3. Diseño atractivo con:
-   - Colores personalizados
-   - Iconos relevantes
-   - Layout responsivo
-
-**Requisitos técnicos:**
-
-- Usar `StatelessWidget`
-- Implementar estructura de clases en Dart
-- Código organizado y comentado
-- Usar widgets: `Scaffold`, `AppBar`, `Column`, `Row`, `Card`, `Icon`, `Text`
-
-**Estructura de código:**
-
-```dart
-// Crear modelo de datos
-class Perfil {
-  final String nombre;
-  final String titulo;
-  final List<String> habilidades;
-  // ... otros campos
-}
-
-// Widget principal
-class PerfilApp extends StatelessWidget {
-  // ...
-}
-```
-
-## 📖 Recursos
-
-### Documentación
-
-- [Dart OOP](https://dart.dev/guides/language/language-tour#classes)
-- [Flutter Documentation](https://flutter.dev/docs)
-- [Widget Catalog](https://flutter.dev/docs/development/ui/widgets)
-
-### Videos
-
-- [Flutter Curso Completo](https://www.youtube.com/watch?v=BQts64CuCvk)
-- [Dart OOP Tutorial](https://www.youtube.com/watch?v=AqD97w_ofVw)
-
-### Herramientas
-
-- [DartPad](https://dartpad.dev/)
-- [Flutter Install](https://flutter.dev/docs/get-started/install)
-- [VS Code Flutter Extension](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter)
-
-## ✅ Checklist de Completitud
-
-- [ ] Flutter SDK instalado correctamente
-- [ ] Emulador Android/iOS configurado
-- [ ] Ejercicio 1: Sistema de biblioteca completado
-- [ ] Ejercicio 2: Gestor de tareas completado
-- [ ] Ejercicio 3: Mixins completado
-- [ ] Ejercicio 4: Hola Mundo Flutter completado
-- [ ] Ejercicio 5: Contador modificado completado
-- [ ] Proyecto: App de perfil completado
-- [ ] App ejecutada en emulador/dispositivo
-- [ ] Código subido al repositorio
-
-## 🎓 Evaluación
-
-- **Ejercicios Dart (1-3):** 30%
-- **Ejercicios Flutter (4-5):** 20%
-- **Proyecto de la semana:** 40%
-- **Configuración de entorno:** 10%
+---
 
 ## 📝 Notas Importantes
 
-- Ejecutar `flutter doctor` para verificar la instalación
-- Mantener el SDK de Flutter actualizado
-- Practicar hot reload para agilizar desarrollo
-- Explorar el Widget Inspector en DevTools
-- Leer mensajes de error cuidadosamente
-
-## 🔧 Comandos Flutter Útiles
+### 🔧 Comandos Flutter Esenciales
 
 ```bash
-# Crear nuevo proyecto
-flutter create nombre_proyecto
+# Verificar instalación de Flutter
+flutter doctor
 
-# Ejecutar aplicación
+# Crear nuevo proyecto
+flutter create mi_agenda
+
+# Ejecutar en dispositivo/emulador
 flutter run
 
-# Ver dispositivos disponibles
+# Ver dispositivos conectados
 flutter devices
 
-# Limpiar build
+# Limpiar cache de build
 flutter clean
 
-# Obtener paquetes
+# Instalar dependencias
 flutter pub get
+
+# Actualizar Flutter SDK
+flutter upgrade
+```
+
+### 💡 Tips de Desarrollo
+
+1. **Hot Reload**: Usa `r` en la terminal para recargar cambios sin reiniciar
+2. **Widget Inspector**: Presiona `i` para inspeccionar el árbol de widgets
+3. **Errores**: Lee los mensajes completos, Flutter da información muy útil
+4. **DevTools**: Explora las herramientas de desarrollo de Flutter
+5. **Documentación**: Usa `Ctrl+Click` en VS Code para ver definiciones
+
+### 🐛 Troubleshooting Común
+
+**Error: Flutter SDK not found**
+```bash
+# Verificar PATH
+echo $PATH
+# Agregar Flutter al PATH en ~/.zshrc o ~/.bashrc
+export PATH="$PATH:/ruta/a/flutter/bin"
+```
+
+**Error: No devices connected**
+```bash
+# Android
+flutter emulators --launch <emulator_id>
+
+# iOS (solo macOS)
+open -a Simulator
+```
+
+**Error: Gradle build failed**
+```bash
+cd android
+./gradlew clean
+cd ..
+flutter clean
+flutter pub get
+flutter run
 ```
 
 ---
 
+## 🚀 Siguientes Pasos
+
+### Prepárate para Semana 3
+
+La próxima semana profundizaremos en:
+- 📐 **Layouts Avanzados**: Column, Row, Stack, Flex
+- 🎨 **Diseño Responsivo**: MediaQuery, LayoutBuilder
+- 🎪 **Widgets Complejos**: ListView, GridView, CustomScrollView
+- 🎭 **Navegación Avanzada**: Rutas nombradas, argumentos
+
+**Requisitos Previos**:
+- ✅ Dominio de StatefulWidget
+- ✅ Comprensión del árbol de widgets
+- ✅ Familiaridad con Material Design
+
+---
+
+## 📚 Resumen de Archivos Clave
+
+### 📂 Navegación Rápida
+
+| Tipo | Archivo | Descripción |
+|------|---------|-------------|
+| 📘 Teoría | [01-poo-dart.md](1-teoria/01-poo-dart.md) | POO completo en Dart |
+| 📗 Teoría | [02-colecciones-estructuras.md](1-teoria/02-colecciones-estructuras.md) | List, Set, Map |
+| 📙 Teoría | [03-intro-flutter.md](1-teoria/03-intro-flutter.md) | Primeros pasos Flutter |
+| 💻 Práctica | [practica-01-poo-biblioteca.md](2-practicas/practica-01-poo-biblioteca.md) | POO aplicado |
+| 💻 Práctica | [practica-05-flutter-contador.md](2-practicas/practica-05-flutter-contador.md) | StatefulWidget |
+| 🔨 Proyecto | [README.md](3-proyecto/README.md) | Guía proyecto completo |
+| 📖 Recursos | [01-videos-poo.md](4-recursos/01-videos-poo.md) | Videos curados POO |
+| 📖 Recursos | [08-documentacion-oficial.md](4-recursos/08-documentacion-oficial.md) | Docs oficiales |
+| 📚 Referencia | [README.md](5-glosario/README.md) | Glosario 50+ términos |
+| 🎨 Visual | [01-diagrama-poo.svg](0-assets/01-diagrama-poo.svg) | Diagrama POO |
+
+---
+
+## 🎉 ¡Felicitaciones!
+
+Al completar esta semana habrás dado un paso gigante en tu camino como desarrollador Flutter. Has aprendido:
+
+✅ **POO sólida** - Fundamental para cualquier aplicación profesional  
+✅ **Gestión de datos** - Colecciones que usarás constantemente  
+✅ **Flutter real** - No solo teoría, una app completa funcional  
+
+**¡Sigue así!** 🚀
+
+---
+
 **Dedicación:** 8 horas | **Anterior:** [← Semana 1](../semana-01/README.md) | **Siguiente:** [Semana 3 →](../semana-03/README.md)
+
+---
+
+<div align="center">
+
+**Bootcamp Flutter** | Desarrollado con ❤️ para aprender Flutter
+
+[🏠 Inicio](../../README.md) | [📚 Recursos Generales](../../_docs/RECURSOS.md) | [📋 Proyectos](../../_docs/PROYECTOS.md)
+
+</div>
