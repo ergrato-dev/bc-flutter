@@ -157,7 +157,7 @@ Si necesitas modificar los SVGs:
 Todos los assets en esta carpeta utilizan un sistema de numeración secuencial para facilitar la consulta lógica:
 
 - `01-tipos-datos-dart.svg` - Primer concepto fundamental
-- `02-null-safety-operadores.svg` - Segundo concepto fundamental  
+- `02-null-safety-operadores.svg` - Segundo concepto fundamental
 - `03-funciones-parametros.svg` - Tercer concepto fundamental
 
 Este sistema se mantiene consistente con **semana-02** y posteriores para una mejor organización del bootcamp.
