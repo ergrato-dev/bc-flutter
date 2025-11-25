@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 650">
+  <!-- Background -->
+  <rect width="850" height="650" fill="#1e1e1e"/>
+  
+  <!-- Title -->
+  <text x="425" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#569cd6" text-anchor="middle">
+    Colecciones en Dart
+  </text>
+  
+  <!-- List Section -->
+  <g id="list-section">
+    <rect x="30" y="70" width="240" height="500" rx="8" fill="#252526" stroke="#569cd6" stroke-width="2"/>
+    <text x="150" y="100" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#569cd6" text-anchor="middle">List&lt;T&gt;</text>
+    <text x="150" y="125" font-family="Arial, sans-serif" font-size="12" fill="#9cdcfe" text-anchor="middle">Colección Ordenada</text>
+    
+    <!-- List Visualization -->
+    <rect x="50" y="145" width="200" height="40" rx="4" fill="#2d2d30" stroke="#4ec9b0"/>
+    <text x="80" y="170" font-family="Consolas, monospace" font-size="14" fill="#ce9178">index: 0</text>
+    <text x="160" y="170" font-family="Consolas, monospace" font-size="14" fill="#b5cea8">"🍎 Apple"</text>
+    
+    <rect x="50" y="190" width="200" height="40" rx="4" fill="#2d2d30" stroke="#4ec9b0"/>
+    <text x="80" y="215" font-family="Consolas, monospace" font-size="14" fill="#ce9178">index: 1</text>
+    <text x="160" y="215" font-family="Consolas, monospace" font-size="14" fill="#b5cea8">"🍌 Banana"</text>
+    
+    <rect x="50" y="235" width="200" height="40" rx="4" fill="#2d2d30" stroke="#4ec9b0"/>
+    <text x="80" y="260" font-family="Consolas, monospace" font-size="14" fill="#ce9178">index: 2</text>
+    <text x="160" y="260" font-family="Consolas, monospace" font-size="14" fill="#b5cea8">"🍎 Apple"</text>
+    
+    <!-- List Properties -->
+    <text x="50" y="300" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dcdcaa">Características:</text>
+    <text x="50" y="320" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ Permite duplicados</text>
+    <text x="50" y="335" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ Mantiene orden</text>
+    <text x="50" y="350" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ Acceso por índice</text>
+    
+    <!-- List Methods -->
+    <text x="50" y="380" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dcdcaa">Métodos Comunes:</text>
+    <text x="50" y="400" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">add()</text>
+    <text x="90" y="400" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">remove()</text>
+    <text x="155" y="400" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">insert()</text>
+    <text x="50" y="415" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">where()</text>
+    <text x="90" y="415" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">map()</text>
+    <text x="125" y="415" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">fold()</text>
+    <text x="165" y="415" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">sort()</text>
+    
+    <!-- List Example Code -->
+    <rect x="45" y="430" width="210" height="120" rx="4" fill="#1e1e1e" stroke="#4ec9b0"/>
+    <text x="55" y="450" font-family="Consolas, monospace" font-size="10" fill="#c586c0">var</text>
+    <text x="75" y="450" font-family="Consolas, monospace" font-size="10" fill="#9cdcfe"> fruits </text>
+    <text x="118" y="450" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">= [</text>
+    
+    <text x="65" y="467" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'Apple'</text>
+    <text x="112" y="467" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">,</text>
+    
+    <text x="65" y="484" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'Banana'</text>
+    <text x="120" y="484" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">,</text>
+    
+    <text x="65" y="501" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'Apple'</text>
+    
+    <text x="55" y="518" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">];</text>
+    
+    <text x="55" y="535" font-family="Consolas, monospace" font-size="10" fill="#9cdcfe">fruits</text>
+    <text x="85" y="535" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">.</text>
+    <text x="90" y="535" font-family="Consolas, monospace" font-size="10" fill="#dcdcaa">add</text>
+    <text x="110" y="535" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">(</text>
+    <text x="115" y="535" font-family="Consolas, monospace" font-size="10" fill="#ce9178">'Orange'</text>
+    <text x="160" y="535" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">);</text>
+  </g>
+  
+  <!-- Set Section -->
+  <g id="set-section">
+    <rect x="305" y="70" width="240" height="500" rx="8" fill="#252526" stroke="#c586c0" stroke-width="2"/>
+    <text x="425" y="100" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#c586c0" text-anchor="middle">Set&lt;T&gt;</text>
+    <text x="425" y="125" font-family="Arial, sans-serif" font-size="12" fill="#9cdcfe" text-anchor="middle">Colección Única</text>
+    
+    <!-- Set Visualization -->
+    <ellipse cx="425" cy="180" rx="80" ry="35" fill="#2d2d30" stroke="#c586c0"/>
+    <text x="425" y="188" font-family="Consolas, monospace" font-size="14" fill="#b5cea8" text-anchor="middle">"🍎 Apple"</text>
+    
+    <ellipse cx="385" cy="240" rx="80" ry="35" fill="#2d2d30" stroke="#c586c0"/>
+    <text x="385" y="248" font-family="Consolas, monospace" font-size="14" fill="#b5cea8" text-anchor="middle">"🍌 Banana"</text>
+    
+    <ellipse cx="465" cy="240" rx="80" ry="35" fill="#2d2d30" stroke="#c586c0"/>
+    <text x="465" y="248" font-family="Consolas, monospace" font-size="14" fill="#b5cea8" text-anchor="middle">"🍊 Orange"</text>
+    
+    <!-- Set Properties -->
+    <text x="325" y="300" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dcdcaa">Características:</text>
+    <text x="325" y="320" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ NO duplicados</text>
+    <text x="325" y="335" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ Sin orden garantizado</text>
+    <text x="325" y="350" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ Búsqueda rápida O(1)</text>
+    
+    <!-- Set Methods -->
+    <text x="325" y="380" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dcdcaa">Métodos Comunes:</text>
+    <text x="325" y="400" font-family="Consolas, monospace" font-size="10" fill="#c586c0">add()</text>
+    <text x="365" y="400" font-family="Consolas, monospace" font-size="10" fill="#c586c0">remove()</text>
+    <text x="430" y="400" font-family="Consolas, monospace" font-size="10" fill="#c586c0">contains()</text>
+    <text x="325" y="415" font-family="Consolas, monospace" font-size="10" fill="#c586c0">union()</text>
+    <text x="375" y="415" font-family="Consolas, monospace" font-size="10" fill="#c586c0">intersection()</text>
+    <text x="325" y="430" font-family="Consolas, monospace" font-size="10" fill="#c586c0">difference()</text>
+    
+    <!-- Set Example Code -->
+    <rect x="320" y="445" width="210" height="105" rx="4" fill="#1e1e1e" stroke="#c586c0"/>
+    <text x="330" y="465" font-family="Consolas, monospace" font-size="10" fill="#c586c0">var</text>
+    <text x="350" y="465" font-family="Consolas, monospace" font-size="10" fill="#9cdcfe"> unique </text>
+    <text x="395" y="465" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">= {</text>
+    
+    <text x="340" y="482" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'Apple'</text>
+    <text x="387" y="482" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">,</text>
+    
+    <text x="340" y="499" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'Banana'</text>
+    <text x="395" y="499" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">,</text>
+    
+    <text x="340" y="516" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'Apple'</text>
+    <text x="387" y="516" font-family="Consolas, monospace" font-size="10" fill="#608b4e"> // ignorado</text>
+    
+    <text x="330" y="533" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">};</text>
+  </g>
+  
+  <!-- Map Section -->
+  <g id="map-section">
+    <rect x="580" y="70" width="240" height="500" rx="8" fill="#252526" stroke="#4ec9b0" stroke-width="2"/>
+    <text x="700" y="100" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4ec9b0" text-anchor="middle">Map&lt;K,V&gt;</text>
+    <text x="700" y="125" font-family="Arial, sans-serif" font-size="12" fill="#9cdcfe" text-anchor="middle">Colección Clave-Valor</text>
+    
+    <!-- Map Visualization -->
+    <g transform="translate(600, 145)">
+      <rect x="0" y="0" width="90" height="35" rx="4" fill="#2d2d30" stroke="#dcdcaa"/>
+      <text x="45" y="23" font-family="Consolas, monospace" font-size="12" fill="#ce9178" text-anchor="middle">"name"</text>
+      
+      <line x1="90" y1="17" x2="110" y2="17" stroke="#d4d4d4" stroke-width="2" marker-end="url(#arrowhead)"/>
+      
+      <rect x="110" y="0" width="90" height="35" rx="4" fill="#2d2d30" stroke="#4ec9b0"/>
+      <text x="155" y="23" font-family="Consolas, monospace" font-size="12" fill="#b5cea8" text-anchor="middle">"Juan"</text>
+    </g>
+    
+    <g transform="translate(600, 190)">
+      <rect x="0" y="0" width="90" height="35" rx="4" fill="#2d2d30" stroke="#dcdcaa"/>
+      <text x="45" y="23" font-family="Consolas, monospace" font-size="12" fill="#ce9178" text-anchor="middle">"age"</text>
+      
+      <line x1="90" y1="17" x2="110" y2="17" stroke="#d4d4d4" stroke-width="2" marker-end="url(#arrowhead)"/>
+      
+      <rect x="110" y="0" width="90" height="35" rx="4" fill="#2d2d30" stroke="#4ec9b0"/>
+      <text x="155" y="23" font-family="Consolas, monospace" font-size="12" fill="#b5cea8" text-anchor="middle">25</text>
+    </g>
+    
+    <g transform="translate(600, 235)">
+      <rect x="0" y="0" width="90" height="35" rx="4" fill="#2d2d30" stroke="#dcdcaa"/>
+      <text x="45" y="23" font-family="Consolas, monospace" font-size="12" fill="#ce9178" text-anchor="middle">"city"</text>
+      
+      <line x1="90" y1="17" x2="110" y2="17" stroke="#d4d4d4" stroke-width="2" marker-end="url(#arrowhead)"/>
+      
+      <rect x="110" y="0" width="90" height="35" rx="4" fill="#2d2d30" stroke="#4ec9b0"/>
+      <text x="155" y="23" font-family="Consolas, monospace" font-size="12" fill="#b5cea8" text-anchor="middle">"Madrid"</text>
+    </g>
+    
+    <!-- Map Properties -->
+    <text x="600" y="300" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dcdcaa">Características:</text>
+    <text x="600" y="320" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ Claves únicas</text>
+    <text x="600" y="335" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ Valores pueden repetirse</text>
+    <text x="600" y="350" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">✓ Acceso por clave O(1)</text>
+    
+    <!-- Map Methods -->
+    <text x="600" y="380" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dcdcaa">Métodos Comunes:</text>
+    <text x="600" y="400" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">[]</text>
+    <text x="620" y="400" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">[]=</text>
+    <text x="650" y="400" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">remove()</text>
+    <text x="600" y="415" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">keys</text>
+    <text x="630" y="415" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">values</text>
+    <text x="680" y="415" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">entries</text>
+    <text x="600" y="430" font-family="Consolas, monospace" font-size="10" fill="#4ec9b0">containsKey()</text>
+    
+    <!-- Map Example Code -->
+    <rect x="595" y="445" width="210" height="105" rx="4" fill="#1e1e1e" stroke="#4ec9b0"/>
+    <text x="605" y="465" font-family="Consolas, monospace" font-size="10" fill="#c586c0">var</text>
+    <text x="625" y="465" font-family="Consolas, monospace" font-size="10" fill="#9cdcfe"> user </text>
+    <text x="660" y="465" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">= {</text>
+    
+    <text x="615" y="482" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'name'</text>
+    <text x="655" y="482" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">: </text>
+    <text x="663" y="482" font-family="Consolas, monospace" font-size="10" fill="#ce9178">'Juan'</text>
+    <text x="700" y="482" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">,</text>
+    
+    <text x="615" y="499" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'age'</text>
+    <text x="645" y="499" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">: </text>
+    <text x="653" y="499" font-family="Consolas, monospace" font-size="10" fill="#b5cea8">25</text>
+    <text x="668" y="499" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">,</text>
+    
+    <text x="615" y="516" font-family="Consolas, monospace" font-size="10" fill="#ce9178">  'city'</text>
+    <text x="650" y="516" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">: </text>
+    <text x="658" y="516" font-family="Consolas, monospace" font-size="10" fill="#ce9178">'Madrid'</text>
+    
+    <text x="605" y="533" font-family="Consolas, monospace" font-size="10" fill="#d4d4d4">};</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <text x="30" y="600" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#dcdcaa">Cuándo usar cada una:</text>
+    
+    <circle cx="40" cy="617" r="5" fill="#569cd6"/>
+    <text x="55" y="622" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">List: Necesitas orden e índices (ej: lista de tareas)</text>
+    
+    <circle cx="40" cy="637" r="5" fill="#c586c0"/>
+    <text x="55" y="642" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">Set: Necesitas unicidad (ej: tags, categorías)</text>
+    
+    <circle cx="450" cy="617" r="5" fill="#4ec9b0"/>
+    <text x="465" y="622" font-family="Arial, sans-serif" font-size="11" fill="#d4d4d4">Map: Necesitas relación clave-valor (ej: configuración, datos estructurados)</text>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#d4d4d4"/>
+    </marker>
+  </defs>
+</svg>
