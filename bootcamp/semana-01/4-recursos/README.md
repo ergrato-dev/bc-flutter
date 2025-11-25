@@ -55,8 +55,9 @@ Estos recursos son **complementarios y opcionales**. No es necesario consumir to
 
 - Guías completas de Dart
 - Tutoriales paso a paso
-- Best practices y patrones de Dart
+- Best practices y patrones
 - Programación orientada a objetos
+- Null safety y tipos de datos
 
 ### Videografía (10-15 videos)
 
@@ -110,28 +111,28 @@ Estos recursos son **complementarios y opcionales**. No es necesario consumir to
 
 ### Imprescindibles:
 
-1. **[React Native Docs](https://reactnative.dev/)** (Webgrafía)
+1. **[Dart Language Tour](https://dart.dev/guides/language/language-tour)** (Webgrafía)
 
    - Documentación oficial, siempre actualizada
 
-2. **[Expo Docs](https://docs.expo.dev/)** (Webgrafía)
+2. **[DartPad](https://dartpad.dev/)** (Webgrafía)
 
-   - Referencia completa de Expo SDK
+   - Editor online para practicar código
 
-3. **[TypeScript Handbook](https://www.typescriptlang.org/docs/)** (Webgrafía)
+3. **[Effective Dart](https://dart.dev/guides/language/effective-dart)** (Webgrafía)
 
-   - Guía oficial de TypeScript
+   - Guía oficial de mejores prácticas
 
-4. **[NativeWind Docs](https://www.nativewind.dev/)** (Webgrafía)
-   - Documentación de TailwindCSS para RN
+4. **[Dart API Reference](https://api.dart.dev/)** (Webgrafía)
+   - Referencia completa de APIs
 
 ### Para Profundizar:
 
-5. **React Native in Action** (eBooks)
+5. **Dart Programming Tutorial** (eBooks)
 
-   - Libro completo y detallado
+   - Guías completas y detalladas
 
-6. **The Complete React Native Course** (Videografía)
+6. **Dart Crash Course** (Videografía)
    - Tutorial paso a paso completo
 
 ---
@@ -151,5 +152,5 @@ Estos recursos son **complementarios y opcionales**. No es necesario consumir to
 
 ---
 
-_Recursos actualizados para Semana 1 - Fundamentos de React Native_  
-_Bootcamp React Native 2025_
+_Recursos actualizados para Semana 1 - Fundamentos de Dart_  
+_Bootcamp Flutter 2025_
