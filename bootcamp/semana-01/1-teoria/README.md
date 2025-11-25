@@ -1,8 +1,9 @@
-# 📖 Teoría - Semana 1: Fundamentos de React Native
+# 📖 Teoría - Semana 1: Introducción a Dart I
 
-**✨ NUEVA ESTRUCTURA OPTIMIZADA - Balance 60% Presencial / 40% Autónomo**
+**Duración total:** 6 horas de estudio  
+**Dedicación autónoma recomendada:** 2-3 horas adicionales de práctica
 
-Bienvenido al contenido teórico de la primera semana del bootcamp. Aquí aprenderás los fundamentos esenciales de React Native y Expo en sesiones presenciales prácticas y directas.
+Bienvenido al contenido teórico de la primera semana del bootcamp. Aquí aprenderás los fundamentos del lenguaje Dart, base esencial para el desarrollo con Flutter.
 
 ---
 
@@ -10,43 +11,47 @@ Bienvenido al contenido teórico de la primera semana del bootcamp. Aquí aprend
 
 Al completar este módulo teórico, serás capaz de:
 
-- ✅ Comprender qué es React Native y cuándo usarlo
-- ✅ Configurar un entorno de desarrollo completo
-- ✅ Conocer y utilizar los 7 componentes básicos
-- ✅ Aplicar estilos con TailwindCSS (NativeWind)
-- ✅ Manejar estado y eventos interactivos
-- ✅ Crear layouts con Flexbox
+- ✅ Comprender qué es Dart y por qué se usa con Flutter
+- ✅ Declarar y usar variables con diferentes modificadores
+- ✅ Trabajar con todos los tipos de datos primitivos
+- ✅ Aplicar operadores aritméticos, lógicos y null-aware
+- ✅ Implementar estructuras de control (if, switch, bucles)
+- ✅ Crear funciones con diferentes tipos de parámetros
+- ✅ Escribir código Dart limpio y documentado
 
 ---
 
-## 📚 Contenido Teórico Consolidado (3 documentos)
+## 📚 Contenido Teórico (3 documentos principales)
 
-### 1. [Fundamentos de React Native](./01-fundamentos-react-native.md)
+### 1. [Fundamentos de Dart](./01-fundamentos-dart.md)
 
-**⏱️ Duración:** 45 minutos (PRESENCIAL)  
-**Modalidad:** Explicación + Demo en vivo
+**⏱️ Duración:** 2 horas  
+**Modalidad:** Estudio + Práctica en DartPad
 
 **Contenido:**
 
-- ¿Qué es React Native?
-- React Native vs Alternativas (Flutter, Nativo)
-- Arquitectura básica (Bridge, Threads)
-- Casos de éxito (Instagram, Discord, Uber Eats)
-- Ventajas y limitaciones
-- Demo en vivo de una app real
+- ¿Qué es Dart y para qué sirve?
+- Características principales del lenguaje
+- Dart vs otros lenguajes (JavaScript, Kotlin, Swift)
+- Null safety y sistema de tipos
+- Funciones como first-class citizens
+- Asincronía nativa (async/await)
+- DartPad: editor online
+- Tu primer programa en Dart
 
 **🎯 Al finalizar podrás:**
 
-- Explicar qué es React Native en 2-3 frases
-- Identificar cuándo usar o no React Native
-- Reconocer apps famosas hechas con RN
+- Explicar qué es Dart y sus ventajas
+- Usar DartPad para escribir código
+- Entender null safety básico
+- Escribir y ejecutar programas simples
 
 ---
 
-### 2. [Setup y Componentes Básicos](./02-setup-y-componentes-basicos.md)
+### 2. [Variables, Tipos de Datos y Operadores](./02-variables-tipos-operadores.md)
 
-**⏱️ Duración:** 2.5 horas (PRESENCIAL)  
-**Modalidad:** Hands-on (hacer juntos)
+**⏱️ Duración:** 2 horas  
+**Modalidad:** Teoría + Ejemplos prácticos
 
 **Contenido:**
 
