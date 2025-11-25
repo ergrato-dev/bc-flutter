@@ -87,13 +87,13 @@ void execute(Function callback) {
 ```dart
 /**
  * Función con parámetros opcionales posicionales
- * 
+ *
  * ¿Qué hace?
  * Formatea un nombre completo con partes opcionales
- * 
+ *
  * ¿Para qué?
  * Manejar datos que pueden o no estar presentes
- * 
+ *
  * ¿Cómo funciona?
  * Los parámetros entre [] son opcionales y se pasan por posición
  */
@@ -101,36 +101,37 @@ void execute(Function callback) {
 // Sintaxis: parámetros opcionales entre []
 String formatName(String firstName, [String? middleName, String? lastName]) {
   String fullName = firstName;
-  
+
   if (middleName != null) {
     fullName += ' $middleName';
   }
-  
+
   if (lastName != null) {
     fullName += ' $lastName';
   }
-  
+
   return fullName;
 }
 
 void main() {
   print('=== Parámetros Opcionales Posicionales ===');
-  
+
   // Llamar con 1 parámetro
   print(formatName('Juan'));                    // Juan
-  
+
   // Llamar con 2 parámetros
   print(formatName('Juan', 'Carlos'));          // Juan Carlos
-  
+
   // Llamar con 3 parámetros
   print(formatName('Juan', 'Carlos', 'Pérez')); // Juan Carlos Pérez
-  
+
   // No puedes omitir el parámetro del medio
   // print(formatName('Juan', 'Pérez')); // Esto lo toma como middleName
 }
 ```
 
 **Características clave:**
+
 - Parámetros entre `[]` son opcionales
 - Se pasan **por posición**
 - No puedes omitir parámetros intermedios
@@ -143,13 +144,13 @@ void main() {
 ```dart
 /**
  * Función con parámetros nombrados
- * 
+ *
  * ¿Qué hace?
  * Crea un usuario con datos opcionales
- * 
+ *
  * ¿Para qué?
  * Mayor claridad al llamar funciones con muchos parámetros
- * 
+ *
  * ¿Cómo funciona?
  * Los parámetros entre {} son nombrados y pueden ser opcionales o requeridos
  */
@@ -170,16 +171,16 @@ void createUser({
 
 void main() {
   print('=== Parámetros Nombrados ===');
-  
+
   // Solo parámetro requerido
   createUser(username: 'juanp');
-  
+
   // Con algunos opcionales
   createUser(
     username: 'mariac',
     email: 'maria@example.com',
   );
-  
+
   // Con todos los parámetros
   createUser(
     username: 'carlos',
@@ -187,7 +188,7 @@ void main() {
     age: 25,
     isActive: false,
   );
-  
+
   // Orden no importa con parámetros nombrados
   createUser(
     age: 30,
@@ -198,6 +199,7 @@ void main() {
 ```
 
 **Ventajas de parámetros nombrados:**
+
 - ✅ Llamadas más legibles
 - ✅ Orden flexible
 - ✅ Fácil omitir parámetros opcionales
@@ -210,13 +212,13 @@ void main() {
 ```dart
 /**
  * Arrow Functions (Funciones Flecha)
- * 
+ *
  * ¿Qué hace?
  * Sintaxis concisa para funciones de una sola expresión
- * 
+ *
  * ¿Para qué?
  * Código más limpio y conciso
- * 
+ *
  * ¿Cómo funciona?
  * Usa => para funciones que retornan una expresión
  */
@@ -242,7 +244,7 @@ void printMessage(String msg) => print(msg);
 
 void main() {
   print('=== Arrow Functions ===');
-  
+
   // Usar funciones arrow
   print(sumaArrow(5, 3));              // 8
   print(greet('Juan'));                 // Hola, Juan!
@@ -250,14 +252,14 @@ void main() {
   print(square(5));                     // 25
   print(calculateArea(10));             // 314.159
   printMessage('Mensaje desde arrow');  // Mensaje desde arrow
-  
+
   // Arrow functions en colecciones
   final numbers = [1, 2, 3, 4, 5];
-  
+
   // map con arrow function
   final doubled = numbers.map((n) => n * 2).toList();
   print('Duplicados: $doubled');
-  
+
   // where con arrow function
   final evens = numbers.where((n) => n % 2 == 0).toList();
   print('Pares: $evens');
@@ -265,6 +267,7 @@ void main() {
 ```
 
 **Reglas de arrow functions:**
+
 - ✅ Solo para expresiones únicas
 - ✅ Retorno implícito (no uses `return`)
 - ✅ Sintaxis: `=> expresion`
@@ -277,40 +280,40 @@ void main() {
 ```dart
 /**
  * Funciones Anónimas (Lambdas)
- * 
+ *
  * ¿Qué hace?
  * Funciones sin nombre, usadas como valores
- * 
+ *
  * ¿Para qué?
  * Callbacks, operaciones en colecciones
- * 
+ *
  * ¿Cómo funciona?
  * Se definen inline y se pasan como argumentos
  */
 
 void main() {
   print('=== Funciones Anónimas ===');
-  
+
   final numbers = [1, 2, 3, 4, 5];
-  
+
   // Función anónima tradicional
   numbers.forEach((number) {
     print('Número: $number');
   });
-  
+
   // Función anónima arrow
   numbers.forEach((n) => print('Valor: $n'));
-  
+
   // Asignar función anónima a variable
   var suma = (int a, int b) {
     return a + b;
   };
   print('Suma: ${suma(10, 5)}');
-  
+
   // Arrow function asignada a variable
   var multiplica = (int a, int b) => a * b;
   print('Multiplicación: ${multiplica(10, 5)}');
-  
+
   // Función anónima con múltiples líneas
   final students = ['Juan', 'María', 'Carlos'];
   students.forEach((student) {
@@ -332,13 +335,13 @@ void main() {
 ```dart
 /**
  * Funciones de Orden Superior
- * 
+ *
  * ¿Qué hace?
  * Funciones que reciben o retornan otras funciones
- * 
+ *
  * ¿Para qué?
  * Código reutilizable y flexible
- * 
+ *
  * ¿Cómo funciona?
  * Pasa funciones como argumentos
  */
@@ -361,24 +364,24 @@ List<T> processList<T>(List<T> items, T Function(T) processor) {
 
 void main() {
   print('=== Funciones de Orden Superior ===');
-  
+
   // 1. Pasar funciones como argumentos
   executeOperation(10, 5, (a, b) => a + b);      // 15
   executeOperation(10, 5, (a, b) => a - b);      // 5
   executeOperation(10, 5, (a, b) => a * b);      // 50
-  
+
   // 2. Funciones que retornan funciones
   final multiplyBy2 = makeMultiplier(2);
   final multiplyBy10 = makeMultiplier(10);
-  
+
   print('5 * 2 = ${multiplyBy2(5)}');     // 10
   print('5 * 10 = ${multiplyBy10(5)}');   // 50
-  
+
   // 3. Procesador genérico
   final numbers = [1, 2, 3, 4, 5];
   final doubled = processList(numbers, (n) => n * 2);
   final squared = processList(numbers, (n) => n * n);
-  
+
   print('Duplicados: $doubled');
   print('Cuadrados: $squared');
 }
@@ -396,10 +399,10 @@ double applyDiscount(double price, double Function(double) discountFn) {
 void main() {
   // Descuento del 10%
   final price1 = applyDiscount(100, (p) => p * 0.10);
-  
+
   // Descuento del 20%
   final price2 = applyDiscount(100, (p) => p * 0.20);
-  
+
   print('Precio con 10%: \$${price1}');
   print('Precio con 20%: \$${price2}');
 }
@@ -414,13 +417,13 @@ void main() {
 ```dart
 /**
  * Callbacks
- * 
+ *
  * ¿Qué hace?
  * Funciones que se ejecutan cuando termina una operación
- * 
+ *
  * ¿Para qué?
  * Manejar operaciones que toman tiempo (API, archivos, etc)
- * 
+ *
  * ¿Cómo funciona?
  * Pasas una función para ejecutar "después"
  */
@@ -428,7 +431,7 @@ void main() {
 // Simulación de operación que toma tiempo
 void fetchUserData(String userId, Function(Map<String, dynamic>) onSuccess) {
   print('Buscando usuario $userId...');
-  
+
   // Simular delay (en la vida real sería una API call)
   // Por ahora ejecutamos inmediatamente
   final userData = {
@@ -436,7 +439,7 @@ void fetchUserData(String userId, Function(Map<String, dynamic>) onSuccess) {
     'name': 'Juan Pérez',
     'email': 'juan@example.com',
   };
-  
+
   // Llamar al callback con los datos
   onSuccess(userData);
 }
@@ -448,7 +451,7 @@ void fetchData(
   required Function(String) onError}
 ) {
   print('Llamando a $endpoint...');
-  
+
   if (endpoint.isNotEmpty) {
     onSuccess({'data': 'Datos desde $endpoint'});
   } else {
@@ -458,13 +461,13 @@ void fetchData(
 
 void main() {
   print('=== Callbacks ===');
-  
+
   // 1. Callback simple
   fetchUserData('user123', (userData) {
     print('Usuario recibido: ${userData['name']}');
     print('Email: ${userData['email']}');
   });
-  
+
   // 2. Callbacks con éxito y error
   fetchData(
     '/api/users',
@@ -475,7 +478,7 @@ void main() {
       print('❌ Error: $error');
     },
   );
-  
+
   fetchData(
     '',
     onSuccess: (data) => print('✅ Éxito: $data'),
@@ -504,7 +507,7 @@ void main() {
     onSuccess: (msg) => print('✅ $msg'),
     onError: (msg) => print('❌ $msg'),
   );
-  
+
   processPayment(
     -10.0,
     onSuccess: (msg) => print('✅ $msg'),
@@ -522,13 +525,13 @@ void main() {
 ```dart
 /**
  * Closures
- * 
+ *
  * ¿Qué hace?
  * Función que "recuerda" variables de su scope externo
- * 
+ *
  * ¿Para qué?
  * Encapsular estado, crear funciones especializadas
- * 
+ *
  * ¿Cómo funciona?
  * La función interna accede a variables de la función externa
  */
@@ -536,7 +539,7 @@ void main() {
 // Ejemplo 1: Contador con closure
 Function makeCounter() {
   int count = 0; // Variable capturada
-  
+
   return () {
     count++;
     return count;
@@ -551,45 +554,45 @@ Function makeGreeter(String greeting) {
 // Ejemplo 3: Calculadora con estado
 class Calculator {
   double _result = 0;
-  
+
   Function get add => (double n) {
     _result += n;
     return _result;
   };
-  
+
   Function get multiply => (double n) {
     _result *= n;
     return _result;
   };
-  
+
   void reset() => _result = 0;
-  
+
   double get result => _result;
 }
 
 void main() {
   print('=== Closures ===');
-  
+
   // 1. Contador
   final counter1 = makeCounter();
   final counter2 = makeCounter();
-  
+
   print('Counter 1:');
   print(counter1()); // 1
   print(counter1()); // 2
   print(counter1()); // 3
-  
+
   print('Counter 2:');
   print(counter2()); // 1
   print(counter2()); // 2
-  
+
   // 2. Saludos personalizados
   final greetInSpanish = makeGreeter('Hola');
   final greetInEnglish = makeGreeter('Hello');
-  
+
   print(greetInSpanish('Juan'));    // Hola, Juan!
   print(greetInEnglish('John'));    // Hello, John!
-  
+
   // 3. Calculadora con estado
   final calc = Calculator();
   print('\nCalculadora:');
@@ -616,7 +619,7 @@ Map<String, Function> createBankAccount(double initialBalance) {
 
 void main() {
   final account = createBankAccount(100);
-  
+
   print('Balance inicial: ${account['getBalance']!()}');
   account['deposit']!(50);
   print('Después de depositar: ${account['getBalance']!()}');
@@ -630,12 +633,14 @@ void main() {
 ## ✅ Checklist de Completitud
 
 ### Parte Presencial:
+
 - [ ] Ejercicio 1: Parámetros Opcionales Posicionales
 - [ ] Ejercicio 2: Parámetros Nombrados
 - [ ] Ejercicio 3: Arrow Functions
 - [ ] Ejercicio 4: Funciones Anónimas
 
 ### Parte Autónoma:
+
 - [ ] Ejercicio 5: Funciones de Orden Superior
 - [ ] Ejercicio 6: Callbacks
 - [ ] Ejercicio 7: Closures

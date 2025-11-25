@@ -15,11 +15,11 @@ Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para t
 
 ### 🎓 Presenciales (2 horas en clase)
 
-| #   | Práctica                                                                     | Duración | Enfoque                                   |
-| --- | ---------------------------------------------------------------------------- | -------- | ----------------------------------------- |
-| 1   | [Mi Primera App en Dart - Calculadora](./practica-01-primera-app.md)        | 45 min   | Variables, operadores, conversiones       |
-| 2   | [Colecciones y Listas en Dart](./practica-02-colecciones-listas.md)         | 45 min   | List, Set, Map, métodos de colecciones    |
-| 3   | [Funciones Avanzadas en Dart (inicio)](./practica-03-funciones-avanzadas.md)| 20 min   | Parámetros, arrow functions               |
+| #   | Práctica                                                                     | Duración | Enfoque                                |
+| --- | ---------------------------------------------------------------------------- | -------- | -------------------------------------- |
+| 1   | [Mi Primera App en Dart - Calculadora](./practica-01-primera-app.md)         | 45 min   | Variables, operadores, conversiones    |
+| 2   | [Colecciones y Listas en Dart](./practica-02-colecciones-listas.md)          | 45 min   | List, Set, Map, métodos de colecciones |
+| 3   | [Funciones Avanzadas en Dart (inicio)](./practica-03-funciones-avanzadas.md) | 20 min   | Parámetros, arrow functions            |
 
 **Total presencial:** 1h 50min
 
@@ -147,8 +147,10 @@ Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para t
 
 - ✅ Práctica 3 completada con búsqueda funcionando
 - ✅ Mínimo 12 contactos en la lista
+- ✅ Completar ejercicios de funciones de orden superior
+- ✅ Implementar las 3 tareas: `applyDiscount`, `processPayment`, `createBankAccount`
 - ✅ Código limpio y comentado
-- ✅ Sin errores en consola
+- ✅ Código ejecutándose sin errores en DartPad
 
 ---
 
@@ -156,24 +158,25 @@ Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para t
 
 ### Durante las Prácticas:
 
-**❌ Error: "Cannot find module..."**
+**❌ Error: "Undefined name..."**
 
-- ✅ Verifica que instalaste todas las dependencias con `pnpm install`
+- ✅ Verifica que definiste la clase/variable antes de usarla
+- ✅ Revisa mayúsculas/minúsculas (Dart es case-sensitive)
 
-**❌ Los estilos TailwindCSS no funcionan**
+**❌ Error: "The argument type 'X' can't be assigned to 'Y'"**
 
-- ✅ Revisa `babel.config.js` y `tailwind.config.js`
-- ✅ Reinicia el servidor: Ctrl+C y `pnpm start`
+- ✅ Revisa los tipos de datos en tus variables y funciones
+- ✅ Usa conversiones explícitas cuando sea necesario
 
-**❌ La app no se actualiza en Expo Go**
+**❌ Error con null safety**
 
-- ✅ Agita el celular y presiona "Reload"
-- ✅ Cierra y vuelve a abrir Expo Go
+- ✅ Usa `?` para tipos nullable: `String?`
+- ✅ Usa `??` para valores por defecto: `name ?? 'Sin nombre'`
 
-**❌ TypeScript marca errores**
+**❌ Lista vacía al usar where() o map()**
 
-- ✅ Asegúrate de haber definido las interfaces correctamente
-- ✅ Verifica que los tipos de props coincidan
+- ✅ Recuerda usar `.toList()` al final para convertir Iterable a List
+- ✅ Ejemplo: `list.where((x) => x > 5).toList()`
 
 ---
 
@@ -181,12 +184,10 @@ Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para t
 
 Antes de las prácticas, asegúrate de tener:
 
-- ✅ Node.js 22.20+ instalado
-- ✅ pnpm 9+ instalado
-- ✅ Expo Go en tu celular
-- ✅ VS Code con extensiones recomendadas
-- ✅ Conexión a internet estable
-- ✅ Celular y computadora en la misma red WiFi
+- ✅ Dart SDK 3.10+ instalado (verifica con `dart --version`)
+- ✅ VS Code con extensión Dart instalada
+- ✅ Acceso a [DartPad](https://dartpad.dev) (editor online)
+- ✅ Conexión a internet para acceder a documentación
 
 ---
 
@@ -194,14 +195,14 @@ Antes de las prácticas, asegúrate de tener:
 
 Al completar estas prácticas, serás capaz de:
 
-1. ✅ Crear interfaces básicas con componentes de React Native
-2. ✅ Aplicar estilos con TailwindCSS/NativeWind
-3. ✅ Usar Flexbox para layouts responsivos
-4. ✅ Crear componentes reutilizables con props
-5. ✅ Definir interfaces TypeScript para props y datos
-6. ✅ Renderizar listas con FlatList
-7. ✅ Implementar búsqueda/filtrado en tiempo real
-8. ✅ Manejar estado local con useState
+1. ✅ Trabajar con variables y tipos de datos en Dart
+2. ✅ Usar operadores aritméticos, lógicos y de comparación
+3. ✅ Convertir entre tipos de datos
+4. ✅ Manipular colecciones (List, Set, Map)
+5. ✅ Aplicar métodos de transformación (map, where, reduce, fold)
+6. ✅ Crear funciones con diferentes tipos de parámetros
+7. ✅ Usar arrow functions y funciones anónimas
+8. ✅ Implementar funciones de orden superior y closures
 
 ---
 
@@ -209,15 +210,16 @@ Al completar estas prácticas, serás capaz de:
 
 ### Documentación Oficial:
 
-- [React Native - Core Components](https://reactnative.dev/docs/components-and-apis)
-- [React Native - FlatList](https://reactnative.dev/docs/flatlist)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-- [NativeWind Docs](https://www.nativewind.dev/)
+- [Dart Language Tour](https://dart.dev/guides/language/language-tour)
+- [Dart Collections](https://dart.dev/guides/libraries/library-tour#collections)
+- [Dart Functions](https://dart.dev/guides/language/language-tour#functions)
+- [DartPad](https://dartpad.dev)
 
-### Cheat Sheets:
+### Guías Rápidas:
 
-- [TailwindCSS Cheat Sheet](https://nerdcave.com/tailwind-cheat-sheet)
-- [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Dart Cheat Sheet](https://dart.dev/codelabs/dart-cheatsheet)
+- [Effective Dart](https://dart.dev/guides/language/effective-dart)
+- [Dart API Reference](https://api.dart.dev/stable/)
 
 ---
 
@@ -227,7 +229,7 @@ Después de completar estas prácticas y la tarea autónoma, estarás listo para
 
 **📂 [Proyecto Integrador Semana 1](../3-proyecto/README.md)**
 
-El proyecto integrador combina todos los conceptos vistos en teoría y prácticas para crear una aplicación más completa.
+El proyecto integrador combina todos los conceptos de Dart vistos en teoría y prácticas.
 
 ---
 
@@ -235,25 +237,26 @@ El proyecto integrador combina todos los conceptos vistos en teoría y práctica
 
 ### Al Final de la Sesión Presencial:
 
-- [ ] Práctica 1 completada y funcionando
-- [ ] Práctica 2 completada con las 3 variantes
-- [ ] Práctica 3 iniciada (lista básica renderizando)
-- [ ] Código pusheado a GitHub personal
-- [ ] Sin errores críticos en consola
+- [ ] Práctica 1 completada (Calculadora, conversor, IMC)
+- [ ] Práctica 2 completada (5 ejercicios de colecciones)
+- [ ] Práctica 3 iniciada (parámetros y arrow functions)
+- [ ] Todo el código probado en DartPad
+- [ ] Sin errores de compilación
 
 ### Para Entregar (Autónomo):
 
-- [ ] Práctica 3 completada con búsqueda
-- [ ] Mínimo 12 contactos en la lista
-- [ ] Búsqueda funcionando en tiempo real
-- [ ] Código limpio y comentado
-- [ ] Screenshots de las 3 apps funcionando
+- [ ] Práctica 3 completada (funciones de orden superior)
+- [ ] Las 3 tareas implementadas y funcionando
+- [ ] Desafío final de biblioteca (opcional)
+- [ ] Código limpio y bien documentado
+- [ ] Capturas de pantalla de DartPad con resultados
 
 ---
 
-**⏭️ Próxima sesión:** Navegación y Routing con React Navigation
+**⏭️ Próxima sesión:** Introducción a Flutter - Primera App Móvil
 
 ---
 
-_Documentación actualizada: 9 de octubre de 2025_  
-_Versión: 2.0.0 (Reestructurado para modelo presencial)_
+_Documentación actualizada: Enero 2025_
+_Versión: 1.0.0 (Bootcamp Flutter - Semana 1: Dart)_
+```
