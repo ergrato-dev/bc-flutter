@@ -1,8 +1,8 @@
-# Assets Visuales - Semana 1: Fundamentos
+# Assets Visuales - Semana 1: Fundamentos de Dart
 
 ## 📊 Recursos Gráficos Educativos
 
-Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar la comprensión de conceptos fundamentales de React Native.
+Esta carpeta contiene diagramas y visualizaciones en formato SVG para facilitar la comprensión de conceptos fundamentales de Dart.
 
 ---
 
