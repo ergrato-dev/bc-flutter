@@ -2,11 +2,11 @@
 
 ## 📋 Información General
 
-| Campo | Valor |
-|-------|-------|
-| **Dificultad** | ⭐⭐ Intermedio |
-| **Tiempo estimado** | 30 minutos |
-| **Conceptos** | Named routes, arguments, onGenerateRoute, AppRoutes |
+| Campo               | Valor                                               |
+| ------------------- | --------------------------------------------------- |
+| **Dificultad**      | ⭐⭐ Intermedio                                     |
+| **Tiempo estimado** | 30 minutos                                          |
+| **Conceptos**       | Named routes, arguments, onGenerateRoute, AppRoutes |
 
 ---
 
@@ -22,6 +22,7 @@
 ## 📝 Descripción
 
 Crearás una **app de catálogo de productos** con múltiples pantallas usando rutas nombradas:
+
 1. **Home**: Pantalla principal con categorías
 2. **Productos**: Lista de productos por categoría
 3. **Detalle**: Información del producto
@@ -134,7 +135,7 @@ import '../screens/not_found_screen.dart';
 import '../models/product.dart';
 
 /// Clase que centraliza todas las rutas de la aplicación
-/// 
+///
 /// ¿Qué hace? Define nombres de rutas y genera las rutas
 /// ¿Para qué? Evitar strings duplicados, facilitar mantenimiento
 class AppRoutes {
@@ -154,7 +155,7 @@ class AppRoutes {
   };
 
   /// Generador de rutas dinámicas
-  /// 
+  ///
   /// ¿Cómo funciona?
   /// 1. Recibe RouteSettings con nombre y argumentos
   /// 2. Evalúa el nombre de la ruta
@@ -162,7 +163,7 @@ class AppRoutes {
   /// 4. Retorna MaterialPageRoute con la pantalla correspondiente
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     // TODO: Implementar generación de rutas
-    // 
+    //
     // Para '/products':
     //   - Extraer categoría de arguments
     //   - Retornar ProductsScreen con la categoría
@@ -170,7 +171,7 @@ class AppRoutes {
     // Para '/product-detail':
     //   - Extraer producto de arguments
     //   - Retornar ProductDetailScreen con el producto
-    
+
     return null;
   }
 
@@ -404,14 +405,14 @@ class ProductDetailScreen extends StatelessWidget {
               child: const Icon(Icons.image, size: 80, color: Colors.grey),
             ),
             const SizedBox(height: 16),
-            
+
             // Nombre
             Text(
               product.name,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 8),
-            
+
             // Precio
             Text(
               '\$${product.price.toStringAsFixed(2)}',
@@ -421,7 +422,7 @@ class ProductDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            
+
             // Descripción
             Text(
               'Descripción',
@@ -430,7 +431,7 @@ class ProductDetailScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Text(product.description),
             const SizedBox(height: 24),
-            
+
             // Botón agregar al carrito
             SizedBox(
               width: double.infinity,
@@ -570,6 +571,7 @@ Navigator.pushNamed(
   ),
 );
 ```
+
 </details>
 
 <details>
@@ -588,19 +590,20 @@ if (settings.name == products) {
   }
 }
 ```
+
 </details>
 
 ---
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Rutas nombradas configuradas | 2 |
-| Argumentos pasados correctamente | 2 |
-| onGenerateRoute implementado | 1 |
-| Clase AppRoutes centralizada | 1 |
-| **Total** | **6** |
+| Criterio                         | Puntos |
+| -------------------------------- | ------ |
+| Rutas nombradas configuradas     | 2      |
+| Argumentos pasados correctamente | 2      |
+| onGenerateRoute implementado     | 1      |
+| Clase AppRoutes centralizada     | 1      |
+| **Total**                        | **6**  |
 
 ---
 

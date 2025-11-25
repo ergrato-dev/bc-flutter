@@ -2,11 +2,11 @@
 
 ## 📋 Información General
 
-| Campo | Valor |
-|-------|-------|
-| **Dificultad** | ⭐⭐⭐ Avanzado |
-| **Tiempo estimado** | 40 minutos |
-| **Conceptos** | Navegación compleja, tabs + drawer, navegación anidada |
+| Campo               | Valor                                                  |
+| ------------------- | ------------------------------------------------------ |
+| **Dificultad**      | ⭐⭐⭐ Avanzado                                        |
+| **Tiempo estimado** | 40 minutos                                             |
+| **Conceptos**       | Navegación compleja, tabs + drawer, navegación anidada |
 
 ---
 
@@ -22,6 +22,7 @@
 ## 📝 Descripción
 
 Crearás una **app de e-commerce completa** que combina:
+
 - **Drawer**: Menú lateral con categorías y configuración
 - **BottomNavigation**: Home, Categorías, Carrito, Perfil
 - **Navegación interna**: Cada tab tiene su propio flujo
@@ -110,7 +111,7 @@ class _MainScreenState extends State<MainScreen> {
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
-        
+
         // Intentar pop en el navigator del tab actual
         final navigator = _navigatorKeys[_currentTab].currentState;
         if (navigator != null && navigator.canPop()) {
@@ -289,7 +290,7 @@ class HomeTab extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             // Productos destacados
             Padding(
               padding: const EdgeInsets.all(16),
@@ -730,13 +731,13 @@ class MyApp extends StatelessWidget {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Navegación combinada (drawer + bottom) | 2 |
-| Navegación anidada funcional | 2 |
-| Manejo correcto del back button | 1 |
-| Rutas nombradas implementadas | 1 |
-| **Total** | **6** |
+| Criterio                               | Puntos |
+| -------------------------------------- | ------ |
+| Navegación combinada (drawer + bottom) | 2      |
+| Navegación anidada funcional           | 2      |
+| Manejo correcto del back button        | 1      |
+| Rutas nombradas implementadas          | 1      |
+| **Total**                              | **6**  |
 
 ---
 

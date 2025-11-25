@@ -2,11 +2,11 @@
 
 ## 📋 Información General
 
-| Campo | Valor |
-|-------|-------|
-| **Dificultad** | ⭐⭐ Intermedio |
-| **Tiempo estimado** | 30 minutos |
-| **Conceptos** | BottomNavigationBar, IndexedStack, preservar estado |
+| Campo               | Valor                                               |
+| ------------------- | --------------------------------------------------- |
+| **Dificultad**      | ⭐⭐ Intermedio                                     |
+| **Tiempo estimado** | 30 minutos                                          |
+| **Conceptos**       | BottomNavigationBar, IndexedStack, preservar estado |
 
 ---
 
@@ -22,6 +22,7 @@
 ## 📝 Descripción
 
 Crearás una **app de red social simple** con 4 secciones:
+
 1. **Feed**: Publicaciones recientes
 2. **Buscar**: Explorar contenido
 3. **Notificaciones**: Alertas y mensajes
@@ -50,7 +51,7 @@ import 'tabs/notifications_tab.dart';
 import 'tabs/profile_tab.dart';
 
 /// Pantalla principal con BottomNavigationBar
-/// 
+///
 /// ¿Qué hace? Gestiona la navegación entre tabs
 /// ¿Cómo? Usa IndexedStack para preservar estado
 class MainScreen extends StatefulWidget {
@@ -516,13 +517,13 @@ class MyApp extends StatelessWidget {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| BottomNavigationBar funcional | 2 |
-| IndexedStack preserva estado | 2 |
-| Navegación interna en tabs | 1 |
-| Personalización visual | 1 |
-| **Total** | **6** |
+| Criterio                      | Puntos |
+| ----------------------------- | ------ |
+| BottomNavigationBar funcional | 2      |
+| IndexedStack preserva estado  | 2      |
+| Navegación interna en tabs    | 1      |
+| Personalización visual        | 1      |
+| **Total**                     | **6**  |
 
 ---
 

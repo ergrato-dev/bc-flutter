@@ -2,11 +2,11 @@
 
 ## 📋 Información General
 
-| Campo | Valor |
-|-------|-------|
-| **Dificultad** | ⭐ Principiante |
-| **Tiempo estimado** | 25 minutos |
-| **Conceptos** | Navigator.push, Navigator.pop, pasar datos, retornar resultados |
+| Campo               | Valor                                                           |
+| ------------------- | --------------------------------------------------------------- |
+| **Dificultad**      | ⭐ Principiante                                                 |
+| **Tiempo estimado** | 25 minutos                                                      |
+| **Conceptos**       | Navigator.push, Navigator.pop, pasar datos, retornar resultados |
 
 ---
 
@@ -22,6 +22,7 @@
 ## 📝 Descripción
 
 Crearás una **app de lista de tareas simple** con dos pantallas:
+
 1. **Lista de Tareas**: Muestra las tareas y permite agregar nuevas
 2. **Agregar Tarea**: Formulario para crear una nueva tarea
 
@@ -52,7 +53,7 @@ Crea el archivo `lib/models/task.dart`:
 
 ```dart
 /// Modelo que representa una tarea
-/// 
+///
 /// ¿Qué hace? Define la estructura de datos de una tarea
 /// ¿Para qué? Tipar los datos que pasamos entre pantallas
 class Task {
@@ -95,7 +96,7 @@ import '../models/task.dart';
 import 'add_task_screen.dart';
 
 /// Pantalla principal con lista de tareas
-/// 
+///
 /// ¿Qué hace? Muestra las tareas y permite navegar a agregar
 /// ¿Cómo? Usa Navigator.push y espera resultado con await
 class TaskListScreen extends StatefulWidget {
@@ -188,7 +189,7 @@ import 'package:flutter/material.dart';
 import '../models/task.dart';
 
 /// Pantalla para agregar una nueva tarea
-/// 
+///
 /// ¿Qué hace? Formulario que retorna una Task al guardar
 /// ¿Cómo? Usa Navigator.pop(context, task) para retornar
 class AddTaskScreen extends StatefulWidget {
@@ -284,7 +285,7 @@ import 'package:flutter/material.dart';
 import '../models/task.dart';
 
 /// Pantalla de detalle de una tarea
-/// 
+///
 /// ¿Qué hace? Muestra información completa de la tarea
 /// ¿Cómo? Recibe la tarea por constructor
 class TaskDetailScreen extends StatelessWidget {
@@ -326,14 +327,14 @@ class TaskDetailScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            
+
             // Título
             Text(
               task.title,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 8),
-            
+
             // Descripción
             if (task.description.isNotEmpty) ...[
               Text(
@@ -343,9 +344,9 @@ class TaskDetailScreen extends StatelessWidget {
               const SizedBox(height: 4),
               Text(task.description),
             ],
-            
+
             const Spacer(),
-            
+
             // Botón volver
             SizedBox(
               width: double.infinity,
@@ -414,6 +415,7 @@ Navigator.push(
   ),
 );
 ```
+
 </details>
 
 <details>
@@ -433,6 +435,7 @@ if (result != null) {
   });
 }
 ```
+
 </details>
 
 <details>
@@ -441,19 +444,20 @@ if (result != null) {
 ```dart
 Navigator.pop(context, newTask);
 ```
+
 </details>
 
 ---
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Navegación push funcional | 2 |
-| Retorno de datos con pop | 2 |
-| Paso de datos por constructor | 1 |
-| Código limpio y documentado | 1 |
-| **Total** | **6** |
+| Criterio                      | Puntos |
+| ----------------------------- | ------ |
+| Navegación push funcional     | 2      |
+| Retorno de datos con pop      | 2      |
+| Paso de datos por constructor | 1      |
+| Código limpio y documentado   | 1      |
+| **Total**                     | **6**  |
 
 ---
 

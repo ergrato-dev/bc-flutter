@@ -2,11 +2,11 @@
 
 ## 📋 Información General
 
-| Campo | Valor |
-|-------|-------|
-| **Dificultad** | ⭐⭐⭐ Avanzado |
-| **Tiempo estimado** | 35 minutos |
-| **Conceptos** | Drawer, NavigationDrawer, UserAccountsDrawerHeader |
+| Campo               | Valor                                              |
+| ------------------- | -------------------------------------------------- |
+| **Dificultad**      | ⭐⭐⭐ Avanzado                                    |
+| **Tiempo estimado** | 35 minutos                                         |
+| **Conceptos**       | Drawer, NavigationDrawer, UserAccountsDrawerHeader |
 
 ---
 
@@ -22,6 +22,7 @@
 ## 📝 Descripción
 
 Crearás una **app de gestión empresarial** con navegación lateral:
+
 - Header con información del usuario
 - Menú principal con secciones
 - Sección de configuración
@@ -60,7 +61,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  
+
   // Lista de páginas
   final List<Widget> _pages = const [
     DashboardPage(),
@@ -146,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            
+
             // Menú principal
             Expanded(
               child: ListView(
@@ -181,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            
+
             // Logout al final
             const Divider(height: 1),
             ListTile(
@@ -206,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
     required int index,
   }) {
     final isSelected = _selectedIndex == index;
-    
+
     return ListTile(
       leading: Icon(
         icon,
@@ -476,13 +477,13 @@ class MyApp extends StatelessWidget {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Drawer con header de usuario | 2 |
-| Menú con selección activa | 2 |
-| Navegación funcional | 1 |
-| Logout con confirmación | 1 |
-| **Total** | **6** |
+| Criterio                     | Puntos |
+| ---------------------------- | ------ |
+| Drawer con header de usuario | 2      |
+| Menú con selección activa    | 2      |
+| Navegación funcional         | 1      |
+| Logout con confirmación      | 1      |
+| **Total**                    | **6**  |
 
 ---
 
