@@ -1,6 +1,6 @@
 # 🚀 Proyecto Integrador - Semana 1
 
-**📱 Nombre del Proyecto:** Mi App Personal
+**💻 Nombre del Proyecto:** Sistema de Gestión de Tareas en Dart
 
 **⏱️ Tiempo Total:** 2.5 horas (30min presencial + 2h autónomo)  
 **🎯 Dificultad:** ⭐⭐ Intermedio  
@@ -10,81 +10,79 @@
 
 ## 🎯 Objetivo del Proyecto
 
-Crear una **aplicación personal completa** que combine todos los conceptos aprendidos en la Semana 1:
+Crear un **sistema de gestión de tareas (To-Do List)** en la consola que combine todos los conceptos aprendidos en la Semana 1:
 
-- Componentes básicos
-- Layouts con Flexbox
-- Estilos con TailwindCSS
-- Componentes reutilizables
-- Renderizado de listas
-- Estado local básico
+- Variables y tipos de datos
+- Colecciones (List, Map, Set)
+- Funciones con diferentes tipos de parámetros
+- Estructuras de control
+- Programación orientada a objetos básica
+- Manejo de entrada/salida en consola
 
 ---
 
 ## 📋 Descripción del Proyecto
 
-Crearás una **app personal** con 3 pantallas principales (dentro de una misma vista scrollable):
+Crearás un **sistema de gestión de tareas** (To-Do List) por consola con las siguientes funcionalidades:
 
-1. **Sección Perfil** - Información personal con avatar y bio
-2. **Sección Habilidades** - Lista de tus habilidades/tecnologías
-3. **Sección Proyectos** - Cards de proyectos que has hecho o quieres hacer
+1. **Gestión de Tareas** - Crear, listar, completar, eliminar tareas
+2. **Categorías** - Organizar tareas por categorías (Trabajo, Personal, Estudio)
+3. **Prioridades** - Asignar niveles de prioridad (Alta, Media, Baja)
+4. **Estadísticas** - Ver resumen de tareas completadas vs pendientes
+5. **Persistencia** - Guardar/cargar tareas (opcional avanzado)
 
-### Resultado Visual Esperado:
+### Resultado de Consola Esperado:
 
 ```
-┌────────────────────────────┐
-│  ╔═══════════════════╗    │ ← Header con gradiente
-│  ║  MI APP PERSONAL  ║    │
-│  ╚═══════════════════╝    │
-│                            │
-│      ╭────────╮           │ ← Avatar circular
-│      │ Foto   │           │
-│      ╰────────╯           │
-│                            │
-│    Tu Nombre Completo     │ ← Nombre grande
-│    Tu Profesión           │ ← Subtítulo
-│                            │
-│  ┌──────────────────────┐ │
-│  │ 📧 email@ejemplo.com │ │ ← Info contacto
-│  │ 📍 Tu Ciudad         │ │
-│  │ 🔗 GitHub/LinkedIn   │ │
-│  └──────────────────────┘ │
-│                            │
-│  ╔══════════════════════╗ │
-│  ║  Sobre Mí            ║ │ ← Biografía
-│  ╚══════════════════════╝ │
-│  Tu descripción aquí...   │
-│                            │
-│  ─────────────────────── │ ← Separador
-│                            │
-│  ╔══════════════════════╗ │
-│  ║  Mis Habilidades     ║ │ ← Lista de skills
-│  ╚══════════════════════╝ │
-│                            │
-│  [💻 React Native      ] │ ← Cards de skills
-│  [⚛️  TypeScript       ] │   (con emojis)
-│  [🎨 TailwindCSS      ] │
-│  [📱 Expo             ] │
-│                            │
-│  ─────────────────────── │
-│                            │
-│  ╔══════════════════════╗ │
-│  ║  Mis Proyectos       ║ │ ← Lista proyectos
-│  ╚══════════════════════╝ │
-│                            │
-│  ┌──────────────────────┐ │
-│  │ 🎯 Proyecto 1        │ │ ← Card proyecto
-│  │ Descripción...       │ │
-│  │ [React Native]       │ │ ← Tags
-│  └──────────────────────┘ │
-│                            │
-│  ┌──────────────────────┐ │
-│  │ 🌟 Proyecto 2        │ │
-│  │ Descripción...       │ │
-│  │ [TypeScript][Expo]   │ │
-│  └──────────────────────┘ │
-│                            │
-└────────────────────────────┘
+╔══════════════════════════════════════════╗
+║   📝 SISTEMA DE GESTIÓN DE TAREAS      ║
+╚══════════════════════════════════════════╝
+
+===== MENÚ PRINCIPAL =====
+1. 📋 Ver todas las tareas
+2. ➕ Agregar nueva tarea
+3. ✅ Marcar tarea como completada
+4. 🗑️  Eliminar tarea
+5. 🔍 Buscar tareas
+6. 📊 Ver estadísticas
+7. 🏷️  Filtrar por categoría
+8. 🔥 Ver tareas por prioridad
+0. 🚪 Salir
+
+Selecciona una opción: _
+
+===== LISTA DE TAREAS =====
+
+📌 ALTA PRIORIDAD:
+  [1] ❌ Completar proyecto de Dart
+      📂 Trabajo | ⏰ 2025-11-25
+
+📌 MEDIA PRIORIDAD:
+  [2] ❌ Estudiar colecciones en Dart
+      📂 Estudio | ⏰ 2025-11-26
+
+📌 BAJA PRIORIDAD:
+  [3] ✅ Hacer ejercicio
+      📂 Personal | ⏰ 2025-11-24
+
+Total: 3 tareas | ✅ 1 completada | ❌ 2 pendientes
+
+===== ESTADÍSTICAS =====
+
+📊 Resumen General:
+   Total de tareas: 10
+   ✅ Completadas: 6 (60%)
+   ❌ Pendientes: 4 (40%)
+
+📂 Por Categoría:
+   Trabajo: 4 tareas
+   Personal: 3 tareas
+   Estudio: 3 tareas
+
+🔥 Por Prioridad:
+   Alta: 2 tareas
+   Media: 5 tareas
+   Baja: 3 tareas
 ```
 
 ---
@@ -97,15 +95,16 @@ El instructor explicará:
 
 1. **Estructura del proyecto** (10 min)
 
-   - Revisión de requisitos
-   - Demostración del resultado final
+   - Revisión de requisitos funcionales
+   - Demostración del resultado final funcionando
    - Explicación de la rúbrica de evaluación
 
 2. **Setup inicial** (15 min)
 
-   - Crear proyecto base
-   - Configurar NativeWind
-   - Estructura de carpetas recomendada
+   - Crear proyecto Dart en consola
+   - Estructura de archivos recomendada
+   - Clase `Task` básica
+   - Menú principal de opciones
 
 3. **Q&A y Asignación** (5 min)
    - Resolver dudas sobre el proyecto
@@ -115,6 +114,26 @@ El instructor explicará:
 ### Fecha Límite:
 
 **📅 Entregar antes de la próxima sesión (Semana 2)**
+
+### Estructura de Archivos Recomendada:
+
+```
+proyecto-tareas/
+├── bin/
+│   └── main.dart                 # Punto de entrada
+├── lib/
+│   ├── models/
+│   │   ├── task.dart            # Clase Task
+│   │   ├── priority.dart        # Enum Priority
+│   │   └── category.dart        # Enum Category
+│   ├── services/
+│   │   └── task_manager.dart   # Lógica de gestión
+│   └── utils/
+│       ├── console.dart         # Utilidades de consola
+│       └── validators.dart      # Validaciones
+├── pubspec.yaml
+└── README.md
+```
 
 ---
 
