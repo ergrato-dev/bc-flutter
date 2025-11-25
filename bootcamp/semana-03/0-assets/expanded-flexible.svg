@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <!-- Background -->
+  <rect width="700" height="400" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Expanded vs Flexible</text>
+  
+  <!-- EXPANDED Section -->
+  <text x="175" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#7c3aed">Expanded</text>
+  <text x="175" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Siempre ocupa TODO el espacio disponible</text>
+  
+  <!-- Row container for Expanded -->
+  <rect x="25" y="95" width="300" height="80" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+  
+  <!-- Fixed widget -->
+  <rect x="35" y="110" width="60" height="50" rx="6" fill="#94a3b8"/>
+  <text x="65" y="140" text-anchor="middle" font-family="monospace" font-size="10" fill="white">Fixed</text>
+  <text x="65" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="white">60px</text>
+  
+  <!-- Expanded widget (fills remaining) -->
+  <rect x="105" y="110" width="210" height="50" rx="6" fill="#7c3aed"/>
+  <text x="210" y="135" text-anchor="middle" font-family="monospace" font-size="11" fill="white" font-weight="bold">Expanded</text>
+  <text x="210" y="152" text-anchor="middle" font-family="monospace" font-size="10" fill="white">← Llena todo el espacio →</text>
+  
+  <!-- Arrow showing expansion -->
+  <line x1="105" y1="175" x2="315" y2="175" stroke="#7c3aed" stroke-width="2"/>
+  <polygon points="105,175 115,170 115,180" fill="#7c3aed"/>
+  <polygon points="315,175 305,170 305,180" fill="#7c3aed"/>
+  
+  <!-- FLEXIBLE Section -->
+  <text x="525" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#10b981">Flexible</text>
+  <text x="525" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Puede ocupar MENOS si no lo necesita</text>
+  
+  <!-- Row container for Flexible -->
+  <rect x="375" y="95" width="300" height="80" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Fixed widget -->
+  <rect x="385" y="110" width="60" height="50" rx="6" fill="#94a3b8"/>
+  <text x="415" y="140" text-anchor="middle" font-family="monospace" font-size="10" fill="white">Fixed</text>
+  <text x="415" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="white">60px</text>
+  
+  <!-- Flexible widget (doesn't need all space) -->
+  <rect x="455" y="110" width="120" height="50" rx="6" fill="#10b981"/>
+  <text x="515" y="135" text-anchor="middle" font-family="monospace" font-size="11" fill="white" font-weight="bold">Flexible</text>
+  <text x="515" y="152" text-anchor="middle" font-family="monospace" font-size="10" fill="white">Solo lo necesario</text>
+  
+  <!-- Remaining space indicator -->
+  <rect x="580" y="110" width="85" height="50" rx="6" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="622" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Espacio</text>
+  <text x="622" y="152" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">libre</text>
+  
+  <!-- Flex comparison -->
+  <text x="350" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">Comparación con flex: 1, 2, 1</text>
+  
+  <!-- Expanded with flex -->
+  <rect x="25" y="240" width="300" height="60" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="35" y="250" width="70" height="40" rx="4" fill="#7c3aed"/>
+  <text x="70" y="275" text-anchor="middle" font-family="monospace" font-size="10" fill="white">flex: 1</text>
+  <rect x="115" y="250" width="140" height="40" rx="4" fill="#9333ea"/>
+  <text x="185" y="275" text-anchor="middle" font-family="monospace" font-size="10" fill="white">flex: 2</text>
+  <rect x="265" y="250" width="50" height="40" rx="4" fill="#7c3aed"/>
+  <text x="290" y="275" text-anchor="middle" font-family="monospace" font-size="10" fill="white">flex: 1</text>
+  <text x="175" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">Expanded: Todos llenan su proporción</text>
+  
+  <!-- Flexible with flex -->
+  <rect x="375" y="240" width="300" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <rect x="385" y="250" width="50" height="40" rx="4" fill="#10b981"/>
+  <text x="410" y="275" text-anchor="middle" font-family="monospace" font-size="10" fill="white">flex: 1</text>
+  <rect x="445" y="250" width="100" height="40" rx="4" fill="#059669"/>
+  <text x="495" y="275" text-anchor="middle" font-family="monospace" font-size="10" fill="white">flex: 2</text>
+  <rect x="555" y="250" width="40" height="40" rx="4" fill="#10b981"/>
+  <text x="575" y="275" text-anchor="middle" font-family="monospace" font-size="10" fill="white">flex: 1</text>
+  <rect x="605" y="250" width="60" height="40" rx="4" fill="none" stroke="#94a3b8" stroke-dasharray="4,2"/>
+  <text x="525" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#10b981">Flexible: Usan solo lo que necesitan</text>
+  
+  <!-- Summary box -->
+  <rect x="25" y="340" width="650" height="50" rx="8" fill="#e2e8f0"/>
+  <text x="350" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#475569">
+    <tspan font-weight="bold" fill="#7c3aed">Expanded</tspan> = Flexible(fit: FlexFit.tight) → Fuerza a llenar el espacio
+  </text>
+  <text x="350" y="382" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#475569">
+    <tspan font-weight="bold" fill="#10b981">Flexible</tspan> = Flexible(fit: FlexFit.loose) → Permite ser más pequeño
+  </text>
+</svg>
