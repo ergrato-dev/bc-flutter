@@ -155,6 +155,7 @@ Al finalizar cada documento teórico, encontrarás:
 
 - **Checklist de comprensión** - Verifica tu aprendizaje
 - **Ejemplos prácticos completos** - Casos de uso reales
+- **Recursos adicionales** - Links a documentación y tutoriales
 - **¿Qué dudas tengo?** - Identifica puntos a profundizar
 
 ---
@@ -163,20 +164,22 @@ Al finalizar cada documento teórico, encontrarás:
 
 ### Documentación Oficial
 
-- [React Native Docs](https://reactnative.dev/docs/getting-started)
-- [Expo Documentation](https://docs.expo.dev/)
-- [React Hooks](https://react.dev/reference/react)
+- [Dart Language Tour](https://dart.dev/guides/language/language-tour)
+- [Dart Documentation](https://dart.dev/guides)
+- [DartPad - Editor Online](https://dartpad.dev/)
+- [Effective Dart](https://dart.dev/guides/language/effective-dart)
 
 ### Videos Recomendados
 
-- [React Native en 100 segundos](https://www.youtube.com/watch?v=gvkqT_Uoahw) - Fireship
-- [React Native Crash Course](https://www.youtube.com/watch?v=0-S5a0eXPoc) - Traversy Media
-- [Expo Tutorial](https://www.youtube.com/watch?v=eBN0guaFGr4) - Expo Team
+- [Dart en 100 segundos](https://www.youtube.com/watch?v=NrO0CJCbYLA) - Fireship (2min)
+- [Dart Tutorial for Beginners](https://www.youtube.com/watch?v=Ej_Pcr4uC2Q) - freeCodeCamp
+- [Dart Null Safety](https://www.youtube.com/watch?v=iYhOU9AuaFs) - Flutter Team
 
-### Artículos
+### Artículos y Tutoriales
 
-- [React Native vs Flutter vs Native](https://medium.com/@reactnative)
-- [Best Practices for React Native](https://reactnative.dev/docs/best-practices)
+- [Why Flutter Uses Dart](https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf)
+- [Dart Cheat Sheet](https://dart.dev/codelabs/dart-cheatsheet)
+- [Dart Best Practices](https://dart.dev/guides/language/effective-dart/style)
 
 ---
 
@@ -184,30 +187,30 @@ Al finalizar cada documento teórico, encontrarás:
 
 Marca cada tema cuando lo hayas completado:
 
-- [ ] 1. Introducción a React Native (45min)
-- [ ] 2. Configuración del Entorno (1h)
-- [ ] 3. Componentes Básicos (1.5h)
-- [ ] 4. Estilos y Layouts (1.5h)
-- [ ] 5. Estado y Eventos (1h)
+- [ ] 1. Fundamentos de Dart (2h)
+- [ ] 2. Variables, Tipos y Operadores (2h)
+- [ ] 3. Estructuras de Control y Funciones (2h)
+- [ ] Ejercicios prácticos en DartPad
+- [ ] Lectura de documentación oficial
 
-**Total completado:** 0/5 temas
+**Total completado:** 0/5 objetivos
 
 ---
 
 ## 🆘 ¿Necesitas Ayuda?
 
-### Durante la Sesión Presencial
+### Recursos Online
 
-- Levanta la mano y pregunta al instructor
-- Comparte tu pantalla para mostrar el problema
-- Participa en las discusiones grupales
+- Revisa la documentación oficial de Dart
+- Practica en [DartPad](https://dartpad.dev/)
+- Consulta [Stack Overflow](https://stackoverflow.com/questions/tagged/dart) con tag `dart`
+- Lee los ejemplos en la [Dart API Documentation](https://api.dart.dev/)
 
-### Fuera de Clase
+### Comunidad
 
-- Revisa la documentación oficial
-- Consulta el canal de Slack/Discord del bootcamp
-- Busca en Stack Overflow con tags: `react-native`, `expo`
-- Asiste a las office hours virtuales
+- [Dart Discord](https://discord.gg/dart-lang)
+- [r/dartlang en Reddit](https://www.reddit.com/r/dartlang/)
+- [Dart Community](https://dart.dev/community)
 
 ---
 
@@ -215,10 +218,14 @@ Marca cada tema cuando lo hayas completado:
 
 Una vez completada la teoría de la Semana 1:
 
-1. ✅ Completar las **Prácticas Guiadas** en `2-practicas/`
-2. ✅ Desarrollar el **Proyecto Integrador** en `3-proyecto/`
-3. ✅ Consultar **Recursos Adicionales** en `4-recursos/`
-4. ✅ Revisar el **Glosario** en `5-glosario/`
+1. ✅ Completar las **Prácticas** en `../2-practicas/`
+2. ✅ Desarrollar el **Proyecto Integrador** en `../3-proyecto/`
+3. ✅ Consultar **Recursos Adicionales** en `../4-recursos/`
+4. ✅ Revisar el **Glosario** en `../5-glosario/`
+
+---
+
+**🎯 Recuerda:** Dart es la base para Flutter. Dominar estos conceptos te facilitará enormemente el aprendizaje de Flutter en la Semana 2.
 
 ---
 
