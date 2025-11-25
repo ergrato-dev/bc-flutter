@@ -2,11 +2,11 @@
 
 ## Módulos de Estudio
 
-| # | Módulo | Tiempo | Descripción |
-|---|--------|--------|-------------|
-| 01 | [Navegación Básica](01-navegacion-basica.md) | 50 min | Navigator, push/pop, MaterialPageRoute |
-| 02 | [Rutas Nombradas y Generación](02-rutas-nombradas.md) | 50 min | Named routes, onGenerateRoute, argumentos |
-| 03 | [Navegación Avanzada](03-navegacion-avanzada.md) | 50 min | Tabs, Drawer, BottomNavigation, anidada |
+| #   | Módulo                                                | Tiempo | Descripción                               |
+| --- | ----------------------------------------------------- | ------ | ----------------------------------------- |
+| 01  | [Navegación Básica](01-navegacion-basica.md)          | 50 min | Navigator, push/pop, MaterialPageRoute    |
+| 02  | [Rutas Nombradas y Generación](02-rutas-nombradas.md) | 50 min | Named routes, onGenerateRoute, argumentos |
+| 03  | [Navegación Avanzada](03-navegacion-avanzada.md)      | 50 min | Tabs, Drawer, BottomNavigation, anidada   |
 
 ## Objetivos de Aprendizaje
 

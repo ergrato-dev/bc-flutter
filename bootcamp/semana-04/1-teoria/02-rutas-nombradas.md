@@ -39,6 +39,7 @@ Las **rutas nombradas** permiten definir todas las rutas de la app en un solo lu
 ```
 
 **Ventajas:**
+
 - Rutas centralizadas y fáciles de mantener
 - Nombres descriptivos y consistentes
 - Facilita deep linking
@@ -51,14 +52,14 @@ Las **rutas nombradas** permiten definir todas las rutas de la app en un solo lu
 ```dart
 /**
  * Configuración de rutas nombradas en MaterialApp
- * 
+ *
  * ¿Qué hace?
  * Define un mapa de rutas donde la clave es el nombre
  * y el valor es un builder que retorna el widget
- * 
+ *
  * ¿Para qué?
  * Centralizar todas las rutas de la aplicación
- * 
+ *
  * ¿Cómo funciona?
  * 1. Se define routes: {} en MaterialApp
  * 2. Cada ruta tiene un nombre (String) y un builder
@@ -78,10 +79,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'App con Rutas Nombradas',
-      
+
       // Ruta inicial
       initialRoute: '/',
-      
+
       // Definición de rutas
       routes: {
         '/': (context) => const HomeScreen(),
@@ -101,10 +102,10 @@ class MyApp extends StatelessWidget {
 ```dart
 /**
  * Navigator.pushNamed()
- * 
+ *
  * ¿Qué hace?
  * Navega a una ruta usando su nombre
- * 
+ *
  * ¿Para qué?
  * Navegación más limpia y mantenible
  */
@@ -128,7 +129,7 @@ class HomeScreen extends StatelessWidget {
               child: const Text('Ver Productos'),
             ),
             const SizedBox(height: 16),
-            
+
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/settings');
@@ -136,7 +137,7 @@ class HomeScreen extends StatelessWidget {
               child: const Text('Configuración'),
             ),
             const SizedBox(height: 16),
-            
+
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/profile');
@@ -158,13 +159,13 @@ class HomeScreen extends StatelessWidget {
 ```dart
 /**
  * Pasar argumentos a rutas nombradas
- * 
+ *
  * ¿Qué hace?
  * Envía datos junto con la navegación nombrada
- * 
+ *
  * ¿Para qué?
  * Pasar información como ID, objetos, configuraciones
- * 
+ *
  * ¿Cómo funciona?
  * 1. Se envía con el parámetro arguments
  * 2. Se recibe con ModalRoute.of(context)?.settings.arguments
@@ -272,10 +273,10 @@ class ProductDetailScreen extends StatelessWidget {
 ```dart
 /**
  * Usar clases específicas para argumentos
- * 
+ *
  * ¿Qué hace?
  * Define una clase para los argumentos de cada pantalla
- * 
+ *
  * ¿Para qué?
  * - Type safety (seguridad de tipos)
  * - Múltiples parámetros organizados
@@ -312,7 +313,7 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments 
+    final args = ModalRoute.of(context)?.settings.arguments
         as ProductDetailArguments?;
 
     if (args == null) {
@@ -343,15 +344,15 @@ class ProductDetailScreen extends StatelessWidget {
 ```dart
 /**
  * onGenerateRoute
- * 
+ *
  * ¿Qué hace?
  * Genera rutas dinámicamente cuando no están en el mapa routes
- * 
+ *
  * ¿Para qué?
  * - Rutas con parámetros en la URL (/product/123)
  * - Lógica condicional de navegación
  * - Parseo de deep links
- * 
+ *
  * ¿Cómo funciona?
  * 1. Se llama cuando la ruta no está en routes
  * 2. Recibe RouteSettings con nombre y argumentos
@@ -366,13 +367,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'App con onGenerateRoute',
       initialRoute: '/',
-      
+
       // Rutas estáticas
       routes: {
         '/': (context) => const HomeScreen(),
         '/products': (context) => const ProductsScreen(),
       },
-      
+
       // Rutas dinámicas
       onGenerateRoute: (settings) {
         // Parsear rutas como /product/123
@@ -386,17 +387,17 @@ class MyApp extends StatelessWidget {
 
         // Parsear rutas como /user/456/posts
         final uri = Uri.parse(settings.name ?? '');
-        if (uri.pathSegments.length >= 2 && 
+        if (uri.pathSegments.length >= 2 &&
             uri.pathSegments[0] == 'user') {
           final userId = uri.pathSegments[1];
-          
-          if (uri.pathSegments.length == 3 && 
+
+          if (uri.pathSegments.length == 3 &&
               uri.pathSegments[2] == 'posts') {
             return MaterialPageRoute(
               builder: (context) => UserPostsScreen(userId: userId),
             );
           }
-          
+
           return MaterialPageRoute(
             builder: (context) => UserProfileScreen(userId: userId),
           );
@@ -405,7 +406,7 @@ class MyApp extends StatelessWidget {
         // Ruta no encontrada
         return null;
       },
-      
+
       // Ruta cuando no se encuentra ninguna
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
@@ -449,10 +450,10 @@ Navigator.pushNamed(context, '/user/456/posts');
 ```dart
 /**
  * Clase AppRoutes - Centralización de rutas
- * 
+ *
  * ¿Qué hace?
  * Centraliza todos los nombres de rutas y la lógica de generación
- * 
+ *
  * ¿Para qué?
  * - Evitar strings duplicados
  * - Autocompletado en el IDE
@@ -559,7 +560,7 @@ Navigator.pushNamed(context, AppRoutes.productDetail, arguments: product);
 ```dart
 /**
  * pushNamed con retorno de datos
- * 
+ *
  * ¿Qué hace?
  * Navega a una ruta nombrada y espera un resultado
  */

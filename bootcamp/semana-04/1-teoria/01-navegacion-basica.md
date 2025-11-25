@@ -40,16 +40,19 @@ El **Navigator** es un widget que gestiona un stack (pila) de objetos Route. Fun
 ```
 
 **¿Qué hace?**
+
 - Mantiene un historial de pantallas visitadas
 - Permite navegar hacia adelante (push) y hacia atrás (pop)
 - Gestiona las transiciones entre pantallas
 
 **¿Para qué sirve?**
+
 - Crear flujos de navegación en la app
 - Mantener el estado de navegación
 - Permitir al usuario regresar a pantallas anteriores
 
 **¿Cómo funciona?**
+
 - Cada pantalla es un `Route` en el stack
 - `push()` añade una nueva ruta al top
 - `pop()` remueve la ruta del top
@@ -62,13 +65,13 @@ El **Navigator** es un widget que gestiona un stack (pila) de objetos Route. Fun
 ```dart
 /**
  * Navegación básica con Navigator.push()
- * 
+ *
  * ¿Qué hace?
  * Añade una nueva pantalla al stack de navegación
- * 
+ *
  * ¿Para qué?
  * Ir de una pantalla a otra (ej: de lista a detalle)
- * 
+ *
  * ¿Cómo funciona?
  * 1. Navigator encuentra el Navigator más cercano en el árbol
  * 2. Crea una nueva ruta con MaterialPageRoute
@@ -130,15 +133,15 @@ class DetailScreen extends StatelessWidget {
 ```dart
 /**
  * Regresar con Navigator.pop()
- * 
+ *
  * ¿Qué hace?
  * Remueve la pantalla actual del stack y regresa a la anterior
- * 
+ *
  * ¿Para qué?
  * - Cerrar una pantalla de detalle
  * - Cancelar un formulario
  * - Regresar después de una acción
- * 
+ *
  * ¿Cómo funciona?
  * 1. Remueve la ruta actual del top del stack
  * 2. Ejecuta la animación de transición inversa
@@ -190,13 +193,13 @@ Flutter ofrece diferentes tipos de rutas con distintas animaciones:
 ```dart
 /**
  * MaterialPageRoute
- * 
+ *
  * ¿Qué hace?
  * Crea una ruta con transición estilo Material Design
- * 
+ *
  * ¿Para qué?
  * Apps Android o que siguen Material Design
- * 
+ *
  * Animación: Slide desde la derecha (Android) o bottom (iOS)
  */
 Navigator.push(
@@ -208,13 +211,13 @@ Navigator.push(
 
 /**
  * CupertinoPageRoute
- * 
+ *
  * ¿Qué hace?
  * Crea una ruta con transición estilo iOS
- * 
+ *
  * ¿Para qué?
  * Apps iOS o que siguen Human Interface Guidelines
- * 
+ *
  * Animación: Slide desde la derecha con parallax
  */
 import 'package:flutter/cupertino.dart';
@@ -228,10 +231,10 @@ Navigator.push(
 
 /**
  * PageRouteBuilder - Transiciones personalizadas
- * 
+ *
  * ¿Qué hace?
  * Permite crear transiciones completamente personalizadas
- * 
+ *
  * ¿Para qué?
  * - Animaciones únicas (fade, scale, rotation)
  * - Branding específico de la app
@@ -260,10 +263,10 @@ Navigator.push(
 ```dart
 /**
  * Clase helper para transiciones reutilizables
- * 
+ *
  * ¿Qué hace?
  * Encapsula diferentes tipos de transiciones
- * 
+ *
  * ¿Para qué?
  * Reutilizar animaciones en toda la app
  */
@@ -280,10 +283,10 @@ class CustomPageRoute<T> extends PageRouteBuilder<T> {
             switch (transitionType) {
               case RouteTransitionType.fade:
                 return FadeTransition(opacity: animation, child: child);
-              
+
               case RouteTransitionType.scale:
                 return ScaleTransition(scale: animation, child: child);
-              
+
               case RouteTransitionType.slideUp:
                 return SlideTransition(
                   position: Tween<Offset>(
@@ -292,7 +295,7 @@ class CustomPageRoute<T> extends PageRouteBuilder<T> {
                   ).animate(animation),
                   child: child,
                 );
-              
+
               case RouteTransitionType.slideRight:
                 return SlideTransition(
                   position: Tween<Offset>(
@@ -332,15 +335,15 @@ Navigator.push(
 ```dart
 /**
  * Pasar datos mediante constructor
- * 
+ *
  * ¿Qué hace?
  * Envía datos a la nueva pantalla como parámetros del constructor
- * 
+ *
  * ¿Para qué?
  * - Pasar objetos completos (User, Product, etc.)
  * - Pasar IDs para cargar datos
  * - Pasar configuraciones
- * 
+ *
  * ¿Cómo funciona?
  * 1. La pantalla destino define parámetros en constructor
  * 2. Al navegar, se pasan los valores
@@ -425,14 +428,14 @@ class ProductDetailScreen extends StatelessWidget {
               child: const Icon(Icons.image, size: 100),
             ),
             const SizedBox(height: 16),
-            
+
             // Nombre
             Text(
               product.name,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 8),
-            
+
             // Precio
             Text(
               '\$${product.price.toStringAsFixed(2)}',
@@ -442,7 +445,7 @@ class ProductDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            
+
             // Botón de compra
             SizedBox(
               width: double.infinity,
@@ -468,15 +471,15 @@ class ProductDetailScreen extends StatelessWidget {
 ```dart
 /**
  * Retornar datos desde una pantalla
- * 
+ *
  * ¿Qué hace?
  * Permite que una pantalla envíe un resultado a la pantalla anterior
- * 
+ *
  * ¿Para qué?
  * - Seleccionar un item de una lista
  * - Confirmar una acción (Sí/No)
  * - Retornar datos de un formulario
- * 
+ *
  * ¿Cómo funciona?
  * 1. push() retorna un Future con el resultado
  * 2. pop(resultado) envía el resultado
@@ -572,15 +575,15 @@ class ColorPickerScreen extends StatelessWidget {
 ```dart
 /**
  * pushReplacement - Reemplazar la pantalla actual
- * 
+ *
  * ¿Qué hace?
  * Reemplaza la pantalla actual por una nueva (no se puede volver)
- * 
+ *
  * ¿Para qué?
  * - Login exitoso → Home (no volver a login)
  * - Splash → Home
  * - Onboarding completado → Home
- * 
+ *
  * ¿Cómo funciona?
  * 1. Remueve la ruta actual del stack
  * 2. Añade la nueva ruta
@@ -623,16 +626,16 @@ class LoginScreen extends StatelessWidget {
 ```dart
 /**
  * pushAndRemoveUntil - Limpiar el stack de navegación
- * 
+ *
  * ¿Qué hace?
  * Navega a una nueva pantalla y remueve todas las anteriores
  * hasta que la condición sea verdadera
- * 
+ *
  * ¿Para qué?
  * - Logout: ir a Login y limpiar todo el historial
  * - Completar un flujo: limpiar pantallas intermedias
  * - Reset de la app
- * 
+ *
  * ¿Cómo funciona?
  * 1. Añade la nueva ruta
  * 2. Remueve rutas del stack mientras la condición sea false
@@ -699,11 +702,11 @@ class OrderConfirmationScreen extends StatelessWidget {
 ```dart
 /**
  * Navigator.canPop() y Navigator.maybePop()
- * 
+ *
  * ¿Qué hacen?
  * - canPop(): Verifica si hay rutas para hacer pop
  * - maybePop(): Hace pop solo si es posible
- * 
+ *
  * ¿Para qué?
  * - Evitar errores al intentar pop en la última pantalla
  * - Manejar el botón de back de Android
@@ -746,10 +749,10 @@ class SafeNavigationExample extends StatelessWidget {
 ```dart
 /**
  * WillPopScope (Deprecado) / PopScope (Flutter 3.16+)
- * 
+ *
  * ¿Qué hace?
  * Intercepta el intento de salir de la pantalla (back button)
- * 
+ *
  * ¿Para qué?
  * - Confirmar antes de salir de un formulario
  * - Guardar cambios antes de salir
@@ -798,7 +801,7 @@ class _FormScreenState extends State<FormScreen> {
       canPop: !_hasUnsavedChanges,
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
-        
+
         final shouldPop = await _showExitConfirmation();
         if (shouldPop && context.mounted) {
           Navigator.pop(context);
