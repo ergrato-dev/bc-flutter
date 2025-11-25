@@ -7,7 +7,7 @@
 
 ## 🎯 Objetivo General
 
-Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para trabajo autónomo. El objetivo es aplicar inmediatamente los conceptos teóricos vistos en la primera parte de la sesión.
+Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para trabajo autónomo. El objetivo es aplicar inmediatamente los conceptos teóricos de Dart vistos en la primera parte de la sesión.
 
 ---
 
@@ -15,18 +15,18 @@ Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para t
 
 ### 🎓 Presenciales (2 horas en clase)
 
-| #   | Práctica                                                         | Duración | Enfoque                        |
-| --- | ---------------------------------------------------------------- | -------- | ------------------------------ |
-| 1   | [Mi Primera App - Perfil Personal](./practica-01-primera-app.md) | 45 min   | Componentes básicos + Layouts  |
-| 2   | [Card Component Reutilizable](./practica-02-card-component.md)   | 45 min   | Props + TypeScript + Variantes |
-| 3   | [Lista de Contactos (inicio)](./practica-03-lista-contactos.md)  | 20 min   | Arrays + FlatList              |
+| #   | Práctica                                                                     | Duración | Enfoque                                   |
+| --- | ---------------------------------------------------------------------------- | -------- | ----------------------------------------- |
+| 1   | [Mi Primera App en Dart - Calculadora](./practica-01-primera-app.md)        | 45 min   | Variables, operadores, conversiones       |
+| 2   | [Colecciones y Listas en Dart](./practica-02-colecciones-listas.md)         | 45 min   | List, Set, Map, métodos de colecciones    |
+| 3   | [Funciones Avanzadas en Dart (inicio)](./practica-03-funciones-avanzadas.md)| 20 min   | Parámetros, arrow functions               |
 
 **Total presencial:** 1h 50min
 
 ### 🏠 Autónomo (1 hora en casa)
 
-- **Completar Práctica 3** (30 min): Agregar búsqueda y más contactos
-- **Desafíos adicionales** (30 min): Mejoras opcionales de las 3 prácticas
+- **Completar Práctica 3** (30 min): Funciones de orden superior, callbacks, closures
+- **Desafíos adicionales** (30 min): Ejercicios extra de las 3 prácticas
 
 ---
 
@@ -47,92 +47,89 @@ Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para t
 2. Setup (5-10 min) → Todos configuran juntos
 3. Desarrollo (20-30 min) → Codear paso a paso
 4. Review (5 min) → Verificar y resolver dudas
-```
-
 ---
 
 ## 📝 Prácticas Detalladas
 
-### 1️⃣ Mi Primera App - Perfil Personal (45 min)
+### 1️⃣ Mi Primera App en Dart - Calculadora (45 min)
 
 **📂 Archivo:** [practica-01-primera-app.md](./practica-01-primera-app.md)
 
-**🎯 Objetivo:** Crear una pantalla de perfil con avatar, información personal y biografía.
+**🎯 Objetivo:** Crear programas en Dart usando variables, operadores y conversiones de tipos.
 
 **💡 Conceptos:**
 
-- SafeAreaView y ScrollView
-- View, Text, Image
-- Layouts con Flexbox
-- TailwindCSS básico
-- Estilos de tarjetas y espaciado
+- Variables (`var`, `final`, `const`)
+- Tipos de datos primitivos
+- Operadores aritméticos y lógicos
+- Conversión de tipos (`int.parse`, `double.parse`)
+- Interpolación de strings
 
 **✅ Completarás:**
 
-- Header con fondo de color
-- Avatar circular centrado
-- Nombre y profesión
-- Card con información de contacto
-- Sección "Sobre mí"
+- Calculadora básica de operaciones
+- Conversor de temperaturas
+- Calculadora de IMC (Índice de Masa Corporal)
+- Ejercicios con operadores lógicos
 
 ---
 
-### 2️⃣ Card Component Reutilizable (45 min)
+### 2️⃣ Colecciones y Listas en Dart (45 min)
 
-**📂 Archivo:** [practica-02-card-component.md](./practica-02-card-component.md)
+**📂 Archivo:** [practica-02-colecciones-listas.md](./practica-02-colecciones-listas.md)
 
-**🎯 Objetivo:** Crear un componente Card que acepte props y tenga diferentes variantes.
+**🎯 Objetivo:** Dominar el manejo de colecciones (List, Set, Map) y sus métodos.
 
 **💡 Conceptos:**
 
-- Componentes personalizados
-- Props con TypeScript (interfaces)
-- Props opcionales vs requeridos
-- Variantes de componentes (default, featured, compact)
-- Reutilización de componentes
+- List: agregar, eliminar, ordenar elementos
+- Métodos: `map()`, `where()`, `reduce()`, `fold()`
+- Set: elementos únicos, operaciones de conjuntos
+- Map: pares clave-valor, iteración
+- Tipos genéricos (`List<T>`, `Map<K,V>`)
 
 **✅ Completarás:**
 
-- Interface TypeScript para props
-- Card component básico
-- Variante "default"
-- Variante "featured" (destacada)
-- Variante "compact" (compacta)
-- Usar el componente en múltiples lugares
+- Lista de estudiantes con operaciones CRUD
+- Filtrado y transformación con `map()` y `where()`
+- Cálculos estadísticos con `reduce()` y `fold()`
+- Gestión de tags únicos con Set
+- Sistema de inventario con Map
 
 ---
 
-### 3️⃣ Lista de Contactos (20 min presencial + 30 min autónomo)
+### 3️⃣ Funciones Avanzadas en Dart (20 min presencial + 30 min autónomo)
 
-**📂 Archivo:** [practica-03-lista-contactos.md](./practica-03-lista-contactos.md)
+**📂 Archivo:** [practica-03-funciones-avanzadas.md](./practica-03-funciones-avanzadas.md)
 
 **🎯 Objetivo:**
 
-- **En clase:** Renderizar una lista de contactos con FlatList
-- **En casa:** Agregar búsqueda y más contactos
+- **En clase:** Tipos de parámetros y arrow functions
+- **En casa:** Funciones de orden superior, callbacks, closures
 
 **💡 Conceptos:**
 
-- Arrays de objetos
-- Renderizar con `.map()`
-- FlatList optimizado
-- Interfaces TypeScript para datos
-- **En casa:** useState para búsqueda
-- **En casa:** `.filter()` para filtrar datos
+- Parámetros opcionales posicionales `[]`
+- Parámetros nombrados `{}`
+- Arrow functions `=>`
+- Funciones anónimas
+- **En casa:** Funciones de orden superior
+- **En casa:** Callbacks
+- **En casa:** Closures
 
 **✅ En Clase (20 min):**
 
-- Interface Contact
-- Array de 5 contactos mock
-- Renderizar con FlatList
-- Estilos de cada item
+- Funciones con parámetros opcionales
+- Funciones con parámetros nombrados
+- Arrow functions
+- Funciones anónimas
 
 **✅ En Casa (30 min):**
 
-- Agregar 7 contactos más (total 12)
-- Implementar TextInput para búsqueda
-- Filtrar contactos en tiempo real
-- Agregar contador de resultados
+- Funciones que reciben funciones
+- Callbacks para manejo asíncrono
+- Closures y encapsulamiento
+- Tareas: `applyDiscount`, `processPayment`, `createBankAccount`
 
 ---
 
@@ -141,10 +138,10 @@ Estas prácticas se realizan **EN CLASE** junto con el instructor. No son para t
 ### Presencial (Participación en clase):
 
 - ✅ Seguir instrucciones del instructor
-- ✅ Completar cada checkpoint
+- ✅ Completar cada ejercicio en DartPad
 - ✅ Hacer preguntas cuando sea necesario
 - ✅ Ayudar a compañeros si terminan antes
-- ✅ App funcionando al final de cada práctica
+- ✅ Código funcionando al final de cada práctica
 
 ### Autónomo (Tarea Práctica 3):
 
