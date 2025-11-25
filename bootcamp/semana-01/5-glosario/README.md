@@ -534,4 +534,979 @@ void main() {
 
 ---
 
-Continúa en la siguiente parte...
+## I
+
+### Immutability
+
+**Definición:** Propiedad de un objeto que no puede ser modificado después de su creación.
+
+**En Dart:** Usar `const` y `final`.
+
+**Ejemplo:**
+
+```dart
+// Inmutable
+const List<int> numeros = [1, 2, 3];
+// numeros.add(4); // ERROR
+
+// Mutable
+final List<int> otros = [1, 2, 3];
+otros.add(4); // OK, la lista es mutable
+// otros = [5, 6]; // ERROR, la variable es final
+```
+
+**Ver también:** [const](#const), [final](#final)
+
+---
+
+### Inheritance
+
+**Definición:** Mecanismo que permite crear una clase basada en otra, heredando sus propiedades y métodos.
+
+**Palabra clave:** `extends`
+
+**Ejemplo:**
+
+```dart
+class Animal {
+  String name;
+  
+  Animal(this.name);
+  
+  void makeSound() {
+    print('$name hace un sonido');
+  }
+}
+
+class Dog extends Animal {
+  Dog(String name) : super(name);
+  
+  @override
+  void makeSound() {
+    print('$name ladra: Woof!');
+  }
+}
+```
+
+**Ver también:** [Override](#override), [Abstract Class](#abstract-class)
+
+---
+
+### Interface
+
+**Definición:** En Dart, toda clase puede usarse como interface. Una clase que implementa una interface debe definir todos sus métodos.
+
+**Palabra clave:** `implements`
+
+**Ejemplo:**
+
+```dart
+class Swimmer {
+  void swim() {
+    print('Nadando');
+  }
+}
+
+class Flyer {
+  void fly() {
+    print('Volando');
+  }
+}
+
+class Duck implements Swimmer, Flyer {
+  @override
+  void swim() {
+    print('El pato nada');
+  }
+  
+  @override
+  void fly() {
+    print('El pato vuela');
+  }
+}
+```
+
+**Ver también:** [Abstract Class](#abstract-class), [Mixin](#mixin)
+
+---
+
+## L
+
+### Lambda
+
+**Definición:** Función anónima (sin nombre) que se usa como expresión.
+
+**Sinónimo:** Anonymous function, closure.
+
+**Ejemplo:**
+
+```dart
+List<int> numeros = [1, 2, 3, 4, 5];
+
+// Lambda en map
+var dobles = numeros.map((n) => n * 2);
+
+// Lambda en where
+var pares = numeros.where((n) => n % 2 == 0);
+
+// Lambda asignada a variable
+var suma = (int a, int b) => a + b;
+print(suma(5, 3)); // 8
+```
+
+**Ver también:** [Arrow Function](#arrow-function), [Higher-Order Function](#higher-order-function)
+
+---
+
+### late
+
+**Definición:** Modificador que permite declarar una variable no-nullable sin inicializarla inmediatamente.
+
+**Uso:** Cuando sabes que la variable tendrá valor antes de usarse.
+
+**Ejemplo:**
+
+```dart
+class User {
+  late String name; // Será inicializada después
+  
+  void init() {
+    name = 'Juan'; // Inicialización posterior
+  }
+  
+  void greet() {
+    print('Hola $name'); // OK si init() fue llamado antes
+  }
+}
+
+void main() {
+  User user = User();
+  user.init();
+  user.greet();
+}
+```
+
+**Ver también:** [Null Safety](#null-safety)
+
+---
+
+### Library
+
+**Definición:** Conjunto de código Dart reutilizable. Se importa con `import`.
+
+**Ejemplos:**
+
+```dart
+// Librería core (automática)
+// dart:core
+
+// Otras librerías de Dart
+import 'dart:async';
+import 'dart:math';
+import 'dart:io';
+
+// Paquete externo
+import 'package:http/http.dart' as http;
+
+// Archivo local
+import 'models/user.dart';
+```
+
+**Ver también:** [Package](#package), [import](#import)
+
+---
+
+### List
+
+**Definición:** Colección ordenada de elementos. Permite duplicados. Acceso por índice.
+
+**Operaciones:**
+
+```dart
+List<int> numeros = [1, 2, 3];
+
+// Agregar
+numeros.add(4); // [1, 2, 3, 4]
+numeros.addAll([5, 6]); // [1, 2, 3, 4, 5, 6]
+
+// Acceder
+print(numeros[0]); // 1
+print(numeros.first); // 1
+print(numeros.last); // 6
+
+// Eliminar
+numeros.remove(3); // Elimina el 3
+numeros.removeAt(0); // Elimina índice 0
+
+// Métodos útiles
+numeros.map((n) => n * 2); // Transforma
+numeros.where((n) => n > 2); // Filtra
+numeros.fold(0, (sum, n) => sum + n); // Reduce
+```
+
+**Ver también:** [Collection](#collection), [Set](#set), [Map](#map)
+
+---
+
+## M
+
+### Map
+
+**Definición:** Colección de pares clave-valor. Las claves son únicas.
+
+**Uso:** Diccionarios, lookup tables, JSON parsing.
+
+**Ejemplo:**
+
+```dart
+Map<String, int> edades = {
+  'Ana': 25,
+  'Luis': 30,
+  'María': 28,
+};
+
+// Acceder
+print(edades['Ana']); // 25
+
+// Agregar/Modificar
+edades['Pedro'] = 35;
+edades['Ana'] = 26;
+
+// Eliminar
+edades.remove('Luis');
+
+// Iterar
+edades.forEach((nombre, edad) {
+  print('$nombre tiene $edad años');
+});
+
+// Keys y values
+print(edades.keys); // (Ana, María, Pedro)
+print(edades.values); // (26, 28, 35)
+```
+
+**Ver también:** [Collection](#collection), [List](#list)
+
+---
+
+### Method
+
+**Definición:** Función que pertenece a una clase u objeto.
+
+**Tipos:**
+
+```dart
+class Calculator {
+  // Instance method
+  int suma(int a, int b) {
+    return a + b;
+  }
+  
+  // Static method
+  static int multiplicar(int a, int b) {
+    return a * b;
+  }
+}
+
+void main() {
+  Calculator calc = Calculator();
+  print(calc.suma(2, 3)); // 5
+  print(Calculator.multiplicar(2, 3)); // 6 (sin instancia)
+}
+```
+
+**Ver también:** [Function](#function), [Class](#class)
+
+---
+
+### Mixin
+
+**Definición:** Forma de reutilizar código de una clase en múltiples jerarquías de clases sin usar herencia.
+
+**Palabra clave:** `mixin`, `with`
+
+**Ejemplo:**
+
+```dart
+mixin Swimmer {
+  void swim() {
+    print('Nadando');
+  }
+}
+
+mixin Flyer {
+  void fly() {
+    print('Volando');
+  }
+}
+
+class Duck with Swimmer, Flyer {
+  String name;
+  Duck(this.name);
+}
+
+void main() {
+  Duck duck = Duck('Donald');
+  duck.swim(); // Nadando
+  duck.fly(); // Volando
+}
+```
+
+**Ver también:** [Inheritance](#inheritance), [Interface](#interface)
+
+---
+
+## N
+
+### Named Constructor
+
+**Definición:** Constructor con un nombre específico. Una clase puede tener múltiples named constructors.
+
+**Ejemplo:**
+
+```dart
+class User {
+  String name;
+  int age;
+  
+  // Constructor principal
+  User(this.name, this.age);
+  
+  // Named constructors
+  User.guest() : name = 'Guest', age = 0;
+  
+  User.fromJson(Map<String, dynamic> json) 
+      : name = json['name'], 
+        age = json['age'];
+}
+
+void main() {
+  User user1 = User('Ana', 25);
+  User user2 = User.guest();
+  User user3 = User.fromJson({'name': 'Luis', 'age': 30});
+}
+```
+
+**Ver también:** [Constructor](#constructor), [Factory Constructor](#factory-constructor)
+
+---
+
+### Named Parameters
+
+**Definición:** Parámetros de función que se pasan por nombre, no por posición.
+
+**Ventajas:** Código más legible, orden flexible.
+
+**Ejemplo:**
+
+```dart
+void configurar({
+  required String host,
+  int port = 80,
+  bool ssl = false,
+}) {
+  print('$host:$port (SSL: $ssl)');
+}
+
+void main() {
+  configurar(host: 'localhost'); // localhost:80 (SSL: false)
+  configurar(host: 'api.example.com', port: 443, ssl: true);
+  configurar(ssl: true, host: 'test.com'); // Orden flexible
+}
+```
+
+**Ver también:** [Optional Parameters](#optional-parameters), [required](#required)
+
+---
+
+### Null Safety
+
+**Definición:** Sistema de tipos que previene errores de null reference en compile-time.
+
+**Introducido en:** Dart 2.12
+
+**Conceptos:**
+
+```dart
+// Non-nullable (por defecto)
+String name = 'Juan'; // No puede ser null
+
+// Nullable (con ?)
+String? apellido; // Puede ser null
+apellido = null; // OK
+
+// Null-aware operators
+String texto = apellido ?? 'Sin apellido'; // ?? (if-null)
+int? longitud = apellido?.length; // ?. (conditional access)
+String forzado = apellido!; // ! (null assertion)
+```
+
+**Ver también:** [Operators](#null-aware-operators), [late](#late)
+
+---
+
+## O
+
+### Object
+
+**Definición:** Instancia de una clase. Clase base de todos los objetos en Dart.
+
+**Ejemplo:**
+
+```dart
+class User {
+  String name;
+  User(this.name);
+}
+
+void main() {
+  User user = User('Ana'); // user es un objeto
+  
+  print(user is Object); // true
+  print(user.runtimeType); // User
+}
+```
+
+**Ver también:** [Class](#class), [Instance](#instance)
+
+---
+
+### Optional Parameters
+
+**Definición:** Parámetros que no son obligatorios al llamar una función.
+
+**Tipos:**
+
+```dart
+// Opcionales posicionales (con [])
+void saludar(String nombre, [String? apellido]) {
+  print('Hola $nombre $apellido');
+}
+
+// Opcionales named (con {})
+void configurar({String host = 'localhost', int port = 80}) {
+  print('$host:$port');
+}
+
+void main() {
+  saludar('Juan'); // OK
+  saludar('Juan', 'Pérez'); // OK
+  
+  configurar(); // OK
+  configurar(port: 443); // OK
+}
+```
+
+**Ver también:** [Named Parameters](#named-parameters), [required](#required)
+
+---
+
+### Override
+
+**Definición:** Redefinir un método de la clase padre en la clase hija.
+
+**Anotación:** `@override`
+
+**Ejemplo:**
+
+```dart
+class Animal {
+  void makeSound() {
+    print('Algún sonido');
+  }
+}
+
+class Cat extends Animal {
+  @override
+  void makeSound() {
+    print('Miau');
+  }
+}
+
+void main() {
+  Animal animal = Cat();
+  animal.makeSound(); // Miau (polimorfismo)
+}
+```
+
+**Ver también:** [Inheritance](#inheritance), [Polymorphism](#polymorphism)
+
+---
+
+## P
+
+### Package
+
+**Definición:** Colección de librerías Dart reutilizables publicadas en pub.dev.
+
+**Gestión:** Archivo `pubspec.yaml`
+
+**Ejemplo:**
+
+```yaml
+# pubspec.yaml
+dependencies:
+  http: ^0.13.5
+  intl: ^0.18.0
+```
+
+```dart
+// Usar package
+import 'package:http/http.dart' as http;
+
+void main() async {
+  var response = await http.get(Uri.parse('https://api.example.com'));
+  print(response.body);
+}
+```
+
+**Ver también:** [Library](#library), [pub.dev](#pubdev)
+
+---
+
+### Property
+
+**Definición:** Variable que pertenece a una clase u objeto.
+
+**Ejemplo:**
+
+```dart
+class User {
+  // Properties
+  String name;
+  int age;
+  
+  User(this.name, this.age);
+}
+
+void main() {
+  User user = User('Ana', 25);
+  print(user.name); // Acceder property
+  user.age = 26; // Modificar property
+}
+```
+
+**Ver también:** [Getter](#getter), [Setter](#setter)
+
+---
+
+## R
+
+### required
+
+**Definición:** Modificador para named parameters que los hace obligatorios.
+
+**Introducido en:** Dart 2.12
+
+**Ejemplo:**
+
+```dart
+class User {
+  String name;
+  int age;
+  
+  User({
+    required this.name, // Obligatorio
+    required this.age,   // Obligatorio
+  });
+}
+
+void main() {
+  // User user = User(); // ERROR: faltan parámetros
+  User user = User(name: 'Ana', age: 25); // OK
+}
+```
+
+**Ver también:** [Named Parameters](#named-parameters), [Optional Parameters](#optional-parameters)
+
+---
+
+## S
+
+### Scope
+
+**Definición:** Contexto en el cual una variable es accesible.
+
+**Tipos:**
+
+```dart
+int global = 10; // Scope global
+
+void funcion() {
+  int local = 20; // Scope local
+  
+  if (true) {
+    int bloque = 30; // Scope de bloque
+    print(global); // OK
+    print(local); // OK
+    print(bloque); // OK
+  }
+  
+  // print(bloque); // ERROR: fuera de scope
+}
+```
+
+**Ver también:** [Closure](#closure), [Variable](#variable)
+
+---
+
+### Set
+
+**Definición:** Colección no ordenada de elementos únicos (sin duplicados).
+
+**Uso:** Eliminar duplicados, membresía.
+
+**Ejemplo:**
+
+```dart
+Set<int> numeros = {1, 2, 3, 2, 1}; // {1, 2, 3}
+
+// Agregar
+numeros.add(4); // {1, 2, 3, 4}
+numeros.add(3); // {1, 2, 3, 4} (no agrega duplicado)
+
+// Verificar
+print(numeros.contains(2)); // true
+
+// Operaciones de conjuntos
+Set<int> otros = {3, 4, 5};
+print(numeros.union(otros)); // {1, 2, 3, 4, 5}
+print(numeros.intersection(otros)); // {3, 4}
+```
+
+**Ver también:** [List](#list), [Map](#map)
+
+---
+
+### Setter
+
+**Definición:** Método que se accede como propiedad para asignar un valor con lógica adicional.
+
+**Sintaxis:** `set nombrePropiedad`
+
+**Ejemplo:**
+
+```dart
+class Temperature {
+  double _celsius = 0;
+  
+  // Getter
+  double get celsius => _celsius;
+  double get fahrenheit => _celsius * 9/5 + 32;
+  
+  // Setter
+  set celsius(double value) {
+    _celsius = value;
+  }
+  
+  set fahrenheit(double value) {
+    _celsius = (value - 32) * 5/9;
+  }
+}
+
+void main() {
+  Temperature temp = Temperature();
+  temp.celsius = 25; // Usa setter
+  print(temp.fahrenheit); // 77.0
+}
+```
+
+**Ver también:** [Getter](#getter), [Property](#property)
+
+---
+
+### static
+
+**Definición:** Modificador que hace que un miembro pertenezca a la clase, no a las instancias.
+
+**Uso:** Constantes, utilidades, factory methods.
+
+**Ejemplo:**
+
+```dart
+class Math {
+  static const double pi = 3.14159;
+  
+  static int suma(int a, int b) {
+    return a + b;
+  }
+}
+
+void main() {
+  print(Math.pi); // Sin crear instancia
+  print(Math.suma(5, 3)); // 8
+}
+```
+
+**Ver también:** [Class](#class), [const](#const)
+
+---
+
+### Stream
+
+**Definición:** Secuencia asíncrona de datos que llegan a lo largo del tiempo.
+
+**Diferencia con Future:** Future retorna un valor, Stream retorna múltiples valores.
+
+**Ejemplo:**
+
+```dart
+Stream<int> contadorStream() async* {
+  for (int i = 1; i <= 5; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    yield i;
+  }
+}
+
+void main() async {
+  await for (int valor in contadorStream()) {
+    print(valor); // 1, 2, 3, 4, 5 (cada segundo)
+  }
+}
+```
+
+**Ver también:** [Future](#future), [async/await](#asyncawait)
+
+---
+
+### String Interpolation
+
+**Definición:** Insertar valores de variables dentro de strings usando `$` o `${}`.
+
+**Ejemplo:**
+
+```dart
+String nombre = 'Ana';
+int edad = 25;
+
+print('Hola $nombre'); // Hola Ana
+print('En 5 años tendrás ${edad + 5} años'); // En 5 años tendrás 30 años
+
+// Expresiones complejas necesitan {}
+List<int> numeros = [1, 2, 3];
+print('La lista tiene ${numeros.length} elementos');
+```
+
+**Ver también:** [String](#string)
+
+---
+
+## T
+
+### this
+
+**Definición:** Referencia al objeto actual dentro de una clase.
+
+**Uso:** Diferenciar entre parámetros y propiedades.
+
+**Ejemplo:**
+
+```dart
+class User {
+  String name;
+  int age;
+  
+  User(this.name, this.age); // Shorthand
+  
+  // Equivalente a:
+  // User(String name, int age) {
+  //   this.name = name;
+  //   this.age = age;
+  // }
+  
+  void describe() {
+    print('${this.name} tiene ${this.age} años');
+  }
+}
+```
+
+**Ver también:** [Class](#class), [Constructor](#constructor)
+
+---
+
+### try-catch
+
+**Definición:** Estructura para manejar excepciones y prevenir que el programa termine abruptamente.
+
+**Bloques:** try, catch, on, finally
+
+**Ejemplo:**
+
+```dart
+void main() {
+  try {
+    int resultado = 10 ~/ 0; // División por cero
+  } on IntegerDivisionByZeroException {
+    print('No se puede dividir por cero');
+  } catch (e) {
+    print('Error: $e');
+  } finally {
+    print('Limpieza (siempre se ejecuta)');
+  }
+}
+```
+
+**Ver también:** [Exception](#exception), [Error Handling](#error-handling)
+
+---
+
+### Type Inference
+
+**Definición:** Capacidad de Dart de inferir el tipo de una variable sin declararlo explícitamente.
+
+**Palabra clave:** `var`
+
+**Ejemplo:**
+
+```dart
+var nombre = 'Juan'; // Dart infiere String
+var edad = 25; // Dart infiere int
+var activo = true; // Dart infiere bool
+
+// Equivalente a:
+String nombre = 'Juan';
+int edad = 25;
+bool activo = true;
+```
+
+**Ver también:** [var](#var), [dynamic](#dynamic)
+
+---
+
+## V
+
+### var
+
+**Definición:** Palabra clave para declarar variables con inferencia de tipos.
+
+**Ventaja:** Menos verboso, Dart infiere el tipo.
+
+**Ejemplo:**
+
+```dart
+var nombre = 'Ana'; // String (inferido)
+var edad = 25; // int (inferido)
+
+// Una vez inferido, el tipo no cambia
+// nombre = 42; // ERROR: no puede cambiar de String a int
+```
+
+**Ver también:** [Type Inference](#type-inference), [dynamic](#dynamic)
+
+---
+
+### void
+
+**Definición:** Tipo de retorno que indica que una función no retorna ningún valor.
+
+**Ejemplo:**
+
+```dart
+void saludar(String nombre) {
+  print('Hola $nombre');
+  // No hay return
+}
+
+void main() {
+  saludar('Ana');
+  var resultado = saludar('Luis'); // resultado es null
+}
+```
+
+**Ver también:** [Function](#function), [Return](#return)
+
+---
+
+## Símbolos y Operadores
+
+### ?? (If-null operator)
+
+**Definición:** Retorna el operando izquierdo si no es null, sino retorna el derecho.
+
+**Ejemplo:**
+
+```dart
+String? nombre;
+String resultado = nombre ?? 'Anónimo'; // 'Anónimo'
+
+nombre = 'Ana';
+resultado = nombre ?? 'Anónimo'; // 'Ana'
+```
+
+---
+
+### ??= (Null-aware assignment)
+
+**Definición:** Asigna valor solo si la variable es null.
+
+**Ejemplo:**
+
+```dart
+String? nombre;
+nombre ??= 'Por defecto'; // Asigna porque es null
+print(nombre); // 'Por defecto'
+
+nombre ??= 'Otro'; // No asigna porque ya tiene valor
+print(nombre); // 'Por defecto'
+```
+
+---
+
+### ?. (Conditional member access)
+
+**Definición:** Accede a un miembro solo si el objeto no es null.
+
+**Ejemplo:**
+
+```dart
+String? nombre;
+int? longitud = nombre?.length; // null (no lanza error)
+
+nombre = 'Ana';
+longitud = nombre?.length; // 3
+```
+
+---
+
+### ! (Null assertion)
+
+**Definición:** Fuerza que un valor nullable sea tratado como non-nullable.
+
+**⚠️ Peligroso:** Lanza error en runtime si el valor es null.
+
+**Ejemplo:**
+
+```dart
+String? nombre = 'Ana';
+String nombreSeguro = nombre!; // OK
+
+nombre = null;
+// nombreSeguro = nombre!; // ERROR en runtime
+```
+
+---
+
+### .. (Cascade notation)
+
+**Definición:** Ver [Cascade Notation](#cascade-notation)
+
+---
+
+### => (Arrow syntax)
+
+**Definición:** Ver [Arrow Function](#arrow-function-arrow-syntax)
+
+---
+
+## 📝 Notas Finales
+
+Este glosario cubre los términos fundamentales de Dart para la semana 1. Consulta regularmente mientras programas.
+
+**Recursos adicionales:**
+- Documentación oficial: https://dart.dev/guides
+- DartPad: https://dartpad.dev/
+- API Reference: https://api.dart.dev/
+
+---
+
+_Última actualización: Noviembre 2024_
