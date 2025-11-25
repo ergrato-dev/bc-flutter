@@ -85,6 +85,7 @@ enum Priority {
 ```
 
 **Tareas:**
+
 1. Copia las enumeraciones
 2. Entiende cada valor
 3. Piensa en cómo usarlas
@@ -104,7 +105,7 @@ class TaskHelper {
         return '❌';
     }
   }
-  
+
   // Obtener emoji según prioridad
   static String getPriorityEmoji(Priority priority) {
     switch (priority) {
@@ -118,7 +119,7 @@ class TaskHelper {
         return '🔴';
     }
   }
-  
+
   // Obtener texto de prioridad
   static String getPriorityText(Priority priority) {
     switch (priority) {
@@ -132,7 +133,7 @@ class TaskHelper {
         return 'urgente';
     }
   }
-  
+
   // Obtener texto de estado
   static String getStatusText(TaskStatus status) {
     switch (status) {
@@ -152,9 +153,9 @@ class TaskHelper {
 ```dart
 class TaskManager {
   List<Map<String, dynamic>> tasks;
-  
+
   TaskManager() : tasks = [];
-  
+
   // Crear nueva tarea
   void addTask(String title, String description, Priority priority) {
     var task = {
@@ -165,53 +166,53 @@ class TaskManager {
       'status': TaskStatus.pending,
       'createdAt': DateTime.now(),
     };
-    
+
     tasks.add(task);
     print('✓ Tarea creada: $title (Prioridad: ${TaskHelper.getPriorityText(priority)})');
   }
-  
+
   // Completar tarea
   void completeTask(int id) {
     var task = tasks.firstWhere(
       (t) => t['id'] == id,
       orElse: () => {},
     );
-    
+
     if (task.isEmpty) {
       print('✗ Tarea no encontrada');
       return;
     }
-    
+
     task['status'] = TaskStatus.completed;
     print('✓ Tarea completada: ${task['title']}');
   }
-  
+
   // Cancelar tarea
   void cancelTask(int id) {
     var task = tasks.firstWhere(
       (t) => t['id'] == id,
       orElse: () => {},
     );
-    
+
     if (task.isEmpty) {
       print('✗ Tarea no encontrada');
       return;
     }
-    
+
     task['status'] = TaskStatus.cancelled;
     print('✓ Tarea cancelada: ${task['title']}');
   }
-  
+
   // Listar todas las tareas
   void listAllTasks() {
     if (tasks.isEmpty) {
       print('No hay tareas');
       return;
     }
-    
+
     print('\n📋 TODAS LAS TAREAS (${tasks.length})');
     print('═' * 43);
-    
+
     // Ordenar por prioridad (urgente primero)
     var sortedTasks = List<Map<String, dynamic>>.from(tasks);
     sortedTasks.sort((a, b) {
@@ -223,86 +224,86 @@ class TaskManager {
       };
       return priorityOrder[a['priority']]!.compareTo(priorityOrder[b['priority']]!);
     });
-    
+
     for (var task in sortedTasks) {
       _displayTask(task);
     }
   }
-  
+
   // Listar tareas pendientes
   void listPendingTasks() {
     var pending = tasks.where((t) => t['status'] == TaskStatus.pending).toList();
-    
+
     if (pending.isEmpty) {
       print('No hay tareas pendientes');
       return;
     }
-    
+
     print('\n⏳ TAREAS PENDIENTES (${pending.length})');
     print('═' * 43);
-    
+
     for (var task in pending) {
       _displayTask(task);
     }
   }
-  
+
   // Listar tareas completadas
   void listCompletedTasks() {
     var completed = tasks.where((t) => t['status'] == TaskStatus.completed).toList();
-    
+
     if (completed.isEmpty) {
       print('No hay tareas completadas');
       return;
     }
-    
+
     print('\n✅ TAREAS COMPLETADAS (${completed.length})');
     print('═' * 43);
-    
+
     for (var task in completed) {
       _displayTask(task);
     }
   }
-  
+
   // Filtrar por prioridad
   List<Map<String, dynamic>> filterByPriority(Priority priority) {
     return tasks.where((t) => t['priority'] == priority).toList();
   }
-  
+
   // Filtrar tareas urgentes y de alta prioridad
   void listHighPriorityTasks() {
-    var highPriority = tasks.where((t) => 
+    var highPriority = tasks.where((t) =>
       (t['priority'] == Priority.urgent || t['priority'] == Priority.high) &&
       t['status'] == TaskStatus.pending
     ).toList();
-    
+
     if (highPriority.isEmpty) {
       print('No hay tareas urgentes o de alta prioridad');
       return;
     }
-    
+
     print('\n⚡ TAREAS URGENTES Y DE ALTA PRIORIDAD');
     print('═' * 43);
-    
+
     for (var task in highPriority) {
       _displayTask(task);
     }
   }
-  
+
   // Mostrar estadísticas
   void showStats() {
     if (tasks.isEmpty) {
       print('No hay tareas para analizar');
       return;
     }
-    
+
     var total = tasks.length;
     var completed = tasks.where((t) => t['status'] == TaskStatus.completed).length;
     var pending = tasks.where((t) => t['status'] == TaskStatus.pending).length;
     var cancelled = tasks.where((t) => t['status'] == TaskStatus.cancelled).length;
-    
+
     var completedPercent = (completed / total * 100).toStringAsFixed(2);
     var pendingPercent = (pending / total * 100).toStringAsFixed(2);
-    
+
     print('\n📊 ESTADÍSTICAS');
     print('═' * 43);
     print('Total de tareas: $total');
@@ -311,7 +312,7 @@ class TaskManager {
     if (cancelled > 0) {
       print('❌ Canceladas: $cancelled');
     }
-    
+
     // Estadísticas por prioridad
     print('\nPor prioridad:');
     for (var priority in Priority.values) {
@@ -321,7 +322,7 @@ class TaskManager {
       }
     }
   }
-  
+
   // Buscar tareas por palabra clave
   List<Map<String, dynamic>> searchTasks(String keyword) {
     var lowerKeyword = keyword.toLowerCase();
@@ -331,7 +332,7 @@ class TaskManager {
       return title.contains(lowerKeyword) || description.contains(lowerKeyword);
     }).toList();
   }
-  
+
   // Método privado para mostrar una tarea
   void _displayTask(Map<String, dynamic> task) {
     var statusEmoji = TaskHelper.getStatusEmoji(task['status']);
@@ -348,63 +349,63 @@ void main() {
   print('╔═══════════════════════════════════════════╗');
   print('║         GESTOR DE TAREAS - TODO           ║');
   print('╚═══════════════════════════════════════════╝\n');
-  
+
   var manager = TaskManager();
-  
+
   // Crear tareas
   manager.addTask(
     'Estudiar Dart',
     'Repasar POO y colecciones',
     Priority.high,
   );
-  
+
   manager.addTask(
     'Hacer ejercicio',
     'Correr 30 minutos',
     Priority.medium,
   );
-  
+
   manager.addTask(
     'Leer libro',
     'Terminar capítulo 5',
     Priority.low,
   );
-  
+
   manager.addTask(
     'Proyecto Flutter',
     'Implementar pantalla de login',
     Priority.urgent,
   );
-  
+
   manager.addTask(
     'Reunión equipo',
     'Daily standup a las 10am',
     Priority.high,
   );
-  
+
   // Listar todas las tareas
   manager.listAllTasks();
-  
+
   // Completar algunas tareas
   print('');
   manager.completeTask(1);  // Estudiar Dart
   manager.completeTask(5);  // Reunión equipo
-  
+
   // Cancelar una tarea
   manager.cancelTask(3);    // Leer libro
-  
+
   // Mostrar estadísticas
   manager.showStats();
-  
+
   // Listar tareas pendientes
   manager.listPendingTasks();
-  
+
   // Listar tareas completadas
   manager.listCompletedTasks();
-  
+
   // Tareas de alta prioridad
   manager.listHighPriorityTasks();
-  
+
   // Buscar tareas
   print('\n🔍 BÚSQUEDA: "Flutter"');
   print('═' * 43);
@@ -435,6 +436,7 @@ void main() {
 ## 🚀 Desafíos Opcionales
 
 1. **Editar tarea:**
+
    ```dart
    void editTask(int id, String newTitle, String newDescription) {
      var task = tasks.firstWhere((t) => t['id'] == id, orElse: () => {});
@@ -447,6 +449,7 @@ void main() {
    ```
 
 2. **Tareas con fecha límite:**
+
    ```dart
    void addTask(String title, String description, Priority priority, {DateTime? dueDate}) {
      var task = {
@@ -455,15 +458,15 @@ void main() {
      };
      tasks.add(task);
    }
-   
+
    void listOverdueTasks() {
      var now = DateTime.now();
-     var overdue = tasks.where((t) => 
-       t['dueDate'] != null && 
+     var overdue = tasks.where((t) =>
+       t['dueDate'] != null &&
        (t['dueDate'] as DateTime).isBefore(now) &&
        t['status'] == TaskStatus.pending
      ).toList();
-     
+
      print('⚠️ TAREAS VENCIDAS');
      for (var task in overdue) {
        _displayTask(task);
@@ -472,19 +475,20 @@ void main() {
    ```
 
 3. **Exportar a texto:**
+
    ```dart
    String exportToText() {
      var buffer = StringBuffer();
      buffer.writeln('REPORTE DE TAREAS');
      buffer.writeln('=' * 50);
-     
+
      for (var task in tasks) {
        buffer.writeln('${task['title']}');
        buffer.writeln('  Estado: ${TaskHelper.getStatusText(task['status'])}');
        buffer.writeln('  Prioridad: ${TaskHelper.getPriorityText(task['priority'])}');
        buffer.writeln('');
      }
-     
+
      return buffer.toString();
    }
    ```

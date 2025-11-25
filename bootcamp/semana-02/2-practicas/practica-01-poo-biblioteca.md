@@ -72,14 +72,14 @@ class Book {
   String author;
   String isbn;
   bool isAvailable;
-  
+
   Book({
     required this.title,
     required this.author,
     required this.isbn,
     this.isAvailable = true,
   });
-  
+
   void displayInfo() {
     String status = isAvailable ? '✓ Disponible' : '✗ Prestado';
     print('$title - $author [$status]');
@@ -88,6 +88,7 @@ class Book {
 ```
 
 **Tareas:**
+
 1. Copia el código de la clase `Book`
 2. Entiende cada propiedad:
    - `title`: Título del libro
@@ -103,20 +104,20 @@ class User {
   String id;
   String name;
   List<Book> borrowedBooks;
-  
+
   User({
     required this.id,
     required this.name,
   }) : borrowedBooks = [];
-  
+
   void borrowBook(Book book) {
     borrowedBooks.add(book);
   }
-  
+
   void returnBook(Book book) {
     borrowedBooks.remove(book);
   }
-  
+
   void showBorrowedBooks() {
     if (borrowedBooks.isEmpty) {
       print('$name no tiene libros prestados');
@@ -131,6 +132,7 @@ class User {
 ```
 
 **Tareas:**
+
 1. Crea la clase `User`
 2. Inicializa `borrowedBooks` como lista vacía
 3. Implementa los métodos para agregar y quitar libros
@@ -142,23 +144,23 @@ class Library {
   String name;
   List<Book> catalog;
   List<User> users;
-  
+
   Library(this.name)
       : catalog = [],
         users = [];
-  
+
   // Agregar libro al catálogo
   void addBook(Book book) {
     catalog.add(book);
     print('✓ Libro agregado: ${book.title}');
   }
-  
+
   // Registrar usuario
   void registerUser(User user) {
     users.add(user);
     print('✓ Usuario registrado: ${user.name} (ID: ${user.id})');
   }
-  
+
   // Prestar libro
   bool lendBook(String isbn, String userId) {
     // Buscar libro por ISBN
@@ -169,17 +171,17 @@ class Library {
         break;
       }
     }
-    
+
     if (book == null) {
       print('✗ Libro no encontrado');
       return false;
     }
-    
+
     if (!book.isAvailable) {
       print('✗ "${book.title}" no disponible (ya prestado)');
       return false;
     }
-    
+
     // Buscar usuario por ID
     User? user;
     for (var u in users) {
@@ -188,19 +190,19 @@ class Library {
         break;
       }
     }
-    
+
     if (user == null) {
       print('✗ Usuario no encontrado');
       return false;
     }
-    
+
     // Realizar préstamo
     book.isAvailable = false;
     user.borrowBook(book);
     print('✓ "${book.title}" prestado a ${user.name}');
     return true;
   }
-  
+
   // Devolver libro
   bool returnBook(String isbn, String userId) {
     // Buscar libro
@@ -211,12 +213,12 @@ class Library {
         break;
       }
     }
-    
+
     if (book == null) {
       print('✗ Libro no encontrado');
       return false;
     }
-    
+
     // Buscar usuario
     User? user;
     for (var u in users) {
@@ -225,35 +227,35 @@ class Library {
         break;
       }
     }
-    
+
     if (user == null) {
       print('✗ Usuario no encontrado');
       return false;
     }
-    
+
     // Realizar devolución
     book.isAvailable = true;
     user.returnBook(book);
     print('✓ "${book.title}" devuelto por ${user.name}');
     return true;
   }
-  
+
   // Mostrar estadísticas
   void showStats() {
     int available = catalog.where((book) => book.isAvailable).length;
     int borrowed = catalog.length - available;
-    
+
     print('\n📊 ESTADO DE LA BIBLIOTECA');
     print('═' * 42);
     print('Total de libros: ${catalog.length}');
     print('Libros disponibles: $available');
     print('Libros prestados: $borrowed');
   }
-  
+
   // Listar libros disponibles
   void listAvailableBooks() {
     var available = catalog.where((book) => book.isAvailable).toList();
-    
+
     if (available.isEmpty) {
       print('No hay libros disponibles');
     } else {
@@ -268,6 +270,7 @@ class Library {
 ```
 
 **Tareas:**
+
 1. Crea la clase `Library`
 2. Implementa el método `lendBook()` siguiendo la lógica:
    - Buscar libro por ISBN
@@ -284,10 +287,10 @@ void main() {
   print('╔══════════════════════════════════════════╗');
   print('║     SISTEMA DE GESTIÓN - BIBLIOTECA      ║');
   print('╚══════════════════════════════════════════╝\n');
-  
+
   // Crear biblioteca
   var library = Library('Biblioteca Municipal');
-  
+
   // Agregar libros
   print('📚 Agregando libros al catálogo...');
   library.addBook(Book(
@@ -295,55 +298,55 @@ void main() {
     author: 'Miguel de Cervantes',
     isbn: 'ISBN-001',
   ));
-  
+
   library.addBook(Book(
     title: 'Cien Años de Soledad',
     author: 'Gabriel García Márquez',
     isbn: 'ISBN-002',
   ));
-  
+
   library.addBook(Book(
     title: '1984',
     author: 'George Orwell',
     isbn: 'ISBN-003',
   ));
-  
+
   // Registrar usuarios
   print('\n👥 Registrando usuarios...');
   library.registerUser(User(
     id: 'U001',
     name: 'Ana García',
   ));
-  
+
   library.registerUser(User(
     id: 'U002',
     name: 'Carlos Ruiz',
   ));
-  
+
   // Realizar préstamos
   print('\n📖 PRÉSTAMOS');
   print('═' * 42);
   library.lendBook('ISBN-001', 'U001');
   library.lendBook('ISBN-001', 'U002');  // Intentar prestar libro no disponible
   library.lendBook('ISBN-003', 'U002');
-  
+
   // Mostrar estadísticas
   library.showStats();
-  
+
   // Mostrar libros de usuarios
   print('');
   library.users[0].showBorrowedBooks();
   print('');
   library.users[1].showBorrowedBooks();
-  
+
   // Listar libros disponibles
   library.listAvailableBooks();
-  
+
   // Devolver un libro
   print('\n📥 DEVOLUCIONES');
   print('═' * 42);
   library.returnBook('ISBN-001', 'U001');
-  
+
   // Actualizar estadísticas
   library.showStats();
 }
@@ -369,15 +372,17 @@ Antes de terminar, verifica que:
 ## 🚀 Desafíos Opcionales
 
 1. **Búsqueda avanzada:**
+
    ```dart
    List<Book> searchByAuthor(String author) {
-     return catalog.where((book) => 
+     return catalog.where((book) =>
        book.author.toLowerCase().contains(author.toLowerCase())
      ).toList();
    }
    ```
 
 2. **Límite de préstamos:**
+
    ```dart
    // Usuario solo puede tener máximo 3 libros
    bool canBorrowMore() {
@@ -386,10 +391,11 @@ Antes de terminar, verifica que:
    ```
 
 3. **Fecha de devolución:**
+
    ```dart
    class Book {
      DateTime? dueDate;
-     
+
      bool isOverdue() {
        if (dueDate == null) return false;
        return DateTime.now().isAfter(dueDate!);
