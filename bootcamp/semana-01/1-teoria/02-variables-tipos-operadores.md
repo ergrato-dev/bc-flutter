@@ -374,14 +374,33 @@ print(identical(list1, list2));  // false - diferentes instancias
 
 ### 🔀 **Operadores Lógicos**
 
-├── app/ # Carpeta principal (Expo Router)
-├── assets/ # Imágenes, fuentes, etc.
-├── node_modules/ # Dependencias (NO tocar)
-├── .gitignore # Archivos ignorados por Git
-├── app.json # Configuración de Expo
-├── package.json # Dependencias del proyecto
-├── tsconfig.json # Configuración de TypeScript
-└── README.md # Documentación
+```dart
+/**
+ * What?
+ * Operadores para combinar expresiones booleanas
+ *
+ * For?
+ * Control de flujo complejo y validaciones
+ *
+ * Impact?
+ * Decisiones basadas en múltiples condiciones
+ */
+
+bool isAdult = true;
+bool hasLicense = false;
+
+// && (AND) - ambas condiciones deben ser true
+print(isAdult && hasLicense);  // false
+
+// || (OR) - al menos una condición debe ser true
+print(isAdult || hasLicense);  // true
+
+// ! (NOT) - invierte el valor booleano
+print(!isAdult);  // false
+
+// Cortocircuito: && evalúa de izquierda a derecha y se detiene al primer false
+bool result = isAdult && checkDatabase();  // Si isAdult es false, no llama checkDatabase()
+```
 
 ````
 
