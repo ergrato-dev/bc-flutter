@@ -38,11 +38,11 @@ Al completar esta semana, serás capaz de:
 
 ## ⏱️ Distribución del Tiempo (8 horas)
 
-| Actividad | Tiempo | Descripción |
-|-----------|--------|-------------|
-| 📚 Teoría | 2.5h | Estudio de módulos teóricos |
-| 💻 Prácticas | 2.5h | 5 ejercicios progresivos |
-| 🔨 Proyecto | 3h | App de Recetas completa |
+| Actividad    | Tiempo | Descripción                 |
+| ------------ | ------ | --------------------------- |
+| 📚 Teoría    | 2.5h   | Estudio de módulos teóricos |
+| 💻 Prácticas | 2.5h   | 5 ejercicios progresivos    |
+| 🔨 Proyecto  | 3h     | App de Recetas completa     |
 
 ---
 
@@ -50,11 +50,11 @@ Al completar esta semana, serás capaz de:
 
 ### Módulos de Estudio
 
-| # | Módulo | Tiempo | Contenido Principal |
-|---|--------|--------|---------------------|
-| 01 | [Widgets Fundamentales](1-teoria/01-widgets-fundamentales.md) | 50 min | Árbol de widgets, StatelessWidget, StatefulWidget, ciclo de vida |
-| 02 | [Sistema de Layouts](1-teoria/02-sistema-layouts.md) | 60 min | Column, Row, Stack, ListView, GridView, constraints |
-| 03 | [Diseño Responsivo](1-teoria/03-diseno-responsivo.md) | 40 min | MediaQuery, LayoutBuilder, breakpoints, adaptación |
+| #   | Módulo                                                        | Tiempo | Contenido Principal                                              |
+| --- | ------------------------------------------------------------- | ------ | ---------------------------------------------------------------- |
+| 01  | [Widgets Fundamentales](1-teoria/01-widgets-fundamentales.md) | 50 min | Árbol de widgets, StatelessWidget, StatefulWidget, ciclo de vida |
+| 02  | [Sistema de Layouts](1-teoria/02-sistema-layouts.md)          | 60 min | Column, Row, Stack, ListView, GridView, constraints              |
+| 03  | [Diseño Responsivo](1-teoria/03-diseno-responsivo.md)         | 40 min | MediaQuery, LayoutBuilder, breakpoints, adaptación               |
 
 ### Conceptos Clave
 
@@ -84,13 +84,13 @@ Al completar esta semana, serás capaz de:
 
 ### Ejercicios Progresivos
 
-| # | Práctica | Dificultad | Tiempo | Widgets Clave |
-|---|----------|------------|--------|---------------|
-| 01 | [Tarjeta de Perfil](2-practicas/practica-01-tarjeta-perfil.md) | ⭐ | 25 min | Container, Column, CircleAvatar |
-| 02 | [Lista de Productos](2-practicas/practica-02-lista-productos.md) | ⭐⭐ | 30 min | ListView.builder, Card, ListTile |
-| 03 | [Galería de Imágenes](2-practicas/practica-03-galeria-imagenes.md) | ⭐⭐ | 30 min | GridView, Image.network, Hero |
-| 04 | [Layout Responsivo](2-practicas/practica-04-layout-responsivo.md) | ⭐⭐⭐ | 35 min | MediaQuery, LayoutBuilder |
-| 05 | [Dashboard Completo](2-practicas/practica-05-dashboard-completo.md) | ⭐⭐⭐ | 30 min | Scaffold, integración completa |
+| #   | Práctica                                                            | Dificultad | Tiempo | Widgets Clave                    |
+| --- | ------------------------------------------------------------------- | ---------- | ------ | -------------------------------- |
+| 01  | [Tarjeta de Perfil](2-practicas/practica-01-tarjeta-perfil.md)      | ⭐         | 25 min | Container, Column, CircleAvatar  |
+| 02  | [Lista de Productos](2-practicas/practica-02-lista-productos.md)    | ⭐⭐       | 30 min | ListView.builder, Card, ListTile |
+| 03  | [Galería de Imágenes](2-practicas/practica-03-galeria-imagenes.md)  | ⭐⭐       | 30 min | GridView, Image.network, Hero    |
+| 04  | [Layout Responsivo](2-practicas/practica-04-layout-responsivo.md)   | ⭐⭐⭐     | 35 min | MediaQuery, LayoutBuilder        |
+| 05  | [Dashboard Completo](2-practicas/practica-05-dashboard-completo.md) | ⭐⭐⭐     | 30 min | Scaffold, integración completa   |
 
 ### Progresión de Aprendizaje
 
@@ -110,11 +110,11 @@ Práctica 01 ──► Práctica 02 ──► Práctica 03 ──► Práctica 0
 
 Una aplicación completa que integra todos los conceptos de la semana.
 
-| Documento | Descripción |
-|-----------|-------------|
-| [📋 README del Proyecto](3-proyecto/README.md) | Requisitos y especificaciones completas |
-| [🎨 Guía de Diseño](3-proyecto/GUIA-DISENO.md) | Sistema de diseño y componentes |
-| [📊 Datos de Ejemplo](3-proyecto/EJEMPLOS-DATOS.md) | Modelos y datos de prueba |
+| Documento                                           | Descripción                             |
+| --------------------------------------------------- | --------------------------------------- |
+| [📋 README del Proyecto](3-proyecto/README.md)      | Requisitos y especificaciones completas |
+| [🎨 Guía de Diseño](3-proyecto/GUIA-DISENO.md)      | Sistema de diseño y componentes         |
+| [📊 Datos de Ejemplo](3-proyecto/EJEMPLOS-DATOS.md) | Modelos y datos de prueba               |
 
 #### Características Principales
 
@@ -137,20 +137,20 @@ Una aplicación completa que integra todos los conceptos de la semana.
 
 ### Documentación y Referencias
 
-| # | Recurso | Descripción |
-|---|---------|-------------|
-| 01 | [Videos: Widgets](4-recursos/01-videos-widgets.md) | Tutoriales en video sobre widgets |
-| 02 | [Videos: Layouts](4-recursos/02-videos-layouts.md) | Tutoriales sobre sistema de layouts |
-| 03 | [Videos: Responsive](4-recursos/03-videos-responsive.md) | Diseño adaptativo en Flutter |
-| 04 | [eBooks: Widgets](4-recursos/04-ebooks-widgets.md) | Libros gratuitos sobre widgets |
-| 05 | [eBooks: UI/UX](4-recursos/05-ebooks-ui-ux.md) | Diseño de interfaces |
-| 06 | [Artículos: Widgets](4-recursos/06-articulos-widgets.md) | Artículos técnicos widgets |
-| 07 | [Artículos: Layouts](4-recursos/07-articulos-layouts.md) | Artículos sistema layouts |
-| 08 | [Documentación Oficial](4-recursos/08-documentacion-oficial.md) | Flutter.dev y Dart.dev |
-| 09 | [Herramientas](4-recursos/09-herramientas-desarrollo.md) | IDEs, plugins, utilidades |
-| 10 | [Playgrounds](4-recursos/10-playgrounds-online.md) | Entornos de práctica |
-| 11 | [Comunidades](4-recursos/11-comunidades.md) | Discord, Reddit, foros |
-| 12 | [YouTube Channels](4-recursos/12-canales-youtube.md) | Canales recomendados |
+| #   | Recurso                                                         | Descripción                         |
+| --- | --------------------------------------------------------------- | ----------------------------------- |
+| 01  | [Videos: Widgets](4-recursos/01-videos-widgets.md)              | Tutoriales en video sobre widgets   |
+| 02  | [Videos: Layouts](4-recursos/02-videos-layouts.md)              | Tutoriales sobre sistema de layouts |
+| 03  | [Videos: Responsive](4-recursos/03-videos-responsive.md)        | Diseño adaptativo en Flutter        |
+| 04  | [eBooks: Widgets](4-recursos/04-ebooks-widgets.md)              | Libros gratuitos sobre widgets      |
+| 05  | [eBooks: UI/UX](4-recursos/05-ebooks-ui-ux.md)                  | Diseño de interfaces                |
+| 06  | [Artículos: Widgets](4-recursos/06-articulos-widgets.md)        | Artículos técnicos widgets          |
+| 07  | [Artículos: Layouts](4-recursos/07-articulos-layouts.md)        | Artículos sistema layouts           |
+| 08  | [Documentación Oficial](4-recursos/08-documentacion-oficial.md) | Flutter.dev y Dart.dev              |
+| 09  | [Herramientas](4-recursos/09-herramientas-desarrollo.md)        | IDEs, plugins, utilidades           |
+| 10  | [Playgrounds](4-recursos/10-playgrounds-online.md)              | Entornos de práctica                |
+| 11  | [Comunidades](4-recursos/11-comunidades.md)                     | Discord, Reddit, foros              |
+| 12  | [YouTube Channels](4-recursos/12-canales-youtube.md)            | Canales recomendados                |
 
 ### Acceso Rápido a Recursos
 
@@ -176,14 +176,14 @@ Consulta el [Glosario Técnico](5-glosario/README.md) con más de 40 términos e
 
 La carpeta [0-assets](0-assets/README.md) contiene diagramas visuales para facilitar el aprendizaje:
 
-| Diagrama | Módulo | Concepto |
-|----------|--------|----------|
-| Widget Tree | Módulo 01 | Jerarquía de widgets |
-| Column/Row Axis | Módulo 02 | Ejes main y cross |
-| Alignments | Módulo 02 | MainAxisAlignment y CrossAxisAlignment |
-| Expanded/Flexible | Módulo 02 | Distribución de espacio |
-| Stack/Positioned | Módulo 02 | Superposición de widgets |
-| Breakpoints | Módulo 03 | Puntos de quiebre responsivos |
+| Diagrama          | Módulo    | Concepto                               |
+| ----------------- | --------- | -------------------------------------- |
+| Widget Tree       | Módulo 01 | Jerarquía de widgets                   |
+| Column/Row Axis   | Módulo 02 | Ejes main y cross                      |
+| Alignments        | Módulo 02 | MainAxisAlignment y CrossAxisAlignment |
+| Expanded/Flexible | Módulo 02 | Distribución de espacio                |
+| Stack/Positioned  | Módulo 02 | Superposición de widgets               |
+| Breakpoints       | Módulo 03 | Puntos de quiebre responsivos          |
 
 ---
 
@@ -191,36 +191,38 @@ La carpeta [0-assets](0-assets/README.md) contiene diagramas visuales para facil
 
 ### Criterios de Evaluación
 
-| Componente | Peso | Puntos |
-|------------|------|--------|
-| Comprensión Teórica | 20% | 20 pts |
-| Prácticas (5) | 30% | 30 pts |
-| Proyecto Integrador | 50% | 50 pts |
-| **Total** | **100%** | **100 pts** |
+| Componente          | Peso     | Puntos      |
+| ------------------- | -------- | ----------- |
+| Comprensión Teórica | 20%      | 20 pts      |
+| Prácticas (5)       | 30%      | 30 pts      |
+| Proyecto Integrador | 50%      | 50 pts      |
+| **Total**           | **100%** | **100 pts** |
 
 📋 Consulta la [Rúbrica de Evaluación Completa](RUBRICA-EVALUACION.md)
 
 ### Escala de Calificación
 
-| Rango | Nivel | Descripción |
-|-------|-------|-------------|
-| 90-100 | ⭐ Excelente | Dominio completo, código profesional |
-| 80-89 | 🟢 Muy Bueno | Sólida comprensión, implementación correcta |
-| 70-79 | 🟡 Bueno | Comprende conceptos, áreas de mejora |
-| 60-69 | 🟠 Suficiente | Cumple mínimos, necesita práctica |
-| 0-59 | 🔴 Insuficiente | No alcanza objetivos mínimos |
+| Rango  | Nivel           | Descripción                                 |
+| ------ | --------------- | ------------------------------------------- |
+| 90-100 | ⭐ Excelente    | Dominio completo, código profesional        |
+| 80-89  | 🟢 Muy Bueno    | Sólida comprensión, implementación correcta |
+| 70-79  | 🟡 Bueno        | Comprende conceptos, áreas de mejora        |
+| 60-69  | 🟠 Suficiente   | Cumple mínimos, necesita práctica           |
+| 0-59   | 🔴 Insuficiente | No alcanza objetivos mínimos                |
 
 ---
 
 ## ✅ Checklist de Completitud
 
 ### Teoría
+
 - [ ] Módulo 01: Widgets Fundamentales leído
 - [ ] Módulo 02: Sistema de Layouts leído
 - [ ] Módulo 03: Diseño Responsivo leído
 - [ ] Glosario consultado
 
 ### Prácticas
+
 - [ ] Práctica 01: Tarjeta de Perfil
 - [ ] Práctica 02: Lista de Productos
 - [ ] Práctica 03: Galería de Imágenes
@@ -228,6 +230,7 @@ La carpeta [0-assets](0-assets/README.md) contiene diagramas visuales para facil
 - [ ] Práctica 05: Dashboard Completo
 
 ### Proyecto
+
 - [ ] App de Recetas funcional
 - [ ] Diseño responsivo implementado
 - [ ] Código documentado
@@ -303,12 +306,12 @@ class MyHomePage extends StatelessWidget {
 
 ## 🔗 Enlaces Rápidos
 
-| Recurso | Enlace |
-|---------|--------|
-| Flutter Widget Catalog | [flutter.dev/widgets](https://docs.flutter.dev/ui/widgets) |
-| Layout Cheat Sheet | [Medium Article](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e) |
-| Material Design 3 | [m3.material.io](https://m3.material.io/) |
-| Dart Pad | [dartpad.dev](https://dartpad.dev/) |
+| Recurso                | Enlace                                                                                         |
+| ---------------------- | ---------------------------------------------------------------------------------------------- |
+| Flutter Widget Catalog | [flutter.dev/widgets](https://docs.flutter.dev/ui/widgets)                                     |
+| Layout Cheat Sheet     | [Medium Article](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e) |
+| Material Design 3      | [m3.material.io](https://m3.material.io/)                                                      |
+| Dart Pad               | [dartpad.dev](https://dartpad.dev/)                                                            |
 
 ---
 
@@ -320,6 +323,6 @@ class MyHomePage extends StatelessWidget {
 
 ---
 
-*Bootcamp Flutter - Formando desarrolladores móviles profesionales*
+_Bootcamp Flutter - Formando desarrolladores móviles profesionales_
 
 </div>
