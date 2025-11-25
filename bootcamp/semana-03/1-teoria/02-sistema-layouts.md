@@ -102,6 +102,10 @@ Column(
 
 ## 2. Column y Row
 
+#### 📊 Diagrama: Ejes de Column y Row
+
+![Column Row Axis](../0-assets/02-column-row-axis.svg)
+
 ### Column: Layout Vertical
 
 Organiza hijos en una columna vertical.
@@ -170,6 +174,10 @@ Row(
 ```
 
 ### MainAxisAlignment
+
+#### 📊 Diagrama: Opciones de Alineación
+
+![Main Cross Alignment](../0-assets/03-main-cross-alignment.svg)
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -284,6 +292,10 @@ Container(
 ---
 
 ## 3. Expanded y Flexible
+
+#### 📊 Diagrama: Expanded vs Flexible
+
+![Expanded Flexible](../0-assets/04-expanded-flexible.svg)
 
 ### Expanded
 
@@ -434,6 +446,10 @@ Row(
 ---
 
 ## 4. Stack y Positioned
+
+#### 📊 Diagrama: Stack y Positioned
+
+![Stack Positioned](../0-assets/05-stack-positioned.svg)
 
 ### Stack
 

@@ -730,6 +730,10 @@ class TabletLandscapeLayout extends StatelessWidget {
 
 ## 5. Breakpoints y Patterns
 
+#### 📊 Diagrama: Breakpoints Responsivos
+
+![Responsive Breakpoints](../0-assets/06-responsive-breakpoints.svg)
+
 ### Sistema de Breakpoints
 
 ```dart
