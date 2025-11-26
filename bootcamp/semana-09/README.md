@@ -1,6 +1,6 @@
 # 📅 Semana 9: Arquitectura y Testing
 
-![Clean Architecture](./0-assets/clean-architecture-diagram.svg)
+![Clean Architecture](./0-assets/02-clean-architecture-diagram.svg)
 
 ## 🎯 Objetivos de Aprendizaje
 
@@ -177,14 +177,14 @@ dev_dependencies:
 
 ## 📊 Diagramas y Assets
 
-| Diagrama | Archivo | Descripción |
-|----------|---------|-------------|
-| Clean Architecture | [clean-architecture-diagram.svg](./0-assets/clean-architecture-diagram.svg) | Capas concéntricas |
-| Capas | [capas-clean-architecture.svg](./0-assets/capas-clean-architecture.svg) | Layers horizontales |
-| Pirámide Testing | [testing-pyramid.svg](./0-assets/testing-pyramid.svg) | Tipos de tests |
-| Ciclo TDD | [tdd-cycle.svg](./0-assets/tdd-cycle.svg) | Red-Green-Refactor |
-| SOLID | [solid-principles.svg](./0-assets/solid-principles.svg) | 5 principios |
-| DI | [dependency-injection.svg](./0-assets/dependency-injection.svg) | Inyección dependencias |
+| #   | Diagrama             | Archivo                                                                 | Descripción              |
+| --- | -------------------- | ----------------------------------------------------------------------- | ------------------------ |
+| 01  | SOLID                | [01-solid-principles.svg](./0-assets/01-solid-principles.svg)           | 5 principios SOLID       |
+| 02  | Clean Architecture   | [02-clean-architecture-diagram.svg](./0-assets/02-clean-architecture-diagram.svg) | Capas concéntricas       |
+| 03  | Capas                | [03-capas-clean-architecture.svg](./0-assets/03-capas-clean-architecture.svg) | Layers horizontales      |
+| 04  | DI                   | [04-dependency-injection.svg](./0-assets/04-dependency-injection.svg)   | Inyección dependencias   |
+| 05  | Pirámide Testing     | [05-testing-pyramid.svg](./0-assets/05-testing-pyramid.svg)             | Tipos de tests           |
+| 06  | Ciclo TDD            | [06-tdd-cycle.svg](./0-assets/06-tdd-cycle.svg)                         | Red-Green-Refactor       |
 
 ---
 

@@ -6,27 +6,38 @@ Esta carpeta contiene recursos visuales y diagramas para la Semana 9 del bootcam
 
 ## 📊 Diagramas Disponibles
 
-| Archivo                          | Descripción                    | Uso                 |
-| -------------------------------- | ------------------------------ | ------------------- |
-| `clean-architecture-diagram.svg` | Diagrama de Clean Architecture | Capas concéntricas  |
-| `capas-clean-architecture.svg`   | Capas de Clean Architecture    | Layers horizontales |
-| `testing-pyramid.svg`            | Pirámide de testing            | Tipos de tests      |
-| `tdd-cycle.svg`                  | Ciclo TDD                      | Red-Green-Refactor  |
-| `solid-principles.svg`           | Principios SOLID               | 5 principios clave  |
-| `dependency-injection.svg`       | Inyección de dependencias      | DI Container        |
+| #   | Archivo                            | Descripción                    | Uso                 |
+| --- | ---------------------------------- | ------------------------------ | ------------------- |
+| 01  | `01-solid-principles.svg`          | Principios SOLID               | 5 principios clave  |
+| 02  | `02-clean-architecture-diagram.svg`| Diagrama de Clean Architecture | Capas concéntricas  |
+| 03  | `03-capas-clean-architecture.svg`  | Capas de Clean Architecture    | Layers horizontales |
+| 04  | `04-dependency-injection.svg`      | Inyección de dependencias      | DI Container        |
+| 05  | `05-testing-pyramid.svg`           | Pirámide de testing            | Tipos de tests      |
+| 06  | `06-tdd-cycle.svg`                 | Ciclo TDD                      | Red-Green-Refactor  |
+
+### 📖 Orden de Estudio Recomendado
+
+1. **SOLID Principles** → Fundamentos de diseño orientado a objetos
+2. **Clean Architecture Diagram** → Visión general de la arquitectura
+3. **Capas Clean Architecture** → Detalle de cada capa y responsabilidades
+4. **Dependency Injection** → Cómo implementar la inversión de dependencias
+5. **Testing Pyramid** → Tipos de tests y su proporción
+6. **TDD Cycle** → Ciclo de desarrollo guiado por tests
 
 ## 🎯 Cómo Usar
 
 ### En Markdown
 
 ```markdown
-![Clean Architecture](./0-assets/01-clean-architecture.svg)
+![SOLID Principles](./0-assets/01-solid-principles.svg)
+![Clean Architecture](./0-assets/02-clean-architecture-diagram.svg)
 ```
 
 ### En Flutter (para documentación)
 
 ```dart
-/// Ver diagrama: semana-09/0-assets/01-clean-architecture.svg
+/// Ver diagrama: semana-09/0-assets/01-solid-principles.svg
+/// Ver diagrama: semana-09/0-assets/02-clean-architecture-diagram.svg
 ```
 
 ## 🎨 Especificaciones de Diseño
