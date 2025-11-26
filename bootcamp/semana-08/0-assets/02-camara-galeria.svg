@@ -25,19 +25,19 @@
   <text x="600" y="220" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">Control total, preview custom</text>
   
   <!-- Líneas hacia fuentes -->
-  <line x1="150" y1="230" x2="150" y2="280" stroke="#81C784" stroke-width="2"/>
-  <line x1="250" y1="230" x2="250" y2="280" stroke="#81C784" stroke-width="2"/>
+  <line x1="150" y1="230" x2="110" y2="280" stroke="#81C784" stroke-width="2"/>
+  <line x1="250" y1="230" x2="290" y2="280" stroke="#81C784" stroke-width="2"/>
   <line x1="600" y1="230" x2="600" y2="280" stroke="#BA68C8" stroke-width="2"/>
   
   <!-- Fuente: Cámara (image_picker) -->
-  <rect x="70" y="280" width="160" height="60" rx="8" fill="#FFB74D"/>
-  <text x="150" y="305" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📷 Cámara Nativa</text>
-  <text x="150" y="325" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">ImageSource.camera</text>
+  <rect x="30" y="280" width="160" height="60" rx="8" fill="#FFB74D"/>
+  <text x="110" y="305" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📷 Cámara Nativa</text>
+  <text x="110" y="325" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">ImageSource.camera</text>
   
   <!-- Fuente: Galería -->
-  <rect x="170" y="280" width="160" height="60" rx="8" fill="#F06292"/>
-  <text x="250" y="305" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🖼️ Galería</text>
-  <text x="250" y="325" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">ImageSource.gallery</text>
+  <rect x="210" y="280" width="160" height="60" rx="8" fill="#F06292"/>
+  <text x="290" y="305" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🖼️ Galería</text>
+  <text x="290" y="325" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">ImageSource.gallery</text>
   
   <!-- Fuente: Camera Controller -->
   <rect x="520" y="280" width="160" height="60" rx="8" fill="#64B5F6"/>
@@ -66,8 +66,8 @@
   <text x="530" y="455" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Local/Cloud</text>
   
   <!-- Líneas de conexión al procesamiento -->
-  <line x1="150" y1="340" x2="350" y2="380" stroke="#FFB74D" stroke-width="1" stroke-dasharray="4"/>
-  <line x1="250" y1="340" x2="400" y2="380" stroke="#F06292" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="110" y1="340" x2="350" y2="380" stroke="#FFB74D" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="290" y1="340" x2="400" y2="380" stroke="#F06292" stroke-width="1" stroke-dasharray="4"/>
   <line x1="600" y1="340" x2="450" y2="380" stroke="#64B5F6" stroke-width="1" stroke-dasharray="4"/>
   
   <!-- Métodos disponibles -->
