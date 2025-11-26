@@ -10,15 +10,16 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ### 1. Flutter Apprentice (Ray Wenderlich)
 
-| Atributo | Valor |
-|----------|-------|
-| **Título** | Flutter Apprentice |
-| **Autor** | Ray Wenderlich Team |
-| **Capítulos Relevantes** | 15-18 (Platform Integration) |
-| **Nivel** | Intermedio |
-| **Link** | [raywenderlich.com](https://www.raywenderlich.com/books/flutter-apprentice) |
+| Atributo                 | Valor                                                                       |
+| ------------------------ | --------------------------------------------------------------------------- |
+| **Título**               | Flutter Apprentice                                                          |
+| **Autor**                | Ray Wenderlich Team                                                         |
+| **Capítulos Relevantes** | 15-18 (Platform Integration)                                                |
+| **Nivel**                | Intermedio                                                                  |
+| **Link**                 | [raywenderlich.com](https://www.raywenderlich.com/books/flutter-apprentice) |
 
 **Contenido Destacado:**
+
 - Chapter 15: Platform Channels
 - Chapter 16: Native Integration
 - Chapter 17: Using Device Features
@@ -28,15 +29,16 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ### 2. Flutter Complete Reference
 
-| Atributo | Valor |
-|----------|-------|
-| **Título** | Flutter Complete Reference |
-| **Autor** | Alberto Miola |
-| **Capítulos Relevantes** | 20-25 |
-| **Nivel** | Avanzado |
-| **Link** | [fluttercompletereference.com](https://fluttercompletereference.com/) |
+| Atributo                 | Valor                                                                 |
+| ------------------------ | --------------------------------------------------------------------- |
+| **Título**               | Flutter Complete Reference                                            |
+| **Autor**                | Alberto Miola                                                         |
+| **Capítulos Relevantes** | 20-25                                                                 |
+| **Nivel**                | Avanzado                                                              |
+| **Link**                 | [fluttercompletereference.com](https://fluttercompletereference.com/) |
 
 **Contenido Destacado:**
+
 - Plugins architecture
 - Method channels
 - Event channels
@@ -46,15 +48,16 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ### 3. Flutter in Action (Manning)
 
-| Atributo | Valor |
-|----------|-------|
-| **Título** | Flutter in Action |
-| **Autor** | Eric Windmill |
-| **Capítulos Relevantes** | 10-12 |
-| **Nivel** | Intermedio |
-| **Link** | [manning.com](https://www.manning.com/books/flutter-in-action) |
+| Atributo                 | Valor                                                          |
+| ------------------------ | -------------------------------------------------------------- |
+| **Título**               | Flutter in Action                                              |
+| **Autor**                | Eric Windmill                                                  |
+| **Capítulos Relevantes** | 10-12                                                          |
+| **Nivel**                | Intermedio                                                     |
+| **Link**                 | [manning.com](https://www.manning.com/books/flutter-in-action) |
 
 **Contenido Destacado:**
+
 - Device features integration
 - Camera and photos
 - Location services
@@ -66,15 +69,16 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ### 4. Flutter Plugin Development Guide
 
-| Atributo | Valor |
-|----------|-------|
-| **Fuente** | flutter.dev |
-| **Tipo** | Guía Oficial |
-| **Páginas** | ~50 |
-| **Nivel** | Avanzado |
-| **Link** | [flutter.dev/plugins](https://docs.flutter.dev/packages-and-plugins/developing-packages) |
+| Atributo    | Valor                                                                                    |
+| ----------- | ---------------------------------------------------------------------------------------- |
+| **Fuente**  | flutter.dev                                                                              |
+| **Tipo**    | Guía Oficial                                                                             |
+| **Páginas** | ~50                                                                                      |
+| **Nivel**   | Avanzado                                                                                 |
+| **Link**    | [flutter.dev/plugins](https://docs.flutter.dev/packages-and-plugins/developing-packages) |
 
 **Contenido:**
+
 - Creating plugins
 - Platform-specific code
 - Testing plugins
@@ -84,14 +88,15 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ### 5. Android Integration Guide
 
-| Atributo | Valor |
-|----------|-------|
-| **Fuente** | flutter.dev |
-| **Tipo** | Guía Oficial |
-| **Nivel** | Avanzado |
-| **Link** | [flutter.dev/android](https://docs.flutter.dev/platform-integration/android) |
+| Atributo   | Valor                                                                        |
+| ---------- | ---------------------------------------------------------------------------- |
+| **Fuente** | flutter.dev                                                                  |
+| **Tipo**   | Guía Oficial                                                                 |
+| **Nivel**  | Avanzado                                                                     |
+| **Link**   | [flutter.dev/android](https://docs.flutter.dev/platform-integration/android) |
 
 **Contenido:**
+
 - Gradle configuration
 - Permissions handling
 - Background services
@@ -101,14 +106,15 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ### 6. iOS Integration Guide
 
-| Atributo | Valor |
-|----------|-------|
-| **Fuente** | flutter.dev |
-| **Tipo** | Guía Oficial |
-| **Nivel** | Avanzado |
-| **Link** | [flutter.dev/ios](https://docs.flutter.dev/platform-integration/ios) |
+| Atributo   | Valor                                                                |
+| ---------- | -------------------------------------------------------------------- |
+| **Fuente** | flutter.dev                                                          |
+| **Tipo**   | Guía Oficial                                                         |
+| **Nivel**  | Avanzado                                                             |
+| **Link**   | [flutter.dev/ios](https://docs.flutter.dev/platform-integration/ios) |
 
 **Contenido:**
+
 - Xcode configuration
 - Info.plist permissions
 - Capabilities setup
@@ -120,14 +126,15 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ### 7. Medium - Flutter Platform Channels
 
-| Atributo | Valor |
-|----------|-------|
-| **Autor** | Flutter Team |
-| **Plataforma** | Medium |
-| **Tiempo de Lectura** | ~30 min |
-| **Link** | [medium.com/flutter](https://medium.com/flutter) |
+| Atributo              | Valor                                            |
+| --------------------- | ------------------------------------------------ |
+| **Autor**             | Flutter Team                                     |
+| **Plataforma**        | Medium                                           |
+| **Tiempo de Lectura** | ~30 min                                          |
+| **Link**              | [medium.com/flutter](https://medium.com/flutter) |
 
 **Contenido:**
+
 - Method channels explained
 - Event channels for streams
 - Basic channel usage
@@ -137,14 +144,15 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ### 8. Dev.to - Flutter Native Features Series
 
-| Atributo | Valor |
-|----------|-------|
-| **Autor** | Varios |
-| **Plataforma** | Dev.to |
-| **Artículos** | Serie de 10 |
-| **Link** | [dev.to/flutter](https://dev.to/t/flutter) |
+| Atributo       | Valor                                      |
+| -------------- | ------------------------------------------ |
+| **Autor**      | Varios                                     |
+| **Plataforma** | Dev.to                                     |
+| **Artículos**  | Serie de 10                                |
+| **Link**       | [dev.to/flutter](https://dev.to/t/flutter) |
 
 **Contenido:**
+
 - Camera implementation
 - Location tracking
 - Push notifications
@@ -154,12 +162,12 @@ Libros y documentación extensa sobre desarrollo de plugins y acceso a caracter�
 
 ## 📋 Tabla Comparativa
 
-| Recurso | Nivel | Gratuito | Actualizado |
-|---------|-------|----------|-------------|
-| Flutter Apprentice | Intermedio | Parcial | 2023 |
-| Flutter Complete Reference | Avanzado | No | 2024 |
-| Flutter in Action | Intermedio | Parcial | 2022 |
-| Flutter Docs | Todos | ✅ | Siempre |
+| Recurso                    | Nivel      | Gratuito | Actualizado |
+| -------------------------- | ---------- | -------- | ----------- |
+| Flutter Apprentice         | Intermedio | Parcial  | 2023        |
+| Flutter Complete Reference | Avanzado   | No       | 2024        |
+| Flutter in Action          | Intermedio | Parcial  | 2022        |
+| Flutter Docs               | Todos      | ✅       | Siempre     |
 
 ---
 
@@ -192,6 +200,6 @@ Avanzado:
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                   | Índice                  | Siguiente                                  |
+| ------------------------------------------ | ----------------------- | ------------------------------------------ |
 | [Videos Sensores](./04-videos-sensores.md) | [Recursos](./README.md) | [eBooks Firebase](./06-ebooks-firebase.md) |

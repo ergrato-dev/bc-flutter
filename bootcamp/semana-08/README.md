@@ -1,701 +1,424 @@
-# Semana 8: Características Nativas y Plugins
+# 📱 Semana 8: Características Nativas y Plugins
+
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart)](https://dart.dev)
+[![Duración](https://img.shields.io/badge/Duración-8_horas-green)]()
+[![Nivel](https://img.shields.io/badge/Nivel-Intermedio--Avanzado-orange)]()
+
+## 📋 Descripción
+
+Esta semana exploramos el **acceso a características nativas del dispositivo** mediante plugins de Flutter. Aprenderás a usar la cámara, obtener la ubicación del usuario, enviar notificaciones, acceder a sensores del dispositivo y gestionar permisos de manera profesional.
+
+> **Proyecto de la Semana:** TravelDiary - Una aplicación de diario de viajes con fotos geolocalizadas, mapas interactivos y recordatorios.
+
+---
 
 ## 🎯 Objetivos de Aprendizaje
 
-- Integrar funcionalidades nativas del dispositivo
-- Usar la cámara y galería
-- Implementar geolocalización
-- Gestionar notificaciones
-- Acceder a sensores del dispositivo
-- Manejar permisos de manera efectiva
+Al finalizar esta semana, serás capaz de:
 
-## 📚 Contenido Teórico
+- [ ] Capturar fotos y videos usando la cámara del dispositivo
+- [ ] Seleccionar imágenes de la galería con optimización
+- [ ] Obtener la ubicación actual y tracking continuo
+- [ ] Integrar Google Maps con marcadores y rutas
+- [ ] Implementar notificaciones locales y push
+- [ ] Acceder a sensores (acelerómetro, giroscopio, etc.)
+- [ ] Gestionar permisos correctamente en Android e iOS
+- [ ] Manejar Platform Channels para comunicación nativa
 
-### 1. Permisos (1.5 horas)
+---
 
-#### Permission Handler
+## 🗂️ Estructura de la Semana
 
-```yaml
-dependencies:
-  permission_handler: ^11.1.0
 ```
-
-#### Solicitar Permisos
-
-```dart
-import 'package:permission_handler/permission_handler.dart';
-
-Future<bool> solicitarPermisoCamara() async {
-  final status = await Permission.camera.status;
-
-  if (status.isGranted) {
-    return true;
-  } else if (status.isDenied) {
-    final result = await Permission.camera.request();
-    return result.isGranted;
-  } else if (status.isPermanentlyDenied) {
-    openAppSettings();
-    return false;
-  }
-  return false;
-}
-
-// Múltiples permisos
-Future<void> solicitarPermisos() async {
-  Map<Permission, PermissionStatus> statuses = await [
-    Permission.camera,
-    Permission.microphone,
-    Permission.location,
-  ].request();
-
-  print(statuses[Permission.camera]);
-}
-```
-
-#### Configurar Android
-
-```xml
-<!-- android/app/src/main/AndroidManifest.xml -->
-<uses-permission android:name="android.permission.CAMERA"/>
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-```
-
-#### Configurar iOS
-
-```xml
-<!-- ios/Runner/Info.plist -->
-<key>NSCameraUsageDescription</key>
-<string>Necesitamos acceso a la cámara</string>
-<key>NSLocationWhenInUseUsageDescription</key>
-<string>Necesitamos tu ubicación</string>
-```
-
-### 2. Cámara y Galería (2 horas)
-
-#### Image Picker
-
-```yaml
-dependencies:
-  image_picker: ^1.0.5
-```
-
-#### Usar Cámara
-
-```dart
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-
-final ImagePicker _picker = ImagePicker();
-
-// Tomar foto
-Future<File?> tomarFoto() async {
-  final XFile? image = await _picker.pickImage(
-    source: ImageSource.camera,
-    maxWidth: 1920,
-    maxHeight: 1080,
-    imageQuality: 85,
-  );
-
-  if (image != null) {
-    return File(image.path);
-  }
-  return null;
-}
-
-// Seleccionar de galería
-Future<File?> seleccionarImagen() async {
-  final XFile? image = await _picker.pickImage(
-    source: ImageSource.gallery,
-  );
-
-  if (image != null) {
-    return File(image.path);
-  }
-  return null;
-}
-
-// Múltiples imágenes
-Future<List<File>> seleccionarMultiples() async {
-  final List<XFile> images = await _picker.pickMultiImage();
-  return images.map((xfile) => File(xfile.path)).toList();
-}
-
-// Video
-Future<File?> grabarVideo() async {
-  final XFile? video = await _picker.pickVideo(
-    source: ImageSource.camera,
-    maxDuration: Duration(seconds: 30),
-  );
-
-  if (video != null) {
-    return File(video.path);
-  }
-  return null;
-}
-```
-
-#### Image Cropper
-
-```yaml
-dependencies:
-  image_cropper: ^5.0.1
-```
-
-```dart
-Future<File?> recortarImagen(File imagen) async {
-  CroppedFile? croppedFile = await ImageCropper().cropImage(
-    sourcePath: imagen.path,
-    aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
-    uiSettings: [
-      AndroidUiSettings(
-        toolbarTitle: 'Recortar',
-        toolbarColor: Colors.blue,
-        toolbarWidgetColor: Colors.white,
-      ),
-      IOSUiSettings(
-        title: 'Recortar',
-      ),
-    ],
-  );
-
-  if (croppedFile != null) {
-    return File(croppedFile.path);
-  }
-  return null;
-}
-```
-
-### 3. Geolocalización (2 horas)
-
-#### Geolocator
-
-```yaml
-dependencies:
-  geolocator: ^10.1.0
-```
-
-#### Obtener Ubicación
-
-```dart
-import 'package:geolocator/geolocator.dart';
-
-// Verificar servicios
-Future<bool> verificarServiciosUbicacion() async {
-  bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    return false;
-  }
-
-  LocationPermission permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await Geolocator.requestPermission();
-    if (permission == LocationPermission.denied) {
-      return false;
-    }
-  }
-
-  if (permission == LocationPermission.deniedForever) {
-    return false;
-  }
-
-  return true;
-}
-
-// Obtener posición actual
-Future<Position?> obtenerUbicacionActual() async {
-  bool servicioOk = await verificarServiciosUbicacion();
-  if (!servicioOk) return null;
-
-  Position position = await Geolocator.getCurrentPosition(
-    desiredAccuracy: LocationAccuracy.high,
-  );
-
-  return position;
-}
-
-// Escuchar cambios de ubicación
-StreamSubscription<Position>? positionStream;
-
-void iniciarSeguimiento() {
-  positionStream = Geolocator.getPositionStream(
-    locationSettings: LocationSettings(
-      accuracy: LocationAccuracy.high,
-      distanceFilter: 10, // metros
-    ),
-  ).listen((Position position) {
-    print('${position.latitude}, ${position.longitude}');
-  });
-}
-
-void detenerSeguimiento() {
-  positionStream?.cancel();
-}
-
-// Calcular distancia
-double calcularDistancia(
-  double lat1, double lon1,
-  double lat2, double lon2,
-) {
-  return Geolocator.distanceBetween(lat1, lon1, lat2, lon2);
-}
-```
-
-#### Google Maps
-
-```yaml
-dependencies:
-  google_maps_flutter: ^2.5.0
-```
-
-```dart
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-class MapaScreen extends StatefulWidget {
-  @override
-  _MapaScreenState createState() => _MapaScreenState();
-}
-
-class _MapaScreenState extends State<MapaScreen> {
-  GoogleMapController? mapController;
-  Set<Marker> markers = {};
-
-  @override
-  Widget build(BuildContext context) {
-    return GoogleMap(
-      initialCameraPosition: CameraPosition(
-        target: LatLng(4.7110, -74.0721), // Bogotá
-        zoom: 12,
-      ),
-      onMapCreated: (controller) {
-        mapController = controller;
-      },
-      markers: markers,
-      myLocationEnabled: true,
-      myLocationButtonEnabled: true,
-    );
-  }
-
-  void agregarMarcador(LatLng posicion) {
-    setState(() {
-      markers.add(
-        Marker(
-          markerId: MarkerId('marker_${markers.length}'),
-          position: posicion,
-          infoWindow: InfoWindow(
-            title: 'Marcador',
-            snippet: 'Descripción',
-          ),
-        ),
-      );
-    });
-  }
-}
-```
-
-### 4. Notificaciones (2.5 horas)
-
-#### Flutter Local Notifications
-
-```yaml
-dependencies:
-  flutter_local_notifications: ^16.3.0
-```
-
-#### Configuración
-
-```dart
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
-class NotificacionesService {
-  static final FlutterLocalNotificationsPlugin _notifications =
-      FlutterLocalNotificationsPlugin();
-
-  static Future<void> inicializar() async {
-    const AndroidInitializationSettings androidSettings =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
-
-    const DarwinInitializationSettings iosSettings =
-        DarwinInitializationSettings(
-      requestAlertPermission: true,
-      requestBadgePermission: true,
-      requestSoundPermission: true,
-    );
-
-    const InitializationSettings settings = InitializationSettings(
-      android: androidSettings,
-      iOS: iosSettings,
-    );
-
-    await _notifications.initialize(
-      settings,
-      onDidReceiveNotificationResponse: onNotificationTap,
-    );
-  }
-
-  static void onNotificationTap(NotificationResponse response) {
-    // Manejar tap en notificación
-    print('Notificación presionada: ${response.payload}');
-  }
-
-  // Notificación simple
-  static Future<void> mostrarNotificacion({
-    required int id,
-    required String titulo,
-    required String cuerpo,
-    String? payload,
-  }) async {
-    const AndroidNotificationDetails androidDetails =
-        AndroidNotificationDetails(
-      'channel_id',
-      'channel_name',
-      channelDescription: 'Descripción del canal',
-      importance: Importance.max,
-      priority: Priority.high,
-    );
-
-    const DarwinNotificationDetails iosDetails =
-        DarwinNotificationDetails();
-
-    const NotificationDetails details = NotificationDetails(
-      android: androidDetails,
-      iOS: iosDetails,
-    );
-
-    await _notifications.show(id, titulo, cuerpo, details, payload: payload);
-  }
-
-  // Notificación programada
-  static Future<void> programarNotificacion({
-    required int id,
-    required String titulo,
-    required String cuerpo,
-    required DateTime fechaHora,
-  }) async {
-    await _notifications.zonedSchedule(
-      id,
-      titulo,
-      cuerpo,
-      tz.TZDateTime.from(fechaHora, tz.local),
-      const NotificationDetails(
-        android: AndroidNotificationDetails(
-          'scheduled_channel',
-          'Notificaciones Programadas',
-        ),
-      ),
-      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-    );
-  }
-
-  // Notificación periódica
-  static Future<void> notificacionPeriodica() async {
-    await _notifications.periodicallyShow(
-      0,
-      'Recordatorio',
-      'No olvides completar tu tarea',
-      RepeatInterval.daily,
-      const NotificationDetails(
-        android: AndroidNotificationDetails(
-          'periodic_channel',
-          'Notificaciones Periódicas',
-        ),
-      ),
-    );
-  }
-
-  // Cancelar notificación
-  static Future<void> cancelar(int id) async {
-    await _notifications.cancel(id);
-  }
-
-  // Cancelar todas
-  static Future<void> cancelarTodas() async {
-    await _notifications.cancelAll();
-  }
-}
-```
-
-### 5. Otros Plugins Útiles (bonus)
-
-#### URL Launcher
-
-```dart
-// Abrir URL, teléfono, email
-import 'package:url_launcher/url_launcher.dart';
-
-Future<void> abrirURL(String url) async {
-  final Uri uri = Uri.parse(url);
-  if (await canLaunchUrl(uri)) {
-    await launchUrl(uri);
-  }
-}
-
-Future<void> llamarTelefono(String numero) async {
-  final Uri uri = Uri.parse('tel:$numero');
-  await launchUrl(uri);
-}
-```
-
-#### Share
-
-```dart
-// Compartir contenido
-import 'package:share_plus/share_plus.dart';
-
-void compartirTexto(String texto) {
-  Share.share(texto);
-}
-
-void compartirArchivo(String path) {
-  Share.shareXFiles([XFile(path)]);
-}
-```
-
-## 💻 Ejercicios Prácticos
-
-### Ejercicio 1: Gestor de Permisos
-
-Crea una pantalla de configuración que:
-
-- Muestre estado de todos los permisos
-- Permita solicitar cada permiso
-- Explique por qué se necesita cada uno
-- Redirija a configuración si es necesario
-
-### Ejercicio 2: Editor de Fotos Básico
-
-Desarrolla app para:
-
-- Tomar foto o seleccionar de galería
-- Recortar imagen
-- Aplicar filtros básicos
-- Guardar resultado localmente
-
-### Ejercicio 3: Rastreador de Ubicación
-
-Implementa app que:
-
-- Muestre ubicación actual en mapa
-- Trace ruta mientras camina
-- Calcule distancia recorrida
-- Guarde rutas históricas
-
-### Ejercicio 4: Sistema de Recordatorios
-
-Crea app de recordatorios con:
-
-- Crear recordatorio con fecha/hora
-- Notificación en el momento indicado
-- Lista de recordatorios pendientes
-- Cancelar recordatorios
-
-### Ejercicio 5: Scanner de QR
-
-Desarrolla:
-
-- Lector de códigos QR
-- Generador de códigos QR
-- Historial de escaneos
-- Compartir códigos
-
-## 🔨 Proyecto de la Semana
-
-**App de Red Social de Fotos (Instagram-like)**
-
-Desarrolla una aplicación social con todas las características nativas:
-
-**Características:**
-
-1. **Captura de Contenido**
-
-   - Tomar foto con cámara
-   - Seleccionar de galería
-   - Recortar y editar foto
-   - Agregar filtros
-   - Grabar video corto (15s)
-
-2. **Publicaciones**
-
-   - Crear post con foto/video
-   - Agregar descripción
-   - Etiquetar ubicación (mapa)
-   - Agregar hashtags
-   - Compartir
-
-3. **Geolocalización**
-
-   - Obtener ubicación actual
-   - Mostrar mapa en publicación
-   - Explorar publicaciones cercanas
-   - Mapa con pins de publicaciones
-
-4. **Notificaciones**
-
-   - Notificación cuando alguien comenta
-   - Notificación de nuevos seguidores
-   - Recordatorio para publicar
-   - Notificaciones programadas
-
-5. **Feed de Publicaciones**
-
-   - Lista de publicaciones
-   - Doble tap para like
-   - Comentarios
-   - Compartir
-   - Guardar favoritos
-
-6. **Perfil de Usuario**
-   - Foto de perfil (editable)
-   - Grid de publicaciones
-   - Contador de posts
-   - Bio editable
-
-**Requisitos técnicos:**
-
-```dart
-// Modelos
-class Publicacion {
-  final String id;
-  final String usuarioId;
-  final String imagenUrl;
-  final String descripcion;
-  final List<String> hashtags;
-  final Ubicacion? ubicacion;
-  final DateTime fecha;
-  int likes;
-  List<Comentario> comentarios;
-}
-
-class Ubicacion {
-  final double latitud;
-  final double longitud;
-  final String? nombre;
-}
-
-class Usuario {
-  final String id;
-  final String nombre;
-  final String username;
-  final String? fotoUrl;
-  final String? bio;
-  int seguidores;
-  int siguiendo;
-}
-
-// Servicios
-class CamaraService {
-  Future<File?> tomarFoto() async { }
-  Future<File?> seleccionarImagen() async { }
-  Future<File?> editarImagen(File imagen) async { }
-}
-
-class UbicacionService {
-  Future<Ubicacion?> obtenerUbicacionActual() async { }
-  Future<List<Publicacion>> obtenerPublicacionesCercanas() async { }
-}
-
-class NotificacionesService {
-  Future<void> notificarNuevoLike(String usuarioId) async { }
-  Future<void> notificarNuevoComentario(String usuarioId) async { }
-  Future<void> recordatorioPublicar() async { }
-}
-```
-
-**Pantallas:**
-
-1. Feed principal
-2. Cámara/Editor
-3. Crear publicación
-4. Detalle de publicación
-5. Mapa de publicaciones
-6. Perfil de usuario
-7. Configuración de notificaciones
-
-**Funcionalidades adicionales:**
-
-- Stories (24h)
-- Modo oscuro
-- Múltiples idiomas
-- Compartir a otras apps
-- Descargar publicaciones
-
-## 📖 Recursos
-
-### Documentación
-
-- [Image Picker](https://pub.dev/packages/image_picker)
-- [Geolocator](https://pub.dev/packages/geolocator)
-- [Local Notifications](https://pub.dev/packages/flutter_local_notifications)
-- [Permission Handler](https://pub.dev/packages/permission_handler)
-- [Google Maps Flutter](https://pub.dev/packages/google_maps_flutter)
-
-### Paquetes Útiles
-
-- [camera](https://pub.dev/packages/camera)
-- [image_picker](https://pub.dev/packages/image_picker)
-- [image_cropper](https://pub.dev/packages/image_cropper)
-- [geolocator](https://pub.dev/packages/geolocator)
-- [google_maps_flutter](https://pub.dev/packages/google_maps_flutter)
-- [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications)
-- [permission_handler](https://pub.dev/packages/permission_handler)
-- [url_launcher](https://pub.dev/packages/url_launcher)
-- [share_plus](https://pub.dev/packages/share_plus)
-- [qr_code_scanner](https://pub.dev/packages/qr_code_scanner)
-
-## ✅ Checklist de Completitud
-
-- [ ] Ejercicio 1: Gestor de permisos completado
-- [ ] Ejercicio 2: Editor de fotos completado
-- [ ] Ejercicio 3: Rastreador completado
-- [ ] Ejercicio 4: Recordatorios completado
-- [ ] Ejercicio 5: Scanner QR completado
-- [ ] Proyecto: Red social completado
-- [ ] Permisos configurados correctamente
-- [ ] Funcionalidades nativas probadas
-- [ ] App probada en dispositivo físico
-- [ ] Código subido al repositorio
-
-## 🎓 Evaluación
-
-- **Ejercicios prácticos (1-5):** 30%
-- **Proyecto de la semana:** 60%
-- **Integración de funcionalidades nativas:** 10%
-
-## 📝 Notas Importantes
-
-- Siempre verificar permisos antes de usar funcionalidad
-- Probar en dispositivos físicos (emuladores tienen limitaciones)
-- Manejar errores de permisos denegados
-- Considerar diferentes versiones de Android/iOS
-- Probar notificaciones en segundo plano
-
-## 🔧 Tips
-
-```dart
-// Verificar si está en emulador
-import 'dart:io';
-bool get esEmulador => !Platform.isAndroid && !Platform.isIOS;
-
-// Optimizar imágenes antes de guardar
-import 'package:image/image.dart' as img;
-
-Future<File> comprimirImagen(File file) async {
-  final bytes = await file.readAsBytes();
-  final image = img.decodeImage(bytes);
-  final compressed = img.encodeJpg(image!, quality: 85);
-  return await file.writeAsBytes(compressed);
-}
-
-// Manejar lifecycle de ubicación
-@override
-void dispose() {
-  positionStream?.cancel();
-  super.dispose();
-}
+semana-08/
+├── README.md                          # Este archivo
+├── RUBRICA-EVALUACION.md              # Criterios de evaluación
+├── 0-assets/                          # Diagramas y recursos visuales
+│   ├── 01-flujo-permisos.svg
+│   ├── 02-camara-galeria.svg
+│   ├── 03-geolocalizacion.svg
+│   ├── 04-notificaciones.svg
+│   ├── 05-sensores.svg
+│   └── 06-arquitectura-nativa.svg
+├── 1-teoria/                          # Módulos teóricos
+│   ├── 01-camara-galeria.md
+│   ├── 02-geolocalizacion-mapas.md
+│   └── 03-notificaciones.md
+├── 2-practicas/                       # Ejercicios prácticos
+│   ├── practica-01-photo-capture.md
+│   ├── practica-02-location-tracker.md
+│   ├── practica-03-notification-manager.md
+│   ├── practica-04-sensor-dashboard.md
+│   └── practica-05-permissions-manager.md
+├── 3-proyecto/                        # Proyecto TravelDiary
+│   ├── README.md
+│   ├── GUIA-DISENO.md
+│   └── EJEMPLOS-DATOS.md
+├── 4-recursos/                        # Material complementario
+│   ├── 01-videos-camara-galeria.md
+│   ├── 02-videos-geolocalizacion.md
+│   ├── 03-videos-notificaciones.md
+│   ├── 04-videos-sensores.md
+│   ├── 05-ebooks-plugins-flutter.md
+│   ├── 06-ebooks-firebase.md
+│   ├── 07-webgrafia-documentacion.md
+│   ├── 08-webgrafia-tutoriales.md
+│   ├── 09-herramientas-desarrollo.md
+│   └── 10-comunidades-soporte.md
+└── 5-glosario/                        # Terminología
+    └── README.md
 ```
 
 ---
 
-**Dedicación:** 8 horas | **Anterior:** [← Semana 7](../semana-07/README.md) | **Siguiente:** [Semana 9 →](../semana-09/README.md)
+## ⏱️ Distribución del Tiempo
+
+| Actividad                | Duración | Descripción                         |
+| ------------------------ | -------- | ----------------------------------- |
+| Teoría: Cámara y Galería | 1.5h     | image_picker, camera, procesamiento |
+| Teoría: Geolocalización  | 1.5h     | geolocator, Google Maps, tracking   |
+| Teoría: Notificaciones   | 1.5h     | Local notifications, FCM, push      |
+| Prácticas                | 2h       | 5 ejercicios prácticos              |
+| Proyecto TravelDiary     | 1.5h     | Aplicación integradora              |
+| **Total**                | **8h**   |                                     |
+
+---
+
+## 📦 Packages Principales
+
+```yaml
+dependencies:
+  # Cámara y Galería
+  image_picker: ^1.0.4
+  camera: ^0.10.5+5
+
+  # Geolocalización y Mapas
+  geolocator: ^10.1.0
+  google_maps_flutter: ^2.5.0
+  geocoding: ^2.1.1
+
+  # Notificaciones
+  flutter_local_notifications: ^16.1.0
+  firebase_messaging: ^14.7.0
+
+  # Sensores
+  sensors_plus: ^4.0.2
+
+  # Permisos
+  permission_handler: ^11.1.0
+
+  # Almacenamiento
+  path_provider: ^2.1.1
+  shared_preferences: ^2.2.2
+```
+
+---
+
+## 📚 Contenido Teórico
+
+### Módulo 1: Cámara y Galería
+
+📄 [`1-teoria/01-camara-galeria.md`](./1-teoria/01-camara-galeria.md)
+
+- **image_picker**: Captura rápida y selección de galería
+- **camera**: Control total del hardware de cámara
+- Procesamiento y optimización de imágenes
+- Configuración Android (CameraX) e iOS (AVFoundation)
+
+```dart
+// Ejemplo: Captura de imagen con image_picker
+final ImagePicker picker = ImagePicker();
+final XFile? image = await picker.pickImage(
+  source: ImageSource.camera,
+  maxWidth: 1024,
+  imageQuality: 80,
+);
+```
+
+### Módulo 2: Geolocalización y Mapas
+
+📄 [`1-teoria/02-geolocalizacion-mapas.md`](./1-teoria/02-geolocalizacion-mapas.md)
+
+- **geolocator**: Ubicación actual y tracking continuo
+- **google_maps_flutter**: Mapas interactivos
+- Marcadores, polilíneas y geofencing
+- Cálculo de distancias y rutas
+
+```dart
+// Ejemplo: Obtener ubicación actual
+final Position position = await Geolocator.getCurrentPosition(
+  desiredAccuracy: LocationAccuracy.high,
+);
+print('Lat: ${position.latitude}, Lng: ${position.longitude}');
+```
+
+### Módulo 3: Notificaciones
+
+📄 [`1-teoria/03-notificaciones.md`](./1-teoria/03-notificaciones.md)
+
+- **flutter_local_notifications**: Notificaciones locales
+- **firebase_messaging**: Push notifications con FCM
+- Notificaciones programadas y periódicas
+- Canales de notificación en Android
+
+```dart
+// Ejemplo: Mostrar notificación local
+await flutterLocalNotificationsPlugin.show(
+  0,
+  'Título',
+  'Cuerpo de la notificación',
+  notificationDetails,
+);
+```
+
+---
+
+## 💻 Prácticas
+
+| #   | Práctica                                                                 | Descripción                           | Duración |
+| --- | ------------------------------------------------------------------------ | ------------------------------------- | -------- |
+| 1   | [PhotoCapture](./2-practicas/practica-01-photo-capture.md)               | Captura de fotos con cámara y galería | 25 min   |
+| 2   | [LocationTracker](./2-practicas/practica-02-location-tracker.md)         | Tracking de ubicación en tiempo real  | 25 min   |
+| 3   | [NotificationManager](./2-practicas/practica-03-notification-manager.md) | Sistema de notificaciones completo    | 25 min   |
+| 4   | [SensorDashboard](./2-practicas/practica-04-sensor-dashboard.md)         | Dashboard de sensores del dispositivo | 25 min   |
+| 5   | [PermissionsManager](./2-practicas/practica-05-permissions-manager.md)   | Gestión profesional de permisos       | 20 min   |
+
+---
+
+## 🔨 Proyecto: TravelDiary
+
+📄 **Especificación completa:** [`3-proyecto/README.md`](./3-proyecto/README.md)
+
+### Descripción
+
+**TravelDiary** es una aplicación de diario de viajes que permite a los usuarios:
+
+- 📸 Capturar fotos de sus viajes
+- 📍 Geoetiquetar automáticamente las fotos
+- 🗺️ Ver un mapa con todas las ubicaciones visitadas
+- 🔔 Recibir recordatorios para añadir entradas
+- 📝 Añadir notas y descripciones
+
+### Arquitectura
+
+```
+lib/
+├── main.dart
+├── app.dart
+├── core/
+│   ├── constants/
+│   ├── services/
+│   │   ├── camera_service.dart
+│   │   ├── location_service.dart
+│   │   └── notification_service.dart
+│   └── utils/
+├── data/
+│   ├── models/
+│   │   └── diary_entry.dart
+│   └── repositories/
+├── presentation/
+│   ├── screens/
+│   │   ├── home_screen.dart
+│   │   ├── new_entry_screen.dart
+│   │   ├── map_screen.dart
+│   │   └── entry_detail_screen.dart
+│   ├── widgets/
+│   └── providers/
+└── config/
+```
+
+### Features Principales
+
+| Feature          | Package                            | Descripción                |
+| ---------------- | ---------------------------------- | -------------------------- |
+| Captura de fotos | image_picker                       | Cámara y galería           |
+| Geolocalización  | geolocator                         | Auto-tagging de ubicación  |
+| Mapa interactivo | google_maps_flutter                | Visualización de viajes    |
+| Recordatorios    | flutter_local_notifications        | Notificaciones programadas |
+| Persistencia     | shared_preferences + path_provider | Almacenamiento local       |
+
+### Entregables
+
+- [ ] Pantalla principal con lista de entradas
+- [ ] Formulario de nueva entrada con foto
+- [ ] Geolocalización automática
+- [ ] Mapa con marcadores de ubicaciones
+- [ ] Sistema de recordatorios
+- [ ] Detalle de entrada con foto y mapa
+
+---
+
+## 📖 Recursos
+
+### Videos Recomendados
+
+- 📹 [Cámara y Galería](./4-recursos/01-videos-camara-galeria.md)
+- 📹 [Geolocalización](./4-recursos/02-videos-geolocalizacion.md)
+- 📹 [Notificaciones](./4-recursos/03-videos-notificaciones.md)
+- 📹 [Sensores](./4-recursos/04-videos-sensores.md)
+
+### Documentación Oficial
+
+- 📚 [Flutter Plugins](https://docs.flutter.dev/packages-and-plugins/using-packages)
+- 📚 [image_picker](https://pub.dev/packages/image_picker)
+- 📚 [geolocator](https://pub.dev/packages/geolocator)
+- 📚 [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications)
+- 📚 [permission_handler](https://pub.dev/packages/permission_handler)
+
+### Herramientas
+
+- 🔧 [Google Cloud Console](https://console.cloud.google.com/) - API Keys para Maps
+- 🔧 [Firebase Console](https://console.firebase.google.com/) - FCM
+- 🔧 [Postman](https://www.postman.com/) - Testing de APIs
+
+---
+
+## ✅ Checklist de Completitud
+
+### Teoría
+
+- [ ] Módulo 1: Cámara y Galería completado
+- [ ] Módulo 2: Geolocalización y Mapas completado
+- [ ] Módulo 3: Notificaciones completado
+
+### Prácticas
+
+- [ ] Práctica 1: PhotoCapture
+- [ ] Práctica 2: LocationTracker
+- [ ] Práctica 3: NotificationManager
+- [ ] Práctica 4: SensorDashboard
+- [ ] Práctica 5: PermissionsManager
+
+### Proyecto
+
+- [ ] Captura de fotos funcional
+- [ ] Geolocalización implementada
+- [ ] Mapa con marcadores
+- [ ] Notificaciones funcionando
+- [ ] Persistencia de datos
+- [ ] UI completa y responsive
+
+### Documentación
+
+- [ ] Código comentado
+- [ ] README del proyecto
+- [ ] Configuración documentada
+
+---
+
+## 🎓 Evaluación
+
+📊 **Rúbrica completa:** [`RUBRICA-EVALUACION.md`](./RUBRICA-EVALUACION.md)
+
+| Componente           | Peso     |
+| -------------------- | -------- |
+| Teoría y Comprensión | 15%      |
+| Prácticas (5)        | 35%      |
+| Proyecto TravelDiary | 45%      |
+| Documentación        | 5%       |
+| **Total**            | **100%** |
+
+### Criterios Clave
+
+- ✅ Gestión correcta de permisos
+- ✅ Manejo de errores en features nativas
+- ✅ Optimización de recursos (imágenes, streams)
+- ✅ UI con estados de carga y error
+- ✅ Código limpio y documentado
+
+---
+
+## 🔗 Navegación
+
+| ⬅️ Anterior                                      | 🏠 Inicio                | Siguiente ➡️                                |
+| ------------------------------------------------ | ------------------------ | ------------------------------------------- |
+| [Semana 7: Persistencia](../semana-07/README.md) | [Bootcamp](../README.md) | [Semana 9: Testing](../semana-09/README.md) |
+
+---
+
+## 📊 Diagrama de Arquitectura
+
+![Arquitectura Nativa](./0-assets/06-arquitectura-nativa.svg)
+
+---
+
+## 💡 Tips de la Semana
+
+### Permisos
+
+```dart
+// ✅ Siempre verifica el estado del permiso antes de solicitar
+final status = await Permission.camera.status;
+if (status.isDenied) {
+  final result = await Permission.camera.request();
+  // Manejar resultado
+}
+```
+
+### Cámara
+
+```dart
+// ✅ Siempre comprime las imágenes
+final image = await picker.pickImage(
+  source: ImageSource.camera,
+  maxWidth: 1024,  // Limita el tamaño
+  imageQuality: 80, // Compresión
+);
+```
+
+### Ubicación
+
+```dart
+// ✅ Verifica servicios de ubicación primero
+final serviceEnabled = await Geolocator.isLocationServiceEnabled();
+if (!serviceEnabled) {
+  // Mostrar diálogo para activar ubicación
+}
+```
+
+### Notificaciones
+
+```dart
+// ✅ Siempre maneja el tap en notificaciones
+await flutterLocalNotificationsPlugin.initialize(
+  settings,
+  onDidReceiveNotificationResponse: (response) {
+    // Navegar a pantalla específica
+  },
+);
+```
+
+---
+
+## ⚠️ Errores Comunes
+
+| Error                              | Solución                                                    |
+| ---------------------------------- | ----------------------------------------------------------- |
+| `MissingPluginException`           | Ejecutar `flutter clean && flutter pub get`                 |
+| Permisos denegados silenciosamente | Verificar configuración en AndroidManifest.xml / Info.plist |
+| Mapa no carga                      | Verificar API Key de Google Maps                            |
+| Notificaciones no aparecen         | Crear canal de notificación en Android 8+                   |
+| Ubicación imprecisa                | Usar `LocationAccuracy.high` y verificar GPS activo         |
+
+---
+
+## 🚀 Siguiente Semana
+
+En la **Semana 9** aprenderemos sobre:
+
+- Testing unitario en Flutter
+- Widget testing
+- Integration testing
+- Test-driven development (TDD)
+- Mocking de servicios nativos
+
+---
+
+> **Nota:** Esta semana requiere dispositivo físico para probar algunas funcionalidades (cámara, GPS, sensores). El emulador puede simular ubicación pero tiene limitaciones con cámara y sensores.
+
+---
+
+**¡Éxitos en tu aprendizaje! 📱🚀**
+
+_Actualizado: Noviembre 2025_

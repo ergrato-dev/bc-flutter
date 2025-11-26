@@ -6,14 +6,14 @@ Esta carpeta contiene recursos visuales y diagramas para la Semana 8 del bootcam
 
 ## 📊 Diagramas Disponibles
 
-| Archivo                       | Descripción                          | Uso                                  |
-| ----------------------------- | ------------------------------------ | ------------------------------------ |
-| `01-flujo-permisos.svg`       | Flujo completo de permisos           | Implementar permisos correctamente   |
-| `02-camara-galeria.svg`       | Arquitectura cámara y galería        | Proceso de captura de imagen         |
-| `03-geolocalizacion.svg`      | Flujo de geolocalización             | Ubicación y mapas                    |
-| `04-notificaciones.svg`       | Sistema de notificaciones            | Local y push notifications           |
-| `05-sensores.svg`             | Sensores del dispositivo             | Tipos de sensores disponibles        |
-| `06-arquitectura-nativa.svg`  | Arquitectura de características nativas | Entender comunicación Flutter-Nativo |
+| Archivo                      | Descripción                             | Uso                                  |
+| ---------------------------- | --------------------------------------- | ------------------------------------ |
+| `01-flujo-permisos.svg`      | Flujo completo de permisos              | Implementar permisos correctamente   |
+| `02-camara-galeria.svg`      | Arquitectura cámara y galería           | Proceso de captura de imagen         |
+| `03-geolocalizacion.svg`     | Flujo de geolocalización                | Ubicación y mapas                    |
+| `04-notificaciones.svg`      | Sistema de notificaciones               | Local y push notifications           |
+| `05-sensores.svg`            | Sensores del dispositivo                | Tipos de sensores disponibles        |
+| `06-arquitectura-nativa.svg` | Arquitectura de características nativas | Entender comunicación Flutter-Nativo |
 
 ## 🎯 Cómo Usar
 
