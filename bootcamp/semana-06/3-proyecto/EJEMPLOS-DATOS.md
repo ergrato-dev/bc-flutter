@@ -57,9 +57,9 @@ GET https://newsapi.org/v2/top-headlines
 ```dart
 /**
  * lib/models/article.dart
- * 
+ *
  * Article - Modelo de noticia
- * 
+ *
  * Mapea la respuesta JSON de NewsAPI a objeto Dart
  */
 import 'source.dart';
@@ -73,7 +73,7 @@ class Article {
   final String? urlToImage;
   final DateTime publishedAt;
   final String? content;
-  
+
   // Campo local (no viene de la API)
   final bool isFavorite;
 
@@ -91,7 +91,7 @@ class Article {
 
   /**
    * fromJson - Deserializar desde JSON
-   * 
+   *
    * Maneja casos donde campos pueden ser null
    */
   factory Article.fromJson(Map<String, dynamic> json) {
@@ -165,7 +165,7 @@ class Article {
 ```dart
 /**
  * lib/models/source.dart
- * 
+ *
  * Source - Fuente de la noticia
  */
 class Source {
@@ -198,7 +198,7 @@ class Source {
 ```dart
 /**
  * lib/models/news_response.dart
- * 
+ *
  * NewsResponse - Wrapper de la respuesta de la API
  */
 import 'article.dart';
@@ -244,7 +244,7 @@ class NewsResponse {
 ```dart
 /**
  * lib/models/category.dart
- * 
+ *
  * NewsCategory - Categorías disponibles en NewsAPI
  */
 import 'package:flutter/material.dart';
@@ -287,7 +287,7 @@ enum NewsCategory {
 ```dart
 /**
  * lib/services/news_service.dart
- * 
+ *
  * NewsService - Servicio para consumir NewsAPI
  */
 import 'dart:convert';
@@ -304,7 +304,7 @@ class NewsService {
 
   /**
    * getTopHeadlines - Obtener titulares principales
-   * 
+   *
    * @param country - Código de país (us, mx, es, etc.)
    * @param category - Categoría de noticias
    * @param pageSize - Cantidad de resultados
@@ -330,10 +330,10 @@ class NewsService {
 
     try {
       final response = await http.get(uri);
-      
+
       if (response.statusCode == 200) {
         final newsResponse = NewsResponse.fromJson(jsonDecode(response.body));
-        
+
         if (newsResponse.isSuccess) {
           return newsResponse.articles;
         } else {
@@ -359,7 +359,7 @@ class NewsService {
 
   /**
    * searchNews - Buscar noticias
-   * 
+   *
    * @param query - Término de búsqueda
    * @param sortBy - Ordenar por: relevancy, popularity, publishedAt
    */
@@ -380,12 +380,12 @@ class NewsService {
     );
 
     final response = await http.get(uri);
-    
+
     if (response.statusCode == 200) {
       final newsResponse = NewsResponse.fromJson(jsonDecode(response.body));
       return newsResponse.articles;
     }
-    
+
     throw NewsApiException(
       code: 'http_error',
       message: 'Error al buscar: ${response.statusCode}',
@@ -418,7 +418,7 @@ class NewsApiException implements Exception {
 ```dart
 /**
  * lib/mocks/mock_articles.dart
- * 
+ *
  * Datos de prueba para desarrollo sin API key
  */
 import '../models/article.dart';
@@ -501,7 +501,7 @@ class MockArticles {
 ```dart
 /**
  * lib/providers/news_provider.dart
- * 
+ *
  * NewsProvider - Estado global de noticias
  */
 import 'package:flutter/foundation.dart';
@@ -514,21 +514,21 @@ enum LoadingState { initial, loading, success, error }
 
 class NewsProvider extends ChangeNotifier {
   final NewsService _newsService = NewsService();
-  
+
   // Estados
   LoadingState _state = LoadingState.initial;
   List<Article> _articles = [];
   List<Article> _favorites = [];
   String? _errorMessage;
   NewsCategory? _selectedCategory;
-  
+
   // Getters
   LoadingState get state => _state;
   List<Article> get articles => _articles;
   List<Article> get favorites => _favorites;
   String? get errorMessage => _errorMessage;
   NewsCategory? get selectedCategory => _selectedCategory;
-  
+
   bool get isLoading => _state == LoadingState.loading;
   bool get hasError => _state == LoadingState.error;
 
@@ -543,7 +543,7 @@ class NewsProvider extends ChangeNotifier {
     try {
       // Para desarrollo sin API key, usar mocks
       // _articles = MockArticles.sampleArticles;
-      
+
       _articles = await _newsService.getTopHeadlines(
         category: category,
       );
@@ -553,7 +553,7 @@ class NewsProvider extends ChangeNotifier {
       _errorMessage = e.toString();
       _state = LoadingState.error;
     }
-    
+
     notifyListeners();
   }
 
@@ -577,7 +577,7 @@ class NewsProvider extends ChangeNotifier {
       _errorMessage = e.toString();
       _state = LoadingState.error;
     }
-    
+
     notifyListeners();
   }
 
@@ -586,13 +586,13 @@ class NewsProvider extends ChangeNotifier {
    */
   void toggleFavorite(Article article) {
     final index = _favorites.indexWhere((a) => a.url == article.url);
-    
+
     if (index != -1) {
       _favorites.removeAt(index);
     } else {
       _favorites.add(article);
     }
-    
+
     notifyListeners();
   }
 

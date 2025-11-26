@@ -4,11 +4,11 @@
 
 ### 📑 Índice de Módulos
 
-| # | Módulo | Duración | Descripción |
-|---|--------|----------|-------------|
-| 01 | [Fundamentos HTTP y REST](./01-fundamentos-http-rest.md) | 2.5h | Protocolo HTTP, métodos, códigos de estado, REST |
-| 02 | [Paquete HTTP y Dio](./02-http-package-dio.md) | 2.5h | Configuración, requests, headers, interceptores |
-| 03 | [Serialización JSON](./03-serializacion-json.md) | 3h | Modelos, fromJson, toJson, json_serializable |
+| #   | Módulo                                                   | Duración | Descripción                                      |
+| --- | -------------------------------------------------------- | -------- | ------------------------------------------------ |
+| 01  | [Fundamentos HTTP y REST](./01-fundamentos-http-rest.md) | 2.5h     | Protocolo HTTP, métodos, códigos de estado, REST |
+| 02  | [Paquete HTTP y Dio](./02-http-package-dio.md)           | 2.5h     | Configuración, requests, headers, interceptores  |
+| 03  | [Serialización JSON](./03-serializacion-json.md)         | 3h       | Modelos, fromJson, toJson, json_serializable     |
 
 ### 🎯 Objetivos de Aprendizaje
 

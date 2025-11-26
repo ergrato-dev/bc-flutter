@@ -38,12 +38,12 @@ FutureBuilder<T>(
 
 ### Estados de ConnectionState
 
-| Estado | Significado |
-|--------|-------------|
-| `none` | No hay Future asignado |
-| `waiting` | Future en progreso |
-| `active` | Future activo (para Streams) |
-| `done` | Future completado |
+| Estado    | Significado                  |
+| --------- | ---------------------------- |
+| `none`    | No hay Future asignado       |
+| `waiting` | Future en progreso           |
+| `active`  | Future activo (para Streams) |
+| `done`    | Future completado            |
 
 ---
 
@@ -54,9 +54,9 @@ FutureBuilder<T>(
 ```dart
 /**
  * lib/widgets/state_widgets.dart
- * 
+ *
  * Widgets reutilizables para estados de carga
- * 
+ *
  * ¿Por qué separarlos?
  * - Consistencia visual en toda la app
  * - Fácil mantenimiento
@@ -207,7 +207,7 @@ class EmptyWidget extends StatelessWidget {
 ```dart
 /**
  * lib/screens/users_futurebuilder_screen.dart
- * 
+ *
  * Ejemplo básico de FutureBuilder
  */
 import 'package:flutter/material.dart';
@@ -227,13 +227,13 @@ class UsersFutureBuilderScreen extends StatelessWidget {
       ),
       /**
        * FutureBuilder básico
-       * 
+       *
        * ¿Cómo funciona?
        * 1. Ejecuta el Future al construir el widget
        * 2. Muestra loading mientras espera
        * 3. Muestra error si falla
        * 4. Muestra datos si tiene éxito
-       * 
+       *
        * ⚠️ PROBLEMA: Se ejecuta en cada rebuild
        */
       body: FutureBuilder<List<User>>(
@@ -285,13 +285,13 @@ class UsersFutureBuilderScreen extends StatelessWidget {
 ```dart
 /**
  * lib/screens/users_refresh_screen.dart
- * 
+ *
  * FutureBuilder con pull-to-refresh
- * 
+ *
  * ¿El problema del FutureBuilder básico?
  * - El Future se ejecuta en cada rebuild
  * - No se puede refrescar manualmente
- * 
+ *
  * ¿La solución?
  * - Usar StatefulWidget
  * - Guardar el Future en una variable
@@ -311,7 +311,7 @@ class UsersRefreshScreen extends StatefulWidget {
 
 class _UsersRefreshScreenState extends State<UsersRefreshScreen> {
   final UserService _userService = UserService();
-  
+
   // ✅ Guardar el Future en una variable
   late Future<List<User>> _usersFuture;
 
@@ -323,7 +323,7 @@ class _UsersRefreshScreenState extends State<UsersRefreshScreen> {
 
   /**
    * _refreshUsers - Recargar usuarios
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Crea un nuevo Future
    * 2. setState para reconstruir FutureBuilder
@@ -538,9 +538,9 @@ class UserService {
   Future<List<User>> getUsers() async {
     // Simular delay para ver el loading
     await Future.delayed(const Duration(seconds: 1));
-    
+
     final response = await http.get(Uri.parse('$_baseUrl/users'));
-    
+
     if (response.statusCode == 200) {
       final List<dynamic> jsonData = jsonDecode(response.body);
       return jsonData.map((json) => User.fromJson(json)).toList();
@@ -550,7 +550,7 @@ class UserService {
 
   Future<User> getUserById(int id) async {
     final response = await http.get(Uri.parse('$_baseUrl/users/$id'));
-    
+
     if (response.statusCode == 200) {
       return User.fromJson(jsonDecode(response.body));
     } else if (response.statusCode == 404) {
@@ -568,16 +568,16 @@ class UserService {
 ```dart
 /**
  * AsyncValue - Patrón para manejar estados async
- * 
+ *
  * Similar a lo que usa Riverpod
  */
 sealed class AsyncValue<T> {
   const AsyncValue();
-  
+
   factory AsyncValue.loading() = AsyncLoading<T>;
   factory AsyncValue.data(T data) = AsyncData<T>;
   factory AsyncValue.error(Object error) = AsyncError<T>;
-  
+
   R when<R>({
     required R Function() loading,
     required R Function(T data) data,
@@ -587,7 +587,7 @@ sealed class AsyncValue<T> {
 
 class AsyncLoading<T> extends AsyncValue<T> {
   const AsyncLoading();
-  
+
   @override
   R when<R>({
     required R Function() loading,
@@ -599,7 +599,7 @@ class AsyncLoading<T> extends AsyncValue<T> {
 class AsyncData<T> extends AsyncValue<T> {
   final T value;
   const AsyncData(this.value);
-  
+
   @override
   R when<R>({
     required R Function() loading,
@@ -611,7 +611,7 @@ class AsyncData<T> extends AsyncValue<T> {
 class AsyncError<T> extends AsyncValue<T> {
   final Object err;
   const AsyncError(this.err);
-  
+
   @override
   R when<R>({
     required R Function() loading,
@@ -648,12 +648,15 @@ Widget build(BuildContext context) {
 ## 🎯 Retos Adicionales
 
 ### Reto 1: Shimmer Loading
+
 Reemplaza el CircularProgressIndicator por un efecto shimmer.
 
 ### Reto 2: Paginación
+
 Implementa carga infinita (load more al llegar al final).
 
 ### Reto 3: Cache
+
 Muestra datos en cache mientras se actualiza.
 
 ---

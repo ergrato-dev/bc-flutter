@@ -4,37 +4,38 @@
 
 ### 📑 Índice Alfabético
 
-| Término | Categoría | Descripción Breve |
-|---------|-----------|-------------------|
-| [API](#api) | Arquitectura | Interfaz de programación |
-| [async/await](#asyncawait) | Dart | Programación asíncrona |
-| [Body](#body) | HTTP | Cuerpo de la petición |
-| [Cache](#cache) | Performance | Almacenamiento temporal |
-| [CRUD](#crud) | Operaciones | Create, Read, Update, Delete |
-| [Debounce](#debounce) | Optimización | Retraso de ejecución |
-| [Deserialización](#deserialización) | JSON | JSON a objeto |
-| [Dio](#dio) | Paquete | Cliente HTTP avanzado |
-| [Endpoint](#endpoint) | API | URL de recurso |
-| [Future](#future) | Dart | Valor futuro asíncrono |
-| [GET](#get) | HTTP | Obtener recursos |
-| [Headers](#headers) | HTTP | Metadatos de petición |
-| [HTTP](#http) | Protocolo | Protocolo de transferencia |
-| [Interceptor](#interceptor) | Dio | Middleware de peticiones |
-| [JSON](#json) | Formato | Notación de objetos |
-| [POST](#post) | HTTP | Crear recursos |
-| [PUT](#put) | HTTP | Actualizar recursos |
-| [DELETE](#delete) | HTTP | Eliminar recursos |
-| [REST](#rest) | Arquitectura | Estilo arquitectónico |
-| [Serialización](#serialización) | JSON | Objeto a JSON |
-| [Status Code](#status-code) | HTTP | Código de respuesta |
-| [Timeout](#timeout) | Network | Tiempo de espera |
-| [URI/URL](#uriurl) | Network | Identificador de recurso |
+| Término                             | Categoría    | Descripción Breve            |
+| ----------------------------------- | ------------ | ---------------------------- |
+| [API](#api)                         | Arquitectura | Interfaz de programación     |
+| [async/await](#asyncawait)          | Dart         | Programación asíncrona       |
+| [Body](#body)                       | HTTP         | Cuerpo de la petición        |
+| [Cache](#cache)                     | Performance  | Almacenamiento temporal      |
+| [CRUD](#crud)                       | Operaciones  | Create, Read, Update, Delete |
+| [Debounce](#debounce)               | Optimización | Retraso de ejecución         |
+| [Deserialización](#deserialización) | JSON         | JSON a objeto                |
+| [Dio](#dio)                         | Paquete      | Cliente HTTP avanzado        |
+| [Endpoint](#endpoint)               | API          | URL de recurso               |
+| [Future](#future)                   | Dart         | Valor futuro asíncrono       |
+| [GET](#get)                         | HTTP         | Obtener recursos             |
+| [Headers](#headers)                 | HTTP         | Metadatos de petición        |
+| [HTTP](#http)                       | Protocolo    | Protocolo de transferencia   |
+| [Interceptor](#interceptor)         | Dio          | Middleware de peticiones     |
+| [JSON](#json)                       | Formato      | Notación de objetos          |
+| [POST](#post)                       | HTTP         | Crear recursos               |
+| [PUT](#put)                         | HTTP         | Actualizar recursos          |
+| [DELETE](#delete)                   | HTTP         | Eliminar recursos            |
+| [REST](#rest)                       | Arquitectura | Estilo arquitectónico        |
+| [Serialización](#serialización)     | JSON         | Objeto a JSON                |
+| [Status Code](#status-code)         | HTTP         | Código de respuesta          |
+| [Timeout](#timeout)                 | Network      | Tiempo de espera             |
+| [URI/URL](#uriurl)                  | Network      | Identificador de recurso     |
 
 ---
 
 ## Definiciones Detalladas
 
 ### API
+
 **Application Programming Interface**
 
 Conjunto de reglas y protocolos que permiten que diferentes aplicaciones se comuniquen entre sí.
@@ -49,6 +50,7 @@ final response = await http.get(Uri.parse('https://api.example.com/users'));
 ---
 
 ### async/await
+
 **Programación Asíncrona**
 
 Palabras clave de Dart para trabajar con operaciones asíncronas de forma legible.
@@ -67,6 +69,7 @@ Future<String> fetchData() async {
 ---
 
 ### Body
+
 **Cuerpo de la Petición**
 
 Datos enviados o recibidos en una petición HTTP.
@@ -85,6 +88,7 @@ final data = jsonDecode(response.body);
 ---
 
 ### Cache
+
 **Almacenamiento en Caché**
 
 Almacenamiento temporal de datos para evitar peticiones repetidas.
@@ -104,6 +108,7 @@ Future<Data> getData(String key) async {
 ---
 
 ### CRUD
+
 **Create, Read, Update, Delete**
 
 Operaciones básicas de persistencia de datos.
@@ -125,6 +130,7 @@ http.delete(url);
 ---
 
 ### Debounce
+
 **Retardo de Ejecución**
 
 Técnica para evitar múltiples ejecuciones seguidas, esperando que el usuario termine.
@@ -143,6 +149,7 @@ void onSearchChanged(String query) {
 ---
 
 ### Deserialización
+
 **JSON a Objeto**
 
 Proceso de convertir JSON en objetos Dart.
@@ -161,6 +168,7 @@ factory User.fromJson(Map<String, dynamic> json) {
 ---
 
 ### Dio
+
 **Cliente HTTP Avanzado**
 
 Paquete de Flutter para peticiones HTTP con características avanzadas.
@@ -178,6 +186,7 @@ final response = await dio.get('/users');
 ---
 
 ### Endpoint
+
 **Punto Final de API**
 
 URL específica que representa un recurso en una API.
@@ -193,6 +202,7 @@ Endpoints:
 ---
 
 ### Future
+
 **Valor Futuro**
 
 Representa un valor que estará disponible en el futuro.
@@ -208,6 +218,7 @@ Future<String> fetchData() async {
 ---
 
 ### GET
+
 **Método HTTP**
 
 Solicita datos de un recurso específico. No modifica datos.
@@ -224,6 +235,7 @@ final response = await http.get(
 ---
 
 ### Headers
+
 **Encabezados HTTP**
 
 Metadatos enviados con peticiones y respuestas HTTP.
@@ -241,6 +253,7 @@ await http.get(url, headers: headers);
 ---
 
 ### HTTP
+
 **HyperText Transfer Protocol**
 
 Protocolo de comunicación para la transferencia de datos en la web.
@@ -261,6 +274,7 @@ Estructura de Response:
 ---
 
 ### Interceptor
+
 **Middleware de Peticiones**
 
 Código que se ejecuta antes/después de cada petición HTTP.
@@ -286,6 +300,7 @@ dio.interceptors.add(InterceptorsWrapper(
 ---
 
 ### JSON
+
 **JavaScript Object Notation**
 
 Formato ligero de intercambio de datos.
@@ -300,6 +315,7 @@ Formato ligero de intercambio de datos.
 ```
 
 **En Dart:**
+
 ```dart
 import 'dart:convert';
 final map = jsonDecode(jsonString);
@@ -309,6 +325,7 @@ final json = jsonEncode(map);
 ---
 
 ### POST
+
 **Método HTTP**
 
 Envía datos para crear un nuevo recurso.
@@ -326,6 +343,7 @@ final response = await http.post(
 ---
 
 ### PUT
+
 **Método HTTP**
 
 Actualiza completamente un recurso existente.
@@ -342,6 +360,7 @@ await http.put(
 ---
 
 ### DELETE
+
 **Método HTTP**
 
 Elimina un recurso especificado.
@@ -355,11 +374,13 @@ await http.delete(Uri.parse('https://api.example.com/users/1'));
 ---
 
 ### REST
+
 **Representational State Transfer**
 
 Estilo arquitectónico para diseñar APIs web.
 
 **Principios:**
+
 - Interfaz uniforme
 - Sin estado (stateless)
 - Cacheable
@@ -369,6 +390,7 @@ Estilo arquitectónico para diseñar APIs web.
 ---
 
 ### Serialización
+
 **Objeto a JSON**
 
 Proceso de convertir objetos Dart a JSON.
@@ -387,6 +409,7 @@ Map<String, dynamic> toJson() {
 ---
 
 ### Status Code
+
 **Código de Estado HTTP**
 
 Número que indica el resultado de una petición.
@@ -410,6 +433,7 @@ Número que indica el resultado de una petición.
 ---
 
 ### Timeout
+
 **Tiempo de Espera**
 
 Límite de tiempo para completar una operación.
@@ -424,6 +448,7 @@ final response = await http.get(url).timeout(
 ---
 
 ### URI/URL
+
 **Uniform Resource Identifier/Locator**
 
 Identificador único de un recurso en internet.
@@ -443,26 +468,26 @@ print(uri.query);     // page=1
 
 ### Códigos de Estado Comunes
 
-| Código | Significado |
-|--------|-------------|
-| 200 | OK - Éxito |
-| 201 | Created - Creado |
-| 204 | No Content - Sin contenido |
-| 400 | Bad Request - Petición inválida |
-| 401 | Unauthorized - No autorizado |
-| 403 | Forbidden - Prohibido |
-| 404 | Not Found - No encontrado |
-| 500 | Server Error - Error de servidor |
+| Código | Significado                      |
+| ------ | -------------------------------- |
+| 200    | OK - Éxito                       |
+| 201    | Created - Creado                 |
+| 204    | No Content - Sin contenido       |
+| 400    | Bad Request - Petición inválida  |
+| 401    | Unauthorized - No autorizado     |
+| 403    | Forbidden - Prohibido            |
+| 404    | Not Found - No encontrado        |
+| 500    | Server Error - Error de servidor |
 
 ### Métodos HTTP Resumen
 
-| Método | Acción | Idempotente | Body |
-|--------|--------|-------------|------|
-| GET | Leer | ✅ | ❌ |
-| POST | Crear | ❌ | ✅ |
-| PUT | Reemplazar | ✅ | ✅ |
-| PATCH | Actualizar parcial | ❌ | ✅ |
-| DELETE | Eliminar | ✅ | Opcional |
+| Método | Acción             | Idempotente | Body     |
+| ------ | ------------------ | ----------- | -------- |
+| GET    | Leer               | ✅          | ❌       |
+| POST   | Crear              | ❌          | ✅       |
+| PUT    | Reemplazar         | ✅          | ✅       |
+| PATCH  | Actualizar parcial | ❌          | ✅       |
+| DELETE | Eliminar           | ✅          | Opcional |
 
 ---
 

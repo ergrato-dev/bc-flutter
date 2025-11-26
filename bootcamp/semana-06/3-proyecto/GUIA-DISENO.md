@@ -200,27 +200,27 @@ class AppColors {
   static const Color primary = Color(0xFF1976D2);      // Azul
   static const Color primaryLight = Color(0xFF42A5F5);
   static const Color primaryDark = Color(0xFF0D47A1);
-  
+
   // Secondary
   static const Color secondary = Color(0xFFFF5722);    // Naranja
   static const Color secondaryLight = Color(0xFFFF8A50);
-  
+
   // Background
   static const Color background = Color(0xFFF5F5F5);
   static const Color surface = Color(0xFFFFFFFF);
   static const Color card = Color(0xFFFFFFFF);
-  
+
   // Text
   static const Color textPrimary = Color(0xFF212121);
   static const Color textSecondary = Color(0xFF757575);
   static const Color textHint = Color(0xFFBDBDBD);
-  
+
   // Status
   static const Color success = Color(0xFF4CAF50);
   static const Color error = Color(0xFFF44336);
   static const Color warning = Color(0xFFFF9800);
   static const Color info = Color(0xFF2196F3);
-  
+
   // Categories
   static const Color business = Color(0xFF3F51B5);
   static const Color entertainment = Color(0xFFE91E63);
@@ -238,12 +238,12 @@ class AppColorsDark {
   // Primary
   static const Color primary = Color(0xFF90CAF9);
   static const Color primaryDark = Color(0xFF1976D2);
-  
+
   // Background
   static const Color background = Color(0xFF121212);
   static const Color surface = Color(0xFF1E1E1E);
   static const Color card = Color(0xFF2C2C2C);
-  
+
   // Text
   static const Color textPrimary = Color(0xFFFFFFFF);
   static const Color textSecondary = Color(0xFFB0B0B0);
@@ -259,48 +259,48 @@ class AppColorsDark {
 
 class AppTypography {
   static const String fontFamily = 'Roboto';
-  
+
   // Headlines
   static const TextStyle headline1 = TextStyle(
     fontSize: 28,
     fontWeight: FontWeight.bold,
     letterSpacing: -0.5,
   );
-  
+
   static const TextStyle headline2 = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
-  
+
   static const TextStyle headline3 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
   );
-  
+
   // Body
   static const TextStyle bodyLarge = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
     height: 1.5,
   );
-  
+
   static const TextStyle bodyMedium = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
     height: 1.4,
   );
-  
+
   static const TextStyle bodySmall = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
   );
-  
+
   // Labels
   static const TextStyle labelLarge = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
   );
-  
+
   static const TextStyle caption = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
@@ -318,7 +318,7 @@ class AppTypography {
 ```dart
 /**
  * NewsCard - Tarjeta de noticia horizontal
- * 
+ *
  * Uso: Lista de noticias
  */
 class NewsCard extends StatelessWidget {
@@ -326,7 +326,7 @@ class NewsCard extends StatelessWidget {
   final VoidCallback? onTap;
   final VoidCallback? onFavorite;
   final bool isFavorite;
-  
+
   const NewsCard({
     super.key,
     required this.article,
@@ -334,7 +334,7 @@ class NewsCard extends StatelessWidget {
     this.onFavorite,
     this.isFavorite = false,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -365,7 +365,7 @@ class NewsCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              
+
               // Contenido
               Expanded(
                 child: Column(
@@ -410,7 +410,7 @@ class NewsCard extends StatelessWidget {
                   ],
                 ),
               ),
-              
+
               // Favorito
               IconButton(
                 icon: Icon(
@@ -425,7 +425,7 @@ class NewsCard extends StatelessWidget {
       ),
     );
   }
-  
+
   String _formatTime(DateTime date) {
     final diff = DateTime.now().difference(date);
     if (diff.inMinutes < 60) return 'hace ${diff.inMinutes}m';
@@ -440,19 +440,19 @@ class NewsCard extends StatelessWidget {
 ```dart
 /**
  * FeaturedNewsCard - Tarjeta destacada
- * 
+ *
  * Uso: Primera noticia del home
  */
 class FeaturedNewsCard extends StatelessWidget {
   final Article article;
   final VoidCallback? onTap;
-  
+
   const FeaturedNewsCard({
     super.key,
     required this.article,
     this.onTap,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -478,7 +478,7 @@ class FeaturedNewsCard extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             // Contenido
             Padding(
               padding: const EdgeInsets.all(16),
@@ -549,7 +549,7 @@ class CategoryChip extends StatelessWidget {
   final Color color;
   final bool isSelected;
   final VoidCallback? onTap;
-  
+
   const CategoryChip({
     super.key,
     required this.label,
@@ -558,7 +558,7 @@ class CategoryChip extends StatelessWidget {
     this.isSelected = false,
     this.onTap,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -608,18 +608,18 @@ class AppSpacing {
   static const double md = 16;
   static const double lg = 24;
   static const double xl = 32;
-  
+
   // Border Radius
   static const double radiusSm = 8;
   static const double radiusMd = 12;
   static const double radiusLg = 16;
   static const double radiusXl = 24;
-  
+
   // Image sizes
   static const double thumbnailWidth = 100;
   static const double thumbnailHeight = 80;
   static const double featuredAspectRatio = 16 / 9;
-  
+
   // Icon sizes
   static const double iconSm = 16;
   static const double iconMd = 24;
@@ -637,14 +637,14 @@ class AppSpacing {
 class Responsive {
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 600;
-      
+
   static bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.width >= 600 &&
       MediaQuery.of(context).size.width < 1200;
-      
+
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1200;
-      
+
   static int getGridCrossAxisCount(BuildContext context) {
     if (isDesktop(context)) return 3;
     if (isTablet(context)) return 2;

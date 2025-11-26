@@ -26,9 +26,9 @@ Extenderás la práctica anterior implementando todas las operaciones CRUD (Crea
 ```dart
 /**
  * lib/services/post_service.dart (actualizado)
- * 
+ *
  * PostService - Servicio CRUD completo
- * 
+ *
  * Operaciones:
  * - GET: Obtener posts (ya implementado)
  * - POST: Crear nuevo post
@@ -41,18 +41,18 @@ import '../models/post.dart';
 
 class PostService {
   static const String _baseUrl = 'https://jsonplaceholder.typicode.com';
-  
+
   // Headers comunes para JSON
   static const Map<String, String> _headers = {
     'Content-Type': 'application/json; charset=UTF-8',
   };
 
   // ==================== READ ====================
-  
+
   /// Obtener todos los posts
   Future<List<Post>> getPosts() async {
     final response = await http.get(Uri.parse('$_baseUrl/posts'));
-    
+
     if (response.statusCode == 200) {
       final List<dynamic> jsonData = jsonDecode(response.body);
       return jsonData.map((json) => Post.fromJson(json)).toList();
@@ -63,7 +63,7 @@ class PostService {
   /// Obtener un post por ID
   Future<Post> getPostById(int id) async {
     final response = await http.get(Uri.parse('$_baseUrl/posts/$id'));
-    
+
     if (response.statusCode == 200) {
       return Post.fromJson(jsonDecode(response.body));
     } else if (response.statusCode == 404) {
@@ -73,18 +73,18 @@ class PostService {
   }
 
   // ==================== CREATE ====================
-  
+
   /**
    * createPost - Crear un nuevo post
-   * 
+   *
    * ¿Qué hace?
    * Envía los datos del post al servidor mediante POST
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Serializa el objeto a JSON
    * 2. Envía petición POST con el body
    * 3. Recibe el objeto creado con su nuevo ID
-   * 
+   *
    * @param title - Título del post
    * @param body - Contenido del post
    * @param userId - ID del usuario autor
@@ -104,7 +104,7 @@ class PostService {
         'userId': userId,
       }),
     );
-    
+
     // 201 = Created (recurso creado exitosamente)
     if (response.statusCode == 201) {
       return Post.fromJson(jsonDecode(response.body));
@@ -113,17 +113,17 @@ class PostService {
   }
 
   // ==================== UPDATE ====================
-  
+
   /**
    * updatePost - Actualizar un post existente (PUT)
-   * 
+   *
    * ¿Qué hace?
    * Reemplaza completamente el post con los nuevos datos
-   * 
+   *
    * ¿PUT vs PATCH?
    * - PUT: Reemplaza todo el recurso
    * - PATCH: Actualiza solo campos específicos
-   * 
+   *
    * @param post - Post con todos los datos actualizados
    * @returns Post actualizado
    */
@@ -133,7 +133,7 @@ class PostService {
       headers: _headers,
       body: jsonEncode(post.toJson()),
     );
-    
+
     if (response.statusCode == 200) {
       return Post.fromJson(jsonDecode(response.body));
     } else if (response.statusCode == 404) {
@@ -144,10 +144,10 @@ class PostService {
 
   /**
    * patchPost - Actualizar campos específicos (PATCH)
-   * 
+   *
    * ¿Cuándo usar?
    * Cuando solo necesitas cambiar 1 o 2 campos
-   * 
+   *
    * @param id - ID del post
    * @param fields - Map con solo los campos a actualizar
    */
@@ -157,7 +157,7 @@ class PostService {
       headers: _headers,
       body: jsonEncode(fields),
     );
-    
+
     if (response.statusCode == 200) {
       return Post.fromJson(jsonDecode(response.body));
     }
@@ -165,24 +165,24 @@ class PostService {
   }
 
   // ==================== DELETE ====================
-  
+
   /**
    * deletePost - Eliminar un post
-   * 
+   *
    * ¿Qué hace?
    * Elimina el post del servidor
-   * 
+   *
    * ¿Qué retorna?
    * - 200 o 204 indican éxito
    * - No retorna datos (el recurso ya no existe)
-   * 
+   *
    * @param id - ID del post a eliminar
    */
   Future<void> deletePost(int id) async {
     final response = await http.delete(
       Uri.parse('$_baseUrl/posts/$id'),
     );
-    
+
     // 200 OK o 204 No Content = Éxito
     if (response.statusCode == 200 || response.statusCode == 204) {
       return; // Éxito
@@ -199,7 +199,7 @@ class PostService {
 ```dart
 /**
  * lib/models/post.dart (actualizado)
- * 
+ *
  * Agregamos copyWith para facilitar actualizaciones
  */
 class Post {
@@ -255,13 +255,13 @@ class Post {
 ```dart
 /**
  * lib/screens/post_form_screen.dart
- * 
+ *
  * PostFormScreen - Formulario para crear/editar posts
- * 
+ *
  * ¿Qué hace?
  * - Modo crear: Formulario vacío para nuevo post
  * - Modo editar: Formulario con datos del post existente
- * 
+ *
  * ¿Cómo distinguir modos?
  * Si recibe un post, es edición; si no, es creación
  */
@@ -281,14 +281,14 @@ class PostFormScreen extends StatefulWidget {
 class _PostFormScreenState extends State<PostFormScreen> {
   final _formKey = GlobalKey<FormState>();
   final _postService = PostService();
-  
+
   // Controladores de los campos
   late TextEditingController _titleController;
   late TextEditingController _bodyController;
   late TextEditingController _userIdController;
-  
+
   bool _isLoading = false;
-  
+
   // ¿Es modo edición?
   bool get _isEditing => widget.post != null;
 
@@ -313,7 +313,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
 
   /**
    * _submitForm - Enviar formulario
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Valida el formulario
    * 2. Si es edición: PUT
@@ -327,7 +327,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
 
     try {
       Post savedPost;
-      
+
       if (_isEditing) {
         // Actualizar post existente
         savedPost = await _postService.updatePost(
@@ -405,7 +405,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
                 },
               ),
               const SizedBox(height: 16),
-              
+
               // Campo: Título
               TextFormField(
                 controller: _titleController,
@@ -427,7 +427,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
                 },
               ),
               const SizedBox(height: 16),
-              
+
               // Campo: Contenido
               TextFormField(
                 controller: _bodyController,
@@ -451,7 +451,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
                 },
               ),
               const SizedBox(height: 24),
-              
+
               // Botón Guardar
               SizedBox(
                 height: 50,
@@ -487,7 +487,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
 ```dart
 /**
  * lib/screens/posts_screen.dart (actualizado)
- * 
+ *
  * Agregamos:
  * - FAB para crear post
  * - Menú en cada card para editar/eliminar
@@ -507,7 +507,7 @@ class PostsScreen extends StatefulWidget {
 
 class _PostsScreenState extends State<PostsScreen> {
   final PostService _postService = PostService();
-  
+
   List<Post> _posts = [];
   bool _isLoading = true;
   String? _error;
@@ -608,12 +608,12 @@ class _PostsScreenState extends State<PostsScreen> {
     // Eliminar
     try {
       await _postService.deletePost(post.id);
-      
+
       // Remover de la lista
       setState(() {
         _posts.removeWhere((p) => p.id == post.id);
       });
-      
+
       _showSnackBar('Post eliminado');
     } catch (e) {
       _showSnackBar('Error: $e', isError: true);
@@ -763,12 +763,15 @@ class _PostsScreenState extends State<PostsScreen> {
 ## 🎯 Retos Adicionales
 
 ### Reto 1: Deshacer eliminación
+
 Implementa un SnackBar con opción "Deshacer" después de eliminar.
 
 ### Reto 2: PATCH
+
 Añade un botón para actualizar solo el título usando PATCH.
 
 ### Reto 3: Optimistic Updates
+
 Actualiza la UI inmediatamente antes de la respuesta del servidor.
 
 ---

@@ -35,12 +35,12 @@ Al finalizar este módulo, serás capaz de:
 
 #### Características de HTTP
 
-| Característica | Descripción |
-|----------------|-------------|
-| **Sin estado** | Cada petición es independiente |
-| **Basado en texto** | Fácil de leer y depurar |
-| **Cliente-Servidor** | Roles claramente definidos |
-| **Extensible** | Soporta headers personalizados |
+| Característica       | Descripción                    |
+| -------------------- | ------------------------------ |
+| **Sin estado**       | Cada petición es independiente |
+| **Basado en texto**  | Fácil de leer y depurar        |
+| **Cliente-Servidor** | Roles claramente definidos     |
+| **Extensible**       | Soporta headers personalizados |
 
 ### 2. Anatomía de una Petición HTTP
 
@@ -91,13 +91,13 @@ Los métodos HTTP definen la acción que queremos realizar sobre un recurso.
 
 #### Tabla de Métodos
 
-| Método | Acción | Idempotente | Body | Uso |
-|--------|--------|-------------|------|-----|
-| **GET** | Leer | ✅ Sí | ❌ No | Obtener datos |
-| **POST** | Crear | ❌ No | ✅ Sí | Crear recursos |
-| **PUT** | Reemplazar | ✅ Sí | ✅ Sí | Actualizar completo |
-| **PATCH** | Modificar | ❌ No | ✅ Sí | Actualizar parcial |
-| **DELETE** | Eliminar | ✅ Sí | Opcional | Borrar recursos |
+| Método     | Acción     | Idempotente | Body     | Uso                 |
+| ---------- | ---------- | ----------- | -------- | ------------------- |
+| **GET**    | Leer       | ✅ Sí       | ❌ No    | Obtener datos       |
+| **POST**   | Crear      | ❌ No       | ✅ Sí    | Crear recursos      |
+| **PUT**    | Reemplazar | ✅ Sí       | ✅ Sí    | Actualizar completo |
+| **PATCH**  | Modificar  | ❌ No       | ✅ Sí    | Actualizar parcial  |
+| **DELETE** | Eliminar   | ✅ Sí       | Opcional | Borrar recursos     |
 
 #### Ejemplos por Método
 
@@ -106,16 +106,16 @@ Los métodos HTTP definen la acción que queremos realizar sobre un recurso.
 ```dart
 /**
  * GET: Obtener lista de usuarios
- * 
+ *
  * ¿Qué hace?
  * Solicita datos de un recurso sin modificarlo
- * 
+ *
  * ¿Cuándo usar?
  * - Listar recursos
  * - Obtener detalles de un recurso
  * - Búsquedas y filtros
  */
- 
+
 // Obtener todos los usuarios
 // GET /api/users
 
@@ -131,10 +131,10 @@ Los métodos HTTP definen la acción que queremos realizar sobre un recurso.
 ```dart
 /**
  * POST: Crear nuevo usuario
- * 
+ *
  * ¿Qué hace?
  * Envía datos para crear un nuevo recurso
- * 
+ *
  * ¿Cuándo usar?
  * - Crear nuevos registros
  * - Enviar formularios
@@ -151,10 +151,10 @@ Los métodos HTTP definen la acción que queremos realizar sobre un recurso.
 ```dart
 /**
  * PUT: Actualizar usuario completo
- * 
+ *
  * ¿Qué hace?
  * Reemplaza completamente un recurso existente
- * 
+ *
  * ¿Cuándo usar?
  * - Actualizar todos los campos de un recurso
  * - Cuando necesitas idempotencia
@@ -170,10 +170,10 @@ Los métodos HTTP definen la acción que queremos realizar sobre un recurso.
 ```dart
 /**
  * PATCH: Actualizar campos específicos
- * 
+ *
  * ¿Qué hace?
  * Modifica solo los campos especificados
- * 
+ *
  * ¿Cuándo usar?
  * - Actualizar uno o pocos campos
  * - No quieres enviar todo el objeto
@@ -189,10 +189,10 @@ Los métodos HTTP definen la acción que queremos realizar sobre un recurso.
 ```dart
 /**
  * DELETE: Eliminar usuario
- * 
+ *
  * ¿Qué hace?
  * Elimina un recurso del servidor
- * 
+ *
  * ¿Cuándo usar?
  * - Borrar registros
  * - Desactivar recursos
@@ -242,30 +242,30 @@ Los códigos de estado indican el resultado de una petición HTTP.
 
 #### Códigos Más Comunes
 
-| Código | Nombre | Significado | Acción |
-|--------|--------|-------------|--------|
-| 200 | OK | Petición exitosa | Procesar datos |
-| 201 | Created | Recurso creado | Mostrar confirmación |
-| 204 | No Content | Éxito sin contenido | Continuar |
-| 400 | Bad Request | Petición malformada | Validar datos |
-| 401 | Unauthorized | No autenticado | Pedir login |
-| 403 | Forbidden | Sin permisos | Mostrar error |
-| 404 | Not Found | Recurso no existe | Mostrar "no encontrado" |
-| 422 | Unprocessable | Validación fallida | Mostrar errores |
-| 500 | Server Error | Error interno | Reintentar/contactar |
+| Código | Nombre        | Significado         | Acción                  |
+| ------ | ------------- | ------------------- | ----------------------- |
+| 200    | OK            | Petición exitosa    | Procesar datos          |
+| 201    | Created       | Recurso creado      | Mostrar confirmación    |
+| 204    | No Content    | Éxito sin contenido | Continuar               |
+| 400    | Bad Request   | Petición malformada | Validar datos           |
+| 401    | Unauthorized  | No autenticado      | Pedir login             |
+| 403    | Forbidden     | Sin permisos        | Mostrar error           |
+| 404    | Not Found     | Recurso no existe   | Mostrar "no encontrado" |
+| 422    | Unprocessable | Validación fallida  | Mostrar errores         |
+| 500    | Server Error  | Error interno       | Reintentar/contactar    |
 
 #### Manejo en Dart
 
 ```dart
 /**
  * handleStatusCode
- * 
+ *
  * ¿Qué hace?
  * Interpreta el código de estado y ejecuta la acción apropiada
- * 
+ *
  * ¿Para qué?
  * Centralizar el manejo de respuestas HTTP
- * 
+ *
  * ¿Cómo funciona?
  * 1. Recibe la respuesta HTTP
  * 2. Evalúa el código de estado
@@ -307,7 +307,7 @@ Los headers proporcionan información adicional sobre la petición o respuesta.
 ```dart
 /**
  * Headers HTTP más utilizados
- * 
+ *
  * ¿Para qué sirven?
  * - Autenticación
  * - Formato de datos
@@ -318,19 +318,19 @@ Los headers proporcionan información adicional sobre la petición o respuesta.
 final headers = {
   // Tipo de contenido que enviamos
   'Content-Type': 'application/json',
-  
+
   // Tipo de contenido que aceptamos
   'Accept': 'application/json',
-  
+
   // Autenticación con token
   'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIs...',
-  
+
   // API Key (algunas APIs lo requieren)
   'X-API-Key': 'tu-api-key-aqui',
-  
+
   // Idioma preferido
   'Accept-Language': 'es-ES',
-  
+
   // User Agent (identificación del cliente)
   'User-Agent': 'MiApp/1.0.0',
 };
@@ -338,13 +338,13 @@ final headers = {
 
 #### Headers de Respuesta
 
-| Header | Propósito |
-|--------|-----------|
-| `Content-Type` | Tipo de dato devuelto |
-| `Content-Length` | Tamaño en bytes |
-| `Cache-Control` | Política de cache |
-| `Set-Cookie` | Establecer cookies |
-| `Location` | URL de redirección |
+| Header           | Propósito             |
+| ---------------- | --------------------- |
+| `Content-Type`   | Tipo de dato devuelto |
+| `Content-Length` | Tamaño en bytes       |
+| `Cache-Control`  | Política de cache     |
+| `Set-Cookie`     | Establecer cookies    |
+| `Location`       | URL de redirección    |
 
 ### 6. Arquitectura REST
 
@@ -545,11 +545,11 @@ GET    /users/:id/loans    - Préstamos de un usuario
 ¿Qué acción tomarías en tu app para cada código?
 
 | Código | Acción |
-|--------|--------|
-| 200 | |
-| 401 | |
-| 404 | |
-| 500 | |
+| ------ | ------ |
+| 200    |        |
+| 401    |        |
+| 404    |        |
+| 500    |        |
 
 <details>
 <summary>Ver respuestas</summary>
@@ -565,13 +565,13 @@ GET    /users/:id/loans    - Préstamos de un usuario
 
 ## 📝 Resumen
 
-| Concepto | Puntos Clave |
-|----------|--------------|
-| **HTTP** | Protocolo de comunicación web |
-| **Métodos** | GET, POST, PUT, PATCH, DELETE |
+| Concepto         | Puntos Clave                                     |
+| ---------------- | ------------------------------------------------ |
+| **HTTP**         | Protocolo de comunicación web                    |
+| **Métodos**      | GET, POST, PUT, PATCH, DELETE                    |
 | **Status Codes** | 2xx éxito, 4xx error cliente, 5xx error servidor |
-| **REST** | Arquitectura basada en recursos y URLs |
-| **JSON** | Formato estándar de intercambio de datos |
+| **REST**         | Arquitectura basada en recursos y URLs           |
+| **JSON**         | Formato estándar de intercambio de datos         |
 
 ---
 

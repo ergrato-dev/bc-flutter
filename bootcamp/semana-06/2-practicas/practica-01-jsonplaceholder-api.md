@@ -57,12 +57,12 @@ lib/
 ```dart
 /**
  * lib/models/post.dart
- * 
+ *
  * Post - Modelo de publicación
- * 
+ *
  * ¿Qué hace?
  * Representa un post de la API JSONPlaceholder
- * 
+ *
  * ¿Estructura de la API?
  * {
  *   "userId": 1,
@@ -86,7 +86,7 @@ class Post {
 
   /**
    * fromJson - Deserializar JSON a objeto Post
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Recibe el Map del JSON decodificado
    * 2. Extrae cada campo por su key
@@ -103,7 +103,7 @@ class Post {
 
   /**
    * toJson - Serializar objeto a Map
-   * 
+   *
    * ¿Para qué?
    * Enviar datos al servidor (POST, PUT)
    */
@@ -126,12 +126,12 @@ class Post {
 ```dart
 /**
  * lib/services/post_service.dart
- * 
+ *
  * PostService - Servicio para consumir la API de posts
- * 
+ *
  * ¿Qué hace?
  * Centraliza todas las operaciones HTTP relacionadas con posts
- * 
+ *
  * ¿Por qué un servicio separado?
  * - Separación de responsabilidades
  * - Fácil de testear
@@ -147,7 +147,7 @@ class PostService {
 
   /**
    * getPosts - Obtener todos los posts
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Realiza GET a /posts
    * 2. Verifica el código de estado
@@ -159,15 +159,15 @@ class PostService {
     try {
       // Construir URI
       final uri = Uri.parse('$_baseUrl/posts');
-      
+
       // Realizar petición GET
       final response = await http.get(uri);
-      
+
       // Verificar respuesta exitosa
       if (response.statusCode == 200) {
         // Decodificar JSON (lista de objetos)
         final List<dynamic> jsonData = jsonDecode(response.body);
-        
+
         // Convertir cada JSON a objeto Post
         return jsonData.map((json) => Post.fromJson(json)).toList();
       } else {
@@ -180,14 +180,14 @@ class PostService {
 
   /**
    * getPostById - Obtener un post específico
-   * 
+   *
    * @param id - ID del post a obtener
    */
   Future<Post> getPostById(int id) async {
     try {
       final uri = Uri.parse('$_baseUrl/posts/$id');
       final response = await http.get(uri);
-      
+
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);
         return Post.fromJson(jsonData);
@@ -203,9 +203,9 @@ class PostService {
 
   /**
    * getPostsByUser - Obtener posts de un usuario
-   * 
+   *
    * @param userId - ID del usuario
-   * 
+   *
    * ¿Cómo filtrar?
    * Usando query parameters: /posts?userId=1
    */
@@ -214,9 +214,9 @@ class PostService {
       final uri = Uri.parse('$_baseUrl/posts').replace(
         queryParameters: {'userId': userId.toString()},
       );
-      
+
       final response = await http.get(uri);
-      
+
       if (response.statusCode == 200) {
         final List<dynamic> jsonData = jsonDecode(response.body);
         return jsonData.map((json) => Post.fromJson(json)).toList();
@@ -235,9 +235,9 @@ class PostService {
 ```dart
 /**
  * lib/screens/posts_screen.dart
- * 
+ *
  * PostsScreen - Pantalla que muestra la lista de posts
- * 
+ *
  * ¿Qué hace?
  * - Carga posts al iniciar
  * - Muestra loading mientras carga
@@ -258,7 +258,7 @@ class PostsScreen extends StatefulWidget {
 class _PostsScreenState extends State<PostsScreen> {
   // Servicio de API
   final PostService _postService = PostService();
-  
+
   // Estados
   List<Post> _posts = [];
   bool _isLoading = true;
@@ -272,7 +272,7 @@ class _PostsScreenState extends State<PostsScreen> {
 
   /**
    * _loadPosts - Cargar posts desde la API
-   * 
+   *
    * ¿Cómo maneja los estados?
    * 1. Inicia con isLoading = true
    * 2. Intenta cargar los datos
@@ -319,7 +319,7 @@ class _PostsScreenState extends State<PostsScreen> {
 
   /**
    * _buildBody - Construir contenido según estado
-   * 
+   *
    * Estados posibles:
    * - Loading: CircularProgressIndicator
    * - Error: Mensaje + botón reintentar
@@ -547,12 +547,15 @@ Antes de continuar, verifica:
 ## 🎯 Retos Adicionales
 
 ### Reto 1: Agregar búsqueda
+
 Implementa un `SearchBar` que filtre los posts por título.
 
 ### Reto 2: Limitar resultados
+
 Modifica el servicio para cargar solo los primeros 20 posts usando query params.
 
 ### Reto 3: Modelo de Usuario
+
 Crea el modelo `User` y consume el endpoint `/users` para mostrar el nombre del autor.
 
 ---

@@ -51,9 +51,9 @@ Si el usuario cambia el query antes de recibir respuesta, la respuesta anterior 
 ```dart
 /**
  * lib/services/search_service.dart
- * 
+ *
  * SearchService - Servicio de búsqueda con cancelación
- * 
+ *
  * ¿Qué hace?
  * - Busca posts por título
  * - Soporta cancelación de peticiones
@@ -70,52 +70,52 @@ class SearchService {
     connectTimeout: const Duration(seconds: 10),
     receiveTimeout: const Duration(seconds: 10),
   ));
-  
+
   // Token de cancelación actual
   CancelToken? _cancelToken;
-  
+
   // Key para historial en SharedPreferences
   static const String _historyKey = 'search_history';
   static const int _maxHistoryItems = 10;
 
   /**
    * searchPosts - Buscar posts por query
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Cancela petición anterior si existe
    * 2. Crea nuevo token de cancelación
    * 3. Realiza la búsqueda
    * 4. Filtra resultados localmente (la API no tiene búsqueda real)
-   * 
+   *
    * @param query - Término de búsqueda
    * @returns Lista de posts que coinciden
    */
   Future<List<Post>> searchPosts(String query) async {
     // Cancelar petición anterior
     _cancelToken?.cancel('Nueva búsqueda iniciada');
-    
+
     // Crear nuevo token
     _cancelToken = CancelToken();
-    
+
     try {
       // Obtener todos los posts
       final response = await _dio.get(
         '/posts',
         cancelToken: _cancelToken,
       );
-      
+
       // Parsear respuesta
       final List<Post> allPosts = (response.data as List)
           .map((json) => Post.fromJson(json))
           .toList();
-      
+
       // Filtrar por query (simulando búsqueda del servidor)
       final queryLower = query.toLowerCase();
       return allPosts.where((post) {
         return post.title.toLowerCase().contains(queryLower) ||
                post.body.toLowerCase().contains(queryLower);
       }).toList();
-      
+
     } on DioException catch (e) {
       // Si fue cancelada, no es un error real
       if (CancelToken.isCancel(e)) {
@@ -124,42 +124,42 @@ class SearchService {
       rethrow;
     }
   }
-  
+
   /// Cancelar búsqueda en progreso
   void cancelSearch() {
     _cancelToken?.cancel('Búsqueda cancelada por el usuario');
     _cancelToken = null;
   }
-  
+
   // ==================== Historial ====================
-  
+
   /// Guardar término en historial
   Future<void> addToHistory(String query) async {
     if (query.trim().isEmpty) return;
-    
+
     final prefs = await SharedPreferences.getInstance();
     final history = await getSearchHistory();
-    
+
     // Remover si ya existe (para moverlo al inicio)
     history.remove(query);
-    
+
     // Agregar al inicio
     history.insert(0, query);
-    
+
     // Limitar tamaño
     if (history.length > _maxHistoryItems) {
       history.removeLast();
     }
-    
+
     await prefs.setStringList(_historyKey, history);
   }
-  
+
   /// Obtener historial de búsquedas
   Future<List<String>> getSearchHistory() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getStringList(_historyKey) ?? [];
   }
-  
+
   /// Eliminar término del historial
   Future<void> removeFromHistory(String query) async {
     final prefs = await SharedPreferences.getInstance();
@@ -167,7 +167,7 @@ class SearchService {
     history.remove(query);
     await prefs.setStringList(_historyKey, history);
   }
-  
+
   /// Limpiar historial
   Future<void> clearHistory() async {
     final prefs = await SharedPreferences.getInstance();
@@ -181,9 +181,9 @@ class SearchService {
 ```dart
 /**
  * lib/utils/debouncer.dart
- * 
+ *
  * Debouncer - Utilidad para debounce
- * 
+ *
  * ¿Qué hace?
  * Retrasa la ejecución de una función hasta que
  * haya pasado un tiempo sin nuevas llamadas
@@ -193,12 +193,12 @@ import 'dart:async';
 class Debouncer {
   final Duration duration;
   Timer? _timer;
-  
+
   Debouncer({this.duration = const Duration(milliseconds: 500)});
-  
+
   /**
    * run - Ejecutar función con debounce
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Cancela el timer anterior si existe
    * 2. Crea nuevo timer
@@ -208,18 +208,18 @@ class Debouncer {
     _timer?.cancel();
     _timer = Timer(duration, action);
   }
-  
+
   /// Cancelar timer pendiente
   void cancel() {
     _timer?.cancel();
   }
-  
+
   /// Ejecutar inmediatamente (sin esperar)
   void runImmediately(VoidCallback action) {
     _timer?.cancel();
     action();
   }
-  
+
   /// Liberar recursos
   void dispose() {
     _timer?.cancel();
@@ -233,9 +233,9 @@ class Debouncer {
 ```dart
 /**
  * lib/screens/search_screen.dart
- * 
+ *
  * SearchScreen - Pantalla de búsqueda en tiempo real
- * 
+ *
  * ¿Qué hace?
  * - Campo de búsqueda con debounce
  * - Muestra resultados mientras escribe
@@ -258,12 +258,12 @@ class _SearchScreenState extends State<SearchScreen> {
   final SearchService _searchService = SearchService();
   final TextEditingController _searchController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
-  
+
   // Debouncer para la búsqueda
   final Debouncer _debouncer = Debouncer(
     duration: const Duration(milliseconds: 500),
   );
-  
+
   // Estados
   List<Post> _results = [];
   List<String> _history = [];
@@ -276,10 +276,10 @@ class _SearchScreenState extends State<SearchScreen> {
   void initState() {
     super.initState();
     _loadHistory();
-    
+
     // Listener para cambios en el campo de búsqueda
     _searchController.addListener(_onSearchChanged);
-    
+
     // Listener para el focus
     _focusNode.addListener(() {
       setState(() {
@@ -308,7 +308,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   /**
    * _onSearchChanged - Se ejecuta cuando cambia el texto
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Actualiza el query actual
    * 2. Si está vacío, muestra historial
@@ -316,12 +316,12 @@ class _SearchScreenState extends State<SearchScreen> {
    */
   void _onSearchChanged() {
     final query = _searchController.text.trim();
-    
+
     setState(() {
       _currentQuery = query;
       _showHistory = query.isEmpty && _focusNode.hasFocus;
     });
-    
+
     if (query.isEmpty) {
       _debouncer.cancel();
       _searchService.cancelSearch();
@@ -332,7 +332,7 @@ class _SearchScreenState extends State<SearchScreen> {
       });
       return;
     }
-    
+
     // Aplicar debounce
     _debouncer.run(() => _performSearch(query));
   }
@@ -342,15 +342,15 @@ class _SearchScreenState extends State<SearchScreen> {
    */
   Future<void> _performSearch(String query) async {
     if (query.isEmpty) return;
-    
+
     setState(() {
       _isSearching = true;
       _error = null;
     });
-    
+
     try {
       final results = await _searchService.searchPosts(query);
-      
+
       // Verificar que el query sigue siendo el mismo
       if (_currentQuery == query) {
         setState(() {
@@ -373,14 +373,14 @@ class _SearchScreenState extends State<SearchScreen> {
    */
   Future<void> _submitSearch(String query) async {
     if (query.trim().isEmpty) return;
-    
+
     // Guardar en historial
     await _searchService.addToHistory(query);
     await _loadHistory();
-    
+
     // Buscar inmediatamente
     _debouncer.runImmediately(() => _performSearch(query));
-    
+
     // Quitar focus del teclado
     _focusNode.unfocus();
   }
@@ -410,7 +410,7 @@ class _SearchScreenState extends State<SearchScreen> {
         children: [
           // Campo de búsqueda
           _buildSearchField(),
-          
+
           // Contenido
           Expanded(
             child: _buildContent(),
@@ -462,27 +462,27 @@ class _SearchScreenState extends State<SearchScreen> {
     if (_showHistory && _history.isNotEmpty) {
       return _buildHistory();
     }
-    
+
     // Mostrar loading
     if (_isSearching) {
       return _buildLoading();
     }
-    
+
     // Mostrar error
     if (_error != null) {
       return _buildError();
     }
-    
+
     // Mostrar resultados vacíos
     if (_currentQuery.isNotEmpty && _results.isEmpty) {
       return _buildNoResults();
     }
-    
+
     // Mostrar resultados
     if (_results.isNotEmpty) {
       return _buildResults();
     }
-    
+
     // Estado inicial
     return _buildInitialState();
   }
@@ -685,12 +685,15 @@ class _SearchScreenState extends State<SearchScreen> {
 ## 🎯 Retos Adicionales
 
 ### Reto 1: Resaltar coincidencias
+
 Usa `RichText` para resaltar el texto que coincide con el query.
 
 ### Reto 2: Sugerencias
+
 Muestra sugerencias basadas en el historial mientras escribe.
 
 ### Reto 3: Filtros
+
 Agrega filtros para buscar solo por título o solo por contenido.
 
 ---

@@ -6,14 +6,14 @@ Esta carpeta contiene los recursos visuales para la Semana 06 del bootcamp.
 
 ### 🖼️ Diagramas SVG
 
-| Archivo | Descripción |
-|---------|-------------|
-| `01-http-metodos.svg` | Métodos HTTP (GET, POST, PUT, DELETE, PATCH) |
-| `02-request-response.svg` | Ciclo Request-Response HTTP |
-| `03-async-await.svg` | Flujo async/await en Dart |
-| `04-json-serialization.svg` | Proceso de serialización JSON |
-| `05-api-architecture.svg` | Arquitectura cliente-API |
-| `06-error-handling.svg` | Flujo de manejo de errores |
+| Archivo                     | Descripción                                  |
+| --------------------------- | -------------------------------------------- |
+| `01-http-metodos.svg`       | Métodos HTTP (GET, POST, PUT, DELETE, PATCH) |
+| `02-request-response.svg`   | Ciclo Request-Response HTTP                  |
+| `03-async-await.svg`        | Flujo async/await en Dart                    |
+| `04-json-serialization.svg` | Proceso de serialización JSON                |
+| `05-api-architecture.svg`   | Arquitectura cliente-API                     |
+| `06-error-handling.svg`     | Flujo de manejo de errores                   |
 
 ### 📐 Especificaciones Técnicas
 

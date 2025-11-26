@@ -49,10 +49,10 @@ La **serialización** es el proceso de convertir objetos Dart a JSON (para envia
 ```dart
 /**
  * User - Modelo de usuario
- * 
+ *
  * ¿Qué hace?
  * Representa un usuario de la aplicación
- * 
+ *
  * ¿Para qué?
  * - Tipar los datos recibidos de la API
  * - Facilitar el autocompletado y validación
@@ -63,7 +63,7 @@ class User {
   final String name;
   final String email;
   final bool isActive;
-  
+
   // Constructor
   User({
     required this.id,
@@ -71,13 +71,13 @@ class User {
     required this.email,
     this.isActive = true,
   });
-  
+
   /**
    * fromJson - Deserialización
-   * 
+   *
    * ¿Qué hace?
    * Crea una instancia de User desde un Map (JSON decodificado)
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Recibe un Map<String, dynamic>
    * 2. Extrae cada campo por su key
@@ -91,13 +91,13 @@ class User {
       isActive: json['is_active'] as bool? ?? true,
     );
   }
-  
+
   /**
    * toJson - Serialización
-   * 
+   *
    * ¿Qué hace?
    * Convierte el objeto User a un Map para enviar a la API
-   * 
+   *
    * ¿Cómo funciona?
    * 1. Crea un Map con las keys esperadas por la API
    * 2. Asigna los valores del objeto
@@ -111,7 +111,7 @@ class User {
       'is_active': isActive,
     };
   }
-  
+
   @override
   String toString() => 'User(id: $id, name: $name, email: $email)';
 }
@@ -143,7 +143,7 @@ print(outputJson); // {"id":1,"name":"John","email":"john@email.com"}
 ```dart
 /**
  * Product - Modelo con campos opcionales
- * 
+ *
  * ¿Cómo manejar nulls?
  * - Usar tipos nullable (String?)
  * - Proporcionar valores por defecto
@@ -156,7 +156,7 @@ class Product {
   final String? description;  // Nullable
   final String? imageUrl;     // Nullable
   final int stock;
-  
+
   Product({
     required this.id,
     required this.name,
@@ -165,7 +165,7 @@ class Product {
     this.imageUrl,
     this.stock = 0,  // Valor por defecto
   });
-  
+
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'] as int,
@@ -176,7 +176,7 @@ class Product {
       stock: json['stock'] as int? ?? 0,
     );
   }
-  
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -195,7 +195,7 @@ class Product {
 ```dart
 /**
  * Article - Modelo con fechas
- * 
+ *
  * ¿Cómo manejar DateTime?
  * La API envía fechas como String ISO 8601
  * Debemos convertir a DateTime para usar en la app
@@ -206,7 +206,7 @@ class Article {
   final String content;
   final DateTime createdAt;
   final DateTime? updatedAt;
-  
+
   Article({
     required this.id,
     required this.title,
@@ -214,7 +214,7 @@ class Article {
     required this.createdAt,
     this.updatedAt,
   });
-  
+
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
       id: json['id'] as int,
@@ -222,12 +222,12 @@ class Article {
       content: json['content'] as String,
       // Parsear String ISO 8601 a DateTime
       createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: json['updated_at'] != null 
+      updatedAt: json['updated_at'] != null
           ? DateTime.parse(json['updated_at'] as String)
           : null,
     );
   }
-  
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -246,7 +246,7 @@ class Article {
 ```dart
 /**
  * Post - Modelo con objetos anidados
- * 
+ *
  * ¿Cómo manejar nested objects?
  * Llamar al fromJson del objeto hijo
  */
@@ -254,9 +254,9 @@ class Author {
   final int id;
   final String name;
   final String avatar;
-  
+
   Author({required this.id, required this.name, required this.avatar});
-  
+
   factory Author.fromJson(Map<String, dynamic> json) {
     return Author(
       id: json['id'] as int,
@@ -264,7 +264,7 @@ class Author {
       avatar: json['avatar'] as String,
     );
   }
-  
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'name': name,
@@ -278,7 +278,7 @@ class Post {
   final String body;
   final Author author;  // Objeto anidado
   final List<String> tags;  // Lista de strings
-  
+
   Post({
     required this.id,
     required this.title,
@@ -286,7 +286,7 @@ class Post {
     required this.author,
     required this.tags,
   });
-  
+
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
       id: json['id'] as int,
@@ -298,7 +298,7 @@ class Post {
       tags: (json['tags'] as List<dynamic>).cast<String>(),
     );
   }
-  
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -322,14 +322,14 @@ class OrderItem {
   final String productName;
   final int quantity;
   final double price;
-  
+
   OrderItem({
     required this.productId,
     required this.productName,
     required this.quantity,
     required this.price,
   });
-  
+
   factory OrderItem.fromJson(Map<String, dynamic> json) {
     return OrderItem(
       productId: json['product_id'] as int,
@@ -338,7 +338,7 @@ class OrderItem {
       price: (json['price'] as num).toDouble(),
     );
   }
-  
+
   Map<String, dynamic> toJson() => {
     'product_id': productId,
     'product_name': productName,
@@ -352,14 +352,14 @@ class Order {
   final String status;
   final List<OrderItem> items;  // Lista de objetos
   final double total;
-  
+
   Order({
     required this.id,
     required this.status,
     required this.items,
     required this.total,
   });
-  
+
   factory Order.fromJson(Map<String, dynamic> json) {
     return Order(
       id: json['id'] as int,
@@ -371,7 +371,7 @@ class Order {
       total: (json['total'] as num).toDouble(),
     );
   }
-  
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -389,7 +389,7 @@ class Order {
 ```dart
 /**
  * Manejo de Enums en serialización
- * 
+ *
  * ¿Cómo manejar enums?
  * - Convertir a/desde String o int
  * - Usar extension methods para conveniencia
@@ -400,7 +400,7 @@ enum OrderStatus {
   shipped,
   delivered,
   cancelled;
-  
+
   // Convertir String a Enum
   static OrderStatus fromString(String value) {
     return OrderStatus.values.firstWhere(
@@ -408,7 +408,7 @@ enum OrderStatus {
       orElse: () => OrderStatus.pending,
     );
   }
-  
+
   // Convertir Enum a String
   String toJson() => name;
 }
@@ -416,16 +416,16 @@ enum OrderStatus {
 class Order {
   final int id;
   final OrderStatus status;
-  
+
   Order({required this.id, required this.status});
-  
+
   factory Order.fromJson(Map<String, dynamic> json) {
     return Order(
       id: json['id'] as int,
       status: OrderStatus.fromString(json['status'] as String),
     );
   }
-  
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'status': status.toJson(),
@@ -438,10 +438,10 @@ class Order {
 ```dart
 /**
  * copyWith - Patrón de inmutabilidad
- * 
+ *
  * ¿Qué hace?
  * Crea una copia del objeto con algunos campos modificados
- * 
+ *
  * ¿Para qué?
  * - Mantener inmutabilidad
  * - Actualizar objetos sin mutar el original
@@ -452,14 +452,14 @@ class User {
   final String name;
   final String email;
   final bool isActive;
-  
+
   const User({
     required this.id,
     required this.name,
     required this.email,
     this.isActive = true,
   });
-  
+
   // CopyWith - crear copia con cambios
   User copyWith({
     int? id,
@@ -474,21 +474,21 @@ class User {
       isActive: isActive ?? this.isActive,
     );
   }
-  
+
   factory User.fromJson(Map<String, dynamic> json) => User(
     id: json['id'] as int,
     name: json['name'] as String,
     email: json['email'] as String,
     isActive: json['is_active'] as bool? ?? true,
   );
-  
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'name': name,
     'email': email,
     'is_active': isActive,
   };
-  
+
   // Equality
   @override
   bool operator ==(Object other) =>
@@ -499,7 +499,7 @@ class User {
           name == other.name &&
           email == other.email &&
           isActive == other.isActive;
-  
+
   @override
   int get hashCode => Object.hash(id, name, email, isActive);
 }
@@ -538,10 +538,10 @@ flutter pub get
 ```dart
 /**
  * User con json_serializable
- * 
+ *
  * ¿Qué hace?
  * Genera automáticamente fromJson y toJson
- * 
+ *
  * ¿Por qué usarlo?
  * - Menos código manual
  * - Menos errores
@@ -557,15 +557,15 @@ class User {
   final int id;
   final String name;
   final String email;
-  
+
   // JsonKey para nombres diferentes en JSON
   @JsonKey(name: 'is_active', defaultValue: true)
   final bool isActive;
-  
+
   // Campo ignorado en serialización
   @JsonKey(includeFromJson: false, includeToJson: false)
   final String? localNote;
-  
+
   User({
     required this.id,
     required this.name,
@@ -573,7 +573,7 @@ class User {
     this.isActive = true,
     this.localNote,
   });
-  
+
   // Generado por json_serializable
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
   Map<String, dynamic> toJson() => _$UserToJson(this);
@@ -606,31 +606,31 @@ part 'product.g.dart';
 )
 class Product {
   final int id;
-  
+
   // Nombre diferente en JSON
   @JsonKey(name: 'product_name')
   final String name;
-  
+
   // Valor por defecto
   @JsonKey(defaultValue: 0.0)
   final double price;
-  
+
   // Campo nullable con nombre diferente
   @JsonKey(name: 'image_url')
   final String? imageUrl;
-  
+
   // Campo computado (solo lectura de JSON)
   @JsonKey(includeToJson: false)
   final DateTime? createdAt;
-  
+
   // Campo solo para enviar (no viene en respuesta)
   @JsonKey(includeFromJson: false)
   final String? password;
-  
+
   // Converter personalizado para fechas
   @JsonKey(fromJson: _dateFromJson, toJson: _dateToJson)
   final DateTime publishedAt;
-  
+
   Product({
     required this.id,
     required this.name,
@@ -640,11 +640,11 @@ class Product {
     this.password,
     required this.publishedAt,
   });
-  
-  factory Product.fromJson(Map<String, dynamic> json) => 
+
+  factory Product.fromJson(Map<String, dynamic> json) =>
       _$ProductFromJson(json);
   Map<String, dynamic> toJson() => _$ProductToJson(this);
-  
+
   // Converters personalizados
   static DateTime _dateFromJson(String date) => DateTime.parse(date);
   static String _dateToJson(DateTime date) => date.toIso8601String();
@@ -664,9 +664,9 @@ class Author {
   final int id;
   final String name;
   final String avatar;
-  
+
   Author({required this.id, required this.name, required this.avatar});
-  
+
   factory Author.fromJson(Map<String, dynamic> json) => _$AuthorFromJson(json);
   Map<String, dynamic> toJson() => _$AuthorToJson(this);
 }
@@ -683,14 +683,14 @@ class Post {
   final String title;
   final Author author;  // Objeto anidado
   final List<String> tags;
-  
+
   Post({
     required this.id,
     required this.title,
     required this.author,
     required this.tags,
   });
-  
+
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
   Map<String, dynamic> toJson() => _$PostToJson(this);
 }
@@ -721,16 +721,16 @@ enum OrderStatus {
 class Order {
   final int id;
   final OrderStatus status;
-  
+
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
-  
+
   Order({
     required this.id,
     required this.status,
     required this.createdAt,
   });
-  
+
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
   Map<String, dynamic> toJson() => _$OrderToJson(this);
 }
@@ -745,7 +745,7 @@ class Order {
 ```dart
 /**
  * UserWithValidation
- * 
+ *
  * ¿Por qué validar?
  * - La API puede enviar datos inválidos
  * - Prevenir crashes por datos incorrectos
@@ -755,13 +755,13 @@ class UserWithValidation {
   final int id;
   final String name;
   final String email;
-  
+
   UserWithValidation._({
     required this.id,
     required this.name,
     required this.email,
   });
-  
+
   factory UserWithValidation.fromJson(Map<String, dynamic> json) {
     // Validar campos requeridos
     if (!json.containsKey('id')) {
@@ -773,11 +773,11 @@ class UserWithValidation {
     if (!json.containsKey('email')) {
       throw FormatException('Campo "email" requerido');
     }
-    
+
     final id = json['id'];
     final name = json['name'];
     final email = json['email'];
-    
+
     // Validar tipos
     if (id is! int) {
       throw FormatException('Campo "id" debe ser int, recibido: ${id.runtimeType}');
@@ -788,15 +788,15 @@ class UserWithValidation {
     if (email is! String) {
       throw FormatException('Campo "email" debe ser String');
     }
-    
+
     // Validar formato de email
     if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email)) {
       throw FormatException('Email inválido: $email');
     }
-    
+
     return UserWithValidation._(id: id, name: name, email: email);
   }
-  
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'name': name,
@@ -810,7 +810,7 @@ class UserWithValidation {
 ```dart
 /**
  * Funciones de parseo seguro
- * 
+ *
  * ¿Para qué?
  * Evitar crashes cuando los tipos no coinciden
  */
@@ -822,7 +822,7 @@ extension SafeParsing on Map<String, dynamic> {
     if (value is double) return value.toInt();
     return null;
   }
-  
+
   double? safeDouble(String key) {
     final value = this[key];
     if (value is double) return value;
@@ -830,14 +830,14 @@ extension SafeParsing on Map<String, dynamic> {
     if (value is String) return double.tryParse(value);
     return null;
   }
-  
+
   String? safeString(String key) {
     final value = this[key];
     if (value is String) return value;
     if (value != null) return value.toString();
     return null;
   }
-  
+
   bool safeBool(String key, {bool defaultValue = false}) {
     final value = this[key];
     if (value is bool) return value;
@@ -845,7 +845,7 @@ extension SafeParsing on Map<String, dynamic> {
     if (value is String) return value.toLowerCase() == 'true';
     return defaultValue;
   }
-  
+
   DateTime? safeDateTime(String key) {
     final value = this[key];
     if (value is String) return DateTime.tryParse(value);
@@ -859,9 +859,9 @@ class SafeUser {
   final int id;
   final String name;
   final String email;
-  
+
   SafeUser({required this.id, required this.name, required this.email});
-  
+
   factory SafeUser.fromJson(Map<String, dynamic> json) {
     return SafeUser(
       id: json.safeInt('id') ?? 0,
@@ -876,13 +876,13 @@ class SafeUser {
 
 ## 📝 Resumen
 
-| Aspecto | Manual | json_serializable |
-|---------|--------|-------------------|
-| Código | Más verboso | Generado |
-| Errores | Posibles | Menos |
-| Flexibilidad | Total | Con anotaciones |
-| Build time | Ninguno | Requiere build |
-| Mejor para | Apps pequeñas | Apps medianas/grandes |
+| Aspecto      | Manual        | json_serializable     |
+| ------------ | ------------- | --------------------- |
+| Código       | Más verboso   | Generado              |
+| Errores      | Posibles      | Menos                 |
+| Flexibilidad | Total         | Con anotaciones       |
+| Build time   | Ninguno       | Requiere build        |
+| Mejor para   | Apps pequeñas | Apps medianas/grandes |
 
 ### Checklist de Modelos
 
