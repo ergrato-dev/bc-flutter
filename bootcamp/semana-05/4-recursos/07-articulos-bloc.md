@@ -10,20 +10,20 @@ Artículos técnicos sobre BLoC, Cubit y patrones reactivos.
 
 ### Español
 
-| Artículo | Autor | Año | Nivel |
-|----------|-------|-----|-------|
-| [BLoC Pattern en Flutter](https://medium.com) | Flutter ES | 2024 | ⭐⭐ Intermedio |
-| [Cubit vs BLoC: Cuándo usar cada uno](https://dev.to) | DevTalles | 2024 | ⭐⭐ Intermedio |
-| [Testing BLoC](https://medium.com) | Flutter Latam | 2023 | ⭐⭐⭐ Avanzado |
+| Artículo                                              | Autor         | Año  | Nivel           |
+| ----------------------------------------------------- | ------------- | ---- | --------------- |
+| [BLoC Pattern en Flutter](https://medium.com)         | Flutter ES    | 2024 | ⭐⭐ Intermedio |
+| [Cubit vs BLoC: Cuándo usar cada uno](https://dev.to) | DevTalles     | 2024 | ⭐⭐ Intermedio |
+| [Testing BLoC](https://medium.com)                    | Flutter Latam | 2023 | ⭐⭐⭐ Avanzado |
 
 ### Inglés
 
-| Artículo | Autor | Año | Nivel |
-|----------|-------|-----|-------|
+| Artículo                                                    | Autor         | Año  | Nivel           |
+| ----------------------------------------------------------- | ------------- | ---- | --------------- |
 | [BLoC Core Concepts](https://bloclibrary.dev/bloc-concepts) | Felix Angelov | 2024 | ⭐⭐ Intermedio |
-| [Why BLoC?](https://bloclibrary.dev/why-bloc) | BLoC Team | 2024 | ⭐ Básico |
-| [BLoC Architecture](https://bloclibrary.dev/architecture) | Felix Angelov | 2024 | ⭐⭐⭐ Avanzado |
-| [Flutter BLoC Testing](https://resocoder.com) | Reso Coder | 2023 | ⭐⭐⭐ Avanzado |
+| [Why BLoC?](https://bloclibrary.dev/why-bloc)               | BLoC Team     | 2024 | ⭐ Básico       |
+| [BLoC Architecture](https://bloclibrary.dev/architecture)   | Felix Angelov | 2024 | ⭐⭐⭐ Avanzado |
+| [Flutter BLoC Testing](https://resocoder.com)               | Reso Coder    | 2023 | ⭐⭐⭐ Avanzado |
 
 ---
 

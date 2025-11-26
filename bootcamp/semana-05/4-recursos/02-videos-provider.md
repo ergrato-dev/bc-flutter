@@ -10,20 +10,20 @@ Videos sobre `Provider`, `ChangeNotifier`, `Consumer` y `Selector`.
 
 ### Español
 
-| Video | Canal | Duración | Nivel |
-|-------|-------|----------|-------|
-| [Provider desde cero](https://youtube.com) | Fernando Herrera | 45 min | ⭐ Básico |
-| [ChangeNotifier explicado](https://youtube.com) | Código Facilito | 20 min | ⭐ Básico |
-| [Consumer vs Selector](https://youtube.com) | Flutter en Español | 25 min | ⭐⭐ Intermedio |
-| [MultiProvider y organización](https://youtube.com) | DevTalles | 30 min | ⭐⭐ Intermedio |
+| Video                                               | Canal              | Duración | Nivel           |
+| --------------------------------------------------- | ------------------ | -------- | --------------- |
+| [Provider desde cero](https://youtube.com)          | Fernando Herrera   | 45 min   | ⭐ Básico       |
+| [ChangeNotifier explicado](https://youtube.com)     | Código Facilito    | 20 min   | ⭐ Básico       |
+| [Consumer vs Selector](https://youtube.com)         | Flutter en Español | 25 min   | ⭐⭐ Intermedio |
+| [MultiProvider y organización](https://youtube.com) | DevTalles          | 30 min   | ⭐⭐ Intermedio |
 
 ### Inglés
 
-| Video | Canal | Duración | Nivel |
-|-------|-------|----------|-------|
-| [Provider - The Essential Guide](https://youtube.com) | Reso Coder | 35 min | ⭐⭐ Intermedio |
-| [Flutter Provider Tutorial](https://youtube.com) | Net Ninja | 40 min | ⭐ Básico |
-| [Advanced Provider Patterns](https://youtube.com) | FilledStacks | 28 min | ⭐⭐⭐ Avanzado |
+| Video                                                 | Canal        | Duración | Nivel           |
+| ----------------------------------------------------- | ------------ | -------- | --------------- |
+| [Provider - The Essential Guide](https://youtube.com) | Reso Coder   | 35 min   | ⭐⭐ Intermedio |
+| [Flutter Provider Tutorial](https://youtube.com)      | Net Ninja    | 40 min   | ⭐ Básico       |
+| [Advanced Provider Patterns](https://youtube.com)     | FilledStacks | 28 min   | ⭐⭐⭐ Avanzado |
 
 ---
 
