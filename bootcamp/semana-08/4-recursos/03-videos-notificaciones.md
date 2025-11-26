@@ -10,14 +10,15 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ### 1. Fernando Herrera - Push Notifications
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Fernando Herrera](https://www.youtube.com/@FernandoHerreraDev) |
-| **Tema** | Firebase Push Notifications |
-| **Nivel** | Intermedio |
-| **Duración** | ~1h 15min |
+| Recurso      | Descripción                                                     |
+| ------------ | --------------------------------------------------------------- |
+| **Canal**    | [Fernando Herrera](https://www.youtube.com/@FernandoHerreraDev) |
+| **Tema**     | Firebase Push Notifications                                     |
+| **Nivel**    | Intermedio                                                      |
+| **Duración** | ~1h 15min                                                       |
 
 **Contenido:**
+
 - Configuración de Firebase
 - FCM setup Android/iOS
 - Manejo de tokens
@@ -27,14 +28,15 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ### 2. DevTalles - Notificaciones Locales
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [DevTalles](https://www.youtube.com/@DevTalles) |
-| **Tema** | Local Notifications Flutter |
-| **Nivel** | Básico-Intermedio |
-| **Duración** | ~50 min |
+| Recurso      | Descripción                                     |
+| ------------ | ----------------------------------------------- |
+| **Canal**    | [DevTalles](https://www.youtube.com/@DevTalles) |
+| **Tema**     | Local Notifications Flutter                     |
+| **Nivel**    | Básico-Intermedio                               |
+| **Duración** | ~50 min                                         |
 
 **Contenido:**
+
 - flutter_local_notifications setup
 - Notificaciones inmediatas
 - Scheduled notifications
@@ -44,14 +46,15 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ### 3. Código Facilito - Sistema de Recordatorios
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Código Facilito](https://www.youtube.com/@codigofacilito) |
-| **Tema** | App de Recordatorios |
-| **Nivel** | Intermedio |
-| **Duración** | ~1h 30min |
+| Recurso      | Descripción                                                |
+| ------------ | ---------------------------------------------------------- |
+| **Canal**    | [Código Facilito](https://www.youtube.com/@codigofacilito) |
+| **Tema**     | App de Recordatorios                                       |
+| **Nivel**    | Intermedio                                                 |
+| **Duración** | ~1h 30min                                                  |
 
 **Contenido:**
+
 - Notificaciones periódicas
 - Timezone handling
 - Acciones en notificaciones
@@ -63,14 +66,15 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ### 4. Marcus Ng - FCM Complete Guide
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Marcus Ng](https://www.youtube.com/@MarcusNg) |
-| **Tema** | Firebase Cloud Messaging |
-| **Nivel** | Intermedio-Avanzado |
-| **Duración** | ~1h |
+| Recurso      | Descripción                                    |
+| ------------ | ---------------------------------------------- |
+| **Canal**    | [Marcus Ng](https://www.youtube.com/@MarcusNg) |
+| **Tema**     | Firebase Cloud Messaging                       |
+| **Nivel**    | Intermedio-Avanzado                            |
+| **Duración** | ~1h                                            |
 
 **Contenido:**
+
 - Setup completo FCM
 - Foreground vs Background
 - Data messages vs Notifications
@@ -80,14 +84,15 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ### 5. Reso Coder - Local Notifications
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Reso Coder](https://www.youtube.com/@ResoCoder) |
-| **Tema** | Flutter Local Notifications |
-| **Nivel** | Intermedio |
-| **Duración** | ~40 min |
+| Recurso      | Descripción                                      |
+| ------------ | ------------------------------------------------ |
+| **Canal**    | [Reso Coder](https://www.youtube.com/@ResoCoder) |
+| **Tema**     | Flutter Local Notifications                      |
+| **Nivel**    | Intermedio                                       |
+| **Duración** | ~40 min                                          |
 
 **Contenido:**
+
 - Configuración multiplataforma
 - Scheduled notifications
 - Payload handling
@@ -97,14 +102,15 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ### 6. Fireship - Push Notifications
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Fireship](https://www.youtube.com/@Fireship) |
-| **Tema** | Push Notifications in 100 Seconds |
-| **Nivel** | Básico |
-| **Duración** | ~10 min |
+| Recurso      | Descripción                                   |
+| ------------ | --------------------------------------------- |
+| **Canal**    | [Fireship](https://www.youtube.com/@Fireship) |
+| **Tema**     | Push Notifications in 100 Seconds             |
+| **Nivel**    | Básico                                        |
+| **Duración** | ~10 min                                       |
 
 **Contenido:**
+
 - Conceptos fundamentales
 - Arquitectura de push
 - FCM overview rápido
@@ -114,14 +120,15 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ### 7. Flutter Community - Advanced Notifications
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Flutter Community](https://www.youtube.com/@FlutterCommunity) |
-| **Tema** | Rich Notifications |
-| **Nivel** | Avanzado |
-| **Duración** | ~45 min |
+| Recurso      | Descripción                                                    |
+| ------------ | -------------------------------------------------------------- |
+| **Canal**    | [Flutter Community](https://www.youtube.com/@FlutterCommunity) |
+| **Tema**     | Rich Notifications                                             |
+| **Nivel**    | Avanzado                                                       |
+| **Duración** | ~45 min                                                        |
 
 **Contenido:**
+
 - Notificaciones con imagen
 - Botones de acción
 - Progress notifications
@@ -133,23 +140,23 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ### Notifications in Flutter
 
-| Playlist | Videos | Duración Total |
-|----------|--------|----------------|
-| [FCM Flutter Complete](https://youtube.com/playlist?...) | 8 videos | ~3h |
-| [Local Notifications Series](https://youtube.com/playlist?...) | 5 videos | ~2h |
-| [Flutter Notification Apps](https://youtube.com/playlist?...) | 10 videos | ~4h |
+| Playlist                                                       | Videos    | Duración Total |
+| -------------------------------------------------------------- | --------- | -------------- |
+| [FCM Flutter Complete](https://youtube.com/playlist?...)       | 8 videos  | ~3h            |
+| [Local Notifications Series](https://youtube.com/playlist?...) | 5 videos  | ~2h            |
+| [Flutter Notification Apps](https://youtube.com/playlist?...)  | 10 videos | ~4h            |
 
 ---
 
 ## 🔔 Tipos de Notificaciones Cubiertos
 
-| Tipo | Package | Uso |
-|------|---------|-----|
-| Local Immediate | flutter_local_notifications | Alertas instantáneas |
-| Local Scheduled | flutter_local_notifications | Recordatorios |
-| Local Periodic | flutter_local_notifications | Repeticiones |
-| Push Data | firebase_messaging | Background tasks |
-| Push Notification | firebase_messaging | Alertas remotas |
+| Tipo              | Package                     | Uso                  |
+| ----------------- | --------------------------- | -------------------- |
+| Local Immediate   | flutter_local_notifications | Alertas instantáneas |
+| Local Scheduled   | flutter_local_notifications | Recordatorios        |
+| Local Periodic    | flutter_local_notifications | Repeticiones         |
+| Push Data         | firebase_messaging          | Background tasks     |
+| Push Notification | firebase_messaging          | Alertas remotas      |
 
 ---
 
@@ -158,16 +165,16 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 ```
 1. Fireship - Push in 100 Seconds (10 min)
    └── Conceptos básicos
-   
+
 2. DevTalles - Local Notifications (50 min)
    └── Implementación local
-   
+
 3. Reso Coder - Complete Guide (40 min)
    └── Setup avanzado
-   
+
 4. Fernando Herrera - Push Notifications (1h 15min)
    └── Firebase FCM
-   
+
 5. Flutter Community - Advanced (45 min)
    └── Rich notifications
 ```
@@ -194,6 +201,6 @@ Videos sobre notificaciones locales, push notifications y Firebase Cloud Messagi
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                                 | Índice                  | Siguiente                                  |
+| -------------------------------------------------------- | ----------------------- | ------------------------------------------ |
 | [Videos Geolocalización](./02-videos-geolocalizacion.md) | [Recursos](./README.md) | [Videos Sensores](./04-videos-sensores.md) |

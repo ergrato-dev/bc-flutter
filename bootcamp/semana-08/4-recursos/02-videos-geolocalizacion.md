@@ -10,14 +10,15 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 
 ### 1. Fernando Herrera - Google Maps Flutter
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Fernando Herrera](https://www.youtube.com/@FernandoHerreraDev) |
-| **Tema** | Google Maps Completo |
-| **Nivel** | Intermedio |
-| **Duración** | ~1h 30min |
+| Recurso      | Descripción                                                     |
+| ------------ | --------------------------------------------------------------- |
+| **Canal**    | [Fernando Herrera](https://www.youtube.com/@FernandoHerreraDev) |
+| **Tema**     | Google Maps Completo                                            |
+| **Nivel**    | Intermedio                                                      |
+| **Duración** | ~1h 30min                                                       |
 
 **Contenido:**
+
 - Configuración de API Key
 - Marcadores y polilíneas
 - Estilos de mapa personalizados
@@ -27,14 +28,15 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 
 ### 2. Developerhouse - Geolocalización Flutter
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Developerhouse](https://www.youtube.com/@developerhouse) |
-| **Tema** | Geolocator Package |
-| **Nivel** | Básico-Intermedio |
-| **Duración** | ~40 min |
+| Recurso      | Descripción                                               |
+| ------------ | --------------------------------------------------------- |
+| **Canal**    | [Developerhouse](https://www.youtube.com/@developerhouse) |
+| **Tema**     | Geolocator Package                                        |
+| **Nivel**    | Básico-Intermedio                                         |
+| **Duración** | ~40 min                                                   |
 
 **Contenido:**
+
 - Permisos de ubicación
 - Obtener coordenadas actuales
 - Seguimiento en tiempo real
@@ -44,14 +46,15 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 
 ### 3. Código Facilito - App de Delivery
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Código Facilito](https://www.youtube.com/@codigofacilito) |
-| **Tema** | App tipo Uber/Rappi |
-| **Nivel** | Avanzado |
-| **Duración** | ~2h 30min |
+| Recurso      | Descripción                                                |
+| ------------ | ---------------------------------------------------------- |
+| **Canal**    | [Código Facilito](https://www.youtube.com/@codigofacilito) |
+| **Tema**     | App tipo Uber/Rappi                                        |
+| **Nivel**    | Avanzado                                                   |
+| **Duración** | ~2h 30min                                                  |
 
 **Contenido:**
+
 - Tracking en tiempo real
 - Rutas entre puntos
 - Geocoding y reverse geocoding
@@ -63,14 +66,15 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 
 ### 4. Marcus Ng - Google Maps Tutorial
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Marcus Ng](https://www.youtube.com/@MarcusNg) |
-| **Tema** | Google Maps From Scratch |
-| **Nivel** | Intermedio |
-| **Duración** | ~55 min |
+| Recurso      | Descripción                                    |
+| ------------ | ---------------------------------------------- |
+| **Canal**    | [Marcus Ng](https://www.youtube.com/@MarcusNg) |
+| **Tema**     | Google Maps From Scratch                       |
+| **Nivel**    | Intermedio                                     |
+| **Duración** | ~55 min                                        |
 
 **Contenido:**
+
 - Setup completo Android/iOS
 - Custom markers con imágenes
 - Info windows personalizados
@@ -80,14 +84,15 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 
 ### 5. Johannes Milke - Location Services
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Johannes Milke](https://www.youtube.com/@JohannesMilke) |
-| **Tema** | Flutter Location Deep Dive |
-| **Nivel** | Intermedio-Avanzado |
-| **Duración** | ~45 min |
+| Recurso      | Descripción                                              |
+| ------------ | -------------------------------------------------------- |
+| **Canal**    | [Johannes Milke](https://www.youtube.com/@JohannesMilke) |
+| **Tema**     | Flutter Location Deep Dive                               |
+| **Nivel**    | Intermedio-Avanzado                                      |
+| **Duración** | ~45 min                                                  |
 
 **Contenido:**
+
 - Comparativa de packages
 - Background location
 - Geofencing
@@ -97,14 +102,15 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 
 ### 6. Rivaan Ranawat - Uber Clone
 
-| Recurso | Descripción |
-|---------|-------------|
-| **Canal** | [Rivaan Ranawat](https://www.youtube.com/@RivaanRanawat) |
-| **Tema** | Uber Clone with Maps |
-| **Nivel** | Avanzado |
-| **Duración** | ~4h |
+| Recurso      | Descripción                                              |
+| ------------ | -------------------------------------------------------- |
+| **Canal**    | [Rivaan Ranawat](https://www.youtube.com/@RivaanRanawat) |
+| **Tema**     | Uber Clone with Maps                                     |
+| **Nivel**    | Avanzado                                                 |
+| **Duración** | ~4h                                                      |
 
 **Contenido:**
+
 - Proyecto completo tipo Uber
 - Real-time location sharing
 - Directions API
@@ -116,22 +122,22 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 
 ### Maps & Location in Flutter
 
-| Playlist | Videos | Duración Total |
-|----------|--------|----------------|
-| [Google Maps Flutter Series](https://youtube.com/playlist?...) | 10 videos | ~4h |
-| [Location Services Flutter](https://youtube.com/playlist?...) | 6 videos | ~2h 30min |
-| [Flutter Maps Apps](https://youtube.com/playlist?...) | 15 videos | ~6h |
+| Playlist                                                       | Videos    | Duración Total |
+| -------------------------------------------------------------- | --------- | -------------- |
+| [Google Maps Flutter Series](https://youtube.com/playlist?...) | 10 videos | ~4h            |
+| [Location Services Flutter](https://youtube.com/playlist?...)  | 6 videos  | ~2h 30min      |
+| [Flutter Maps Apps](https://youtube.com/playlist?...)          | 15 videos | ~6h            |
 
 ---
 
 ## 🗺️ APIs y Servicios Mencionados
 
-| Servicio | Uso | Documentación |
-|----------|-----|---------------|
-| Google Maps SDK | Visualización de mapas | [Link](https://developers.google.com/maps/documentation) |
-| Directions API | Rutas entre puntos | [Link](https://developers.google.com/maps/documentation/directions) |
-| Geocoding API | Coordenadas ↔ Direcciones | [Link](https://developers.google.com/maps/documentation/geocoding) |
-| Places API | Búsqueda de lugares | [Link](https://developers.google.com/maps/documentation/places) |
+| Servicio        | Uso                       | Documentación                                                       |
+| --------------- | ------------------------- | ------------------------------------------------------------------- |
+| Google Maps SDK | Visualización de mapas    | [Link](https://developers.google.com/maps/documentation)            |
+| Directions API  | Rutas entre puntos        | [Link](https://developers.google.com/maps/documentation/directions) |
+| Geocoding API   | Coordenadas ↔ Direcciones | [Link](https://developers.google.com/maps/documentation/geocoding)  |
+| Places API      | Búsqueda de lugares       | [Link](https://developers.google.com/maps/documentation/places)     |
 
 ---
 
@@ -140,16 +146,16 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 ```
 1. Developerhouse - Geolocator (40 min)
    └── Fundamentos de ubicación
-   
+
 2. Marcus Ng - Google Maps (55 min)
    └── Setup y marcadores básicos
-   
+
 3. Fernando Herrera - Maps Completo (1h 30min)
    └── Features avanzados
-   
+
 4. Johannes Milke - Location Deep Dive (45 min)
    └── Background y geofencing
-   
+
 5. Rivaan Ranawat - Uber Clone (4h)
    └── Proyecto profesional
 ```
@@ -168,6 +174,6 @@ Videos seleccionados sobre geolocalización, Google Maps y servicios de ubicaci�
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                       | Índice                  | Siguiente                                              |
+| ---------------------------------------------- | ----------------------- | ------------------------------------------------------ |
 | [Videos Cámara](./01-videos-camara-galeria.md) | [Recursos](./README.md) | [Videos Notificaciones](./03-videos-notificaciones.md) |

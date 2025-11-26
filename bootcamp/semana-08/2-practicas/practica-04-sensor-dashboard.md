@@ -17,16 +17,19 @@ Crear un dashboard interactivo que visualice datos de sensores del dispositivo (
 ### Funcionalidades Principales
 
 1. **Lectura de Sensores**
+
    - Acelerómetro (aceleración en X, Y, Z)
    - Giroscopio (rotación en X, Y, Z)
    - Magnetómetro (orientación)
 
 2. **Visualización de Datos**
+
    - Valores en tiempo real
    - Gráficas de línea históricas
    - Indicadores visuales de nivel
 
 3. **Control de Sensores**
+
    - Iniciar/pausar lectura
    - Ajustar frecuencia de muestreo
    - Seleccionar sensores activos
@@ -76,7 +79,7 @@ lib/
 ```dart
 /**
  * SensorData
- * 
+ *
  * Modelo inmutable para representar una lectura de sensor.
  * Incluye timestamp para ordenar históricamente.
  */
@@ -86,18 +89,18 @@ class SensorData {
   final double y;
   final double z;
   final DateTime timestamp;
-  
+
   const SensorData({
     required this.x,
     required this.y,
     required this.z,
     required this.timestamp,
   });
-  
+
   /// Magnitud total del vector
-  double get magnitude => 
+  double get magnitude =>
       (x * x + y * y + z * z).abs().toDouble();
-  
+
   /// Crea una copia con valores modificados
   SensorData copyWith({
     double? x,
@@ -112,7 +115,7 @@ class SensorData {
       timestamp: timestamp ?? this.timestamp,
     );
   }
-  
+
   @override
   String toString() => 'SensorData(x: $x, y: $y, z: $z)';
 }
@@ -136,7 +139,7 @@ extension SensorTypeExtension on SensorType {
         return 'Magnetómetro';
     }
   }
-  
+
   String get unit {
     switch (this) {
       case SensorType.accelerometer:
@@ -155,7 +158,7 @@ extension SensorTypeExtension on SensorType {
 ```dart
 /**
  * SensorProvider
- * 
+ *
  * Gestiona el estado y streams de todos los sensores.
  * Mantiene un historial limitado para las gráficas.
  */
@@ -168,83 +171,83 @@ class SensorProvider extends ChangeNotifier {
   // Configuración
   static const int maxHistoryLength = 50;
   static const Duration samplingPeriod = Duration(milliseconds: 100);
-  
+
   // Subscripciones
   StreamSubscription<AccelerometerEvent>? _accelerometerSub;
   StreamSubscription<GyroscopeEvent>? _gyroscopeSub;
   StreamSubscription<MagnetometerEvent>? _magnetometerSub;
-  
+
   // Datos actuales
   SensorData? _accelerometerData;
   SensorData? _gyroscopeData;
   SensorData? _magnetometerData;
-  
+
   // Historial para gráficas
   final List<SensorData> _accelerometerHistory = [];
   final List<SensorData> _gyroscopeHistory = [];
   final List<SensorData> _magnetometerHistory = [];
-  
+
   // Estados
   bool _isListening = false;
   Set<SensorType> _activeSensors = {
     SensorType.accelerometer,
     SensorType.gyroscope,
   };
-  
+
   // Detección de movimiento
   bool _shakeDetected = false;
   static const double shakeThreshold = 15.0;
-  
+
   // Getters
   SensorData? get accelerometerData => _accelerometerData;
   SensorData? get gyroscopeData => _gyroscopeData;
   SensorData? get magnetometerData => _magnetometerData;
-  
-  List<SensorData> get accelerometerHistory => 
+
+  List<SensorData> get accelerometerHistory =>
       List.unmodifiable(_accelerometerHistory);
-  List<SensorData> get gyroscopeHistory => 
+  List<SensorData> get gyroscopeHistory =>
       List.unmodifiable(_gyroscopeHistory);
-  List<SensorData> get magnetometerHistory => 
+  List<SensorData> get magnetometerHistory =>
       List.unmodifiable(_magnetometerHistory);
-  
+
   bool get isListening => _isListening;
   Set<SensorType> get activeSensors => Set.unmodifiable(_activeSensors);
   bool get shakeDetected => _shakeDetected;
-  
+
   /// Inicia la escucha de sensores
   void startListening() {
     if (_isListening) return;
     _isListening = true;
-    
+
     if (_activeSensors.contains(SensorType.accelerometer)) {
       _startAccelerometer();
     }
-    
+
     if (_activeSensors.contains(SensorType.gyroscope)) {
       _startGyroscope();
     }
-    
+
     if (_activeSensors.contains(SensorType.magnetometer)) {
       _startMagnetometer();
     }
-    
+
     notifyListeners();
   }
-  
+
   /// Detiene la escucha de sensores
   void stopListening() {
     _accelerometerSub?.cancel();
     _gyroscopeSub?.cancel();
     _magnetometerSub?.cancel();
-    
+
     _accelerometerSub = null;
     _gyroscopeSub = null;
     _magnetometerSub = null;
-    
+
     _isListening = false;
     notifyListeners();
   }
-  
+
   /// Activa o desactiva un sensor
   void toggleSensor(SensorType type, bool active) {
     if (active) {
@@ -258,7 +261,7 @@ class SensorProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
-  
+
   /// Limpia el historial
   void clearHistory() {
     _accelerometerHistory.clear();
@@ -266,13 +269,13 @@ class SensorProvider extends ChangeNotifier {
     _magnetometerHistory.clear();
     notifyListeners();
   }
-  
+
   /// Reinicia la detección de shake
   void resetShakeDetection() {
     _shakeDetected = false;
     notifyListeners();
   }
-  
+
   void _startSensor(SensorType type) {
     switch (type) {
       case SensorType.accelerometer:
@@ -286,7 +289,7 @@ class SensorProvider extends ChangeNotifier {
         break;
     }
   }
-  
+
   void _stopSensor(SensorType type) {
     switch (type) {
       case SensorType.accelerometer:
@@ -303,7 +306,7 @@ class SensorProvider extends ChangeNotifier {
         break;
     }
   }
-  
+
   void _startAccelerometer() {
     _accelerometerSub = accelerometerEventStream(
       samplingPeriod: samplingPeriod,
@@ -314,19 +317,19 @@ class SensorProvider extends ChangeNotifier {
         z: event.z,
         timestamp: DateTime.now(),
       );
-      
+
       _accelerometerData = data;
       _addToHistory(_accelerometerHistory, data);
-      
+
       // Detectar shake
       if (data.magnitude > shakeThreshold) {
         _shakeDetected = true;
       }
-      
+
       notifyListeners();
     });
   }
-  
+
   void _startGyroscope() {
     _gyroscopeSub = gyroscopeEventStream(
       samplingPeriod: samplingPeriod,
@@ -337,13 +340,13 @@ class SensorProvider extends ChangeNotifier {
         z: event.z,
         timestamp: DateTime.now(),
       );
-      
+
       _gyroscopeData = data;
       _addToHistory(_gyroscopeHistory, data);
       notifyListeners();
     });
   }
-  
+
   void _startMagnetometer() {
     _magnetometerSub = magnetometerEventStream(
       samplingPeriod: samplingPeriod,
@@ -354,20 +357,20 @@ class SensorProvider extends ChangeNotifier {
         z: event.z,
         timestamp: DateTime.now(),
       );
-      
+
       _magnetometerData = data;
       _addToHistory(_magnetometerHistory, data);
       notifyListeners();
     });
   }
-  
+
   void _addToHistory(List<SensorData> history, SensorData data) {
     history.add(data);
     if (history.length > maxHistoryLength) {
       history.removeAt(0);
     }
   }
-  
+
   @override
   void dispose() {
     stopListening();
@@ -381,7 +384,7 @@ class SensorProvider extends ChangeNotifier {
 ```dart
 /**
  * SensorChart
- * 
+ *
  * Gráfica de línea que muestra el historial de un sensor.
  * Usa fl_chart para renderizado eficiente.
  */
@@ -393,14 +396,14 @@ class SensorChart extends StatelessWidget {
   final List<SensorData> data;
   final String title;
   final String unit;
-  
+
   const SensorChart({
     Key? key,
     required this.data,
     required this.title,
     required this.unit,
   }) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     if (data.isEmpty) {
@@ -408,7 +411,7 @@ class SensorChart extends StatelessWidget {
         child: Text('Sin datos'),
       );
     }
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -423,7 +426,7 @@ class SensorChart extends StatelessWidget {
             ),
           ),
         ),
-        
+
         // Gráfica
         SizedBox(
           height: 200,
@@ -479,7 +482,7 @@ class SensorChart extends StatelessWidget {
             duration: const Duration(milliseconds: 100),
           ),
         ),
-        
+
         // Leyenda
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -497,14 +500,14 @@ class SensorChart extends StatelessWidget {
       ],
     );
   }
-  
+
   List<FlSpot> _createSpots(double Function(SensorData) getValue) {
     return List.generate(
       data.length,
       (index) => FlSpot(index.toDouble(), getValue(data[index])),
     );
   }
-  
+
   LineChartBarData _createLine({
     required List<FlSpot> spots,
     required Color color,
@@ -519,7 +522,7 @@ class SensorChart extends StatelessWidget {
       belowBarData: BarAreaData(show: false),
     );
   }
-  
+
   double _calculateMinY() {
     double min = 0;
     for (final d in data) {
@@ -529,7 +532,7 @@ class SensorChart extends StatelessWidget {
     }
     return min - 2;
   }
-  
+
   double _calculateMaxY() {
     double max = 0;
     for (final d in data) {
@@ -539,7 +542,7 @@ class SensorChart extends StatelessWidget {
     }
     return max + 2;
   }
-  
+
   Widget _buildLegendItem(String label, Color color) {
     return Row(
       children: [
@@ -564,7 +567,7 @@ class SensorChart extends StatelessWidget {
 ```dart
 /**
  * SensorCard
- * 
+ *
  * Tarjeta que muestra los valores actuales de un sensor
  * con indicadores visuales de nivel.
  */
@@ -576,7 +579,7 @@ class SensorCard extends StatelessWidget {
   final SensorData? data;
   final bool isActive;
   final VoidCallback onTap;
-  
+
   const SensorCard({
     Key? key,
     required this.type,
@@ -584,7 +587,7 @@ class SensorCard extends StatelessWidget {
     required this.isActive,
     required this.onTap,
   }) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -636,9 +639,9 @@ class SensorCard extends StatelessWidget {
                   ),
                 ],
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Valores
               if (data != null) ...[
                 _buildAxisRow('X', data!.x, Colors.red),
@@ -646,9 +649,9 @@ class SensorCard extends StatelessWidget {
                 _buildAxisRow('Y', data!.y, Colors.green),
                 const SizedBox(height: 8),
                 _buildAxisRow('Z', data!.z, Colors.blue),
-                
+
                 const Divider(height: 24),
-                
+
                 // Magnitud
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -673,7 +676,7 @@ class SensorCard extends StatelessWidget {
       ),
     );
   }
-  
+
   IconData _getIcon() {
     switch (type) {
       case SensorType.accelerometer:
@@ -684,11 +687,11 @@ class SensorCard extends StatelessWidget {
         return Icons.explore;
     }
   }
-  
+
   Widget _buildAxisRow(String axis, double value, Color color) {
     // Normalizar valor para la barra (-20 a 20 → 0 a 1)
     final normalized = ((value + 20) / 40).clamp(0.0, 1.0);
-    
+
     return Row(
       children: [
         SizedBox(
@@ -728,7 +731,7 @@ class SensorCard extends StatelessWidget {
 ```dart
 /**
  * DashboardScreen
- * 
+ *
  * Pantalla principal del dashboard de sensores.
  * Muestra cards, gráficas y controles.
  */
@@ -738,7 +741,7 @@ import 'package:provider/provider.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -768,14 +771,14 @@ class DashboardScreen extends StatelessWidget {
               children: [
                 // Controles
                 _buildControls(context, provider),
-                
+
                 const SizedBox(height: 16),
-                
+
                 // Cards de sensores
                 _buildSensorCards(context, provider),
-                
+
                 const SizedBox(height: 24),
-                
+
                 // Gráficas
                 if (provider.isListening) ...[
                   _buildCharts(provider),
@@ -787,7 +790,7 @@ class DashboardScreen extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildControls(BuildContext context, SensorProvider provider) {
     return Card(
       child: Padding(
@@ -809,19 +812,19 @@ class DashboardScreen extends StatelessWidget {
               ),
               label: Text(provider.isListening ? 'Detener' : 'Iniciar'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: provider.isListening 
-                    ? Colors.red 
+                backgroundColor: provider.isListening
+                    ? Colors.red
                     : Colors.green,
               ),
             ),
-            
+
             // Botón limpiar
             OutlinedButton.icon(
               onPressed: provider.clearHistory,
               icon: const Icon(Icons.clear),
               label: const Text('Limpiar'),
             ),
-            
+
             // Configuración
             IconButton(
               icon: const Icon(Icons.settings),
@@ -832,7 +835,7 @@ class DashboardScreen extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildSensorCards(BuildContext context, SensorProvider provider) {
     return Column(
       children: [
@@ -841,7 +844,7 @@ class DashboardScreen extends StatelessWidget {
           data: provider.accelerometerData,
           isActive: provider.activeSensors.contains(SensorType.accelerometer),
           onTap: () => _navigateToDetail(
-            context, 
+            context,
             SensorType.accelerometer,
             provider.accelerometerHistory,
           ),
@@ -871,7 +874,7 @@ class DashboardScreen extends StatelessWidget {
       ],
     );
   }
-  
+
   Widget _buildCharts(SensorProvider provider) {
     return Column(
       children: [
@@ -881,14 +884,14 @@ class DashboardScreen extends StatelessWidget {
             title: 'Acelerómetro',
             unit: 'm/s²',
           ),
-        
+
         if (provider.activeSensors.contains(SensorType.gyroscope))
           SensorChart(
             data: provider.gyroscopeHistory,
             title: 'Giroscopio',
             unit: 'rad/s',
           ),
-        
+
         if (provider.activeSensors.contains(SensorType.magnetometer))
           SensorChart(
             data: provider.magnetometerHistory,
@@ -898,7 +901,7 @@ class DashboardScreen extends StatelessWidget {
       ],
     );
   }
-  
+
   void _showSettings(BuildContext context, SensorProvider provider) {
     showModalBottomSheet(
       context: context,
@@ -916,7 +919,7 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            
+
             for (final type in SensorType.values)
               SwitchListTile(
                 title: Text(type.displayName),
@@ -929,7 +932,7 @@ class DashboardScreen extends StatelessWidget {
       ),
     );
   }
-  
+
   void _navigateToDetail(
     BuildContext context,
     SensorType type,
@@ -953,7 +956,7 @@ class DashboardScreen extends StatelessWidget {
 ```dart
 /**
  * main.dart
- * 
+ *
  * Configuración de la app con Provider.
  */
 
@@ -966,7 +969,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -988,15 +991,15 @@ class MyApp extends StatelessWidget {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Lectura de sensores | 2.5 | Lee correctamente acelerómetro y giroscopio |
-| Visualización tiempo real | 2 | Muestra valores actualizados en UI |
-| Gráficas históricas | 2 | Implementa gráficas con fl_chart |
-| Control de sensores | 1.5 | Start/stop, toggle sensores |
-| Detección de eventos | 1 | Detecta shake u otros eventos |
-| Código limpio | 1 | Provider pattern, documentación |
-| **Total** | **10** | |
+| Criterio                  | Puntos | Descripción                                 |
+| ------------------------- | ------ | ------------------------------------------- |
+| Lectura de sensores       | 2.5    | Lee correctamente acelerómetro y giroscopio |
+| Visualización tiempo real | 2      | Muestra valores actualizados en UI          |
+| Gráficas históricas       | 2      | Implementa gráficas con fl_chart            |
+| Control de sensores       | 1.5    | Start/stop, toggle sensores                 |
+| Detección de eventos      | 1      | Detecta shake u otros eventos               |
+| Código limpio             | 1      | Provider pattern, documentación             |
+| **Total**                 | **10** |                                             |
 
 ---
 
@@ -1010,6 +1013,6 @@ class MyApp extends StatelessWidget {
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                                     | Índice                   | Siguiente                                                  |
+| ------------------------------------------------------------ | ------------------------ | ---------------------------------------------------------- |
 | [NotificationManager](./practica-03-notification-manager.md) | [Prácticas](./README.md) | [PermissionsManager](./practica-05-permissions-manager.md) |

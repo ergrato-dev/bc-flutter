@@ -20,13 +20,13 @@ Al completar este módulo, serás capaz de:
 dependencies:
   # Obtener ubicación
   geolocator: ^10.1.0
-  
+
   # Geocoding (dirección ↔ coordenadas)
   geocoding: ^2.1.1
-  
+
   # Google Maps
   google_maps_flutter: ^2.5.0
-  
+
   # Permisos
   permission_handler: ^11.1.0
 ```
@@ -39,26 +39,26 @@ dependencies:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
     <!-- Permisos de ubicación -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    
+
     <!-- Ubicación en segundo plano (opcional) -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-    
+
     <!-- Para Android 12+ -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    
+
     <application
         android:label="@string/app_name"
         ...>
-        
+
         <!-- API Key de Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="TU_API_KEY_AQUI"/>
-            
+
     </application>
 </manifest>
 ```
@@ -70,11 +70,11 @@ dependencies:
     <!-- Ubicación en uso -->
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Esta app necesita tu ubicación para mostrarte lugares cercanos</string>
-    
+
     <!-- Ubicación siempre (si es necesario) -->
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>Esta app necesita tu ubicación para enviarte notificaciones de lugares cercanos</string>
-    
+
     <!-- Ubicación siempre (legacy) -->
     <key>NSLocationAlwaysUsageDescription</key>
     <string>Esta app necesita tu ubicación en segundo plano</string>
@@ -110,14 +110,14 @@ import GoogleMaps // Agregar import
 ```dart
 /**
  * LocationService
- * 
+ *
  * ¿Qué hace?
  * Servicio centralizado para obtener y rastrear la ubicación del usuario.
- * 
+ *
  * ¿Para qué?
  * Encapsular toda la lógica de geolocalización en un solo lugar,
  * facilitando el manejo de permisos, errores y streaming de posición.
- * 
+ *
  * ¿Cómo funciona?
  * 1. Verifica permisos y servicios de ubicación
  * 2. Obtiene la posición actual o inicia streaming
@@ -141,7 +141,7 @@ class LocationService {
     accuracy: LocationAccuracy.high,
     distanceFilter: 10, // Metros mínimos para notificar cambio
   );
-  
+
   /// Verifica si los servicios de ubicación están habilitados
   /// y si tenemos los permisos necesarios.
   Future<LocationServiceStatus> checkLocationServices() async {
@@ -150,31 +150,31 @@ class LocationService {
     if (!serviceEnabled) {
       return LocationServiceStatus.disabled;
     }
-    
+
     // 2. Verificar permisos
     LocationPermission permission = await Geolocator.checkPermission();
-    
+
     if (permission == LocationPermission.denied) {
       // Solicitar permiso
       permission = await Geolocator.requestPermission();
-      
+
       if (permission == LocationPermission.denied) {
         return LocationServiceStatus.permissionDenied;
       }
     }
-    
+
     if (permission == LocationPermission.deniedForever) {
       return LocationServiceStatus.permissionDeniedForever;
     }
-    
+
     return LocationServiceStatus.enabled;
   }
-  
+
   /// Obtiene la posición actual del usuario
-  /// 
+  ///
   /// [accuracy] - Precisión deseada (default: high)
   /// [timeout] - Tiempo máximo de espera
-  /// 
+  ///
   /// Retorna la posición o lanza excepción si falla
   Future<Position> getCurrentPosition({
     LocationAccuracy accuracy = LocationAccuracy.high,
@@ -182,7 +182,7 @@ class LocationService {
   }) async {
     // Verificar servicios primero
     final status = await checkLocationServices();
-    
+
     switch (status) {
       case LocationServiceStatus.disabled:
         throw LocationServiceException('Servicios de ubicación deshabilitados');
@@ -195,21 +195,21 @@ class LocationService {
       case LocationServiceStatus.enabled:
         break;
     }
-    
+
     // Obtener posición
     return await Geolocator.getCurrentPosition(
       desiredAccuracy: accuracy,
       timeLimit: timeout,
     );
   }
-  
+
   /// Obtiene la última posición conocida (más rápido, menos preciso)
   Future<Position?> getLastKnownPosition() async {
     return await Geolocator.getLastKnownPosition();
   }
-  
+
   /// Stream de posiciones para rastreo en tiempo real
-  /// 
+  ///
   /// [accuracy] - Precisión deseada
   /// [distanceFilter] - Distancia mínima en metros para emitir nuevo evento
   /// [intervalDuration] - Intervalo mínimo entre actualizaciones (Android)
@@ -219,7 +219,7 @@ class LocationService {
     Duration? intervalDuration,
   }) {
     late LocationSettings settings;
-    
+
     if (intervalDuration != null) {
       // Android específico con intervalo
       settings = AndroidSettings(
@@ -234,10 +234,10 @@ class LocationService {
         distanceFilter: distanceFilter,
       );
     }
-    
+
     return Geolocator.getPositionStream(locationSettings: settings);
   }
-  
+
   /// Calcula la distancia entre dos puntos en metros
   double calculateDistance({
     required double startLatitude,
@@ -252,7 +252,7 @@ class LocationService {
       endLongitude,
     );
   }
-  
+
   /// Calcula el bearing (dirección) entre dos puntos
   double calculateBearing({
     required double startLatitude,
@@ -267,12 +267,12 @@ class LocationService {
       endLongitude,
     );
   }
-  
+
   /// Abre la configuración de ubicación del dispositivo
   Future<bool> openLocationSettings() async {
     return await Geolocator.openLocationSettings();
   }
-  
+
   /// Abre la configuración de la app
   Future<bool> openAppSettings() async {
     return await Geolocator.openAppSettings();
@@ -283,7 +283,7 @@ class LocationService {
 class LocationServiceException implements Exception {
   final String message;
   LocationServiceException(this.message);
-  
+
   @override
   String toString() => message;
 }
@@ -296,7 +296,7 @@ class LocationServiceException implements Exception {
 ```dart
 /**
  * CurrentLocationWidget
- * 
+ *
  * Widget que muestra la ubicación actual del usuario
  * con manejo de estados de carga, error y permisos.
  */
@@ -306,43 +306,43 @@ import 'package:geolocator/geolocator.dart';
 
 class CurrentLocationWidget extends StatefulWidget {
   final Function(Position)? onLocationObtained;
-  
+
   const CurrentLocationWidget({
     Key? key,
     this.onLocationObtained,
   }) : super(key: key);
-  
+
   @override
   State<CurrentLocationWidget> createState() => _CurrentLocationWidgetState();
 }
 
 class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
   final LocationService _locationService = LocationService();
-  
+
   Position? _currentPosition;
   bool _isLoading = false;
   String? _error;
-  
+
   @override
   void initState() {
     super.initState();
     _getLocation();
   }
-  
+
   Future<void> _getLocation() async {
     setState(() {
       _isLoading = true;
       _error = null;
     });
-    
+
     try {
       final position = await _locationService.getCurrentPosition();
-      
+
       setState(() {
         _currentPosition = position;
         _isLoading = false;
       });
-      
+
       widget.onLocationObtained?.call(position);
     } on LocationServiceException catch (e) {
       setState(() {
@@ -356,7 +356,7 @@ class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
       });
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -390,9 +390,9 @@ class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
                   ),
               ],
             ),
-            
+
             const Divider(),
-            
+
             // Contenido
             if (_isLoading)
               const Center(
@@ -416,7 +416,7 @@ class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
       ),
     );
   }
-  
+
   Widget _buildErrorWidget() {
     return Column(
       children: [
@@ -451,10 +451,10 @@ class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
       ],
     );
   }
-  
+
   Widget _buildLocationInfo() {
     final position = _currentPosition!;
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -494,7 +494,7 @@ class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
       ],
     );
   }
-  
+
   Widget _buildInfoRow(String label, String value, IconData icon) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
@@ -511,7 +511,7 @@ class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
       ),
     );
   }
-  
+
   String _formatTimestamp(DateTime timestamp) {
     return '${timestamp.hour.toString().padLeft(2, '0')}:'
         '${timestamp.minute.toString().padLeft(2, '0')}:'
@@ -527,9 +527,9 @@ class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
 ```dart
 /**
  * GeocodingService
- * 
+ *
  * Servicio para convertir entre direcciones y coordenadas.
- * 
+ *
  * Geocoding: Dirección → Coordenadas
  * Reverse Geocoding: Coordenadas → Dirección
  */
@@ -537,11 +537,11 @@ class _CurrentLocationWidgetState extends State<CurrentLocationWidget> {
 import 'package:geocoding/geocoding.dart';
 
 class GeocodingService {
-  
+
   /// Convierte una dirección en coordenadas (Geocoding)
-  /// 
+  ///
   /// [address] - Dirección a buscar (ej: "Calle Principal 123, Ciudad")
-  /// 
+  ///
   /// Retorna lista de posibles ubicaciones
   Future<List<Location>> getCoordinatesFromAddress(String address) async {
     try {
@@ -552,12 +552,12 @@ class GeocodingService {
       return [];
     }
   }
-  
+
   /// Convierte coordenadas en una dirección (Reverse Geocoding)
-  /// 
+  ///
   /// [latitude] - Latitud
   /// [longitude] - Longitud
-  /// 
+  ///
   /// Retorna lista de posibles direcciones
   Future<List<Placemark>> getAddressFromCoordinates({
     required double latitude,
@@ -571,7 +571,7 @@ class GeocodingService {
       return [];
     }
   }
-  
+
   /// Obtiene la primera dirección formateada
   Future<String?> getFormattedAddress({
     required double latitude,
@@ -581,44 +581,44 @@ class GeocodingService {
       latitude: latitude,
       longitude: longitude,
     );
-    
+
     if (placemarks.isEmpty) return null;
-    
+
     final place = placemarks.first;
     return _formatPlacemark(place);
   }
-  
+
   /// Formatea un Placemark en una dirección legible
   String _formatPlacemark(Placemark place) {
     final parts = <String>[];
-    
+
     if (place.street?.isNotEmpty ?? false) {
       parts.add(place.street!);
     }
-    
+
     if (place.subLocality?.isNotEmpty ?? false) {
       parts.add(place.subLocality!);
     }
-    
+
     if (place.locality?.isNotEmpty ?? false) {
       parts.add(place.locality!);
     }
-    
+
     if (place.administrativeArea?.isNotEmpty ?? false) {
       parts.add(place.administrativeArea!);
     }
-    
+
     if (place.postalCode?.isNotEmpty ?? false) {
       parts.add(place.postalCode!);
     }
-    
+
     if (place.country?.isNotEmpty ?? false) {
       parts.add(place.country!);
     }
-    
+
     return parts.join(', ');
   }
-  
+
   /// Obtiene información detallada de una ubicación
   Future<PlaceDetails?> getPlaceDetails({
     required double latitude,
@@ -628,11 +628,11 @@ class GeocodingService {
       latitude: latitude,
       longitude: longitude,
     );
-    
+
     if (placemarks.isEmpty) return null;
-    
+
     final place = placemarks.first;
-    
+
     return PlaceDetails(
       street: place.street ?? '',
       subLocality: place.subLocality ?? '',
@@ -656,7 +656,7 @@ class PlaceDetails {
   final String country;
   final String isoCountryCode;
   final String formattedAddress;
-  
+
   PlaceDetails({
     required this.street,
     required this.subLocality,
@@ -687,7 +687,7 @@ class PlaceDetails {
 ```dart
 /**
  * BasicMapWidget
- * 
+ *
  * Widget de Google Maps con funcionalidad básica:
  * - Mostrar ubicación actual
  * - Agregar marcadores
@@ -704,7 +704,7 @@ class BasicMapWidget extends StatefulWidget {
   final Set<Marker>? markers;
   final Function(LatLng)? onTap;
   final Function(GoogleMapController)? onMapCreated;
-  
+
   const BasicMapWidget({
     Key? key,
     this.initialPosition,
@@ -713,7 +713,7 @@ class BasicMapWidget extends StatefulWidget {
     this.onTap,
     this.onMapCreated,
   }) : super(key: key);
-  
+
   @override
   State<BasicMapWidget> createState() => _BasicMapWidgetState();
 }
@@ -721,17 +721,17 @@ class BasicMapWidget extends StatefulWidget {
 class _BasicMapWidgetState extends State<BasicMapWidget> {
   GoogleMapController? _mapController;
   final LocationService _locationService = LocationService();
-  
+
   LatLng _currentPosition = const LatLng(0, 0);
   Set<Marker> _markers = {};
   bool _isLoading = true;
-  
+
   @override
   void initState() {
     super.initState();
     _initializeMap();
   }
-  
+
   Future<void> _initializeMap() async {
     // Si hay posición inicial, usarla
     if (widget.initialPosition != null) {
@@ -741,7 +741,7 @@ class _BasicMapWidgetState extends State<BasicMapWidget> {
       });
       return;
     }
-    
+
     // Obtener ubicación actual
     try {
       final position = await _locationService.getCurrentPosition();
@@ -757,28 +757,28 @@ class _BasicMapWidgetState extends State<BasicMapWidget> {
       });
     }
   }
-  
+
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
     widget.onMapCreated?.call(controller);
   }
-  
+
   /// Centra el mapa en la ubicación actual
   Future<void> centerOnCurrentLocation() async {
     try {
       final position = await _locationService.getCurrentPosition();
       final latLng = LatLng(position.latitude, position.longitude);
-      
+
       _mapController?.animateCamera(
         CameraUpdate.newLatLngZoom(latLng, widget.initialZoom),
       );
-      
+
       setState(() => _currentPosition = latLng);
     } catch (e) {
       print('Error al centrar: $e');
     }
   }
-  
+
   /// Agrega un marcador en la posición indicada
   void addMarker({
     required String id,
@@ -798,26 +798,26 @@ class _BasicMapWidgetState extends State<BasicMapWidget> {
       icon: icon ?? BitmapDescriptor.defaultMarker,
       onTap: onTap,
     );
-    
+
     setState(() {
       _markers.add(marker);
     });
   }
-  
+
   /// Elimina un marcador
   void removeMarker(String id) {
     setState(() {
       _markers.removeWhere((m) => m.markerId.value == id);
     });
   }
-  
+
   /// Limpia todos los marcadores
   void clearMarkers() {
     setState(() {
       _markers.clear();
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
@@ -832,7 +832,7 @@ class _BasicMapWidgetState extends State<BasicMapWidget> {
         ),
       );
     }
-    
+
     return Stack(
       children: [
         // Mapa
@@ -850,7 +850,7 @@ class _BasicMapWidgetState extends State<BasicMapWidget> {
           compassEnabled: true,
           onTap: widget.onTap,
         ),
-        
+
         // Botón para centrar en ubicación actual
         Positioned(
           right: 16,
@@ -862,7 +862,7 @@ class _BasicMapWidgetState extends State<BasicMapWidget> {
             child: const Icon(Icons.my_location),
           ),
         ),
-        
+
         // Botones de zoom
         Positioned(
           right: 16,
@@ -892,7 +892,7 @@ class _BasicMapWidgetState extends State<BasicMapWidget> {
       ],
     );
   }
-  
+
   @override
   void dispose() {
     _mapController?.dispose();
@@ -908,7 +908,7 @@ class _BasicMapWidgetState extends State<BasicMapWidget> {
 ```dart
 /**
  * MapWithRouteWidget
- * 
+ *
  * Mapa avanzado con:
  * - Marcadores de origen y destino
  * - Polilínea de ruta
@@ -922,21 +922,21 @@ class MapWithRouteWidget extends StatefulWidget {
   final LatLng origin;
   final LatLng destination;
   final List<LatLng>? routePoints;
-  
+
   const MapWithRouteWidget({
     Key? key,
     required this.origin,
     required this.destination,
     this.routePoints,
   }) : super(key: key);
-  
+
   @override
   State<MapWithRouteWidget> createState() => _MapWithRouteWidgetState();
 }
 
 class _MapWithRouteWidgetState extends State<MapWithRouteWidget> {
   GoogleMapController? _mapController;
-  
+
   Set<Marker> get _markers => {
     Marker(
       markerId: const MarkerId('origin'),
@@ -951,7 +951,7 @@ class _MapWithRouteWidgetState extends State<MapWithRouteWidget> {
       infoWindow: const InfoWindow(title: 'Destino'),
     ),
   };
-  
+
   Set<Polyline> get _polylines {
     if (widget.routePoints == null || widget.routePoints!.isEmpty) {
       // Línea directa si no hay puntos de ruta
@@ -965,7 +965,7 @@ class _MapWithRouteWidgetState extends State<MapWithRouteWidget> {
         ),
       };
     }
-    
+
     return {
       Polyline(
         polylineId: const PolylineId('route'),
@@ -975,34 +975,34 @@ class _MapWithRouteWidgetState extends State<MapWithRouteWidget> {
       ),
     };
   }
-  
+
   /// Calcula los bounds para mostrar toda la ruta
   LatLngBounds _getBounds() {
     double minLat = widget.origin.latitude;
     double maxLat = widget.origin.latitude;
     double minLng = widget.origin.longitude;
     double maxLng = widget.origin.longitude;
-    
+
     for (final point in [widget.origin, widget.destination]) {
       if (point.latitude < minLat) minLat = point.latitude;
       if (point.latitude > maxLat) maxLat = point.latitude;
       if (point.longitude < minLng) minLng = point.longitude;
       if (point.longitude > maxLng) maxLng = point.longitude;
     }
-    
+
     return LatLngBounds(
       southwest: LatLng(minLat, minLng),
       northeast: LatLng(maxLat, maxLng),
     );
   }
-  
+
   void _fitBounds() {
     final bounds = _getBounds();
     _mapController?.animateCamera(
       CameraUpdate.newLatLngBounds(bounds, 80), // 80 = padding
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return GoogleMap(
@@ -1031,7 +1031,7 @@ class _MapWithRouteWidgetState extends State<MapWithRouteWidget> {
 ```dart
 /**
  * LocationTrackerWidget
- * 
+ *
  * Widget que rastrea la ubicación en tiempo real
  * y dibuja el recorrido en el mapa.
  */
@@ -1044,13 +1044,13 @@ import 'package:geolocator/geolocator.dart';
 class LocationTrackerWidget extends StatefulWidget {
   final Function(List<LatLng>)? onPathUpdated;
   final Function(double)? onDistanceUpdated;
-  
+
   const LocationTrackerWidget({
     Key? key,
     this.onPathUpdated,
     this.onDistanceUpdated,
   }) : super(key: key);
-  
+
   @override
   State<LocationTrackerWidget> createState() => _LocationTrackerWidgetState();
 }
@@ -1058,28 +1058,28 @@ class LocationTrackerWidget extends StatefulWidget {
 class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
   final LocationService _locationService = LocationService();
   GoogleMapController? _mapController;
-  
+
   StreamSubscription<Position>? _positionSubscription;
-  
+
   final List<LatLng> _path = [];
   double _totalDistance = 0.0;
   bool _isTracking = false;
   Position? _lastPosition;
-  
+
   @override
   void dispose() {
     _stopTracking();
     _mapController?.dispose();
     super.dispose();
   }
-  
+
   void _startTracking() {
     setState(() {
       _isTracking = true;
       _path.clear();
       _totalDistance = 0.0;
     });
-    
+
     _positionSubscription = _locationService.getPositionStream(
       accuracy: LocationAccuracy.high,
       distanceFilter: 5, // Cada 5 metros
@@ -1091,19 +1091,19 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
       },
     );
   }
-  
+
   void _stopTracking() {
     _positionSubscription?.cancel();
     _positionSubscription = null;
-    
+
     setState(() {
       _isTracking = false;
     });
   }
-  
+
   void _onPositionUpdate(Position position) {
     final newPoint = LatLng(position.latitude, position.longitude);
-    
+
     // Calcular distancia desde el último punto
     if (_lastPosition != null) {
       final distance = _locationService.calculateDistance(
@@ -1115,23 +1115,23 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
       _totalDistance += distance;
       widget.onDistanceUpdated?.call(_totalDistance);
     }
-    
+
     setState(() {
       _path.add(newPoint);
       _lastPosition = position;
     });
-    
+
     widget.onPathUpdated?.call(_path);
-    
+
     // Centrar mapa en la nueva posición
     _mapController?.animateCamera(
       CameraUpdate.newLatLng(newPoint),
     );
   }
-  
+
   Set<Polyline> get _polylines {
     if (_path.length < 2) return {};
-    
+
     return {
       Polyline(
         polylineId: const PolylineId('tracking_path'),
@@ -1141,10 +1141,10 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
       ),
     };
   }
-  
+
   Set<Marker> get _markers {
     final markers = <Marker>{};
-    
+
     if (_path.isNotEmpty) {
       // Marcador de inicio
       markers.add(Marker(
@@ -1153,7 +1153,7 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
         infoWindow: const InfoWindow(title: 'Inicio'),
       ));
-      
+
       // Marcador de posición actual
       if (_path.length > 1) {
         markers.add(Marker(
@@ -1164,17 +1164,17 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
         ));
       }
     }
-    
+
     return markers;
   }
-  
+
   String _formatDistance(double meters) {
     if (meters < 1000) {
       return '${meters.toStringAsFixed(0)} m';
     }
     return '${(meters / 1000).toStringAsFixed(2)} km';
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -1204,7 +1204,7 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
                   ],
                 ),
               ),
-              
+
               // Puntos registrados
               Expanded(
                 child: Column(
@@ -1224,7 +1224,7 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
                   ],
                 ),
               ),
-              
+
               // Botón de control
               ElevatedButton.icon(
                 onPressed: _isTracking ? _stopTracking : _startTracking,
@@ -1238,7 +1238,7 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
             ],
           ),
         ),
-        
+
         // Mapa
         Expanded(
           child: GoogleMap(
@@ -1263,14 +1263,14 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
 
 ## 📝 Resumen
 
-| Funcionalidad | Paquete | Complejidad |
-|---------------|---------|-------------|
-| Ubicación actual | geolocator | ⭐ Baja |
-| Stream de posición | geolocator | ⭐⭐ Media |
-| Geocoding | geocoding | ⭐ Baja |
-| Mapa básico | google_maps_flutter | ⭐⭐ Media |
-| Marcadores y rutas | google_maps_flutter | ⭐⭐ Media |
-| Tracking en vivo | geolocator + maps | ⭐⭐⭐ Alta |
+| Funcionalidad      | Paquete             | Complejidad |
+| ------------------ | ------------------- | ----------- |
+| Ubicación actual   | geolocator          | ⭐ Baja     |
+| Stream de posición | geolocator          | ⭐⭐ Media  |
+| Geocoding          | geocoding           | ⭐ Baja     |
+| Mapa básico        | google_maps_flutter | ⭐⭐ Media  |
+| Marcadores y rutas | google_maps_flutter | ⭐⭐ Media  |
+| Tracking en vivo   | geolocator + maps   | ⭐⭐⭐ Alta |
 
 ### Consideraciones Importantes
 
@@ -1284,6 +1284,6 @@ class _LocationTrackerWidgetState extends State<LocationTrackerWidget> {
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                   | Índice                   | Siguiente                                |
+| ------------------------------------------ | ------------------------ | ---------------------------------------- |
 | [Cámara y Galería](./01-camara-galeria.md) | [Semana 8](../README.md) | [Notificaciones](./03-notificaciones.md) |

@@ -2,11 +2,11 @@
 
 ## 📋 Índice de Contenidos
 
-| Archivo | Descripción |
-|---------|-------------|
-| [README.md](./README.md) | Este archivo - Especificación del proyecto |
-| [GUIA-DISENO.md](./GUIA-DISENO.md) | Guía de diseño y UI/UX |
-| [EJEMPLOS-DATOS.md](./EJEMPLOS-DATOS.md) | Datos de ejemplo y mocks |
+| Archivo                                  | Descripción                                |
+| ---------------------------------------- | ------------------------------------------ |
+| [README.md](./README.md)                 | Este archivo - Especificación del proyecto |
+| [GUIA-DISENO.md](./GUIA-DISENO.md)       | Guía de diseño y UI/UX                     |
+| [EJEMPLOS-DATOS.md](./EJEMPLOS-DATOS.md) | Datos de ejemplo y mocks                   |
 
 ---
 
@@ -44,59 +44,59 @@ Al completar este proyecto, habrás practicado:
 
 ### RF01: Gestión de Entradas
 
-| ID | Requisito | Prioridad |
-|----|-----------|-----------|
-| RF01.1 | Crear nueva entrada de diario | Alta |
-| RF01.2 | Ver lista de entradas por fecha | Alta |
-| RF01.3 | Ver detalle de una entrada | Alta |
-| RF01.4 | Editar entrada existente | Media |
-| RF01.5 | Eliminar entrada | Media |
+| ID     | Requisito                       | Prioridad |
+| ------ | ------------------------------- | --------- |
+| RF01.1 | Crear nueva entrada de diario   | Alta      |
+| RF01.2 | Ver lista de entradas por fecha | Alta      |
+| RF01.3 | Ver detalle de una entrada      | Alta      |
+| RF01.4 | Editar entrada existente        | Media     |
+| RF01.5 | Eliminar entrada                | Media     |
 
 ### RF02: Captura de Fotos
 
-| ID | Requisito | Prioridad |
-|----|-----------|-----------|
-| RF02.1 | Tomar foto con la cámara | Alta |
-| RF02.2 | Seleccionar foto de galería | Alta |
-| RF02.3 | Múltiples fotos por entrada | Media |
-| RF02.4 | Vista previa de fotos | Alta |
-| RF02.5 | Eliminar foto de entrada | Media |
+| ID     | Requisito                   | Prioridad |
+| ------ | --------------------------- | --------- |
+| RF02.1 | Tomar foto con la cámara    | Alta      |
+| RF02.2 | Seleccionar foto de galería | Alta      |
+| RF02.3 | Múltiples fotos por entrada | Media     |
+| RF02.4 | Vista previa de fotos       | Alta      |
+| RF02.5 | Eliminar foto de entrada    | Media     |
 
 ### RF03: Geolocalización
 
-| ID | Requisito | Prioridad |
-|----|-----------|-----------|
-| RF03.1 | Obtener ubicación actual automáticamente | Alta |
-| RF03.2 | Seleccionar ubicación manualmente en mapa | Media |
-| RF03.3 | Guardar coordenadas con cada entrada | Alta |
-| RF03.4 | Mostrar nombre del lugar (reverse geocoding) | Baja |
+| ID     | Requisito                                    | Prioridad |
+| ------ | -------------------------------------------- | --------- |
+| RF03.1 | Obtener ubicación actual automáticamente     | Alta      |
+| RF03.2 | Seleccionar ubicación manualmente en mapa    | Media     |
+| RF03.3 | Guardar coordenadas con cada entrada         | Alta      |
+| RF03.4 | Mostrar nombre del lugar (reverse geocoding) | Baja      |
 
 ### RF04: Mapa de Viajes
 
-| ID | Requisito | Prioridad |
-|----|-----------|-----------|
-| RF04.1 | Mostrar mapa con todas las entradas | Alta |
-| RF04.2 | Marcadores personalizados por entrada | Alta |
-| RF04.3 | Ver info de entrada al tocar marcador | Alta |
-| RF04.4 | Dibujar ruta entre puntos de un viaje | Media |
-| RF04.5 | Filtrar por fecha o viaje | Baja |
+| ID     | Requisito                             | Prioridad |
+| ------ | ------------------------------------- | --------- |
+| RF04.1 | Mostrar mapa con todas las entradas   | Alta      |
+| RF04.2 | Marcadores personalizados por entrada | Alta      |
+| RF04.3 | Ver info de entrada al tocar marcador | Alta      |
+| RF04.4 | Dibujar ruta entre puntos de un viaje | Media     |
+| RF04.5 | Filtrar por fecha o viaje             | Baja      |
 
 ### RF05: Recordatorios
 
-| ID | Requisito | Prioridad |
-|----|-----------|-----------|
-| RF05.1 | Programar recordatorio diario | Alta |
-| RF05.2 | Notificación push con acción | Media |
-| RF05.3 | Configurar hora del recordatorio | Media |
-| RF05.4 | Activar/desactivar recordatorios | Alta |
+| ID     | Requisito                        | Prioridad |
+| ------ | -------------------------------- | --------- |
+| RF05.1 | Programar recordatorio diario    | Alta      |
+| RF05.2 | Notificación push con acción     | Media     |
+| RF05.3 | Configurar hora del recordatorio | Media     |
+| RF05.4 | Activar/desactivar recordatorios | Alta      |
 
 ### RF06: Permisos
 
-| ID | Requisito | Prioridad |
-|----|-----------|-----------|
-| RF06.1 | Solicitar permisos al inicio | Alta |
-| RF06.2 | Manejar permisos denegados gracefully | Alta |
-| RF06.3 | Guiar a configuración si bloqueado | Media |
+| ID     | Requisito                             | Prioridad |
+| ------ | ------------------------------------- | --------- |
+| RF06.1 | Solicitar permisos al inicio          | Alta      |
+| RF06.2 | Manejar permisos denegados gracefully | Alta      |
+| RF06.3 | Guiar a configuración si bloqueado    | Media     |
 
 ---
 
@@ -195,31 +195,31 @@ lib/
 dependencies:
   flutter:
     sdk: flutter
-  
+
   # State Management
   provider: ^6.1.1
-  
+
   # Camera & Gallery
   image_picker: ^1.0.4
   camera: ^0.10.5+5
-  
+
   # Location & Maps
   geolocator: ^10.1.0
   google_maps_flutter: ^2.5.0
   geocoding: ^2.1.1
-  
+
   # Notifications
   flutter_local_notifications: ^16.1.0
   timezone: ^0.9.2
-  
+
   # Permissions
   permission_handler: ^11.1.0
-  
+
   # Storage
   sqflite: ^2.3.0
   path_provider: ^2.1.1
   path: ^1.8.3
-  
+
   # UI
   cached_network_image: ^3.3.0
   intl: ^0.18.1
@@ -247,7 +247,7 @@ class DiaryEntry {
   final String? tripId;
   final DateTime createdAt;
   final DateTime updatedAt;
-  
+
   // Constructor, copyWith, toJson, fromJson...
 }
 ```
@@ -260,7 +260,7 @@ class Photo {
   final String localPath;
   final DateTime takenAt;
   final Location? location;
-  
+
   // Constructor, toJson, fromJson...
 }
 ```
@@ -273,7 +273,7 @@ class Location {
   final double longitude;
   final String? placeName;
   final String? address;
-  
+
   // Constructor, toJson, fromJson...
 }
 ```
@@ -287,7 +287,7 @@ class Trip {
   final DateTime startDate;
   final DateTime? endDate;
   final List<String> entryIds;
-  
+
   // Constructor, toJson, fromJson...
 }
 ```
@@ -361,31 +361,31 @@ class Trip {
 
 ### Funcionalidad (50 puntos)
 
-| Criterio | Puntos |
-|----------|--------|
-| CRUD de entradas de diario | 10 |
-| Captura/selección de fotos | 10 |
-| Geolocalización automática | 10 |
-| Mapa con marcadores | 10 |
-| Notificaciones/recordatorios | 10 |
+| Criterio                     | Puntos |
+| ---------------------------- | ------ |
+| CRUD de entradas de diario   | 10     |
+| Captura/selección de fotos   | 10     |
+| Geolocalización automática   | 10     |
+| Mapa con marcadores          | 10     |
+| Notificaciones/recordatorios | 10     |
 
 ### Calidad Técnica (30 puntos)
 
-| Criterio | Puntos |
-|----------|--------|
-| Arquitectura limpia | 10 |
-| Gestión de estado (Provider) | 10 |
-| Manejo de permisos | 5 |
-| Código documentado | 5 |
+| Criterio                     | Puntos |
+| ---------------------------- | ------ |
+| Arquitectura limpia          | 10     |
+| Gestión de estado (Provider) | 10     |
+| Manejo de permisos           | 5      |
+| Código documentado           | 5      |
 
 ### UX/UI (20 puntos)
 
-| Criterio | Puntos |
-|----------|--------|
-| Diseño coherente | 5 |
-| Estados de carga y error | 5 |
-| Navegación intuitiva | 5 |
-| Responsividad | 5 |
+| Criterio                 | Puntos |
+| ------------------------ | ------ |
+| Diseño coherente         | 5      |
+| Estados de carga y error | 5      |
+| Navegación intuitiva     | 5      |
+| Responsividad            | 5      |
 
 ### Total: 100 puntos
 
@@ -466,6 +466,6 @@ Copia las dependencias del `pubspec.yaml` de arriba.
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                              | Índice                    | Siguiente                           |
+| ------------------------------------- | ------------------------- | ----------------------------------- |
 | [Prácticas](../2-practicas/README.md) | [Semana 08](../README.md) | [Recursos](../4-recursos/README.md) |

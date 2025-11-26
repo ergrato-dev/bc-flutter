@@ -21,28 +21,28 @@ class AppColors {
   static const Color primary = Color(0xFF2196F3);       // Azul principal
   static const Color primaryLight = Color(0xFF64B5F6);  // Azul claro
   static const Color primaryDark = Color(0xFF1976D2);   // Azul oscuro
-  
+
   // Secondary
   static const Color secondary = Color(0xFFFF9800);     // Naranja viajes
   static const Color secondaryLight = Color(0xFFFFB74D);
   static const Color secondaryDark = Color(0xFFF57C00);
-  
+
   // Background
   static const Color background = Color(0xFFFAFAFA);
   static const Color surface = Color(0xFFFFFFFF);
   static const Color card = Color(0xFFFFFFFF);
-  
+
   // Text
   static const Color textPrimary = Color(0xFF212121);
   static const Color textSecondary = Color(0xFF757575);
   static const Color textHint = Color(0xFFBDBDBD);
-  
+
   // States
   static const Color success = Color(0xFF4CAF50);
   static const Color warning = Color(0xFFFFC107);
   static const Color error = Color(0xFFF44336);
   static const Color info = Color(0xFF2196F3);
-  
+
   // Map markers
   static const Color markerPhoto = Color(0xFF4CAF50);
   static const Color markerLocation = Color(0xFFFF5722);
@@ -52,15 +52,15 @@ class AppColors {
 
 ### Uso de Colores
 
-| Elemento | Color | Uso |
-|----------|-------|-----|
-| AppBar | `primary` | Barra superior |
-| FAB | `secondary` | Acción principal |
-| Cards | `surface` | Contenedores |
-| Texto principal | `textPrimary` | Títulos, contenido |
-| Texto secundario | `textSecondary` | Subtítulos, fechas |
-| Estados de éxito | `success` | Confirmaciones |
-| Estados de error | `error` | Errores, eliminación |
+| Elemento         | Color           | Uso                  |
+| ---------------- | --------------- | -------------------- |
+| AppBar           | `primary`       | Barra superior       |
+| FAB              | `secondary`     | Acción principal     |
+| Cards            | `surface`       | Contenedores         |
+| Texto principal  | `textPrimary`   | Títulos, contenido   |
+| Texto secundario | `textSecondary` | Subtítulos, fechas   |
+| Estados de éxito | `success`       | Confirmaciones       |
+| Estados de error | `error`         | Errores, eliminación |
 
 ---
 
@@ -76,40 +76,40 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     letterSpacing: -0.5,
   );
-  
+
   static const TextStyle headline2 = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
-  
+
   static const TextStyle headline3 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
   );
-  
+
   // Body
   static const TextStyle bodyLarge = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
-  
+
   static const TextStyle bodyMedium = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
   );
-  
+
   static const TextStyle bodySmall = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
   );
-  
+
   // Labels
   static const TextStyle labelLarge = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.1,
   );
-  
+
   static const TextStyle caption = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
@@ -163,7 +163,7 @@ class DiaryCard extends StatelessWidget {
               child: Image.file(/* ... */),
             ),
           ),
-          
+
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -176,9 +176,9 @@ class DiaryCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                
+
                 const SizedBox(height: 8),
-                
+
                 // Ubicación
                 Row(
                   children: [
@@ -187,7 +187,7 @@ class DiaryCard extends StatelessWidget {
                     Text(entry.location?.placeName ?? 'Sin ubicación'),
                   ],
                 ),
-                
+
                 // Fecha
                 Row(
                   children: [
@@ -226,7 +226,7 @@ class PhotoGrid extends StatelessWidget {
   final int maxPhotos;
   final VoidCallback onAddPhoto;
   final Function(int) onRemovePhoto;
-  
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -237,8 +237,8 @@ class PhotoGrid extends StatelessWidget {
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,
       ),
-      itemCount: photos.length < maxPhotos 
-          ? photos.length + 1 
+      itemCount: photos.length < maxPhotos
+          ? photos.length + 1
           : photos.length,
       itemBuilder: (context, index) {
         if (index == photos.length && photos.length < maxPhotos) {
@@ -248,7 +248,7 @@ class PhotoGrid extends StatelessWidget {
       },
     );
   }
-  
+
   Widget _buildAddButton() {
     return InkWell(
       onTap: onAddPhoto,
@@ -269,7 +269,7 @@ class PhotoGrid extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildPhotoItem(Photo photo, int index) {
     return Stack(
       fit: StackFit.expand,
@@ -475,21 +475,21 @@ class PhotoGrid extends StatelessWidget {
 
 ### Iconos del Sistema
 
-| Concepto | Icono | Uso |
-|----------|-------|-----|
-| Diario | `Icons.book` | Navegación |
-| Mapa | `Icons.map` | Navegación |
-| Ajustes | `Icons.settings` | Navegación |
-| Cámara | `Icons.camera_alt` | Acción |
-| Galería | `Icons.photo_library` | Acción |
-| Ubicación | `Icons.location_on` | Info |
-| Fecha | `Icons.calendar_today` | Info |
-| Notificación | `Icons.notifications` | Acción |
-| Editar | `Icons.edit` | Acción |
-| Eliminar | `Icons.delete` | Acción |
-| Añadir | `Icons.add` | Acción |
-| Buscar | `Icons.search` | Acción |
-| Mi ubicación | `Icons.my_location` | Acción |
+| Concepto     | Icono                  | Uso        |
+| ------------ | ---------------------- | ---------- |
+| Diario       | `Icons.book`           | Navegación |
+| Mapa         | `Icons.map`            | Navegación |
+| Ajustes      | `Icons.settings`       | Navegación |
+| Cámara       | `Icons.camera_alt`     | Acción     |
+| Galería      | `Icons.photo_library`  | Acción     |
+| Ubicación    | `Icons.location_on`    | Info       |
+| Fecha        | `Icons.calendar_today` | Info       |
+| Notificación | `Icons.notifications`  | Acción     |
+| Editar       | `Icons.edit`           | Acción     |
+| Eliminar     | `Icons.delete`         | Acción     |
+| Añadir       | `Icons.add`            | Acción     |
+| Buscar       | `Icons.search`         | Acción     |
+| Mi ubicación | `Icons.my_location`    | Acción     |
 
 ### Marcadores del Mapa
 
@@ -499,14 +499,14 @@ BitmapDescriptor _createCustomMarker(String photoPath) async {
   // Crear marcador circular con la foto
   final pictureRecorder = ui.PictureRecorder();
   final canvas = Canvas(pictureRecorder);
-  
+
   // Dibujar círculo con borde
   final paint = Paint()..color = AppColors.primary;
   canvas.drawCircle(Offset(40, 40), 40, paint);
-  
+
   // Añadir imagen en el centro
   // ...
-  
+
   return BitmapDescriptor.fromBytes(/* ... */);
 }
 ```
@@ -621,6 +621,6 @@ class AppElevation {
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                 | Índice                  | Siguiente                                |
+| ------------------------ | ----------------------- | ---------------------------------------- |
 | [README.md](./README.md) | [Proyecto](./README.md) | [EJEMPLOS-DATOS.md](./EJEMPLOS-DATOS.md) |

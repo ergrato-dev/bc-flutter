@@ -6,14 +6,14 @@ Esta carpeta contiene recursos visuales y diagramas para la Semana 8 del bootcam
 
 ## 📊 Diagramas Disponibles
 
-| Archivo | Descripción | Uso |
-|---------|-------------|-----|
+| Archivo                       | Descripción                       | Uso                                  |
+| ----------------------------- | --------------------------------- | ------------------------------------ |
 | `01-arquitectura-plugins.svg` | Arquitectura de Platform Channels | Entender comunicación Flutter-Nativo |
-| `02-permisos-flow.svg` | Flujo de solicitud de permisos | Implementar permisos correctamente |
-| `03-camera-pipeline.svg` | Pipeline de captura de imagen | Proceso de cámara y galería |
-| `04-location-stack.svg` | Stack de geolocalización | Capas de ubicación |
-| `05-notifications-flow.svg` | Flujo de notificaciones | Local y push notifications |
-| `06-sensors-overview.svg` | Overview de sensores | Tipos de sensores disponibles |
+| `02-permisos-flow.svg`        | Flujo de solicitud de permisos    | Implementar permisos correctamente   |
+| `03-camera-pipeline.svg`      | Pipeline de captura de imagen     | Proceso de cámara y galería          |
+| `04-location-stack.svg`       | Stack de geolocalización          | Capas de ubicación                   |
+| `05-notifications-flow.svg`   | Flujo de notificaciones           | Local y push notifications           |
+| `06-sensors-overview.svg`     | Overview de sensores              | Tipos de sensores disponibles        |
 
 ## 🎯 Cómo Usar
 
@@ -46,26 +46,31 @@ Esta carpeta contiene recursos visuales y diagramas para la Semana 8 del bootcam
 ## 📱 Temas Visualizados
 
 ### Platform Channels
+
 - Method Channel
 - Event Channel
 - Basic Message Channel
 
 ### Permisos
+
 - Estados: granted, denied, permanentlyDenied
 - Flujo de solicitud
 - Configuración de app settings
 
 ### Cámara y Galería
+
 - Captura de foto/video
 - Selección de imagen
 - Procesamiento y compresión
 
 ### Geolocalización
+
 - GPS, Network, Passive providers
 - Foreground vs Background location
 - Geofencing
 
 ### Notificaciones
+
 - Locales vs Push
 - Canales de notificación
 - Acciones y payloads
@@ -74,6 +79,6 @@ Esta carpeta contiene recursos visuales y diagramas para la Semana 8 del bootcam
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior               | Índice                   | Siguiente                    |
+| ---------------------- | ------------------------ | ---------------------------- |
 | [Teoría](../1-teoria/) | [Semana 8](../README.md) | [Prácticas](../2-practicas/) |

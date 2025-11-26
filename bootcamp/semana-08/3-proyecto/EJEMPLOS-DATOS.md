@@ -16,7 +16,7 @@
 ```dart
 /**
  * DiaryEntry
- * 
+ *
  * Modelo principal que representa una entrada del diario.
  * Incluye métodos de serialización para SQLite y JSON.
  */
@@ -33,7 +33,7 @@ class DiaryEntry {
   final String? tripId;
   final DateTime createdAt;
   final DateTime updatedAt;
-  
+
   const DiaryEntry({
     required this.id,
     required this.title,
@@ -45,7 +45,7 @@ class DiaryEntry {
     required this.createdAt,
     required this.updatedAt,
   });
-  
+
   /// Crea una entrada vacía con valores por defecto
   factory DiaryEntry.empty() {
     final now = DateTime.now();
@@ -58,7 +58,7 @@ class DiaryEntry {
       updatedAt: now,
     );
   }
-  
+
   /// Crea una copia con los campos modificados
   DiaryEntry copyWith({
     String? id,
@@ -83,7 +83,7 @@ class DiaryEntry {
       updatedAt: updatedAt ?? this.updatedAt,
     );
   }
-  
+
   /// Serializa a mapa para SQLite
   Map<String, dynamic> toMap() {
     return {
@@ -98,7 +98,7 @@ class DiaryEntry {
       'updatedAt': updatedAt.toIso8601String(),
     };
   }
-  
+
   /// Deserializa desde mapa de SQLite
   factory DiaryEntry.fromMap(Map<String, dynamic> map) {
     return DiaryEntry(
@@ -106,7 +106,7 @@ class DiaryEntry {
       title: map['title'] as String,
       description: map['description'] as String,
       date: DateTime.parse(map['date'] as String),
-      location: map['location'] != null 
+      location: map['location'] != null
           ? Location.fromJson(map['location'] as String)
           : null,
       photos: (jsonDecode(map['photos'] as String) as List)
@@ -117,25 +117,25 @@ class DiaryEntry {
       updatedAt: DateTime.parse(map['updatedAt'] as String),
     );
   }
-  
+
   /// Serializa a JSON
   String toJson() => jsonEncode(toMap());
-  
+
   /// Deserializa desde JSON
   factory DiaryEntry.fromJson(String source) =>
       DiaryEntry.fromMap(jsonDecode(source) as Map<String, dynamic>);
-  
+
   @override
   String toString() {
     return 'DiaryEntry(id: $id, title: $title, date: $date)';
   }
-  
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     return other is DiaryEntry && other.id == id;
   }
-  
+
   @override
   int get hashCode => id.hashCode;
 }
@@ -146,7 +146,7 @@ class DiaryEntry {
 ```dart
 /**
  * Photo
- * 
+ *
  * Modelo que representa una foto asociada a una entrada.
  */
 
@@ -155,14 +155,14 @@ class Photo {
   final String localPath;
   final DateTime takenAt;
   final Location? location;
-  
+
   const Photo({
     required this.id,
     required this.localPath,
     required this.takenAt,
     this.location,
   });
-  
+
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -171,7 +171,7 @@ class Photo {
       'location': location?.toJson(),
     };
   }
-  
+
   factory Photo.fromMap(Map<String, dynamic> map) {
     return Photo(
       id: map['id'] as String,
@@ -182,7 +182,7 @@ class Photo {
           : null,
     );
   }
-  
+
   Photo copyWith({
     String? id,
     String? localPath,
@@ -204,7 +204,7 @@ class Photo {
 ```dart
 /**
  * Location
- * 
+ *
  * Modelo que representa una ubicación geográfica.
  */
 
@@ -216,7 +216,7 @@ class Location {
   final String? placeName;
   final String? address;
   final double? altitude;
-  
+
   const Location({
     required this.latitude,
     required this.longitude,
@@ -224,7 +224,7 @@ class Location {
     this.address,
     this.altitude,
   });
-  
+
   /// Ubicación por defecto (Madrid, España)
   factory Location.defaultLocation() {
     return const Location(
@@ -234,7 +234,7 @@ class Location {
       address: 'Madrid, España',
     );
   }
-  
+
   Map<String, dynamic> toMap() {
     return {
       'latitude': latitude,
@@ -244,7 +244,7 @@ class Location {
       'altitude': altitude,
     };
   }
-  
+
   factory Location.fromMap(Map<String, dynamic> map) {
     return Location(
       latitude: (map['latitude'] as num).toDouble(),
@@ -254,12 +254,12 @@ class Location {
       altitude: (map['altitude'] as num?)?.toDouble(),
     );
   }
-  
+
   String toJson() => jsonEncode(toMap());
-  
+
   factory Location.fromJson(String source) =>
       Location.fromMap(jsonDecode(source) as Map<String, dynamic>);
-  
+
   /// Calcula la distancia a otra ubicación (en metros)
   double distanceTo(Location other) {
     // Fórmula de Haversine simplificada
@@ -268,14 +268,14 @@ class Location {
     final lat2 = other.latitude * 3.14159 / 180;
     final dLat = (other.latitude - latitude) * 3.14159 / 180;
     final dLon = (other.longitude - longitude) * 3.14159 / 180;
-    
+
     final a = (dLat / 2).sin() * (dLat / 2).sin() +
         lat1.cos() * lat2.cos() * (dLon / 2).sin() * (dLon / 2).sin();
     final c = 2 * a.sqrt().asin();
-    
+
     return earthRadius * c;
   }
-  
+
   @override
   String toString() {
     return placeName ?? '$latitude, $longitude';
@@ -296,7 +296,7 @@ extension on double {
 ```dart
 /**
  * Trip
- * 
+ *
  * Modelo que agrupa varias entradas en un viaje.
  */
 
@@ -309,7 +309,7 @@ class Trip {
   final String? coverPhotoPath;
   final List<String> entryIds;
   final DateTime createdAt;
-  
+
   const Trip({
     required this.id,
     required this.name,
@@ -320,16 +320,16 @@ class Trip {
     this.entryIds = const [],
     required this.createdAt,
   });
-  
+
   /// Duración del viaje en días
   int get durationDays {
     final end = endDate ?? DateTime.now();
     return end.difference(startDate).inDays + 1;
   }
-  
+
   /// Verifica si el viaje está en curso
   bool get isOngoing => endDate == null;
-  
+
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -342,14 +342,14 @@ class Trip {
       'createdAt': createdAt.toIso8601String(),
     };
   }
-  
+
   factory Trip.fromMap(Map<String, dynamic> map) {
     return Trip(
       id: map['id'] as String,
       name: map['name'] as String,
       description: map['description'] as String?,
       startDate: DateTime.parse(map['startDate'] as String),
-      endDate: map['endDate'] != null 
+      endDate: map['endDate'] != null
           ? DateTime.parse(map['endDate'] as String)
           : null,
       coverPhotoPath: map['coverPhotoPath'] as String?,
@@ -357,7 +357,7 @@ class Trip {
       createdAt: DateTime.parse(map['createdAt'] as String),
     );
   }
-  
+
   Trip copyWith({
     String? id,
     String? name,
@@ -400,8 +400,8 @@ class MockData {
       id: 'entry_001',
       title: 'Llegada a Barcelona',
       description: '''
-¡Por fin llegamos a Barcelona! El vuelo fue tranquilo y el 
-aeropuerto muy bien organizado. Tomamos el Aerobus hasta 
+¡Por fin llegamos a Barcelona! El vuelo fue tranquilo y el
+aeropuerto muy bien organizado. Tomamos el Aerobus hasta
 Plaza Catalunya y de ahí caminamos al hotel.
 
 Primera impresión: la ciudad es increíble. Las Ramblas están
@@ -430,7 +430,7 @@ a explorar en serio.
       createdAt: DateTime(2024, 1, 15, 21, 0),
       updatedAt: DateTime(2024, 1, 15, 21, 0),
     ),
-    
+
     DiaryEntry(
       id: 'entry_002',
       title: 'La Sagrada Familia',
@@ -475,7 +475,7 @@ nos quedamos sin poder entrar.
       createdAt: DateTime(2024, 1, 16, 14, 0),
       updatedAt: DateTime(2024, 1, 16, 14, 0),
     ),
-    
+
     DiaryEntry(
       id: 'entry_003',
       title: 'Paella en la Barceloneta',
@@ -510,7 +510,7 @@ enero (que aquí es bastante agradable).
       createdAt: DateTime(2024, 1, 16, 18, 0),
       updatedAt: DateTime(2024, 1, 16, 18, 0),
     ),
-    
+
     DiaryEntry(
       id: 'entry_004',
       title: 'Park Güell al atardecer',
@@ -546,7 +546,7 @@ de la ciudad empezaron a encenderse.
       createdAt: DateTime(2024, 1, 17, 20, 0),
       updatedAt: DateTime(2024, 1, 17, 20, 0),
     ),
-    
+
     DiaryEntry(
       id: 'entry_005',
       title: 'Tren a Madrid',
@@ -579,7 +579,7 @@ Mañana: Museo del Prado.
       updatedAt: DateTime(2024, 1, 18, 15, 0),
     ),
   ];
-  
+
   static List<Trip> get sampleTrips => [
     Trip(
       id: 'trip_spain_2024',
@@ -597,7 +597,7 @@ Mañana: Museo del Prado.
       createdAt: DateTime(2024, 1, 10),
     ),
   ];
-  
+
   /// Ubicaciones para el mapa
   static List<Location> get sampleLocations => [
     const Location(
@@ -652,7 +652,7 @@ class MockLocationService implements LocationService {
       address: 'Barcelona, España',
     );
   }
-  
+
   @override
   Stream<Location> get locationStream => Stream.periodic(
     const Duration(seconds: 5),
@@ -670,7 +670,7 @@ class MockCameraService implements CameraService {
     await Future.delayed(const Duration(seconds: 1));
     return '/mock/photos/photo_${DateTime.now().millisecondsSinceEpoch}.jpg';
   }
-  
+
   @override
   Future<String?> pickFromGallery() async {
     await Future.delayed(const Duration(milliseconds: 500));
@@ -681,7 +681,7 @@ class MockCameraService implements CameraService {
 // Mock Notification Service
 class MockNotificationService implements NotificationService {
   final List<Map<String, dynamic>> _scheduledNotifications = [];
-  
+
   @override
   Future<void> scheduleReminder({
     required int id,
@@ -696,26 +696,26 @@ class MockNotificationService implements NotificationService {
       'scheduledDate': scheduledDate,
     });
   }
-  
+
   @override
   Future<void> cancelReminder(int id) async {
     _scheduledNotifications.removeWhere((n) => n['id'] == id);
   }
-  
-  List<Map<String, dynamic>> get scheduledNotifications => 
+
+  List<Map<String, dynamic>> get scheduledNotifications =>
       _scheduledNotifications;
 }
 
 // Mock Diary Repository
 class MockDiaryRepository implements DiaryRepository {
   final List<DiaryEntry> _entries = List.from(MockData.sampleEntries);
-  
+
   @override
   Future<List<DiaryEntry>> getAllEntries() async {
     await Future.delayed(const Duration(milliseconds: 300));
     return List.from(_entries);
   }
-  
+
   @override
   Future<DiaryEntry?> getEntryById(String id) async {
     try {
@@ -724,7 +724,7 @@ class MockDiaryRepository implements DiaryRepository {
       return null;
     }
   }
-  
+
   @override
   Future<String> createEntry(DiaryEntry entry) async {
     final newEntry = entry.copyWith(
@@ -733,7 +733,7 @@ class MockDiaryRepository implements DiaryRepository {
     _entries.add(newEntry);
     return newEntry.id;
   }
-  
+
   @override
   Future<void> updateEntry(DiaryEntry entry) async {
     final index = _entries.indexWhere((e) => e.id == entry.id);
@@ -741,7 +741,7 @@ class MockDiaryRepository implements DiaryRepository {
       _entries[index] = entry.copyWith(updatedAt: DateTime.now());
     }
   }
-  
+
   @override
   Future<void> deleteEntry(String id) async {
     _entries.removeWhere((e) => e.id == id);
@@ -761,7 +761,7 @@ class TestFixtures {
   static DiaryEntry randomEntry() {
     final now = DateTime.now();
     final id = 'test_${now.millisecondsSinceEpoch}';
-    
+
     return DiaryEntry(
       id: id,
       title: 'Entrada de prueba $id',
@@ -776,7 +776,7 @@ class TestFixtures {
       updatedAt: now,
     );
   }
-  
+
   /// Genera una ubicación aleatoria en España
   static Location randomLocation() {
     final locations = [
@@ -788,7 +788,7 @@ class TestFixtures {
     ];
     return locations[Random().nextInt(locations.length)];
   }
-  
+
   /// Genera una foto de prueba
   static Photo randomPhoto() {
     final now = DateTime.now();
@@ -798,7 +798,7 @@ class TestFixtures {
       takenAt: now,
     );
   }
-  
+
   /// Lista de entradas para paginación
   static List<DiaryEntry> entriesForPagination(int count) {
     return List.generate(count, (_) => randomEntry());
@@ -826,27 +826,27 @@ Future<void> initializeFirebase() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   // Configurar FCM
   final messaging = FirebaseMessaging.instance;
-  
+
   // Solicitar permisos
   await messaging.requestPermission(
     alert: true,
     badge: true,
     sound: true,
   );
-  
+
   // Obtener token
   final token = await messaging.getToken();
   print('FCM Token: $token');
-  
+
   // Manejar mensajes en primer plano
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
     print('Mensaje recibido: ${message.notification?.title}');
     // Mostrar notificación local
   });
-  
+
   // Manejar tap en notificación
   FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
     print('Notificación abierta: ${message.data}');
@@ -886,6 +886,6 @@ users/
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                           | Índice                  | Siguiente                           |
+| ---------------------------------- | ----------------------- | ----------------------------------- |
 | [GUIA-DISENO.md](./GUIA-DISENO.md) | [Proyecto](./README.md) | [Recursos](../4-recursos/README.md) |

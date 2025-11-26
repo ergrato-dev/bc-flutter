@@ -17,16 +17,19 @@ Desarrollar una aplicación que rastree la ubicación del usuario en tiempo real
 ### Funcionalidades Principales
 
 1. **Ubicación Actual**
+
    - Mostrar posición actual en el mapa
    - Actualizar automáticamente
    - Mostrar información (lat, lng, precisión)
 
 2. **Tracking de Ruta**
+
    - Iniciar/detener rastreo
    - Dibujar ruta en el mapa (polyline)
    - Mostrar marcadores de inicio y actual
 
 3. **Cálculo de Distancia**
+
    - Calcular distancia total recorrida
    - Mostrar en metros/kilómetros
    - Actualizar en tiempo real
@@ -75,7 +78,7 @@ lib/
 ```dart
 /**
  * TrackPoint
- * 
+ *
  * Modelo que representa un punto en la ruta rastreada.
  * Incluye coordenadas, timestamp y datos adicionales.
  */
@@ -88,7 +91,7 @@ class TrackPoint {
   final double altitude;
   final double speed;
   final double accuracy;
-  
+
   TrackPoint({
     required this.position,
     required this.timestamp,
@@ -96,7 +99,7 @@ class TrackPoint {
     this.speed = 0.0,
     this.accuracy = 0.0,
   });
-  
+
   /// Crea un TrackPoint desde Position de geolocator
   factory TrackPoint.fromPosition(dynamic position) {
     return TrackPoint(
@@ -107,7 +110,7 @@ class TrackPoint {
       accuracy: position.accuracy,
     );
   }
-  
+
   /// Convierte a Map para serialización
   Map<String, dynamic> toMap() {
     return {
@@ -127,7 +130,7 @@ class TrackPoint {
 ```dart
 /**
  * LocationService
- * 
+ *
  * Servicio para obtener y rastrear la ubicación del usuario.
  */
 
@@ -137,7 +140,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class LocationService {
   StreamSubscription<Position>? _positionSubscription;
-  
+
   /// Verifica y solicita permisos de ubicación
   Future<bool> checkAndRequestPermission() async {
     // Verificar si el servicio está habilitado
@@ -145,24 +148,24 @@ class LocationService {
     if (!serviceEnabled) {
       return false;
     }
-    
+
     // Verificar permisos
     LocationPermission permission = await Geolocator.checkPermission();
-    
+
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
         return false;
       }
     }
-    
+
     if (permission == LocationPermission.deniedForever) {
       return false;
     }
-    
+
     return true;
   }
-  
+
   /// Obtiene la posición actual
   Future<Position?> getCurrentPosition() async {
     try {
@@ -175,7 +178,7 @@ class LocationService {
       return null;
     }
   }
-  
+
   /// Inicia el stream de posiciones
   Stream<Position> startTracking({
     int distanceFilter = 5,
@@ -188,7 +191,7 @@ class LocationService {
       ),
     );
   }
-  
+
   /// Calcula la distancia entre dos puntos en metros
   double calculateDistance(LatLng start, LatLng end) {
     return Geolocator.distanceBetween(
@@ -198,23 +201,23 @@ class LocationService {
       end.longitude,
     );
   }
-  
+
   /// Calcula la distancia total de una ruta
   double calculateTotalDistance(List<LatLng> points) {
     if (points.length < 2) return 0.0;
-    
+
     double total = 0.0;
     for (int i = 1; i < points.length; i++) {
       total += calculateDistance(points[i - 1], points[i]);
     }
     return total;
   }
-  
+
   /// Abre la configuración de ubicación
   Future<void> openLocationSettings() async {
     await Geolocator.openLocationSettings();
   }
-  
+
   /// Abre la configuración de la app
   Future<void> openAppSettings() async {
     await Geolocator.openAppSettings();
@@ -227,7 +230,7 @@ class LocationService {
 ```dart
 /**
  * TrackerScreen
- * 
+ *
  * Pantalla principal que muestra el mapa y controles de tracking.
  */
 
@@ -238,46 +241,46 @@ import 'package:geolocator/geolocator.dart';
 
 class TrackerScreen extends StatefulWidget {
   const TrackerScreen({Key? key}) : super(key: key);
-  
+
   @override
   State<TrackerScreen> createState() => _TrackerScreenState();
 }
 
 class _TrackerScreenState extends State<TrackerScreen> {
   final LocationService _locationService = LocationService();
-  
+
   GoogleMapController? _mapController;
   StreamSubscription<Position>? _positionSubscription;
-  
+
   // Estado
   bool _isLoading = true;
   bool _isTracking = false;
   String? _error;
-  
+
   // Datos de tracking
   LatLng? _currentPosition;
   final List<LatLng> _trackPoints = [];
   double _totalDistance = 0.0;
   DateTime? _startTime;
-  
+
   @override
   void initState() {
     super.initState();
     _initializeLocation();
   }
-  
+
   @override
   void dispose() {
     _stopTracking();
     _mapController?.dispose();
     super.dispose();
   }
-  
+
   Future<void> _initializeLocation() async {
     setState(() => _isLoading = true);
-    
+
     final hasPermission = await _locationService.checkAndRequestPermission();
-    
+
     if (!hasPermission) {
       setState(() {
         _isLoading = false;
@@ -285,9 +288,9 @@ class _TrackerScreenState extends State<TrackerScreen> {
       });
       return;
     }
-    
+
     final position = await _locationService.getCurrentPosition();
-    
+
     if (position != null) {
       setState(() {
         _currentPosition = LatLng(position.latitude, position.longitude);
@@ -300,39 +303,39 @@ class _TrackerScreenState extends State<TrackerScreen> {
       });
     }
   }
-  
+
   void _startTracking() {
     if (_isTracking) return;
-    
+
     setState(() {
       _isTracking = true;
       _trackPoints.clear();
       _totalDistance = 0.0;
       _startTime = DateTime.now();
     });
-    
+
     // Agregar punto inicial
     if (_currentPosition != null) {
       _trackPoints.add(_currentPosition!);
     }
-    
+
     _positionSubscription = _locationService
         .startTracking(distanceFilter: 5)
         .listen(_onPositionUpdate);
   }
-  
+
   void _stopTracking() {
     _positionSubscription?.cancel();
     _positionSubscription = null;
-    
+
     setState(() {
       _isTracking = false;
     });
   }
-  
+
   void _onPositionUpdate(Position position) {
     final newPoint = LatLng(position.latitude, position.longitude);
-    
+
     setState(() {
       // Calcular distancia desde el último punto
       if (_trackPoints.isNotEmpty) {
@@ -342,17 +345,17 @@ class _TrackerScreenState extends State<TrackerScreen> {
         );
         _totalDistance += distance;
       }
-      
+
       _currentPosition = newPoint;
       _trackPoints.add(newPoint);
     });
-    
+
     // Centrar mapa en la nueva posición
     _mapController?.animateCamera(
       CameraUpdate.newLatLng(newPoint),
     );
   }
-  
+
   void _centerOnCurrentLocation() {
     if (_currentPosition != null) {
       _mapController?.animateCamera(
@@ -360,7 +363,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
       );
     }
   }
-  
+
   void _clearTrack() {
     setState(() {
       _trackPoints.clear();
@@ -368,19 +371,19 @@ class _TrackerScreenState extends State<TrackerScreen> {
       _startTime = null;
     });
   }
-  
+
   String _formatDistance(double meters) {
     if (meters < 1000) {
       return '${meters.toStringAsFixed(0)} m';
     }
     return '${(meters / 1000).toStringAsFixed(2)} km';
   }
-  
+
   String _formatDuration(Duration duration) {
     final hours = duration.inHours;
     final minutes = duration.inMinutes.remainder(60);
     final seconds = duration.inSeconds.remainder(60);
-    
+
     if (hours > 0) {
       return '${hours}h ${minutes}m ${seconds}s';
     } else if (minutes > 0) {
@@ -388,7 +391,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
     }
     return '${seconds}s';
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -406,7 +409,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
       body: _buildBody(),
     );
   }
-  
+
   Widget _buildBody() {
     if (_isLoading) {
       return const Center(
@@ -420,7 +423,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
         ),
       );
     }
-    
+
     if (_error != null) {
       return Center(
         child: Column(
@@ -443,12 +446,12 @@ class _TrackerScreenState extends State<TrackerScreen> {
         ),
       );
     }
-    
+
     return Column(
       children: [
         // Panel de estadísticas
         _buildStatsPanel(),
-        
+
         // Mapa
         Expanded(
           child: Stack(
@@ -458,18 +461,18 @@ class _TrackerScreenState extends State<TrackerScreen> {
             ],
           ),
         ),
-        
+
         // Botón de control
         _buildControlButton(),
       ],
     );
   }
-  
+
   Widget _buildStatsPanel() {
     final duration = _startTime != null
         ? DateTime.now().difference(_startTime!)
         : Duration.zero;
-    
+
     return Container(
       padding: const EdgeInsets.all(16),
       color: Colors.white,
@@ -491,7 +494,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
               const Text('Distancia', style: TextStyle(color: Colors.grey)),
             ],
           ),
-          
+
           // Puntos
           Column(
             children: [
@@ -507,7 +510,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
               const Text('Puntos', style: TextStyle(color: Colors.grey)),
             ],
           ),
-          
+
           // Tiempo
           if (_startTime != null)
             Column(
@@ -528,7 +531,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
       ),
     );
   }
-  
+
   Widget _buildMap() {
     return GoogleMap(
       onMapCreated: (controller) => _mapController = controller,
@@ -544,10 +547,10 @@ class _TrackerScreenState extends State<TrackerScreen> {
       polylines: _buildPolylines(),
     );
   }
-  
+
   Set<Marker> _buildMarkers() {
     final markers = <Marker>{};
-    
+
     // Marcador de inicio
     if (_trackPoints.isNotEmpty) {
       markers.add(Marker(
@@ -557,7 +560,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
         infoWindow: const InfoWindow(title: 'Inicio'),
       ));
     }
-    
+
     // Marcador de posición actual (si hay más de un punto)
     if (_trackPoints.length > 1) {
       markers.add(Marker(
@@ -567,13 +570,13 @@ class _TrackerScreenState extends State<TrackerScreen> {
         infoWindow: const InfoWindow(title: 'Actual'),
       ));
     }
-    
+
     return markers;
   }
-  
+
   Set<Polyline> _buildPolylines() {
     if (_trackPoints.length < 2) return {};
-    
+
     return {
       Polyline(
         polylineId: const PolylineId('route'),
@@ -583,7 +586,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
       ),
     };
   }
-  
+
   Widget _buildMapControls() {
     return Positioned(
       right: 16,
@@ -618,7 +621,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
       ),
     );
   }
-  
+
   Widget _buildControlButton() {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -644,15 +647,15 @@ class _TrackerScreenState extends State<TrackerScreen> {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Permisos | 1.5 | Solicita y maneja permisos correctamente |
-| Ubicación | 2 | Obtiene posición actual y en tiempo real |
-| Mapa | 2 | Muestra mapa con posición y controles |
-| Tracking | 2 | Rastrea ruta y dibuja polyline |
-| Distancia | 1.5 | Calcula y muestra distancia correctamente |
-| Código limpio | 1 | Documentación y estructura |
-| **Total** | **10** | |
+| Criterio      | Puntos | Descripción                               |
+| ------------- | ------ | ----------------------------------------- |
+| Permisos      | 1.5    | Solicita y maneja permisos correctamente  |
+| Ubicación     | 2      | Obtiene posición actual y en tiempo real  |
+| Mapa          | 2      | Muestra mapa con posición y controles     |
+| Tracking      | 2      | Rastrea ruta y dibuja polyline            |
+| Distancia     | 1.5    | Calcula y muestra distancia correctamente |
+| Código limpio | 1      | Documentación y estructura                |
+| **Total**     | **10** |                                           |
 
 ---
 
@@ -667,6 +670,6 @@ class _TrackerScreenState extends State<TrackerScreen> {
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                       | Índice                   | Siguiente                                                    |
+| ---------------------------------------------- | ------------------------ | ------------------------------------------------------------ |
 | [PhotoCapture](./practica-01-photo-capture.md) | [Prácticas](./README.md) | [NotificationManager](./practica-03-notification-manager.md) |

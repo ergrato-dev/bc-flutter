@@ -17,16 +17,19 @@ Implementar un gestor completo de permisos que solicita, verifica y maneja el es
 ### Funcionalidades Principales
 
 1. **Verificación de Permisos**
+
    - Verificar estado de permisos individuales
    - Verificar múltiples permisos a la vez
    - Detectar permisos permanentemente denegados
 
 2. **Solicitud de Permisos**
+
    - Solicitar permisos individuales
    - Solicitar grupos de permisos
    - Mostrar rationale antes de solicitar
 
 3. **Gestión de Estados**
+
    - UI reactiva según estado del permiso
    - Guiar al usuario a configuración
    - Manejar cambios de permisos
@@ -73,7 +76,7 @@ lib/
 ```dart
 /**
  * AppPermission
- * 
+ *
  * Modelo que encapsula información sobre un permiso de la app.
  * Incluye metadatos para UI como nombre, descripción e icono.
  */
@@ -87,7 +90,7 @@ class AppPermission {
   final String description;
   final IconData icon;
   final bool isRequired;
-  
+
   const AppPermission({
     required this.permission,
     required this.name,
@@ -95,7 +98,7 @@ class AppPermission {
     required this.icon,
     this.isRequired = false,
   });
-  
+
   /// Permisos de la aplicación definidos estáticamente
   static const List<AppPermission> appPermissions = [
     AppPermission(
@@ -141,11 +144,11 @@ class AppPermission {
       isRequired: false,
     ),
   ];
-  
+
   /// Obtiene los permisos requeridos
   static List<AppPermission> get requiredPermissions =>
       appPermissions.where((p) => p.isRequired).toList();
-  
+
   /// Obtiene los permisos opcionales
   static List<AppPermission> get optionalPermissions =>
       appPermissions.where((p) => !p.isRequired).toList();
@@ -169,7 +172,7 @@ extension PermissionStatusExtension on PermissionStatus {
         return 'Provisional';
     }
   }
-  
+
   Color get color {
     switch (this) {
       case PermissionStatus.granted:
@@ -183,7 +186,7 @@ extension PermissionStatusExtension on PermissionStatus {
         return Colors.red;
     }
   }
-  
+
   IconData get icon {
     switch (this) {
       case PermissionStatus.granted:
@@ -205,7 +208,7 @@ extension PermissionStatusExtension on PermissionStatus {
 ```dart
 /**
  * PermissionsProvider
- * 
+ *
  * Gestiona el estado de todos los permisos de la aplicación.
  * Proporciona métodos para verificar, solicitar y monitorear permisos.
  */
@@ -216,46 +219,46 @@ import 'package:permission_handler/permission_handler.dart';
 class PermissionsProvider extends ChangeNotifier {
   // Mapa de estados de permisos
   final Map<Permission, PermissionStatus> _statuses = {};
-  
+
   bool _isLoading = false;
   bool _initialized = false;
-  
+
   // Getters
   bool get isLoading => _isLoading;
   bool get initialized => _initialized;
-  
+
   /// Obtiene el estado de un permiso
   PermissionStatus? getStatus(Permission permission) => _statuses[permission];
-  
+
   /// Verifica si un permiso está concedido
   bool isGranted(Permission permission) =>
       _statuses[permission]?.isGranted ?? false;
-  
+
   /// Verifica si un permiso está permanentemente denegado
   bool isPermanentlyDenied(Permission permission) =>
       _statuses[permission]?.isPermanentlyDenied ?? false;
-  
+
   /// Verifica si todos los permisos requeridos están concedidos
   bool get allRequiredGranted {
     return AppPermission.requiredPermissions.every(
       (p) => _statuses[p.permission]?.isGranted ?? false,
     );
   }
-  
+
   /// Inicializa verificando todos los permisos
   Future<void> initialize() async {
     if (_initialized) return;
-    
+
     _isLoading = true;
     notifyListeners();
-    
+
     await checkAllPermissions();
-    
+
     _isLoading = false;
     _initialized = true;
     notifyListeners();
   }
-  
+
   /// Verifica el estado de todos los permisos
   Future<void> checkAllPermissions() async {
     for (final appPermission in AppPermission.appPermissions) {
@@ -264,7 +267,7 @@ class PermissionsProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
-  
+
   /// Verifica el estado de un permiso específico
   Future<PermissionStatus> checkPermission(Permission permission) async {
     final status = await permission.status;
@@ -272,59 +275,59 @@ class PermissionsProvider extends ChangeNotifier {
     notifyListeners();
     return status;
   }
-  
+
   /// Solicita un permiso específico
   Future<PermissionStatus> requestPermission(Permission permission) async {
     // Si ya está concedido, no solicitar
     if (_statuses[permission]?.isGranted ?? false) {
       return _statuses[permission]!;
     }
-    
+
     // Si está permanentemente denegado, abrir configuración
     if (_statuses[permission]?.isPermanentlyDenied ?? false) {
       await openAppSettings();
       // Re-verificar después de volver de configuración
       return await checkPermission(permission);
     }
-    
+
     // Solicitar el permiso
     final status = await permission.request();
     _statuses[permission] = status;
     notifyListeners();
-    
+
     return status;
   }
-  
+
   /// Solicita múltiples permisos
   Future<Map<Permission, PermissionStatus>> requestMultiple(
     List<Permission> permissions,
   ) async {
     final results = await permissions.request();
-    
+
     results.forEach((permission, status) {
       _statuses[permission] = status;
     });
-    
+
     notifyListeners();
     return results;
   }
-  
+
   /// Solicita todos los permisos requeridos
   Future<bool> requestRequiredPermissions() async {
     final permissions = AppPermission.requiredPermissions
         .map((p) => p.permission)
         .toList();
-    
+
     await requestMultiple(permissions);
-    
+
     return allRequiredGranted;
   }
-  
+
   /// Abre la configuración de la app
   Future<bool> openSettings() async {
     return await openAppSettings();
   }
-  
+
   /// Re-verifica permisos (útil cuando vuelve de configuración)
   Future<void> refresh() async {
     await checkAllPermissions();
@@ -337,7 +340,7 @@ class PermissionsProvider extends ChangeNotifier {
 ```dart
 /**
  * PermissionTile
- * 
+ *
  * Widget que muestra el estado de un permiso y permite solicitar/gestionar.
  */
 
@@ -347,18 +350,18 @@ import 'package:provider/provider.dart';
 
 class PermissionTile extends StatelessWidget {
   final AppPermission appPermission;
-  
+
   const PermissionTile({
     Key? key,
     required this.appPermission,
   }) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Consumer<PermissionsProvider>(
       builder: (context, provider, _) {
         final status = provider.getStatus(appPermission.permission);
-        
+
         return Card(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: ListTile(
@@ -428,7 +431,7 @@ class PermissionTile extends StatelessWidget {
       },
     );
   }
-  
+
   Widget _buildAction(
     BuildContext context,
     PermissionsProvider provider,
@@ -438,7 +441,7 @@ class PermissionTile extends StatelessWidget {
     if (status?.isGranted ?? false) {
       return const Icon(Icons.check_circle, color: Colors.green);
     }
-    
+
     // Permanentemente denegado - botón de configuración
     if (status?.isPermanentlyDenied ?? false) {
       return TextButton(
@@ -450,31 +453,31 @@ class PermissionTile extends StatelessWidget {
         child: const Text('Configurar'),
       );
     }
-    
+
     // Denegado o no solicitado - botón de solicitar
     return ElevatedButton(
       onPressed: () => _requestPermission(context, provider),
       child: const Text('Permitir'),
     );
   }
-  
+
   Future<void> _requestPermission(
     BuildContext context,
     PermissionsProvider provider,
   ) async {
     // Mostrar rationale antes de solicitar
     final shouldRequest = await _showRationale(context);
-    
+
     if (!shouldRequest) return;
-    
+
     final status = await provider.requestPermission(appPermission.permission);
-    
+
     // Mostrar feedback según resultado
     if (context.mounted) {
       _showResultSnackBar(context, status);
     }
   }
-  
+
   Future<bool> _showRationale(BuildContext context) async {
     return await showDialog<bool>(
       context: context,
@@ -519,16 +522,16 @@ class PermissionTile extends StatelessWidget {
       ),
     ) ?? false;
   }
-  
+
   void _showResultSnackBar(BuildContext context, PermissionStatus status) {
     final message = status.isGranted
         ? '${appPermission.name} habilitado'
         : status.isPermanentlyDenied
             ? 'Permiso bloqueado. Ve a Configuración para habilitarlo.'
             : 'Permiso denegado';
-    
+
     final color = status.isGranted ? Colors.green : Colors.orange;
-    
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
@@ -551,7 +554,7 @@ class PermissionTile extends StatelessWidget {
 ```dart
 /**
  * PermissionsScreen
- * 
+ *
  * Pantalla que muestra y gestiona todos los permisos de la app.
  */
 
@@ -561,13 +564,13 @@ import 'package:provider/provider.dart';
 class PermissionsScreen extends StatefulWidget {
   final bool showOnlyRequired;
   final VoidCallback? onAllRequiredGranted;
-  
+
   const PermissionsScreen({
     Key? key,
     this.showOnlyRequired = false,
     this.onAllRequiredGranted,
   }) : super(key: key);
-  
+
   @override
   State<PermissionsScreen> createState() => _PermissionsScreenState();
 }
@@ -578,19 +581,19 @@ class _PermissionsScreenState extends State<PermissionsScreen>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    
+
     // Inicializar permisos
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<PermissionsProvider>().initialize();
     });
   }
-  
+
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
-  
+
   /// Detecta cuando la app vuelve al primer plano
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -599,7 +602,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
       context.read<PermissionsProvider>().refresh();
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -622,16 +625,16 @@ class _PermissionsScreenState extends State<PermissionsScreen>
               child: CircularProgressIndicator(),
             );
           }
-          
+
           final permissions = widget.showOnlyRequired
               ? AppPermission.requiredPermissions
               : AppPermission.appPermissions;
-          
+
           return Column(
             children: [
               // Header informativo
               _buildHeader(provider),
-              
+
               // Lista de permisos
               Expanded(
                 child: ListView.builder(
@@ -644,7 +647,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                   },
                 ),
               ),
-              
+
               // Botón de continuar (si aplica)
               if (widget.showOnlyRequired)
                 _buildContinueButton(provider),
@@ -654,13 +657,13 @@ class _PermissionsScreenState extends State<PermissionsScreen>
       ),
     );
   }
-  
+
   Widget _buildHeader(PermissionsProvider provider) {
     final granted = AppPermission.appPermissions
         .where((p) => provider.isGranted(p.permission))
         .length;
     final total = AppPermission.appPermissions.length;
-    
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -689,7 +692,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
       ),
     );
   }
-  
+
   Widget _buildContinueButton(PermissionsProvider provider) {
     return SafeArea(
       child: Padding(
@@ -724,7 +727,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
 ```dart
 /**
  * FeatureScreen
- * 
+ *
  * Ejemplo de pantalla que requiere un permiso específico.
  * Verifica el permiso antes de mostrar la funcionalidad.
  */
@@ -735,7 +738,7 @@ import 'package:provider/provider.dart';
 
 class CameraFeatureScreen extends StatelessWidget {
   const CameraFeatureScreen({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -745,17 +748,17 @@ class CameraFeatureScreen extends StatelessWidget {
       body: Consumer<PermissionsProvider>(
         builder: (context, provider, _) {
           final hasPermission = provider.isGranted(Permission.camera);
-          
+
           if (hasPermission) {
             return _buildCameraView();
           }
-          
+
           return _buildPermissionRequest(context, provider);
         },
       ),
     );
   }
-  
+
   Widget _buildCameraView() {
     return const Center(
       child: Column(
@@ -773,13 +776,13 @@ class CameraFeatureScreen extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildPermissionRequest(
     BuildContext context,
     PermissionsProvider provider,
   ) {
     final isPermanentlyDenied = provider.isPermanentlyDenied(Permission.camera);
-    
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
@@ -839,7 +842,7 @@ class CameraFeatureScreen extends StatelessWidget {
 ```dart
 /**
  * main.dart
- * 
+ *
  * Configuración de la app con PermissionsProvider.
  */
 
@@ -852,7 +855,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -871,7 +874,7 @@ class MyApp extends StatelessWidget {
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -898,9 +901,9 @@ class HomeScreen extends StatelessWidget {
               },
             ),
           ),
-          
+
           const SizedBox(height: 12),
-          
+
           // Feature que requiere permiso
           Card(
             child: ListTile(
@@ -929,15 +932,15 @@ class HomeScreen extends StatelessWidget {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Verificación de estado | 2 | Verifica correctamente estado de permisos |
-| Solicitud de permisos | 2 | Solicita permisos con rationale |
-| Manejo de estados | 2 | UI reactiva según estado |
-| Permanently denied | 2 | Guía a configuración correctamente |
-| Código limpio | 1 | Provider pattern, documentación |
-| UX amigable | 1 | Mensajes claros, acciones obvias |
-| **Total** | **10** | |
+| Criterio               | Puntos | Descripción                               |
+| ---------------------- | ------ | ----------------------------------------- |
+| Verificación de estado | 2      | Verifica correctamente estado de permisos |
+| Solicitud de permisos  | 2      | Solicita permisos con rationale           |
+| Manejo de estados      | 2      | UI reactiva según estado                  |
+| Permanently denied     | 2      | Guía a configuración correctamente        |
+| Código limpio          | 1      | Provider pattern, documentación           |
+| UX amigable            | 1      | Mensajes claros, acciones obvias          |
+| **Total**              | **10** |                                           |
 
 ---
 
@@ -952,6 +955,6 @@ class HomeScreen extends StatelessWidget {
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                             | Índice                   | Siguiente                           |
+| ---------------------------------------------------- | ------------------------ | ----------------------------------- |
 | [SensorDashboard](./practica-04-sensor-dashboard.md) | [Prácticas](./README.md) | [Proyecto](../3-proyecto/README.md) |

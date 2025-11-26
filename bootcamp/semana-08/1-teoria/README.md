@@ -15,6 +15,7 @@ Esta carpeta contiene el contenido teórico de la Semana 8, enfocado en la integ
 Aprende a capturar fotos y videos, seleccionar imágenes de la galería, y procesarlas para su uso en la aplicación.
 
 **Contenido:**
+
 - 📷 Paquetes: image_picker, camera
 - 🖼️ Selección de imágenes
 - 📹 Captura de video
@@ -31,6 +32,7 @@ Aprende a capturar fotos y videos, seleccionar imágenes de la galería, y proce
 Domina la obtención de ubicación del usuario, integración de mapas interactivos y técnicas de geofencing.
 
 **Contenido:**
+
 - 📍 Paquetes: geolocator, google_maps_flutter
 - 🗺️ Obtener ubicación actual
 - 🔄 Stream de posiciones
@@ -47,6 +49,7 @@ Domina la obtención de ubicación del usuario, integración de mapas interactiv
 Implementa notificaciones locales y push notifications para mantener a los usuarios informados.
 
 **Contenido:**
+
 - 🔔 Notificaciones locales
 - ☁️ Push notifications (FCM)
 - 📱 Canales de notificación
@@ -77,16 +80,16 @@ Al completar estos módulos, serás capaz de:
 dependencies:
   # Permisos
   permission_handler: ^11.1.0
-  
+
   # Cámara y Galería
   image_picker: ^1.0.4
   camera: ^0.10.5+5
-  
+
   # Geolocalización
   geolocator: ^10.1.0
   geocoding: ^2.1.1
   google_maps_flutter: ^2.5.0
-  
+
   # Notificaciones
   flutter_local_notifications: ^16.1.0
   firebase_messaging: ^14.7.4
@@ -161,6 +164,6 @@ dependencies:
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior               | Índice                   | Siguiente                    |
+| ---------------------- | ------------------------ | ---------------------------- |
 | [Assets](../0-assets/) | [Semana 8](../README.md) | [Prácticas](../2-practicas/) |

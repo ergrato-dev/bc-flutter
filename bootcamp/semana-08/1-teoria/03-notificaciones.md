@@ -19,14 +19,14 @@ Al completar este módulo, serás capaz de:
 dependencies:
   # Notificaciones locales
   flutter_local_notifications: ^16.1.0
-  
+
   # Timezone para notificaciones programadas
   timezone: ^0.9.2
-  
+
   # Push Notifications (Firebase)
   firebase_core: ^2.24.2
   firebase_messaging: ^14.7.4
-  
+
   # Permisos
   permission_handler: ^11.1.0
 ```
@@ -41,22 +41,22 @@ dependencies:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
     <!-- Permisos para notificaciones -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    
+
     <!-- Para notificaciones programadas -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
     <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
-    
+
     <application>
         <!-- Receiver para notificaciones programadas -->
         <receiver
             android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
             android:exported="false"/>
-        
+
         <receiver
             android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
             android:exported="false">
@@ -88,11 +88,11 @@ import flutter_local_notifications
     FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in
       GeneratedPluginRegistrant.register(with: registry)
     }
-    
+
     if #available(iOS 10.0, *) {
       UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
     }
-    
+
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
@@ -106,14 +106,14 @@ import flutter_local_notifications
 ```dart
 /**
  * LocalNotificationService
- * 
+ *
  * ¿Qué hace?
  * Servicio singleton para gestionar notificaciones locales.
- * 
+ *
  * ¿Para qué?
  * Centralizar la lógica de notificaciones, configuración de canales,
  * y manejo de acciones en un solo lugar.
- * 
+ *
  * ¿Cómo funciona?
  * 1. Se inicializa al inicio de la app
  * 2. Configura canales para Android
@@ -135,30 +135,30 @@ class LocalNotificationService {
   static final LocalNotificationService _instance = LocalNotificationService._internal();
   factory LocalNotificationService() => _instance;
   LocalNotificationService._internal();
-  
+
   final FlutterLocalNotificationsPlugin _plugin = FlutterLocalNotificationsPlugin();
-  
+
   // Callback cuando se toca una notificación
   NotificationTapCallback? _onNotificationTap;
-  
+
   // Stream controller para notificaciones recibidas
   final StreamController<String?> _notificationStream = StreamController.broadcast();
   Stream<String?> get notificationStream => _notificationStream.stream;
-  
+
   /// Inicializa el servicio de notificaciones
-  /// 
+  ///
   /// Debe llamarse al inicio de la app (en main.dart)
   Future<void> initialize({
     NotificationTapCallback? onNotificationTap,
   }) async {
     _onNotificationTap = onNotificationTap;
-    
+
     // Inicializar timezone
     tz.initializeTimeZones();
-    
+
     // Configuración para Android
     const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
-    
+
     // Configuración para iOS
     final iosSettings = DarwinInitializationSettings(
       requestAlertPermission: true,
@@ -166,32 +166,32 @@ class LocalNotificationService {
       requestSoundPermission: true,
       onDidReceiveLocalNotification: _onDidReceiveLocalNotification,
     );
-    
+
     final settings = InitializationSettings(
       android: androidSettings,
       iOS: iosSettings,
     );
-    
+
     await _plugin.initialize(
       settings,
       onDidReceiveNotificationResponse: _onNotificationResponse,
       onDidReceiveBackgroundNotificationResponse: _onBackgroundNotificationResponse,
     );
-    
+
     // Crear canales de notificación para Android
     await _createNotificationChannels();
-    
+
     // Verificar si la app se abrió desde una notificación
     await _checkLaunchNotification();
   }
-  
+
   /// Crea los canales de notificación para Android
   Future<void> _createNotificationChannels() async {
     final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
-    
+
     if (androidPlugin == null) return;
-    
+
     // Canal general
     await androidPlugin.createNotificationChannel(
       const AndroidNotificationChannel(
@@ -201,7 +201,7 @@ class LocalNotificationService {
         importance: Importance.defaultImportance,
       ),
     );
-    
+
     // Canal de alta prioridad
     await androidPlugin.createNotificationChannel(
       const AndroidNotificationChannel(
@@ -213,7 +213,7 @@ class LocalNotificationService {
         enableVibration: true,
       ),
     );
-    
+
     // Canal silencioso
     await androidPlugin.createNotificationChannel(
       const AndroidNotificationChannel(
@@ -225,7 +225,7 @@ class LocalNotificationService {
         enableVibration: false,
       ),
     );
-    
+
     // Canal de recordatorios
     await androidPlugin.createNotificationChannel(
       const AndroidNotificationChannel(
@@ -237,22 +237,22 @@ class LocalNotificationService {
       ),
     );
   }
-  
+
   /// Solicita permisos de notificación
   Future<bool> requestPermission() async {
     // Android 13+
     final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
-    
+
     if (androidPlugin != null) {
       final granted = await androidPlugin.requestNotificationsPermission();
       return granted ?? false;
     }
-    
+
     // iOS
     final iosPlugin = _plugin.resolvePlatformSpecificImplementation<
         IOSFlutterLocalNotificationsPlugin>();
-    
+
     if (iosPlugin != null) {
       final granted = await iosPlugin.requestPermissions(
         alert: true,
@@ -261,10 +261,10 @@ class LocalNotificationService {
       );
       return granted ?? false;
     }
-    
+
     return true;
   }
-  
+
   /// Muestra una notificación inmediata
   Future<void> showNotification({
     required int id,
@@ -286,21 +286,21 @@ class LocalNotificationService {
       icon: '@mipmap/ic_launcher',
       largeIcon: const DrawableResourceAndroidBitmap('@mipmap/ic_launcher'),
     );
-    
+
     const iosDetails = DarwinNotificationDetails(
       presentAlert: true,
       presentBadge: true,
       presentSound: true,
     );
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: iosDetails,
     );
-    
+
     await _plugin.show(id, title, body, details, payload: payload);
   }
-  
+
   /// Muestra una notificación con estilo expandido (solo Android)
   Future<void> showBigTextNotification({
     required int id,
@@ -320,15 +320,15 @@ class LocalNotificationService {
         summaryText: 'Más información',
       ),
     );
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: const DarwinNotificationDetails(),
     );
-    
+
     await _plugin.show(id, title, body, details, payload: payload);
   }
-  
+
   /// Muestra una notificación con imagen (solo Android)
   Future<void> showImageNotification({
     required int id,
@@ -343,22 +343,22 @@ class LocalNotificationService {
       contentTitle: title,
       summaryText: body,
     );
-    
+
     final androidDetails = AndroidNotificationDetails(
       channelId,
       channelId,
       importance: Importance.defaultImportance,
       styleInformation: bigPictureStyle,
     );
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: const DarwinNotificationDetails(),
     );
-    
+
     await _plugin.show(id, title, body, details, payload: payload);
   }
-  
+
   /// Programa una notificación para una fecha/hora específica
   Future<void> scheduleNotification({
     required int id,
@@ -374,12 +374,12 @@ class LocalNotificationService {
       importance: Importance.high,
       priority: Priority.high,
     );
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: const DarwinNotificationDetails(),
     );
-    
+
     await _plugin.zonedSchedule(
       id,
       title,
@@ -392,7 +392,7 @@ class LocalNotificationService {
       payload: payload,
     );
   }
-  
+
   /// Programa una notificación periódica
   Future<void> schedulePeriodicNotification({
     required int id,
@@ -407,12 +407,12 @@ class LocalNotificationService {
       channelId,
       importance: Importance.defaultImportance,
     );
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: const DarwinNotificationDetails(),
     );
-    
+
     await _plugin.periodicallyShow(
       id,
       title,
@@ -423,49 +423,49 @@ class LocalNotificationService {
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
   }
-  
+
   /// Cancela una notificación específica
   Future<void> cancelNotification(int id) async {
     await _plugin.cancel(id);
   }
-  
+
   /// Cancela todas las notificaciones
   Future<void> cancelAllNotifications() async {
     await _plugin.cancelAll();
   }
-  
+
   /// Obtiene las notificaciones pendientes
   Future<List<PendingNotificationRequest>> getPendingNotifications() async {
     return await _plugin.pendingNotificationRequests();
   }
-  
+
   /// Obtiene las notificaciones activas (en la bandeja)
   Future<List<ActiveNotification>> getActiveNotifications() async {
     final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
-    
+
     if (androidPlugin != null) {
       return await androidPlugin.getActiveNotifications();
     }
-    
+
     return [];
   }
-  
+
   // =============== CALLBACKS PRIVADOS ===============
-  
+
   /// Callback cuando se toca una notificación
   void _onNotificationResponse(NotificationResponse response) {
     _notificationStream.add(response.payload);
     _onNotificationTap?.call(response.payload);
   }
-  
+
   /// Callback para notificaciones en background
   @pragma('vm:entry-point')
   static void _onBackgroundNotificationResponse(NotificationResponse response) {
     // Manejar en background si es necesario
     print('Notificación en background: ${response.payload}');
   }
-  
+
   /// Callback para iOS < 10
   void _onDidReceiveLocalNotification(
     int id,
@@ -475,19 +475,19 @@ class LocalNotificationService {
   ) {
     _notificationStream.add(payload);
   }
-  
+
   /// Verifica si la app se abrió desde una notificación
   Future<void> _checkLaunchNotification() async {
     final launchDetails = await _plugin.getNotificationAppLaunchDetails();
-    
+
     if (launchDetails?.didNotificationLaunchApp ?? false) {
       final payload = launchDetails!.notificationResponse?.payload;
       _onNotificationTap?.call(payload);
     }
   }
-  
+
   // =============== HELPERS ===============
-  
+
   Importance _mapImportance(NotificationImportance importance) {
     switch (importance) {
       case NotificationImportance.low:
@@ -500,7 +500,7 @@ class LocalNotificationService {
         return Importance.max;
     }
   }
-  
+
   Priority _mapPriority(NotificationImportance importance) {
     switch (importance) {
       case NotificationImportance.low:
@@ -513,7 +513,7 @@ class LocalNotificationService {
         return Priority.max;
     }
   }
-  
+
   void dispose() {
     _notificationStream.close();
   }
@@ -541,7 +541,7 @@ import 'package:flutter/material.dart';
 
 class NotificationDemoScreen extends StatefulWidget {
   const NotificationDemoScreen({Key? key}) : super(key: key);
-  
+
   @override
   State<NotificationDemoScreen> createState() => _NotificationDemoScreenState();
 }
@@ -549,13 +549,13 @@ class NotificationDemoScreen extends StatefulWidget {
 class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
   final _notificationService = LocalNotificationService();
   int _notificationId = 0;
-  
+
   @override
   void initState() {
     super.initState();
     _initializeNotifications();
   }
-  
+
   Future<void> _initializeNotifications() async {
     await _notificationService.initialize(
       onNotificationTap: (payload) {
@@ -567,11 +567,11 @@ class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
         }
       },
     );
-    
+
     // Solicitar permisos
     await _notificationService.requestPermission();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -592,7 +592,7 @@ class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
               );
             },
           ),
-          
+
           // Notificación de alta prioridad
           _buildButton(
             'Alta Prioridad',
@@ -607,7 +607,7 @@ class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
               );
             },
           ),
-          
+
           // Notificación expandida
           _buildButton(
             'Texto Expandido',
@@ -624,7 +624,7 @@ class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
               );
             },
           ),
-          
+
           // Notificación programada
           _buildButton(
             'Programar (10 seg)',
@@ -633,14 +633,14 @@ class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
               final scheduledDate = DateTime.now().add(
                 const Duration(seconds: 10),
               );
-              
+
               await _notificationService.scheduleNotification(
                 id: _notificationId++,
                 title: 'Notificación Programada',
                 body: 'Han pasado 10 segundos!',
                 scheduledDate: scheduledDate,
               );
-              
+
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Notificación programada para 10 segundos'),
@@ -648,7 +648,7 @@ class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
               );
             },
           ),
-          
+
           // Cancelar todas
           _buildButton(
             'Cancelar Todas',
@@ -660,7 +660,7 @@ class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
               );
             },
           ),
-          
+
           // Ver pendientes
           _buildButton(
             'Ver Pendientes',
@@ -686,7 +686,7 @@ class _NotificationDemoScreenState extends State<NotificationDemoScreen> {
       ),
     );
   }
-  
+
   Widget _buildButton(String label, IconData icon, VoidCallback onPressed) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -747,9 +747,9 @@ buildscript {
 ```dart
 /**
  * PushNotificationService
- * 
+ *
  * Servicio para manejar push notifications con Firebase Cloud Messaging.
- * 
+ *
  * Tipos de mensajes FCM:
  * 1. Notification message: Mostrado automáticamente por el sistema
  * 2. Data message: Manejado por la app (más control)
@@ -766,7 +766,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   print('Background message: ${message.messageId}');
-  
+
   // Mostrar notificación local si es data message
   if (message.notification == null) {
     // Es un data message, mostramos manualmente
@@ -779,47 +779,47 @@ class PushNotificationService {
   static final PushNotificationService _instance = PushNotificationService._internal();
   factory PushNotificationService() => _instance;
   PushNotificationService._internal();
-  
+
   final FirebaseMessaging _messaging = FirebaseMessaging.instance;
-  final FlutterLocalNotificationsPlugin _localNotifications = 
+  final FlutterLocalNotificationsPlugin _localNotifications =
       FlutterLocalNotificationsPlugin();
-  
+
   // Stream para mensajes recibidos
-  final StreamController<RemoteMessage> _messageStream = 
+  final StreamController<RemoteMessage> _messageStream =
       StreamController.broadcast();
   Stream<RemoteMessage> get messageStream => _messageStream.stream;
-  
+
   // Token del dispositivo
   String? _token;
   String? get token => _token;
-  
+
   /// Inicializa el servicio de push notifications
   Future<void> initialize() async {
     // Configurar handler para background
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-    
+
     // Solicitar permisos
     await _requestPermission();
-    
+
     // Obtener y guardar token
     await _getToken();
-    
+
     // Configurar notificaciones locales
     await _setupLocalNotifications();
-    
+
     // Escuchar mensajes en foreground
     FirebaseMessaging.onMessage.listen(_handleForegroundMessage);
-    
+
     // Escuchar cuando se abre la app desde una notificación
     FirebaseMessaging.onMessageOpenedApp.listen(_handleMessageOpenedApp);
-    
+
     // Verificar si la app se abrió desde una notificación
     await _checkInitialMessage();
-    
+
     // Escuchar cambios de token
     _messaging.onTokenRefresh.listen(_onTokenRefresh);
   }
-  
+
   /// Solicita permisos de notificación
   Future<void> _requestPermission() async {
     final settings = await _messaging.requestPermission(
@@ -831,44 +831,44 @@ class PushNotificationService {
       provisional: false,
       sound: true,
     );
-    
+
     print('Permission status: ${settings.authorizationStatus}');
   }
-  
+
   /// Obtiene el token del dispositivo
   Future<void> _getToken() async {
     _token = await _messaging.getToken();
     print('FCM Token: $_token');
-    
+
     // TODO: Enviar token a tu backend para asociarlo con el usuario
     // await _sendTokenToServer(_token);
   }
-  
+
   /// Callback cuando el token se actualiza
   void _onTokenRefresh(String newToken) {
     _token = newToken;
     print('New FCM Token: $newToken');
-    
+
     // TODO: Actualizar token en el backend
     // await _sendTokenToServer(newToken);
   }
-  
+
   /// Configura las notificaciones locales para mostrar push en foreground
   Future<void> _setupLocalNotifications() async {
     const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
     const iosSettings = DarwinInitializationSettings();
-    
+
     const settings = InitializationSettings(
       android: androidSettings,
       iOS: iosSettings,
     );
-    
+
     await _localNotifications.initialize(settings);
-    
+
     // Crear canal para push notifications
     final androidPlugin = _localNotifications.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
-    
+
     await androidPlugin?.createNotificationChannel(
       const AndroidNotificationChannel(
         'push_notifications',
@@ -878,12 +878,12 @@ class PushNotificationService {
       ),
     );
   }
-  
+
   /// Maneja mensajes en foreground
   void _handleForegroundMessage(RemoteMessage message) {
     print('Foreground message: ${message.messageId}');
     _messageStream.add(message);
-    
+
     // Si tiene notification, mostrarla localmente
     final notification = message.notification;
     if (notification != null) {
@@ -894,28 +894,28 @@ class PushNotificationService {
       );
     }
   }
-  
+
   /// Maneja cuando se abre la app desde una notificación
   void _handleMessageOpenedApp(RemoteMessage message) {
     print('Message opened app: ${message.messageId}');
     _messageStream.add(message);
-    
+
     // TODO: Navegar a la pantalla correspondiente según message.data
     // _handleNavigation(message.data);
   }
-  
+
   /// Verifica si la app se abrió desde una notificación
   Future<void> _checkInitialMessage() async {
     final message = await _messaging.getInitialMessage();
-    
+
     if (message != null) {
       print('Initial message: ${message.messageId}');
       _messageStream.add(message);
-      
+
       // TODO: Navegar a la pantalla correspondiente
     }
   }
-  
+
   /// Muestra una notificación local
   Future<void> _showLocalNotification({
     required String title,
@@ -928,14 +928,14 @@ class PushNotificationService {
       importance: Importance.high,
       priority: Priority.high,
     );
-    
+
     const iosDetails = DarwinNotificationDetails();
-    
+
     const details = NotificationDetails(
       android: androidDetails,
       iOS: iosDetails,
     );
-    
+
     await _localNotifications.show(
       DateTime.now().millisecondsSinceEpoch ~/ 1000,
       title,
@@ -944,22 +944,22 @@ class PushNotificationService {
       payload: payload,
     );
   }
-  
+
   /// Muestra notificación desde data message (static para background)
   static Future<void> _showNotificationFromData(Map<String, dynamic> data) async {
     final title = data['title'] ?? 'Notificación';
     final body = data['body'] ?? '';
-    
+
     final plugin = FlutterLocalNotificationsPlugin();
-    
+
     const androidDetails = AndroidNotificationDetails(
       'push_notifications',
       'Push Notifications',
       importance: Importance.high,
     );
-    
+
     const details = NotificationDetails(android: androidDetails);
-    
+
     await plugin.show(
       DateTime.now().millisecondsSinceEpoch ~/ 1000,
       title,
@@ -967,25 +967,25 @@ class PushNotificationService {
       details,
     );
   }
-  
+
   /// Suscribe a un topic
   Future<void> subscribeToTopic(String topic) async {
     await _messaging.subscribeToTopic(topic);
     print('Subscribed to topic: $topic');
   }
-  
+
   /// Desuscribe de un topic
   Future<void> unsubscribeFromTopic(String topic) async {
     await _messaging.unsubscribeFromTopic(topic);
     print('Unsubscribed from topic: $topic');
   }
-  
+
   /// Elimina el token (logout)
   Future<void> deleteToken() async {
     await _messaging.deleteToken();
     _token = null;
   }
-  
+
   void dispose() {
     _messageStream.close();
   }
@@ -1006,10 +1006,10 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Inicializar Firebase
   await Firebase.initializeApp();
-  
+
   // Inicializar servicios de notificaciones
   await LocalNotificationService().initialize(
     onNotificationTap: (payload) {
@@ -1017,15 +1017,15 @@ void main() async {
       print('Local notification tapped: $payload');
     },
   );
-  
+
   await PushNotificationService().initialize();
-  
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -1034,16 +1034,16 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    
+
     // Escuchar push notifications
     PushNotificationService().messageStream.listen((message) {
       // Manejar mensaje recibido
       print('Message received: ${message.notification?.title}');
-      
+
       // Puedes mostrar un diálogo, snackbar, o navegar
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -1070,7 +1070,7 @@ Future<void> showNotificationWithActions({
   required String body,
 }) async {
   final plugin = FlutterLocalNotificationsPlugin();
-  
+
   // Definir acciones
   const action1 = AndroidNotificationAction(
     'action_reply',
@@ -1078,28 +1078,28 @@ Future<void> showNotificationWithActions({
     icon: DrawableResourceAndroidBitmap('@mipmap/ic_launcher'),
     showsUserInterface: true,
   );
-  
+
   const action2 = AndroidNotificationAction(
     'action_archive',
     'Archivar',
     icon: DrawableResourceAndroidBitmap('@mipmap/ic_launcher'),
   );
-  
+
   const action3 = AndroidNotificationAction(
     'action_delete',
     'Eliminar',
     cancelNotification: true, // Cierra la notificación al tocar
   );
-  
+
   final androidDetails = AndroidNotificationDetails(
     'general',
     'General',
     importance: Importance.high,
     actions: [action1, action2, action3],
   );
-  
+
   final details = NotificationDetails(android: androidDetails);
-  
+
   await plugin.show(id, title, body, details);
 }
 
@@ -1129,12 +1129,12 @@ void handleNotificationAction(NotificationResponse response) {
 
 ## 📝 Resumen
 
-| Tipo | Uso | Paquete |
-|------|-----|---------|
-| **Local** | Recordatorios, tareas, sin servidor | flutter_local_notifications |
-| **Push** | Mensajes del servidor, marketing | firebase_messaging |
-| **Programadas** | Alarmas, eventos futuros | flutter_local_notifications + timezone |
-| **Con acciones** | Respuestas rápidas | flutter_local_notifications |
+| Tipo             | Uso                                 | Paquete                                |
+| ---------------- | ----------------------------------- | -------------------------------------- |
+| **Local**        | Recordatorios, tareas, sin servidor | flutter_local_notifications            |
+| **Push**         | Mensajes del servidor, marketing    | firebase_messaging                     |
+| **Programadas**  | Alarmas, eventos futuros            | flutter_local_notifications + timezone |
+| **Con acciones** | Respuestas rápidas                  | flutter_local_notifications            |
 
 ### Checklist de Implementación
 
@@ -1151,6 +1151,6 @@ void handleNotificationAction(NotificationResponse response) {
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                         | Índice                   | Siguiente                    |
+| ------------------------------------------------ | ------------------------ | ---------------------------- |
 | [Geolocalización](./02-geolocalizacion-mapas.md) | [Semana 8](../README.md) | [Prácticas](../2-practicas/) |

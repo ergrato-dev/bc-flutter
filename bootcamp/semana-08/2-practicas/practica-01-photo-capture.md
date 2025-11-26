@@ -17,16 +17,19 @@ Crear una aplicación que permita capturar fotos con la cámara, seleccionar im�
 ### Funcionalidades Principales
 
 1. **Captura de Foto**
+
    - Abrir cámara y tomar foto
    - Preview antes de confirmar
    - Guardar en almacenamiento local
 
 2. **Selección de Galería**
+
    - Abrir galería del dispositivo
    - Seleccionar una o múltiples imágenes
    - Importar a la app
 
 3. **Galería Local**
+
    - Mostrar todas las fotos capturadas/seleccionadas
    - Vista en grid
    - Tap para ver en pantalla completa
@@ -74,10 +77,10 @@ lib/
 ```dart
 /**
  * PermissionService
- * 
+ *
  * ¿Qué hace?
  * Centraliza la lógica de solicitud y verificación de permisos.
- * 
+ *
  * ¿Para qué?
  * Tener un punto único para manejar todos los permisos de la app,
  * facilitando el mantenimiento y la reutilización.
@@ -90,46 +93,46 @@ class PermissionService {
   /// Retorna true si fue otorgado
   static Future<bool> requestCameraPermission() async {
     final status = await Permission.camera.status;
-    
+
     if (status.isGranted) {
       return true;
     }
-    
+
     if (status.isDenied) {
       final result = await Permission.camera.request();
       return result.isGranted;
     }
-    
+
     // Permanentemente denegado
     return false;
   }
-  
+
   /// Solicita permiso de galería/fotos
   static Future<bool> requestGalleryPermission() async {
     // Android 13+ usa photos, versiones anteriores usan storage
     final permission = await Permission.photos.status.isDenied
         ? Permission.photos
         : Permission.storage;
-    
+
     final status = await permission.status;
-    
+
     if (status.isGranted || status.isLimited) {
       return true;
     }
-    
+
     if (status.isDenied) {
       final result = await permission.request();
       return result.isGranted || result.isLimited;
     }
-    
+
     return false;
   }
-  
+
   /// Verifica si el permiso de cámara está denegado permanentemente
   static Future<bool> isCameraPermanentlyDenied() async {
     return await Permission.camera.isPermanentlyDenied;
   }
-  
+
   /// Abre la configuración de la app
   static Future<bool> openSettings() async {
     return await openAppSettings();
@@ -142,7 +145,7 @@ class PermissionService {
 ```dart
 /**
  * ImageService
- * 
+ *
  * Servicio para capturar y seleccionar imágenes.
  * Maneja la lógica de image_picker y almacenamiento.
  */
@@ -154,7 +157,7 @@ import 'package:path/path.dart' as path;
 
 class ImageService {
   final ImagePicker _picker = ImagePicker();
-  
+
   /// Captura una foto desde la cámara
   Future<File?> capturePhoto() async {
     try {
@@ -164,9 +167,9 @@ class ImageService {
         maxHeight: 1080,
         imageQuality: 85,
       );
-      
+
       if (image == null) return null;
-      
+
       // Guardar en directorio de la app
       return await _saveImageLocally(File(image.path));
     } catch (e) {
@@ -174,7 +177,7 @@ class ImageService {
       return null;
     }
   }
-  
+
   /// Selecciona una imagen de la galería
   Future<File?> pickFromGallery() async {
     try {
@@ -184,16 +187,16 @@ class ImageService {
         maxHeight: 1080,
         imageQuality: 85,
       );
-      
+
       if (image == null) return null;
-      
+
       return await _saveImageLocally(File(image.path));
     } catch (e) {
       print('Error al seleccionar imagen: $e');
       return null;
     }
   }
-  
+
   /// Selecciona múltiples imágenes
   Future<List<File>> pickMultipleFromGallery() async {
     try {
@@ -202,7 +205,7 @@ class ImageService {
         maxHeight: 1080,
         imageQuality: 85,
       );
-      
+
       final savedImages = <File>[];
       for (final image in images) {
         final saved = await _saveImageLocally(File(image.path));
@@ -210,29 +213,29 @@ class ImageService {
           savedImages.add(saved);
         }
       }
-      
+
       return savedImages;
     } catch (e) {
       print('Error al seleccionar imágenes: $e');
       return [];
     }
   }
-  
+
   /// Guarda una imagen en el directorio de la app
   Future<File?> _saveImageLocally(File image) async {
     try {
       final directory = await getApplicationDocumentsDirectory();
       final imagesDir = Directory('${directory.path}/photos');
-      
+
       // Crear directorio si no existe
       if (!await imagesDir.exists()) {
         await imagesDir.create(recursive: true);
       }
-      
+
       // Generar nombre único
       final fileName = 'photo_${DateTime.now().millisecondsSinceEpoch}.jpg';
       final savedPath = path.join(imagesDir.path, fileName);
-      
+
       // Copiar imagen
       return await image.copy(savedPath);
     } catch (e) {
@@ -240,33 +243,33 @@ class ImageService {
       return null;
     }
   }
-  
+
   /// Obtiene todas las imágenes guardadas
   Future<List<File>> getSavedImages() async {
     try {
       final directory = await getApplicationDocumentsDirectory();
       final imagesDir = Directory('${directory.path}/photos');
-      
+
       if (!await imagesDir.exists()) {
         return [];
       }
-      
+
       final files = await imagesDir.list().toList();
       final images = files
           .whereType<File>()
           .where((f) => f.path.endsWith('.jpg') || f.path.endsWith('.png'))
           .toList();
-      
+
       // Ordenar por fecha (más reciente primero)
       images.sort((a, b) => b.lastModifiedSync().compareTo(a.lastModifiedSync()));
-      
+
       return images;
     } catch (e) {
       print('Error al obtener imágenes: $e');
       return [];
     }
   }
-  
+
   /// Elimina una imagen
   Future<bool> deleteImage(File image) async {
     try {
@@ -285,7 +288,7 @@ class ImageService {
 ```dart
 /**
  * HomeScreen
- * 
+ *
  * Pantalla principal que muestra la galería de fotos
  * y botones para capturar/seleccionar imágenes.
  */
@@ -295,7 +298,7 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-  
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -304,60 +307,60 @@ class _HomeScreenState extends State<HomeScreen> {
   final ImageService _imageService = ImageService();
   List<File> _images = [];
   bool _isLoading = true;
-  
+
   @override
   void initState() {
     super.initState();
     _loadImages();
   }
-  
+
   Future<void> _loadImages() async {
     setState(() => _isLoading = true);
-    
+
     final images = await _imageService.getSavedImages();
-    
+
     setState(() {
       _images = images;
       _isLoading = false;
     });
   }
-  
+
   Future<void> _capturePhoto() async {
     // Verificar permiso
     final hasPermission = await PermissionService.requestCameraPermission();
-    
+
     if (!hasPermission) {
       _showPermissionDeniedDialog('cámara');
       return;
     }
-    
+
     final image = await _imageService.capturePhoto();
-    
+
     if (image != null) {
       setState(() {
         _images.insert(0, image);
       });
     }
   }
-  
+
   Future<void> _pickFromGallery() async {
     // Verificar permiso
     final hasPermission = await PermissionService.requestGalleryPermission();
-    
+
     if (!hasPermission) {
       _showPermissionDeniedDialog('galería');
       return;
     }
-    
+
     final image = await _imageService.pickFromGallery();
-    
+
     if (image != null) {
       setState(() {
         _images.insert(0, image);
       });
     }
   }
-  
+
   void _showPermissionDeniedDialog(String permission) {
     showDialog(
       context: context,
@@ -383,7 +386,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   void _showImageOptions() {
     showModalBottomSheet(
       context: context,
@@ -421,7 +424,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   void _openImageDetail(File image) {
     Navigator.push(
       context,
@@ -441,7 +444,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -461,12 +464,12 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   Widget _buildBody() {
     if (_isLoading) {
       return const Center(child: CircularProgressIndicator());
     }
-    
+
     if (_images.isEmpty) {
       return Center(
         child: Column(
@@ -496,7 +499,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     }
-    
+
     return RefreshIndicator(
       onRefresh: _loadImages,
       child: GridView.builder(
@@ -531,7 +534,7 @@ class _HomeScreenState extends State<HomeScreen> {
 ```dart
 /**
  * ImageDetailScreen
- * 
+ *
  * Muestra una imagen en pantalla completa con opciones.
  */
 
@@ -541,13 +544,13 @@ import 'package:flutter/material.dart';
 class ImageDetailScreen extends StatelessWidget {
   final File image;
   final VoidCallback onDelete;
-  
+
   const ImageDetailScreen({
     Key? key,
     required this.image,
     required this.onDelete,
   }) : super(key: key);
-  
+
   void _showDeleteConfirmation(BuildContext context) {
     showDialog(
       context: context,
@@ -571,7 +574,7 @@ class ImageDetailScreen extends StatelessWidget {
       ),
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -607,15 +610,15 @@ class ImageDetailScreen extends StatelessWidget {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Permisos | 2 | Solicita y maneja correctamente permisos |
-| Captura | 2 | Captura fotos correctamente |
-| Galería | 1.5 | Selecciona imágenes de galería |
-| Almacenamiento | 1.5 | Guarda imágenes localmente |
-| UI | 2 | Interfaz intuitiva y funcional |
-| Código limpio | 1 | Documentación y estructura |
-| **Total** | **10** | |
+| Criterio       | Puntos | Descripción                              |
+| -------------- | ------ | ---------------------------------------- |
+| Permisos       | 2      | Solicita y maneja correctamente permisos |
+| Captura        | 2      | Captura fotos correctamente              |
+| Galería        | 1.5    | Selecciona imágenes de galería           |
+| Almacenamiento | 1.5    | Guarda imágenes localmente               |
+| UI             | 2      | Interfaz intuitiva y funcional           |
+| Código limpio  | 1      | Documentación y estructura               |
+| **Total**      | **10** |                                          |
 
 ---
 
@@ -629,6 +632,6 @@ class ImageDetailScreen extends StatelessWidget {
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior              | Índice                   | Siguiente                                            |
+| --------------------- | ------------------------ | ---------------------------------------------------- |
 | [README](./README.md) | [Prácticas](./README.md) | [LocationTracker](./practica-02-location-tracker.md) |

@@ -17,16 +17,19 @@ Implementar un sistema completo de notificaciones locales con notificaciones inm
 ### Funcionalidades Principales
 
 1. **Notificaciones Inmediatas**
+
    - Mostrar notificación simple
    - Notificación con título y cuerpo
    - Diferentes niveles de importancia
 
 2. **Notificaciones Programadas**
+
    - Programar para fecha/hora específica
    - Notificaciones periódicas
    - Cancelar notificaciones pendientes
 
 3. **Gestión de Notificaciones**
+
    - Ver lista de notificaciones pendientes
    - Cancelar notificación individual
    - Cancelar todas las notificaciones
@@ -73,7 +76,7 @@ lib/
 ```dart
 /**
  * NotificationService
- * 
+ *
  * Servicio singleton para gestionar todas las notificaciones locales.
  * Inicializar una sola vez al inicio de la app.
  */
@@ -92,40 +95,40 @@ class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
   factory NotificationService() => _instance;
   NotificationService._internal();
-  
-  final FlutterLocalNotificationsPlugin _plugin = 
+
+  final FlutterLocalNotificationsPlugin _plugin =
       FlutterLocalNotificationsPlugin();
-  
+
   // Stream para notificaciones recibidas
-  final StreamController<String?> _notificationController = 
+  final StreamController<String?> _notificationController =
       StreamController<String?>.broadcast();
-  
+
   Stream<String?> get notificationStream => _notificationController.stream;
-  
+
   bool _isInitialized = false;
-  
+
   /// Inicializa el servicio de notificaciones
   Future<void> initialize({NotificationCallback? onNotificationTap}) async {
     if (_isInitialized) return;
-    
+
     // Inicializar timezone
     tz_data.initializeTimeZones();
-    
+
     // Configuración Android
     const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
-    
+
     // Configuración iOS
     const iosSettings = DarwinInitializationSettings(
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: true,
     );
-    
+
     const settings = InitializationSettings(
       android: androidSettings,
       iOS: iosSettings,
     );
-    
+
     await _plugin.initialize(
       settings,
       onDidReceiveNotificationResponse: (response) {
@@ -133,20 +136,20 @@ class NotificationService {
         onNotificationTap?.call(response.payload);
       },
     );
-    
+
     // Crear canales de notificación
     await _createChannels();
-    
+
     _isInitialized = true;
   }
-  
+
   /// Crea los canales de notificación para Android
   Future<void> _createChannels() async {
     final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
-    
+
     if (androidPlugin == null) return;
-    
+
     // Canal general
     await androidPlugin.createNotificationChannel(
       const AndroidNotificationChannel(
@@ -156,7 +159,7 @@ class NotificationService {
         importance: Importance.defaultImportance,
       ),
     );
-    
+
     // Canal de alta prioridad
     await androidPlugin.createNotificationChannel(
       const AndroidNotificationChannel(
@@ -168,7 +171,7 @@ class NotificationService {
         enableVibration: true,
       ),
     );
-    
+
     // Canal de recordatorios
     await androidPlugin.createNotificationChannel(
       const AndroidNotificationChannel(
@@ -179,19 +182,19 @@ class NotificationService {
       ),
     );
   }
-  
+
   /// Solicita permiso de notificaciones (Android 13+)
   Future<bool> requestPermission() async {
     final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
-    
+
     if (androidPlugin != null) {
       return await androidPlugin.requestNotificationsPermission() ?? false;
     }
-    
+
     return true;
   }
-  
+
   /// Muestra una notificación inmediata
   Future<void> showNotification({
     required int id,
@@ -200,31 +203,31 @@ class NotificationService {
     String? payload,
     NotificationPriority priority = NotificationPriority.normal,
   }) async {
-    final channelId = priority == NotificationPriority.high 
-        ? 'high_priority' 
+    final channelId = priority == NotificationPriority.high
+        ? 'high_priority'
         : 'general';
-    
+
     final androidDetails = AndroidNotificationDetails(
       channelId,
       channelId,
-      importance: priority == NotificationPriority.high 
-          ? Importance.high 
+      importance: priority == NotificationPriority.high
+          ? Importance.high
           : Importance.defaultImportance,
-      priority: priority == NotificationPriority.high 
-          ? Priority.high 
+      priority: priority == NotificationPriority.high
+          ? Priority.high
           : Priority.defaultPriority,
     );
-    
+
     const iosDetails = DarwinNotificationDetails();
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: iosDetails,
     );
-    
+
     await _plugin.show(id, title, body, details, payload: payload);
   }
-  
+
   /// Muestra una notificación con texto expandible
   Future<void> showBigTextNotification({
     required int id,
@@ -242,15 +245,15 @@ class NotificationService {
         summaryText: 'Expandir para ver más',
       ),
     );
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: const DarwinNotificationDetails(),
     );
-    
+
     await _plugin.show(id, title, body, details, payload: payload);
   }
-  
+
   /// Programa una notificación para una fecha/hora específica
   Future<void> scheduleNotification({
     required int id,
@@ -265,12 +268,12 @@ class NotificationService {
       importance: Importance.high,
       priority: Priority.high,
     );
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: const DarwinNotificationDetails(),
     );
-    
+
     await _plugin.zonedSchedule(
       id,
       title,
@@ -283,7 +286,7 @@ class NotificationService {
       payload: payload,
     );
   }
-  
+
   /// Programa una notificación periódica
   Future<void> schedulePeriodicNotification({
     required int id,
@@ -296,12 +299,12 @@ class NotificationService {
       'reminders',
       'Recordatorios',
     );
-    
+
     final details = NotificationDetails(
       android: androidDetails,
       iOS: const DarwinNotificationDetails(),
     );
-    
+
     await _plugin.periodicallyShow(
       id,
       title,
@@ -312,30 +315,30 @@ class NotificationService {
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
   }
-  
+
   /// Cancela una notificación específica
   Future<void> cancelNotification(int id) async {
     await _plugin.cancel(id);
   }
-  
+
   /// Cancela todas las notificaciones
   Future<void> cancelAllNotifications() async {
     await _plugin.cancelAll();
   }
-  
+
   /// Obtiene las notificaciones pendientes
   Future<List<PendingNotificationRequest>> getPendingNotifications() async {
     return await _plugin.pendingNotificationRequests();
   }
-  
+
   /// Obtiene las notificaciones activas (en la bandeja)
   Future<List<ActiveNotification>> getActiveNotifications() async {
     final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
-    
+
     return await androidPlugin?.getActiveNotifications() ?? [];
   }
-  
+
   void dispose() {
     _notificationController.close();
   }
@@ -349,7 +352,7 @@ enum NotificationPriority { normal, high }
 ```dart
 /**
  * HomeScreen
- * 
+ *
  * Pantalla principal con opciones para enviar y gestionar notificaciones.
  */
 
@@ -358,7 +361,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-  
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -366,13 +369,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final NotificationService _notificationService = NotificationService();
   int _notificationId = 0;
-  
+
   @override
   void initState() {
     super.initState();
     _initNotifications();
   }
-  
+
   Future<void> _initNotifications() async {
     await _notificationService.initialize(
       onNotificationTap: (payload) {
@@ -381,10 +384,10 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
     );
-    
+
     await _notificationService.requestPermission();
   }
-  
+
   void _showPayloadDialog(String payload) {
     showDialog(
       context: context,
@@ -400,7 +403,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   Future<void> _sendSimpleNotification() async {
     await _notificationService.showNotification(
       id: _notificationId++,
@@ -408,10 +411,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: 'Esta es una notificación simple',
       payload: 'simple_${DateTime.now().millisecondsSinceEpoch}',
     );
-    
+
     _showSnackBar('Notificación enviada');
   }
-  
+
   Future<void> _sendHighPriorityNotification() async {
     await _notificationService.showNotification(
       id: _notificationId++,
@@ -420,10 +423,10 @@ class _HomeScreenState extends State<HomeScreen> {
       payload: 'high_priority',
       priority: NotificationPriority.high,
     );
-    
+
     _showSnackBar('Notificación de alta prioridad enviada');
   }
-  
+
   Future<void> _sendBigTextNotification() async {
     await _notificationService.showBigTextNotification(
       id: _notificationId++,
@@ -436,13 +439,13 @@ class _HomeScreenState extends State<HomeScreen> {
           'Esto es especialmente útil para mensajes o correos.',
       payload: 'big_text',
     );
-    
+
     _showSnackBar('Notificación expandible enviada');
   }
-  
+
   Future<void> _scheduleNotification() async {
     final scheduledDate = DateTime.now().add(const Duration(seconds: 10));
-    
+
     await _notificationService.scheduleNotification(
       id: _notificationId++,
       title: 'Recordatorio',
@@ -450,10 +453,10 @@ class _HomeScreenState extends State<HomeScreen> {
       scheduledDate: scheduledDate,
       payload: 'scheduled_10s',
     );
-    
+
     _showSnackBar('Notificación programada para 10 segundos');
   }
-  
+
   void _openScheduleScreen() {
     Navigator.push(
       context,
@@ -464,10 +467,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   void _openPendingScreen() async {
     final pending = await _notificationService.getPendingNotifications();
-    
+
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -481,18 +484,18 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   Future<void> _cancelAll() async {
     await _notificationService.cancelAllNotifications();
     _showSnackBar('Todas las notificaciones canceladas');
   }
-  
+
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -511,7 +514,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           // Sección: Notificaciones Inmediatas
           _buildSectionHeader('Notificaciones Inmediatas'),
-          
+
           _buildNotificationButton(
             icon: Icons.notifications,
             label: 'Simple',
@@ -519,7 +522,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.blue,
             onPressed: _sendSimpleNotification,
           ),
-          
+
           _buildNotificationButton(
             icon: Icons.priority_high,
             label: 'Alta Prioridad',
@@ -527,7 +530,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.red,
             onPressed: _sendHighPriorityNotification,
           ),
-          
+
           _buildNotificationButton(
             icon: Icons.text_snippet,
             label: 'Texto Expandible',
@@ -535,12 +538,12 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.purple,
             onPressed: _sendBigTextNotification,
           ),
-          
+
           const SizedBox(height: 24),
-          
+
           // Sección: Notificaciones Programadas
           _buildSectionHeader('Notificaciones Programadas'),
-          
+
           _buildNotificationButton(
             icon: Icons.timer,
             label: 'En 10 segundos',
@@ -548,7 +551,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.orange,
             onPressed: _scheduleNotification,
           ),
-          
+
           _buildNotificationButton(
             icon: Icons.schedule,
             label: 'Programar Personalizada',
@@ -556,12 +559,12 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.teal,
             onPressed: _openScheduleScreen,
           ),
-          
+
           const SizedBox(height: 24),
-          
+
           // Sección: Gestión
           _buildSectionHeader('Gestión'),
-          
+
           _buildNotificationButton(
             icon: Icons.clear_all,
             label: 'Cancelar Todas',
@@ -573,7 +576,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   Widget _buildSectionHeader(String title) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -586,7 +589,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
+
   Widget _buildNotificationButton({
     required IconData icon,
     required String label,
@@ -616,7 +619,7 @@ class _HomeScreenState extends State<HomeScreen> {
 ```dart
 /**
  * ScheduleScreen
- * 
+ *
  * Pantalla para programar una notificación con fecha y hora personalizadas.
  */
 
@@ -624,12 +627,12 @@ import 'package:flutter/material.dart';
 
 class ScheduleScreen extends StatefulWidget {
   final NotificationService notificationService;
-  
+
   const ScheduleScreen({
     Key? key,
     required this.notificationService,
   }) : super(key: key);
-  
+
   @override
   State<ScheduleScreen> createState() => _ScheduleScreenState();
 }
@@ -637,17 +640,17 @@ class ScheduleScreen extends StatefulWidget {
 class _ScheduleScreenState extends State<ScheduleScreen> {
   final _titleController = TextEditingController();
   final _bodyController = TextEditingController();
-  
+
   DateTime _selectedDate = DateTime.now().add(const Duration(hours: 1));
   TimeOfDay _selectedTime = TimeOfDay.now();
-  
+
   @override
   void dispose() {
     _titleController.dispose();
     _bodyController.dispose();
     super.dispose();
   }
-  
+
   Future<void> _selectDate() async {
     final date = await showDatePicker(
       context: context,
@@ -655,23 +658,23 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       firstDate: DateTime.now(),
       lastDate: DateTime.now().add(const Duration(days: 365)),
     );
-    
+
     if (date != null) {
       setState(() => _selectedDate = date);
     }
   }
-  
+
   Future<void> _selectTime() async {
     final time = await showTimePicker(
       context: context,
       initialTime: _selectedTime,
     );
-    
+
     if (time != null) {
       setState(() => _selectedTime = time);
     }
   }
-  
+
   DateTime get _scheduledDateTime {
     return DateTime(
       _selectedDate.year,
@@ -681,7 +684,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       _selectedTime.minute,
     );
   }
-  
+
   Future<void> _scheduleNotification() async {
     if (_titleController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -689,24 +692,24 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       );
       return;
     }
-    
+
     if (_scheduledDateTime.isBefore(DateTime.now())) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('La fecha debe ser en el futuro')),
       );
       return;
     }
-    
+
     await widget.notificationService.scheduleNotification(
       id: DateTime.now().millisecondsSinceEpoch ~/ 1000,
       title: _titleController.text,
-      body: _bodyController.text.isEmpty 
-          ? 'Notificación programada' 
+      body: _bodyController.text.isEmpty
+          ? 'Notificación programada'
           : _bodyController.text,
       scheduledDate: _scheduledDateTime,
       payload: 'scheduled_custom',
     );
-    
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
@@ -714,16 +717,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         ),
       ),
     );
-    
+
     Navigator.pop(context);
   }
-  
+
   String _formatDateTime(DateTime dateTime) {
     return '${dateTime.day}/${dateTime.month}/${dateTime.year} '
         '${dateTime.hour.toString().padLeft(2, '0')}:'
         '${dateTime.minute.toString().padLeft(2, '0')}';
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -744,9 +747,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 prefixIcon: Icon(Icons.title),
               ),
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Cuerpo
             TextField(
               controller: _bodyController,
@@ -757,9 +760,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               ),
               maxLines: 3,
             ),
-            
+
             const SizedBox(height: 24),
-            
+
             // Fecha
             ListTile(
               leading: const Icon(Icons.calendar_today),
@@ -770,7 +773,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               trailing: const Icon(Icons.chevron_right),
               onTap: _selectDate,
             ),
-            
+
             // Hora
             ListTile(
               leading: const Icon(Icons.access_time),
@@ -782,9 +785,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               trailing: const Icon(Icons.chevron_right),
               onTap: _selectTime,
             ),
-            
+
             const SizedBox(height: 32),
-            
+
             // Botón de programar
             ElevatedButton.icon(
               onPressed: _scheduleNotification,
@@ -807,7 +810,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 ```dart
 /**
  * PendingScreen
- * 
+ *
  * Muestra las notificaciones pendientes y permite cancelarlas.
  */
 
@@ -818,47 +821,47 @@ class PendingScreen extends StatefulWidget {
   final List<PendingNotificationRequest> pendingNotifications;
   final NotificationService notificationService;
   final VoidCallback onCancelled;
-  
+
   const PendingScreen({
     Key? key,
     required this.pendingNotifications,
     required this.notificationService,
     required this.onCancelled,
   }) : super(key: key);
-  
+
   @override
   State<PendingScreen> createState() => _PendingScreenState();
 }
 
 class _PendingScreenState extends State<PendingScreen> {
   late List<PendingNotificationRequest> _notifications;
-  
+
   @override
   void initState() {
     super.initState();
     _notifications = List.from(widget.pendingNotifications);
   }
-  
+
   Future<void> _cancelNotification(PendingNotificationRequest notification) async {
     await widget.notificationService.cancelNotification(notification.id);
-    
+
     setState(() {
       _notifications.removeWhere((n) => n.id == notification.id);
     });
-    
+
     widget.onCancelled();
   }
-  
+
   Future<void> _cancelAll() async {
     await widget.notificationService.cancelAllNotifications();
-    
+
     setState(() {
       _notifications.clear();
     });
-    
+
     widget.onCancelled();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -928,15 +931,15 @@ class _PendingScreenState extends State<PendingScreen> {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Inicialización | 1.5 | Configura canales y permisos correctamente |
-| Notificaciones inmediatas | 2 | Muestra diferentes tipos de notificaciones |
-| Programación | 2 | Programa notificaciones para fecha/hora |
-| Gestión | 2 | Lista, cancela individual y masivamente |
-| Payload handling | 1.5 | Maneja tap y payloads correctamente |
-| Código limpio | 1 | Documentación y estructura |
-| **Total** | **10** | |
+| Criterio                  | Puntos | Descripción                                |
+| ------------------------- | ------ | ------------------------------------------ |
+| Inicialización            | 1.5    | Configura canales y permisos correctamente |
+| Notificaciones inmediatas | 2      | Muestra diferentes tipos de notificaciones |
+| Programación              | 2      | Programa notificaciones para fecha/hora    |
+| Gestión                   | 2      | Lista, cancela individual y masivamente    |
+| Payload handling          | 1.5    | Maneja tap y payloads correctamente        |
+| Código limpio             | 1      | Documentación y estructura                 |
+| **Total**                 | **10** |                                            |
 
 ---
 
@@ -950,6 +953,6 @@ class _PendingScreenState extends State<PendingScreen> {
 
 ## 🔗 Navegación
 
-| Anterior | Índice | Siguiente |
-|----------|--------|-----------|
+| Anterior                                             | Índice                   | Siguiente                                            |
+| ---------------------------------------------------- | ------------------------ | ---------------------------------------------------- |
 | [LocationTracker](./practica-02-location-tracker.md) | [Prácticas](./README.md) | [SensorDashboard](./practica-04-sensor-dashboard.md) |
