@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- Fondo -->
+  <rect width="800" height="450" fill="#1E1E1E"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Segoe UI, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Hive Boxes - NoSQL Database</text>
+  
+  <!-- Hive Init -->
+  <rect x="50" y="70" width="160" height="60" rx="8" fill="#424242" stroke="#CE93D8" stroke-width="2"/>
+  <text x="130" y="95" font-family="Consolas, monospace" font-size="11" fill="#CE93D8" text-anchor="middle">Hive.initFlutter()</text>
+  <text x="130" y="115" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E" text-anchor="middle">Initialize once</text>
+  
+  <!-- Arrow -->
+  <path d="M210 100 L250 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowHive)"/>
+  
+  <!-- Register Adapters -->
+  <rect x="260" y="70" width="180" height="60" rx="8" fill="#424242" stroke="#FFB74D" stroke-width="2"/>
+  <text x="350" y="92" font-family="Consolas, monospace" font-size="10" fill="#FFB74D" text-anchor="middle">registerAdapter()</text>
+  <text x="350" y="110" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E" text-anchor="middle">TypeAdapters for custom</text>
+  <text x="350" y="123" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E" text-anchor="middle">objects</text>
+  
+  <!-- Arrow -->
+  <path d="M440 100 L480 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowHive)"/>
+  
+  <!-- Open Box -->
+  <rect x="490" y="70" width="160" height="60" rx="8" fill="#424242" stroke="#81C784" stroke-width="2"/>
+  <text x="570" y="95" font-family="Consolas, monospace" font-size="11" fill="#81C784" text-anchor="middle">openBox&lt;T&gt;('name')</text>
+  <text x="570" y="115" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E" text-anchor="middle">Open or create</text>
+  
+  <!-- Arrow -->
+  <path d="M650 100 L700 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowHive)"/>
+  
+  <!-- Box Ready -->
+  <ellipse cx="740" cy="100" rx="40" ry="25" fill="#2D4A3E" stroke="#81C784" stroke-width="2"/>
+  <text x="740" y="105" font-family="Arial, sans-serif" font-size="10" fill="#81C784" text-anchor="middle">Ready!</text>
+  
+  <!-- Divider -->
+  <line x1="50" y1="155" x2="750" y2="155" stroke="#424242" stroke-width="1" stroke-dasharray="5"/>
+  
+  <!-- Boxes Container -->
+  <text x="400" y="180" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Different Types of Boxes</text>
+  
+  <!-- Box Regular -->
+  <rect x="50" y="200" width="210" height="120" rx="8" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <rect x="50" y="200" width="210" height="35" rx="8" fill="#2D4A5A"/>
+  <text x="155" y="223" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">Box&lt;Note&gt;</text>
+  
+  <text x="65" y="255" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• All data loaded in memory</text>
+  <text x="65" y="273" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• Fast read/write</text>
+  <text x="65" y="291" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• Best for small datasets</text>
+  <text x="65" y="309" font-family="Consolas, monospace" font-size="9" fill="#81C784">Hive.box&lt;Note&gt;('notes')</text>
+  
+  <!-- LazyBox -->
+  <rect x="295" y="200" width="210" height="120" rx="8" fill="#2D2D2D" stroke="#FFB74D" stroke-width="2"/>
+  <rect x="295" y="200" width="210" height="35" rx="8" fill="#4A3D2D"/>
+  <text x="400" y="223" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFB74D" text-anchor="middle">LazyBox&lt;Note&gt;</text>
+  
+  <text x="310" y="255" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• Data loaded on demand</text>
+  <text x="310" y="273" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• Lower memory usage</text>
+  <text x="310" y="291" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• Best for large datasets</text>
+  <text x="310" y="309" font-family="Consolas, monospace" font-size="9" fill="#81C784">await box.get(key)</text>
+  
+  <!-- Encrypted Box -->
+  <rect x="540" y="200" width="210" height="120" rx="8" fill="#2D2D2D" stroke="#EF5350" stroke-width="2"/>
+  <rect x="540" y="200" width="210" height="35" rx="8" fill="#4A2D2D"/>
+  <text x="645" y="223" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#EF5350" text-anchor="middle">🔒 Encrypted Box</text>
+  
+  <text x="555" y="255" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• AES-256 encryption</text>
+  <text x="555" y="273" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• Secure sensitive data</text>
+  <text x="555" y="291" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">• Requires encryption key</text>
+  <text x="555" y="309" font-family="Consolas, monospace" font-size="9" fill="#81C784">encryptionCipher: cipher</text>
+  
+  <!-- Operations -->
+  <rect x="50" y="345" width="700" height="80" rx="8" fill="#424242" stroke="#616161" stroke-width="1"/>
+  <text x="400" y="370" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Box Operations (All Synchronous except save)</text>
+  
+  <text x="100" y="400" font-family="Consolas, monospace" font-size="10" fill="#81C784">put(key, value)</text>
+  <text x="100" y="415" font-family="Arial, sans-serif" font-size="9" fill="#9E9E9E">Write</text>
+  
+  <text x="230" y="400" font-family="Consolas, monospace" font-size="10" fill="#64B5F6">get(key)</text>
+  <text x="230" y="415" font-family="Arial, sans-serif" font-size="9" fill="#9E9E9E">Read</text>
+  
+  <text x="330" y="400" font-family="Consolas, monospace" font-size="10" fill="#64B5F6">values</text>
+  <text x="330" y="415" font-family="Arial, sans-serif" font-size="9" fill="#9E9E9E">All values</text>
+  
+  <text x="420" y="400" font-family="Consolas, monospace" font-size="10" fill="#EF5350">delete(key)</text>
+  <text x="420" y="415" font-family="Arial, sans-serif" font-size="9" fill="#9E9E9E">Remove</text>
+  
+  <text x="530" y="400" font-family="Consolas, monospace" font-size="10" fill="#FFB74D">add(value)</text>
+  <text x="530" y="415" font-family="Arial, sans-serif" font-size="9" fill="#9E9E9E">Auto key</text>
+  
+  <text x="640" y="400" font-family="Consolas, monospace" font-size="10" fill="#CE93D8">watch()</text>
+  <text x="640" y="415" font-family="Arial, sans-serif" font-size="9" fill="#9E9E9E">Stream</text>
+  
+  <!-- Footer -->
+  <text x="50" y="440" font-family="Arial, sans-serif" font-size="10" fill="#616161">Semana 07 - Hive: Fast, Typed, NoSQL Storage for Flutter</text>
+  
+  <!-- Marker definition -->
+  <defs>
+    <marker id="arrowHive" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#9E9E9E"/>
+    </marker>
+  </defs>
+</svg>
