@@ -98,29 +98,29 @@
 
 ### Tema Claro (Light Theme)
 
-| Elemento | Color | Hex |
-|----------|-------|-----|
-| Primary | Azul | `#2196F3` |
-| Secondary | Naranja | `#FF9800` |
-| Background | Blanco | `#FFFFFF` |
-| Surface | Gris claro | `#F5F5F5` |
-| Text Primary | Negro | `#212121` |
-| Text Secondary | Gris | `#757575` |
-| Error | Rojo | `#F44336` |
-| Success | Verde | `#4CAF50` |
+| Elemento       | Color      | Hex       |
+| -------------- | ---------- | --------- |
+| Primary        | Azul       | `#2196F3` |
+| Secondary      | Naranja    | `#FF9800` |
+| Background     | Blanco     | `#FFFFFF` |
+| Surface        | Gris claro | `#F5F5F5` |
+| Text Primary   | Negro      | `#212121` |
+| Text Secondary | Gris       | `#757575` |
+| Error          | Rojo       | `#F44336` |
+| Success        | Verde      | `#4CAF50` |
 
 ### Tema Oscuro (Dark Theme)
 
-| Elemento | Color | Hex |
-|----------|-------|-----|
-| Primary | Azul claro | `#64B5F6` |
-| Secondary | Naranja | `#FFB74D` |
-| Background | Gris oscuro | `#121212` |
-| Surface | Gris | `#1E1E1E` |
-| Text Primary | Blanco | `#FFFFFF` |
-| Text Secondary | Gris claro | `#B0B0B0` |
-| Error | Rojo claro | `#EF5350` |
-| Success | Verde claro | `#81C784` |
+| Elemento       | Color       | Hex       |
+| -------------- | ----------- | --------- |
+| Primary        | Azul claro  | `#64B5F6` |
+| Secondary      | Naranja     | `#FFB74D` |
+| Background     | Gris oscuro | `#121212` |
+| Surface        | Gris        | `#1E1E1E` |
+| Text Primary   | Blanco      | `#FFFFFF` |
+| Text Secondary | Gris claro  | `#B0B0B0` |
+| Error          | Rojo claro  | `#EF5350` |
+| Success        | Verde claro | `#81C784` |
 
 ---
 
@@ -655,5 +655,5 @@ void main() {
 
 ---
 
-*Guía de Diseño para ShopApp - Semana 05*
-*Bootcamp Flutter*
+_Guía de Diseño para ShopApp - Semana 05_
+_Bootcamp Flutter_

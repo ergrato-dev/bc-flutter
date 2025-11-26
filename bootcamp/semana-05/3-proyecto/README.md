@@ -2,12 +2,12 @@
 
 ## 📋 Información del Proyecto
 
-| Aspecto | Detalle |
-|---------|---------|
-| **Nombre** | ShopApp |
-| **Tema** | Gestión de Estado |
-| **Puntos** | 50 pts (50% de la nota) |
-| **Tiempo estimado** | 3 horas |
+| Aspecto             | Detalle                 |
+| ------------------- | ----------------------- |
+| **Nombre**          | ShopApp                 |
+| **Tema**            | Gestión de Estado       |
+| **Puntos**          | 50 pts (50% de la nota) |
+| **Tiempo estimado** | 3 horas                 |
 
 ---
 
@@ -27,10 +27,10 @@ La aplicación debe demostrar el uso correcto de **Provider**, **ChangeNotifier*
 
 ## 📚 Documentación de Apoyo
 
-| Documento | Descripción |
-|-----------|-------------|
+| Documento                                   | Descripción                                       |
+| ------------------------------------------- | ------------------------------------------------- |
 | 📊 [EJEMPLOS-DATOS.md](./EJEMPLOS-DATOS.md) | Mock data, modelos y CartProvider listo para usar |
-| 🎨 [GUIA-DISENO.md](./GUIA-DISENO.md) | Wireframes, componentes y paleta de colores |
+| 🎨 [GUIA-DISENO.md](./GUIA-DISENO.md)       | Wireframes, componentes y paleta de colores       |
 
 ---
 
@@ -38,39 +38,39 @@ La aplicación debe demostrar el uso correcto de **Provider**, **ChangeNotifier*
 
 ### 1. Funcionalidad (20 pts)
 
-| Requisito | Puntos | Descripción |
-|-----------|--------|-------------|
-| Listado de productos | 3 | Grid con ProductCard usando mock data |
-| Detalle de producto | 3 | Pantalla con imagen, precio, descripción |
-| Agregar al carrito | 5 | Añadir con cantidad, actualizar estado |
-| Eliminar del carrito | 2 | Quitar items, actualizar total |
-| Contador en AppBar | 3 | Badge con número de items |
-| Favoritos | 2 | (Opcional) Marcar/desmarcar productos |
-| Persistencia | 2 | (Opcional) SharedPreferences/Hive |
+| Requisito            | Puntos | Descripción                              |
+| -------------------- | ------ | ---------------------------------------- |
+| Listado de productos | 3      | Grid con ProductCard usando mock data    |
+| Detalle de producto  | 3      | Pantalla con imagen, precio, descripción |
+| Agregar al carrito   | 5      | Añadir con cantidad, actualizar estado   |
+| Eliminar del carrito | 2      | Quitar items, actualizar total           |
+| Contador en AppBar   | 3      | Badge con número de items                |
+| Favoritos            | 2      | (Opcional) Marcar/desmarcar productos    |
+| Persistencia         | 2      | (Opcional) SharedPreferences/Hive        |
 
 ### 2. Calidad del Código (15 pts)
 
-| Requisito | Puntos | Descripción |
-|-----------|--------|-------------|
-| Estructura clara | 4 | Carpetas: models, providers, screens, widgets |
-| Documentación | 4 | Comentarios en widgets principales |
-| Nomenclatura | 3 | Inglés, consistente, descriptivo |
-| Tests | 4 | Al menos tests del CartProvider |
+| Requisito        | Puntos | Descripción                                   |
+| ---------------- | ------ | --------------------------------------------- |
+| Estructura clara | 4      | Carpetas: models, providers, screens, widgets |
+| Documentación    | 4      | Comentarios en widgets principales            |
+| Nomenclatura     | 3      | Inglés, consistente, descriptivo              |
+| Tests            | 4      | Al menos tests del CartProvider               |
 
 ### 3. UX y Performance (10 pts)
 
-| Requisito | Puntos | Descripción |
-|-----------|--------|-------------|
-| UI limpia | 4 | Material Design, espaciado correcto |
-| Selector/select | 3 | Badge usa Selector, no watch |
-| Sin rebuilds innecesarios | 3 | Consumer/Selector donde corresponda |
+| Requisito                 | Puntos | Descripción                         |
+| ------------------------- | ------ | ----------------------------------- |
+| UI limpia                 | 4      | Material Design, espaciado correcto |
+| Selector/select           | 3      | Badge usa Selector, no watch        |
+| Sin rebuilds innecesarios | 3      | Consumer/Selector donde corresponda |
 
 ### 4. Presentación (5 pts)
 
-| Requisito | Puntos | Descripción |
-|-----------|--------|-------------|
-| README | 2 | Instrucciones para correr |
-| Screenshots/GIF | 3 | Demostración del flujo |
+| Requisito       | Puntos | Descripción               |
+| --------------- | ------ | ------------------------- |
+| README          | 2      | Instrucciones para correr |
+| Screenshots/GIF | 3      | Demostración del flujo    |
 
 ---
 
@@ -157,6 +157,7 @@ void main() {
 ## ✅ Checklist de Entrega
 
 ### Funcionalidad
+
 - [ ] HomeScreen muestra productos en grid
 - [ ] ProductCard muestra imagen, nombre, precio
 - [ ] Tap en producto navega a detalle
@@ -168,6 +169,7 @@ void main() {
 - [ ] Total se calcula correctamente
 
 ### Código
+
 - [ ] CartProvider extiende ChangeNotifier
 - [ ] Usa notifyListeners() al cambiar estado
 - [ ] Badge usa context.select (no watch)
@@ -176,12 +178,14 @@ void main() {
 - [ ] Comentarios en widgets principales
 
 ### Testing
+
 - [ ] Test: carrito empieza vacío
 - [ ] Test: addItem incrementa count
 - [ ] Test: removeItem decrementa count
 - [ ] Test: total se calcula bien
 
 ### Entrega
+
 - [ ] README con instrucciones
 - [ ] Screenshot de HomeScreen
 - [ ] Screenshot de CartScreen
@@ -256,14 +260,13 @@ Si terminas antes, considera agregar:
 
 ## 🔗 Navegación
 
-| ⬅️ Prácticas | 📋 Teoría | ➡️ Recursos |
-|--------------|-----------|-------------|
+| ⬅️ Prácticas                              | 📋 Teoría                           | ➡️ Recursos                             |
+| ----------------------------------------- | ----------------------------------- | --------------------------------------- |
 | [Ver Prácticas](../2-practicas/README.md) | [Ver Teoría](../1-teoria/README.md) | [Ver Recursos](../4-recursos/README.md) |
 
 ---
 
-*Proyecto Integrador Semana 05 - ShopApp*  
-*Bootcamp Flutter - Gestión de Estado*
-
+_Proyecto Integrador Semana 05 - ShopApp_  
+_Bootcamp Flutter - Gestión de Estado_
 
 _Buen trabajo: prioriza completar la funcionalidad antes de optimizar._

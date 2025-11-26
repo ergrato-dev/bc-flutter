@@ -738,5 +738,5 @@ Container(
 
 ---
 
-*Datos de ejemplo para ShopApp - Semana 05*
-*Bootcamp Flutter*
+_Datos de ejemplo para ShopApp - Semana 05_
+_Bootcamp Flutter_
