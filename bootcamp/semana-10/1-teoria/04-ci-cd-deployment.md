@@ -18,11 +18,11 @@ Al finalizar este módulo, serás capaz de:
 
 #### ¿Qué es CI/CD?
 
-| Término                      | Descripción                                    |
-| ---------------------------- | ---------------------------------------------- |
+| Término                         | Descripción                                           |
+| ------------------------------- | ----------------------------------------------------- |
 | **CI (Continuous Integration)** | Integrar cambios frecuentemente con tests automáticos |
-| **CD (Continuous Delivery)**    | Automatizar el proceso hasta staging           |
-| **CD (Continuous Deployment)**  | Automatizar hasta producción                   |
+| **CD (Continuous Delivery)**    | Automatizar el proceso hasta staging                  |
+| **CD (Continuous Deployment)**  | Automatizar hasta producción                          |
 
 #### Beneficios
 
@@ -54,23 +54,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.16.0'
           channel: 'stable'
-      
+
       - name: Install dependencies
         run: flutter pub get
-      
+
       - name: Analyze code
         run: flutter analyze
-      
+
       - name: Run tests
         run: flutter test
 ```
@@ -93,7 +93,7 @@ jobs:
   test:
     name: Test & Analyze
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
@@ -128,7 +128,7 @@ jobs:
     name: Build Android
     needs: test
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
@@ -163,7 +163,7 @@ jobs:
     name: Build iOS
     needs: test
     runs-on: macos-latest
-    
+
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
@@ -223,7 +223,7 @@ jobs:
   build-signed-apk:
     name: Build Signed APK
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v4
@@ -320,7 +320,7 @@ jobs:
   distribute:
     name: Distribute to Firebase
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v4
@@ -389,6 +389,7 @@ MAJOR.MINOR.PATCH+BUILD
 ```
 
 **Ejemplos:**
+
 - `1.0.0+1` → Primera versión
 - `1.0.1+2` → Bug fix
 - `1.1.0+3` → Nueva feature
@@ -496,7 +497,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v4
@@ -553,25 +554,25 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
-    
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Get version from tag
         id: version
         run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-      
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-      
+
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
-      
+
       - run: flutter pub get
-      
+
       - name: Setup signing
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
@@ -584,12 +585,12 @@ jobs:
           echo "keyPassword=$KEY_PASSWORD" >> android/key.properties
           echo "keyAlias=$KEY_ALIAS" >> android/key.properties
           echo "storeFile=upload-keystore.jks" >> android/key.properties
-      
+
       - name: Build APK & AAB
         run: |
           flutter build apk --release
           flutter build appbundle --release
-      
+
       - uses: actions/upload-artifact@v4
         with:
           name: android-release
@@ -602,17 +603,17 @@ jobs:
     name: Build iOS Release
     needs: test
     runs-on: macos-latest
-    
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
-      
+
       - run: flutter pub get
       - run: flutter build ios --release --no-codesign
-      
+
       - uses: actions/upload-artifact@v4
         with:
           name: ios-release
@@ -623,15 +624,15 @@ jobs:
     name: Create GitHub Release
     needs: [build-android, build-ios]
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: actions/download-artifact@v4
         with:
           name: android-release
           path: artifacts/android
-      
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
@@ -647,13 +648,13 @@ jobs:
     name: Deploy to Firebase
     needs: build-android
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: android-release
           path: artifacts
-      
+
       - uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
@@ -666,29 +667,29 @@ jobs:
 
 ### 8. Resumen de Workflows
 
-| Workflow              | Trigger                    | Acciones                           |
-| --------------------- | -------------------------- | ---------------------------------- |
-| **flutter-ci.yml**    | Push/PR a main, develop    | Lint, test, analyze                |
-| **android-release.yml** | Tag v*                   | Build firmado, GitHub Release      |
-| **firebase-dist.yml** | Push a develop             | Build, Firebase App Distribution   |
-| **play-store.yml**    | Tag v* (release)           | Build, Upload Play Store           |
+| Workflow                | Trigger                 | Acciones                         |
+| ----------------------- | ----------------------- | -------------------------------- |
+| **flutter-ci.yml**      | Push/PR a main, develop | Lint, test, analyze              |
+| **android-release.yml** | Tag v\*                 | Build firmado, GitHub Release    |
+| **firebase-dist.yml**   | Push a develop          | Build, Firebase App Distribution |
+| **play-store.yml**      | Tag v\* (release)       | Build, Upload Play Store         |
 
 ---
 
 ## 🎯 Resumen
 
-| Concepto               | Herramienta              | Uso                              |
-| ---------------------- | ------------------------ | -------------------------------- |
-| **CI/CD**              | GitHub Actions           | Automatización de builds y tests |
-| **Distribución beta**  | Firebase App Distribution| Testers internos                 |
-| **Play Store**         | Google Play API          | Producción Android               |
-| **App Store**          | App Store Connect API    | Producción iOS                   |
-| **Versionado**         | SemVer + Git tags        | Control de versiones             |
+| Concepto              | Herramienta               | Uso                              |
+| --------------------- | ------------------------- | -------------------------------- |
+| **CI/CD**             | GitHub Actions            | Automatización de builds y tests |
+| **Distribución beta** | Firebase App Distribution | Testers internos                 |
+| **Play Store**        | Google Play API           | Producción Android               |
+| **App Store**         | App Store Connect API     | Producción iOS                   |
+| **Versionado**        | SemVer + Git tags         | Control de versiones             |
 
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                                     | 🏠 Índice                 |
-| ----------------------------------------------- | ------------------------- |
+| ⬅️ Anterior                                      | 🏠 Índice                 |
+| ------------------------------------------------ | ------------------------- |
 | [Preparación Stores](./03-preparacion-stores.md) | [Semana 10](../README.md) |
