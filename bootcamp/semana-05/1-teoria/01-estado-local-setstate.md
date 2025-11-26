@@ -44,6 +44,7 @@ class _CounterState extends State<Counter> {
 ```
 
 ### Buenas prácticas con `setState()`
+
 - Llamar a `setState()` únicamente cuando cambias datos que afectan `build()`.
 - Evitar lógica costosa dentro del callback de `setState()`.
 - Mantener el `State` pequeño y delegar lógica a clases/servicios cuando sea necesario.
@@ -89,5 +90,6 @@ void dispose() {
 ---
 
 ## Recursos
+
 - Documentación oficial: https://docs.flutter.dev
 - Artículo: "When to use setState" (link en recursos)
