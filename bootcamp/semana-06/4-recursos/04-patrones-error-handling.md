@@ -7,9 +7,9 @@
 abstract class AppException implements Exception {
   final String message;
   final String? code;
-  
+
   const AppException(this.message, {this.code});
-  
+
   @override
   String toString() => message;
 }
@@ -37,7 +37,7 @@ class SessionExpiredException extends AuthException {
 /// Errores del servidor
 class ServerException extends AppException {
   final int? statusCode;
-  
+
   const ServerException([
     String message = 'Error del servidor',
     this.statusCode,
@@ -47,7 +47,7 @@ class ServerException extends AppException {
 /// Errores de validación
 class ValidationException extends AppException {
   final Map<String, List<String>>? errors;
-  
+
   const ValidationException([
     String message = 'Error de validación',
     this.errors,
@@ -149,13 +149,13 @@ result.match(
 /// Estado que puede estar loading, con data, o con error
 sealed class AsyncValue<T> {
   const AsyncValue();
-  
+
   bool get isLoading => this is AsyncLoading<T>;
   bool get hasData => this is AsyncData<T>;
   bool get hasError => this is AsyncError<T>;
-  
+
   T? get dataOrNull => hasData ? (this as AsyncData<T>).data : null;
-  
+
   Widget when({
     required Widget Function(T data) data,
     required Widget Function() loading,
@@ -187,11 +187,11 @@ class AsyncError<T> extends AsyncValue<T> {
 // Uso en Provider
 class UserProvider extends ChangeNotifier {
   AsyncValue<User> state = const AsyncLoading();
-  
+
   Future<void> loadUser(int id) async {
     state = const AsyncLoading();
     notifyListeners();
-    
+
     try {
       final user = await _service.getUser(id);
       state = AsyncData(user);
@@ -224,7 +224,7 @@ class ApiResponse<T> {
   final String? message;
   final Map<String, dynamic>? errors;
   final int? statusCode;
-  
+
   const ApiResponse({
     required this.success,
     this.data,
@@ -232,7 +232,7 @@ class ApiResponse<T> {
     this.errors,
     this.statusCode,
   });
-  
+
   factory ApiResponse.fromJson(
     Map<String, dynamic> json,
     T Function(dynamic)? fromJson,
@@ -246,7 +246,7 @@ class ApiResponse<T> {
       errors: json['errors'],
     );
   }
-  
+
   bool get hasError => !success || errors != null;
 }
 
@@ -273,37 +273,37 @@ class ErrorHandler {
   static void handle(Object error, {StackTrace? stackTrace}) {
     // Logging
     _logError(error, stackTrace);
-    
+
     // Analytics
     _trackError(error, stackTrace);
-    
+
     // Mostrar al usuario
     _showUserFriendlyError(error);
   }
-  
+
   static void _logError(Object error, StackTrace? stackTrace) {
     debugPrint('Error: $error');
     if (stackTrace != null) {
       debugPrint('StackTrace: $stackTrace');
     }
   }
-  
+
   static void _trackError(Object error, StackTrace? stackTrace) {
     // Enviar a Crashlytics, Sentry, etc.
     // FirebaseCrashlytics.instance.recordError(error, stackTrace);
   }
-  
+
   static void _showUserFriendlyError(Object error) {
     final message = _getUserMessage(error);
     // Mostrar snackbar, dialog, etc.
     _showSnackBar(message);
   }
-  
+
   static String _getUserMessage(Object error) {
     if (error is AppException) {
       return error.message;
     }
-    
+
     if (error is DioException) {
       switch (error.type) {
         case DioExceptionType.connectionTimeout:
@@ -315,7 +315,7 @@ class ErrorHandler {
           return 'Ocurrió un error. Intenta de nuevo.';
       }
     }
-    
+
     return 'Ocurrió un error inesperado.';
   }
 }
@@ -339,14 +339,14 @@ class ErrorDisplay extends StatelessWidget {
   final String message;
   final VoidCallback? onRetry;
   final IconData icon;
-  
+
   const ErrorDisplay({
     super.key,
     required this.message,
     this.onRetry,
     this.icon = Icons.error_outline,
   });
-  
+
   factory ErrorDisplay.network({VoidCallback? onRetry}) {
     return ErrorDisplay(
       message: 'Sin conexión a internet',
@@ -354,7 +354,7 @@ class ErrorDisplay extends StatelessWidget {
       onRetry: onRetry,
     );
   }
-  
+
   factory ErrorDisplay.server({VoidCallback? onRetry}) {
     return ErrorDisplay(
       message: 'Error del servidor. Intenta más tarde.',
@@ -362,7 +362,7 @@ class ErrorDisplay extends StatelessWidget {
       onRetry: onRetry,
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Center(

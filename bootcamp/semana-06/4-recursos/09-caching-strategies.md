@@ -21,21 +21,21 @@ class CacheFirstStrategy<T> {
   final Future<T> Function() fetchFromNetwork;
   final Future<T?> Function() readFromCache;
   final Future<void> Function(T data) writeToCache;
-  
+
   CacheFirstStrategy({
     required this.maxAge,
     required this.fetchFromNetwork,
     required this.readFromCache,
     required this.writeToCache,
   });
-  
+
   Stream<T> get() async* {
     // 1. Intentar caché primero
     final cached = await readFromCache();
     if (cached != null) {
       yield cached;
     }
-    
+
     // 2. Actualizar desde red
     try {
       final fresh = await fetchFromNetwork();
@@ -77,7 +77,7 @@ class NetworkFirstStrategy<T> {
   final Future<T> Function() fetchFromNetwork;
   final Future<T?> Function() readFromCache;
   final Future<void> Function(T data) writeToCache;
-  
+
   Future<T> get() async {
     try {
       // 1. Intentar red primero
@@ -103,7 +103,7 @@ Solo usar caché, útil para modo offline.
 ```dart
 class CacheOnlyStrategy<T> {
   final Future<T?> Function() readFromCache;
-  
+
   Future<T> get() async {
     final cached = await readFromCache();
     if (cached != null) {
@@ -130,30 +130,30 @@ class SimpleCache {
     };
     await prefs.setString(key, jsonEncode(cacheData));
   }
-  
+
   Future<Map<String, dynamic>?> getJson(
     String key, {
     Duration maxAge = const Duration(hours: 1),
   }) async {
     final prefs = await SharedPreferences.getInstance();
     final cached = prefs.getString(key);
-    
+
     if (cached == null) return null;
-    
+
     final cacheData = jsonDecode(cached);
     final timestamp = DateTime.fromMillisecondsSinceEpoch(
       cacheData['timestamp'],
     );
-    
+
     // Verificar si expiró
     if (DateTime.now().difference(timestamp) > maxAge) {
       await prefs.remove(key);
       return null;
     }
-    
+
     return cacheData['data'];
   }
-  
+
   Future<void> clear(String key) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(key);
@@ -179,13 +179,13 @@ dev_dependencies:
 class CachedArticle extends HiveObject {
   @HiveField(0)
   final String id;
-  
+
   @HiveField(1)
   final String title;
-  
+
   @HiveField(2)
   final DateTime cachedAt;
-  
+
   CachedArticle({
     required this.id,
     required this.title,
@@ -196,35 +196,35 @@ class CachedArticle extends HiveObject {
 // Cache Service con Hive
 class HiveCacheService {
   late Box<CachedArticle> _articlesBox;
-  
+
   Future<void> init() async {
     await Hive.initFlutter();
     Hive.registerAdapter(CachedArticleAdapter());
     _articlesBox = await Hive.openBox<CachedArticle>('articles');
   }
-  
+
   Future<void> saveArticles(List<Article> articles) async {
     final cached = articles.map((a) => CachedArticle(
       id: a.id,
       title: a.title,
       cachedAt: DateTime.now(),
     )).toList();
-    
+
     await _articlesBox.clear();
     await _articlesBox.addAll(cached);
   }
-  
+
   List<CachedArticle>? getArticles({Duration maxAge = const Duration(hours: 1)}) {
     if (_articlesBox.isEmpty) return null;
-    
+
     final first = _articlesBox.getAt(0)!;
     if (DateTime.now().difference(first.cachedAt) > maxAge) {
       return null;
     }
-    
+
     return _articlesBox.values.toList();
   }
-  
+
   Future<void> clearCache() async {
     await _articlesBox.clear();
   }
@@ -269,29 +269,29 @@ final response = await dio.get(
 class CacheManager {
   final Map<String, DateTime> _timestamps = {};
   final Duration defaultMaxAge;
-  
+
   CacheManager({this.defaultMaxAge = const Duration(minutes: 15)});
-  
+
   bool isValid(String key, {Duration? maxAge}) {
     final timestamp = _timestamps[key];
     if (timestamp == null) return false;
-    
+
     final age = maxAge ?? defaultMaxAge;
     return DateTime.now().difference(timestamp) < age;
   }
-  
+
   void markAsUpdated(String key) {
     _timestamps[key] = DateTime.now();
   }
-  
+
   void invalidate(String key) {
     _timestamps.remove(key);
   }
-  
+
   void invalidateAll() {
     _timestamps.clear();
   }
-  
+
   // Invalidar por patrón
   void invalidatePattern(String pattern) {
     _timestamps.removeWhere((key, _) => key.contains(pattern));
@@ -311,14 +311,14 @@ cacheManager.invalidatePattern('article_');
 
 ## 📊 Tabla de Decisión
 
-| Escenario | Estrategia | MaxAge |
-|-----------|------------|--------|
-| Noticias | Cache-First | 15 min |
-| Perfil usuario | Network-First | 1 hora |
-| Configuración | Cache-First | 1 día |
-| Búsqueda | No cachear | - |
-| Lista de países | Cache-First | 1 semana |
-| Precios cripto | Network-First | 30 seg |
+| Escenario       | Estrategia    | MaxAge   |
+| --------------- | ------------- | -------- |
+| Noticias        | Cache-First   | 15 min   |
+| Perfil usuario  | Network-First | 1 hora   |
+| Configuración   | Cache-First   | 1 día    |
+| Búsqueda        | No cachear    | -        |
+| Lista de países | Cache-First   | 1 semana |
+| Precios cripto  | Network-First | 30 seg   |
 
 ---
 

@@ -145,15 +145,15 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class SecureKeyStorage {
   final _storage = const FlutterSecureStorage();
-  
+
   Future<void> saveApiKey(String key) async {
     await _storage.write(key: 'api_key', value: key);
   }
-  
+
   Future<String?> getApiKey() async {
     return await _storage.read(key: 'api_key');
   }
-  
+
   Future<void> deleteApiKey() async {
     await _storage.delete(key: 'api_key');
   }
@@ -165,6 +165,7 @@ class SecureKeyStorage {
 ## 📋 Checklist de Seguridad
 
 ### Antes de Commitear
+
 ```
 □ .env está en .gitignore
 □ api_keys.dart está en .gitignore
@@ -174,6 +175,7 @@ class SecureKeyStorage {
 ```
 
 ### En Producción
+
 ```
 □ API keys en variables de entorno del servidor
 □ Usar backend proxy para APIs sensibles
@@ -183,6 +185,7 @@ class SecureKeyStorage {
 ```
 
 ### Si Se Expone Una Key
+
 ```
 1. Revocar la key inmediatamente
 2. Generar una nueva key
@@ -196,6 +199,7 @@ class SecureKeyStorage {
 ## 🛠️ Herramientas
 
 ### git-secrets
+
 Previene commitear secretos accidentalmente.
 
 ```bash
@@ -211,6 +215,7 @@ git secrets --add 'api[_-]?key[_-]?=["\'][a-zA-Z0-9]+'
 ```
 
 ### Gitleaks
+
 Scanner de secretos en repositorios.
 
 ```bash
@@ -219,6 +224,7 @@ gitleaks detect --source . --verbose
 ```
 
 ### truffleHog
+
 Busca secrets en historial de Git.
 
 ```bash
@@ -230,13 +236,13 @@ trufflehog git file://. --since-commit HEAD~50
 
 ## 📊 Niveles de Seguridad
 
-| Nivel | Método | Seguridad | Uso |
-|-------|--------|-----------|-----|
-| 🔴 Bajo | Hardcoded | ❌ | Nunca |
-| 🟠 Medio | .env / gitignore | ⚠️ | Desarrollo |
-| 🟡 Medio | Dart Define | ⚠️ | CI/CD |
-| 🟢 Alto | Backend Proxy | ✅ | Producción |
-| 🟢 Alto | Secure Storage | ✅ | Tokens de usuario |
+| Nivel    | Método           | Seguridad | Uso               |
+| -------- | ---------------- | --------- | ----------------- |
+| 🔴 Bajo  | Hardcoded        | ❌        | Nunca             |
+| 🟠 Medio | .env / gitignore | ⚠️        | Desarrollo        |
+| 🟡 Medio | Dart Define      | ⚠️        | CI/CD             |
+| 🟢 Alto  | Backend Proxy    | ✅        | Producción        |
+| 🟢 Alto  | Secure Storage   | ✅        | Tokens de usuario |
 
 ---
 

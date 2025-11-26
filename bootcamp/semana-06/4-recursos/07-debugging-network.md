@@ -13,6 +13,7 @@ devtools
 ```
 
 **Características:**
+
 - Ver todas las peticiones HTTP
 - Inspeccionar headers y body
 - Ver tiempo de respuesta
@@ -53,7 +54,7 @@ class PrettyLogInterceptor extends Interceptor {
     debugPrint('╚══════════════════════════════════════════════════════════');
     handler.next(options);
   }
-  
+
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     debugPrint('╔══════════════════════════════════════════════════════════');
@@ -63,7 +64,7 @@ class PrettyLogInterceptor extends Interceptor {
     debugPrint('╚══════════════════════════════════════════════════════════');
     handler.next(response);
   }
-  
+
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     debugPrint('╔══════════════════════════════════════════════════════════');
@@ -74,7 +75,7 @@ class PrettyLogInterceptor extends Interceptor {
     debugPrint('╚══════════════════════════════════════════════════════════');
     handler.next(err);
   }
-  
+
   String _prettyJson(dynamic json) {
     try {
       const encoder = JsonEncoder.withIndent('  ');
@@ -116,18 +117,18 @@ Exportar requests como cURL para testing.
 extension DioRequestToCurl on RequestOptions {
   String toCurl() {
     final components = ['curl -X $method'];
-    
+
     headers.forEach((key, value) {
       components.add("-H '$key: $value'");
     });
-    
+
     if (data != null) {
       final body = data is String ? data : jsonEncode(data);
       components.add("-d '$body'");
     }
-    
+
     components.add("'$uri'");
-    
+
     return components.join(' \\\n  ');
   }
 }
@@ -137,6 +138,7 @@ debugPrint('cURL: ${options.toCurl()}');
 ```
 
 **Salida:**
+
 ```bash
 curl -X POST \
   -H 'Content-Type: application/json' \
@@ -181,23 +183,23 @@ if (!await hasConnection()) {
 ```dart
 class TimeoutDebugInterceptor extends Interceptor {
   final _stopwatch = Stopwatch();
-  
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     _stopwatch.reset();
     _stopwatch.start();
     handler.next(options);
   }
-  
+
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     _stopwatch.stop();
     debugPrint('⏱️ Request took: ${_stopwatch.elapsedMilliseconds}ms');
-    
+
     if (_stopwatch.elapsedMilliseconds > 5000) {
       debugPrint('⚠️ WARNING: Slow request detected!');
     }
-    
+
     handler.next(response);
   }
 }
@@ -234,22 +236,22 @@ class MockHttpClient extends Mock implements http.Client {}
 void main() {
   late MockHttpClient mockClient;
   late UserService userService;
-  
+
   setUp(() {
     mockClient = MockHttpClient();
     userService = UserService(client: mockClient);
   });
-  
+
   test('fetchUsers returns list of users', () async {
     // Arrange
     when(mockClient.get(any)).thenAnswer((_) async => http.Response(
       jsonEncode([{'id': 1, 'name': 'John'}]),
       200,
     ));
-    
+
     // Act
     final users = await userService.fetchUsers();
-    
+
     // Assert
     expect(users.length, 1);
     expect(users.first.name, 'John');
@@ -278,14 +280,14 @@ void main() {
 
 ## 🔧 Herramientas Recomendadas
 
-| Herramienta | Uso | Plataforma |
-|-------------|-----|------------|
-| Flutter DevTools | Debugging general | Todas |
-| Charles Proxy | Inspección HTTP | Mac/Win/Linux |
-| Proxyman | Inspección HTTP | Mac |
-| Postman | Testing APIs | Todas |
-| Insomnia | Testing APIs | Todas |
-| HTTPie | cURL alternativo | Terminal |
+| Herramienta      | Uso               | Plataforma    |
+| ---------------- | ----------------- | ------------- |
+| Flutter DevTools | Debugging general | Todas         |
+| Charles Proxy    | Inspección HTTP   | Mac/Win/Linux |
+| Proxyman         | Inspección HTTP   | Mac           |
+| Postman          | Testing APIs      | Todas         |
+| Insomnia         | Testing APIs      | Todas         |
+| HTTPie           | cURL alternativo  | Terminal      |
 
 ---
 

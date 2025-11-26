@@ -1,72 +1,89 @@
 # 📖 Recursos - Semana 06
 
-## Consumo de APIs y HTTP
+## 📚 Índice de Recursos
 
-### 📑 Índice de Recursos
+### 📋 Cheatsheets y Guías Rápidas
 
-| #   | Categoría    | Archivo                                                         | Descripción            |
-| --- | ------------ | --------------------------------------------------------------- | ---------------------- |
-| 01  | 🎬 Videos    | [videos-http-basics.md](./01-videos-http-basics.md)             | HTTP, REST, métodos    |
-| 02  | 🎬 Videos    | [videos-flutter-http.md](./02-videos-flutter-http.md)           | http package, Dio      |
-| 03  | 🎬 Videos    | [videos-json-parsing.md](./03-videos-json-parsing.md)           | JSON, serialización    |
-| 04  | 📚 eBooks    | [ebooks-networking.md](./04-ebooks-networking.md)               | Networking en Flutter  |
-| 05  | 📚 eBooks    | [ebooks-api-design.md](./05-ebooks-api-design.md)               | Diseño de APIs REST    |
-| 06  | 📝 Artículos | [articulos-http-flutter.md](./06-articulos-http-flutter.md)     | Tutoriales HTTP        |
-| 07  | 📝 Artículos | [articulos-best-practices.md](./07-articulos-best-practices.md) | Mejores prácticas API  |
-| 08  | 📖 Docs      | [documentacion-oficial.md](./08-documentacion-oficial.md)       | Docs oficiales         |
-| 09  | 🔧 Tools     | [herramientas-api.md](./09-herramientas-api.md)                 | Postman, Insomnia      |
-| 10  | 🌐 APIs      | [apis-gratuitas.md](./10-apis-gratuitas.md)                     | APIs para practicar    |
-| 11  | 👥 Comunidad | [comunidades.md](./11-comunidades.md)                           | Foros, Discord, grupos |
-| 12  | 📺 Canales   | [canales-youtube.md](./12-canales-youtube.md)                   | Canales recomendados   |
+| # | Recurso | Descripción |
+|---|---------|-------------|
+| 01 | [Cheatsheet HTTP Methods](./01-cheatsheet-http-methods.md) | Métodos HTTP, códigos de estado, headers |
+| 02 | [Guía Rápida http](./02-guia-rapida-http-package.md) | Uso del package http de Dart |
+| 03 | [Guía Rápida Dio](./03-guia-rapida-dio.md) | Uso del package Dio con interceptores |
+| 04 | [Patrones Error Handling](./04-patrones-error-handling.md) | Result, Either, AsyncValue patterns |
+| 05 | [JSON Serialization](./05-json-serialization-patterns.md) | Manual, json_serializable, Freezed |
 
-### 🎯 Recursos por Nivel
+### 🛠️ Guías Prácticas
 
-#### 🟢 Principiante
-
-- Videos de HTTP basics
-- JSONPlaceholder API
-- Documentación oficial http package
-
-#### 🟡 Intermedio
-
-- Tutoriales de Dio
-- json_serializable
-- Manejo de errores
-
-#### 🟠 Avanzado
-
-- Retrofit
-- Clean Architecture con APIs
-- Caching strategies
-
-### 🔗 Quick Links
-
-| Recurso           | URL                                        |
-| ----------------- | ------------------------------------------ |
-| http package      | https://pub.dev/packages/http              |
-| Dio               | https://pub.dev/packages/dio               |
-| json_serializable | https://pub.dev/packages/json_serializable |
-| retrofit          | https://pub.dev/packages/retrofit          |
-| JSONPlaceholder   | https://jsonplaceholder.typicode.com/      |
-| NewsAPI           | https://newsapi.org/                       |
-
-### 📂 Carpeta de eBooks
-
-```
-ebooks-free/
-├── networking-flutter-guide.pdf
-├── rest-api-design.pdf
-└── async-programming-dart.pdf
-```
-
-### ✅ Checklist de Estudio
-
-- [ ] Ver videos de HTTP fundamentals
-- [ ] Leer documentación de http/Dio
-- [ ] Practicar con JSONPlaceholder
-- [ ] Configurar herramientas (Postman)
-- [ ] Explorar APIs gratuitas
+| # | Recurso | Descripción |
+|---|---------|-------------|
+| 06 | [APIs Gratuitas](./06-apis-gratuitas-practicar.md) | Lista de APIs para practicar |
+| 07 | [Debugging Network](./07-debugging-network.md) | Herramientas y técnicas de debug |
+| 08 | [Seguridad API Keys](./08-seguridad-api-keys.md) | Cómo proteger tus API keys |
+| 09 | [Caching Strategies](./09-caching-strategies.md) | Estrategias de caché para APIs |
+| 10 | [Mejores Prácticas REST](./10-mejores-practicas-rest.md) | Diseño y consumo de APIs REST |
+| 11 | [Testing API Calls](./11-testing-api-calls.md) | Unit, Widget e Integration tests |
+| 12 | [Referencias Oficiales](./12-referencias-oficiales.md) | Documentación y recursos externos |
 
 ---
 
-📅 **Semana:** 06 | 📚 **Total recursos:** 12 archivos
+## 🎯 Por Tema
+
+### HTTP y REST
+- [01 - Cheatsheet HTTP Methods](./01-cheatsheet-http-methods.md)
+- [10 - Mejores Prácticas REST](./10-mejores-practicas-rest.md)
+
+### Packages HTTP
+- [02 - Guía Rápida http](./02-guia-rapida-http-package.md)
+- [03 - Guía Rápida Dio](./03-guia-rapida-dio.md)
+
+### JSON y Modelos
+- [05 - JSON Serialization](./05-json-serialization-patterns.md)
+
+### Error Handling
+- [04 - Patrones Error Handling](./04-patrones-error-handling.md)
+
+### Performance y Caché
+- [09 - Caching Strategies](./09-caching-strategies.md)
+
+### Seguridad
+- [08 - Seguridad API Keys](./08-seguridad-api-keys.md)
+
+### Testing y Debug
+- [07 - Debugging Network](./07-debugging-network.md)
+- [11 - Testing API Calls](./11-testing-api-calls.md)
+
+### APIs para Practicar
+- [06 - APIs Gratuitas](./06-apis-gratuitas-practicar.md)
+
+---
+
+## 📦 Packages Recomendados
+
+```yaml
+dependencies:
+  # HTTP
+  http: ^1.1.0
+  dio: ^5.4.0
+  
+  # Serialización
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
+  
+  # Caché
+  shared_preferences: ^2.2.2
+  hive: ^2.2.3
+  dio_cache_interceptor: ^3.4.4
+  
+  # Conectividad
+  connectivity_plus: ^5.0.2
+
+dev_dependencies:
+  build_runner: ^2.4.8
+  json_serializable: ^6.7.1
+  freezed: ^2.4.6
+  mockito: ^5.4.4
+```
+
+---
+
+📅 **Semana 06** | Consumo de APIs y HTTP

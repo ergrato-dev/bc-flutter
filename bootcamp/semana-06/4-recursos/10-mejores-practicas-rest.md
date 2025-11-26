@@ -103,7 +103,7 @@ abstract class UserService {
     String? status,
     String? sortBy,
   });
-  
+
   Future<User> getUser(String id);
   Future<User> createUser(CreateUserDto dto);
   Future<User> updateUser(String id, UpdateUserDto dto);
@@ -112,9 +112,9 @@ abstract class UserService {
 
 class UserServiceImpl implements UserService {
   final Dio _dio;
-  
+
   UserServiceImpl(this._dio);
-  
+
   @override
   Future<List<User>> getUsers({
     int page = 1,
@@ -131,12 +131,12 @@ class UserServiceImpl implements UserService {
         if (sortBy != null) 'sort': sortBy,
       },
     );
-    
+
     return (response.data as List)
         .map((json) => User.fromJson(json))
         .toList();
   }
-  
+
   // ... otros métodos
 }
 ```
@@ -149,13 +149,13 @@ class CreateUserDto {
   final String name;
   final String email;
   final String password;
-  
+
   const CreateUserDto({
     required this.name,
     required this.email,
     required this.password,
   });
-  
+
   Map<String, dynamic> toJson() => {
     'name': name,
     'email': email,
@@ -166,9 +166,9 @@ class CreateUserDto {
 class UpdateUserDto {
   final String? name;
   final String? email;
-  
+
   const UpdateUserDto({this.name, this.email});
-  
+
   Map<String, dynamic> toJson() => {
     if (name != null) 'name': name,
     if (email != null) 'email': email,
@@ -189,9 +189,9 @@ abstract class UserRepository {
 class UserRepositoryImpl implements UserRepository {
   final UserService _service;
   final CacheService _cache;
-  
+
   UserRepositoryImpl(this._service, this._cache);
-  
+
   @override
   Future<Result<List<User>>> getUsers() async {
     try {
@@ -200,7 +200,7 @@ class UserRepositoryImpl implements UserRepository {
       if (cached != null) {
         return Success(cached);
       }
-      
+
       // Fetch de red
       final users = await _service.getUsers();
       await _cache.saveUsers(users);
@@ -242,7 +242,7 @@ class PaginatedResponse<T> {
   final List<T> data;
   final PaginationMeta meta;
   final PaginationLinks? links;
-  
+
   bool get hasNextPage => meta.page < meta.totalPages;
 }
 ```
@@ -267,7 +267,7 @@ class ApiError {
   final String code;
   final String message;
   final Map<String, List<String>>? details;
-  
+
   factory ApiError.fromJson(Map<String, dynamic> json) {
     final error = json['error'];
     return ApiError(

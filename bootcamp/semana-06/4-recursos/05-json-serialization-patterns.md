@@ -2,14 +2,14 @@
 
 ## 🎯 Manual vs Generado
 
-| Aspecto | Manual | json_serializable |
-|---------|--------|-------------------|
-| Setup | Ninguno | build_runner |
-| Boilerplate | Alto | Bajo |
-| Tipo-seguro | Manual | Automático |
-| Performance | Igual | Igual |
-| Proyectos pequeños | ✅ Recomendado | Opcional |
-| Proyectos grandes | ❌ Tedioso | ✅ Recomendado |
+| Aspecto            | Manual         | json_serializable |
+| ------------------ | -------------- | ----------------- |
+| Setup              | Ninguno        | build_runner      |
+| Boilerplate        | Alto           | Bajo              |
+| Tipo-seguro        | Manual         | Automático        |
+| Performance        | Igual          | Igual             |
+| Proyectos pequeños | ✅ Recomendado | Opcional          |
+| Proyectos grandes  | ❌ Tedioso     | ✅ Recomendado    |
 
 ---
 
@@ -23,14 +23,14 @@ class User {
   final String name;
   final String email;
   final DateTime? createdAt;
-  
+
   const User({
     required this.id,
     required this.name,
     required this.email,
     this.createdAt,
   });
-  
+
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'] as int,
@@ -41,7 +41,7 @@ class User {
           : null,
     );
   }
-  
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -61,14 +61,14 @@ class Post {
   final String title;
   final User author;
   final List<Comment> comments;
-  
+
   const Post({
     required this.id,
     required this.title,
     required this.author,
     required this.comments,
   });
-  
+
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
       id: json['id'] as int,
@@ -79,7 +79,7 @@ class Post {
           .toList(),
     );
   }
-  
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -100,9 +100,9 @@ class User {
   final int id;
   final String name;
   final UserStatus status;
-  
+
   const User({required this.id, required this.name, required this.status});
-  
+
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'] as int,
@@ -113,7 +113,7 @@ class User {
       ),
     );
   }
-  
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -152,17 +152,17 @@ class User {
   final int id;
   final String name;
   final String email;
-  
+
   @JsonKey(name: 'created_at')
   final DateTime? createdAt;
-  
+
   const User({
     required this.id,
     required this.name,
     required this.email,
     this.createdAt,
   });
-  
+
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }
@@ -194,21 +194,21 @@ dart run build_runner build --delete-conflicting-outputs
 class User {
   final int id;
   final String userName;  // -> user_name en JSON
-  
+
   @JsonKey(ignore: true)  // No serializar
   final String? localCache;
-  
+
   @JsonKey(defaultValue: 0)  // Valor por defecto
   final int points;
-  
+
   @JsonKey(name: 'avatar_url')  // Nombre personalizado
   final String? avatar;
-  
+
   @JsonKey(fromJson: _dateFromJson, toJson: _dateToJson)
   final DateTime createdAt;
-  
+
   const User({...});
-  
+
   static DateTime _dateFromJson(String date) => DateTime.parse(date);
   static String _dateToJson(DateTime date) => date.toIso8601String();
 }
@@ -223,9 +223,9 @@ class Post {
   final String title;
   final User author;
   final List<Comment> comments;
-  
+
   const Post({...});
-  
+
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
   Map<String, dynamic> toJson() => _$PostToJson(this);
 }
@@ -242,7 +242,7 @@ enum UserStatus {
   inactive('I'),
   @JsonValue('B')
   banned('B');
-  
+
   final String code;
   const UserStatus(this.code);
 }
@@ -251,7 +251,7 @@ enum UserStatus {
 class User {
   final int id;
   final UserStatus status;  // Serializa como 'A', 'I', 'B'
-  
+
   const User({required this.id, required this.status});
 }
 ```
@@ -289,7 +289,7 @@ class User with _$User {
     @Default(UserStatus.active) UserStatus status,
     DateTime? createdAt,
   }) = _User;
-  
+
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }
 
@@ -338,17 +338,17 @@ class PaginatedResponse<T> {
   final int page;
   final int totalPages;
   final int totalItems;
-  
+
   const PaginatedResponse({
     required this.data,
     required this.page,
     required this.totalPages,
     required this.totalItems,
   });
-  
+
   bool get hasNextPage => page < totalPages;
   bool get hasPreviousPage => page > 1;
-  
+
   factory PaginatedResponse.fromJson(
     Map<String, dynamic> json,
     T Function(Object?) fromJsonT,
@@ -370,17 +370,17 @@ class ApiResponse<T> {
   final bool success;
   final T? data;
   final String? message;
-  
+
   @JsonKey(name: 'error_code')
   final String? errorCode;
-  
+
   const ApiResponse({
     required this.success,
     this.data,
     this.message,
     this.errorCode,
   });
-  
+
   factory ApiResponse.fromJson(
     Map<String, dynamic> json,
     T Function(Object?) fromJsonT,

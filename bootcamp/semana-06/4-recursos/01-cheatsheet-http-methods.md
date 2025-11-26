@@ -4,15 +4,15 @@
 
 ### Métodos HTTP y sus Usos
 
-| Método | Propósito | Body | Idempotente | Cacheable |
-|--------|-----------|------|-------------|-----------|
-| **GET** | Obtener recursos | ❌ No | ✅ Sí | ✅ Sí |
-| **POST** | Crear recursos | ✅ Sí | ❌ No | ⚠️ Raramente |
-| **PUT** | Reemplazar completo | ✅ Sí | ✅ Sí | ❌ No |
-| **PATCH** | Actualizar parcial | ✅ Sí | ❌ No | ❌ No |
-| **DELETE** | Eliminar recursos | ⚠️ Opcional | ✅ Sí | ❌ No |
-| **HEAD** | Solo headers | ❌ No | ✅ Sí | ✅ Sí |
-| **OPTIONS** | Opciones permitidas | ❌ No | ✅ Sí | ❌ No |
+| Método      | Propósito           | Body        | Idempotente | Cacheable    |
+| ----------- | ------------------- | ----------- | ----------- | ------------ |
+| **GET**     | Obtener recursos    | ❌ No       | ✅ Sí       | ✅ Sí        |
+| **POST**    | Crear recursos      | ✅ Sí       | ❌ No       | ⚠️ Raramente |
+| **PUT**     | Reemplazar completo | ✅ Sí       | ✅ Sí       | ❌ No        |
+| **PATCH**   | Actualizar parcial  | ✅ Sí       | ❌ No       | ❌ No        |
+| **DELETE**  | Eliminar recursos   | ⚠️ Opcional | ✅ Sí       | ❌ No        |
+| **HEAD**    | Solo headers        | ❌ No       | ✅ Sí       | ✅ Sí        |
+| **OPTIONS** | Opciones permitidas | ❌ No       | ✅ Sí       | ❌ No        |
 
 ---
 

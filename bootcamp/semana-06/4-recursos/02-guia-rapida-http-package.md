@@ -24,7 +24,7 @@ Future<List<User>> fetchUsers() async {
   final response = await http.get(
     Uri.parse('https://api.example.com/users'),
   );
-  
+
   if (response.statusCode == 200) {
     final List<dynamic> data = jsonDecode(response.body);
     return data.map((json) => User.fromJson(json)).toList();
@@ -61,7 +61,7 @@ Future<User> createUser(String name, String email) async {
       'email': email,
     }),
   );
-  
+
   if (response.statusCode == 201) {
     return User.fromJson(jsonDecode(response.body));
   } else {
@@ -79,7 +79,7 @@ Future<User> updateUser(int id, User user) async {
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode(user.toJson()),
   );
-  
+
   if (response.statusCode == 200) {
     return User.fromJson(jsonDecode(response.body));
   } else {
@@ -97,7 +97,7 @@ Future<User> patchUser(int id, Map<String, dynamic> changes) async {
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode(changes),
   );
-  
+
   if (response.statusCode == 200) {
     return User.fromJson(jsonDecode(response.body));
   } else {
@@ -113,7 +113,7 @@ Future<void> deleteUser(int id) async {
   final response = await http.delete(
     Uri.parse('https://api.example.com/users/$id'),
   );
-  
+
   if (response.statusCode != 200 && response.statusCode != 204) {
     throw Exception('Error al eliminar');
   }
@@ -146,21 +146,21 @@ class ApiClient {
   final http.Client _client = http.Client();
   final String _baseUrl = 'https://api.example.com';
   String? _token;
-  
+
   void setToken(String token) => _token = token;
-  
+
   Map<String, String> get _headers => {
     'Content-Type': 'application/json',
     if (_token != null) 'Authorization': 'Bearer $_token',
   };
-  
+
   Future<http.Response> get(String path) {
     return _client.get(
       Uri.parse('$_baseUrl$path'),
       headers: _headers,
     );
   }
-  
+
   Future<http.Response> post(String path, Map<String, dynamic> body) {
     return _client.post(
       Uri.parse('$_baseUrl$path'),
@@ -168,7 +168,7 @@ class ApiClient {
       body: jsonEncode(body),
     );
   }
-  
+
   void dispose() => _client.close();
 }
 ```
@@ -201,7 +201,7 @@ Future<T> safeRequest<T>(
     final response = await request().timeout(
       const Duration(seconds: 30),
     );
-    
+
     switch (response.statusCode) {
       case 200:
       case 201:
@@ -239,20 +239,20 @@ Future<void> uploadFile(File file) async {
     'POST',
     Uri.parse('https://api.example.com/upload'),
   );
-  
+
   request.headers['Authorization'] = 'Bearer $token';
-  
+
   request.files.add(await http.MultipartFile.fromPath(
     'file',
     file.path,
     filename: 'image.jpg',
   ));
-  
+
   request.fields['description'] = 'Mi imagen';
-  
+
   final streamedResponse = await request.send();
   final response = await http.Response.fromStream(streamedResponse);
-  
+
   if (response.statusCode != 200) {
     throw Exception('Error al subir archivo');
   }
@@ -269,15 +269,15 @@ Future<http.Response> getWithRetry(
   int maxRetries = 3,
 }) async {
   int attempts = 0;
-  
+
   while (attempts < maxRetries) {
     try {
       final response = await http.get(Uri.parse(url));
-      
+
       if (response.statusCode == 200) {
         return response;
       }
-      
+
       // Solo retry en errores de servidor
       if (response.statusCode < 500) {
         return response;
@@ -286,12 +286,12 @@ Future<http.Response> getWithRetry(
       attempts++;
       if (attempts >= maxRetries) rethrow;
     }
-    
+
     // Espera exponencial
     await Future.delayed(Duration(seconds: pow(2, attempts).toInt()));
     attempts++;
   }
-  
+
   throw Exception('Max retries exceeded');
 }
 ```
@@ -306,29 +306,29 @@ Future<http.Response> getWithRetry(
 class UserService {
   static const _baseUrl = 'https://api.example.com';
   final http.Client _client;
-  
+
   UserService({http.Client? client}) : _client = client ?? http.Client();
-  
+
   Future<List<User>> getUsers({int page = 1, int limit = 20}) async {
     final uri = Uri.parse('$_baseUrl/users').replace(
       queryParameters: {'page': '$page', 'limit': '$limit'},
     );
-    
+
     final response = await _client.get(uri);
-    
+
     if (response.statusCode == 200) {
       final List data = jsonDecode(response.body);
       return data.map((e) => User.fromJson(e)).toList();
     }
-    
+
     throw _handleError(response);
   }
-  
+
   Exception _handleError(http.Response response) {
     final body = jsonDecode(response.body);
     return Exception(body['message'] ?? 'Error desconocido');
   }
-  
+
   void dispose() => _client.close();
 }
 ```

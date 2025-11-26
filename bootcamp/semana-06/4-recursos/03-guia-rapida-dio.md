@@ -39,16 +39,16 @@ final dio = Dio(BaseOptions(
 class DioClient {
   static final DioClient _instance = DioClient._internal();
   factory DioClient() => _instance;
-  
+
   late final Dio dio;
-  
+
   DioClient._internal() {
     dio = Dio(BaseOptions(
       baseUrl: 'https://api.example.com',
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
     ));
-    
+
     // Agregar interceptores
     dio.interceptors.addAll([
       LogInterceptor(responseBody: true),
@@ -156,9 +156,9 @@ dio.interceptors.add(LogInterceptor(
 ```dart
 class AuthInterceptor extends Interceptor {
   final TokenStorage _tokenStorage;
-  
+
   AuthInterceptor(this._tokenStorage);
-  
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final token = _tokenStorage.accessToken;
@@ -167,7 +167,7 @@ class AuthInterceptor extends Interceptor {
     }
     handler.next(options);
   }
-  
+
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
@@ -185,11 +185,11 @@ class AuthInterceptor extends Interceptor {
     }
     handler.next(err);
   }
-  
+
   Future<void> _refreshToken() async {
     // Lógica de refresh
   }
-  
+
   Future<Response> _retry(RequestOptions options) async {
     final newOptions = Options(
       method: options.method,
@@ -211,16 +211,16 @@ class AuthInterceptor extends Interceptor {
 class CacheInterceptor extends Interceptor {
   final Map<String, CacheEntry> _cache = {};
   final Duration _cacheDuration;
-  
+
   CacheInterceptor({Duration? duration})
       : _cacheDuration = duration ?? const Duration(minutes: 5);
-  
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     if (options.method == 'GET') {
       final cacheKey = options.uri.toString();
       final cached = _cache[cacheKey];
-      
+
       if (cached != null && !cached.isExpired) {
         return handler.resolve(Response(
           requestOptions: options,
@@ -231,7 +231,7 @@ class CacheInterceptor extends Interceptor {
     }
     handler.next(options);
   }
-  
+
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     if (response.requestOptions.method == 'GET') {
@@ -248,9 +248,9 @@ class CacheInterceptor extends Interceptor {
 class CacheEntry {
   final dynamic data;
   final DateTime expiry;
-  
+
   CacheEntry({required this.data, required this.expiry});
-  
+
   bool get isExpired => DateTime.now().isAfter(expiry);
 }
 ```
@@ -260,31 +260,31 @@ class CacheEntry {
 ```dart
 class RetryInterceptor extends Interceptor {
   final int maxRetries;
-  
+
   RetryInterceptor({this.maxRetries = 3});
-  
+
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     final retryCount = err.requestOptions.extra['retryCount'] ?? 0;
-    
+
     // Solo retry en errores de conexión o servidor
     if (retryCount < maxRetries && _shouldRetry(err)) {
       await Future.delayed(Duration(seconds: pow(2, retryCount).toInt()));
-      
+
       try {
         final options = err.requestOptions;
         options.extra['retryCount'] = retryCount + 1;
-        
+
         final response = await Dio().fetch(options);
         return handler.resolve(response);
       } catch (e) {
         return handler.next(err);
       }
     }
-    
+
     handler.next(err);
   }
-  
+
   bool _shouldRetry(DioException err) {
     return err.type == DioExceptionType.connectionTimeout ||
            err.type == DioExceptionType.receiveTimeout ||
@@ -313,16 +313,16 @@ AppException _handleDioError(DioException e) {
     case DioExceptionType.sendTimeout:
     case DioExceptionType.receiveTimeout:
       return NetworkException('Timeout de conexión');
-    
+
     case DioExceptionType.badResponse:
       return _handleStatusCode(e.response?.statusCode, e.response?.data);
-    
+
     case DioExceptionType.cancel:
       return RequestCancelledException();
-    
+
     case DioExceptionType.connectionError:
       return NetworkException('Sin conexión a internet');
-    
+
     default:
       return UnknownException(e.message ?? 'Error desconocido');
   }
@@ -330,7 +330,7 @@ AppException _handleDioError(DioException e) {
 
 AppException _handleStatusCode(int? statusCode, dynamic data) {
   final message = data?['message'] ?? 'Error del servidor';
-  
+
   switch (statusCode) {
     case 400:
       return BadRequestException(message);
@@ -358,14 +358,14 @@ AppException _handleStatusCode(int? statusCode, dynamic data) {
 class SearchService {
   final Dio _dio;
   CancelToken? _cancelToken;
-  
+
   SearchService(this._dio);
-  
+
   Future<List<Result>> search(String query) async {
     // Cancelar request anterior
     _cancelToken?.cancel();
     _cancelToken = CancelToken();
-    
+
     try {
       final response = await _dio.get(
         '/search',
@@ -382,7 +382,7 @@ class SearchService {
       rethrow;
     }
   }
-  
+
   void dispose() {
     _cancelToken?.cancel();
   }
@@ -401,7 +401,7 @@ Future<void> uploadFile(File file, void Function(int, int) onProgress) async {
       filename: file.path.split('/').last,
     ),
   });
-  
+
   await dio.post(
     '/upload',
     data: formData,
@@ -440,15 +440,15 @@ Future<void> downloadFile(
 
 ## 🔄 Comparación http vs Dio
 
-| Feature | http | Dio |
-|---------|------|-----|
-| Interceptores | ❌ Manual | ✅ Integrado |
-| Cancelación | ❌ No | ✅ CancelToken |
-| Retry | ❌ Manual | ✅ Interceptor |
-| Progreso | ⚠️ Limitado | ✅ Completo |
-| FormData | ⚠️ Manual | ✅ Integrado |
+| Feature       | http           | Dio            |
+| ------------- | -------------- | -------------- |
+| Interceptores | ❌ Manual      | ✅ Integrado   |
+| Cancelación   | ❌ No          | ✅ CancelToken |
+| Retry         | ❌ Manual      | ✅ Interceptor |
+| Progreso      | ⚠️ Limitado    | ✅ Completo    |
+| FormData      | ⚠️ Manual      | ✅ Integrado   |
 | Configuración | ❌ Por request | ✅ BaseOptions |
-| Tamaño | 📦 Pequeño | 📦 Mediano |
+| Tamaño        | 📦 Pequeño     | 📦 Mediano     |
 
 ---
 

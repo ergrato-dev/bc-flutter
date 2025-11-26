@@ -3,6 +3,7 @@
 ## 🎯 Sin Autenticación (Ideales para Empezar)
 
 ### JSONPlaceholder
+
 **URL:** https://jsonplaceholder.typicode.com
 
 Fake REST API perfecta para prototipos.
@@ -26,6 +27,7 @@ final response = await http.get(
 ---
 
 ### ReqRes
+
 **URL:** https://reqres.in
 
 API para testing con respuestas realistas.
@@ -42,6 +44,7 @@ POST /api/login             → Simular login
 ---
 
 ### Dog CEO
+
 **URL:** https://dog.ceo/dog-api
 
 API de imágenes de perros aleatorias.
@@ -57,6 +60,7 @@ GET /breeds/image/random/3          → 3 imágenes aleatorias
 ---
 
 ### The Cat API
+
 **URL:** https://thecatapi.com
 
 Similar a Dog CEO pero con gatos.
@@ -70,6 +74,7 @@ GET /v1/images/search?breed_id=beng → Por raza
 ---
 
 ### PokéAPI
+
 **URL:** https://pokeapi.co
 
 Datos de Pokémon completos.
@@ -84,6 +89,7 @@ GET /api/v2/ability/static          → Habilidades
 ---
 
 ### Open Trivia Database
+
 **URL:** https://opentdb.com
 
 API de preguntas trivia.
@@ -98,6 +104,7 @@ GET /api_category.php               → Lista de categorías
 ---
 
 ### REST Countries
+
 **URL:** https://restcountries.com
 
 Información de países.
@@ -114,6 +121,7 @@ GET /v3.1/region/europe             → Por región
 ## 🔑 Requieren API Key (Gratuitas)
 
 ### NewsAPI
+
 **URL:** https://newsapi.org
 
 Noticias de todo el mundo.
@@ -128,6 +136,7 @@ GET /v2/everything?q=flutter&apiKey=KEY
 ---
 
 ### OpenWeatherMap
+
 **URL:** https://openweathermap.org/api
 
 Datos del clima.
@@ -142,6 +151,7 @@ GET /data/2.5/forecast?q=Madrid&appid=KEY
 ---
 
 ### The Movie Database (TMDB)
+
 **URL:** https://www.themoviedb.org
 
 Películas y series.
@@ -157,6 +167,7 @@ GET /3/search/movie?query=batman&api_key=KEY
 ---
 
 ### Unsplash
+
 **URL:** https://unsplash.com/developers
 
 Fotos de alta calidad.
@@ -172,6 +183,7 @@ GET /search/photos?query=nature&client_id=KEY
 ---
 
 ### CoinGecko
+
 **URL:** https://www.coingecko.com/api
 
 Criptomonedas (sin API key).
@@ -186,6 +198,7 @@ GET /api/v3/simple/price?ids=bitcoin&vs_currencies=usd
 ---
 
 ### NASA APIs
+
 **URL:** https://api.nasa.gov
 
 Datos espaciales.
@@ -201,31 +214,34 @@ GET /mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=KEY
 
 ## 📊 Comparativa
 
-| API | Auth | Rate Limit | Ideal Para |
-|-----|------|------------|------------|
-| JSONPlaceholder | ❌ | Ilimitado | CRUD básico |
-| ReqRes | ❌ | Ilimitado | Testing auth |
-| Dog/Cat API | ❌ | Alto | Imágenes |
-| PokéAPI | ❌ | Alto | Datos complejos |
-| NewsAPI | ✅ Key | 100/día | Proyecto real |
-| TMDB | ✅ Key | Ilimitado | Películas |
-| OpenWeather | ✅ Key | 1000/día | Clima |
+| API             | Auth   | Rate Limit | Ideal Para      |
+| --------------- | ------ | ---------- | --------------- |
+| JSONPlaceholder | ❌     | Ilimitado  | CRUD básico     |
+| ReqRes          | ❌     | Ilimitado  | Testing auth    |
+| Dog/Cat API     | ❌     | Alto       | Imágenes        |
+| PokéAPI         | ❌     | Alto       | Datos complejos |
+| NewsAPI         | ✅ Key | 100/día    | Proyecto real   |
+| TMDB            | ✅ Key | Ilimitado  | Películas       |
+| OpenWeather     | ✅ Key | 1000/día   | Clima           |
 
 ---
 
 ## 🎯 Recomendación por Nivel
 
 ### Principiante
+
 1. JSONPlaceholder - CRUD básico
 2. Dog CEO - Imágenes simples
 3. REST Countries - Sin auth
 
 ### Intermedio
+
 1. PokéAPI - Datos anidados
 2. ReqRes - Autenticación
 3. Open Trivia - Filtros y paginación
 
 ### Avanzado
+
 1. NewsAPI - Proyecto real
 2. TMDB - Búsqueda avanzada
 3. OpenWeatherMap - Caché y geolocalización
