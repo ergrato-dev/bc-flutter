@@ -6,18 +6,13 @@ Esta carpeta contiene material complementario para la Semana 9.
 
 ## 🗂️ Contenido
 
-| #   | Recurso                   | Archivo                                                                | Tipo         |
-| --- | ------------------------- | ---------------------------------------------------------------------- | ------------ |
-| 1   | Videos Clean Architecture | [`01-videos-clean-architecture.md`](./01-videos-clean-architecture.md) | 📹 Video     |
-| 2   | Videos Testing            | [`02-videos-testing.md`](./02-videos-testing.md)                       | 📹 Video     |
-| 3   | Videos TDD                | [`03-videos-tdd.md`](./03-videos-tdd.md)                               | 📹 Video     |
-| 4   | Videos BLoC Testing       | [`04-videos-bloc-testing.md`](./04-videos-bloc-testing.md)             | 📹 Video     |
-| 5   | eBooks Arquitectura       | [`05-ebooks-arquitectura.md`](./05-ebooks-arquitectura.md)             | 📖 eBook     |
-| 6   | eBooks Testing            | [`06-ebooks-testing.md`](./06-ebooks-testing.md)                       | 📖 eBook     |
-| 7   | Webgrafía Docs            | [`07-webgrafia-documentacion.md`](./07-webgrafia-documentacion.md)     | 🌐 Web       |
-| 8   | Webgrafía Tutoriales      | [`08-webgrafia-tutoriales.md`](./08-webgrafia-tutoriales.md)           | 🌐 Web       |
-| 9   | Herramientas              | [`09-herramientas-desarrollo.md`](./09-herramientas-desarrollo.md)     | 🔧 Tool      |
-| 10  | Comunidades               | [`10-comunidades-soporte.md`](./10-comunidades-soporte.md)             | 👥 Community |
+| #   | Recurso                   | Archivo                                                                | Tipo     |
+| --- | ------------------------- | ---------------------------------------------------------------------- | -------- |
+| 1   | Videos Clean Architecture | [`01-videos-clean-architecture.md`](./01-videos-clean-architecture.md) | 📹 Video |
+| 2   | Videos Testing            | [`02-videos-testing.md`](./02-videos-testing.md)                       | 📹 Video |
+| 3   | Videos SOLID              | [`03-videos-solid.md`](./03-videos-solid.md)                           | 📹 Video |
+| 4   | eBooks y Artículos        | [`ebooks-articulos.md`](./ebooks-articulos.md)                         | 📖 eBook |
+| 5   | Webgrafía                 | [`webgrafia.md`](./webgrafia.md)                                       | 🌐 Web   |
 
 ## 📊 Resumen por Categoría
 
