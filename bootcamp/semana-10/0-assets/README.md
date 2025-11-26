@@ -6,14 +6,14 @@ Esta carpeta contiene recursos visuales y diagramas para la Semana 10 del bootca
 
 ## 📊 Diagramas Disponibles
 
-| #   | Archivo                        | Descripción                        | Uso                        |
-| --- | ------------------------------ | ---------------------------------- | -------------------------- |
-| 01  | `01-deployment-pipeline.svg`   | Pipeline de deployment             | CI/CD flujo completo       |
-| 02  | `02-app-architecture-prod.svg` | Arquitectura de producción         | Estructura final           |
-| 03  | `03-store-publishing.svg`      | Proceso de publicación en stores   | Play Store / App Store     |
-| 04  | `04-release-workflow.svg`      | Flujo de trabajo de releases       | Versioning y releases      |
-| 05  | `05-monitoring-analytics.svg`  | Monitoreo y analytics              | Firebase/Sentry            |
-| 06  | `06-project-integration.svg`   | Integración de conocimientos       | Resumen del bootcamp       |
+| #   | Archivo                        | Descripción                      | Uso                    |
+| --- | ------------------------------ | -------------------------------- | ---------------------- |
+| 01  | `01-deployment-pipeline.svg`   | Pipeline de deployment           | CI/CD flujo completo   |
+| 02  | `02-app-architecture-prod.svg` | Arquitectura de producción       | Estructura final       |
+| 03  | `03-store-publishing.svg`      | Proceso de publicación en stores | Play Store / App Store |
+| 04  | `04-release-workflow.svg`      | Flujo de trabajo de releases     | Versioning y releases  |
+| 05  | `05-monitoring-analytics.svg`  | Monitoreo y analytics            | Firebase/Sentry        |
+| 06  | `06-project-integration.svg`   | Integración de conocimientos     | Resumen del bootcamp   |
 
 ### 📖 Orden de Estudio Recomendado
 

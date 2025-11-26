@@ -20,12 +20,12 @@ Las imágenes son uno de los mayores contribuyentes al tamaño de la app.
 
 #### Formatos Recomendados
 
-| Formato | Uso                          | Características                    |
-| ------- | ---------------------------- | ---------------------------------- |
-| **WebP**| Recomendado para Flutter     | 25-35% menor que PNG/JPEG          |
-| **PNG** | Transparencias               | Buena calidad, tamaño medio        |
-| **JPEG**| Fotos sin transparencia      | Compresión con pérdida             |
-| **SVG** | Iconos y gráficos vectoriales| Escalable, muy pequeño             |
+| Formato  | Uso                           | Características             |
+| -------- | ----------------------------- | --------------------------- |
+| **WebP** | Recomendado para Flutter      | 25-35% menor que PNG/JPEG   |
+| **PNG**  | Transparencias                | Buena calidad, tamaño medio |
+| **JPEG** | Fotos sin transparencia       | Compresión con pérdida      |
+| **SVG**  | Iconos y gráficos vectoriales | Escalable, muy pequeño      |
 
 #### Compresión de Imágenes
 
@@ -73,10 +73,10 @@ flutter:
 ```dart
 /**
  * Widget: OptimizedImage
- * 
+ *
  * ¿Qué hace?
  * Carga imágenes de forma optimizada con placeholder y manejo de errores
- * 
+ *
  * ¿Para qué?
  * Mejora la experiencia de usuario mientras cargan las imágenes
  * Reduce el uso de memoria con cacheWidth/cacheHeight
@@ -158,24 +158,24 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icon/app_icon.png"
+  image_path: 'assets/icon/app_icon.png'
   # Adaptive icon para Android (API 26+)
-  adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
+  adaptive_icon_background: '#FFFFFF'
+  adaptive_icon_foreground: 'assets/icon/app_icon_foreground.png'
   # Web favicon
   web:
     generate: true
-    image_path: "assets/icon/app_icon.png"
-    background_color: "#FFFFFF"
-    theme_color: "#1976D2"
+    image_path: 'assets/icon/app_icon.png'
+    background_color: '#FFFFFF'
+    theme_color: '#1976D2'
   # Windows
   windows:
     generate: true
-    image_path: "assets/icon/app_icon.png"
+    image_path: 'assets/icon/app_icon.png'
   # macOS
   macos:
     generate: true
-    image_path: "assets/icon/app_icon.png"
+    image_path: 'assets/icon/app_icon.png'
 ```
 
 ```bash
@@ -191,24 +191,24 @@ dev_dependencies:
   flutter_native_splash: ^2.3.5
 
 flutter_native_splash:
-  color: "#1976D2"
+  color: '#1976D2'
   image: assets/splash/splash_logo.png
-  
+
   # Android
   android: true
   android_12:
-    color: "#1976D2"
-    icon_background_color: "#FFFFFF"
+    color: '#1976D2'
+    icon_background_color: '#FFFFFF'
     image: assets/splash/splash_logo.png
-  
+
   # iOS
   ios: true
-  
+
   # Web
   web: true
-  
+
   # Modo oscuro (opcional)
-  color_dark: "#121212"
+  color_dark: '#121212'
   image_dark: assets/splash/splash_logo_dark.png
 ```
 
@@ -379,7 +379,7 @@ class MyTabContent extends StatefulWidget {
 
 class _MyTabContentState extends State<MyTabContent>
     with AutomaticKeepAliveClientMixin {
-  
+
   @override
   bool get wantKeepAlive => true;
 
@@ -456,9 +456,9 @@ import 'dart:developer' as developer;
 
 void expensiveOperation() {
   developer.Timeline.startSync('ExpensiveOperation');
-  
+
   // ... código costoso ...
-  
+
   developer.Timeline.finishSync();
 }
 ```
@@ -478,7 +478,7 @@ void main() {
   // Limitar el tamaño del cache de imágenes
   PaintingBinding.instance.imageCache.maximumSize = 100; // número de imágenes
   PaintingBinding.instance.imageCache.maximumSizeBytes = 50 << 20; // 50 MB
-  
+
   runApp(const MyApp());
 }
 
@@ -559,7 +559,7 @@ class CachedHttpClient {
 
     // Hacer request
     final response = await http.get(Uri.parse(url));
-    
+
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       // Guardar en cache
@@ -569,7 +569,7 @@ class CachedHttpClient {
       );
       return data;
     }
-    
+
     throw Exception('Request failed: ${response.statusCode}');
   }
 
@@ -606,24 +606,28 @@ request.headers.set(HttpHeaders.acceptEncodingHeader, 'gzip, deflate');
 ## Pre-release Optimization Checklist
 
 ### Imágenes y Assets
+
 - [ ] Imágenes comprimidas (WebP preferido)
 - [ ] Múltiples resoluciones (1x, 2x, 3x)
 - [ ] App icon generado para todas las plataformas
 - [ ] Splash screen configurado
 
 ### Código
+
 - [ ] const constructors donde sea posible
 - [ ] ListView.builder para listas largas
 - [ ] dispose() en todos los StatefulWidgets
 - [ ] Sin print() en release (usar logger)
 
 ### Bundle
+
 - [ ] APK split por ABI habilitado
 - [ ] ProGuard/R8 configurado
 - [ ] Tree shaking verificado
 - [ ] --analyze-size ejecutado
 
 ### Performance
+
 - [ ] Profile mode testeado
 - [ ] Sin jank visible (60fps)
 - [ ] Memory leaks verificados
@@ -634,20 +638,20 @@ request.headers.set(HttpHeaders.acceptEncodingHeader, 'gzip, deflate');
 
 ## 🎯 Resumen
 
-| Técnica                    | Impacto en Tamaño | Impacto en Performance |
-| -------------------------- | ----------------- | ---------------------- |
-| Compresión de imágenes     | ⬇️ Alto           | ➡️ Medio               |
-| Split APK por ABI          | ⬇️ Alto           | ➡️ Ninguno             |
-| ProGuard/minify            | ⬇️ Medio          | ⬆️ Bajo                |
-| const constructors         | ➡️ Ninguno        | ⬆️ Medio               |
-| ListView.builder           | ➡️ Ninguno        | ⬆️ Alto                |
-| RepaintBoundary            | ➡️ Ninguno        | ⬆️ Alto                |
-| Image cacheWidth/Height    | ➡️ Ninguno        | ⬆️ Alto                |
+| Técnica                 | Impacto en Tamaño | Impacto en Performance |
+| ----------------------- | ----------------- | ---------------------- |
+| Compresión de imágenes  | ⬇️ Alto           | ➡️ Medio               |
+| Split APK por ABI       | ⬇️ Alto           | ➡️ Ninguno             |
+| ProGuard/minify         | ⬇️ Medio          | ⬆️ Bajo                |
+| const constructors      | ➡️ Ninguno        | ⬆️ Medio               |
+| ListView.builder        | ➡️ Ninguno        | ⬆️ Alto                |
+| RepaintBoundary         | ➡️ Ninguno        | ⬆️ Alto                |
+| Image cacheWidth/Height | ➡️ Ninguno        | ⬆️ Alto                |
 
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                                       | 🏠 Índice                 | Siguiente ➡️                                  |
-| ------------------------------------------------- | ------------------------- | --------------------------------------------- |
+| ⬅️ Anterior                                                | 🏠 Índice                 | Siguiente ➡️                                     |
+| ---------------------------------------------------------- | ------------------------- | ------------------------------------------------ |
 | [Arquitectura Producción](./01-arquitectura-produccion.md) | [Semana 10](../README.md) | [Preparación Stores](./03-preparacion-stores.md) |

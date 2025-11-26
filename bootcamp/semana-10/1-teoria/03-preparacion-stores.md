@@ -18,14 +18,14 @@ Al finalizar este módulo, serás capaz de:
 
 Antes de publicar, tu app debe cumplir:
 
-| Requisito              | Play Store | App Store |
-| ---------------------- | ---------- | --------- |
-| Icono de app           | ✅ 512x512 | ✅ 1024x1024 |
-| Screenshots            | ✅ Mín. 2  | ✅ Mín. 3 por dispositivo |
-| Descripción            | ✅ 4000 chars | ✅ 4000 chars |
-| Política de privacidad | ✅ Obligatoria | ✅ Obligatoria |
-| Clasificación de edad  | ✅ Cuestionario | ✅ Cuestionario |
-| Cuenta de desarrollador| ✅ $25 (único) | ✅ $99/año |
+| Requisito               | Play Store      | App Store                 |
+| ----------------------- | --------------- | ------------------------- |
+| Icono de app            | ✅ 512x512      | ✅ 1024x1024              |
+| Screenshots             | ✅ Mín. 2       | ✅ Mín. 3 por dispositivo |
+| Descripción             | ✅ 4000 chars   | ✅ 4000 chars             |
+| Política de privacidad  | ✅ Obligatoria  | ✅ Obligatoria            |
+| Clasificación de edad   | ✅ Cuestionario | ✅ Cuestionario           |
+| Cuenta de desarrollador | ✅ $25 (único)  | ✅ $99/año                |
 
 ---
 
@@ -117,16 +117,16 @@ android {
 ```xml
 <!-- android/app/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
     <!-- Permisos necesarios -->
     <uses-permission android:name="android.permission.INTERNET"/>
-    
+
     <application
         android:label="Tu App"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round">
-        
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -135,17 +135,17 @@ android {
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
-            
+
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme"/>
-            
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        
+
         <meta-data
             android:name="flutterEmbedding"
             android:value="2"/>
@@ -197,33 +197,33 @@ flutter build appbundle --release \
     <!-- Nombre de la app -->
     <key>CFBundleDisplayName</key>
     <string>Tu App</string>
-    
+
     <!-- Bundle identifier -->
     <key>CFBundleIdentifier</key>
     <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-    
+
     <!-- Versión -->
     <key>CFBundleShortVersionString</key>
     <string>$(FLUTTER_BUILD_NAME)</string>
-    
+
     <!-- Build number -->
     <key>CFBundleVersion</key>
     <string>$(FLUTTER_BUILD_NUMBER)</string>
-    
+
     <!-- Permisos (agregar según uso) -->
-    
+
     <!-- Cámara -->
     <key>NSCameraUsageDescription</key>
     <string>Esta app necesita acceso a la cámara para tomar fotos</string>
-    
+
     <!-- Galería -->
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Esta app necesita acceso a tus fotos para seleccionar imágenes</string>
-    
+
     <!-- Ubicación -->
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Esta app necesita tu ubicación para mostrarte lugares cercanos</string>
-    
+
     <!-- Notificaciones -->
     <key>UIBackgroundModes</key>
     <array>
@@ -274,20 +274,22 @@ flutter build ipa --release \
 
 #### 4.1 Iconos
 
-| Plataforma | Tamaño      | Formato | Notas                    |
-| ---------- | ----------- | ------- | ------------------------ |
-| Play Store | 512 x 512   | PNG     | Sin transparencia        |
+| Plataforma | Tamaño      | Formato | Notas                        |
+| ---------- | ----------- | ------- | ---------------------------- |
+| Play Store | 512 x 512   | PNG     | Sin transparencia            |
 | App Store  | 1024 x 1024 | PNG     | Sin transparencia, sin alpha |
 
 #### 4.2 Screenshots
 
 **Play Store:**
+
 - Mínimo 2, máximo 8 por tipo de dispositivo
 - Teléfono: 16:9 o 9:16 (ej: 1080x1920)
 - Tablet 7": 16:9
 - Tablet 10": 16:9
 
 **App Store:**
+
 - iPhone 6.5": 1284 x 2778 (obligatorio)
 - iPhone 5.5": 1242 x 2208 (obligatorio)
 - iPad Pro 12.9": 2048 x 2732 (si soportas iPad)
@@ -308,28 +310,34 @@ flutter build ipa --release \
 # Plantilla de descripción (4000 caracteres máx)
 
 ## Descripción corta (80 chars)
+
 La mejor app para [tu propósito] - Gestiona [funcionalidad] fácilmente.
 
 ## Descripción larga
+
 [Tu App] es la solución perfecta para [problema que resuelve].
 
 ### Características principales:
+
 ✅ [Característica 1]
 ✅ [Característica 2]
 ✅ [Característica 3]
 ✅ [Característica 4]
 
 ### ¿Por qué elegir [Tu App]?
+
 • [Beneficio 1]
 • [Beneficio 2]
 • [Beneficio 3]
 
 ### Cómo empezar:
+
 1. [Paso 1]
 2. [Paso 2]
 3. [Paso 3]
 
 ### Contacto y soporte:
+
 📧 soporte@tuapp.com
 🌐 www.tuapp.com
 ```
@@ -363,34 +371,42 @@ Obligatoria para ambas stores:
 ## Información que recopilamos
 
 ### Información proporcionada por el usuario
+
 - Nombre y dirección de email (para crear cuenta)
 - [Otros datos que recopilas]
 
 ### Información recopilada automáticamente
+
 - Datos de uso y analytics
 - Información del dispositivo
 - [Otros datos automáticos]
 
 ## Cómo usamos la información
+
 - Para proporcionar y mejorar el servicio
 - Para enviar notificaciones importantes
 - Para analytics y mejora de la app
 
 ## Compartir información
+
 No vendemos ni compartimos tu información personal con terceros.
 
 ## Seguridad
+
 Implementamos medidas de seguridad para proteger tu información.
 
 ## Tus derechos
+
 - Acceder a tu información
 - Corregir datos incorrectos
 - Eliminar tu cuenta
 
 ## Contacto
+
 Para preguntas sobre privacidad: privacidad@tuapp.com
 
 ## Cambios a esta política
+
 Notificaremos cambios importantes por email o en la app.
 ```
 
@@ -462,6 +478,7 @@ graph LR
 ## Android Checklist
 
 ### Configuración
+
 - [ ] applicationId único y correcto
 - [ ] versionCode incrementado
 - [ ] versionName actualizado
@@ -471,12 +488,14 @@ graph LR
 - [ ] targetSdkVersion actualizado (34)
 
 ### Build
+
 - [ ] Build release sin errores
 - [ ] APK/AAB firmado correctamente
 - [ ] ProGuard configurado
 - [ ] Tamaño del bundle optimizado
 
 ### Play Store
+
 - [ ] Screenshots subidos
 - [ ] Feature graphic creado
 - [ ] Descripción completa
@@ -488,6 +507,7 @@ graph LR
 ## iOS Checklist
 
 ### Configuración
+
 - [ ] Bundle ID único
 - [ ] Version actualizada
 - [ ] Build number incrementado
@@ -495,11 +515,13 @@ graph LR
 - [ ] Provisioning profile correcto
 
 ### Build
+
 - [ ] Build archive sin errores
 - [ ] IPA generado correctamente
 - [ ] Sin warnings críticos
 
 ### App Store
+
 - [ ] Screenshots por dispositivo
 - [ ] Descripción completa
 - [ ] Keywords optimizados
@@ -511,32 +533,32 @@ graph LR
 
 ### 9. Errores Comunes
 
-| Error                              | Solución                                    |
-| ---------------------------------- | ------------------------------------------- |
-| Keystore no encontrado             | Verificar ruta en key.properties            |
-| Signing failed                     | Verificar contraseñas y alias               |
-| Version code ya existe             | Incrementar versionCode                     |
-| Screenshots rechazados             | Verificar dimensiones exactas               |
-| App rechazada por contenido        | Revisar guidelines de la store              |
-| Certificado expirado (iOS)         | Renovar en Apple Developer                  |
+| Error                       | Solución                         |
+| --------------------------- | -------------------------------- |
+| Keystore no encontrado      | Verificar ruta en key.properties |
+| Signing failed              | Verificar contraseñas y alias    |
+| Version code ya existe      | Incrementar versionCode          |
+| Screenshots rechazados      | Verificar dimensiones exactas    |
+| App rechazada por contenido | Revisar guidelines de la store   |
+| Certificado expirado (iOS)  | Renovar en Apple Developer       |
 
 ---
 
 ## 🎯 Resumen
 
-| Aspecto          | Android (Play Store)        | iOS (App Store)              |
-| ---------------- | --------------------------- | ---------------------------- |
-| **Costo**        | $25 (único)                 | $99/año                      |
-| **Formato**      | AAB (App Bundle)            | IPA                          |
-| **Firma**        | Keystore JKS                | Certificados Apple           |
-| **Review**       | 1-3 días                    | 1-2 días                     |
-| **Screenshots**  | Mín. 2                      | Mín. 3 por dispositivo       |
-| **Icon**         | 512x512                     | 1024x1024                    |
+| Aspecto         | Android (Play Store) | iOS (App Store)        |
+| --------------- | -------------------- | ---------------------- |
+| **Costo**       | $25 (único)          | $99/año                |
+| **Formato**     | AAB (App Bundle)     | IPA                    |
+| **Firma**       | Keystore JKS         | Certificados Apple     |
+| **Review**      | 1-3 días             | 1-2 días               |
+| **Screenshots** | Mín. 2               | Mín. 3 por dispositivo |
+| **Icon**        | 512x512              | 1024x1024              |
 
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                                          | 🏠 Índice                 | Siguiente ➡️                          |
-| ---------------------------------------------------- | ------------------------- | ------------------------------------- |
+| ⬅️ Anterior                                                  | 🏠 Índice                 | Siguiente ➡️                                   |
+| ------------------------------------------------------------ | ------------------------- | ---------------------------------------------- |
 | [Optimización Performance](./02-optimizacion-performance.md) | [Semana 10](../README.md) | [CI/CD y Deployment](./04-ci-cd-deployment.md) |

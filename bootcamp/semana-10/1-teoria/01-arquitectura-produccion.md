@@ -17,11 +17,11 @@ Al finalizar este módulo, serás capaz de:
 
 En aplicaciones profesionales, es fundamental separar los entornos:
 
-| Entorno      | Propósito                           | API URL                        |
-| ------------ | ----------------------------------- | ------------------------------ |
-| **Development** | Desarrollo local                 | `http://localhost:3000`        |
-| **Staging**     | Pruebas pre-producción           | `https://staging.api.com`      |
-| **Production**  | Usuarios finales                 | `https://api.production.com`   |
+| Entorno         | Propósito              | API URL                      |
+| --------------- | ---------------------- | ---------------------------- |
+| **Development** | Desarrollo local       | `http://localhost:3000`      |
+| **Staging**     | Pruebas pre-producción | `https://staging.api.com`    |
+| **Production**  | Usuarios finales       | `https://api.production.com` |
 
 ---
 
@@ -32,14 +32,14 @@ En aplicaciones profesionales, es fundamental separar los entornos:
 ```dart
 /**
  * Archivo: lib/core/config/env.dart
- * 
+ *
  * ¿Qué hace?
  * Define constantes de entorno que se inyectan en tiempo de compilación
- * 
+ *
  * ¿Para qué?
  * Permite cambiar configuraciones sin modificar código
  * Mantiene datos sensibles fuera del repositorio
- * 
+ *
  * ¿Cómo funciona?
  * 1. Los valores se pasan con --dart-define al compilar
  * 2. String.fromEnvironment lee el valor en tiempo de compilación
@@ -138,10 +138,10 @@ lib/
 ```dart
 /**
  * Archivo: lib/core/config/flavors.dart
- * 
+ *
  * ¿Qué hace?
  * Define los diferentes "sabores" o variantes de la aplicación
- * 
+ *
  * ¿Para qué?
  * Permite tener apps con diferentes configuraciones, nombres e iconos
  * desde el mismo código base
@@ -368,10 +368,10 @@ PRODUCT_NAME=MyApp
 ```dart
 /**
  * Archivo: lib/core/config/app_config.dart
- * 
+ *
  * ¿Qué hace?
  * Centraliza toda la configuración de la aplicación
- * 
+ *
  * ¿Para qué?
  * Provee un punto único de acceso a configuraciones
  * Facilita testing y mocking de configuraciones
@@ -464,7 +464,7 @@ class ApiKeys {
     'GOOGLE_MAPS_KEY',
     defaultValue: '',
   );
-  
+
   static const String stripeKey = String.fromEnvironment(
     'STRIPE_KEY',
     defaultValue: '',
@@ -508,10 +508,10 @@ GOOGLE_MAPS_KEY=AIzaSyB...prod_key
 ```dart
 /**
  * Archivo: lib/core/utils/app_logger.dart
- * 
+ *
  * ¿Qué hace?
  * Proporciona logging configurable según el entorno
- * 
+ *
  * ¿Para qué?
  * En desarrollo: logs detallados para debugging
  * En producción: solo errores críticos (sin exponer info sensible)
@@ -547,7 +547,7 @@ class AppLogger {
 
   void error(String message, [dynamic error, StackTrace? stackTrace]) {
     _log(LogLevel.error, message, error);
-    
+
     // En producción, enviar a crash reporting
     if (_config.enableCrashReporting && error != null) {
       // FirebaseCrashlytics.instance.recordError(error, stackTrace);
@@ -559,7 +559,7 @@ class AppLogger {
 
     final timestamp = DateTime.now().toIso8601String();
     final prefix = _getPrefix(level);
-    
+
     debugPrint('$prefix [$timestamp] $message');
     if (data != null) {
       debugPrint('$prefix Data: $data');
@@ -589,13 +589,13 @@ final logger = AppLogger();
 
 ## 🎯 Resumen
 
-| Concepto                | Descripción                                           |
-| ----------------------- | ----------------------------------------------------- |
-| **dart-define**         | Variables de entorno en tiempo de compilación         |
-| **Flavors**             | Múltiples variantes de la app desde el mismo código   |
-| **Entry Points**        | Diferentes `main.dart` por entorno                    |
-| **AppConfig**           | Servicio centralizado de configuración                |
-| **Secretos**            | Variables sensibles via CI/CD, nunca en código        |
+| Concepto         | Descripción                                         |
+| ---------------- | --------------------------------------------------- |
+| **dart-define**  | Variables de entorno en tiempo de compilación       |
+| **Flavors**      | Múltiples variantes de la app desde el mismo código |
+| **Entry Points** | Diferentes `main.dart` por entorno                  |
+| **AppConfig**    | Servicio centralizado de configuración              |
+| **Secretos**     | Variables sensibles via CI/CD, nunca en código      |
 
 ---
 
@@ -621,6 +621,6 @@ Configura tu proyecto con:
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                      | 🏠 Índice                         | Siguiente ➡️                                              |
-| -------------------------------- | --------------------------------- | --------------------------------------------------------- |
-| [Teoría](./README.md)            | [Semana 10](../README.md)         | [Optimización y Performance](./02-optimizacion-performance.md) |
+| ⬅️ Anterior           | 🏠 Índice                 | Siguiente ➡️                                                   |
+| --------------------- | ------------------------- | -------------------------------------------------------------- |
+| [Teoría](./README.md) | [Semana 10](../README.md) | [Optimización y Performance](./02-optimizacion-performance.md) |

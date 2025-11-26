@@ -2,12 +2,12 @@
 
 ## 📋 Índice de Módulos
 
-| #   | Módulo                                                                       | Duración | Nivel        |
-| --- | ---------------------------------------------------------------------------- | -------- | ------------ |
-| 01  | [Arquitectura de Producción](./01-arquitectura-produccion.md)                | 45 min   | ⭐⭐⭐       |
-| 02  | [Optimización y Performance](./02-optimizacion-performance.md)               | 45 min   | ⭐⭐⭐       |
-| 03  | [Preparación para Stores](./03-preparacion-stores.md)                        | 50 min   | ⭐⭐⭐       |
-| 04  | [CI/CD y Deployment](./04-ci-cd-deployment.md)                               | 40 min   | ⭐⭐⭐⭐     |
+| #   | Módulo                                                         | Duración | Nivel    |
+| --- | -------------------------------------------------------------- | -------- | -------- |
+| 01  | [Arquitectura de Producción](./01-arquitectura-produccion.md)  | 45 min   | ⭐⭐⭐   |
+| 02  | [Optimización y Performance](./02-optimizacion-performance.md) | 45 min   | ⭐⭐⭐   |
+| 03  | [Preparación para Stores](./03-preparacion-stores.md)          | 50 min   | ⭐⭐⭐   |
+| 04  | [CI/CD y Deployment](./04-ci-cd-deployment.md)                 | 40 min   | ⭐⭐⭐⭐ |
 
 **Tiempo total de teoría:** ~3 horas
 
@@ -66,15 +66,15 @@ dependencies:
   firebase_analytics: ^10.7.0
   firebase_crashlytics: ^3.4.7
   firebase_performance: ^0.9.3
-  
+
   # Environment
   flutter_dotenv: ^5.1.0
-  
+
 dev_dependencies:
   # Icons y Splash
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.3.5
-  
+
   # Build
   build_runner: ^2.4.7
 ```
@@ -83,15 +83,15 @@ dev_dependencies:
 
 ## 🛠️ Herramientas Necesarias
 
-| Herramienta           | Uso                          | Obligatorio |
-| --------------------- | ---------------------------- | ----------- |
-| Android Studio        | Build Android                | ✅          |
-| Xcode                 | Build iOS (solo Mac)         | ⚠️          |
-| Firebase Console      | Analytics, Crashlytics       | ✅          |
-| Play Console          | Publicar Android             | ⚠️          |
-| App Store Connect     | Publicar iOS                 | ⚠️          |
-| GitHub Actions        | CI/CD                        | ✅          |
-| Fastlane              | Automatización (opcional)    | ❌          |
+| Herramienta       | Uso                       | Obligatorio |
+| ----------------- | ------------------------- | ----------- |
+| Android Studio    | Build Android             | ✅          |
+| Xcode             | Build iOS (solo Mac)      | ⚠️          |
+| Firebase Console  | Analytics, Crashlytics    | ✅          |
+| Play Console      | Publicar Android          | ⚠️          |
+| App Store Connect | Publicar iOS              | ⚠️          |
+| GitHub Actions    | CI/CD                     | ✅          |
+| Fastlane          | Automatización (opcional) | ❌          |
 
 ---
 
@@ -131,8 +131,8 @@ lib/
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                                   | 🏠 Índice                  |
-| --------------------------------------------- | -------------------------- |
+| ⬅️ Anterior                                      | 🏠 Índice                |
+| ------------------------------------------------ | ------------------------ |
 | [Semana 9: Arquitectura](../semana-09/README.md) | [Bootcamp](../README.md) |
 
 ---

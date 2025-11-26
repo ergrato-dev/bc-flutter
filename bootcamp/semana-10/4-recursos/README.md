@@ -2,13 +2,13 @@
 
 ## 📋 Índice de Recursos
 
-| Tipo      | Recurso                                                    | Descripción                    |
-| --------- | ---------------------------------------------------------- | ------------------------------ |
-| 📹 Video  | [Videos Deployment](./01-videos-deployment.md)             | Deployment y publicación       |
-| 📹 Video  | [Videos CI/CD](./02-videos-cicd.md)                        | Automatización y pipelines     |
-| 📹 Video  | [Videos Optimization](./03-videos-optimization.md)         | Performance y optimización     |
-| 📖 Libros | [eBooks y Artículos](./ebooks-articulos.md)                | Material de lectura            |
-| 🌐 Web    | [Webgrafía](./webgrafia.md)                                | Referencias web                |
+| Tipo      | Recurso                                            | Descripción                |
+| --------- | -------------------------------------------------- | -------------------------- |
+| 📹 Video  | [Videos Deployment](./01-videos-deployment.md)     | Deployment y publicación   |
+| 📹 Video  | [Videos CI/CD](./02-videos-cicd.md)                | Automatización y pipelines |
+| 📹 Video  | [Videos Optimization](./03-videos-optimization.md) | Performance y optimización |
+| 📖 Libros | [eBooks y Artículos](./ebooks-articulos.md)        | Material de lectura        |
+| 🌐 Web    | [Webgrafía](./webgrafia.md)                        | Referencias web            |
 
 ---
 
@@ -16,30 +16,30 @@
 
 ### Deployment y Publishing
 
-| Recurso                              | Tipo    | Nivel       |
-| ------------------------------------ | ------- | ----------- |
-| Flutter Deployment Guide             | Oficial | ⭐⭐        |
-| Play Store Publishing                | Video   | ⭐⭐        |
-| App Store Connect Guide              | Oficial | ⭐⭐⭐      |
-| Code Signing Explained               | Article | ⭐⭐⭐      |
+| Recurso                  | Tipo    | Nivel  |
+| ------------------------ | ------- | ------ |
+| Flutter Deployment Guide | Oficial | ⭐⭐   |
+| Play Store Publishing    | Video   | ⭐⭐   |
+| App Store Connect Guide  | Oficial | ⭐⭐⭐ |
+| Code Signing Explained   | Article | ⭐⭐⭐ |
 
 ### CI/CD y Automatización
 
-| Recurso                              | Tipo    | Nivel       |
-| ------------------------------------ | ------- | ----------- |
-| GitHub Actions for Flutter           | Video   | ⭐⭐⭐      |
-| Codemagic CI/CD                      | Tool    | ⭐⭐        |
-| Fastlane Flutter                     | Guide   | ⭐⭐⭐⭐    |
-| Bitrise Flutter                      | Tool    | ⭐⭐⭐      |
+| Recurso                    | Tipo  | Nivel    |
+| -------------------------- | ----- | -------- |
+| GitHub Actions for Flutter | Video | ⭐⭐⭐   |
+| Codemagic CI/CD            | Tool  | ⭐⭐     |
+| Fastlane Flutter           | Guide | ⭐⭐⭐⭐ |
+| Bitrise Flutter            | Tool  | ⭐⭐⭐   |
 
 ### Analytics y Monitoring
 
-| Recurso                              | Tipo    | Nivel       |
-| ------------------------------------ | ------- | ----------- |
-| Firebase Analytics Deep Dive         | Video   | ⭐⭐⭐      |
-| Crashlytics Implementation           | Guide   | ⭐⭐        |
-| Sentry for Flutter                   | Docs    | ⭐⭐⭐      |
-| Performance Monitoring               | Video   | ⭐⭐⭐      |
+| Recurso                      | Tipo  | Nivel  |
+| ---------------------------- | ----- | ------ |
+| Firebase Analytics Deep Dive | Video | ⭐⭐⭐ |
+| Crashlytics Implementation   | Guide | ⭐⭐   |
+| Sentry for Flutter           | Docs  | ⭐⭐⭐ |
+| Performance Monitoring       | Video | ⭐⭐⭐ |
 
 ---
 
@@ -72,47 +72,47 @@
 
 ### CI/CD Platforms
 
-| Plataforma   | Gratuito | Flutter Support |
-| ------------ | -------- | --------------- |
-| GitHub Actions | ✅     | Excelente       |
-| Codemagic    | ✅ (500 min/mes) | Nativo    |
-| Bitrise      | ✅ (limitado) | Bueno       |
-| CircleCI     | ✅ (limitado) | Bueno       |
-| GitLab CI    | ✅       | Bueno           |
+| Plataforma     | Gratuito         | Flutter Support |
+| -------------- | ---------------- | --------------- |
+| GitHub Actions | ✅               | Excelente       |
+| Codemagic      | ✅ (500 min/mes) | Nativo          |
+| Bitrise        | ✅ (limitado)    | Bueno           |
+| CircleCI       | ✅ (limitado)    | Bueno           |
+| GitLab CI      | ✅               | Bueno           |
 
 ### Build Tools
 
-| Herramienta  | Uso                          | Docs                                    |
-| ------------ | ---------------------------- | --------------------------------------- |
-| Fastlane     | Automatización builds        | [fastlane.tools](https://fastlane.tools) |
-| Gradle       | Build Android                | [gradle.org](https://gradle.org)        |
-| CocoaPods    | Deps iOS                     | [cocoapods.org](https://cocoapods.org)  |
+| Herramienta | Uso                   | Docs                                     |
+| ----------- | --------------------- | ---------------------------------------- |
+| Fastlane    | Automatización builds | [fastlane.tools](https://fastlane.tools) |
+| Gradle      | Build Android         | [gradle.org](https://gradle.org)         |
+| CocoaPods   | Deps iOS              | [cocoapods.org](https://cocoapods.org)   |
 
 ### Asset Optimization
 
-| Herramienta        | Uso                    | Tipo        |
-| ------------------ | ---------------------- | ----------- |
-| TinyPNG            | Comprimir imágenes     | Online/API  |
-| ImageOptim         | Optimizar assets       | Desktop     |
-| flutter_launcher_icons | Generar iconos    | Package     |
-| flutter_native_splash | Splash screens     | Package     |
+| Herramienta            | Uso                | Tipo       |
+| ---------------------- | ------------------ | ---------- |
+| TinyPNG                | Comprimir imágenes | Online/API |
+| ImageOptim             | Optimizar assets   | Desktop    |
+| flutter_launcher_icons | Generar iconos     | Package    |
+| flutter_native_splash  | Splash screens     | Package    |
 
 ---
 
 ## 🔗 Canales de YouTube Recomendados
 
-| Canal               | Especialidad              | Idioma    |
-| ------------------- | ------------------------- | --------- |
-| Flutter             | Oficial Flutter           | EN        |
-| Reso Coder          | Clean Architecture        | EN        |
-| Filled Stacks       | Production Flutter        | EN        |
-| Robert Brunhage     | Flutter Tips              | EN        |
-| Fernando Herrera    | Flutter Completo          | ES        |
+| Canal            | Especialidad       | Idioma |
+| ---------------- | ------------------ | ------ |
+| Flutter          | Oficial Flutter    | EN     |
+| Reso Coder       | Clean Architecture | EN     |
+| Filled Stacks    | Production Flutter | EN     |
+| Robert Brunhage  | Flutter Tips       | EN     |
+| Fernando Herrera | Flutter Completo   | ES     |
 
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                           | 🏠 Índice                 | Siguiente ➡️                          |
-| ------------------------------------- | ------------------------- | ------------------------------------- |
-| [Proyecto](../3-proyecto/README.md)   | [Semana 10](../README.md) | [Glosario](../5-glosario/README.md)   |
+| ⬅️ Anterior                         | 🏠 Índice                 | Siguiente ➡️                        |
+| ----------------------------------- | ------------------------- | ----------------------------------- |
+| [Proyecto](../3-proyecto/README.md) | [Semana 10](../README.md) | [Glosario](../5-glosario/README.md) |
