@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Arquitectura Cámara y Galería en Flutter</text>
+  
+  <!-- Flutter App -->
+  <rect x="300" y="60" width="200" height="50" rx="8" fill="#64B5F6"/>
+  <text x="400" y="90" fill="#1E1E1E" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Flutter App</text>
+  
+  <!-- Líneas hacia image_picker y camera -->
+  <line x1="350" y1="110" x2="200" y2="160" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="450" y1="110" x2="600" y2="160" stroke="#FFFFFF" stroke-width="2"/>
+  
+  <!-- image_picker Package -->
+  <rect x="100" y="160" width="200" height="70" rx="8" fill="#81C784"/>
+  <text x="200" y="185" fill="#1E1E1E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">image_picker</text>
+  <text x="200" y="205" fill="#1E1E1E" font-family="sans-serif" font-size="10" text-anchor="middle">pickImage() | pickVideo()</text>
+  <text x="200" y="220" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">Fácil de usar, menos control</text>
+  
+  <!-- camera Package -->
+  <rect x="500" y="160" width="200" height="70" rx="8" fill="#BA68C8"/>
+  <text x="600" y="185" fill="#1E1E1E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">camera</text>
+  <text x="600" y="205" fill="#1E1E1E" font-family="sans-serif" font-size="10" text-anchor="middle">CameraController</text>
+  <text x="600" y="220" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">Control total, preview custom</text>
+  
+  <!-- Líneas hacia fuentes -->
+  <line x1="150" y1="230" x2="150" y2="280" stroke="#81C784" stroke-width="2"/>
+  <line x1="250" y1="230" x2="250" y2="280" stroke="#81C784" stroke-width="2"/>
+  <line x1="600" y1="230" x2="600" y2="280" stroke="#BA68C8" stroke-width="2"/>
+  
+  <!-- Fuente: Cámara (image_picker) -->
+  <rect x="70" y="280" width="160" height="60" rx="8" fill="#FFB74D"/>
+  <text x="150" y="305" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📷 Cámara Nativa</text>
+  <text x="150" y="325" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">ImageSource.camera</text>
+  
+  <!-- Fuente: Galería -->
+  <rect x="170" y="280" width="160" height="60" rx="8" fill="#F06292"/>
+  <text x="250" y="305" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🖼️ Galería</text>
+  <text x="250" y="325" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">ImageSource.gallery</text>
+  
+  <!-- Fuente: Camera Controller -->
+  <rect x="520" y="280" width="160" height="60" rx="8" fill="#64B5F6"/>
+  <text x="600" y="305" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🎥 Preview Custom</text>
+  <text x="600" y="325" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">CameraPreview widget</text>
+  
+  <!-- Proceso de Imagen -->
+  <rect x="250" y="380" width="300" height="100" rx="8" fill="#2D2D2D" stroke="#444444"/>
+  <text x="400" y="405" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Procesamiento de Imagen</text>
+  
+  <!-- Pasos del proceso -->
+  <rect x="270" y="420" width="80" height="45" rx="4" fill="#81C784"/>
+  <text x="310" y="440" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">XFile</text>
+  <text x="310" y="455" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Archivo temp</text>
+  
+  <path d="M355 445 L370 445" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arrow2)"/>
+  
+  <rect x="380" y="420" width="80" height="45" rx="4" fill="#FFB74D"/>
+  <text x="420" y="440" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Compress</text>
+  <text x="420" y="455" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Optimizar</text>
+  
+  <path d="M465 445 L480 445" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arrow2)"/>
+  
+  <rect x="490" y="420" width="80" height="45" rx="4" fill="#64B5F6"/>
+  <text x="530" y="440" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Guardar</text>
+  <text x="530" y="455" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Local/Cloud</text>
+  
+  <!-- Líneas de conexión al procesamiento -->
+  <line x1="150" y1="340" x2="350" y2="380" stroke="#FFB74D" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="250" y1="340" x2="400" y2="380" stroke="#F06292" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="600" y1="340" x2="450" y2="380" stroke="#64B5F6" stroke-width="1" stroke-dasharray="4"/>
+  
+  <!-- Métodos disponibles -->
+  <rect x="600" y="380" width="180" height="100" rx="8" fill="#2D2D2D" stroke="#BA68C8"/>
+  <text x="690" y="400" fill="#BA68C8" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Métodos Camera</text>
+  <text x="690" y="420" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• takePicture()</text>
+  <text x="690" y="435" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• startVideoRecording()</text>
+  <text x="690" y="450" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• stopVideoRecording()</text>
+  <text x="690" y="465" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• setFlashMode()</text>
+  
+  <!-- Métodos image_picker -->
+  <rect x="20" y="380" width="180" height="100" rx="8" fill="#2D2D2D" stroke="#81C784"/>
+  <text x="110" y="400" fill="#81C784" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Métodos ImagePicker</text>
+  <text x="110" y="420" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• pickImage()</text>
+  <text x="110" y="435" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• pickVideo()</text>
+  <text x="110" y="450" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• pickMultiImage()</text>
+  <text x="110" y="465" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• retrieveLostData()</text>
+  
+  <!-- Definición de flecha -->
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FFFFFF"/>
+    </marker>
+  </defs>
+</svg>

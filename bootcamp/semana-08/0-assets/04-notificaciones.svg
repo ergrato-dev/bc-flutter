@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Sistema de Notificaciones en Flutter</text>
+  
+  <!-- Dos columnas principales -->
+  
+  <!-- Columna Izquierda: Local Notifications -->
+  <rect x="30" y="60" width="360" height="420" rx="8" fill="#2D2D2D" stroke="#81C784"/>
+  <text x="210" y="90" fill="#81C784" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Notificaciones Locales</text>
+  <text x="210" y="110" fill="#AAAAAA" font-family="sans-serif" font-size="10" text-anchor="middle">flutter_local_notifications</text>
+  
+  <!-- Plugin -->
+  <rect x="60" y="130" width="300" height="50" rx="6" fill="#81C784"/>
+  <text x="210" y="155" fill="#1E1E1E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">FlutterLocalNotificationsPlugin</text>
+  <text x="210" y="172" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">initialize() → show() → cancel()</text>
+  
+  <!-- Tipos de notificación local -->
+  <rect x="60" y="195" width="140" height="60" rx="6" fill="#64B5F6"/>
+  <text x="130" y="218" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">📱 Inmediata</text>
+  <text x="130" y="235" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">show()</text>
+  <text x="130" y="248" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Al momento</text>
+  
+  <rect x="220" y="195" width="140" height="60" rx="6" fill="#FFB74D"/>
+  <text x="290" y="218" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">⏰ Programada</text>
+  <text x="290" y="235" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">zonedSchedule()</text>
+  <text x="290" y="248" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Fecha/hora específica</text>
+  
+  <rect x="60" y="270" width="140" height="60" rx="6" fill="#BA68C8"/>
+  <text x="130" y="293" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">🔁 Periódica</text>
+  <text x="130" y="310" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">periodicallyShow()</text>
+  <text x="130" y="323" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Diaria/Semanal</text>
+  
+  <rect x="220" y="270" width="140" height="60" rx="6" fill="#F06292"/>
+  <text x="290" y="293" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">📊 Progreso</text>
+  <text x="290" y="310" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">AndroidNotification</text>
+  <text x="290" y="323" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">ProgressBar</text>
+  
+  <!-- Configuración Android/iOS -->
+  <text x="210" y="360" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Configuración por Plataforma</text>
+  
+  <rect x="60" y="375" width="140" height="90" rx="6" fill="#3DDC84"/>
+  <text x="130" y="400" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Android</text>
+  <text x="130" y="418" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">• Channels</text>
+  <text x="130" y="433" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">• Importance</text>
+  <text x="130" y="448" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">• Sound/Vibration</text>
+  
+  <rect x="220" y="375" width="140" height="90" rx="6" fill="#007AFF"/>
+  <text x="290" y="400" fill="#FFFFFF" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">iOS</text>
+  <text x="290" y="418" fill="#FFFFFF" font-family="sans-serif" font-size="8" text-anchor="middle">• Alert/Badge/Sound</text>
+  <text x="290" y="433" fill="#FFFFFF" font-family="sans-serif" font-size="8" text-anchor="middle">• Critical Alerts</text>
+  <text x="290" y="448" fill="#FFFFFF" font-family="sans-serif" font-size="8" text-anchor="middle">• Provisional</text>
+  
+  <!-- Columna Derecha: Push Notifications -->
+  <rect x="410" y="60" width="360" height="420" rx="8" fill="#2D2D2D" stroke="#FFB74D"/>
+  <text x="590" y="90" fill="#FFB74D" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Push Notifications</text>
+  <text x="590" y="110" fill="#AAAAAA" font-family="sans-serif" font-size="10" text-anchor="middle">firebase_messaging</text>
+  
+  <!-- Firebase Cloud Messaging -->
+  <rect x="440" y="130" width="300" height="50" rx="6" fill="#FFB74D"/>
+  <text x="590" y="155" fill="#1E1E1E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Firebase Cloud Messaging</text>
+  <text x="590" y="172" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">Servidor → FCM → Dispositivo</text>
+  
+  <!-- Flujo FCM -->
+  <rect x="440" y="195" width="90" height="55" rx="6" fill="#64B5F6"/>
+  <text x="485" y="218" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Backend</text>
+  <text x="485" y="235" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Server</text>
+  
+  <path d="M535 222 L555 222" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arrow3)"/>
+  
+  <rect x="565" y="195" width="90" height="55" rx="6" fill="#FFB74D"/>
+  <text x="610" y="218" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">FCM</text>
+  <text x="610" y="235" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Cloud</text>
+  
+  <path d="M660 222 L680 222" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arrow3)"/>
+  
+  <rect x="690" y="195" width="60" height="55" rx="6" fill="#81C784"/>
+  <text x="720" y="218" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">App</text>
+  <text x="720" y="235" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">📱</text>
+  
+  <!-- Estados de la App -->
+  <text x="590" y="280" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Handlers según Estado</text>
+  
+  <rect x="440" y="295" width="140" height="65" rx="6" fill="#81C784"/>
+  <text x="510" y="318" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Foreground</text>
+  <text x="510" y="335" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">onMessage</text>
+  <text x="510" y="350" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">App abierta</text>
+  
+  <rect x="600" y="295" width="140" height="65" rx="6" fill="#BA68C8"/>
+  <text x="670" y="318" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Background</text>
+  <text x="670" y="335" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">onBackgroundMessage</text>
+  <text x="670" y="350" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">App en segundo plano</text>
+  
+  <rect x="440" y="375" width="140" height="65" rx="6" fill="#F06292"/>
+  <text x="510" y="398" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Terminated</text>
+  <text x="510" y="415" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">getInitialMessage</text>
+  <text x="510" y="430" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">App cerrada</text>
+  
+  <rect x="600" y="375" width="140" height="65" rx="6" fill="#64B5F6"/>
+  <text x="670" y="398" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Tap Action</text>
+  <text x="670" y="415" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">onMessageOpenedApp</text>
+  <text x="670" y="430" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Usuario toca notif</text>
+  
+  <!-- Token FCM -->
+  <rect x="440" y="455" width="300" height="20" rx="4" fill="#444444"/>
+  <text x="590" y="469" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">FCM Token: getToken() → Guardar en backend</text>
+  
+  <!-- Definición de flecha -->
+  <defs>
+    <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FFFFFF"/>
+    </marker>
+  </defs>
+</svg>

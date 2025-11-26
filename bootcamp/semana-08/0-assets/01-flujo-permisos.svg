@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Flujo de Permisos en Flutter</text>
+  
+  <!-- Paso 1: Solicitar Permiso -->
+  <rect x="50" y="70" width="140" height="70" rx="8" fill="#64B5F6"/>
+  <text x="120" y="100" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">1. SOLICITAR</text>
+  <text x="120" y="118" fill="#1E1E1E" font-family="sans-serif" font-size="10" text-anchor="middle">permission.request()</text>
+  
+  <!-- Flecha 1->2 -->
+  <path d="M190 105 L230 105" stroke="#FFFFFF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Paso 2: Verificar Estado -->
+  <rect x="240" y="70" width="140" height="70" rx="8" fill="#BA68C8"/>
+  <text x="310" y="100" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">2. VERIFICAR</text>
+  <text x="310" y="118" fill="#1E1E1E" font-family="sans-serif" font-size="10" text-anchor="middle">status.isGranted</text>
+  
+  <!-- Flecha 2->Decisión -->
+  <path d="M380 105 L420 105" stroke="#FFFFFF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Decisión -->
+  <polygon points="490,70 560,105 490,140 420,105" fill="#FFB74D"/>
+  <text x="490" y="108" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">¿Granted?</text>
+  
+  <!-- Rama Sí -->
+  <path d="M560 105 L600 105" stroke="#81C784" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="580" y="95" fill="#81C784" font-family="sans-serif" font-size="9">Sí</text>
+  
+  <!-- Paso: Usar Feature -->
+  <rect x="610" y="70" width="140" height="70" rx="8" fill="#81C784"/>
+  <text x="680" y="100" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">USAR FEATURE</text>
+  <text x="680" y="118" fill="#1E1E1E" font-family="sans-serif" font-size="10" text-anchor="middle">Acceso permitido</text>
+  
+  <!-- Rama No -->
+  <path d="M490 140 L490 180" stroke="#F06292" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="500" y="165" fill="#F06292" font-family="sans-serif" font-size="9">No</text>
+  
+  <!-- Paso: Denied -->
+  <rect x="420" y="190" width="140" height="60" rx="8" fill="#F06292"/>
+  <text x="490" y="215" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">DENEGADO</text>
+  <text x="490" y="233" fill="#1E1E1E" font-family="sans-serif" font-size="10" text-anchor="middle">isDenied</text>
+  
+  <!-- Flecha a decisión 2 -->
+  <path d="M490 250 L490 280" stroke="#FFFFFF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Decisión 2 -->
+  <polygon points="490,290 570,325 490,360 410,325" fill="#FFB74D"/>
+  <text x="490" y="322" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">¿Permanently</text>
+  <text x="490" y="335" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Denied?</text>
+  
+  <!-- Rama No - Solicitar de nuevo -->
+  <path d="M410 325 L300 325 L300 140 L310 140" stroke="#64B5F6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="350" y="315" fill="#64B5F6" font-family="sans-serif" font-size="9">No - Reintentar</text>
+  
+  <!-- Rama Sí - Abrir Settings -->
+  <path d="M570 325 L620 325" stroke="#F06292" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="590" y="315" fill="#F06292" font-family="sans-serif" font-size="9">Sí</text>
+  
+  <!-- Paso: Open Settings -->
+  <rect x="630" y="295" width="140" height="60" rx="8" fill="#BA68C8"/>
+  <text x="700" y="320" fill="#1E1E1E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">ABRIR CONFIG</text>
+  <text x="700" y="338" fill="#1E1E1E" font-family="sans-serif" font-size="10" text-anchor="middle">openAppSettings()</text>
+  
+  <!-- Estados de Permiso -->
+  <rect x="50" y="380" width="700" height="100" rx="8" fill="#2D2D2D" stroke="#444444"/>
+  <text x="400" y="405" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Estados de PermissionStatus</text>
+  
+  <rect x="70" y="420" width="100" height="40" rx="4" fill="#81C784"/>
+  <text x="120" y="445" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">granted</text>
+  
+  <rect x="190" y="420" width="100" height="40" rx="4" fill="#F06292"/>
+  <text x="240" y="445" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">denied</text>
+  
+  <rect x="310" y="420" width="100" height="40" rx="4" fill="#FF5252"/>
+  <text x="360" y="445" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">permanentlyDenied</text>
+  
+  <rect x="430" y="420" width="100" height="40" rx="4" fill="#FFB74D"/>
+  <text x="480" y="445" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">restricted</text>
+  
+  <rect x="550" y="420" width="100" height="40" rx="4" fill="#64B5F6"/>
+  <text x="600" y="445" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">limited</text>
+  
+  <rect x="670" y="420" width="60" height="40" rx="4" fill="#9E9E9E"/>
+  <text x="700" y="445" fill="#1E1E1E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">provisional</text>
+  
+  <!-- Definición de flecha -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FFFFFF"/>
+    </marker>
+  </defs>
+</svg>

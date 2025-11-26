@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Flujo de Geolocalización en Flutter</text>
+  
+  <!-- App Flutter -->
+  <rect x="320" y="60" width="160" height="50" rx="8" fill="#64B5F6"/>
+  <text x="400" y="90" fill="#1E1E1E" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Flutter App</text>
+  
+  <!-- Flecha hacia geolocator -->
+  <line x1="400" y1="110" x2="400" y2="140" stroke="#FFFFFF" stroke-width="2"/>
+  
+  <!-- geolocator Package -->
+  <rect x="280" y="145" width="240" height="60" rx="8" fill="#81C784"/>
+  <text x="400" y="170" fill="#1E1E1E" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">geolocator</text>
+  <text x="400" y="190" fill="#1E1E1E" font-family="sans-serif" font-size="10" text-anchor="middle">Acceso a servicios de ubicación</text>
+  
+  <!-- Líneas a funcionalidades -->
+  <line x1="320" y1="205" x2="150" y2="250" stroke="#81C784" stroke-width="2"/>
+  <line x1="400" y1="205" x2="400" y2="250" stroke="#81C784" stroke-width="2"/>
+  <line x1="480" y1="205" x2="650" y2="250" stroke="#81C784" stroke-width="2"/>
+  
+  <!-- Funcionalidad 1: Ubicación Actual -->
+  <rect x="50" y="255" width="200" height="80" rx="8" fill="#FFB74D"/>
+  <text x="150" y="280" fill="#1E1E1E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">📍 Ubicación Actual</text>
+  <text x="150" y="300" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">getCurrentPosition()</text>
+  <text x="150" y="315" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">getLastKnownPosition()</text>
+  
+  <!-- Funcionalidad 2: Stream Ubicación -->
+  <rect x="300" y="255" width="200" height="80" rx="8" fill="#BA68C8"/>
+  <text x="400" y="280" fill="#1E1E1E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🔄 Stream Continuo</text>
+  <text x="400" y="300" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">getPositionStream()</text>
+  <text x="400" y="315" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">LocationSettings config</text>
+  
+  <!-- Funcionalidad 3: Distancia -->
+  <rect x="550" y="255" width="200" height="80" rx="8" fill="#F06292"/>
+  <text x="650" y="280" fill="#1E1E1E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">📏 Cálculo Distancia</text>
+  <text x="650" y="300" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">distanceBetween()</text>
+  <text x="650" y="315" fill="#1E1E1E" font-family="sans-serif" font-size="9" text-anchor="middle">bearingBetween()</text>
+  
+  <!-- Sección Google Maps -->
+  <rect x="50" y="370" width="300" height="110" rx="8" fill="#2D2D2D" stroke="#64B5F6"/>
+  <text x="200" y="395" fill="#64B5F6" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">google_maps_flutter</text>
+  
+  <rect x="70" y="410" width="80" height="55" rx="4" fill="#64B5F6"/>
+  <text x="110" y="432" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">GoogleMap</text>
+  <text x="110" y="450" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Widget</text>
+  
+  <rect x="160" y="410" width="80" height="55" rx="4" fill="#81C784"/>
+  <text x="200" y="432" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Marker</text>
+  <text x="200" y="450" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Puntos</text>
+  
+  <rect x="250" y="410" width="80" height="55" rx="4" fill="#FFB74D"/>
+  <text x="290" y="432" fill="#1E1E1E" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Polyline</text>
+  <text x="290" y="450" fill="#1E1E1E" font-family="sans-serif" font-size="8" text-anchor="middle">Rutas</text>
+  
+  <!-- Position Object -->
+  <rect x="400" y="370" width="180" height="110" rx="8" fill="#2D2D2D" stroke="#BA68C8"/>
+  <text x="490" y="395" fill="#BA68C8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Position Object</text>
+  <text x="490" y="420" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• latitude: double</text>
+  <text x="490" y="438" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• longitude: double</text>
+  <text x="490" y="456" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• accuracy: double</text>
+  <text x="490" y="474" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">• altitude / speed</text>
+  
+  <!-- LocationSettings -->
+  <rect x="620" y="370" width="160" height="110" rx="8" fill="#2D2D2D" stroke="#F06292"/>
+  <text x="700" y="395" fill="#F06292" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">LocationSettings</text>
+  <text x="700" y="420" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">accuracy: high/low</text>
+  <text x="700" y="438" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">distanceFilter: 10m</text>
+  <text x="700" y="456" fill="#FFFFFF" font-family="sans-serif" font-size="9" text-anchor="middle">timeLimit: Duration</text>
+  
+  <!-- Conexiones entre secciones -->
+  <path d="M150 335 L150 370" stroke="#FFB74D" stroke-width="1" stroke-dasharray="4"/>
+  <path d="M400 335 L490 370" stroke="#BA68C8" stroke-width="1" stroke-dasharray="4"/>
+  <path d="M650 335 L700 370" stroke="#F06292" stroke-width="1" stroke-dasharray="4"/>
+</svg>
