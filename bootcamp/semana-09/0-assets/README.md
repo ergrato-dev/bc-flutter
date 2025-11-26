@@ -6,14 +6,14 @@ Esta carpeta contiene recursos visuales y diagramas para la Semana 9 del bootcam
 
 ## 📊 Diagramas Disponibles
 
-| #   | Archivo                            | Descripción                    | Uso                 |
-| --- | ---------------------------------- | ------------------------------ | ------------------- |
-| 01  | `01-solid-principles.svg`          | Principios SOLID               | 5 principios clave  |
-| 02  | `02-clean-architecture-diagram.svg`| Diagrama de Clean Architecture | Capas concéntricas  |
-| 03  | `03-capas-clean-architecture.svg`  | Capas de Clean Architecture    | Layers horizontales |
-| 04  | `04-dependency-injection.svg`      | Inyección de dependencias      | DI Container        |
-| 05  | `05-testing-pyramid.svg`           | Pirámide de testing            | Tipos de tests      |
-| 06  | `06-tdd-cycle.svg`                 | Ciclo TDD                      | Red-Green-Refactor  |
+| #   | Archivo                             | Descripción                    | Uso                 |
+| --- | ----------------------------------- | ------------------------------ | ------------------- |
+| 01  | `01-solid-principles.svg`           | Principios SOLID               | 5 principios clave  |
+| 02  | `02-clean-architecture-diagram.svg` | Diagrama de Clean Architecture | Capas concéntricas  |
+| 03  | `03-capas-clean-architecture.svg`   | Capas de Clean Architecture    | Layers horizontales |
+| 04  | `04-dependency-injection.svg`       | Inyección de dependencias      | DI Container        |
+| 05  | `05-testing-pyramid.svg`            | Pirámide de testing            | Tipos de tests      |
+| 06  | `06-tdd-cycle.svg`                  | Ciclo TDD                      | Red-Green-Refactor  |
 
 ### 📖 Orden de Estudio Recomendado
 

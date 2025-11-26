@@ -19,12 +19,12 @@ Al finalizar esta semana, serás capaz de:
 
 ## 📋 Índice de Contenidos
 
-| Sección | Contenido | Tiempo |
-|---------|-----------|--------|
-| 📚 Teoría | 4 módulos de fundamentos | 3h |
-| 💻 Prácticas | 5 ejercicios guiados | 2.5h |
-| 🔨 Proyecto | TaskManager Pro | 2.5h |
-| **Total** | | **8h** |
+| Sección      | Contenido                | Tiempo |
+| ------------ | ------------------------ | ------ |
+| 📚 Teoría    | 4 módulos de fundamentos | 3h     |
+| 💻 Prácticas | 5 ejercicios guiados     | 2.5h   |
+| 🔨 Proyecto  | TaskManager Pro          | 2.5h   |
+| **Total**    |                          | **8h** |
 
 ---
 
@@ -32,12 +32,12 @@ Al finalizar esta semana, serás capaz de:
 
 ### Módulos de Teoría
 
-| # | Tema | Archivo | Duración |
-|---|------|---------|----------|
-| 1 | Clean Architecture | [01-clean-architecture.md](./1-teoria/01-clean-architecture.md) | 50 min |
-| 2 | Testing Unitario | [02-testing-unitario.md](./1-teoria/02-testing-unitario.md) | 45 min |
-| 3 | Widget Testing | [03-widget-testing.md](./1-teoria/03-widget-testing.md) | 45 min |
-| 4 | Documentación y Optimización | [04-documentacion-optimizacion.md](./1-teoria/04-documentacion-optimizacion.md) | 40 min |
+| #   | Tema                         | Archivo                                                                         | Duración |
+| --- | ---------------------------- | ------------------------------------------------------------------------------- | -------- |
+| 1   | Clean Architecture           | [01-clean-architecture.md](./1-teoria/01-clean-architecture.md)                 | 50 min   |
+| 2   | Testing Unitario             | [02-testing-unitario.md](./1-teoria/02-testing-unitario.md)                     | 45 min   |
+| 3   | Widget Testing               | [03-widget-testing.md](./1-teoria/03-widget-testing.md)                         | 45 min   |
+| 4   | Documentación y Optimización | [04-documentacion-optimizacion.md](./1-teoria/04-documentacion-optimizacion.md) | 40 min   |
 
 ### Conceptos Clave
 
@@ -59,13 +59,13 @@ Al finalizar esta semana, serás capaz de:
 
 #### Principios SOLID
 
-| Principio | Nombre | Descripción |
-|-----------|--------|-------------|
-| **S** | Single Responsibility | Una clase, una responsabilidad |
-| **O** | Open/Closed | Abierto a extensión, cerrado a modificación |
-| **L** | Liskov Substitution | Subtipos deben ser sustituibles |
-| **I** | Interface Segregation | Interfaces pequeñas y específicas |
-| **D** | Dependency Inversion | Depender de abstracciones |
+| Principio | Nombre                | Descripción                                 |
+| --------- | --------------------- | ------------------------------------------- |
+| **S**     | Single Responsibility | Una clase, una responsabilidad              |
+| **O**     | Open/Closed           | Abierto a extensión, cerrado a modificación |
+| **L**     | Liskov Substitution   | Subtipos deben ser sustituibles             |
+| **I**     | Interface Segregation | Interfaces pequeñas y específicas           |
+| **D**     | Dependency Inversion  | Depender de abstracciones                   |
 
 #### Pirámide de Testing
 
@@ -83,13 +83,13 @@ Al finalizar esta semana, serás capaz de:
 
 ## 💻 Prácticas
 
-| # | Práctica | Archivo | Tiempo | Dificultad |
-|---|----------|---------|--------|------------|
-| 1 | Estructura Clean | [practica-01-clean-structure.md](./2-practicas/practica-01-clean-structure.md) | 45 min | ⭐⭐ |
-| 2 | Tests Unitarios | [practica-02-unit-tests.md](./2-practicas/practica-02-unit-tests.md) | 45 min | ⭐⭐ |
-| 3 | Widget Tests | [practica-03-widget-tests.md](./2-practicas/practica-03-widget-tests.md) | 45 min | ⭐⭐⭐ |
-| 4 | BLoC Tests | [practica-04-bloc-tests.md](./2-practicas/practica-04-bloc-tests.md) | 50 min | ⭐⭐⭐ |
-| 5 | Integration Tests | [practica-05-integration-tests.md](./2-practicas/practica-05-integration-tests.md) | 50 min | ⭐⭐⭐⭐ |
+| #   | Práctica          | Archivo                                                                            | Tiempo | Dificultad |
+| --- | ----------------- | ---------------------------------------------------------------------------------- | ------ | ---------- |
+| 1   | Estructura Clean  | [practica-01-clean-structure.md](./2-practicas/practica-01-clean-structure.md)     | 45 min | ⭐⭐       |
+| 2   | Tests Unitarios   | [practica-02-unit-tests.md](./2-practicas/practica-02-unit-tests.md)               | 45 min | ⭐⭐       |
+| 3   | Widget Tests      | [practica-03-widget-tests.md](./2-practicas/practica-03-widget-tests.md)           | 45 min | ⭐⭐⭐     |
+| 4   | BLoC Tests        | [practica-04-bloc-tests.md](./2-practicas/practica-04-bloc-tests.md)               | 50 min | ⭐⭐⭐     |
+| 5   | Integration Tests | [practica-05-integration-tests.md](./2-practicas/practica-05-integration-tests.md) | 50 min | ⭐⭐⭐⭐   |
 
 ### Objetivos por Práctica
 
@@ -109,10 +109,10 @@ Aplicación de gestión de tareas implementada con **Clean Architecture** y **co
 
 ### Documentación del Proyecto
 
-| Documento | Descripción |
-|-----------|-------------|
-| [README.md](./3-proyecto/README.md) | Especificaciones y requisitos |
-| [GUIA-DISENO.md](./3-proyecto/GUIA-DISENO.md) | Sistema de diseño y componentes |
+| Documento                                           | Descripción                     |
+| --------------------------------------------------- | ------------------------------- |
+| [README.md](./3-proyecto/README.md)                 | Especificaciones y requisitos   |
+| [GUIA-DISENO.md](./3-proyecto/GUIA-DISENO.md)       | Sistema de diseño y componentes |
 | [EJEMPLOS-DATOS.md](./3-proyecto/EJEMPLOS-DATOS.md) | Modelos, entidades y datos mock |
 
 ### Características Principales
@@ -149,13 +149,13 @@ dev_dependencies:
 
 ### Índice de Recursos
 
-| Recurso | Archivo | Tipo |
-|---------|---------|------|
-| Videos Clean Architecture | [01-videos-clean-architecture.md](./4-recursos/01-videos-clean-architecture.md) | 📹 |
-| Videos Testing | [02-videos-testing.md](./4-recursos/02-videos-testing.md) | 📹 |
-| Videos SOLID | [03-videos-solid.md](./4-recursos/03-videos-solid.md) | 📹 |
-| eBooks y Artículos | [ebooks-articulos.md](./4-recursos/ebooks-articulos.md) | 📖 |
-| Webgrafía | [webgrafia.md](./4-recursos/webgrafia.md) | 🌐 |
+| Recurso                   | Archivo                                                                         | Tipo |
+| ------------------------- | ------------------------------------------------------------------------------- | ---- |
+| Videos Clean Architecture | [01-videos-clean-architecture.md](./4-recursos/01-videos-clean-architecture.md) | 📹   |
+| Videos Testing            | [02-videos-testing.md](./4-recursos/02-videos-testing.md)                       | 📹   |
+| Videos SOLID              | [03-videos-solid.md](./4-recursos/03-videos-solid.md)                           | 📹   |
+| eBooks y Artículos        | [ebooks-articulos.md](./4-recursos/ebooks-articulos.md)                         | 📖   |
+| Webgrafía                 | [webgrafia.md](./4-recursos/webgrafia.md)                                       | 🌐   |
 
 ### Documentación Oficial
 
@@ -165,26 +165,26 @@ dev_dependencies:
 
 ### Packages Esenciales
 
-| Package | Uso | Docs |
-|---------|-----|------|
-| `flutter_test` | Widget testing | [pub.dev](https://pub.dev/packages/flutter_test) |
-| `mockito` | Mocking | [pub.dev](https://pub.dev/packages/mockito) |
-| `bloc_test` | BLoC testing | [pub.dev](https://pub.dev/packages/bloc_test) |
-| `get_it` | Service locator | [pub.dev](https://pub.dev/packages/get_it) |
-| `dartz` | Functional programming | [pub.dev](https://pub.dev/packages/dartz) |
+| Package        | Uso                    | Docs                                             |
+| -------------- | ---------------------- | ------------------------------------------------ |
+| `flutter_test` | Widget testing         | [pub.dev](https://pub.dev/packages/flutter_test) |
+| `mockito`      | Mocking                | [pub.dev](https://pub.dev/packages/mockito)      |
+| `bloc_test`    | BLoC testing           | [pub.dev](https://pub.dev/packages/bloc_test)    |
+| `get_it`       | Service locator        | [pub.dev](https://pub.dev/packages/get_it)       |
+| `dartz`        | Functional programming | [pub.dev](https://pub.dev/packages/dartz)        |
 
 ---
 
 ## 📊 Diagramas y Assets
 
-| #   | Diagrama             | Archivo                                                                 | Descripción              |
-| --- | -------------------- | ----------------------------------------------------------------------- | ------------------------ |
-| 01  | SOLID                | [01-solid-principles.svg](./0-assets/01-solid-principles.svg)           | 5 principios SOLID       |
-| 02  | Clean Architecture   | [02-clean-architecture-diagram.svg](./0-assets/02-clean-architecture-diagram.svg) | Capas concéntricas       |
-| 03  | Capas                | [03-capas-clean-architecture.svg](./0-assets/03-capas-clean-architecture.svg) | Layers horizontales      |
-| 04  | DI                   | [04-dependency-injection.svg](./0-assets/04-dependency-injection.svg)   | Inyección dependencias   |
-| 05  | Pirámide Testing     | [05-testing-pyramid.svg](./0-assets/05-testing-pyramid.svg)             | Tipos de tests           |
-| 06  | Ciclo TDD            | [06-tdd-cycle.svg](./0-assets/06-tdd-cycle.svg)                         | Red-Green-Refactor       |
+| #   | Diagrama           | Archivo                                                                           | Descripción            |
+| --- | ------------------ | --------------------------------------------------------------------------------- | ---------------------- |
+| 01  | SOLID              | [01-solid-principles.svg](./0-assets/01-solid-principles.svg)                     | 5 principios SOLID     |
+| 02  | Clean Architecture | [02-clean-architecture-diagram.svg](./0-assets/02-clean-architecture-diagram.svg) | Capas concéntricas     |
+| 03  | Capas              | [03-capas-clean-architecture.svg](./0-assets/03-capas-clean-architecture.svg)     | Layers horizontales    |
+| 04  | DI                 | [04-dependency-injection.svg](./0-assets/04-dependency-injection.svg)             | Inyección dependencias |
+| 05  | Pirámide Testing   | [05-testing-pyramid.svg](./0-assets/05-testing-pyramid.svg)                       | Tipos de tests         |
+| 06  | Ciclo TDD          | [06-tdd-cycle.svg](./0-assets/06-tdd-cycle.svg)                                   | Red-Green-Refactor     |
 
 ---
 
@@ -203,12 +203,14 @@ Consulta el [Glosario completo](./5-glosario/README.md) con más de 100 término
 ## ✅ Checklist de Completitud
 
 ### Teoría
+
 - [ ] Clean Architecture leída y comprendida
 - [ ] Testing Unitario estudiado
 - [ ] Widget Testing practicado
 - [ ] Documentación y optimización revisada
 
 ### Prácticas
+
 - [ ] Práctica 1: Estructura Clean completada
 - [ ] Práctica 2: Tests unitarios funcionando
 - [ ] Práctica 3: Widget tests pasando
@@ -216,6 +218,7 @@ Consulta el [Glosario completo](./5-glosario/README.md) con más de 100 término
 - [ ] Práctica 5: Integration tests ejecutados
 
 ### Proyecto
+
 - [ ] Estructura Clean Architecture creada
 - [ ] CRUD de tareas implementado
 - [ ] DI con get_it configurado
@@ -230,13 +233,13 @@ Consulta el [Glosario completo](./5-glosario/README.md) con más de 100 término
 
 ### Distribución de Puntos
 
-| Componente | Peso | Puntos |
-|------------|------|--------|
-| Teoría | 15% | 15 |
-| Prácticas (5) | 35% | 35 |
-| Proyecto | 40% | 40 |
-| Calidad del código | 10% | 10 |
-| **Total** | 100% | **100** |
+| Componente         | Peso | Puntos  |
+| ------------------ | ---- | ------- |
+| Teoría             | 15%  | 15      |
+| Prácticas (5)      | 35%  | 35      |
+| Proyecto           | 40%  | 40      |
+| Calidad del código | 10%  | 10      |
+| **Total**          | 100% | **100** |
 
 ### Criterios de Aprobación
 
@@ -252,18 +255,21 @@ Consulta el [Glosario completo](./5-glosario/README.md) con más de 100 término
 ## 📅 Planificación Sugerida
 
 ### Día 1 (3 horas)
+
 - [ ] Teoría: Clean Architecture (50 min)
 - [ ] Teoría: Testing Unitario (45 min)
 - [ ] Práctica 1: Estructura Clean (45 min)
 - [ ] Práctica 2: Unit Tests (45 min)
 
 ### Día 2 (3 horas)
+
 - [ ] Teoría: Widget Testing (45 min)
 - [ ] Teoría: Documentación (40 min)
 - [ ] Práctica 3: Widget Tests (45 min)
 - [ ] Práctica 4: BLoC Tests (50 min)
 
 ### Día 3 (2 horas)
+
 - [ ] Práctica 5: Integration Tests (50 min)
 - [ ] Proyecto: Inicio TaskManager Pro (70 min)
 
@@ -271,8 +277,8 @@ Consulta el [Glosario completo](./5-glosario/README.md) con más de 100 término
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
-|-------------|-----------|--------------|
+| ⬅️ Anterior                                                 | 🏠 Índice                | Siguiente ➡️                                        |
+| ----------------------------------------------------------- | ------------------------ | --------------------------------------------------- |
 | [Semana 8: Características Nativas](../semana-08/README.md) | [Bootcamp](../README.md) | [Semana 10: Proyecto Final](../semana-10/README.md) |
 
 ---
