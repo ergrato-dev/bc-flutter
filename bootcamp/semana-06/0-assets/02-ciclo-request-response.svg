@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <style>
+    .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #FFFFFF; }
+    .subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #B0B0B0; }
+    .label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #E0E0E0; }
+    .step { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #FFFFFF; }
+    .code { font-family: 'Consolas', 'Courier New', monospace; font-size: 10px; fill: #CE9178; }
+    .number { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #FFFFFF; }
+  </style>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">Ciclo Request - Response HTTP</text>
+  
+  <!-- Client Box -->
+  <rect x="30" y="60" width="160" height="330" rx="8" fill="#264F78"/>
+  <text x="110" y="85" text-anchor="middle" class="label" style="font-weight:bold;">📱 CLIENTE</text>
+  <text x="110" y="100" text-anchor="middle" class="subtitle">Flutter App</text>
+  
+  <!-- Server Box -->
+  <rect x="610" y="60" width="160" height="330" rx="8" fill="#365E32"/>
+  <text x="690" y="85" text-anchor="middle" class="label" style="font-weight:bold;">☁️ SERVIDOR</text>
+  <text x="690" y="100" text-anchor="middle" class="subtitle">REST API</text>
+  
+  <!-- Step 1: Build Request -->
+  <circle cx="60" cy="140" r="15" fill="#569CD6"/>
+  <text x="60" y="145" text-anchor="middle" class="number">1</text>
+  <text x="85" y="140" class="step">Construir Request</text>
+  <text x="50" y="160" class="code">Uri.parse(url)</text>
+  <text x="50" y="172" class="code">headers: {...}</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M190 175 L610 175" stroke="#4EC9B0" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="608,175 598,170 598,180" fill="#4EC9B0"/>
+  <text x="400" y="168" text-anchor="middle" class="label" fill="#4EC9B0">HTTP Request</text>
+  
+  <!-- Step 2: Server Receives -->
+  <circle cx="740" cy="200" r="15" fill="#569CD6"/>
+  <text x="740" y="205" text-anchor="middle" class="number">2</text>
+  <text x="635" y="200" class="step">Recibe y procesa</text>
+  <text x="630" y="220" class="code">Valida auth</text>
+  <text x="630" y="232" class="code">Consulta DB</text>
+  
+  <!-- Step 3: Server Response -->
+  <circle cx="740" cy="270" r="15" fill="#569CD6"/>
+  <text x="740" y="275" text-anchor="middle" class="number">3</text>
+  <text x="635" y="270" class="step">Prepara respuesta</text>
+  <text x="630" y="290" class="code">status: 200</text>
+  <text x="630" y="302" class="code">body: JSON</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M610 320 L190 320" stroke="#C586C0" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="192,320 202,315 202,325" fill="#C586C0"/>
+  <text x="400" y="313" text-anchor="middle" class="label" fill="#C586C0">HTTP Response</text>
+  
+  <!-- Step 4: Client Receives -->
+  <circle cx="60" cy="270" r="15" fill="#569CD6"/>
+  <text x="60" y="275" text-anchor="middle" class="number">4</text>
+  <text x="85" y="270" class="step">Recibe Response</text>
+  <text x="50" y="290" class="code">statusCode</text>
+  <text x="50" y="302" class="code">response.body</text>
+  
+  <!-- Step 5: Parse -->
+  <circle cx="60" cy="340" r="15" fill="#569CD6"/>
+  <text x="60" y="345" text-anchor="middle" class="number">5</text>
+  <text x="85" y="340" class="step">Parsear JSON</text>
+  <text x="50" y="360" class="code">jsonDecode()</text>
+  <text x="50" y="372" class="code">Model.fromJson()</text>
+  
+  <!-- Network Icon in middle -->
+  <rect x="350" y="220" width="100" height="60" rx="6" fill="#3C3C3C"/>
+  <text x="400" y="245" text-anchor="middle" class="label">🌐 INTERNET</text>
+  <text x="400" y="265" text-anchor="middle" class="subtitle">HTTP/HTTPS</text>
+  
+  <!-- Status codes legend -->
+  <rect x="250" y="400" width="300" height="40" rx="5" fill="#2D2D2D"/>
+  <text x="270" y="420" class="step" fill="#4EC9B0">✓ 2xx Success</text>
+  <text x="350" y="420" class="step" fill="#DCDCAA">→ 3xx Redirect</text>
+  <text x="440" y="420" class="step" fill="#CE9178">✗ 4xx Client Error</text>
+  <text x="270" y="435" class="step" fill="#F44747">✗ 5xx Server Error</text>
+</svg>

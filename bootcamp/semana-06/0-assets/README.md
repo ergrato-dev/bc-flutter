@@ -1,37 +1,38 @@
 # 🎨 Assets - Semana 06
 
-## 📁 Contenido
+## 📊 Diagramas SVG
 
-Esta carpeta contiene los recursos visuales para la Semana 06 del bootcamp.
-
-### 🖼️ Diagramas SVG
-
-| Archivo                     | Descripción                                  |
-| --------------------------- | -------------------------------------------- |
-| `01-http-metodos.svg`       | Métodos HTTP (GET, POST, PUT, DELETE, PATCH) |
-| `02-request-response.svg`   | Ciclo Request-Response HTTP                  |
-| `03-async-await.svg`        | Flujo async/await en Dart                    |
-| `04-json-serialization.svg` | Proceso de serialización JSON                |
-| `05-api-architecture.svg`   | Arquitectura cliente-API                     |
-| `06-error-handling.svg`     | Flujo de manejo de errores                   |
-
-### 📐 Especificaciones Técnicas
-
-- **Tema:** Dark mode
-- **Fondo:** `#1E1E1E`
-- **Fuentes:** Sans-serif (Segoe UI, Arial)
-- **Degradados:** ❌ No permitidos (colores sólidos)
-- **Contraste:** Alto (texto claro sobre fondo oscuro)
-
-### 🎯 Uso
-
-Estos recursos están diseñados para:
-
-- Ilustrar conceptos de HTTP y APIs
-- Complementar el contenido teórico
-- Facilitar la comprensión de flujos asíncronos
-- Visualizar arquitecturas de comunicación
+| # | Archivo | Descripción |
+|---|---------|-------------|
+| 01 | [arquitectura-http.svg](./01-arquitectura-http.svg) | Capas de abstracción para consumo de APIs |
+| 02 | [ciclo-request-response.svg](./02-ciclo-request-response.svg) | Flujo completo de petición HTTP |
+| 03 | [metodos-http.svg](./03-metodos-http.svg) | GET, POST, PUT, PATCH, DELETE |
+| 04 | [json-serialization.svg](./04-json-serialization.svg) | Serialización JSON manual vs generada |
+| 05 | [manejo-errores.svg](./05-manejo-errores.svg) | Patrones de error handling |
+| 06 | [patron-repository.svg](./06-patron-repository.svg) | Repository pattern para APIs |
 
 ---
 
-📅 **Semana:** 06 - Consumo de APIs y HTTP
+## 🎯 Uso en Documentación
+
+```markdown
+![Arquitectura HTTP](./0-assets/01-arquitectura-http.svg)
+```
+
+---
+
+## 🎨 Especificaciones de Diseño
+
+- **Fondo:** #1E1E1E (tema oscuro VS Code)
+- **Texto principal:** #FFFFFF
+- **Texto secundario:** #B0B0B0
+- **Código:** #CE9178 (naranja)
+- **Éxito:** #4EC9B0 (cyan)
+- **Error:** #F44747 (rojo)
+- **Warning:** #DCDCAA (amarillo)
+- **Fuentes:** Segoe UI, Arial (texto), Consolas (código)
+- **Sin gradientes** - Solo colores sólidos
+
+---
+
+📅 **Semana 06** | Consumo de APIs y HTTP

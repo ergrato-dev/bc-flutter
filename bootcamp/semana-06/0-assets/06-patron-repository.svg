@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <style>
+    .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #FFFFFF; }
+    .subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #B0B0B0; }
+    .label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #E0E0E0; }
+    .code { font-family: 'Consolas', 'Courier New', monospace; font-size: 9px; fill: #CE9178; }
+    .layer { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #FFFFFF; }
+  </style>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">Repository Pattern para APIs</text>
+  <text x="400" y="50" text-anchor="middle" class="subtitle">Abstracción del acceso a datos</text>
+  
+  <!-- Presentation Layer -->
+  <rect x="50" y="70" width="700" height="60" rx="8" fill="#264F78"/>
+  <text x="400" y="95" text-anchor="middle" class="label" style="font-weight:bold;">📱 Presentation Layer</text>
+  <text x="150" y="115" text-anchor="middle" class="code">Screens</text>
+  <text x="300" y="115" text-anchor="middle" class="code">Widgets</text>
+  <text x="450" y="115" text-anchor="middle" class="code">FutureBuilder</text>
+  <text x="600" y="115" text-anchor="middle" class="code">StreamBuilder</text>
+  
+  <!-- Arrow down -->
+  <path d="M400 130 L400 150" stroke="#FFFFFF" stroke-width="2"/>
+  <polygon points="400,160 395,150 405,150" fill="#FFFFFF"/>
+  <text x="420" y="150" class="subtitle">consume</text>
+  
+  <!-- State Management -->
+  <rect x="50" y="165" width="700" height="55" rx="8" fill="#5D3F6A"/>
+  <text x="400" y="190" text-anchor="middle" class="label" style="font-weight:bold;">🔄 State Management Layer</text>
+  <text x="200" y="210" text-anchor="middle" class="code">Provider / BLoC / Riverpod</text>
+  <text x="500" y="210" text-anchor="middle" class="code">ChangeNotifier, Cubit, StateNotifier</text>
+  
+  <!-- Arrow down -->
+  <path d="M400 220 L400 240" stroke="#FFFFFF" stroke-width="2"/>
+  <polygon points="400,250 395,240 405,240" fill="#FFFFFF"/>
+  <text x="420" y="240" class="subtitle">depends on</text>
+  
+  <!-- Repository Layer - Main Focus -->
+  <rect x="50" y="255" width="700" height="90" rx="8" fill="#365E32" stroke="#4EC9B0" stroke-width="2"/>
+  <text x="400" y="280" text-anchor="middle" class="label" style="font-weight:bold;font-size:13px;">📦 REPOSITORY LAYER</text>
+  
+  <!-- Repository Interface -->
+  <rect x="70" y="290" width="200" height="45" rx="5" fill="#2D5016"/>
+  <text x="170" y="310" text-anchor="middle" class="layer">UserRepository (Abstract)</text>
+  <text x="170" y="325" text-anchor="middle" class="code">getUsers(), createUser(), etc.</text>
+  
+  <!-- Repository Implementation -->
+  <rect x="300" y="290" width="200" height="45" rx="5" fill="#2D5016"/>
+  <text x="400" y="310" text-anchor="middle" class="layer">UserRepositoryImpl</text>
+  <text x="400" y="325" text-anchor="middle" class="code">Decide: API o Cache</text>
+  
+  <!-- Repository Benefits -->
+  <rect x="530" y="290" width="200" height="45" rx="5" fill="#2D5016"/>
+  <text x="630" y="310" text-anchor="middle" class="layer">Beneficios</text>
+  <text x="630" y="325" text-anchor="middle" class="code">Testeable, Intercambiable</text>
+  
+  <!-- Arrows to data sources -->
+  <path d="M300 345 L200 380" stroke="#FFFFFF" stroke-width="1"/>
+  <path d="M500 345 L600 380" stroke="#FFFFFF" stroke-width="1"/>
+  
+  <!-- Data Sources -->
+  <rect x="50" y="385" width="280" height="100" rx="8" fill="#264F78"/>
+  <text x="190" y="410" text-anchor="middle" class="label" style="font-weight:bold;">🌐 Remote Data Source</text>
+  <text x="190" y="430" text-anchor="middle" class="code">ApiService / NewsService</text>
+  <rect x="70" y="440" width="240" height="35" rx="5" fill="#1D3D5C"/>
+  <text x="190" y="460" text-anchor="middle" class="code">Dio / http package</text>
+  <text x="190" y="475" text-anchor="middle" class="code">REST API calls, JSON parsing</text>
+  
+  <rect x="470" y="385" width="280" height="100" rx="8" fill="#5D3F6A"/>
+  <text x="610" y="410" text-anchor="middle" class="label" style="font-weight:bold;">💾 Local Data Source</text>
+  <text x="610" y="430" text-anchor="middle" class="code">CacheService / LocalStorage</text>
+  <rect x="490" y="440" width="240" height="35" rx="5" fill="#4A3255"/>
+  <text x="610" y="460" text-anchor="middle" class="code">SharedPreferences / Hive</text>
+  <text x="610" y="475" text-anchor="middle" class="code">SQLite / Secure Storage</text>
+  
+  <!-- Benefits summary -->
+  <rect x="350" y="355" width="100" height="20" rx="3" fill="#4EC9B0"/>
+  <text x="400" y="369" text-anchor="middle" class="layer">Abstraction</text>
+</svg>

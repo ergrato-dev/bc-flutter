@@ -1,494 +1,345 @@
-# 📖 Glosario - Semana 06
+# 📖 Glosario - Semana 06: Consumo de APIs y HTTP
 
-## Consumo de APIs y HTTP
+## A
 
-### 📑 Índice Alfabético
+### API (Application Programming Interface)
+Interfaz que permite la comunicación entre diferentes sistemas de software. En Flutter, comúnmente consumimos APIs REST para obtener y enviar datos.
 
-| Término                             | Categoría    | Descripción Breve            |
-| ----------------------------------- | ------------ | ---------------------------- |
-| [API](#api)                         | Arquitectura | Interfaz de programación     |
-| [async/await](#asyncawait)          | Dart         | Programación asíncrona       |
-| [Body](#body)                       | HTTP         | Cuerpo de la petición        |
-| [Cache](#cache)                     | Performance  | Almacenamiento temporal      |
-| [CRUD](#crud)                       | Operaciones  | Create, Read, Update, Delete |
-| [Debounce](#debounce)               | Optimización | Retraso de ejecución         |
-| [Deserialización](#deserialización) | JSON         | JSON a objeto                |
-| [Dio](#dio)                         | Paquete      | Cliente HTTP avanzado        |
-| [Endpoint](#endpoint)               | API          | URL de recurso               |
-| [Future](#future)                   | Dart         | Valor futuro asíncrono       |
-| [GET](#get)                         | HTTP         | Obtener recursos             |
-| [Headers](#headers)                 | HTTP         | Metadatos de petición        |
-| [HTTP](#http)                       | Protocolo    | Protocolo de transferencia   |
-| [Interceptor](#interceptor)         | Dio          | Middleware de peticiones     |
-| [JSON](#json)                       | Formato      | Notación de objetos          |
-| [POST](#post)                       | HTTP         | Crear recursos               |
-| [PUT](#put)                         | HTTP         | Actualizar recursos          |
-| [DELETE](#delete)                   | HTTP         | Eliminar recursos            |
-| [REST](#rest)                       | Arquitectura | Estilo arquitectónico        |
-| [Serialización](#serialización)     | JSON         | Objeto a JSON                |
-| [Status Code](#status-code)         | HTTP         | Código de respuesta          |
-| [Timeout](#timeout)                 | Network      | Tiempo de espera             |
-| [URI/URL](#uriurl)                  | Network      | Identificador de recurso     |
-
----
-
-## Definiciones Detalladas
-
-### API
-
-**Application Programming Interface**
-
-Conjunto de reglas y protocolos que permiten que diferentes aplicaciones se comuniquen entre sí.
-
-```dart
-// Ejemplo: Consumir una API
-final response = await http.get(Uri.parse('https://api.example.com/users'));
-```
-
-**Relacionado:** REST, Endpoint, HTTP
-
----
+### API Key
+Clave única que identifica y autoriza el acceso a una API. Debe mantenerse segura y nunca exponerse en código público.
 
 ### async/await
-
-**Programación Asíncrona**
-
-Palabras clave de Dart para trabajar con operaciones asíncronas de forma legible.
+Sintaxis de Dart para manejar operaciones asíncronas de forma legible. `async` marca una función como asíncrona y `await` pausa la ejecución hasta que el Future se complete.
 
 ```dart
-// async marca la función como asíncrona
-// await espera el resultado
-Future<String> fetchData() async {
-  final response = await http.get(url);
-  return response.body;
+Future<void> fetchData() async {
+  final data = await api.getData();
 }
 ```
 
-**Relacionado:** Future, then, catchError
+### AsyncValue
+Patrón que representa los tres estados posibles de una operación asíncrona: loading, data, o error. Popular en Riverpod.
 
 ---
+
+## B
+
+### BaseOptions
+Configuración por defecto para todas las peticiones de una instancia de Dio. Incluye baseUrl, timeouts, headers predeterminados.
 
 ### Body
-
-**Cuerpo de la Petición**
-
-Datos enviados o recibidos en una petición HTTP.
-
-```dart
-// Request body (POST)
-final response = await http.post(
-  url,
-  body: jsonEncode({'name': 'John'}),
-);
-
-// Response body
-final data = jsonDecode(response.body);
-```
+Contenido enviado en el cuerpo de una petición HTTP (POST, PUT, PATCH). Generalmente en formato JSON.
 
 ---
+
+## C
 
 ### Cache
+Almacenamiento temporal de datos para evitar peticiones repetidas. Mejora rendimiento y permite funcionamiento offline.
 
-**Almacenamiento en Caché**
+### CancelToken
+En Dio, objeto que permite cancelar una petición HTTP en progreso. Útil para búsquedas donde el usuario escribe rápido.
 
-Almacenamiento temporal de datos para evitar peticiones repetidas.
+### Content-Type
+Header HTTP que indica el formato del body. Para JSON: `application/json`.
 
-```dart
-// Ejemplo conceptual
-Map<String, dynamic> _cache = {};
-
-Future<Data> getData(String key) async {
-  if (_cache.containsKey(key)) return _cache[key];
-  final data = await fetchFromApi();
-  _cache[key] = data;
-  return data;
-}
-```
-
----
+### CORS (Cross-Origin Resource Sharing)
+Mecanismo de seguridad del navegador que restringe peticiones entre diferentes dominios. Relevante en Flutter Web.
 
 ### CRUD
-
-**Create, Read, Update, Delete**
-
-Operaciones básicas de persistencia de datos.
-
-```dart
-// Create (POST)
-http.post(url, body: data);
-
-// Read (GET)
-http.get(url);
-
-// Update (PUT/PATCH)
-http.put(url, body: data);
-
-// Delete (DELETE)
-http.delete(url);
-```
+Acrónimo para Create, Read, Update, Delete - las cuatro operaciones básicas de persistencia de datos.
 
 ---
+
+## D
 
 ### Debounce
-
-**Retardo de Ejecución**
-
-Técnica para evitar múltiples ejecuciones seguidas, esperando que el usuario termine.
+Técnica que retrasa la ejecución de una función hasta que pase un tiempo sin nuevas llamadas. Útil para búsquedas en tiempo real.
 
 ```dart
+// Espera 500ms después del último cambio antes de buscar
 Timer? _debounce;
-
 void onSearchChanged(String query) {
   _debounce?.cancel();
-  _debounce = Timer(Duration(milliseconds: 500), () {
-    // Ejecutar búsqueda
-  });
+  _debounce = Timer(Duration(milliseconds: 500), () => search(query));
 }
 ```
-
----
-
-### Deserialización
-
-**JSON a Objeto**
-
-Proceso de convertir JSON en objetos Dart.
-
-```dart
-factory User.fromJson(Map<String, dynamic> json) {
-  return User(
-    id: json['id'],
-    name: json['name'],
-  );
-}
-```
-
-**Opuesto:** Serialización
-
----
-
-### Dio
-
-**Cliente HTTP Avanzado**
-
-Paquete de Flutter para peticiones HTTP con características avanzadas.
-
-```dart
-final dio = Dio();
-dio.options.baseUrl = 'https://api.example.com';
-dio.interceptors.add(LogInterceptor());
-
-final response = await dio.get('/users');
-```
-
-**Características:** Interceptores, cancelación, FormData, timeout
-
----
-
-### Endpoint
-
-**Punto Final de API**
-
-URL específica que representa un recurso en una API.
-
-```
-Base URL: https://api.example.com
-Endpoints:
-  /users     → Lista de usuarios
-  /users/1   → Usuario específico
-  /posts     → Lista de posts
-```
-
----
-
-### Future
-
-**Valor Futuro**
-
-Representa un valor que estará disponible en el futuro.
-
-```dart
-Future<String> fetchData() async {
-  return await http.get(url).then((r) => r.body);
-}
-
-// Estados: uncompleted, completed with value, completed with error
-```
-
----
-
-### GET
-
-**Método HTTP**
-
-Solicita datos de un recurso específico. No modifica datos.
-
-```dart
-final response = await http.get(
-  Uri.parse('https://api.example.com/users'),
-  headers: {'Authorization': 'Bearer token'},
-);
-```
-
-**Idempotente:** Sí | **Body:** No
-
----
-
-### Headers
-
-**Encabezados HTTP**
-
-Metadatos enviados con peticiones y respuestas HTTP.
-
-```dart
-final headers = {
-  'Content-Type': 'application/json',
-  'Authorization': 'Bearer $token',
-  'Accept': 'application/json',
-};
-
-await http.get(url, headers: headers);
-```
-
----
-
-### HTTP
-
-**HyperText Transfer Protocol**
-
-Protocolo de comunicación para la transferencia de datos en la web.
-
-```
-Estructura de Request:
-- Método (GET, POST, etc.)
-- URL
-- Headers
-- Body (opcional)
-
-Estructura de Response:
-- Status Code
-- Headers
-- Body
-```
-
----
-
-### Interceptor
-
-**Middleware de Peticiones**
-
-Código que se ejecuta antes/después de cada petición HTTP.
-
-```dart
-dio.interceptors.add(InterceptorsWrapper(
-  onRequest: (options, handler) {
-    // Antes de enviar
-    options.headers['token'] = 'xxx';
-    return handler.next(options);
-  },
-  onResponse: (response, handler) {
-    // Después de recibir
-    return handler.next(response);
-  },
-  onError: (error, handler) {
-    // Si hay error
-    return handler.next(error);
-  },
-));
-```
-
----
-
-### JSON
-
-**JavaScript Object Notation**
-
-Formato ligero de intercambio de datos.
-
-```json
-{
-  "id": 1,
-  "name": "John",
-  "active": true,
-  "tags": ["dart", "flutter"]
-}
-```
-
-**En Dart:**
-
-```dart
-import 'dart:convert';
-final map = jsonDecode(jsonString);
-final json = jsonEncode(map);
-```
-
----
-
-### POST
-
-**Método HTTP**
-
-Envía datos para crear un nuevo recurso.
-
-```dart
-final response = await http.post(
-  Uri.parse('https://api.example.com/users'),
-  headers: {'Content-Type': 'application/json'},
-  body: jsonEncode({'name': 'John', 'email': 'john@email.com'}),
-);
-```
-
-**Idempotente:** No | **Body:** Sí
-
----
-
-### PUT
-
-**Método HTTP**
-
-Actualiza completamente un recurso existente.
-
-```dart
-await http.put(
-  Uri.parse('https://api.example.com/users/1'),
-  body: jsonEncode({'name': 'John Updated', 'email': 'john@new.com'}),
-);
-```
-
-**Idempotente:** Sí | **Body:** Sí
-
----
 
 ### DELETE
+Método HTTP para eliminar un recurso del servidor.
 
-**Método HTTP**
+### Deserialización
+Proceso de convertir datos (JSON) a objetos Dart. Opuesto a serialización.
 
-Elimina un recurso especificado.
+### Dio
+Popular package de Dart para HTTP con features avanzados: interceptores, FormData, cancelación, etc.
 
-```dart
-await http.delete(Uri.parse('https://api.example.com/users/1'));
-```
-
-**Idempotente:** Sí | **Body:** Opcional
-
----
-
-### REST
-
-**Representational State Transfer**
-
-Estilo arquitectónico para diseñar APIs web.
-
-**Principios:**
-
-- Interfaz uniforme
-- Sin estado (stateless)
-- Cacheable
-- Sistema en capas
-- Recursos identificables (URLs)
+### DTO (Data Transfer Object)
+Objeto que transporta datos entre procesos. Separa la estructura de la API de los modelos internos.
 
 ---
 
-### Serialización
+## E
 
-**Objeto a JSON**
+### Either
+Tipo funcional que representa uno de dos valores posibles: Left (error) o Right (éxito). Popular en programación funcional.
 
-Proceso de convertir objetos Dart a JSON.
+### Endpoint
+URL específica de una API que proporciona acceso a un recurso particular.
 
-```dart
-Map<String, dynamic> toJson() {
-  return {
-    'id': id,
-    'name': name,
-  };
-}
-```
-
-**Opuesto:** Deserialización
+### ETag
+Header HTTP para caché condicional. El servidor envía un identificador único del recurso.
 
 ---
 
-### Status Code
+## F
 
-**Código de Estado HTTP**
+### FormData
+Formato para enviar datos de formulario, especialmente archivos (multipart/form-data).
 
-Número que indica el resultado de una petición.
+### freezed
+Package de Dart para generar clases inmutables con pattern matching, copyWith, y serialización JSON.
 
-```dart
-// Categorías
-200-299: Éxito
-300-399: Redirección
-400-499: Error del cliente
-500-599: Error del servidor
+### Future
+Representa un valor que estará disponible en el futuro. Resultado de operaciones asíncronas.
 
-// Comunes
-200 OK
-201 Created
-400 Bad Request
-401 Unauthorized
-404 Not Found
-500 Internal Server Error
-```
-
----
-
-### Timeout
-
-**Tiempo de Espera**
-
-Límite de tiempo para completar una operación.
+### FutureBuilder
+Widget de Flutter que construye UI basado en el estado de un Future.
 
 ```dart
-final response = await http.get(url).timeout(
-  Duration(seconds: 10),
-  onTimeout: () => throw TimeoutException('Timeout'),
+FutureBuilder<List<User>>(
+  future: fetchUsers(),
+  builder: (context, snapshot) {
+    if (snapshot.hasData) return UserList(snapshot.data!);
+    if (snapshot.hasError) return ErrorWidget();
+    return LoadingWidget();
+  },
 );
 ```
 
 ---
 
-### URI/URL
+## G
 
-**Uniform Resource Identifier/Locator**
+### GET
+Método HTTP para obtener recursos. No debe modificar datos en el servidor.
 
-Identificador único de un recurso en internet.
+### gzip
+Algoritmo de compresión usado para reducir el tamaño de respuestas HTTP.
+
+---
+
+## H
+
+### Header
+Metadatos enviados con peticiones/respuestas HTTP. Ej: Authorization, Content-Type.
+
+### HTTP (HyperText Transfer Protocol)
+Protocolo de comunicación para transferir datos en la web.
+
+### http package
+Package oficial de Dart para realizar peticiones HTTP simples.
+
+### HTTPS
+Versión segura de HTTP con encriptación SSL/TLS.
+
+---
+
+## I
+
+### Idempotente
+Operación que produce el mismo resultado sin importar cuántas veces se ejecute. GET, PUT, DELETE son idempotentes; POST no lo es.
+
+### Interceptor
+En Dio, middleware que intercepta peticiones/respuestas para agregar lógica común (logging, auth, retry).
 
 ```dart
-final uri = Uri.parse('https://api.example.com/users?page=1');
-
-print(uri.scheme);    // https
-print(uri.host);      // api.example.com
-print(uri.path);      // /users
-print(uri.query);     // page=1
+class AuthInterceptor extends Interceptor {
+  @override
+  void onRequest(RequestOptions options, handler) {
+    options.headers['Authorization'] = 'Bearer $token';
+    handler.next(options);
+  }
+}
 ```
 
 ---
 
-## 📚 Referencias Rápidas
+## J
 
-### Códigos de Estado Comunes
+### JSON (JavaScript Object Notation)
+Formato de texto ligero para intercambio de datos. Estándar de facto en APIs REST.
 
-| Código | Significado                      |
-| ------ | -------------------------------- |
-| 200    | OK - Éxito                       |
-| 201    | Created - Creado                 |
-| 204    | No Content - Sin contenido       |
-| 400    | Bad Request - Petición inválida  |
-| 401    | Unauthorized - No autorizado     |
-| 403    | Forbidden - Prohibido            |
-| 404    | Not Found - No encontrado        |
-| 500    | Server Error - Error de servidor |
+### json_serializable
+Package de Dart que genera código para serializar/deserializar JSON automáticamente.
 
-### Métodos HTTP Resumen
+### jsonDecode
+Función de Dart que convierte una String JSON a Map o List.
 
-| Método | Acción             | Idempotente | Body     |
-| ------ | ------------------ | ----------- | -------- |
-| GET    | Leer               | ✅          | ❌       |
-| POST   | Crear              | ❌          | ✅       |
-| PUT    | Reemplazar         | ✅          | ✅       |
-| PATCH  | Actualizar parcial | ❌          | ✅       |
-| DELETE | Eliminar           | ✅          | Opcional |
+### jsonEncode
+Función de Dart que convierte un Map o List a String JSON.
 
 ---
 
-📅 **Semana:** 06 | 📝 **Términos:** 23
+## L
+
+### Latencia
+Tiempo que tarda una petición en viajar del cliente al servidor y regresar.
+
+### LogInterceptor
+Interceptor de Dio que imprime información de peticiones/respuestas para debugging.
+
+---
+
+## M
+
+### Mock
+Objeto simulado que reemplaza uno real durante testing. Permite probar sin llamar APIs reales.
+
+### MultipartFile
+Representación de un archivo para subir a través de FormData.
+
+---
+
+## N
+
+### NetworkException
+Excepción personalizada para errores de red (sin conexión, timeout).
+
+---
+
+## O
+
+### Offset Pagination
+Paginación basada en número de página y cantidad por página.
+
+---
+
+## P
+
+### PATCH
+Método HTTP para actualizar parcialmente un recurso (solo los campos enviados).
+
+### Payload
+Datos transmitidos en el body de una petición.
+
+### POST
+Método HTTP para crear nuevos recursos.
+
+### PUT
+Método HTTP para reemplazar completamente un recurso existente.
+
+---
+
+## Q
+
+### Query Parameters
+Parámetros añadidos a la URL después de `?`. Ej: `/users?page=1&limit=10`.
+
+---
+
+## R
+
+### Rate Limiting
+Restricción en el número de peticiones permitidas en un período de tiempo.
+
+### Repository Pattern
+Patrón que abstrae el acceso a datos, separando la lógica de negocio de los detalles de implementación.
+
+### Request
+Petición HTTP enviada del cliente al servidor.
+
+### Response
+Respuesta HTTP enviada del servidor al cliente.
+
+### REST (Representational State Transfer)
+Estilo arquitectónico para diseñar APIs usando métodos HTTP estándar y URLs descriptivas.
+
+### Result Pattern
+Patrón que encapsula éxito o error en un tipo sealed, evitando excepciones.
+
+### Retry
+Reintentar una petición fallida, generalmente con espera exponencial.
+
+---
+
+## S
+
+### Serialización
+Proceso de convertir objetos Dart a formato JSON para enviar en peticiones.
+
+### Status Code
+Código numérico en respuestas HTTP que indica el resultado:
+- 2xx: Éxito
+- 3xx: Redirección
+- 4xx: Error del cliente
+- 5xx: Error del servidor
+
+### StreamBuilder
+Widget que construye UI basado en eventos de un Stream.
+
+---
+
+## T
+
+### Throttle
+Limitar la frecuencia de ejecución de una función (diferente a debounce).
+
+### Timeout
+Tiempo máximo de espera antes de considerar una petición como fallida.
+
+### Token
+Credencial de autenticación, generalmente JWT (JSON Web Token).
+
+---
+
+## U
+
+### URI (Uniform Resource Identifier)
+Identificador único de un recurso. En Dart, clase que representa URLs.
+
+```dart
+final uri = Uri.parse('https://api.example.com/users');
+```
+
+### URL (Uniform Resource Locator)
+Dirección específica de un recurso en internet.
+
+---
+
+## W
+
+### WebSocket
+Protocolo de comunicación bidireccional en tiempo real entre cliente y servidor.
+
+---
+
+## Símbolos y Números
+
+### 200 OK
+Código de estado para petición exitosa.
+
+### 201 Created
+Código de estado cuando se crea un recurso exitosamente.
+
+### 204 No Content
+Código de estado para éxito sin contenido en respuesta.
+
+### 400 Bad Request
+Error del cliente - petición mal formada.
+
+### 401 Unauthorized
+Error de autenticación - se requiere login.
+
+### 403 Forbidden
+Error de autorización - no tienes permisos.
+
+### 404 Not Found
+El recurso solicitado no existe.
+
+### 500 Internal Server Error
+Error genérico del servidor.
+
+---
+
+📅 **Semana 06** | Consumo de APIs y HTTP

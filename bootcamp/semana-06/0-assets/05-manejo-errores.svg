@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <style>
+    .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #FFFFFF; }
+    .label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #E0E0E0; }
+    .code { font-family: 'Consolas', 'Courier New', monospace; font-size: 10px; fill: #CE9178; }
+    .success { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #4EC9B0; }
+    .error { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #F44747; }
+    .warn { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #DCDCAA; }
+  </style>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">Manejo de Errores en HTTP</text>
+  
+  <!-- Error Categories -->
+  <rect x="30" y="55" width="230" height="120" rx="8" fill="#264F78"/>
+  <text x="145" y="80" text-anchor="middle" class="label" style="font-weight:bold;">🌐 Network Errors</text>
+  <text x="50" y="105" class="error">• SocketException</text>
+  <text x="50" y="125" class="error">• TimeoutException</text>
+  <text x="50" y="145" class="error">• HandshakeException (SSL)</text>
+  <text x="50" y="165" class="code">Sin conexión a internet</text>
+  
+  <rect x="285" y="55" width="230" height="120" rx="8" fill="#6B4423"/>
+  <text x="400" y="80" text-anchor="middle" class="label" style="font-weight:bold;">⚠️ Client Errors (4xx)</text>
+  <text x="305" y="105" class="warn">400 Bad Request</text>
+  <text x="305" y="125" class="warn">401 Unauthorized</text>
+  <text x="305" y="145" class="warn">403 Forbidden</text>
+  <text x="305" y="165" class="warn">404 Not Found</text>
+  
+  <rect x="540" y="55" width="230" height="120" rx="8" fill="#6B2323"/>
+  <text x="655" y="80" text-anchor="middle" class="label" style="font-weight:bold;">❌ Server Errors (5xx)</text>
+  <text x="560" y="105" class="error">500 Internal Error</text>
+  <text x="560" y="125" class="error">502 Bad Gateway</text>
+  <text x="560" y="145" class="error">503 Service Unavailable</text>
+  <text x="560" y="165" class="error">504 Gateway Timeout</text>
+  
+  <!-- Flow diagram -->
+  <rect x="30" y="195" width="740" height="180" rx="8" fill="#252526"/>
+  <text x="400" y="220" text-anchor="middle" class="label" style="font-weight:bold;">🔄 Flujo de Manejo de Errores</text>
+  
+  <!-- Request -->
+  <rect x="50" y="240" width="100" height="40" rx="5" fill="#569CD6"/>
+  <text x="100" y="265" text-anchor="middle" class="label">Request</text>
+  
+  <path d="M150 260 L200 260" stroke="#FFFFFF" stroke-width="1"/>
+  <polygon points="198,260 188,255 188,265" fill="#FFFFFF"/>
+  
+  <!-- Try Block -->
+  <rect x="200" y="240" width="120" height="40" rx="5" fill="#365E32"/>
+  <text x="260" y="258" text-anchor="middle" class="code">try {</text>
+  <text x="260" y="272" text-anchor="middle" class="code">  await fetch()</text>
+  
+  <!-- Success Path -->
+  <path d="M320 250 L380 250 L380 250 L420 250" stroke="#4EC9B0" stroke-width="1"/>
+  <polygon points="418,250 408,245 408,255" fill="#4EC9B0"/>
+  <text x="370" y="243" class="success">success</text>
+  
+  <rect x="420" y="235" width="100" height="30" rx="5" fill="#2D5016"/>
+  <text x="470" y="255" text-anchor="middle" class="success">Return Data</text>
+  
+  <!-- Error Path -->
+  <path d="M260 280 L260 310 L380 310" stroke="#F44747" stroke-width="1"/>
+  <polygon points="378,310 368,305 368,315" fill="#F44747"/>
+  <text x="310" y="303" class="error">catch</text>
+  
+  <rect x="380" y="295" width="120" height="30" rx="5" fill="#551919"/>
+  <text x="440" y="315" text-anchor="middle" class="error">Handle Error</text>
+  
+  <!-- Decision -->
+  <path d="M500 310 L560 310" stroke="#FFFFFF" stroke-width="1"/>
+  
+  <rect x="560" y="285" width="100" height="50" rx="5" fill="#3C3C3C"/>
+  <text x="610" y="305" text-anchor="middle" class="label">¿Retry?</text>
+  <text x="610" y="325" text-anchor="middle" class="code">¿Timeout?</text>
+  
+  <path d="M660 310 L700 310 L700 260 L520 260" stroke="#DCDCAA" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="680" y="285" class="warn">Sí</text>
+  
+  <path d="M610 335 L610 355" stroke="#F44747" stroke-width="1"/>
+  <text x="620" y="350" class="error">No</text>
+  
+  <rect x="560" y="355" width="100" height="25" rx="5" fill="#6B2323"/>
+  <text x="610" y="372" text-anchor="middle" class="error">Show Error</text>
+  
+  <!-- Patterns -->
+  <rect x="30" y="390" width="240" height="95" rx="8" fill="#2D2D2D"/>
+  <text x="150" y="415" text-anchor="middle" class="label" style="font-weight:bold;">Result Pattern</text>
+  <text x="50" y="440" class="code">sealed class Result&lt;T&gt; {}</text>
+  <text x="50" y="460" class="success">class Success extends Result</text>
+  <text x="50" y="480" class="error">class Failure extends Result</text>
+  
+  <rect x="290" y="390" width="240" height="95" rx="8" fill="#2D2D2D"/>
+  <text x="410" y="415" text-anchor="middle" class="label" style="font-weight:bold;">AsyncValue Pattern</text>
+  <text x="310" y="440" class="code">AsyncLoading()</text>
+  <text x="310" y="460" class="success">AsyncData(data)</text>
+  <text x="310" y="480" class="error">AsyncError(error)</text>
+  
+  <rect x="550" y="390" width="220" height="95" rx="8" fill="#2D2D2D"/>
+  <text x="660" y="415" text-anchor="middle" class="label" style="font-weight:bold;">Either Pattern</text>
+  <text x="570" y="440" class="code">Either&lt;Failure, T&gt;</text>
+  <text x="570" y="460" class="error">Left(failure)</text>
+  <text x="570" y="480" class="success">Right(success)</text>
+</svg>
