@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+  <defs>
+    <linearGradient id="providerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#64B5F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1565C0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="modelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#CE93D8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B1FA2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="widgetGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#81C784;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#388E3C;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FFB74D"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64B5F6"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="550" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    3. Arquitectura Provider
+  </text>
+  <text x="400" y="58" font-family="Arial, sans-serif" font-size="14" fill="#B0B0B0" text-anchor="middle">
+    InheritedWidget simplificado para gestión de estado
+  </text>
+  
+  <!-- ChangeNotifier Model -->
+  <rect x="300" y="80" width="200" height="100" rx="10" fill="url(#modelGrad)"/>
+  <text x="400" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ChangeNotifier</text>
+  <text x="400" y="125" font-family="monospace" font-size="11" fill="#FFFFFF" text-anchor="middle">CartModel</text>
+  <line x1="320" y1="135" x2="480" y2="135" stroke="#FFFFFF" stroke-width="1" opacity="0.3"/>
+  <text x="400" y="155" font-family="monospace" font-size="10" fill="#E1BEE7" text-anchor="middle">List&lt;Item&gt; items</text>
+  <text x="400" y="170" font-family="monospace" font-size="10" fill="#E1BEE7" text-anchor="middle">notifyListeners()</text>
+  
+  <!-- Provider at top of tree -->
+  <rect x="250" y="210" width="300" height="60" rx="10" fill="url(#providerGrad)"/>
+  <text x="400" y="235" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ChangeNotifierProvider&lt;CartModel&gt;</text>
+  <text x="400" y="255" font-family="monospace" font-size="10" fill="#BBDEFB" text-anchor="middle">Provee instancia a todo el subárbol</text>
+  
+  <!-- Arrow from Model to Provider -->
+  <line x1="400" y1="180" x2="400" y2="205" stroke="#FFB74D" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="430" y="195" font-family="Arial, sans-serif" font-size="10" fill="#FFB74D">create:</text>
+  
+  <!-- Widget Tree -->
+  <rect x="320" y="300" width="160" height="40" rx="8" fill="#2D2D2D" stroke="#404040" stroke-width="1"/>
+  <text x="400" y="325" font-family="monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">MaterialApp</text>
+  
+  <!-- Branch lines -->
+  <line x1="400" y1="340" x2="400" y2="360" stroke="#404040" stroke-width="2"/>
+  <line x1="200" y1="360" x2="600" y2="360" stroke="#404040" stroke-width="2"/>
+  <line x1="200" y1="360" x2="200" y2="380" stroke="#404040" stroke-width="2"/>
+  <line x1="400" y1="360" x2="400" y2="380" stroke="#404040" stroke-width="2"/>
+  <line x1="600" y1="360" x2="600" y2="380" stroke="#404040" stroke-width="2"/>
+  
+  <!-- Consumer Widgets -->
+  <rect x="100" y="385" width="200" height="70" rx="8" fill="url(#widgetGrad)"/>
+  <text x="200" y="410" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Consumer&lt;CartModel&gt;</text>
+  <text x="200" y="430" font-family="monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">CartScreen</text>
+  <text x="200" y="445" font-family="Arial, sans-serif" font-size="9" fill="#C8E6C9" text-anchor="middle">Se reconstruye con cambios</text>
+  
+  <rect x="300" y="385" width="200" height="70" rx="8" fill="#2D2D2D" stroke="#81C784" stroke-width="1"/>
+  <text x="400" y="410" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#81C784" text-anchor="middle">context.read&lt;T&gt;()</text>
+  <text x="400" y="430" font-family="monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">ProductCard</text>
+  <text x="400" y="445" font-family="Arial, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Solo acceso, no escucha</text>
+  
+  <rect x="500" y="385" width="200" height="70" rx="8" fill="url(#widgetGrad)"/>
+  <text x="600" y="410" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Selector&lt;CartModel,int&gt;</text>
+  <text x="600" y="430" font-family="monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">CartBadge</text>
+  <text x="600" y="445" font-family="Arial, sans-serif" font-size="9" fill="#C8E6C9" text-anchor="middle">Solo escucha items.length</text>
+  
+  <!-- notifyListeners arrows -->
+  <path d="M 350 130 Q 150 200 200 380" stroke="#64B5F6" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+  <path d="M 450 130 Q 650 200 600 380" stroke="#64B5F6" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+  
+  <!-- Legend -->
+  <rect x="50" y="480" width="700" height="55" rx="8" fill="#2D2D2D" stroke="#404040" stroke-width="1"/>
+  <text x="400" y="500" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Métodos de Acceso</text>
+  
+  <text x="120" y="520" font-family="monospace" font-size="10" fill="#64B5F6">context.watch&lt;T&gt;()</text>
+  <text x="120" y="532" font-family="Arial, sans-serif" font-size="9" fill="#B0B0B0">Escucha cambios</text>
+  
+  <text x="300" y="520" font-family="monospace" font-size="10" fill="#81C784">context.read&lt;T&gt;()</text>
+  <text x="300" y="532" font-family="Arial, sans-serif" font-size="9" fill="#B0B0B0">Solo acceso</text>
+  
+  <text x="480" y="520" font-family="monospace" font-size="10" fill="#FFB74D">context.select&lt;T,R&gt;()</text>
+  <text x="480" y="532" font-family="Arial, sans-serif" font-size="9" fill="#B0B0B0">Escucha selectiva</text>
+  
+  <text x="660" y="520" font-family="monospace" font-size="10" fill="#CE93D8">Consumer&lt;T&gt;</text>
+  <text x="660" y="532" font-family="Arial, sans-serif" font-size="9" fill="#B0B0B0">Widget wrapper</text>
+</svg>
