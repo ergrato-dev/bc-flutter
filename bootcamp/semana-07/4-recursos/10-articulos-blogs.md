@@ -10,20 +10,20 @@
 
 ### Flutter
 
-| Artículo | Tema | Link |
-|----------|------|------|
-| Persist data with SQLite | SQLite oficial | [flutter.dev](https://docs.flutter.dev/cookbook/persistence/sqlite) |
-| Store key-value data | SharedPreferences | [flutter.dev](https://docs.flutter.dev/cookbook/persistence/key-value) |
-| Read and write files | File system | [flutter.dev](https://docs.flutter.dev/cookbook/persistence/reading-writing-files) |
+| Artículo                 | Tema              | Link                                                                               |
+| ------------------------ | ----------------- | ---------------------------------------------------------------------------------- |
+| Persist data with SQLite | SQLite oficial    | [flutter.dev](https://docs.flutter.dev/cookbook/persistence/sqlite)                |
+| Store key-value data     | SharedPreferences | [flutter.dev](https://docs.flutter.dev/cookbook/persistence/key-value)             |
+| Read and write files     | File system       | [flutter.dev](https://docs.flutter.dev/cookbook/persistence/reading-writing-files) |
 
 ### Paquetes
 
-| Paquete | Documentación | Link |
-|---------|---------------|------|
-| sqflite | README completo | [pub.dev](https://pub.dev/packages/sqflite) |
-| hive | Documentación oficial | [docs.hivedb.dev](https://docs.hivedb.dev/) |
-| shared_preferences | Guía de uso | [pub.dev](https://pub.dev/packages/shared_preferences) |
-| path_provider | Paths por plataforma | [pub.dev](https://pub.dev/packages/path_provider) |
+| Paquete            | Documentación         | Link                                                   |
+| ------------------ | --------------------- | ------------------------------------------------------ |
+| sqflite            | README completo       | [pub.dev](https://pub.dev/packages/sqflite)            |
+| hive               | Documentación oficial | [docs.hivedb.dev](https://docs.hivedb.dev/)            |
+| shared_preferences | Guía de uso           | [pub.dev](https://pub.dev/packages/shared_preferences) |
+| path_provider      | Paths por plataforma  | [pub.dev](https://pub.dev/packages/path_provider)      |
 
 ---
 
@@ -31,38 +31,38 @@
 
 ### SharedPreferences
 
-| Título | Autor/Blog | Nivel | Link |
-|--------|------------|-------|------|
-| Using SharedPreferences in Flutter | Medium | ⭐ Básico | [leer](https://medium.com/flutter-community/shared-preferences-in-flutter-5c88a5d5a7c6) |
-| Typed SharedPreferences Wrapper | Reso Coder | ⭐⭐ Intermedio | [leer](https://resocoder.com/category/tutorials/flutter/) |
-| Secure Storage vs SharedPreferences | Dev.to | ⭐⭐ Intermedio | [leer](https://dev.to/flutter) |
+| Título                              | Autor/Blog | Nivel           | Link                                                                                    |
+| ----------------------------------- | ---------- | --------------- | --------------------------------------------------------------------------------------- |
+| Using SharedPreferences in Flutter  | Medium     | ⭐ Básico       | [leer](https://medium.com/flutter-community/shared-preferences-in-flutter-5c88a5d5a7c6) |
+| Typed SharedPreferences Wrapper     | Reso Coder | ⭐⭐ Intermedio | [leer](https://resocoder.com/category/tutorials/flutter/)                               |
+| Secure Storage vs SharedPreferences | Dev.to     | ⭐⭐ Intermedio | [leer](https://dev.to/flutter)                                                          |
 
 ### SQLite / sqflite
 
-| Título | Autor/Blog | Nivel | Link |
-|--------|------------|-------|------|
-| Flutter SQLite Tutorial | AppCoda | ⭐⭐ Intermedio | [leer](https://www.appcoda.com/flutter-sqlite/) |
-| Database Helper Pattern | Medium | ⭐⭐ Intermedio | [leer](https://medium.com/flutter-community) |
-| SQLite Migrations in Flutter | Dev.to | ⭐⭐⭐ Avanzado | [leer](https://dev.to/) |
-| Repository Pattern with SQLite | FilledStacks | ⭐⭐⭐ Avanzado | [leer](https://www.filledstacks.com/) |
+| Título                         | Autor/Blog   | Nivel           | Link                                            |
+| ------------------------------ | ------------ | --------------- | ----------------------------------------------- |
+| Flutter SQLite Tutorial        | AppCoda      | ⭐⭐ Intermedio | [leer](https://www.appcoda.com/flutter-sqlite/) |
+| Database Helper Pattern        | Medium       | ⭐⭐ Intermedio | [leer](https://medium.com/flutter-community)    |
+| SQLite Migrations in Flutter   | Dev.to       | ⭐⭐⭐ Avanzado | [leer](https://dev.to/)                         |
+| Repository Pattern with SQLite | FilledStacks | ⭐⭐⭐ Avanzado | [leer](https://www.filledstacks.com/)           |
 
 ### Hive
 
-| Título | Autor/Blog | Nivel | Link |
-|--------|------------|-------|------|
-| Getting Started with Hive | Official Docs | ⭐ Básico | [leer](https://docs.hivedb.dev/) |
-| Hive Tutorial for Flutter | Reso Coder | ⭐⭐ Intermedio | [leer](https://resocoder.com/) |
-| TypeAdapters Deep Dive | Medium | ⭐⭐⭐ Avanzado | [leer](https://medium.com/) |
-| Encrypted Boxes in Hive | Dev.to | ⭐⭐⭐ Avanzado | [leer](https://dev.to/) |
+| Título                    | Autor/Blog    | Nivel           | Link                             |
+| ------------------------- | ------------- | --------------- | -------------------------------- |
+| Getting Started with Hive | Official Docs | ⭐ Básico       | [leer](https://docs.hivedb.dev/) |
+| Hive Tutorial for Flutter | Reso Coder    | ⭐⭐ Intermedio | [leer](https://resocoder.com/)   |
+| TypeAdapters Deep Dive    | Medium        | ⭐⭐⭐ Avanzado | [leer](https://medium.com/)      |
+| Encrypted Boxes in Hive   | Dev.to        | ⭐⭐⭐ Avanzado | [leer](https://dev.to/)          |
 
 ### Arquitectura y Patrones
 
-| Título | Autor/Blog | Nivel | Link |
-|--------|------------|-------|------|
-| Clean Architecture in Flutter | Reso Coder | ⭐⭐⭐ Avanzado | [leer](https://resocoder.com/flutter-clean-architecture-tdd/) |
-| Repository Pattern Explained | FilledStacks | ⭐⭐ Intermedio | [leer](https://www.filledstacks.com/) |
-| Offline First Architecture | Medium | ⭐⭐⭐ Avanzado | [leer](https://medium.com/) |
-| Data Layer Best Practices | Code with Andrea | ⭐⭐⭐ Avanzado | [leer](https://codewithandrea.com/) |
+| Título                        | Autor/Blog       | Nivel           | Link                                                          |
+| ----------------------------- | ---------------- | --------------- | ------------------------------------------------------------- |
+| Clean Architecture in Flutter | Reso Coder       | ⭐⭐⭐ Avanzado | [leer](https://resocoder.com/flutter-clean-architecture-tdd/) |
+| Repository Pattern Explained  | FilledStacks     | ⭐⭐ Intermedio | [leer](https://www.filledstacks.com/)                         |
+| Offline First Architecture    | Medium           | ⭐⭐⭐ Avanzado | [leer](https://medium.com/)                                   |
+| Data Layer Best Practices     | Code with Andrea | ⭐⭐⭐ Avanzado | [leer](https://codewithandrea.com/)                           |
 
 ---
 
@@ -72,11 +72,11 @@
 
 **Especialidad**: Clean Architecture, TDD
 
-| Serie | Artículos | Tema |
-|-------|-----------|------|
+| Serie                          | Artículos | Tema                  |
+| ------------------------------ | --------- | --------------------- |
 | Flutter TDD Clean Architecture | 13 partes | Arquitectura completa |
-| Domain Driven Design | 5 partes | DDD en Flutter |
-| State Management | 8 partes | Diferentes enfoques |
+| Domain Driven Design           | 5 partes  | DDD en Flutter        |
+| State Management               | 8 partes  | Diferentes enfoques   |
 
 **URL**: [resocoder.com](https://resocoder.com)
 
@@ -86,10 +86,10 @@
 
 **Especialidad**: Apps profesionales, arquitectura
 
-| Serie | Artículos | Tema |
-|-------|-----------|------|
+| Serie                | Artículos  | Tema                 |
+| -------------------- | ---------- | -------------------- |
 | Flutter Architecture | 10+ partes | Stacked Architecture |
-| Real World Flutter | Varios | Casos prácticos |
+| Real World Flutter   | Varios     | Casos prácticos      |
 
 **URL**: [filledstacks.com](https://www.filledstacks.com)
 
@@ -99,11 +99,11 @@
 
 **Especialidad**: Best practices, tutoriales detallados
 
-| Tema | Artículos | Descripción |
-|------|-----------|-------------|
-| Flutter Foundations | 20+ | Fundamentos sólidos |
-| Dart Language | 15+ | Dart avanzado |
-| Architecture | 10+ | Patrones de diseño |
+| Tema                | Artículos | Descripción         |
+| ------------------- | --------- | ------------------- |
+| Flutter Foundations | 20+       | Fundamentos sólidos |
+| Dart Language       | 15+       | Dart avanzado       |
+| Architecture        | 10+       | Patrones de diseño  |
 
 **URL**: [codewithandrea.com](https://codewithandrea.com)
 
@@ -113,11 +113,11 @@
 
 **Especialidad**: Enterprise Flutter, mejores prácticas
 
-| Tema | Descripción |
-|------|-------------|
-| Testing | Guías exhaustivas |
+| Tema         | Descripción            |
+| ------------ | ---------------------- |
+| Testing      | Guías exhaustivas      |
 | Architecture | Patrones empresariales |
-| Packages | Paquetes open source |
+| Packages     | Paquetes open source   |
 
 **URL**: [verygood.ventures/blog](https://verygood.ventures/blog)
 
@@ -147,12 +147,12 @@
 
 ## 🔍 Dev.to - Tags Relevantes
 
-| Tag | Descripción | Link |
-|-----|-------------|------|
-| #flutter | Todos los artículos Flutter | [dev.to/t/flutter](https://dev.to/t/flutter) |
-| #dart | Artículos de Dart | [dev.to/t/dart](https://dev.to/t/dart) |
-| #database | Bases de datos | [dev.to/t/database](https://dev.to/t/database) |
-| #sqlite | SQLite específico | [dev.to/t/sqlite](https://dev.to/t/sqlite) |
+| Tag       | Descripción                 | Link                                           |
+| --------- | --------------------------- | ---------------------------------------------- |
+| #flutter  | Todos los artículos Flutter | [dev.to/t/flutter](https://dev.to/t/flutter)   |
+| #dart     | Artículos de Dart           | [dev.to/t/dart](https://dev.to/t/dart)         |
+| #database | Bases de datos              | [dev.to/t/database](https://dev.to/t/database) |
+| #sqlite   | SQLite específico           | [dev.to/t/sqlite](https://dev.to/t/sqlite)     |
 
 ---
 
@@ -183,12 +183,12 @@
 
 ## 📊 Comparativas y Decisiones
 
-| Artículo | Tema | Utilidad |
-|----------|------|----------|
-| SQLite vs Hive vs Isar | Comparativa de DBs | Elegir tecnología |
-| When to use SharedPreferences | Casos de uso | Decisiones de diseño |
-| Local vs Remote Storage | Arquitectura | Planificación |
-| Sync Strategies Comparison | Offline-first | Implementación |
+| Artículo                      | Tema               | Utilidad             |
+| ----------------------------- | ------------------ | -------------------- |
+| SQLite vs Hive vs Isar        | Comparativa de DBs | Elegir tecnología    |
+| When to use SharedPreferences | Casos de uso       | Decisiones de diseño |
+| Local vs Remote Storage       | Arquitectura       | Planificación        |
+| Sync Strategies Comparison    | Offline-first      | Implementación       |
 
 ---
 
@@ -196,36 +196,36 @@
 
 ### Newsletters
 
-| Newsletter | Frecuencia | Link |
-|------------|------------|------|
-| Flutter Weekly | Semanal | [flutterweekly.net](https://flutterweekly.net) |
-| Dart Weekly | Semanal | [dartweekly.com](https://dartweekly.com) |
+| Newsletter     | Frecuencia | Link                                           |
+| -------------- | ---------- | ---------------------------------------------- |
+| Flutter Weekly | Semanal    | [flutterweekly.net](https://flutterweekly.net) |
+| Dart Weekly    | Semanal    | [dartweekly.com](https://dartweekly.com)       |
 
 ### Twitter/X
 
-| Cuenta | Contenido |
-|--------|-----------|
-| @FlutterDev | Oficial Flutter |
-| @raboricoder | Reso Coder |
+| Cuenta          | Contenido          |
+| --------------- | ------------------ |
+| @FlutterDev     | Oficial Flutter    |
+| @raboricoder    | Reso Coder         |
 | @vandaboricoder | Very Good Ventures |
-| @baboricoder | Code With Andrea |
+| @baboricoder    | Code With Andrea   |
 
 ### Reddit
 
-| Subreddit | Actividad |
-|-----------|-----------|
-| r/FlutterDev | Alta |
-| r/dartlang | Media |
+| Subreddit    | Actividad |
+| ------------ | --------- |
+| r/FlutterDev | Alta      |
+| r/dartlang   | Media     |
 
 ---
 
 ## 📚 Libros Recomendados (con capítulos de persistencia)
 
-| Libro | Autor | Capítulos Relevantes |
-|-------|-------|----------------------|
-| Flutter in Action | Eric Windmill | Data persistence |
-| Flutter Complete Reference | Alberto Miola | SQLite, Storage |
-| Beginning Flutter | Marco L. Napoli | Local data |
+| Libro                      | Autor           | Capítulos Relevantes |
+| -------------------------- | --------------- | -------------------- |
+| Flutter in Action          | Eric Windmill   | Data persistence     |
+| Flutter Complete Reference | Alberto Miola   | SQLite, Storage      |
+| Beginning Flutter          | Marco L. Napoli | Local data           |
 
 ---
 

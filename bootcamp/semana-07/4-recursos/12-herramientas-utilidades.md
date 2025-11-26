@@ -12,13 +12,14 @@
 
 **Descripción**: Editor visual para bases de datos SQLite
 
-| Característica | Descripción |
-|----------------|-------------|
-| **Plataformas** | Windows, macOS, Linux |
-| **Precio** | Gratuito (Open Source) |
-| **Funciones** | Ver/editar datos, ejecutar SQL, exportar |
+| Característica  | Descripción                              |
+| --------------- | ---------------------------------------- |
+| **Plataformas** | Windows, macOS, Linux                    |
+| **Precio**      | Gratuito (Open Source)                   |
+| **Funciones**   | Ver/editar datos, ejecutar SQL, exportar |
 
 **Instalación**:
+
 ```bash
 # macOS
 brew install --cask db-browser-for-sqlite
@@ -38,11 +39,11 @@ sudo apt install sqlitebrowser
 
 **Descripción**: Cliente universal de bases de datos
 
-| Característica | Descripción |
-|----------------|-------------|
-| **Plataformas** | Windows, macOS, Linux |
-| **Precio** | Community Edition gratuita |
-| **Funciones** | Multi-database, SQL editor, ER diagrams |
+| Característica  | Descripción                             |
+| --------------- | --------------------------------------- |
+| **Plataformas** | Windows, macOS, Linux                   |
+| **Precio**      | Community Edition gratuita              |
+| **Funciones**   | Multi-database, SQL editor, ER diagrams |
 
 **Link**: [dbeaver.io](https://dbeaver.io/)
 
@@ -52,12 +53,13 @@ sudo apt install sqlitebrowser
 
 **Descripción**: Ver bases de datos SQLite directamente en VS Code
 
-| Característica | Descripción |
-|----------------|-------------|
-| **ID** | `alexcvzz.vscode-sqlite` |
-| **Funciones** | Ver tablas, ejecutar queries |
+| Característica | Descripción                  |
+| -------------- | ---------------------------- |
+| **ID**         | `alexcvzz.vscode-sqlite`     |
+| **Funciones**  | Ver tablas, ejecutar queries |
 
 **Instalación**:
+
 ```
 ext install alexcvzz.vscode-sqlite
 ```
@@ -70,14 +72,15 @@ ext install alexcvzz.vscode-sqlite
 
 **Descripción**: Suite oficial de debugging para Flutter
 
-| Característica | Uso |
-|----------------|-----|
-| **Network** | Ver requests HTTP |
-| **Memory** | Detectar memory leaks |
+| Característica  | Uso                     |
+| --------------- | ----------------------- |
+| **Network**     | Ver requests HTTP       |
+| **Memory**      | Detectar memory leaks   |
 | **Performance** | Análisis de rendimiento |
-| **Logging** | Ver logs de la app |
+| **Logging**     | Ver logs de la app      |
 
 **Acceso**:
+
 ```bash
 # Desde terminal
 flutter pub global activate devtools
@@ -93,11 +96,11 @@ dart devtools
 
 **Descripción**: Inspector de bases de datos integrado
 
-| Característica | Descripción |
-|----------------|-------------|
-| **Acceso** | View > Tool Windows > App Inspection > Database Inspector |
-| **Funciones** | Ver DB en tiempo real, ejecutar queries |
-| **Requisitos** | API 26+ |
+| Característica | Descripción                                               |
+| -------------- | --------------------------------------------------------- |
+| **Acceso**     | View > Tool Windows > App Inspection > Database Inspector |
+| **Funciones**  | Ver DB en tiempo real, ejecutar queries                   |
+| **Requisitos** | API 26+                                                   |
 
 ---
 
@@ -105,11 +108,11 @@ dart devtools
 
 **Descripción**: Plataforma de debugging para mobile
 
-| Plugin | Funcionalidad |
-|--------|---------------|
-| **Database** | Ver SQLite databases |
+| Plugin                | Funcionalidad         |
+| --------------------- | --------------------- |
+| **Database**          | Ver SQLite databases  |
 | **SharedPreferences** | Ver key-value storage |
-| **Network** | Inspeccionar requests |
+| **Network**           | Inspeccionar requests |
 
 **Link**: [fbflipper.com](https://fbflipper.com/)
 
@@ -119,13 +122,13 @@ dart devtools
 
 ### Recomendadas para Persistencia
 
-| Extensión | ID | Uso |
-|-----------|-----|-----|
-| SQLite Viewer | `alexcvzz.vscode-sqlite` | Ver SQLite |
-| SQLTools | `mtxr.sqltools` | Editor SQL |
-| Dart | `dart-code.dart-code` | Soporte Dart |
-| Flutter | `dart-code.flutter` | Soporte Flutter |
-| Hive Support | Community | Snippets Hive |
+| Extensión     | ID                       | Uso             |
+| ------------- | ------------------------ | --------------- |
+| SQLite Viewer | `alexcvzz.vscode-sqlite` | Ver SQLite      |
+| SQLTools      | `mtxr.sqltools`          | Editor SQL      |
+| Dart          | `dart-code.dart-code`    | Soporte Dart    |
+| Flutter       | `dart-code.flutter`      | Soporte Flutter |
+| Hive Support  | Community                | Snippets Hive   |
 
 ### Configuración settings.json
 
@@ -150,6 +153,7 @@ dart devtools
 **Descripción**: Ejecutor de generadores de código
 
 **Comandos útiles**:
+
 ```bash
 # Generar una vez
 dart run build_runner build
@@ -168,12 +172,12 @@ dart run build_runner build --delete-conflicting-outputs
 
 ### Generadores Comunes
 
-| Paquete | Genera | Uso |
-|---------|--------|-----|
-| `hive_generator` | TypeAdapters | Hive |
-| `json_serializable` | toJson/fromJson | APIs |
-| `freezed` | Modelos inmutables | Estado |
-| `mockito` | Mocks para tests | Testing |
+| Paquete             | Genera             | Uso     |
+| ------------------- | ------------------ | ------- |
+| `hive_generator`    | TypeAdapters       | Hive    |
+| `json_serializable` | toJson/fromJson    | APIs    |
+| `freezed`           | Modelos inmutables | Estado  |
+| `mockito`           | Mocks para tests   | Testing |
 
 ---
 
@@ -182,6 +186,7 @@ dart run build_runner build --delete-conflicting-outputs
 ### Android
 
 **Ubicación de archivos**:
+
 ```
 /data/data/com.example.app/
 ├── databases/          # SQLite databases
@@ -192,6 +197,7 @@ dart run build_runner build --delete-conflicting-outputs
 ```
 
 **Acceder con ADB**:
+
 ```bash
 # Listar archivos
 adb shell run-as com.example.app ls -la /data/data/com.example.app/
@@ -208,6 +214,7 @@ adb pull /data/data/com.example.app/databases/app.db
 ### iOS Simulator
 
 **Ubicación**:
+
 ```bash
 # Encontrar directorio del simulador
 xcrun simctl get_app_container booted com.example.app data
@@ -230,6 +237,7 @@ xcrun simctl get_app_container booted com.example.app data
 **Descripción**: Permite ejecutar tests de sqflite en desktop/CI
 
 **Setup**:
+
 ```yaml
 dev_dependencies:
   sqflite_common_ffi: ^2.3.0
@@ -243,7 +251,7 @@ void main() {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
   });
-  
+
   // Tests...
 }
 ```
@@ -274,6 +282,7 @@ void main() {}
 ### Firebase Performance
 
 **Para monitorear**:
+
 - Tiempo de queries
 - Operaciones de I/O
 - Network requests
@@ -288,6 +297,7 @@ dependencies:
 ### Sentry
 
 **Para capturar errores**:
+
 - Errores de base de datos
 - Exceptions de persistencia
 - Stack traces
@@ -385,22 +395,26 @@ echo "✅ Generación completada"
 ## 📋 Checklist de Herramientas
 
 ### Desarrollo
+
 - [ ] VS Code con extensiones
 - [ ] DB Browser for SQLite
 - [ ] ADB configurado
 - [ ] build_runner instalado
 
 ### Testing
+
 - [ ] sqflite_common_ffi
 - [ ] Mockito/Mocktail
 - [ ] Integration test setup
 
 ### Debugging
+
 - [ ] Flutter DevTools
 - [ ] Database Inspector (Android Studio)
 - [ ] Logs configurados
 
 ### Producción
+
 - [ ] Monitoring (Firebase/Sentry)
 - [ ] Backup automático
 - [ ] Encriptación si es necesario
@@ -410,6 +424,7 @@ echo "✅ Generación completada"
 ## 💡 Tips de Productividad
 
 1. **Alias útiles** en `.zshrc` o `.bashrc`:
+
 ```bash
 alias fgen="dart run build_runner build --delete-conflicting-outputs"
 alias fwatch="dart run build_runner watch"
@@ -417,6 +432,7 @@ alias fclean="flutter clean && flutter pub get"
 ```
 
 2. **VS Code snippets** para Hive:
+
 ```json
 {
   "Hive Model": {
@@ -433,6 +449,7 @@ alias fclean="flutter clean && flutter pub get"
 ```
 
 3. **Git hooks** para regenerar código:
+
 ```bash
 # .git/hooks/post-merge
 #!/bin/bash
