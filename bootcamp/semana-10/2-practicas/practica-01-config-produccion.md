@@ -2,12 +2,12 @@
 
 ## 📋 Información General
 
-| Campo           | Detalle                                      |
-| --------------- | -------------------------------------------- |
-| **Duración**    | 40 minutos                                   |
-| **Dificultad**  | ⭐⭐ Intermedio                              |
-| **Prerequisitos** | Proyecto Flutter funcional                 |
-| **Objetivos**   | Configurar entornos dev/staging/prod         |
+| Campo             | Detalle                              |
+| ----------------- | ------------------------------------ |
+| **Duración**      | 40 minutos                           |
+| **Dificultad**    | ⭐⭐ Intermedio                      |
+| **Prerequisitos** | Proyecto Flutter funcional           |
+| **Objetivos**     | Configurar entornos dev/staging/prod |
 
 ---
 
@@ -53,10 +53,10 @@ lib/
 ```dart
 /**
  * Archivo: lib/core/config/env.dart
- * 
+ *
  * ¿Qué hace?
  * Define variables de entorno inyectadas en compilación
- * 
+ *
  * ¿Para qué?
  * Permite cambiar configuraciones sin modificar código
  */
@@ -95,10 +95,10 @@ class Env {
 ```dart
 /**
  * Archivo: lib/core/config/flavors.dart
- * 
+ *
  * ¿Qué hace?
  * Define los "sabores" de la aplicación
- * 
+ *
  * ¿Para qué?
  * Permite tener múltiples versiones con diferentes configuraciones
  */
@@ -237,7 +237,7 @@ void main() {
 ```dart
 /**
  * Archivo: lib/app.dart
- * 
+ *
  * ¿Qué hace?
  * Define el widget principal de la aplicación
  * Usa la configuración del flavor actual
@@ -280,7 +280,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final config = FlavorConfig.instance;
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text(config.name),
@@ -324,14 +324,14 @@ flutter run -t lib/main_prod.dart --release
 
 ## ✅ Criterios de Aceptación
 
-| Criterio                           | Cumplido |
-| ---------------------------------- | -------- |
-| env.dart creado con variables      | ☐        |
-| flavors.dart con 3 flavors         | ☐        |
-| 3 entry points funcionando         | ☐        |
-| app.dart usa FlavorConfig          | ☐        |
-| Colores diferentes por entorno     | ☐        |
-| Debug banner solo en dev/staging   | ☐        |
+| Criterio                         | Cumplido |
+| -------------------------------- | -------- |
+| env.dart creado con variables    | ☐        |
+| flavors.dart con 3 flavors       | ☐        |
+| 3 entry points funcionando       | ☐        |
+| app.dart usa FlavorConfig        | ☐        |
+| Colores diferentes por entorno   | ☐        |
+| Debug banner solo en dev/staging | ☐        |
 
 ---
 
@@ -353,6 +353,6 @@ flutter run -t lib/main_prod.dart --release
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                       | 🏠 Índice                        | Siguiente ➡️                                        |
-| --------------------------------- | -------------------------------- | --------------------------------------------------- |
-| [Prácticas](./README.md)          | [Semana 10](../README.md)        | [Optimización Assets](./practica-02-optimizacion-assets.md) |
+| ⬅️ Anterior              | 🏠 Índice                 | Siguiente ➡️                                                |
+| ------------------------ | ------------------------- | ----------------------------------------------------------- |
+| [Prácticas](./README.md) | [Semana 10](../README.md) | [Optimización Assets](./practica-02-optimizacion-assets.md) |

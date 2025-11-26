@@ -312,7 +312,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final buttonStyle = _getButtonStyle(context);
     final padding = _getPadding();
-    
+
     Widget child = isLoading
         ? const SizedBox(
             width: 20,
@@ -331,7 +331,7 @@ class AppButton extends StatelessWidget {
           );
 
     Widget button;
-    
+
     switch (variant) {
       case AppButtonVariant.primary:
         button = ElevatedButton(
@@ -565,25 +565,25 @@ class AppCard extends StatelessWidget {
 
 ## 🎭 Iconografía
 
-| Concepto       | Icono                    | Uso                    |
-| -------------- | ------------------------ | ---------------------- |
-| Hábitos        | `Icons.repeat`           | Menú, headers          |
-| Tareas         | `Icons.checklist`        | Menú, headers          |
-| Diario         | `Icons.book`             | Menú, headers          |
-| Dashboard      | `Icons.dashboard`        | Navegación             |
-| Agregar        | `Icons.add`              | FAB, botones           |
-| Editar         | `Icons.edit`             | Acciones               |
-| Eliminar       | `Icons.delete`           | Acciones               |
-| Completar      | `Icons.check_circle`     | Estados                |
-| Pendiente      | `Icons.radio_button_unchecked` | Estados          |
-| Streak         | `Icons.local_fire_department` | Gamification    |
-| Notificación   | `Icons.notifications`    | Recordatorios          |
-| Configuración  | `Icons.settings`         | Menú                   |
+| Concepto      | Icono                          | Uso           |
+| ------------- | ------------------------------ | ------------- |
+| Hábitos       | `Icons.repeat`                 | Menú, headers |
+| Tareas        | `Icons.checklist`              | Menú, headers |
+| Diario        | `Icons.book`                   | Menú, headers |
+| Dashboard     | `Icons.dashboard`              | Navegación    |
+| Agregar       | `Icons.add`                    | FAB, botones  |
+| Editar        | `Icons.edit`                   | Acciones      |
+| Eliminar      | `Icons.delete`                 | Acciones      |
+| Completar     | `Icons.check_circle`           | Estados       |
+| Pendiente     | `Icons.radio_button_unchecked` | Estados       |
+| Streak        | `Icons.local_fire_department`  | Gamification  |
+| Notificación  | `Icons.notifications`          | Recordatorios |
+| Configuración | `Icons.settings`               | Menú          |
 
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior              | 🏠 Índice                 | Siguiente ➡️                        |
-| ------------------------ | ------------------------- | ----------------------------------- |
-| [Proyecto](./README.md)  | [Semana 10](../README.md) | [Ejemplos Datos](./EJEMPLOS-DATOS.md) |
+| ⬅️ Anterior             | 🏠 Índice                 | Siguiente ➡️                          |
+| ----------------------- | ------------------------- | ------------------------------------- |
+| [Proyecto](./README.md) | [Semana 10](../README.md) | [Ejemplos Datos](./EJEMPLOS-DATOS.md) |

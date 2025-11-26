@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Inter, Roboto, sans-serif" font-size="24" font-weight="bold" fill="#E0E0E0" text-anchor="middle">LifeTracker Pro - Project Integration</text>
+  <text x="400" y="65" font-family="Inter, Roboto, sans-serif" font-size="12" fill="#B0B0B0" text-anchor="middle">Semana 10 - Proyecto Final</text>
+  
+  <!-- Main features grid -->
+  <!-- Habits -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="160" height="120" rx="10" fill="#2D2D2D" stroke="#81C784" stroke-width="2"/>
+    <text x="80" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#81C784" text-anchor="middle">🔄 Hábitos</text>
+    <text x="80" y="55" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• CRUD completo</text>
+    <text x="80" y="70" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Tracking diario</text>
+    <text x="80" y="85" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Racha (streak)</text>
+    <text x="80" y="100" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Recordatorios</text>
+    <text x="80" y="115" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#666" text-anchor="middle">Semanas 5, 6, 7</text>
+  </g>
+  
+  <!-- Tasks -->
+  <g transform="translate(230, 100)">
+    <rect x="0" y="0" width="160" height="120" rx="10" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+    <text x="80" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">✅ Tareas</text>
+    <text x="80" y="55" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Lista de tareas</text>
+    <text x="80" y="70" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Prioridades</text>
+    <text x="80" y="85" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Subtareas</text>
+    <text x="80" y="100" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Fechas límite</text>
+    <text x="80" y="115" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#666" text-anchor="middle">Semanas 3, 4, 5</text>
+  </g>
+  
+  <!-- Journal -->
+  <g transform="translate(410, 100)">
+    <rect x="0" y="0" width="160" height="120" rx="10" fill="#2D2D2D" stroke="#CE93D8" stroke-width="2"/>
+    <text x="80" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#CE93D8" text-anchor="middle">📓 Diario</text>
+    <text x="80" y="55" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Registro de mood</text>
+    <text x="80" y="70" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Notas diarias</text>
+    <text x="80" y="85" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Gratitudes</text>
+    <text x="80" y="100" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Historial</text>
+    <text x="80" y="115" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#666" text-anchor="middle">Semanas 6, 7</text>
+  </g>
+  
+  <!-- Dashboard -->
+  <g transform="translate(590, 100)">
+    <rect x="0" y="0" width="160" height="120" rx="10" fill="#2D2D2D" stroke="#FFB74D" stroke-width="2"/>
+    <text x="80" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#FFB74D" text-anchor="middle">📊 Dashboard</text>
+    <text x="80" y="55" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Vista resumen</text>
+    <text x="80" y="70" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Estadísticas</text>
+    <text x="80" y="85" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Gráficos</text>
+    <text x="80" y="100" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Insights</text>
+    <text x="80" y="115" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#666" text-anchor="middle">Semanas 8, 9</text>
+  </g>
+  
+  <!-- Tech Stack -->
+  <rect x="50" y="250" width="700" height="100" rx="10" fill="#252525" stroke="#404040" stroke-width="2"/>
+  <text x="400" y="280" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#E0E0E0" text-anchor="middle">🛠️ Stack Tecnológico Integrado</text>
+  
+  <g transform="translate(80, 300)">
+    <rect x="0" y="0" width="80" height="35" rx="4" fill="#1E1E1E" stroke="#64B5F6" stroke-width="1"/>
+    <text x="40" y="22" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#64B5F6" text-anchor="middle">Flutter</text>
+  </g>
+  
+  <g transform="translate(180, 300)">
+    <rect x="0" y="0" width="80" height="35" rx="4" fill="#1E1E1E" stroke="#81C784" stroke-width="1"/>
+    <text x="40" y="22" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#81C784" text-anchor="middle">BLoC</text>
+  </g>
+  
+  <g transform="translate(280, 300)">
+    <rect x="0" y="0" width="80" height="35" rx="4" fill="#1E1E1E" stroke="#CE93D8" stroke-width="1"/>
+    <text x="40" y="22" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#CE93D8" text-anchor="middle">SQLite</text>
+  </g>
+  
+  <g transform="translate(380, 300)">
+    <rect x="0" y="0" width="80" height="35" rx="4" fill="#1E1E1E" stroke="#FFB74D" stroke-width="1"/>
+    <text x="40" y="22" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#FFB74D" text-anchor="middle">Firebase</text>
+  </g>
+  
+  <g transform="translate(480, 300)">
+    <rect x="0" y="0" width="80" height="35" rx="4" fill="#1E1E1E" stroke="#EF5350" stroke-width="1"/>
+    <text x="40" y="22" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#EF5350" text-anchor="middle">get_it</text>
+  </g>
+  
+  <g transform="translate(580, 300)">
+    <rect x="0" y="0" width="80" height="35" rx="4" fill="#1E1E1E" stroke="#4FC3F7" stroke-width="1"/>
+    <text x="40" y="22" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#4FC3F7" text-anchor="middle">GH Actions</text>
+  </g>
+  
+  <!-- Bootcamp weeks integration -->
+  <rect x="50" y="380" width="700" height="190" rx="10" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <text x="400" y="410" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">🎓 Integración de 10 Semanas de Bootcamp</text>
+  
+  <!-- Week pills -->
+  <g transform="translate(70, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#81C784"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S1-2</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">Dart</text>
+  </g>
+  
+  <g transform="translate(145, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#64B5F6"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S3</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">Widgets</text>
+  </g>
+  
+  <g transform="translate(220, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#CE93D8"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S4</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">Nav</text>
+  </g>
+  
+  <g transform="translate(295, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#FFB74D"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S5</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">Estado</text>
+  </g>
+  
+  <g transform="translate(370, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#EF5350"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S6</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">APIs</text>
+  </g>
+  
+  <g transform="translate(445, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#4FC3F7"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S7</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">DB</text>
+  </g>
+  
+  <g transform="translate(520, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#A5D6A7"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S8</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">Native</text>
+  </g>
+  
+  <g transform="translate(595, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#B39DDB"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S9</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">Arch</text>
+  </g>
+  
+  <g transform="translate(670, 430)">
+    <rect x="0" y="0" width="60" height="25" rx="12" fill="#E0E0E0"/>
+    <text x="30" y="17" font-family="Inter, Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1E1E1E" text-anchor="middle">S10</text>
+    <text x="30" y="45" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#B0B0B0" text-anchor="middle">Deploy</text>
+  </g>
+  
+  <!-- Deliverables -->
+  <text x="400" y="510" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#E0E0E0" text-anchor="middle">📦 Entregables</text>
+  <text x="400" y="535" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">APK Firmado • GitHub Actions CI/CD • Firebase Analytics • Tests • Documentación</text>
+  <text x="400" y="555" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#81C784" text-anchor="middle">100 puntos = App Completa + Pipeline + Monitoring</text>
+</svg>

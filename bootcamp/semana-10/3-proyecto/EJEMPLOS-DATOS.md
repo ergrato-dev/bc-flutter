@@ -130,7 +130,7 @@ class Task extends Equatable {
   });
 
   int get completedSubtasks => subtasks.where((s) => s.isCompleted).length;
-  double get progress => subtasks.isEmpty 
+  double get progress => subtasks.isEmpty
       ? (status == TaskStatus.completed ? 1.0 : 0.0)
       : completedSubtasks / subtasks.length;
 
@@ -209,14 +209,14 @@ class DashboardStats extends Equatable {
   final double habitCompletionRate;
   final int currentStreak;
   final int longestStreak;
-  
+
   final int totalTasksToday;
   final int completedTasksToday;
   final int overdueTasks;
-  
+
   final List<MoodEntry> weeklyMoods;
   final int journalEntriesThisWeek;
-  
+
   final DateTime generatedAt;
 
   const DashboardStats({
@@ -420,8 +420,8 @@ class JournalFixtures {
       date: DateTime.now(),
       mood: Mood.good,
       content: '''
-Hoy fue un día productivo. Logré completar todas mis tareas 
-principales y tuve tiempo para hacer ejercicio. Me siento 
+Hoy fue un día productivo. Logré completar todas mis tareas
+principales y tuve tiempo para hacer ejercicio. Me siento
 satisfecho con mi progreso en el proyecto.
       ''',
       tags: ['productivo', 'ejercicio'],
@@ -437,7 +437,7 @@ satisfecho con mi progreso en el proyecto.
       date: DateTime.now().subtract(const Duration(days: 1)),
       mood: Mood.great,
       content: '''
-¡Día increíble! Recibí buenas noticias sobre el proyecto y 
+¡Día increíble! Recibí buenas noticias sobre el proyecto y
 celebramos en equipo. La presentación fue un éxito.
       ''',
       tags: ['celebración', 'trabajo', 'éxito'],
@@ -715,6 +715,6 @@ class DatabaseMigrations {
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                        | 🏠 Índice                 | Siguiente ➡️         |
-| ---------------------------------- | ------------------------- | -------------------- |
-| [Guía Diseño](./GUIA-DISENO.md)    | [Semana 10](../README.md) | [Recursos](../4-recursos/) |
+| ⬅️ Anterior                     | 🏠 Índice                 | Siguiente ➡️               |
+| ------------------------------- | ------------------------- | -------------------------- |
+| [Guía Diseño](./GUIA-DISENO.md) | [Semana 10](../README.md) | [Recursos](../4-recursos/) |

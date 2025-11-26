@@ -2,12 +2,12 @@
 
 ## 📋 Información General
 
-| Campo           | Detalle                                      |
-| --------------- | -------------------------------------------- |
-| **Duración**    | 40 minutos                                   |
-| **Dificultad**  | ⭐⭐⭐ Avanzado                              |
-| **Prerequisitos** | Proyecto Firebase configurado              |
-| **Objetivos**   | Implementar analytics y crash reporting      |
+| Campo             | Detalle                                 |
+| ----------------- | --------------------------------------- |
+| **Duración**      | 40 minutos                              |
+| **Dificultad**    | ⭐⭐⭐ Avanzado                         |
+| **Prerequisitos** | Proyecto Firebase configurado           |
+| **Objetivos**     | Implementar analytics y crash reporting |
 
 ---
 
@@ -67,10 +67,10 @@ flutter pub get
 ```dart
 /**
  * Archivo: lib/core/services/analytics_service.dart
- * 
+ *
  * ¿Qué hace?
  * Centraliza toda la lógica de analytics
- * 
+ *
  * ¿Para qué?
  * Facilita el seguimiento de eventos y pantallas
  * Permite cambiar de proveedor fácilmente
@@ -85,9 +85,9 @@ class AnalyticsService {
   AnalyticsService._internal();
 
   final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
-  
+
   /// Observer para NavigatorObserver
-  FirebaseAnalyticsObserver get observer => 
+  FirebaseAnalyticsObserver get observer =>
       FirebaseAnalyticsObserver(analytics: _analytics);
 
   /// Registrar vista de pantalla
@@ -98,7 +98,7 @@ class AnalyticsService {
     if (kDebugMode) {
       debugPrint('📊 Analytics: Screen View - $screenName');
     }
-    
+
     await _analytics.logScreenView(
       screenName: screenName,
       screenClass: screenClass ?? screenName,
@@ -113,7 +113,7 @@ class AnalyticsService {
     if (kDebugMode) {
       debugPrint('📊 Analytics: Event - $name | $parameters');
     }
-    
+
     await _analytics.logEvent(
       name: name,
       parameters: parameters,
@@ -176,10 +176,10 @@ final analyticsService = AnalyticsService();
 ```dart
 /**
  * Archivo: lib/core/services/crash_service.dart
- * 
+ *
  * ¿Qué hace?
  * Centraliza el manejo de crashes y errores
- * 
+ *
  * ¿Para qué?
  * Permite rastrear y analizar crashes en producción
  */
@@ -198,7 +198,7 @@ class CrashService {
   Future<void> initialize() async {
     // Deshabilitar en debug mode
     await _crashlytics.setCrashlyticsCollectionEnabled(!kDebugMode);
-    
+
     if (kDebugMode) {
       debugPrint('🔥 Crashlytics: Disabled in debug mode');
     }
@@ -251,7 +251,7 @@ class CrashService {
       debugPrint('📝 Crash Log: $message');
       return;
     }
-    
+
     await _crashlytics.log(message);
   }
 
@@ -270,7 +270,7 @@ final crashService = CrashService();
 ```dart
 /**
  * Archivo: lib/main.dart
- * 
+ *
  * Configuración de Firebase con manejo de errores
  */
 
@@ -286,20 +286,20 @@ import 'app.dart';
 void main() async {
   // Asegurar inicialización de widgets
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Inicializar Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   // Inicializar Crashlytics
   await crashService.initialize();
-  
+
   // Capturar errores de Flutter
   FlutterError.onError = (details) {
     crashService.recordFlutterError(details);
   };
-  
+
   // Capturar errores asíncronos
   runZonedGuarded(
     () {
@@ -406,7 +406,7 @@ class _HomeScreenState extends State<HomeScreen> {
 ```dart
 /**
  * Archivo: lib/core/widgets/tracked_screen.dart
- * 
+ *
  * Widget base para tracking automático de pantallas
  */
 
@@ -415,7 +415,7 @@ import '../services/analytics_service.dart';
 
 abstract class TrackedScreen extends StatefulWidget {
   const TrackedScreen({super.key});
-  
+
   String get screenName;
 }
 
@@ -437,7 +437,7 @@ abstract class TrackedScreenState<T extends TrackedScreen> extends State<T> {
 // Ejemplo de uso:
 class ProfileScreen extends TrackedScreen {
   const ProfileScreen({super.key});
-  
+
   @override
   String get screenName => 'ProfileScreen';
 
@@ -460,16 +460,16 @@ class _ProfileScreenState extends TrackedScreenState<ProfileScreen> {
 
 ## ✅ Criterios de Aceptación
 
-| Criterio                              | Cumplido |
-| ------------------------------------- | -------- |
-| Firebase Analytics configurado        | ☐        |
-| Firebase Crashlytics configurado      | ☐        |
-| AnalyticsService creado               | ☐        |
-| CrashService creado                   | ☐        |
-| main.dart con manejo de errores       | ☐        |
-| Eventos registrándose correctamente   | ☐        |
-| Screen views registrándose            | ☐        |
-| Crashes capturados (en release)       | ☐        |
+| Criterio                            | Cumplido |
+| ----------------------------------- | -------- |
+| Firebase Analytics configurado      | ☐        |
+| Firebase Crashlytics configurado    | ☐        |
+| AnalyticsService creado             | ☐        |
+| CrashService creado                 | ☐        |
+| main.dart con manejo de errores     | ☐        |
+| Eventos registrándose correctamente | ☐        |
+| Screen views registrándose          | ☐        |
+| Crashes capturados (en release)     | ☐        |
 
 ---
 
@@ -514,6 +514,6 @@ Future<void> setAnalyticsEnabled(bool enabled) async {
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                                  | 🏠 Índice                 | Siguiente ➡️                      |
-| -------------------------------------------- | ------------------------- | --------------------------------- |
+| ⬅️ Anterior                                  | 🏠 Índice                 | Siguiente ➡️                        |
+| -------------------------------------------- | ------------------------- | ----------------------------------- |
 | [CI/CD GitHub](./practica-04-cicd-github.md) | [Semana 10](../README.md) | [Proyecto](../3-proyecto/README.md) |

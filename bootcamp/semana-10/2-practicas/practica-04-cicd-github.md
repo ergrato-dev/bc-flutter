@@ -2,12 +2,12 @@
 
 ## 📋 Información General
 
-| Campo           | Detalle                                      |
-| --------------- | -------------------------------------------- |
-| **Duración**    | 50 minutos                                   |
-| **Dificultad**  | ⭐⭐⭐ Avanzado                              |
-| **Prerequisitos** | Proyecto en GitHub, keystore configurado   |
-| **Objetivos**   | Configurar pipeline CI/CD automatizado       |
+| Campo             | Detalle                                  |
+| ----------------- | ---------------------------------------- |
+| **Duración**      | 50 minutos                               |
+| **Dificultad**    | ⭐⭐⭐ Avanzado                          |
+| **Prerequisitos** | Proyecto en GitHub, keystore configurado |
+| **Objetivos**     | Configurar pipeline CI/CD automatizado   |
 
 ---
 
@@ -55,7 +55,7 @@ jobs:
   analyze-and-test:
     name: Analyze & Test
     runs-on: ubuntu-latest
-    
+
     steps:
       # 1. Checkout del código
       - name: 📥 Checkout repository
@@ -109,12 +109,12 @@ base64 -i ~/keystores/my-app-upload.jks | pbcopy  # macOS
 base64 -w 0 ~/keystores/my-app-upload.jks          # Linux
 ```
 
-| Secret Name          | Valor                          |
-| -------------------- | ------------------------------ |
-| `KEYSTORE_BASE64`    | Keystore en base64             |
-| `KEYSTORE_PASSWORD`  | Contraseña del keystore        |
-| `KEY_ALIAS`          | Alias de la clave (ej: upload) |
-| `KEY_PASSWORD`       | Contraseña de la clave         |
+| Secret Name         | Valor                          |
+| ------------------- | ------------------------------ |
+| `KEYSTORE_BASE64`   | Keystore en base64             |
+| `KEYSTORE_PASSWORD` | Contraseña del keystore        |
+| `KEY_ALIAS`         | Alias de la clave (ej: upload) |
+| `KEY_PASSWORD`      | Contraseña de la clave         |
 
 ### Paso 4: Workflow de Build Android
 
@@ -127,13 +127,13 @@ name: Build Android
 on:
   push:
     branches: [main]
-  workflow_dispatch:  # Permite ejecutar manualmente
+  workflow_dispatch: # Permite ejecutar manualmente
 
 jobs:
   build:
     name: Build APK & AAB
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
@@ -201,7 +201,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'  # Se ejecuta cuando creas un tag como v1.0.0
+      - 'v*' # Se ejecuta cuando creas un tag como v1.0.0
 
 jobs:
   # Job 1: Tests
@@ -222,7 +222,7 @@ jobs:
     name: Build Android
     needs: test
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
 
@@ -268,7 +268,7 @@ jobs:
     name: Create Release
     needs: build-android
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
 
@@ -287,11 +287,11 @@ jobs:
           name: Release ${{ steps.version.outputs.version }}
           body: |
             ## Changes in this release
-            
+
             - See commit history for details
-            
+
             ## Downloads
-            
+
             - **APK**: Direct install for Android devices
             - **AAB**: For Google Play Store upload
           files: |
@@ -362,17 +362,17 @@ git push origin v1.0.0
 
 ## ⚠️ Errores Comunes
 
-| Error                                | Solución                                    |
-| ------------------------------------ | ------------------------------------------- |
-| `Secret not found`                   | Verificar nombre exacto del secret          |
-| `Permission denied`                  | Verificar permisos del GITHUB_TOKEN         |
-| `Keystore invalid`                   | Verificar encoding base64                   |
-| `Java version mismatch`              | Usar Java 17 para Flutter 3.x               |
+| Error                   | Solución                            |
+| ----------------------- | ----------------------------------- |
+| `Secret not found`      | Verificar nombre exacto del secret  |
+| `Permission denied`     | Verificar permisos del GITHUB_TOKEN |
+| `Keystore invalid`      | Verificar encoding base64           |
+| `Java version mismatch` | Usar Java 17 para Flutter 3.x       |
 
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                                | 🏠 Índice                 | Siguiente ➡️                                          |
-| ------------------------------------------ | ------------------------- | ----------------------------------------------------- |
+| ⬅️ Anterior                                   | 🏠 Índice                 | Siguiente ➡️                                                  |
+| --------------------------------------------- | ------------------------- | ------------------------------------------------------------- |
 | [Build y Firma](./practica-03-build-firma.md) | [Semana 10](../README.md) | [Analytics Monitoring](./practica-05-analytics-monitoring.md) |

@@ -2,13 +2,13 @@
 
 ## 📋 Información General
 
-| Campo           | Detalle                                                |
-| --------------- | ------------------------------------------------------ |
-| **Nombre**      | LifeTracker Pro                                        |
-| **Descripción** | App integral de productividad y bienestar personal     |
-| **Duración**    | 8-10 horas (proyecto final del bootcamp)               |
-| **Dificultad**  | ⭐⭐⭐⭐ Avanzado                                       |
-| **Stack**       | Flutter + Firebase + Clean Architecture                |
+| Campo           | Detalle                                            |
+| --------------- | -------------------------------------------------- |
+| **Nombre**      | LifeTracker Pro                                    |
+| **Descripción** | App integral de productividad y bienestar personal |
+| **Duración**    | 8-10 horas (proyecto final del bootcamp)           |
+| **Dificultad**  | ⭐⭐⭐⭐ Avanzado                                  |
+| **Stack**       | Flutter + Firebase + Clean Architecture            |
 
 ---
 
@@ -16,17 +16,17 @@
 
 Este proyecto final integra **todos los conocimientos** del bootcamp:
 
-| Semana | Conocimiento                        | Aplicación en el Proyecto              |
-| ------ | ----------------------------------- | -------------------------------------- |
-| 1-2    | Dart y Flutter básico               | Estructura del código                  |
-| 3      | Widgets y Layouts                   | UI completa y responsiva               |
-| 4      | Navegación                          | Flujo de pantallas                     |
-| 5      | Gestión de Estado                   | BLoC pattern                           |
-| 6      | APIs y HTTP                         | Sincronización de datos                |
-| 7      | Persistencia                        | SQLite + SharedPreferences             |
-| 8      | Features Nativas                    | Notificaciones, cámara                 |
-| 9      | Arquitectura y Testing              | Clean Architecture + Tests             |
-| 10     | Deployment                          | CI/CD + Publicación                    |
+| Semana | Conocimiento           | Aplicación en el Proyecto  |
+| ------ | ---------------------- | -------------------------- |
+| 1-2    | Dart y Flutter básico  | Estructura del código      |
+| 3      | Widgets y Layouts      | UI completa y responsiva   |
+| 4      | Navegación             | Flujo de pantallas         |
+| 5      | Gestión de Estado      | BLoC pattern               |
+| 6      | APIs y HTTP            | Sincronización de datos    |
+| 7      | Persistencia           | SQLite + SharedPreferences |
+| 8      | Features Nativas       | Notificaciones, cámara     |
+| 9      | Arquitectura y Testing | Clean Architecture + Tests |
+| 10     | Deployment             | CI/CD + Publicación        |
 
 ---
 
@@ -35,24 +35,28 @@ Este proyecto final integra **todos los conocimientos** del bootcamp:
 ### Core Features
 
 #### 1. Gestión de Hábitos
+
 - ✅ Crear hábitos personalizados
 - ✅ Tracking diario con streaks
 - ✅ Recordatorios con notificaciones
 - ✅ Estadísticas y gráficos de progreso
 
 #### 2. Lista de Tareas
+
 - ✅ CRUD completo de tareas
 - ✅ Categorías y prioridades
 - ✅ Fechas de vencimiento
 - ✅ Filtros y búsqueda
 
 #### 3. Diario Personal
+
 - ✅ Entradas diarias con mood
 - ✅ Adjuntar fotos (cámara/galería)
 - ✅ Búsqueda por fecha y contenido
 - ✅ Exportar en PDF
 
 #### 4. Dashboard
+
 - ✅ Resumen del día
 - ✅ Progreso de hábitos
 - ✅ Tareas pendientes
@@ -229,61 +233,61 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+
   # State Management
   flutter_bloc: ^8.1.3
   equatable: ^2.0.5
-  
+
   # Dependency Injection
   get_it: ^7.6.4
   injectable: ^2.3.2
-  
+
   # Database
   sqflite: ^2.3.0
   path: ^1.8.3
   shared_preferences: ^2.2.2
-  
+
   # Firebase
   firebase_core: ^2.24.0
   firebase_analytics: ^10.7.0
   firebase_crashlytics: ^3.4.7
-  
+
   # Notifications
   flutter_local_notifications: ^16.2.0
   timezone: ^0.9.2
-  
+
   # Camera & Image
   image_picker: ^1.0.5
   path_provider: ^2.1.1
-  
+
   # Functional Programming
   dartz: ^0.10.1
-  
+
   # UI
   flutter_svg: ^2.0.9
   cached_network_image: ^3.3.0
   fl_chart: ^0.65.0
   intl: ^0.18.1
-  
+
   # Utils
   uuid: ^4.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
+
   # Testing
   mockito: ^5.4.4
   bloc_test: ^9.1.5
-  
+
   # Code Generation
   build_runner: ^2.4.7
   injectable_generator: ^2.4.1
-  
+
   # Assets
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.3.5
-  
+
   # Linting
   flutter_lints: ^3.0.1
 ```
@@ -294,11 +298,11 @@ dev_dependencies:
 
 ### Mínimos Obligatorios
 
-| Tipo          | Cantidad Mínima | Enfoque                              |
-| ------------- | --------------- | ------------------------------------ |
-| Unit Tests    | 10              | Use cases, repositories, BLoCs       |
-| Widget Tests  | 5               | Screens principales, widgets custom  |
-| Integration   | 2               | Flujos completos                     |
+| Tipo         | Cantidad Mínima | Enfoque                             |
+| ------------ | --------------- | ----------------------------------- |
+| Unit Tests   | 10              | Use cases, repositories, BLoCs      |
+| Widget Tests | 5               | Screens principales, widgets custom |
+| Integration  | 2               | Flujos completos                    |
 
 ### Cobertura Esperada
 
@@ -349,42 +353,47 @@ dev_dependencies:
 
 ## 📊 Criterios de Evaluación
 
-| Componente                    | Peso  | Puntos |
-| ----------------------------- | ----- | ------ |
-| Arquitectura Clean            | 20%   | 20     |
-| Funcionalidades completas     | 25%   | 25     |
-| Testing (17+ tests)           | 20%   | 20     |
-| UI/UX y Diseño                | 10%   | 10     |
-| Deployment y CI/CD            | 15%   | 15     |
-| Documentación y código limpio | 10%   | 10     |
-| **TOTAL**                     | 100%  | **100**|
+| Componente                    | Peso | Puntos  |
+| ----------------------------- | ---- | ------- |
+| Arquitectura Clean            | 20%  | 20      |
+| Funcionalidades completas     | 25%  | 25      |
+| Testing (17+ tests)           | 20%  | 20      |
+| UI/UX y Diseño                | 10%  | 10      |
+| Deployment y CI/CD            | 15%  | 15      |
+| Documentación y código limpio | 10%  | 10      |
+| **TOTAL**                     | 100% | **100** |
 
 ---
 
 ## 📅 Plan de Desarrollo Sugerido
 
 ### Día 1-2: Arquitectura Base (3h)
+
 - [ ] Setup proyecto y dependencias
 - [ ] Estructura de carpetas
 - [ ] Configuración de entornos
 - [ ] DI con get_it
 
 ### Día 3-4: Core Features (3h)
+
 - [ ] Implementar módulo de Hábitos
 - [ ] Implementar módulo de Tareas
 - [ ] Base de datos SQLite
 
 ### Día 5: Features Adicionales (2h)
+
 - [ ] Módulo de Diario
 - [ ] Dashboard
 - [ ] Notificaciones
 
 ### Día 6: Testing y Polish (2h)
+
 - [ ] Escribir tests
 - [ ] Pulir UI
 - [ ] Corregir bugs
 
 ### Día 7: Deployment (2h)
+
 - [ ] Assets finales
 - [ ] CI/CD
 - [ ] Build de release
@@ -401,6 +410,6 @@ dev_dependencies:
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                       | 🏠 Índice                 | Siguiente ➡️                      |
-| --------------------------------- | ------------------------- | --------------------------------- |
-| [Prácticas](../2-practicas/README.md) | [Semana 10](../README.md) | [Guía Diseño](./GUIA-DISENO.md)  |
+| ⬅️ Anterior                           | 🏠 Índice                 | Siguiente ➡️                    |
+| ------------------------------------- | ------------------------- | ------------------------------- |
+| [Prácticas](../2-practicas/README.md) | [Semana 10](../README.md) | [Guía Diseño](./GUIA-DISENO.md) |

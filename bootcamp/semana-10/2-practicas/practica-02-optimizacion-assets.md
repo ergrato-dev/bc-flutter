@@ -2,12 +2,12 @@
 
 ## 📋 Información General
 
-| Campo           | Detalle                                      |
-| --------------- | -------------------------------------------- |
-| **Duración**    | 35 minutos                                   |
-| **Dificultad**  | ⭐⭐ Intermedio                              |
-| **Prerequisitos** | Proyecto Flutter con imágenes              |
-| **Objetivos**   | Optimizar assets y generar iconos/splash     |
+| Campo             | Detalle                                  |
+| ----------------- | ---------------------------------------- |
+| **Duración**      | 35 minutos                               |
+| **Dificultad**    | ⭐⭐ Intermedio                          |
+| **Prerequisitos** | Proyecto Flutter con imágenes            |
+| **Objetivos**     | Optimizar assets y generar iconos/splash |
 
 ---
 
@@ -60,30 +60,30 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icon/app_icon.png"
+  image_path: 'assets/icon/app_icon.png'
   min_sdk_android: 21
-  
+
   # Android Adaptive Icon
-  adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
-  
+  adaptive_icon_background: '#FFFFFF'
+  adaptive_icon_foreground: 'assets/icon/app_icon_foreground.png'
+
   # Web
   web:
     generate: true
-    image_path: "assets/icon/app_icon.png"
-    background_color: "#FFFFFF"
-    theme_color: "#1976D2"
-  
+    image_path: 'assets/icon/app_icon.png'
+    background_color: '#FFFFFF'
+    theme_color: '#1976D2'
+
   # Windows
   windows:
     generate: true
-    image_path: "assets/icon/app_icon.png"
+    image_path: 'assets/icon/app_icon.png'
     icon_size: 48
-  
+
   # macOS
   macos:
     generate: true
-    image_path: "assets/icon/app_icon.png"
+    image_path: 'assets/icon/app_icon.png'
 ```
 
 Ejecuta:
@@ -103,28 +103,28 @@ dev_dependencies:
 
 flutter_native_splash:
   # Color de fondo
-  color: "#1976D2"
-  
+  color: '#1976D2'
+
   # Logo en el centro
   image: assets/splash/splash_logo.png
-  
+
   # Tamaño del logo (opcional)
   # branding: assets/splash/branding.png
   # branding_mode: bottom
-  
+
   # Plataformas
   android: true
   ios: true
   web: true
-  
+
   # Android 12+ splash
   android_12:
-    color: "#1976D2"
-    icon_background_color: "#FFFFFF"
+    color: '#1976D2'
+    icon_background_color: '#FFFFFF'
     image: assets/splash/splash_logo.png
-  
+
   # Modo oscuro (opcional)
-  color_dark: "#121212"
+  color_dark: '#121212'
   # image_dark: assets/splash/splash_logo_dark.png
 ```
 
@@ -142,13 +142,13 @@ flutter:
   assets:
     # Iconos
     - assets/icon/
-    
+
     # Splash
     - assets/splash/
-    
+
     # Imágenes (Flutter detecta automáticamente 2.0x, 3.0x)
     - assets/images/
-    
+
   fonts:
     - family: CustomFont
       fonts:
@@ -162,10 +162,10 @@ flutter:
 ```dart
 /**
  * Archivo: lib/core/widgets/optimized_image.dart
- * 
+ *
  * ¿Qué hace?
  * Widget para cargar imágenes de forma optimizada
- * 
+ *
  * ¿Para qué?
  * Reduce uso de memoria y mejora performance
  */
@@ -194,11 +194,11 @@ class OptimizedNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Calcular tamaño de cache basado en pixel ratio
     final devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
-    final cacheWidth = width != null 
-        ? (width! * devicePixelRatio).toInt() 
+    final cacheWidth = width != null
+        ? (width! * devicePixelRatio).toInt()
         : null;
-    final cacheHeight = height != null 
-        ? (height! * devicePixelRatio).toInt() 
+    final cacheHeight = height != null
+        ? (height! * devicePixelRatio).toInt()
         : null;
 
     return Image.network(
@@ -212,7 +212,7 @@ class OptimizedNetworkImage extends StatelessWidget {
       // Loading indicator
       loadingBuilder: (context, child, loadingProgress) {
         if (loadingProgress == null) return child;
-        
+
         return placeholder ?? Container(
           width: width,
           height: height,
@@ -287,14 +287,14 @@ flutter build apk --analyze-size
 
 ## ✅ Criterios de Aceptación
 
-| Criterio                              | Cumplido |
-| ------------------------------------- | -------- |
-| App icon generado (Android + iOS)     | ☐        |
-| Adaptive icon configurado (Android)   | ☐        |
-| Splash screen funcionando             | ☐        |
-| Assets organizados por resolución     | ☐        |
-| Widget OptimizedImage creado          | ☐        |
-| Build sin errores de assets           | ☐        |
+| Criterio                            | Cumplido |
+| ----------------------------------- | -------- |
+| App icon generado (Android + iOS)   | ☐        |
+| Adaptive icon configurado (Android) | ☐        |
+| Splash screen funcionando           | ☐        |
+| Assets organizados por resolución   | ☐        |
+| Widget OptimizedImage creado        | ☐        |
+| Build sin errores de assets         | ☐        |
 
 ---
 
@@ -335,6 +335,6 @@ flutter clean && flutter pub get
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                                          | 🏠 Índice                 | Siguiente ➡️                              |
-| ---------------------------------------------------- | ------------------------- | ----------------------------------------- |
+| ⬅️ Anterior                                             | 🏠 Índice                 | Siguiente ➡️                                  |
+| ------------------------------------------------------- | ------------------------- | --------------------------------------------- |
 | [Config Producción](./practica-01-config-produccion.md) | [Semana 10](../README.md) | [Build y Firma](./practica-03-build-firma.md) |

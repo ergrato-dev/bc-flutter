@@ -2,12 +2,12 @@
 
 ## 📋 Información General
 
-| Campo           | Detalle                                      |
-| --------------- | -------------------------------------------- |
-| **Duración**    | 45 minutos                                   |
-| **Dificultad**  | ⭐⭐⭐ Avanzado                              |
-| **Prerequisitos** | Proyecto Flutter listo para release        |
-| **Objetivos**   | Generar builds firmados para distribución    |
+| Campo             | Detalle                                   |
+| ----------------- | ----------------------------------------- |
+| **Duración**      | 45 minutos                                |
+| **Dificultad**    | ⭐⭐⭐ Avanzado                           |
+| **Prerequisitos** | Proyecto Flutter listo para release       |
+| **Objetivos**     | Generar builds firmados para distribución |
 
 ---
 
@@ -48,6 +48,7 @@ keytool -genkey -v \
 ```
 
 Te pedirá:
+
 - **Contraseña del keystore**: Usa una contraseña segura
 - **Nombre y apellido**: Tu nombre o nombre de la empresa
 - **Unidad organizacional**: Departamento (ej: "Development")
@@ -117,11 +118,11 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            
+
             // Habilitar optimizaciones
             minifyEnabled true
             shrinkResources true
-            
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -228,27 +229,27 @@ flutter build ipa --release \
 
 ## 📁 Ubicación de Builds
 
-| Tipo                | Ubicación                                              |
-| ------------------- | ------------------------------------------------------ |
-| APK Release         | `build/app/outputs/flutter-apk/app-release.apk`        |
-| APK Split (arm64)   | `build/app/outputs/flutter-apk/app-arm64-v8a-release.apk` |
-| App Bundle          | `build/app/outputs/bundle/release/app-release.aab`     |
-| iOS IPA             | `build/ios/ipa/`                                       |
+| Tipo              | Ubicación                                                 |
+| ----------------- | --------------------------------------------------------- |
+| APK Release       | `build/app/outputs/flutter-apk/app-release.apk`           |
+| APK Split (arm64) | `build/app/outputs/flutter-apk/app-arm64-v8a-release.apk` |
+| App Bundle        | `build/app/outputs/bundle/release/app-release.aab`        |
+| iOS IPA           | `build/ios/ipa/`                                          |
 
 ---
 
 ## ✅ Criterios de Aceptación
 
-| Criterio                              | Cumplido |
-| ------------------------------------- | -------- |
-| Keystore generado y guardado          | ☐        |
-| key.properties creado                 | ☐        |
-| key.properties en .gitignore          | ☐        |
-| build.gradle configurado              | ☐        |
-| ProGuard configurado                  | ☐        |
-| APK release generado sin errores      | ☐        |
-| App Bundle generado sin errores       | ☐        |
-| Firma verificada con jarsigner        | ☐        |
+| Criterio                         | Cumplido |
+| -------------------------------- | -------- |
+| Keystore generado y guardado     | ☐        |
+| key.properties creado            | ☐        |
+| key.properties en .gitignore     | ☐        |
+| build.gradle configurado         | ☐        |
+| ProGuard configurado             | ☐        |
+| APK release generado sin errores | ☐        |
+| App Bundle generado sin errores  | ☐        |
+| Firma verificada con jarsigner   | ☐        |
 
 ---
 
@@ -272,18 +273,18 @@ flutter build ipa --release \
 
 ## ⚠️ Errores Comunes
 
-| Error                                | Solución                                    |
-| ------------------------------------ | ------------------------------------------- |
-| `Keystore was tampered with`         | Contraseña incorrecta                       |
-| `No key with alias 'upload'`         | Verificar keyAlias en key.properties        |
-| `storeFile not found`                | Verificar ruta absoluta del keystore        |
-| `minifyEnabled breaks app`           | Agregar reglas a ProGuard                   |
-| `Version code already used`          | Incrementar versionCode                     |
+| Error                        | Solución                             |
+| ---------------------------- | ------------------------------------ |
+| `Keystore was tampered with` | Contraseña incorrecta                |
+| `No key with alias 'upload'` | Verificar keyAlias en key.properties |
+| `storeFile not found`        | Verificar ruta absoluta del keystore |
+| `minifyEnabled breaks app`   | Agregar reglas a ProGuard            |
+| `Version code already used`  | Incrementar versionCode              |
 
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior                                           | 🏠 Índice                 | Siguiente ➡️                                  |
-| ----------------------------------------------------- | ------------------------- | --------------------------------------------- |
-| [Optimización Assets](./practica-02-optimizacion-assets.md) | [Semana 10](../README.md) | [CI/CD GitHub](./practica-04-cicd-github.md)  |
+| ⬅️ Anterior                                                 | 🏠 Índice                 | Siguiente ➡️                                 |
+| ----------------------------------------------------------- | ------------------------- | -------------------------------------------- |
+| [Optimización Assets](./practica-02-optimizacion-assets.md) | [Semana 10](../README.md) | [CI/CD GitHub](./practica-04-cicd-github.md) |
