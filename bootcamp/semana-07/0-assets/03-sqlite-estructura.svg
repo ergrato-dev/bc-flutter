@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Fondo -->
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Segoe UI, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Estructura de SQLite con sqflite</text>
+  
+  <!-- Database Icon -->
+  <ellipse cx="100" cy="100" rx="50" ry="20" fill="#424242" stroke="#64B5F6" stroke-width="2"/>
+  <rect x="50" y="100" width="100" height="40" fill="#424242" stroke="#64B5F6" stroke-width="2"/>
+  <ellipse cx="100" cy="140" rx="50" ry="20" fill="#424242" stroke="#64B5F6" stroke-width="2"/>
+  <text x="100" y="125" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#64B5F6" text-anchor="middle">app.db</text>
+  
+  <!-- Arrow from DB to Tables -->
+  <path d="M150 120 L200 120" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowSql)"/>
+  
+  <!-- Users Table -->
+  <rect x="210" y="60" width="260" height="130" rx="6" fill="#2D2D2D" stroke="#81C784" stroke-width="2"/>
+  <rect x="210" y="60" width="260" height="30" rx="6" fill="#3D5A47"/>
+  <text x="340" y="80" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#81C784" text-anchor="middle">users</text>
+  
+  <!-- Users columns -->
+  <text x="225" y="110" font-family="Consolas, monospace" font-size="11" fill="#FFB74D">id</text>
+  <text x="300" y="110" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">INTEGER PK</text>
+  <text x="225" y="128" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">name</text>
+  <text x="300" y="128" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT NOT NULL</text>
+  <text x="225" y="146" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">email</text>
+  <text x="300" y="146" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT UNIQUE</text>
+  <text x="225" y="164" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">created_at</text>
+  <text x="300" y="164" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT</text>
+  <text x="225" y="182" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">avatar</text>
+  <text x="300" y="182" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT</text>
+  
+  <!-- Notes Table -->
+  <rect x="510" y="60" width="260" height="150" rx="6" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <rect x="510" y="60" width="260" height="30" rx="6" fill="#2D4A5A"/>
+  <text x="640" y="80" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">notes</text>
+  
+  <!-- Notes columns -->
+  <text x="525" y="110" font-family="Consolas, monospace" font-size="11" fill="#FFB74D">id</text>
+  <text x="610" y="110" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">INTEGER PK</text>
+  <text x="525" y="128" font-family="Consolas, monospace" font-size="11" fill="#CE93D8">user_id</text>
+  <text x="610" y="128" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">INTEGER FK</text>
+  <text x="525" y="146" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">title</text>
+  <text x="610" y="146" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT NOT NULL</text>
+  <text x="525" y="164" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">content</text>
+  <text x="610" y="164" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT</text>
+  <text x="525" y="182" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">folder_id</text>
+  <text x="610" y="182" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">INTEGER FK</text>
+  <text x="525" y="200" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">created_at</text>
+  <text x="610" y="200" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT</text>
+  
+  <!-- Foreign Key Line -->
+  <path d="M470 125 L510 125" stroke="#CE93D8" stroke-width="2" stroke-dasharray="4" fill="none"/>
+  <text x="490" y="118" font-family="Arial, sans-serif" font-size="9" fill="#CE93D8">FK</text>
+  
+  <!-- Folders Table -->
+  <rect x="510" y="230" width="200" height="100" rx="6" fill="#2D2D2D" stroke="#FFB74D" stroke-width="2"/>
+  <rect x="510" y="230" width="200" height="30" rx="6" fill="#4A3D2D"/>
+  <text x="610" y="250" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFB74D" text-anchor="middle">folders</text>
+  
+  <text x="525" y="280" font-family="Consolas, monospace" font-size="11" fill="#FFB74D">id</text>
+  <text x="600" y="280" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">INTEGER PK</text>
+  <text x="525" y="298" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">name</text>
+  <text x="600" y="298" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT NOT NULL</text>
+  <text x="525" y="316" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF">color</text>
+  <text x="600" y="316" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">TEXT</text>
+  
+  <!-- FK from notes to folders -->
+  <path d="M610 210 L610 225" stroke="#CE93D8" stroke-width="2" stroke-dasharray="4" fill="none"/>
+  
+  <!-- CRUD Operations Box -->
+  <rect x="50" y="230" width="180" height="160" rx="8" fill="#424242" stroke="#616161" stroke-width="1"/>
+  <text x="140" y="255" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">CRUD Operations</text>
+  
+  <text x="70" y="285" font-family="Consolas, monospace" font-size="11" fill="#81C784">INSERT</text>
+  <text x="125" y="285" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">Create</text>
+  <text x="70" y="308" font-family="Consolas, monospace" font-size="11" fill="#64B5F6">SELECT</text>
+  <text x="125" y="308" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">Read</text>
+  <text x="70" y="331" font-family="Consolas, monospace" font-size="11" fill="#FFB74D">UPDATE</text>
+  <text x="125" y="331" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">Update</text>
+  <text x="70" y="354" font-family="Consolas, monospace" font-size="11" fill="#EF5350">DELETE</text>
+  <text x="125" y="354" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">Delete</text>
+  <text x="70" y="377" font-family="Consolas, monospace" font-size="11" fill="#CE93D8">BATCH</text>
+  <text x="125" y="377" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E">Multiple</text>
+  
+  <!-- Index Indicator -->
+  <rect x="260" y="230" width="200" height="100" rx="8" fill="#424242" stroke="#616161" stroke-width="1"/>
+  <text x="360" y="255" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Indexes</text>
+  <text x="275" y="280" font-family="Consolas, monospace" font-size="10" fill="#81C784">idx_notes_user</text>
+  <text x="275" y="298" font-family="Consolas, monospace" font-size="10" fill="#81C784">idx_notes_folder</text>
+  <text x="275" y="316" font-family="Consolas, monospace" font-size="10" fill="#81C784">idx_notes_created</text>
+  
+  <!-- Version/Migration -->
+  <rect x="260" y="350" width="200" height="70" rx="8" fill="#424242" stroke="#616161" stroke-width="1"/>
+  <text x="360" y="375" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Migrations</text>
+  <text x="275" y="400" font-family="Consolas, monospace" font-size="10" fill="#9E9E9E">version: 3</text>
+  <text x="275" y="415" font-family="Consolas, monospace" font-size="10" fill="#64B5F6">onUpgrade()</text>
+  
+  <!-- Legend -->
+  <rect x="510" y="360" width="260" height="90" rx="8" fill="#2D2D2D" stroke="#616161" stroke-width="1"/>
+  <text x="640" y="385" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Tipos de Datos SQLite</text>
+  <text x="530" y="408" font-family="Consolas, monospace" font-size="10" fill="#64B5F6">INTEGER</text>
+  <text x="610" y="408" font-family="Consolas, monospace" font-size="10" fill="#81C784">TEXT</text>
+  <text x="670" y="408" font-family="Consolas, monospace" font-size="10" fill="#FFB74D">REAL</text>
+  <text x="720" y="408" font-family="Consolas, monospace" font-size="10" fill="#CE93D8">BLOB</text>
+  <text x="530" y="430" font-family="Arial, sans-serif" font-size="9" fill="#9E9E9E">PK = Primary Key | FK = Foreign Key</text>
+  <text x="530" y="445" font-family="Arial, sans-serif" font-size="9" fill="#9E9E9E">UNIQUE | NOT NULL | DEFAULT</text>
+  
+  <!-- Footer -->
+  <text x="50" y="485" font-family="Arial, sans-serif" font-size="10" fill="#616161">Semana 07 - SQLite Relational Database Structure</text>
+  
+  <!-- Marker definition -->
+  <defs>
+    <marker id="arrowSql" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#9E9E9E"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Fondo -->
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Título -->
+  <text x="400" y="40" font-family="Segoe UI, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Arquitectura de Persistencia en Flutter</text>
+  
+  <!-- Capa UI -->
+  <rect x="250" y="70" width="300" height="60" rx="8" fill="#424242" stroke="#64B5F6" stroke-width="2"/>
+  <text x="400" y="105" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#64B5F6" text-anchor="middle">UI Layer</text>
+  <text x="400" y="122" font-family="Arial, sans-serif" font-size="12" fill="#9E9E9E" text-anchor="middle">Widgets, Screens, State Management</text>
+  
+  <!-- Flecha UI a Repository -->
+  <path d="M400 130 L400 160" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowGray)"/>
+  
+  <!-- Capa Repository -->
+  <rect x="250" y="165" width="300" height="60" rx="8" fill="#424242" stroke="#81C784" stroke-width="2"/>
+  <text x="400" y="200" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#81C784" text-anchor="middle">Repository Layer</text>
+  <text x="400" y="217" font-family="Arial, sans-serif" font-size="12" fill="#9E9E9E" text-anchor="middle">Data abstraction, Caching, Sync logic</text>
+  
+  <!-- Flecha Repository a Data Sources -->
+  <path d="M310 225 L180 280" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowGray)"/>
+  <path d="M400 225 L400 280" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowGray)"/>
+  <path d="M490 225 L620 280" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowGray)"/>
+  
+  <!-- Data Sources -->
+  <!-- SharedPreferences -->
+  <rect x="50" y="285" width="180" height="80" rx="8" fill="#424242" stroke="#FFB74D" stroke-width="2"/>
+  <text x="140" y="315" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#FFB74D" text-anchor="middle">SharedPreferences</text>
+  <text x="140" y="335" font-family="Arial, sans-serif" font-size="11" fill="#9E9E9E" text-anchor="middle">Key-Value Storage</text>
+  <text x="140" y="352" font-family="Consolas, monospace" font-size="10" fill="#81C784" text-anchor="middle">Settings, Preferences</text>
+  
+  <!-- SQLite -->
+  <rect x="260" y="285" width="180" height="80" rx="8" fill="#424242" stroke="#64B5F6" stroke-width="2"/>
+  <text x="350" y="315" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">SQLite / sqflite</text>
+  <text x="350" y="335" font-family="Arial, sans-serif" font-size="11" fill="#9E9E9E" text-anchor="middle">Relational Database</text>
+  <text x="350" y="352" font-family="Consolas, monospace" font-size="10" fill="#81C784" text-anchor="middle">Structured Data, Queries</text>
+  
+  <!-- Hive -->
+  <rect x="470" y="285" width="180" height="80" rx="8" fill="#424242" stroke="#CE93D8" stroke-width="2"/>
+  <text x="560" y="315" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#CE93D8" text-anchor="middle">Hive</text>
+  <text x="560" y="335" font-family="Arial, sans-serif" font-size="11" fill="#9E9E9E" text-anchor="middle">NoSQL Database</text>
+  <text x="560" y="352" font-family="Consolas, monospace" font-size="10" fill="#81C784" text-anchor="middle">Fast, Typed Objects</text>
+  
+  <!-- File System -->
+  <rect x="680" y="285" width="100" height="80" rx="8" fill="#424242" stroke="#EF5350" stroke-width="2"/>
+  <text x="730" y="320" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#EF5350" text-anchor="middle">Files</text>
+  <text x="730" y="340" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E" text-anchor="middle">path_provider</text>
+  <text x="730" y="355" font-family="Consolas, monospace" font-size="9" fill="#81C784" text-anchor="middle">Images, Docs</text>
+  
+  <!-- Flecha a Files -->
+  <path d="M560 280 L680 320" stroke="#9E9E9E" stroke-width="1" stroke-dasharray="4" fill="none"/>
+  
+  <!-- Storage Layer -->
+  <rect x="50" y="400" width="700" height="60" rx="8" fill="#2D2D2D" stroke="#616161" stroke-width="1"/>
+  <text x="400" y="425" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#9E9E9E" text-anchor="middle">Device Storage Layer</text>
+  <text x="400" y="445" font-family="Arial, sans-serif" font-size="12" fill="#616161" text-anchor="middle">Android: /data/data/app/ | iOS: App Sandbox | Desktop: AppData/Documents</text>
+  
+  <!-- Flechas a Storage -->
+  <path d="M140 365 L140 395" stroke="#616161" stroke-width="1" stroke-dasharray="3" fill="none"/>
+  <path d="M350 365 L350 395" stroke="#616161" stroke-width="1" stroke-dasharray="3" fill="none"/>
+  <path d="M560 365 L560 395" stroke="#616161" stroke-width="1" stroke-dasharray="3" fill="none"/>
+  <path d="M730 365 L730 395" stroke="#616161" stroke-width="1" stroke-dasharray="3" fill="none"/>
+  
+  <!-- Leyenda -->
+  <text x="50" y="485" font-family="Arial, sans-serif" font-size="10" fill="#616161">Semana 07 - Persistencia de Datos en Flutter</text>
+  
+  <!-- Marker definition -->
+  <defs>
+    <marker id="arrowGray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#9E9E9E"/>
+    </marker>
+  </defs>
+</svg>

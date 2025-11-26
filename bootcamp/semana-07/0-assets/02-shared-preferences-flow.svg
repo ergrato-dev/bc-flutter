@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- Fondo -->
+  <rect width="800" height="450" fill="#1E1E1E"/>
+  
+  <!-- Título -->
+  <text x="400" y="35" font-family="Segoe UI, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Flujo de SharedPreferences</text>
+  
+  <!-- App Start -->
+  <ellipse cx="100" cy="100" rx="60" ry="30" fill="#424242" stroke="#64B5F6" stroke-width="2"/>
+  <text x="100" y="105" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#64B5F6" text-anchor="middle">App Start</text>
+  
+  <!-- Arrow to getInstance -->
+  <path d="M160 100 L220 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- getInstance -->
+  <rect x="225" y="75" width="150" height="50" rx="6" fill="#424242" stroke="#FFB74D" stroke-width="2"/>
+  <text x="300" y="95" font-family="Consolas, monospace" font-size="11" fill="#FFB74D" text-anchor="middle">getInstance()</text>
+  <text x="300" y="112" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E" text-anchor="middle">async - await</text>
+  
+  <!-- Arrow to Prefs Instance -->
+  <path d="M375 100 L435 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Prefs Instance -->
+  <rect x="440" y="70" width="160" height="60" rx="6" fill="#2D4A3E" stroke="#81C784" stroke-width="2"/>
+  <text x="520" y="95" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#81C784" text-anchor="middle">SharedPreferences</text>
+  <text x="520" y="115" font-family="Arial, sans-serif" font-size="10" fill="#9E9E9E" text-anchor="middle">Instance Ready</text>
+  
+  <!-- Divider line -->
+  <line x1="50" y1="170" x2="750" y2="170" stroke="#424242" stroke-width="1" stroke-dasharray="5"/>
+  <text x="400" y="165" font-family="Arial, sans-serif" font-size="10" fill="#616161" text-anchor="middle">Operations</text>
+  
+  <!-- Read Operations -->
+  <rect x="70" y="200" width="200" height="120" rx="8" fill="#424242" stroke="#64B5F6" stroke-width="2"/>
+  <text x="170" y="225" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">READ (Sync)</text>
+  <text x="170" y="250" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">getString('key')</text>
+  <text x="170" y="268" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">getInt('key')</text>
+  <text x="170" y="286" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">getBool('key')</text>
+  <text x="170" y="304" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">getDouble('key')</text>
+  
+  <!-- Write Operations -->
+  <rect x="300" y="200" width="200" height="120" rx="8" fill="#424242" stroke="#81C784" stroke-width="2"/>
+  <text x="400" y="225" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#81C784" text-anchor="middle">WRITE (Async)</text>
+  <text x="400" y="250" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">await setString('k', v)</text>
+  <text x="400" y="268" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">await setInt('k', v)</text>
+  <text x="400" y="286" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">await setBool('k', v)</text>
+  <text x="400" y="304" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">await setDouble('k', v)</text>
+  
+  <!-- Delete Operations -->
+  <rect x="530" y="200" width="200" height="120" rx="8" fill="#424242" stroke="#EF5350" stroke-width="2"/>
+  <text x="630" y="225" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#EF5350" text-anchor="middle">DELETE (Async)</text>
+  <text x="630" y="260" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">await remove('key')</text>
+  <text x="630" y="290" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">await clear()</text>
+  
+  <!-- Storage representation -->
+  <rect x="220" y="360" width="360" height="70" rx="8" fill="#2D2D2D" stroke="#616161" stroke-width="1"/>
+  <text x="400" y="385" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#9E9E9E" text-anchor="middle">Device Storage (XML/Plist)</text>
+  <text x="400" y="405" font-family="Consolas, monospace" font-size="10" fill="#616161" text-anchor="middle">{'darkMode': true, 'lang': 'es', 'fontSize': 14}</text>
+  
+  <!-- Arrows to storage -->
+  <path d="M170 320 L300 360" stroke="#64B5F6" stroke-width="1" stroke-dasharray="4" fill="none"/>
+  <path d="M400 320 L400 355" stroke="#81C784" stroke-width="1" stroke-dasharray="4" fill="none"/>
+  <path d="M630 320 L500 360" stroke="#EF5350" stroke-width="1" stroke-dasharray="4" fill="none"/>
+  
+  <!-- Nota -->
+  <text x="50" y="440" font-family="Arial, sans-serif" font-size="10" fill="#616161">💡 Read es síncrono (ya en memoria) | Write es async (persiste a disco)</text>
+  
+  <!-- Marker definition -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#9E9E9E"/>
+    </marker>
+  </defs>
+</svg>
