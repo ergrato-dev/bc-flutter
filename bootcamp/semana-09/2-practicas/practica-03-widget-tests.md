@@ -2,10 +2,10 @@
 
 ## 📋 Información
 
-| Campo | Detalle |
-|-------|---------|
-| **Nivel** | Intermedio |
-| **Duración** | 45 minutos |
+| Campo          | Detalle                      |
+| -------------- | ---------------------------- |
+| **Nivel**      | Intermedio                   |
+| **Duración**   | 45 minutos                   |
 | **Requisitos** | Flutter Test, Práctica 01-02 |
 
 ---
@@ -543,7 +543,7 @@ void main() {
           find.byKey(TaskForm.titleFieldKey),
         );
         expect(titleField.controller?.text, '');
-        
+
         expect(find.text('Crear'), findsOneWidget);
       });
 
@@ -718,14 +718,14 @@ void main() {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Widgets implementados correctamente | 20 |
-| TaskItem tests (8+ tests) | 30 |
-| TaskForm tests (8+ tests) | 30 |
-| Uso correcto de finders y keys | 10 |
-| Simulación de interacciones | 10 |
-| **Total** | **100** |
+| Criterio                            | Puntos  |
+| ----------------------------------- | ------- |
+| Widgets implementados correctamente | 20      |
+| TaskItem tests (8+ tests)           | 30      |
+| TaskForm tests (8+ tests)           | 30      |
+| Uso correcto de finders y keys      | 10      |
+| Simulación de interacciones         | 10      |
+| **Total**                           | **100** |
 
 ---
 

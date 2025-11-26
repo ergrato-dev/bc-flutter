@@ -6,11 +6,11 @@ Esta carpeta contiene el material teórico de la Semana 9, enfocada en **Clean A
 
 ## 🗂️ Módulos
 
-| # | Módulo | Archivo | Duración | Descripción |
-|---|--------|---------|----------|-------------|
-| 1 | Clean Architecture | [`01-clean-architecture.md`](./01-clean-architecture.md) | 2h | Capas, SOLID, estructura |
-| 2 | Testing Unitario | [`02-testing-unitario.md`](./02-testing-unitario.md) | 1.5h | Unit tests, mocking, TDD |
-| 3 | Widget Testing | [`03-widget-testing.md`](./03-widget-testing.md) | 1h | WidgetTester, finders, matchers |
+| #   | Módulo             | Archivo                                                  | Duración | Descripción                     |
+| --- | ------------------ | -------------------------------------------------------- | -------- | ------------------------------- |
+| 1   | Clean Architecture | [`01-clean-architecture.md`](./01-clean-architecture.md) | 2h       | Capas, SOLID, estructura        |
+| 2   | Testing Unitario   | [`02-testing-unitario.md`](./02-testing-unitario.md)     | 1.5h     | Unit tests, mocking, TDD        |
+| 3   | Widget Testing     | [`03-widget-testing.md`](./03-widget-testing.md)         | 1h       | WidgetTester, finders, matchers |
 
 ## 🎯 Objetivos por Módulo
 
@@ -49,11 +49,11 @@ dev_dependencies:
   mockito: ^5.4.4
   build_runner: ^2.4.8
   bloc_test: ^9.1.5
-  
+
   # Code generation
   freezed: ^2.4.6
   json_serializable: ^6.7.1
-  
+
 dependencies:
   # Architecture
   dartz: ^0.10.1

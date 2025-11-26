@@ -26,6 +26,7 @@
 ### ¿Por qué documentar?
 
 La documentación es esencial para:
+
 - **Mantenibilidad**: Facilitar el trabajo futuro
 - **Colaboración**: Permitir que otros entiendan el código
 - **Onboarding**: Reducir tiempo de aprendizaje
@@ -46,21 +47,21 @@ final userId = _extractUserId(token); // Obtiene el ID del JWT
 // ═══════════════════════════════════════════════════════════════
 
 /// Representa un usuario en el sistema.
-/// 
+///
 /// El [User] contiene información básica del perfil
 /// y credenciales de autenticación.
 class User {
   /// Identificador único del usuario.
   final String id;
-  
+
   /// Nombre completo del usuario.
   final String name;
-  
+
   /// Correo electrónico (usado para login).
   final String email;
-  
+
   /// Crea un nuevo usuario con los datos proporcionados.
-  /// 
+  ///
   /// El [id] debe ser un UUID válido.
   /// El [email] será validado automáticamente.
   User({
@@ -86,47 +87,47 @@ class User {
 
 ### QUÉ, PARA QUÉ, CÓMO
 
-```dart
+````dart
 /// **QUÉ**: Servicio de autenticación
-/// 
+///
 /// Maneja todas las operaciones relacionadas con la autenticación
 /// de usuarios: login, logout, registro y refresh de tokens.
-/// 
+///
 /// **PARA QUÉ**: Centralizar la lógica de auth
-/// 
+///
 /// Proporciona una interfaz única para toda la aplicación,
 /// facilitando el mantenimiento y testing.
-/// 
+///
 /// **CÓMO**: JWT + Secure Storage
-/// 
+///
 /// 1. El usuario envía credenciales
 /// 2. El servidor retorna access + refresh token
 /// 3. Los tokens se almacenan en secure storage
 /// 4. El access token se incluye en cada request
 /// 5. Al expirar, se usa refresh token para renovar
-/// 
+///
 /// Ejemplo de uso:
 /// ```dart
 /// final authService = AuthService();
-/// 
+///
 /// // Login
 /// final result = await authService.login(
 ///   email: 'user@example.com',
 ///   password: 'secure123',
 /// );
-/// 
+///
 /// // Verificar estado
 /// if (authService.isAuthenticated) {
 ///   print('Usuario autenticado');
 /// }
-/// 
+///
 /// // Logout
 /// await authService.logout();
 /// ```
 class AuthService {
   // ...
 }
-```
+````
 
 ---
 
@@ -134,32 +135,32 @@ class AuthService {
 
 ### Sintaxis Dartdoc
 
-```dart
+````dart
 /// Calcula el precio total con impuestos y descuentos.
-/// 
+///
 /// Este método aplica la siguiente fórmula:
 /// ```
 /// total = (subtotal - discount) * (1 + taxRate)
 /// ```
-/// 
+///
 /// ## Parámetros
-/// 
+///
 /// * [subtotal] - Suma de precios de los productos
 /// * [taxRate] - Tasa de impuesto (0.0 a 1.0)
 /// * [discount] - Descuento a aplicar (opcional)
-/// 
+///
 /// ## Retorna
-/// 
+///
 /// El precio total calculado como [double].
-/// 
+///
 /// ## Excepciones
-/// 
+///
 /// Lanza [ArgumentError] si:
 /// * [subtotal] es negativo
 /// * [taxRate] está fuera del rango válido
-/// 
+///
 /// ## Ejemplo
-/// 
+///
 /// ```dart
 /// final total = calculateTotal(
 ///   subtotal: 100.0,
@@ -168,9 +169,9 @@ class AuthService {
 /// );
 /// print(total); // 108.9
 /// ```
-/// 
+///
 /// ## Ver también
-/// 
+///
 /// * [applyDiscount] para descuentos personalizados
 /// * [getTaxRate] para obtener la tasa según región
 double calculateTotal({
@@ -184,27 +185,27 @@ double calculateTotal({
   if (taxRate < 0 || taxRate > 1) {
     throw ArgumentError('taxRate debe estar entre 0 y 1');
   }
-  
+
   return (subtotal - discount) * (1 + taxRate);
 }
-```
+````
 
 ### Referencias en Dartdoc
 
 ```dart
 /// Usa [User] para representar usuarios autenticados.
-/// 
+///
 /// Ver también:
 /// * [AuthService] - Servicio de autenticación
 /// * [UserRepository.getById] - Obtener usuario por ID
 /// * <https://api.example.com/docs> - API Documentation
-/// 
+///
 /// Para más información sobre el modelo de datos,
 /// consulta el [README](../README.md).
 class UserProfile {
   /// El [User] asociado a este perfil.
   final User user;
-  
+
   /// Construye un [UserProfile] a partir de un [User].
   UserProfile(this.user);
 }
@@ -231,15 +232,15 @@ dartdoc:
   name: 'Mi App'
   description: 'Documentación de la aplicación'
   categories:
-    "Core":
+    'Core':
       markdown: doc/categories/core.md
-    "Features":
+    'Features':
       markdown: doc/categories/features.md
-  categoryOrder: ["Core", "Features"]
+  categoryOrder: ['Core', 'Features']
   exclude:
-    - "generated/**"
+    - 'generated/**'
   include:
-    - "lib/**"
+    - 'lib/**'
   showUndocumentedCategories: true
   linkToSource:
     root: '.'
@@ -252,7 +253,7 @@ dartdoc:
 
 ### Estructura de README
 
-```markdown
+````markdown
 # 📱 Nombre del Proyecto
 
 > Breve descripción del proyecto en una línea.
@@ -294,6 +295,7 @@ dartdoc:
 git clone https://github.com/user/repo.git
 cd repo
 ```
+````
 
 ### Instalar dependencias
 
@@ -372,13 +374,14 @@ Este proyecto está bajo la Licencia MIT - ver [LICENSE](LICENSE).
 
 ## 👥 Autores
 
-- **Nombre** - *Trabajo inicial* - [@usuario](https://github.com/usuario)
+- **Nombre** - _Trabajo inicial_ - [@usuario](https://github.com/usuario)
 
 ## 🙏 Agradecimientos
 
 - Flutter team
 - Comunidad open source
-```
+
+````
 
 ### Documentación de API
 
@@ -399,7 +402,7 @@ Future<Either<Failure, User>> login({
   required String email,
   required String password,
 });
-```
+````
 
 **Parámetros:**
 | Parámetro | Tipo | Descripción |
@@ -408,10 +411,12 @@ Future<Either<Failure, User>> login({
 | password | String | Contraseña |
 
 **Retorna:**
+
 - `Right(User)` - Usuario autenticado
 - `Left(Failure)` - Error de autenticación
 
 **Ejemplo:**
+
 ```dart
 final result = await authService.login(
   email: 'user@example.com',
@@ -423,7 +428,8 @@ result.fold(
   (user) => print('Bienvenido ${user.name}'),
 );
 ```
-```
+
+````
 
 ---
 
@@ -479,7 +485,7 @@ class GoodExample extends StatelessWidget {
     );
   }
 }
-```
+````
 
 ### const Constructor
 
@@ -678,13 +684,13 @@ class _RepaintBoundaryExampleState extends State<RepaintBoundaryExample> {
           value: _sliderValue,
           onChanged: (value) => setState(() => _sliderValue = value),
         ),
-        
+
         // ✅ RepaintBoundary evita que esta sección costosa
         // se repinte cuando cambia el slider
         RepaintBoundary(
           child: ExpensiveAnimatedWidget(),
         ),
-        
+
         // ✅ Otro RepaintBoundary para contenido estático
         RepaintBoundary(
           child: StaticContent(),
@@ -704,7 +710,7 @@ class _RepaintBoundaryExampleState extends State<RepaintBoundaryExample> {
 
 class BadWidget extends StatelessWidget {
   final List<Item> items;
-  
+
   const BadWidget({required this.items});
 
   @override
@@ -712,10 +718,10 @@ class BadWidget extends StatelessWidget {
     // ❌ Ordenar en cada build
     final sortedItems = List.of(items)
       ..sort((a, b) => a.name.compareTo(b.name));
-    
+
     // ❌ Crear formato en cada build
     final formatter = NumberFormat.currency(locale: 'es_ES');
-    
+
     return ListView.builder(
       itemCount: sortedItems.length,
       itemBuilder: (context, index) {
@@ -735,7 +741,7 @@ class BadWidget extends StatelessWidget {
 
 class GoodWidget extends StatefulWidget {
   final List<Item> items;
-  
+
   const GoodWidget({required this.items});
 
   @override
@@ -745,7 +751,7 @@ class GoodWidget extends StatefulWidget {
 class _GoodWidgetState extends State<GoodWidget> {
   // ✅ Formato creado una vez
   static final _formatter = NumberFormat.currency(locale: 'es_ES');
-  
+
   // ✅ Lista ordenada cacheada
   late List<Item> _sortedItems;
 
@@ -907,7 +913,7 @@ final items = [
 
 // 7. Extension methods para funcionalidad adicional
 extension StringX on String {
-  String get capitalized => 
+  String get capitalized =>
     isEmpty ? '' : '${this[0].toUpperCase()}${substring(1)}';
 }
 
@@ -1089,6 +1095,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 ## Pre-Commit Checklist
 
 ### Código
+
 - [ ] Nombres descriptivos en inglés
 - [ ] Documentación (qué, para qué, cómo)
 - [ ] Sin código comentado
@@ -1096,17 +1103,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 - [ ] Manejo de errores
 
 ### Performance
+
 - [ ] const donde sea posible
 - [ ] ListView.builder para listas
 - [ ] dispose() limpia recursos
 - [ ] Imágenes optimizadas
 
 ### Testing
+
 - [ ] Tests unitarios para lógica
 - [ ] Tests de widgets para UI
 - [ ] Cobertura > 80%
 
 ### Documentación
+
 - [ ] README actualizado
 - [ ] Dartdoc en APIs públicas
 - [ ] CHANGELOG actualizado

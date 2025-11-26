@@ -2,10 +2,10 @@
 
 ## 📋 Información
 
-| Campo | Detalle |
-|-------|---------|
-| **Nivel** | Intermedio |
-| **Duración** | 45 minutos |
+| Campo          | Detalle              |
+| -------------- | -------------------- |
+| **Nivel**      | Intermedio           |
+| **Duración**   | 45 minutos           |
 | **Requisitos** | Dart, Flutter básico |
 
 ---
@@ -68,7 +68,7 @@ lib/
 
 **lib/core/error/failures.dart**
 
-```dart
+````dart
 /// Clase base abstracta para todos los fallos de la aplicación.
 ///
 /// Proporciona una interfaz común para manejar errores de negocio
@@ -126,7 +126,7 @@ class ValidationFailure extends Failure {
     super.code,
   });
 }
-```
+````
 
 **lib/core/error/exceptions.dart**
 
@@ -172,7 +172,7 @@ class NetworkException implements Exception {
 
 **lib/core/usecases/usecase.dart**
 
-```dart
+````dart
 import 'package:dartz/dartz.dart';
 import '../error/failures.dart';
 
@@ -201,7 +201,7 @@ abstract class UseCase<T, Params> {
 class NoParams {
   const NoParams();
 }
-```
+````
 
 ### Parte 3: Implementar Entidad Task
 
@@ -525,15 +525,15 @@ class DeleteTaskParams extends Equatable {
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Estructura de carpetas correcta | 20 |
-| Failures y Exceptions implementados | 15 |
-| UseCase base con Either | 15 |
-| Entidad Task con Equatable | 20 |
-| Repositorio con todas las operaciones | 15 |
-| Casos de uso con validaciones | 15 |
-| **Total** | **100** |
+| Criterio                              | Puntos  |
+| ------------------------------------- | ------- |
+| Estructura de carpetas correcta       | 20      |
+| Failures y Exceptions implementados   | 15      |
+| UseCase base con Either               | 15      |
+| Entidad Task con Equatable            | 20      |
+| Repositorio con todas las operaciones | 15      |
+| Casos de uso con validaciones         | 15      |
+| **Total**                             | **100** |
 
 ---
 

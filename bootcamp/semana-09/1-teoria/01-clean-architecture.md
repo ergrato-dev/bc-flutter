@@ -47,17 +47,17 @@
 
 ### Beneficios
 
-| Beneficio | Descripción |
-|-----------|-------------|
-| **Testabilidad** | Cada capa puede testearse de forma aislada |
-| **Mantenibilidad** | Cambios en una capa no afectan a otras |
-| **Escalabilidad** | Fácil agregar nuevas features |
-| **Independencia** | UI, DB y frameworks son detalles externos |
+| Beneficio          | Descripción                                |
+| ------------------ | ------------------------------------------ |
+| **Testabilidad**   | Cada capa puede testearse de forma aislada |
+| **Mantenibilidad** | Cambios en una capa no afectan a otras     |
+| **Escalabilidad**  | Fácil agregar nuevas features              |
+| **Independencia**  | UI, DB y frameworks son detalles externos  |
 
 ### Regla de Dependencia
 
 > **Las dependencias solo pueden apuntar hacia adentro.**
-> 
+>
 > Las capas internas no conocen nada de las capas externas.
 
 ```
@@ -200,10 +200,10 @@ abstract class Meetable {
 class Developer implements Workable, Feedable, Meetable {
   @override
   void work() { /* coding */ }
-  
+
   @override
   void eat() { /* lunch */ }
-  
+
   @override
   void attendMeeting() { /* standup */ }
 }
@@ -217,7 +217,7 @@ class Developer implements Workable, Feedable, Meetable {
 // ❌ Incorrecto: Dependencia de implementación concreta
 class UserService {
   final MySqlDatabase database = MySqlDatabase(); // Acoplado
-  
+
   Future<User> getUser(int id) {
     return database.query('SELECT * FROM users WHERE id = $id');
   }
@@ -230,9 +230,9 @@ abstract class Database {
 
 class UserService {
   final Database database; // Abstracción inyectada
-  
+
   UserService(this.database);
-  
+
   Future<User> getUser(int id) {
     return database.query('SELECT * FROM users WHERE id = $id');
   }
@@ -274,11 +274,11 @@ class InMemoryDatabase implements Database { ... } // Para tests
 
 ### Responsabilidades
 
-| Capa | Responsabilidad | Ejemplos |
-|------|-----------------|----------|
+| Capa             | Responsabilidad        | Ejemplos                |
+| ---------------- | ---------------------- | ----------------------- |
 | **Presentation** | UI y gestión de estado | Widgets, BLoC, Provider |
-| **Domain** | Lógica de negocio | Entities, Use Cases |
-| **Data** | Acceso a datos | APIs, Database, Cache |
+| **Domain**       | Lógica de negocio      | Entities, Use Cases     |
+| **Data**         | Acceso a datos         | APIs, Database, Cache   |
 
 ---
 
@@ -292,15 +292,15 @@ Objetos de negocio puros, sin lógica de serialización.
 
 ```dart
 /// lib/features/user/domain/entities/user.dart
-/// 
+///
 /// Entidad de dominio User.
-/// 
+///
 /// ¿Qué hace?
 /// Representa un usuario en el dominio de la aplicación.
-/// 
+///
 /// ¿Para qué?
 /// Define la estructura de datos de usuario sin dependencias externas.
-/// 
+///
 /// ¿Cómo funciona?
 /// Es una clase inmutable con propiedades que definen un usuario.
 /// Usa Equatable para comparación por valor.
@@ -347,15 +347,15 @@ Define el contrato que la capa Data debe implementar.
 
 ```dart
 /// lib/features/user/domain/repositories/user_repository.dart
-/// 
+///
 /// Contrato del repositorio de usuarios.
-/// 
+///
 /// ¿Qué hace?
 /// Define las operaciones disponibles para usuarios.
-/// 
+///
 /// ¿Para qué?
 /// Permite que Domain no dependa de implementaciones concretas.
-/// 
+///
 /// ¿Cómo funciona?
 /// Es una clase abstracta que Data Layer implementa.
 /// Usa Either para manejo funcional de errores.
@@ -367,16 +367,16 @@ import '../../../../core/error/failures.dart';
 abstract class UserRepository {
   /// Obtiene todos los usuarios
   Future<Either<Failure, List<User>>> getUsers();
-  
+
   /// Obtiene un usuario por ID
   Future<Either<Failure, User>> getUser(int id);
-  
+
   /// Crea un nuevo usuario
   Future<Either<Failure, User>> createUser(User user);
-  
+
   /// Actualiza un usuario existente
   Future<Either<Failure, User>> updateUser(User user);
-  
+
   /// Elimina un usuario
   Future<Either<Failure, void>> deleteUser(int id);
 }
@@ -388,16 +388,16 @@ Encapsulan una operación de negocio específica.
 
 ```dart
 /// lib/features/user/domain/usecases/get_user.dart
-/// 
+///
 /// Caso de uso: Obtener un usuario por ID.
-/// 
+///
 /// ¿Qué hace?
 /// Encapsula la lógica para obtener un usuario específico.
-/// 
+///
 /// ¿Para qué?
 /// Mantiene la lógica de negocio separada de UI y datos.
 /// Facilita testing y reutilización.
-/// 
+///
 /// ¿Cómo funciona?
 /// 1. Recibe el ID del usuario
 /// 2. Llama al repositorio
@@ -425,7 +425,7 @@ class GetUser implements UseCase<User, int> {
 
 ```dart
 /// lib/core/usecases/usecase.dart
-/// 
+///
 /// Interfaz base para todos los casos de uso.
 
 import 'package:dartz/dartz.dart';
@@ -443,16 +443,16 @@ class NoParams {}
 
 ```dart
 /// lib/core/error/failures.dart
-/// 
+///
 /// Clases de error de dominio.
 
 import 'package:equatable/equatable.dart';
 
 abstract class Failure extends Equatable {
   final String message;
-  
+
   const Failure(this.message);
-  
+
   @override
   List<Object> get props => [message];
 }
@@ -486,15 +486,15 @@ Extienden las entidades añadiendo serialización.
 
 ```dart
 /// lib/features/user/data/models/user_model.dart
-/// 
+///
 /// Modelo de datos para User.
-/// 
+///
 /// ¿Qué hace?
 /// Extiende User añadiendo serialización JSON.
-/// 
+///
 /// ¿Para qué?
 /// Convertir datos de/hacia APIs y bases de datos.
-/// 
+///
 /// ¿Cómo funciona?
 /// Hereda de User y añade fromJson/toJson.
 
@@ -551,7 +551,7 @@ Abstraen el acceso a datos específicos.
 
 ```dart
 /// lib/features/user/data/datasources/user_remote_datasource.dart
-/// 
+///
 /// Fuente de datos remota para usuarios.
 
 import 'dart:convert';
@@ -624,7 +624,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
 
 ```dart
 /// lib/features/user/data/datasources/user_local_datasource.dart
-/// 
+///
 /// Fuente de datos local (caché).
 
 import 'dart:convert';
@@ -647,7 +647,7 @@ class UserLocalDataSourceImpl implements UserLocalDataSource {
   @override
   Future<List<UserModel>> getCachedUsers() async {
     final jsonString = sharedPreferences.getString(cachedUsersKey);
-    
+
     if (jsonString != null) {
       final List<dynamic> jsonList = json.decode(jsonString);
       return jsonList.map((json) => UserModel.fromJson(json)).toList();
@@ -683,15 +683,15 @@ Implementa el contrato de Domain.
 
 ```dart
 /// lib/features/user/data/repositories/user_repository_impl.dart
-/// 
+///
 /// Implementación del repositorio de usuarios.
-/// 
+///
 /// ¿Qué hace?
 /// Implementa UserRepository coordinando data sources.
-/// 
+///
 /// ¿Para qué?
 /// Manejar caché, conectividad y transformación de datos.
-/// 
+///
 /// ¿Cómo funciona?
 /// 1. Verifica conectividad
 /// 2. Intenta obtener datos remotos
@@ -798,7 +798,7 @@ UI y gestión de estado.
 
 ```dart
 /// lib/features/user/presentation/bloc/user_bloc.dart
-/// 
+///
 /// BLoC para gestión de usuarios.
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -818,7 +818,7 @@ class LoadUsers extends UserEvent {}
 class LoadUser extends UserEvent {
   final int userId;
   LoadUser(this.userId);
-  
+
   @override
   List<Object?> get props => [userId];
 }
@@ -836,7 +836,7 @@ class UserLoading extends UserState {}
 class UsersLoaded extends UserState {
   final List<User> users;
   UsersLoaded(this.users);
-  
+
   @override
   List<Object?> get props => [users];
 }
@@ -844,7 +844,7 @@ class UsersLoaded extends UserState {
 class UserLoaded extends UserState {
   final User user;
   UserLoaded(this.user);
-  
+
   @override
   List<Object?> get props => [user];
 }
@@ -852,7 +852,7 @@ class UserLoaded extends UserState {
 class UserError extends UserState {
   final String message;
   UserError(this.message);
-  
+
   @override
   List<Object?> get props => [message];
 }
@@ -875,9 +875,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     Emitter<UserState> emit,
   ) async {
     emit(UserLoading());
-    
+
     final result = await getUsers(NoParams());
-    
+
     result.fold(
       (failure) => emit(UserError(failure.message)),
       (users) => emit(UsersLoaded(users)),
@@ -889,9 +889,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     Emitter<UserState> emit,
   ) async {
     emit(UserLoading());
-    
+
     final result = await getUser(event.userId);
-    
+
     result.fold(
       (failure) => emit(UserError(failure.message)),
       (user) => emit(UserLoaded(user)),
@@ -926,13 +926,13 @@ class UsersPage extends StatelessWidget {
             context.read<UserBloc>().add(LoadUsers());
             return const SizedBox.shrink();
           }
-          
+
           if (state is UserLoading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
-          
+
           if (state is UserError) {
             return Center(
               child: Column(
@@ -953,14 +953,14 @@ class UsersPage extends StatelessWidget {
               ),
             );
           }
-          
+
           if (state is UsersLoaded) {
             if (state.users.isEmpty) {
               return const Center(
                 child: Text('No hay usuarios'),
               );
             }
-            
+
             return RefreshIndicator(
               onRefresh: () async {
                 context.read<UserBloc>().add(LoadUsers());
@@ -973,7 +973,7 @@ class UsersPage extends StatelessWidget {
               ),
             );
           }
-          
+
           return const SizedBox.shrink();
         },
       ),
@@ -990,7 +990,7 @@ class UsersPage extends StatelessWidget {
 
 ```dart
 /// lib/injection_container.dart
-/// 
+///
 /// Configuración de inyección de dependencias.
 
 import 'package:get_it/get_it.dart';
@@ -1029,7 +1029,7 @@ Future<void> init() async {
       baseUrl: 'https://api.example.com',
     ),
   );
-  
+
   sl.registerLazySingleton<UserLocalDataSource>(
     () => UserLocalDataSourceImpl(sharedPreferences: sl()),
   );
@@ -1132,11 +1132,11 @@ lib/
 
 ## ✅ Resumen
 
-| Capa | Contiene | Depende de |
-|------|----------|------------|
-| **Presentation** | Widgets, BLoC, Pages | Domain |
-| **Domain** | Entities, Use Cases, Repository Interfaces | Nada |
-| **Data** | Models, Data Sources, Repository Impl | Domain |
+| Capa             | Contiene                                   | Depende de |
+| ---------------- | ------------------------------------------ | ---------- |
+| **Presentation** | Widgets, BLoC, Pages                       | Domain     |
+| **Domain**       | Entities, Use Cases, Repository Interfaces | Nada       |
+| **Data**         | Models, Data Sources, Repository Impl      | Domain     |
 
 ### Flujo de Datos
 

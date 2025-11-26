@@ -6,14 +6,14 @@ Esta carpeta contiene recursos visuales y diagramas para la Semana 9 del bootcam
 
 ## 📊 Diagramas Disponibles
 
-| Archivo | Descripción | Uso |
-| ------- | ----------- | --- |
-| `01-clean-architecture.svg` | Diagrama de Clean Architecture | Capas y dependencias |
-| `02-flujo-datos.svg` | Flujo de datos entre capas | Data flow |
-| `03-testing-pyramid.svg` | Pirámide de testing | Tipos de tests |
-| `04-unit-test-flow.svg` | Flujo de test unitario | Estructura AAA |
-| `05-widget-test-flow.svg` | Flujo de widget testing | Pump y find |
-| `06-dependency-injection.svg` | Inyección de dependencias | DI patterns |
+| Archivo                       | Descripción                    | Uso                  |
+| ----------------------------- | ------------------------------ | -------------------- |
+| `01-clean-architecture.svg`   | Diagrama de Clean Architecture | Capas y dependencias |
+| `02-flujo-datos.svg`          | Flujo de datos entre capas     | Data flow            |
+| `03-testing-pyramid.svg`      | Pirámide de testing            | Tipos de tests       |
+| `04-unit-test-flow.svg`       | Flujo de test unitario         | Estructura AAA       |
+| `05-widget-test-flow.svg`     | Flujo de widget testing        | Pump y find          |
+| `06-dependency-injection.svg` | Inyección de dependencias      | DI patterns          |
 
 ## 🎯 Cómo Usar
 

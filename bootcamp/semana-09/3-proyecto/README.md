@@ -2,11 +2,11 @@
 
 ## 📋 Información del Proyecto
 
-| Campo | Detalle |
-|-------|---------|
-| **Nombre** | TaskManager Pro |
-| **Duración** | 3-4 horas |
-| **Nivel** | Avanzado |
+| Campo          | Detalle          |
+| -------------- | ---------------- |
+| **Nombre**     | TaskManager Pro  |
+| **Duración**   | 3-4 horas        |
+| **Nivel**      | Avanzado         |
 | **Evaluación** | 50% de la semana |
 
 ---
@@ -104,29 +104,29 @@ lib/
 
 ### RF01: Gestión de Tareas
 
-| ID | Descripción | Prioridad |
-|----|-------------|-----------|
-| RF01.1 | Crear tarea con título, descripción, prioridad y fecha límite | Alta |
-| RF01.2 | Editar todos los campos de una tarea | Alta |
-| RF01.3 | Eliminar tarea con confirmación | Alta |
-| RF01.4 | Marcar/desmarcar tarea como completada | Alta |
+| ID     | Descripción                                                   | Prioridad |
+| ------ | ------------------------------------------------------------- | --------- |
+| RF01.1 | Crear tarea con título, descripción, prioridad y fecha límite | Alta      |
+| RF01.2 | Editar todos los campos de una tarea                          | Alta      |
+| RF01.3 | Eliminar tarea con confirmación                               | Alta      |
+| RF01.4 | Marcar/desmarcar tarea como completada                        | Alta      |
 
 ### RF02: Visualización
 
-| ID | Descripción | Prioridad |
-|----|-------------|-----------|
-| RF02.1 | Listar todas las tareas | Alta |
-| RF02.2 | Filtrar por estado (pendientes/completadas/todas) | Media |
-| RF02.3 | Ordenar por fecha de creación o prioridad | Media |
-| RF02.4 | Mostrar contador de tareas pendientes | Baja |
+| ID     | Descripción                                       | Prioridad |
+| ------ | ------------------------------------------------- | --------- |
+| RF02.1 | Listar todas las tareas                           | Alta      |
+| RF02.2 | Filtrar por estado (pendientes/completadas/todas) | Media     |
+| RF02.3 | Ordenar por fecha de creación o prioridad         | Media     |
+| RF02.4 | Mostrar contador de tareas pendientes             | Baja      |
 
 ### RF03: Persistencia
 
-| ID | Descripción | Prioridad |
-|----|-------------|-----------|
-| RF03.1 | Guardar tareas localmente | Alta |
-| RF03.2 | Cargar tareas al iniciar la app | Alta |
-| RF03.3 | Sincronizar cambios automáticamente | Media |
+| ID     | Descripción                         | Prioridad |
+| ------ | ----------------------------------- | --------- |
+| RF03.1 | Guardar tareas localmente           | Alta      |
+| RF03.2 | Cargar tareas al iniciar la app     | Alta      |
+| RF03.3 | Sincronizar cambios automáticamente | Media     |
 
 ---
 
@@ -271,7 +271,7 @@ Ver ejemplos en prácticas 01 y 02.
 import '../../domain/entities/task.dart';
 
 /// Modelo de datos que extiende la entidad Task.
-/// 
+///
 /// Agrega funcionalidad de serialización para persistencia.
 class TaskModel extends Task {
   const TaskModel({
@@ -292,7 +292,7 @@ class TaskModel extends Task {
       description: json['description'] as String?,
       isCompleted: json['is_completed'] == 1,
       createdAt: DateTime.parse(json['created_at'] as String),
-      dueDate: json['due_date'] != null 
+      dueDate: json['due_date'] != null
           ? DateTime.parse(json['due_date'] as String)
           : null,
       priority: TaskPriority.values[json['priority'] as int],
@@ -383,6 +383,7 @@ Ver prácticas 02, 03 y 04 para ejemplos detallados.
 ## ✅ Checklist de Entrega
 
 ### Arquitectura
+
 - [ ] Estructura de carpetas Clean Architecture
 - [ ] Entidades del dominio (Task, Category)
 - [ ] Interfaces de repositorio
@@ -392,6 +393,7 @@ Ver prácticas 02, 03 y 04 para ejemplos detallados.
 - [ ] Data source local (SQLite)
 
 ### Presentación
+
 - [ ] BLoC con eventos y estados
 - [ ] HomePage con lista de tareas
 - [ ] TaskFormPage para crear/editar
@@ -400,6 +402,7 @@ Ver prácticas 02, 03 y 04 para ejemplos detallados.
 - [ ] Filtrado y ordenamiento
 
 ### Testing
+
 - [ ] Tests unitarios de casos de uso (≥5)
 - [ ] Tests unitarios de entidades (≥3)
 - [ ] Tests del BLoC (≥5)
@@ -408,6 +411,7 @@ Ver prácticas 02, 03 y 04 para ejemplos detallados.
 - [ ] Cobertura ≥70%
 
 ### Calidad
+
 - [ ] Documentación Dartdoc
 - [ ] Sin warnings del analyzer
 - [ ] Código formateado
@@ -417,25 +421,27 @@ Ver prácticas 02, 03 y 04 para ejemplos detallados.
 
 ## 🎓 Criterios de Evaluación
 
-| Criterio | Peso | Puntos |
-|----------|------|--------|
-| Clean Architecture | 25% | 25 |
-| Funcionalidad completa | 20% | 20 |
-| Testing (cobertura y calidad) | 25% | 25 |
-| Calidad de código | 15% | 15 |
-| UI/UX | 10% | 10 |
-| Documentación | 5% | 5 |
-| **TOTAL** | **100%** | **100** |
+| Criterio                      | Peso     | Puntos  |
+| ----------------------------- | -------- | ------- |
+| Clean Architecture            | 25%      | 25      |
+| Funcionalidad completa        | 20%      | 20      |
+| Testing (cobertura y calidad) | 25%      | 25      |
+| Calidad de código             | 15%      | 15      |
+| UI/UX                         | 10%      | 10      |
+| Documentación                 | 5%       | 5       |
+| **TOTAL**                     | **100%** | **100** |
 
 ### Rúbrica Detallada
 
 #### Clean Architecture (25 pts)
+
 - **Excelente (23-25)**: Separación perfecta de capas, DI correcta, SOLID aplicado
 - **Bueno (18-22)**: Capas bien separadas, algunas dependencias cruzadas menores
 - **Regular (12-17)**: Estructura presente pero con violaciones de arquitectura
 - **Insuficiente (0-11)**: No sigue Clean Architecture
 
 #### Testing (25 pts)
+
 - **Excelente (23-25)**: >80% cobertura, tests bien estructurados, casos edge
 - **Bueno (18-22)**: 70-80% cobertura, tests funcionales
 - **Regular (12-17)**: 50-70% cobertura, tests básicos

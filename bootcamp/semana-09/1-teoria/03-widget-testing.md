@@ -32,12 +32,12 @@ Los **Widget Tests** (también llamados Component Tests) verifican el comportami
 
 ### Diferencias con otros tipos de tests
 
-| Característica | Unit Test | Widget Test | Integration Test |
-|----------------|-----------|-------------|------------------|
-| Velocidad | Muy rápida | Rápida | Lenta |
-| Dependencias | Ninguna | Flutter Test | Dispositivo/Emulador |
-| Scope | Función/Clase | Widget/Árbol | App completa |
-| Confianza | Baja | Media | Alta |
+| Característica | Unit Test     | Widget Test  | Integration Test     |
+| -------------- | ------------- | ------------ | -------------------- |
+| Velocidad      | Muy rápida    | Rápida       | Lenta                |
+| Dependencias   | Ninguna       | Flutter Test | Dispositivo/Emulador |
+| Scope          | Función/Clase | Widget/Árbol | App completa         |
+| Confianza      | Baja          | Media        | Alta                 |
 
 ### Configuración Básica
 
@@ -80,20 +80,20 @@ testWidgets('WidgetTester methods demo', (WidgetTester tester) async {
   // ═══════════════════════════════════════════════════
   // CONSTRUIR WIDGETS
   // ═══════════════════════════════════════════════════
-  
+
   // pumpWidget: Construye y renderiza el widget
   await tester.pumpWidget(const MyApp());
-  
+
   // pump: Avanza un frame (procesa setState, animaciones)
   await tester.pump();
-  
+
   // pump con duración: Avanza tiempo específico
   await tester.pump(const Duration(milliseconds: 500));
-  
+
   // pumpAndSettle: Avanza hasta que no haya frames pendientes
   // Útil para animaciones
   await tester.pumpAndSettle();
-  
+
   // pumpAndSettle con timeout
   await tester.pumpAndSettle(
     const Duration(milliseconds: 100),
@@ -104,50 +104,50 @@ testWidgets('WidgetTester methods demo', (WidgetTester tester) async {
   // ═══════════════════════════════════════════════════
   // INTERACCIONES
   // ═══════════════════════════════════════════════════
-  
+
   // tap: Simula un tap
   await tester.tap(find.byType(ElevatedButton));
-  
+
   // longPress: Mantener presionado
   await tester.longPress(find.byType(ListTile));
-  
+
   // enterText: Ingresar texto
   await tester.enterText(find.byType(TextField), 'Hello');
-  
+
   // drag: Arrastrar widget
   await tester.drag(find.byType(ListView), const Offset(0, -300));
-  
+
   // fling: Deslizar con velocidad
   await tester.fling(find.byType(ListView), const Offset(0, -500), 1000);
 
   // ═══════════════════════════════════════════════════
   // OBTENER WIDGETS
   // ═══════════════════════════════════════════════════
-  
+
   // widget: Obtener el widget encontrado
   final textWidget = tester.widget<Text>(find.text('Hello'));
-  
+
   // widgetList: Obtener múltiples widgets
   final buttons = tester.widgetList<ElevatedButton>(
     find.byType(ElevatedButton),
   );
-  
+
   // element: Obtener el Element del widget
   final element = tester.element(find.byType(MyWidget));
-  
+
   // state: Obtener el State de un StatefulWidget
   final state = tester.state<MyWidgetState>(find.byType(MyWidget));
 
   // ═══════════════════════════════════════════════════
   // TAMAÑO Y POSICIÓN
   // ═══════════════════════════════════════════════════
-  
+
   // getSize: Obtener tamaño del widget
   final size = tester.getSize(find.byType(Container));
-  
+
   // getCenter: Obtener centro del widget
   final center = tester.getCenter(find.byType(Container));
-  
+
   // getTopLeft, getTopRight, getBottomLeft, getBottomRight
   final topLeft = tester.getTopLeft(find.byType(Container));
 });
@@ -158,17 +158,17 @@ testWidgets('WidgetTester methods demo', (WidgetTester tester) async {
 ```dart
 testWidgets('pump vs pumpAndSettle', (WidgetTester tester) async {
   await tester.pumpWidget(const AnimatedWidget());
-  
+
   // pump(): Avanza UN frame
   // Útil cuando quieres controlar frame por frame
   await tester.tap(find.text('Start Animation'));
   await tester.pump(); // Solo procesa el tap
   expect(find.text('Animating...'), findsOneWidget);
-  
+
   // pump(Duration): Avanza tiempo específico
   await tester.pump(const Duration(milliseconds: 250));
   // La animación está a mitad de camino
-  
+
   // pumpAndSettle(): Avanza hasta que NO haya más frames
   // Útil para animaciones, transiciones de página
   await tester.pumpAndSettle();
@@ -211,13 +211,13 @@ void main() {
     // ═══════════════════════════════════════════════════
     // POR TEXTO
     // ═══════════════════════════════════════════════════
-    
+
     // Texto exacto
     expect(find.text('Hello'), findsOneWidget);
-    
+
     // Texto que contiene
     expect(find.textContaining('ell'), findsOneWidget);
-    
+
     // Texto con regex
     expect(
       find.textContaining(RegExp(r'H.*o')),
@@ -227,34 +227,34 @@ void main() {
     // ═══════════════════════════════════════════════════
     // POR TIPO
     // ═══════════════════════════════════════════════════
-    
+
     // Por tipo de widget
     expect(find.byType(ElevatedButton), findsOneWidget);
     expect(find.byType(Text), findsNWidgets(3)); // Hello, World, Press Me
-    
+
     // Por tipo de icono
     expect(find.byIcon(Icons.star), findsOneWidget);
 
     // ═══════════════════════════════════════════════════
     // POR KEY
     // ═══════════════════════════════════════════════════
-    
+
     // Por Key exacta
     expect(find.byKey(const Key('myButton')), findsOneWidget);
-    
+
     // Por ValueKey
     expect(find.byKey(const ValueKey('myButton')), findsOneWidget);
 
     // ═══════════════════════════════════════════════════
     // POR TOOLTIP
     // ═══════════════════════════════════════════════════
-    
+
     expect(find.byTooltip('My Tooltip'), findsOneWidget);
 
     // ═══════════════════════════════════════════════════
     // POR WIDGET ESPECÍFICO
     // ═══════════════════════════════════════════════════
-    
+
     // Por instancia exacta de widget
     const myText = Text('Specific');
     expect(find.byWidget(myText), findsNothing); // No está en el árbol
@@ -262,7 +262,7 @@ void main() {
     // ═══════════════════════════════════════════════════
     // POR SEMÁNTICA
     // ═══════════════════════════════════════════════════
-    
+
     expect(find.bySemanticsLabel('Hello'), findsOneWidget);
   });
 }
@@ -297,7 +297,7 @@ testWidgets('Advanced finders', (WidgetTester tester) async {
   // ═══════════════════════════════════════════════════
   // DESCENDANT - Buscar dentro de un widget
   // ═══════════════════════════════════════════════════
-  
+
   // Encontrar Text dentro del Container azul
   expect(
     find.descendant(
@@ -312,7 +312,7 @@ testWidgets('Advanced finders', (WidgetTester tester) async {
   // ═══════════════════════════════════════════════════
   // ANCESTOR - Buscar padre de un widget
   // ═══════════════════════════════════════════════════
-  
+
   // Encontrar Container que contiene 'Nested Text'
   expect(
     find.ancestor(
@@ -325,7 +325,7 @@ testWidgets('Advanced finders', (WidgetTester tester) async {
   // ═══════════════════════════════════════════════════
   // PREDICATE - Condición personalizada
   // ═══════════════════════════════════════════════════
-  
+
   // Encontrar Container con color específico
   expect(
     find.byWidgetPredicate(
@@ -337,7 +337,7 @@ testWidgets('Advanced finders', (WidgetTester tester) async {
   // ═══════════════════════════════════════════════════
   // ELEMENT PREDICATE
   // ═══════════════════════════════════════════════════
-  
+
   expect(
     find.byElementPredicate(
       (element) => element.widget is Text,
@@ -348,13 +348,13 @@ testWidgets('Advanced finders', (WidgetTester tester) async {
   // ═══════════════════════════════════════════════════
   // FIRST / LAST
   // ═══════════════════════════════════════════════════
-  
+
   // Solo el primer resultado
   expect(find.byType(Text).first, findsOneWidget);
-  
+
   // Solo el último resultado
   expect(find.byType(Text).last, findsOneWidget);
-  
+
   // Por índice
   expect(find.byType(Text).at(1), findsOneWidget);
 });
@@ -383,25 +383,25 @@ testWidgets('Widget matchers', (WidgetTester tester) async {
   // ═══════════════════════════════════════════════════
   // EXISTENCIA
   // ═══════════════════════════════════════════════════
-  
+
   // Exactamente uno
   expect(find.text('Single'), findsOneWidget);
-  
+
   // Ninguno
   expect(find.text('NotFound'), findsNothing);
-  
+
   // Uno o más
   expect(find.text('Multiple'), findsWidgets);
-  
+
   // Número específico
   expect(find.text('Multiple'), findsNWidgets(2));
-  
+
   // Al menos N
   expect(find.byType(Text), findsAtLeastNWidgets(3));
-  
+
   // Exactamente uno (alias)
   expect(find.text('Single'), findsOne);
-  
+
   // Al menos uno
   expect(find.byType(Text), findsAny);
 });
@@ -427,10 +427,10 @@ testWidgets('Widget property verification', (WidgetTester tester) async {
   final button = tester.widget<ElevatedButton>(
     find.byType(ElevatedButton),
   );
-  
+
   expect(button.onPressed, isNotNull);
   expect(button.child, isA<Text>());
-  
+
   // Verificar texto hijo
   final text = tester.widget<Text>(find.text('Click Me'));
   expect(text.data, equals('Click Me'));
@@ -514,7 +514,7 @@ testWidgets('Text input', (WidgetTester tester) async {
   // Simular envío (Enter)
   await tester.testTextInput.receiveAction(TextInputAction.done);
   await tester.pump();
-  
+
   expect(submittedValue, equals('Hello World'));
 
   // Limpiar y escribir nuevo texto
@@ -564,7 +564,7 @@ testWidgets('Scroll and drag', (WidgetTester tester) async {
     500, // delta de scroll
     scrollable: find.byType(Scrollable),
   );
-  
+
   expect(find.text('Item 50'), findsOneWidget);
 });
 ```
@@ -592,12 +592,12 @@ testWidgets('Complex gestures', (WidgetTester tester) async {
   final center = tester.getCenter(find.byType(InteractiveViewer));
   final gesture1 = await tester.startGesture(center + const Offset(-50, 0));
   final gesture2 = await tester.startGesture(center + const Offset(50, 0));
-  
+
   // Expandir
   await gesture1.moveBy(const Offset(-50, 0));
   await gesture2.moveBy(const Offset(50, 0));
   await tester.pump();
-  
+
   // Liberar
   await gesture1.up();
   await gesture2.up();
@@ -633,7 +633,7 @@ testWidgets('StatefulWidget test', (WidgetTester tester) async {
     find.byType(CounterWidget),
   );
   expect(state.count, equals(0));
-  
+
   // Llamar método del State (no recomendado en producción)
   state.increment();
   await tester.pump();
@@ -918,7 +918,7 @@ testWidgets('MyWidget multi-device golden', (WidgetTester tester) async {
 
   for (final device in devices) {
     await tester.binding.setSurfaceSize(device.size);
-    
+
     await tester.pumpWidget(
       MaterialApp(
         home: MediaQuery(

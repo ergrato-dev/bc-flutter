@@ -21,87 +21,87 @@
 import 'package:flutter/material.dart';
 
 /// Colores de la aplicación TaskManager Pro.
-/// 
+///
 /// Sigue las guías de Material Design 3.
 abstract class AppColors {
   // ═══════════════════════════════════════════════════
   // COLORES PRIMARIOS
   // ═══════════════════════════════════════════════════
-  
+
   /// Azul principal - acciones primarias
   static const primary = Color(0xFF1565C0);
   static const primaryLight = Color(0xFF5E92F3);
   static const primaryDark = Color(0xFF003C8F);
   static const onPrimary = Color(0xFFFFFFFF);
-  
+
   // ═══════════════════════════════════════════════════
   // COLORES SECUNDARIOS
   // ═══════════════════════════════════════════════════
-  
+
   /// Teal secundario - acentos
   static const secondary = Color(0xFF00897B);
   static const secondaryLight = Color(0xFF4EBAAA);
   static const secondaryDark = Color(0xFF005B4F);
   static const onSecondary = Color(0xFFFFFFFF);
-  
+
   // ═══════════════════════════════════════════════════
   // COLORES DE SUPERFICIE
   // ═══════════════════════════════════════════════════
-  
+
   static const surface = Color(0xFFFAFAFA);
   static const surfaceDark = Color(0xFF121212);
   static const background = Color(0xFFFFFFFF);
   static const backgroundDark = Color(0xFF1E1E1E);
-  
+
   // ═══════════════════════════════════════════════════
   // COLORES DE PRIORIDAD
   // ═══════════════════════════════════════════════════
-  
+
   /// Rojo - prioridad alta
   static const priorityHigh = Color(0xFFE53935);
   static const priorityHighLight = Color(0xFFFFCDD2);
-  
+
   /// Naranja - prioridad media
   static const priorityMedium = Color(0xFFFFA726);
   static const priorityMediumLight = Color(0xFFFFE0B2);
-  
+
   /// Verde - prioridad baja
   static const priorityLow = Color(0xFF43A047);
   static const priorityLowLight = Color(0xFFC8E6C9);
-  
+
   // ═══════════════════════════════════════════════════
   // COLORES DE ESTADO
   // ═══════════════════════════════════════════════════
-  
+
   /// Éxito
   static const success = Color(0xFF4CAF50);
   static const successLight = Color(0xFFE8F5E9);
-  
+
   /// Error
   static const error = Color(0xFFF44336);
   static const errorLight = Color(0xFFFFEBEE);
-  
+
   /// Advertencia
   static const warning = Color(0xFFFF9800);
   static const warningLight = Color(0xFFFFF3E0);
-  
+
   /// Información
   static const info = Color(0xFF2196F3);
   static const infoLight = Color(0xFFE3F2FD);
-  
+
   // ═══════════════════════════════════════════════════
   // COLORES DE TEXTO
   // ═══════════════════════════════════════════════════
-  
+
   static const textPrimary = Color(0xFF212121);
   static const textSecondary = Color(0xFF757575);
   static const textDisabled = Color(0xFFBDBDBD);
   static const textOnDark = Color(0xFFFFFFFF);
-  
+
   // ═══════════════════════════════════════════════════
   // COLORES DE BORDE Y DIVISOR
   // ═══════════════════════════════════════════════════
-  
+
   static const divider = Color(0xFFE0E0E0);
   static const border = Color(0xFFBDBDBD);
   static const borderLight = Color(0xFFEEEEEE);
@@ -110,11 +110,11 @@ abstract class AppColors {
 
 ### Uso de Colores por Prioridad
 
-| Prioridad | Color Principal | Color Fondo | Uso |
-|-----------|-----------------|-------------|-----|
-| Alta | `#E53935` | `#FFCDD2` | Tareas urgentes |
-| Media | `#FFA726` | `#FFE0B2` | Tareas normales |
-| Baja | `#43A047` | `#C8E6C9` | Tareas sin prisa |
+| Prioridad | Color Principal | Color Fondo | Uso              |
+| --------- | --------------- | ----------- | ---------------- |
+| Alta      | `#E53935`       | `#FFCDD2`   | Tareas urgentes  |
+| Media     | `#FFA726`       | `#FFE0B2`   | Tareas normales  |
+| Baja      | `#43A047`       | `#C8E6C9`   | Tareas sin prisa |
 
 ---
 
@@ -132,7 +132,7 @@ abstract class AppTypography {
   // ═══════════════════════════════════════════════════
   // TÍTULOS
   // ═══════════════════════════════════════════════════
-  
+
   /// Título de página principal
   static const headlineLarge = TextStyle(
     fontSize: 32,
@@ -233,13 +233,13 @@ abstract class AppTypography {
 
 ```dart
 /// Especificaciones de diseño para TaskItem
-/// 
+///
 /// ┌─────────────────────────────────────────────┐
 /// │ [Checkbox] [Title]                [Priority]│
 /// │           [Description]           [Delete] │
 /// │           [Due Date]                        │
 /// └─────────────────────────────────────────────┘
-/// 
+///
 /// Dimensiones:
 /// - Altura mínima: 72dp
 /// - Padding horizontal: 16dp
@@ -248,7 +248,7 @@ abstract class AppTypography {
 /// - Checkbox: 24x24dp
 /// - Priority indicator: 12x12dp
 /// - Delete icon: 24x24dp
-/// 
+///
 /// Estados:
 /// - Normal: fondo blanco, borde sutil
 /// - Completada: título tachado, opacidad reducida
@@ -258,13 +258,13 @@ abstract class AppTypography {
 
 ### Especificaciones de Tarjeta
 
-| Propiedad | Valor |
-|-----------|-------|
-| Border Radius | 12dp |
-| Elevation (normal) | 1dp |
-| Elevation (pressed) | 4dp |
-| Margin | 8dp horizontal, 4dp vertical |
-| Padding interno | 16dp |
+| Propiedad           | Valor                        |
+| ------------------- | ---------------------------- |
+| Border Radius       | 12dp                         |
+| Elevation (normal)  | 1dp                          |
+| Elevation (pressed) | 4dp                          |
+| Margin              | 8dp horizontal, 4dp vertical |
+| Padding interno     | 16dp                         |
 
 ### Botones
 
@@ -327,11 +327,11 @@ abstract class AppSpacing {
 
 ### Responsive Breakpoints
 
-| Breakpoint | Rango | Layout |
-|------------|-------|--------|
-| Compact | 0-599dp | Single column |
-| Medium | 600-839dp | Single column, más padding |
-| Expanded | 840dp+ | Two columns o Master-Detail |
+| Breakpoint | Rango     | Layout                      |
+| ---------- | --------- | --------------------------- |
+| Compact    | 0-599dp   | Single column               |
+| Medium     | 600-839dp | Single column, más padding  |
+| Expanded   | 840dp+    | Two columns o Master-Detail |
 
 ---
 
@@ -339,31 +339,31 @@ abstract class AppSpacing {
 
 ### Iconos Principales
 
-| Acción | Icono | Código |
-|--------|-------|--------|
-| Agregar | ➕ | `Icons.add` |
-| Editar | ✏️ | `Icons.edit` |
-| Eliminar | 🗑️ | `Icons.delete` |
-| Completar | ✓ | `Icons.check` |
-| Prioridad Alta | 🔴 | Custom circle |
-| Prioridad Media | 🟠 | Custom circle |
-| Prioridad Baja | 🟢 | Custom circle |
-| Calendario | 📅 | `Icons.calendar_today` |
-| Filtro | ⏬ | `Icons.filter_list` |
-| Búsqueda | 🔍 | `Icons.search` |
-| Configuración | ⚙️ | `Icons.settings` |
+| Acción          | Icono | Código                 |
+| --------------- | ----- | ---------------------- |
+| Agregar         | ➕    | `Icons.add`            |
+| Editar          | ✏️    | `Icons.edit`           |
+| Eliminar        | 🗑️    | `Icons.delete`         |
+| Completar       | ✓     | `Icons.check`          |
+| Prioridad Alta  | 🔴    | Custom circle          |
+| Prioridad Media | 🟠    | Custom circle          |
+| Prioridad Baja  | 🟢    | Custom circle          |
+| Calendario      | 📅    | `Icons.calendar_today` |
+| Filtro          | ⏬    | `Icons.filter_list`    |
+| Búsqueda        | 🔍    | `Icons.search`         |
+| Configuración   | ⚙️    | `Icons.settings`       |
 
 ### Tamaños de Iconos
 
-| Contexto | Tamaño |
-|----------|--------|
-| AppBar actions | 24dp |
-| List item | 24dp |
-| FAB | 24dp |
-| Tab bar | 24dp |
-| Bottom nav | 24dp |
-| Small indicators | 16dp |
-| Very small | 12dp |
+| Contexto         | Tamaño |
+| ---------------- | ------ |
+| AppBar actions   | 24dp   |
+| List item        | 24dp   |
+| FAB              | 24dp   |
+| Tab bar          | 24dp   |
+| Bottom nav       | 24dp   |
+| Small indicators | 16dp   |
+| Very small       | 12dp   |
 
 ---
 
@@ -391,14 +391,14 @@ abstract class AppAnimations {
 
 ### Animaciones Recomendadas
 
-| Acción | Tipo | Duración | Curva |
-|--------|------|----------|-------|
-| Aparecer item | FadeIn + SlideUp | 300ms | easeOut |
-| Eliminar item | FadeOut + SlideLeft | 200ms | easeIn |
-| Toggle checkbox | Scale | 150ms | elasticOut |
-| FAB press | Scale down | 100ms | easeInOut |
-| Page transition | SlideRight | 300ms | easeInOut |
-| Loading | Pulse | ∞ | linear |
+| Acción          | Tipo                | Duración | Curva      |
+| --------------- | ------------------- | -------- | ---------- |
+| Aparecer item   | FadeIn + SlideUp    | 300ms    | easeOut    |
+| Eliminar item   | FadeOut + SlideLeft | 200ms    | easeIn     |
+| Toggle checkbox | Scale               | 150ms    | elasticOut |
+| FAB press       | Scale down          | 100ms    | easeInOut  |
+| Page transition | SlideRight          | 300ms    | easeInOut  |
+| Loading         | Pulse               | ∞        | linear     |
 
 ### Ejemplo de Animación
 

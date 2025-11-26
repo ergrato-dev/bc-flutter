@@ -2,10 +2,10 @@
 
 ## 📋 Información
 
-| Campo | Detalle |
-|-------|---------|
-| **Nivel** | Avanzado |
-| **Duración** | 50 minutos |
+| Campo          | Detalle                  |
+| -------------- | ------------------------ |
+| **Nivel**      | Avanzado                 |
+| **Duración**   | 50 minutos               |
 | **Requisitos** | BLoC, bloc_test, Mockito |
 
 ---
@@ -637,17 +637,17 @@ flutter test --reporter expanded test/features/task/presentation/bloc/
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Events y States implementados | 15 |
-| TaskBloc completo | 20 |
-| Tests LoadTasks (3+ tests) | 15 |
-| Tests CreateTask (3+ tests) | 15 |
-| Tests UpdateTask (2+ tests) | 10 |
-| Tests DeleteTask (2+ tests) | 10 |
-| Tests de State getters | 10 |
-| Uso correcto de bloc_test | 5 |
-| **Total** | **100** |
+| Criterio                      | Puntos  |
+| ----------------------------- | ------- |
+| Events y States implementados | 15      |
+| TaskBloc completo             | 20      |
+| Tests LoadTasks (3+ tests)    | 15      |
+| Tests CreateTask (3+ tests)   | 15      |
+| Tests UpdateTask (2+ tests)   | 10      |
+| Tests DeleteTask (2+ tests)   | 10      |
+| Tests de State getters        | 10      |
+| Uso correcto de bloc_test     | 5       |
+| **Total**                     | **100** |
 
 ---
 

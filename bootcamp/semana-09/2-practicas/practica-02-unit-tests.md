@@ -2,10 +2,10 @@
 
 ## 📋 Información
 
-| Campo | Detalle |
-|-------|---------|
-| **Nivel** | Intermedio |
-| **Duración** | 45 minutos |
+| Campo          | Detalle              |
+| -------------- | -------------------- |
+| **Nivel**      | Intermedio           |
+| **Duración**   | 45 minutos           |
 | **Requisitos** | Práctica 01, Mockito |
 
 ---
@@ -107,10 +107,10 @@ void main() {
         // ASSERT - Verificar
         // Verificar que el resultado es correcto
         expect(result, Right(tTasks));
-        
+
         // Verificar que el repositorio fue llamado exactamente una vez
         verify(mockRepository.getTasks()).called(1);
-        
+
         // Verificar que no se hicieron otras llamadas
         verifyNoMoreInteractions(mockRepository);
       },
@@ -207,12 +207,12 @@ void main() {
 
         // ASSERT
         expect(result.isRight(), true);
-        
+
         // Verificar que se llamó al repositorio con una tarea válida
         final captured = verify(mockRepository.createTask(captureAny))
             .captured
             .single as Task;
-        
+
         expect(captured.title, 'New Task');
         expect(captured.description, 'Task description');
       },
@@ -239,7 +239,7 @@ void main() {
           },
           (_) => fail('Should return failure'),
         );
-        
+
         // Verificar que NO se llamó al repositorio
         verifyNever(mockRepository.createTask(any));
       },
@@ -279,7 +279,7 @@ void main() {
         final captured = verify(mockRepository.createTask(captureAny))
             .captured
             .single as Task;
-        
+
         expect(captured.title, 'Trimmed Title');
         expect(captured.description, 'Trimmed Description');
       },
@@ -304,7 +304,7 @@ void main() {
         final captured = verify(mockRepository.createTask(captureAny))
             .captured
             .single as Task;
-        
+
         expect(captured.priority, TaskPriority.high);
       },
     );
@@ -325,7 +325,7 @@ void main() {
         final captured = verify(mockRepository.createTask(captureAny))
             .captured
             .single as Task;
-        
+
         expect(captured.priority, TaskPriority.medium);
       },
     );
@@ -383,7 +383,7 @@ void main() {
       () async {
         // ARRANGE
         const tParams = DeleteTaskParams(id: 'task-123');
-        
+
         when(mockRepository.deleteTask('task-123'))
             .thenAnswer((_) async => const Right(null));
 
@@ -493,7 +493,7 @@ void main() {
 
       test('should update title when provided', () {
         final copy = tTask.copyWith(title: 'Updated Title');
-        
+
         expect(copy.title, 'Updated Title');
         expect(copy.id, tTask.id); // Otros campos sin cambios
         expect(copy.description, tTask.description);
@@ -501,16 +501,16 @@ void main() {
 
       test('should update isCompleted', () {
         expect(tTask.isCompleted, false);
-        
+
         final copy = tTask.copyWith(isCompleted: true);
-        
+
         expect(copy.isCompleted, true);
         expect(copy.title, tTask.title);
       });
 
       test('should update priority', () {
         final copy = tTask.copyWith(priority: TaskPriority.high);
-        
+
         expect(copy.priority, TaskPriority.high);
         expect(tTask.priority, TaskPriority.medium); // Original sin cambios
       });
@@ -573,15 +573,15 @@ open coverage/html/index.html
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Mocks generados correctamente | 15 |
-| Tests de GetTasks (3+ tests) | 20 |
-| Tests de CreateTask (5+ tests) | 25 |
-| Tests de DeleteTask (3+ tests) | 20 |
-| Tests de Task entity (5+ tests) | 15 |
-| Patrón AAA aplicado | 5 |
-| **Total** | **100** |
+| Criterio                        | Puntos  |
+| ------------------------------- | ------- |
+| Mocks generados correctamente   | 15      |
+| Tests de GetTasks (3+ tests)    | 20      |
+| Tests de CreateTask (5+ tests)  | 25      |
+| Tests de DeleteTask (3+ tests)  | 20      |
+| Tests de Task entity (5+ tests) | 15      |
+| Patrón AAA aplicado             | 5       |
+| **Total**                       | **100** |
 
 ---
 

@@ -28,13 +28,13 @@
 
 ### ¿Por qué testear?
 
-| Beneficio | Descripción |
-|-----------|-------------|
-| **Confianza** | Cambios sin miedo a romper funcionalidad |
+| Beneficio         | Descripción                               |
+| ----------------- | ----------------------------------------- |
+| **Confianza**     | Cambios sin miedo a romper funcionalidad  |
 | **Documentación** | Tests explican el comportamiento esperado |
-| **Diseño** | Tests fuerzan mejor arquitectura |
-| **Regresiones** | Detectar bugs antes de producción |
-| **Refactoring** | Mejorar código con seguridad |
+| **Diseño**        | Tests fuerzan mejor arquitectura          |
+| **Regresiones**   | Detectar bugs antes de producción         |
+| **Refactoring**   | Mejorar código con seguridad              |
 
 ### Pirámide de Testing
 
@@ -52,11 +52,11 @@
 
 ### Tipos de Tests en Flutter
 
-| Tipo | Qué testea | Velocidad | Ejemplo |
-|------|------------|-----------|---------|
-| **Unit** | Funciones, clases | Rápido | Use cases, BLoCs |
-| **Widget** | Widgets individuales | Medio | Botones, formularios |
-| **Integration** | Flujos completos | Lento | Login flow |
+| Tipo            | Qué testea           | Velocidad | Ejemplo              |
+| --------------- | -------------------- | --------- | -------------------- |
+| **Unit**        | Funciones, clases    | Rápido    | Use cases, BLoCs     |
+| **Widget**      | Widgets individuales | Medio     | Botones, formularios |
+| **Integration** | Flujos completos     | Lento     | Login flow           |
 
 ---
 
@@ -206,7 +206,7 @@ test('should calculate total price with discount', () {
   final cart = ShoppingCart();
   final product = Product(name: 'Laptop', price: 1000.0);
   final discount = Discount(percentage: 10);
-  
+
   cart.addProduct(product);
   cart.applyDiscount(discount);
 
@@ -229,10 +229,10 @@ test('should calculate total price with discount', () {
 test('should add two numbers correctly', () {
   // Arrange
   final calculator = Calculator();
-  
+
   // Act
   final result = calculator.add(2, 3);
-  
+
   // Assert
   expect(result, equals(5));
 });
@@ -241,7 +241,7 @@ test('should add two numbers correctly', () {
 test('should throw when dividing by zero', () {
   // Arrange
   final calculator = Calculator();
-  
+
   // Act & Assert
   expect(
     () => calculator.divide(10, 0),
@@ -253,10 +253,10 @@ test('should throw when dividing by zero', () {
 test('should fetch data from API', () async {
   // Arrange
   when(mockApi.fetchData()).thenAnswer((_) async => testData);
-  
+
   // Act
   final result = await service.getData();
-  
+
   // Assert
   expect(result, equals(testData));
 });
@@ -306,7 +306,7 @@ void main() {
 group('Collection Matchers', () {
   test('list matchers', () {
     final list = [1, 2, 3, 4, 5];
-    
+
     expect(list, hasLength(5));
     expect(list, contains(3));
     expect(list, containsAll([1, 3, 5]));
@@ -318,7 +318,7 @@ group('Collection Matchers', () {
 
   test('map matchers', () {
     final map = {'name': 'John', 'age': 30};
-    
+
     expect(map, containsKey('name'));
     expect(map, containsValue('John'));
     expect(map, containsPair('name', 'John'));
@@ -332,7 +332,7 @@ group('Collection Matchers', () {
 group('String Matchers', () {
   test('string matchers', () {
     const text = 'Hello, World!';
-    
+
     expect(text, startsWith('Hello'));
     expect(text, endsWith('!'));
     expect(text, contains('World'));
@@ -438,7 +438,7 @@ void main() {
 ```dart
 group('Stubbing', () {
   late MockUserRepository mockRepository;
-  
+
   setUp(() {
     mockRepository = MockUserRepository();
   });
@@ -446,7 +446,7 @@ group('Stubbing', () {
   test('thenReturn - valor síncrono', () {
     // Configurar respuesta
     when(mockRepository.getUserSync(1)).thenReturn(testUser);
-    
+
     // Usar
     final result = mockRepository.getUserSync(1);
     expect(result, equals(testUser));
@@ -456,7 +456,7 @@ group('Stubbing', () {
     // Configurar respuesta asíncrona
     when(mockRepository.getUser(1))
         .thenAnswer((_) async => Right(testUser));
-    
+
     // Usar
     final result = await mockRepository.getUser(1);
     expect(result, Right(testUser));
@@ -466,7 +466,7 @@ group('Stubbing', () {
     // Configurar excepción
     when(mockRepository.getUser(any))
         .thenThrow(ServerException('Server error'));
-    
+
     // Verificar
     expect(
       () => mockRepository.getUser(1),
@@ -479,10 +479,10 @@ group('Stubbing', () {
     when(mockRepository.getUser(1))
         .thenAnswer((_) async => Right(testUser))
         .thenAnswer((_) async => Left(ServerFailure()));
-    
+
     final first = await mockRepository.getUser(1);
     final second = await mockRepository.getUser(1);
-    
+
     expect(first, Right(testUser));
     expect(second, Left(ServerFailure()));
   });
@@ -496,7 +496,7 @@ group('Argument Matchers', () {
   test('any - cualquier valor', () {
     when(mockRepository.getUser(any))
         .thenAnswer((_) async => Right(testUser));
-    
+
     // Funciona con cualquier ID
     mockRepository.getUser(1);
     mockRepository.getUser(999);
@@ -505,7 +505,7 @@ group('Argument Matchers', () {
   test('argThat - condición personalizada', () {
     when(mockRepository.getUser(argThat(greaterThan(0))))
         .thenAnswer((_) async => Right(testUser));
-    
+
     when(mockRepository.getUser(argThat(lessThanOrEqualTo(0))))
         .thenAnswer((_) async => Left(ValidationFailure('Invalid ID')));
   });
@@ -513,9 +513,9 @@ group('Argument Matchers', () {
   test('captureAny - capturar argumentos', () async {
     when(mockRepository.createUser(any))
         .thenAnswer((_) async => Right(testUser));
-    
+
     await mockRepository.createUser(testUser);
-    
+
     // Capturar el argumento pasado
     final captured = verify(mockRepository.createUser(captureAny)).captured;
     expect(captured.single, equals(testUser));
@@ -530,9 +530,9 @@ group('Verification', () {
   test('verify - fue llamado', () async {
     when(mockRepository.getUser(1))
         .thenAnswer((_) async => Right(testUser));
-    
+
     await usecase(1);
-    
+
     // Verificar que se llamó exactamente una vez
     verify(mockRepository.getUser(1)).called(1);
   });
@@ -540,9 +540,9 @@ group('Verification', () {
   test('verifyNever - nunca fue llamado', () async {
     when(mockRepository.getUser(1))
         .thenAnswer((_) async => Right(testUser));
-    
+
     await usecase(1);
-    
+
     // Verificar que deleteUser nunca fue llamado
     verifyNever(mockRepository.deleteUser(any));
   });
@@ -550,9 +550,9 @@ group('Verification', () {
   test('verifyNoMoreInteractions - sin más interacciones', () async {
     when(mockRepository.getUser(1))
         .thenAnswer((_) async => Right(testUser));
-    
+
     await usecase(1);
-    
+
     verify(mockRepository.getUser(1)).called(1);
     verifyNoMoreInteractions(mockRepository);
   });
@@ -560,11 +560,11 @@ group('Verification', () {
   test('verifyInOrder - orden específico', () async {
     when(mockRepository.getUser(any))
         .thenAnswer((_) async => Right(testUser));
-    
+
     await mockRepository.getUser(1);
     await mockRepository.getUser(2);
     await mockRepository.getUser(3);
-    
+
     verifyInOrder([
       mockRepository.getUser(1),
       mockRepository.getUser(2),
@@ -869,7 +869,7 @@ void main() {
 class EmailValidator {
   bool isValid(String email) {
     if (email.isEmpty) return false;
-    
+
     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
     return emailRegex.hasMatch(email);
   }
@@ -884,17 +884,17 @@ class EmailValidator {
 // lib/core/utils/email_validator.dart
 class EmailValidator {
   static final _emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-  
+
   /// Valida si el email tiene formato correcto.
-  /// 
+  ///
   /// Retorna `true` si el email es válido, `false` en caso contrario.
   bool isValid(String email) {
     if (email.isEmpty) return false;
     return _emailRegex.hasMatch(email);
   }
-  
+
   /// Obtiene el dominio de un email válido.
-  /// 
+  ///
   /// Lanza [FormatException] si el email es inválido.
   String getDomain(String email) {
     if (!isValid(email)) {
@@ -909,13 +909,13 @@ class EmailValidator {
 
 ### Beneficios de TDD
 
-| Beneficio | Descripción |
-|-----------|-------------|
-| **Mejor diseño** | Pensar en la API antes de implementar |
-| **Código testeable** | Código escrito para ser testeable |
-| **Documentación** | Tests como especificación viva |
-| **Confianza** | Refactoring sin miedo |
-| **Menos bugs** | Detectar problemas temprano |
+| Beneficio            | Descripción                           |
+| -------------------- | ------------------------------------- |
+| **Mejor diseño**     | Pensar en la API antes de implementar |
+| **Código testeable** | Código escrito para ser testeable     |
+| **Documentación**    | Tests como especificación viva        |
+| **Confianza**        | Refactoring sin miedo                 |
+| **Menos bugs**       | Detectar problemas temprano           |
 
 ---
 
@@ -940,10 +940,7 @@ open coverage/html/index.html
 // .vscode/settings.json
 {
   "coverage-gutters.showLineCoverage": true,
-  "coverage-gutters.coverageFileNames": [
-    "lcov.info",
-    "coverage/lcov.info"
-  ]
+  "coverage-gutters.coverageFileNames": ["lcov.info", "coverage/lcov.info"]
 }
 ```
 
@@ -963,14 +960,14 @@ Total                                   |   85.0% |      90.0%
 
 ### Cobertura Recomendada
 
-| Capa | Coverage Mínimo | Objetivo |
-|------|-----------------|----------|
-| Domain (Use Cases) | 100% | 100% |
-| Domain (Entities) | 90% | 100% |
-| Data (Repositories) | 80% | 90% |
-| Data (Models) | 80% | 90% |
-| Data (Data Sources) | 70% | 80% |
-| Presentation (BLoC) | 90% | 100% |
+| Capa                | Coverage Mínimo | Objetivo |
+| ------------------- | --------------- | -------- |
+| Domain (Use Cases)  | 100%            | 100%     |
+| Domain (Entities)   | 90%             | 100%     |
+| Data (Repositories) | 80%             | 90%      |
+| Data (Models)       | 80%             | 90%      |
+| Data (Data Sources) | 70%             | 80%      |
+| Presentation (BLoC) | 90%             | 100%     |
 
 ---
 

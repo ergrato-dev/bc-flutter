@@ -2,10 +2,10 @@
 
 ## 📋 Información
 
-| Campo | Detalle |
-|-------|---------|
-| **Nivel** | Avanzado |
-| **Duración** | 50 minutos |
+| Campo          | Detalle         |
+| -------------- | --------------- |
+| **Nivel**      | Avanzado        |
+| **Duración**   | 50 minutos      |
 | **Requisitos** | Prácticas 01-04 |
 
 ---
@@ -591,17 +591,17 @@ Future<void> main() => integrationDriver();
 
 ## ✅ Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Helpers y utilidades | 10 |
-| Robot Pattern implementado | 20 |
-| Test crear tarea | 15 |
-| Test CRUD completo | 20 |
-| Test validaciones | 10 |
-| Test múltiples tareas | 10 |
-| Test toggle/prioridades | 10 |
-| Tests ejecutan sin errores | 5 |
-| **Total** | **100** |
+| Criterio                   | Puntos  |
+| -------------------------- | ------- |
+| Helpers y utilidades       | 10      |
+| Robot Pattern implementado | 20      |
+| Test crear tarea           | 15      |
+| Test CRUD completo         | 20      |
+| Test validaciones          | 10      |
+| Test múltiples tareas      | 10      |
+| Test toggle/prioridades    | 10      |
+| Tests ejecutan sin errores | 5       |
+| **Total**                  | **100** |
 
 ---
 
