@@ -20,13 +20,13 @@ Al finalizar este módulo, serás capaz de:
 
 #### Características
 
-| Característica | Descripción |
-|----------------|-------------|
-| **Tipo** | Base de datos relacional SQL |
-| **Almacenamiento** | Archivo único en disco |
-| **Transacciones** | Soporta ACID |
-| **Capacidad** | Hasta 281 TB teóricos |
-| **Velocidad** | Muy rápido para lecturas |
+| Característica     | Descripción                  |
+| ------------------ | ---------------------------- |
+| **Tipo**           | Base de datos relacional SQL |
+| **Almacenamiento** | Archivo único en disco       |
+| **Transacciones**  | Soporta ACID                 |
+| **Capacidad**      | Hasta 281 TB teóricos        |
+| **Velocidad**      | Muy rápido para lecturas     |
 
 #### Cuándo Usar SQLite
 
@@ -75,11 +75,11 @@ import 'package:path/path.dart';
 ```dart
 /**
  * DatabaseHelper: Clase helper para gestionar SQLite.
- * 
+ *
  * ¿Qué hace?
  * Proporciona una única instancia de la base de datos
  * y métodos para operaciones CRUD.
- * 
+ *
  * ¿Por qué singleton?
  * - Evita múltiples conexiones abiertas
  * - Garantiza consistencia
@@ -89,22 +89,22 @@ class DatabaseHelper {
   // Singleton
   static final DatabaseHelper instance = DatabaseHelper._init();
   static Database? _database;
-  
+
   DatabaseHelper._init();
-  
+
   // Getter para la base de datos
   Future<Database> get database async {
     if (_database != null) return _database!;
     _database = await _initDB('app_database.db');
     return _database!;
   }
-  
+
   // Inicialización
   Future<Database> _initDB(String fileName) async {
     // Obtener ruta del directorio de bases de datos
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, fileName);
-    
+
     // Abrir/crear base de datos
     return await openDatabase(
       path,
@@ -113,7 +113,7 @@ class DatabaseHelper {
       onUpgrade: _upgradeDB,
     );
   }
-  
+
   // Crear tablas
   Future<void> _createDB(Database db, int version) async {
     // Tabla de usuarios
@@ -127,7 +127,7 @@ class DatabaseHelper {
         updated_at TEXT
       )
     ''');
-    
+
     // Tabla de notas
     await db.execute('''
       CREATE TABLE notes (
@@ -142,7 +142,7 @@ class DatabaseHelper {
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
       )
     ''');
-    
+
     // Tabla de etiquetas
     await db.execute('''
       CREATE TABLE tags (
@@ -151,7 +151,7 @@ class DatabaseHelper {
         color INTEGER DEFAULT 0xFF2196F3
       )
     ''');
-    
+
     // Tabla pivote notas-etiquetas (relación N:N)
     await db.execute('''
       CREATE TABLE note_tags (
@@ -162,12 +162,12 @@ class DatabaseHelper {
         FOREIGN KEY (tag_id) REFERENCES tags (id) ON DELETE CASCADE
       )
     ''');
-    
+
     // Índices para mejorar rendimiento
     await db.execute('CREATE INDEX idx_notes_user ON notes (user_id)');
     await db.execute('CREATE INDEX idx_notes_pinned ON notes (is_pinned)');
   }
-  
+
   // Migraciones
   Future<void> _upgradeDB(Database db, int oldVersion, int newVersion) async {
     if (oldVersion < 2) {
@@ -179,7 +179,7 @@ class DatabaseHelper {
       await db.execute('ALTER TABLE users ADD COLUMN phone TEXT');
     }
   }
-  
+
   // Cerrar conexión
   Future<void> close() async {
     final db = await database;
@@ -196,7 +196,7 @@ class DatabaseHelper {
 ```dart
 /**
  * User: Modelo de usuario.
- * 
+ *
  * Incluye métodos de serialización para SQLite.
  */
 class User {
@@ -206,7 +206,7 @@ class User {
   final String? avatar;
   final DateTime createdAt;
   final DateTime? updatedAt;
-  
+
   User({
     this.id,
     required this.name,
@@ -215,7 +215,7 @@ class User {
     required this.createdAt,
     this.updatedAt,
   });
-  
+
   // Convertir a Map para SQLite
   Map<String, dynamic> toMap() {
     return {
@@ -227,7 +227,7 @@ class User {
       'updated_at': updatedAt?.toIso8601String(),
     };
   }
-  
+
   // Crear desde Map de SQLite
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
@@ -236,12 +236,12 @@ class User {
       email: map['email'],
       avatar: map['avatar'],
       createdAt: DateTime.parse(map['created_at']),
-      updatedAt: map['updated_at'] != null 
-          ? DateTime.parse(map['updated_at']) 
+      updatedAt: map['updated_at'] != null
+          ? DateTime.parse(map['updated_at'])
           : null,
     );
   }
-  
+
   // copyWith para inmutabilidad
   User copyWith({
     int? id,
@@ -275,7 +275,7 @@ class Note {
   final DateTime createdAt;
   final DateTime? updatedAt;
   final List<Tag>? tags; // Para joins
-  
+
   Note({
     this.id,
     required this.userId,
@@ -287,7 +287,7 @@ class Note {
     this.updatedAt,
     this.tags,
   });
-  
+
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -300,7 +300,7 @@ class Note {
       'updated_at': updatedAt?.toIso8601String(),
     };
   }
-  
+
   factory Note.fromMap(Map<String, dynamic> map) {
     return Note(
       id: map['id'],
@@ -310,12 +310,12 @@ class Note {
       color: map['color'] ?? 0xFFFFFFFF,
       isPinned: map['is_pinned'] == 1,
       createdAt: DateTime.parse(map['created_at']),
-      updatedAt: map['updated_at'] != null 
-          ? DateTime.parse(map['updated_at']) 
+      updatedAt: map['updated_at'] != null
+          ? DateTime.parse(map['updated_at'])
           : null,
     );
   }
-  
+
   Note copyWith({
     int? id,
     int? userId,
@@ -348,19 +348,19 @@ class Tag {
   final int? id;
   final String name;
   final int color;
-  
+
   Tag({
     this.id,
     required this.name,
     this.color = 0xFF2196F3,
   });
-  
+
   Map<String, dynamic> toMap() => {
     'id': id,
     'name': name,
     'color': color,
   };
-  
+
   factory Tag.fromMap(Map<String, dynamic> map) => Tag(
     id: map['id'],
     name: map['name'],
@@ -381,13 +381,13 @@ class Tag {
  */
 class DatabaseHelper {
   // ... código anterior ...
-  
+
   // ===== CREATE =====
-  
+
   /// Insertar un usuario
   Future<int> insertUser(User user) async {
     final db = await database;
-    
+
     // insert() retorna el ID del nuevo registro
     return await db.insert(
       'users',
@@ -395,36 +395,36 @@ class DatabaseHelper {
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
-  
+
   /// Insertar una nota
   Future<int> insertNote(Note note) async {
     final db = await database;
     return await db.insert('notes', note.toMap());
   }
-  
+
   /// Insertar múltiples registros en transacción
   Future<void> insertMultipleNotes(List<Note> notes) async {
     final db = await database;
-    
+
     // Batch para múltiples operaciones eficientes
     final batch = db.batch();
-    
+
     for (final note in notes) {
       batch.insert('notes', note.toMap());
     }
-    
+
     // Ejecutar todas las operaciones
     await batch.commit(noResult: true);
   }
-  
+
   /// Insertar con transacción manual
   Future<int> insertNoteWithTags(Note note, List<int> tagIds) async {
     final db = await database;
-    
+
     return await db.transaction((txn) async {
       // Insertar nota
       final noteId = await txn.insert('notes', note.toMap());
-      
+
       // Insertar relaciones con etiquetas
       for (final tagId in tagIds) {
         await txn.insert('note_tags', {
@@ -432,7 +432,7 @@ class DatabaseHelper {
           'tag_id': tagId,
         });
       }
-      
+
       return noteId;
     });
   }
@@ -444,126 +444,126 @@ class DatabaseHelper {
 ```dart
 class DatabaseHelper {
   // ... código anterior ...
-  
+
   // ===== READ =====
-  
+
   /// Obtener todos los usuarios
   Future<List<User>> getAllUsers() async {
     final db = await database;
-    
+
     final List<Map<String, dynamic>> maps = await db.query('users');
-    
+
     return List.generate(maps.length, (i) => User.fromMap(maps[i]));
   }
-  
+
   /// Obtener usuario por ID
   Future<User?> getUserById(int id) async {
     final db = await database;
-    
+
     final maps = await db.query(
       'users',
       where: 'id = ?',
       whereArgs: [id],
       limit: 1,
     );
-    
+
     if (maps.isEmpty) return null;
     return User.fromMap(maps.first);
   }
-  
+
   /// Obtener usuario por email
   Future<User?> getUserByEmail(String email) async {
     final db = await database;
-    
+
     final maps = await db.query(
       'users',
       where: 'email = ?',
       whereArgs: [email],
     );
-    
+
     if (maps.isEmpty) return null;
     return User.fromMap(maps.first);
   }
-  
+
   /// Obtener notas de un usuario
   Future<List<Note>> getNotesByUser(int userId) async {
     final db = await database;
-    
+
     final maps = await db.query(
       'notes',
       where: 'user_id = ?',
       whereArgs: [userId],
       orderBy: 'is_pinned DESC, created_at DESC',
     );
-    
+
     return maps.map((m) => Note.fromMap(m)).toList();
   }
-  
+
   /// Buscar notas por título
   Future<List<Note>> searchNotes(String query) async {
     final db = await database;
-    
+
     final maps = await db.query(
       'notes',
       where: 'title LIKE ? OR content LIKE ?',
       whereArgs: ['%$query%', '%$query%'],
       orderBy: 'created_at DESC',
     );
-    
+
     return maps.map((m) => Note.fromMap(m)).toList();
   }
-  
+
   /// Consulta SQL raw
   Future<List<Note>> getRecentNotes(int limit) async {
     final db = await database;
-    
+
     final maps = await db.rawQuery('''
-      SELECT * FROM notes 
-      WHERE is_pinned = 0 
-      ORDER BY created_at DESC 
+      SELECT * FROM notes
+      WHERE is_pinned = 0
+      ORDER BY created_at DESC
       LIMIT ?
     ''', [limit]);
-    
+
     return maps.map((m) => Note.fromMap(m)).toList();
   }
-  
+
   /// JOIN: Obtener nota con sus etiquetas
   Future<Note?> getNoteWithTags(int noteId) async {
     final db = await database;
-    
+
     // Obtener nota
     final noteMaps = await db.query(
       'notes',
       where: 'id = ?',
       whereArgs: [noteId],
     );
-    
+
     if (noteMaps.isEmpty) return null;
-    
+
     // Obtener etiquetas con JOIN
     final tagMaps = await db.rawQuery('''
       SELECT t.* FROM tags t
       INNER JOIN note_tags nt ON t.id = nt.tag_id
       WHERE nt.note_id = ?
     ''', [noteId]);
-    
+
     final tags = tagMaps.map((m) => Tag.fromMap(m)).toList();
-    
+
     return Note.fromMap(noteMaps.first).copyWith(tags: tags);
   }
-  
+
   /// Contar registros
   Future<int> countNotes(int userId) async {
     final db = await database;
-    
+
     final result = await db.rawQuery(
       'SELECT COUNT(*) as count FROM notes WHERE user_id = ?',
       [userId],
     );
-    
+
     return Sqflite.firstIntValue(result) ?? 0;
   }
-  
+
   /// Paginación
   Future<List<Note>> getNotesPaginated({
     required int userId,
@@ -571,7 +571,7 @@ class DatabaseHelper {
     int pageSize = 20,
   }) async {
     final db = await database;
-    
+
     final maps = await db.query(
       'notes',
       where: 'user_id = ?',
@@ -580,7 +580,7 @@ class DatabaseHelper {
       limit: pageSize,
       offset: page * pageSize,
     );
-    
+
     return maps.map((m) => Note.fromMap(m)).toList();
   }
 }
@@ -591,16 +591,16 @@ class DatabaseHelper {
 ```dart
 class DatabaseHelper {
   // ... código anterior ...
-  
+
   // ===== UPDATE =====
-  
+
   /// Actualizar usuario
   Future<int> updateUser(User user) async {
     final db = await database;
-    
+
     // Agregar timestamp de actualización
     final updatedUser = user.copyWith(updatedAt: DateTime.now());
-    
+
     return await db.update(
       'users',
       updatedUser.toMap(),
@@ -608,13 +608,13 @@ class DatabaseHelper {
       whereArgs: [user.id],
     );
   }
-  
+
   /// Actualizar nota
   Future<int> updateNote(Note note) async {
     final db = await database;
-    
+
     final updatedNote = note.copyWith(updatedAt: DateTime.now());
-    
+
     return await db.update(
       'notes',
       updatedNote.toMap(),
@@ -622,11 +622,11 @@ class DatabaseHelper {
       whereArgs: [note.id],
     );
   }
-  
+
   /// Actualizar campo específico
   Future<int> toggleNotePinned(int noteId, bool isPinned) async {
     final db = await database;
-    
+
     return await db.update(
       'notes',
       {
@@ -637,11 +637,11 @@ class DatabaseHelper {
       whereArgs: [noteId],
     );
   }
-  
+
   /// Actualización masiva
   Future<int> unpinAllNotes(int userId) async {
     final db = await database;
-    
+
     return await db.update(
       'notes',
       {'is_pinned': 0},
@@ -649,11 +649,11 @@ class DatabaseHelper {
       whereArgs: [userId],
     );
   }
-  
+
   /// Actualizar con SQL raw
   Future<void> incrementViewCount(int noteId) async {
     final db = await database;
-    
+
     await db.rawUpdate(
       'UPDATE notes SET view_count = view_count + 1 WHERE id = ?',
       [noteId],
@@ -667,71 +667,71 @@ class DatabaseHelper {
 ```dart
 class DatabaseHelper {
   // ... código anterior ...
-  
+
   // ===== DELETE =====
-  
+
   /// Eliminar usuario (cascade elimina sus notas)
   Future<int> deleteUser(int id) async {
     final db = await database;
-    
+
     return await db.delete(
       'users',
       where: 'id = ?',
       whereArgs: [id],
     );
   }
-  
+
   /// Eliminar nota
   Future<int> deleteNote(int id) async {
     final db = await database;
-    
+
     return await db.delete(
       'notes',
       where: 'id = ?',
       whereArgs: [id],
     );
   }
-  
+
   /// Eliminar múltiples notas
   Future<int> deleteNotes(List<int> ids) async {
     final db = await database;
-    
+
     // Crear placeholders: ?, ?, ?
     final placeholders = List.filled(ids.length, '?').join(', ');
-    
+
     return await db.delete(
       'notes',
       where: 'id IN ($placeholders)',
       whereArgs: ids,
     );
   }
-  
+
   /// Eliminar notas antiguas
   Future<int> deleteOldNotes(int daysOld) async {
     final db = await database;
-    
+
     final cutoffDate = DateTime.now()
         .subtract(Duration(days: daysOld))
         .toIso8601String();
-    
+
     return await db.delete(
       'notes',
       where: 'created_at < ? AND is_pinned = 0',
       whereArgs: [cutoffDate],
     );
   }
-  
+
   /// Eliminar todos los registros de una tabla
   Future<void> clearTable(String tableName) async {
     final db = await database;
     await db.delete(tableName);
   }
-  
+
   /// Eliminar toda la base de datos
   Future<void> deleteDatabase() async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, 'app_database.db');
-    
+
     await close();
     await databaseFactory.deleteDatabase(path);
     _database = null;
@@ -746,7 +746,7 @@ class DatabaseHelper {
 ```dart
 /**
  * NoteRepository: Abstracción sobre DatabaseHelper.
- * 
+ *
  * ¿Para qué?
  * - Separar lógica de persistencia de la UI
  * - Facilitar testing con mocks
@@ -763,24 +763,24 @@ abstract class INoteRepository {
 
 class NoteRepository implements INoteRepository {
   final DatabaseHelper _db;
-  
+
   NoteRepository(this._db);
-  
+
   @override
   Future<List<Note>> getAll() => _db.getAllNotes();
-  
+
   @override
   Future<Note?> getById(int id) => _db.getNoteById(id);
-  
+
   @override
   Future<List<Note>> search(String query) => _db.searchNotes(query);
-  
+
   @override
   Future<int> create(Note note) => _db.insertNote(note);
-  
+
   @override
   Future<int> update(Note note) => _db.updateNote(note);
-  
+
   @override
   Future<int> delete(int id) => _db.deleteNote(id);
 }
@@ -788,22 +788,22 @@ class NoteRepository implements INoteRepository {
 // Uso con Provider
 class NoteProvider extends ChangeNotifier {
   final INoteRepository _repository;
-  
+
   List<Note> _notes = [];
   bool _isLoading = false;
   String? _error;
-  
+
   List<Note> get notes => _notes;
   bool get isLoading => _isLoading;
   String? get error => _error;
-  
+
   NoteProvider(this._repository);
-  
+
   Future<void> loadNotes() async {
     _isLoading = true;
     _error = null;
     notifyListeners();
-    
+
     try {
       _notes = await _repository.getAll();
     } catch (e) {
@@ -813,7 +813,7 @@ class NoteProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
-  
+
   Future<bool> addNote(Note note) async {
     try {
       final id = await _repository.create(note);
@@ -826,7 +826,7 @@ class NoteProvider extends ChangeNotifier {
       return false;
     }
   }
-  
+
   Future<bool> removeNote(int id) async {
     try {
       await _repository.delete(id);

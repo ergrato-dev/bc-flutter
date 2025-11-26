@@ -10,13 +10,13 @@
 
 ### Tipos de Backup
 
-| Tipo | Descripción | Uso |
-|------|-------------|-----|
-| **Local** | Copia en el dispositivo | Protección contra corrupción |
-| **Nube** | Sincronización con servidor | Recuperación entre dispositivos |
-| **Exportación** | Archivo descargable | Control del usuario |
-| **Automático** | Sin intervención del usuario | Transparente |
-| **Manual** | Iniciado por usuario | Control explícito |
+| Tipo            | Descripción                  | Uso                             |
+| --------------- | ---------------------------- | ------------------------------- |
+| **Local**       | Copia en el dispositivo      | Protección contra corrupción    |
+| **Nube**        | Sincronización con servidor  | Recuperación entre dispositivos |
+| **Exportación** | Archivo descargable          | Control del usuario             |
+| **Automático**  | Sin intervención del usuario | Transparente                    |
+| **Manual**      | Iniciado por usuario         | Control explícito               |
 
 ---
 
@@ -35,49 +35,49 @@ class SqliteBackupService {
   static const String _dbName = 'app.db';
   static const String _backupPrefix = 'backup_';
   static const int _maxBackups = 5; // Mantener últimos 5 backups
-  
+
   /// Crear backup de la base de datos
   Future<File> createBackup() async {
     final dbPath = await getDatabasesPath();
     final originalPath = join(dbPath, _dbName);
     final originalFile = File(originalPath);
-    
+
     if (!await originalFile.exists()) {
       throw Exception('Database not found');
     }
-    
+
     // Directorio de backups
     final backupDir = await _getBackupDirectory();
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final backupPath = join(backupDir.path, '$_backupPrefix$timestamp.db');
-    
+
     // Copiar archivo
     final backupFile = await originalFile.copy(backupPath);
-    
+
     // Limpiar backups antiguos
     await _cleanOldBackups(backupDir);
-    
+
     return backupFile;
   }
-  
+
   /// Restaurar desde backup
   Future<void> restoreBackup(String backupPath) async {
     final backupFile = File(backupPath);
-    
+
     if (!await backupFile.exists()) {
       throw Exception('Backup file not found');
     }
-    
+
     final dbPath = await getDatabasesPath();
     final originalPath = join(dbPath, _dbName);
-    
+
     // Cerrar conexiones activas primero
     // (debe manejarse en la app)
-    
+
     // Reemplazar base de datos
     await backupFile.copy(originalPath);
   }
-  
+
   /// Listar backups disponibles
   Future<List<BackupInfo>> listBackups() async {
     final backupDir = await _getBackupDirectory();
@@ -85,31 +85,31 @@ class SqliteBackupService {
         .whereType<File>()
         .where((f) => basename(f.path).startsWith(_backupPrefix))
         .toList();
-    
+
     final backups = <BackupInfo>[];
-    
+
     for (final file in files) {
       final stat = await file.stat();
       final name = basename(file.path);
       final timestampStr = name.replaceAll(_backupPrefix, '').replaceAll('.db', '');
       final timestamp = int.tryParse(timestampStr);
-      
+
       backups.add(BackupInfo(
         path: file.path,
         name: name,
         size: stat.size,
-        createdAt: timestamp != null 
+        createdAt: timestamp != null
             ? DateTime.fromMillisecondsSinceEpoch(timestamp)
             : stat.modified,
       ));
     }
-    
+
     // Ordenar por fecha (más reciente primero)
     backups.sort((a, b) => b.createdAt.compareTo(a.createdAt));
-    
+
     return backups;
   }
-  
+
   /// Eliminar backup específico
   Future<void> deleteBackup(String path) async {
     final file = File(path);
@@ -117,35 +117,35 @@ class SqliteBackupService {
       await file.delete();
     }
   }
-  
+
   /// Obtener directorio de backups
   Future<Directory> _getBackupDirectory() async {
     final appDir = await getApplicationDocumentsDirectory();
     final backupDir = Directory(join(appDir.path, 'backups'));
-    
+
     if (!await backupDir.exists()) {
       await backupDir.create(recursive: true);
     }
-    
+
     return backupDir;
   }
-  
+
   /// Limpiar backups antiguos
   Future<void> _cleanOldBackups(Directory backupDir) async {
     final files = backupDir.listSync()
         .whereType<File>()
         .where((f) => basename(f.path).startsWith(_backupPrefix))
         .toList();
-    
+
     if (files.length <= _maxBackups) return;
-    
+
     // Ordenar por fecha de modificación
     files.sort((a, b) {
       final statA = a.statSync();
       final statB = b.statSync();
       return statA.modified.compareTo(statB.modified);
     });
-    
+
     // Eliminar los más antiguos
     final toDelete = files.take(files.length - _maxBackups);
     for (final file in toDelete) {
@@ -160,14 +160,14 @@ class BackupInfo {
   final String name;
   final int size;
   final DateTime createdAt;
-  
+
   BackupInfo({
     required this.path,
     required this.name,
     required this.size,
     required this.createdAt,
   });
-  
+
   String get formattedSize {
     if (size < 1024) return '$size B';
     if (size < 1024 * 1024) return '${(size / 1024).toStringAsFixed(1)} KB';
@@ -194,7 +194,7 @@ class HiveBackupService {
   Future<File> exportBoxToJson<T>(String boxName) async {
     final box = Hive.box<T>(boxName);
     final data = <String, dynamic>{};
-    
+
     // Convertir a Map serializable
     for (final key in box.keys) {
       final value = box.get(key);
@@ -202,12 +202,12 @@ class HiveBackupService {
         data[key.toString()] = _toSerializable(value);
       }
     }
-    
+
     // Crear archivo de exportación
     final exportDir = await _getExportDirectory();
     final timestamp = DateTime.now().toIso8601String().replaceAll(':', '-');
     final filePath = '${exportDir.path}/${boxName}_$timestamp.json';
-    
+
     final file = File(filePath);
     await file.writeAsString(jsonEncode({
       'boxName': boxName,
@@ -215,90 +215,90 @@ class HiveBackupService {
       'itemCount': data.length,
       'data': data,
     }));
-    
+
     return file;
   }
-  
+
   /// Importar box desde JSON
   Future<int> importBoxFromJson<T>(
-    String filePath, 
+    String filePath,
     T Function(Map<String, dynamic>) fromJson,
   ) async {
     final file = File(filePath);
-    
+
     if (!await file.exists()) {
       throw Exception('Import file not found');
     }
-    
+
     final content = await file.readAsString();
     final json = jsonDecode(content) as Map<String, dynamic>;
     final boxName = json['boxName'] as String;
     final data = json['data'] as Map<String, dynamic>;
-    
+
     final box = Hive.box<T>(boxName);
     int importedCount = 0;
-    
+
     for (final entry in data.entries) {
       final item = fromJson(entry.value as Map<String, dynamic>);
       await box.put(entry.key, item);
       importedCount++;
     }
-    
+
     return importedCount;
   }
-  
+
   /// Exportar múltiples boxes
   Future<File> exportAllBoxes(List<String> boxNames) async {
     final allData = <String, dynamic>{};
-    
+
     for (final name in boxNames) {
       final box = Hive.box(name);
       final boxData = <String, dynamic>{};
-      
+
       for (final key in box.keys) {
         boxData[key.toString()] = _toSerializable(box.get(key));
       }
-      
+
       allData[name] = boxData;
     }
-    
+
     final exportDir = await _getExportDirectory();
     final timestamp = DateTime.now().toIso8601String().replaceAll(':', '-');
     final filePath = '${exportDir.path}/full_backup_$timestamp.json';
-    
+
     final file = File(filePath);
     await file.writeAsString(jsonEncode({
       'exportedAt': DateTime.now().toIso8601String(),
       'boxes': allData,
     }));
-    
+
     return file;
   }
-  
+
   /// Copiar archivos de box directamente
   Future<File> backupBoxFiles(String boxName) async {
     final hivePath = Hive.box(boxName).path;
     if (hivePath == null) throw Exception('Box path not found');
-    
+
     final sourceFile = File(hivePath);
     final backupDir = await _getExportDirectory();
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final destPath = '${backupDir.path}/${boxName}_$timestamp.hive';
-    
+
     return await sourceFile.copy(destPath);
   }
-  
+
   Future<Directory> _getExportDirectory() async {
     final appDir = await getApplicationDocumentsDirectory();
     final exportDir = Directory('${appDir.path}/exports');
-    
+
     if (!await exportDir.exists()) {
       await exportDir.create(recursive: true);
     }
-    
+
     return exportDir;
   }
-  
+
   dynamic _toSerializable(dynamic value) {
     if (value == null) return null;
     if (value is num || value is String || value is bool) return value;
@@ -332,16 +332,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 class CloudBackupService {
   final FirebaseStorage _storage = FirebaseStorage.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  
+
   /// Subir backup a la nube
   Future<String> uploadBackup(File backupFile) async {
     final user = _auth.currentUser;
     if (user == null) throw Exception('User not authenticated');
-    
+
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final fileName = 'backup_$timestamp.db';
     final ref = _storage.ref('backups/${user.uid}/$fileName');
-    
+
     // Subir archivo
     final uploadTask = ref.putFile(
       backupFile,
@@ -353,36 +353,36 @@ class CloudBackupService {
         },
       ),
     );
-    
+
     // Esperar y obtener URL
     final snapshot = await uploadTask;
     return await snapshot.ref.getDownloadURL();
   }
-  
+
   /// Descargar backup de la nube
   Future<File> downloadBackup(String fileName) async {
     final user = _auth.currentUser;
     if (user == null) throw Exception('User not authenticated');
-    
+
     final ref = _storage.ref('backups/${user.uid}/$fileName');
     final tempDir = await getTemporaryDirectory();
     final localFile = File('${tempDir.path}/$fileName');
-    
+
     await ref.writeToFile(localFile);
-    
+
     return localFile;
   }
-  
+
   /// Listar backups disponibles en la nube
   Future<List<CloudBackupInfo>> listCloudBackups() async {
     final user = _auth.currentUser;
     if (user == null) throw Exception('User not authenticated');
-    
+
     final ref = _storage.ref('backups/${user.uid}');
     final result = await ref.listAll();
-    
+
     final backups = <CloudBackupInfo>[];
-    
+
     for (final item in result.items) {
       final metadata = await item.getMetadata();
       backups.add(CloudBackupInfo(
@@ -393,22 +393,22 @@ class CloudBackupService {
         downloadUrl: await item.getDownloadURL(),
       ));
     }
-    
+
     // Ordenar por fecha
     backups.sort((a, b) => b.createdAt.compareTo(a.createdAt));
-    
+
     return backups;
   }
-  
+
   /// Eliminar backup de la nube
   Future<void> deleteCloudBackup(String fileName) async {
     final user = _auth.currentUser;
     if (user == null) throw Exception('User not authenticated');
-    
+
     final ref = _storage.ref('backups/${user.uid}/$fileName');
     await ref.delete();
   }
-  
+
   Future<String> _getDeviceId() async {
     // Implementar según necesidad
     return 'device_id';
@@ -421,7 +421,7 @@ class CloudBackupInfo {
   final int size;
   final DateTime createdAt;
   final String downloadUrl;
-  
+
   CloudBackupInfo({
     required this.name,
     required this.path,
@@ -446,20 +446,20 @@ import 'package:file_picker/file_picker.dart';
 class UserExportService {
   final SqliteBackupService _sqliteBackup;
   final HiveBackupService _hiveBackup;
-  
+
   UserExportService(this._sqliteBackup, this._hiveBackup);
-  
+
   /// Exportar todos los datos y compartir
   Future<void> exportAndShare() async {
     // Crear backup de SQLite
     final sqliteBackup = await _sqliteBackup.createBackup();
-    
+
     // Crear backup de Hive (settings, etc.)
     final hiveBackup = await _hiveBackup.exportAllBoxes(['settings', 'cache']);
-    
+
     // Crear archivo ZIP con todos los backups
     final zipFile = await _createZipBackup([sqliteBackup, hiveBackup]);
-    
+
     // Compartir
     await Share.shareXFiles(
       [XFile(zipFile.path)],
@@ -467,20 +467,20 @@ class UserExportService {
       text: 'Backup creado el ${DateTime.now().toString()}',
     );
   }
-  
+
   /// Importar desde archivo seleccionado por usuario
   Future<void> importFromFile() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['zip', 'json', 'db'],
     );
-    
+
     if (result == null || result.files.isEmpty) return;
-    
+
     final file = result.files.first;
     final path = file.path;
     if (path == null) return;
-    
+
     if (path.endsWith('.zip')) {
       await _importFromZip(path);
     } else if (path.endsWith('.db')) {
@@ -490,18 +490,18 @@ class UserExportService {
       await _importFromJson(path);
     }
   }
-  
+
   Future<File> _createZipBackup(List<File> files) async {
     // Implementar compresión ZIP
     // Usar package: archive
     throw UnimplementedError();
   }
-  
+
   Future<void> _importFromZip(String path) async {
     // Implementar extracción y restauración
     throw UnimplementedError();
   }
-  
+
   Future<void> _importFromJson(String path) async {
     // Implementar importación JSON
     throw UnimplementedError();
@@ -522,7 +522,7 @@ import 'package:workmanager/workmanager.dart';
 class AutoBackupService {
   static const _taskName = 'auto_backup';
   static const _taskUniqueName = 'com.example.app.autobackup';
-  
+
   /// Inicializar WorkManager
   static Future<void> initialize() async {
     await Workmanager().initialize(
@@ -530,7 +530,7 @@ class AutoBackupService {
       isInDebugMode: false,
     );
   }
-  
+
   /// Programar backup periódico
   static Future<void> scheduleAutoBackup({
     Duration frequency = const Duration(days: 1),
@@ -549,7 +549,7 @@ class AutoBackupService {
       existingWorkPolicy: ExistingWorkPolicy.keep,
     );
   }
-  
+
   /// Cancelar backup automático
   static Future<void> cancelAutoBackup() async {
     await Workmanager().cancelByUniqueName(_taskUniqueName);
@@ -565,10 +565,10 @@ void callbackDispatcher() {
         // Ejecutar backup
         final backupService = SqliteBackupService();
         await backupService.createBackup();
-        
+
         // Opcional: subir a la nube
         // await cloudBackupService.uploadBackup(backup);
-        
+
         return true;
       } catch (e) {
         print('Auto backup failed: $e');
@@ -590,21 +590,21 @@ void callbackDispatcher() {
 /// Servicio de backup incremental
 class IncrementalBackupService {
   final Database _db;
-  
+
   IncrementalBackupService(this._db);
-  
+
   /// Obtener cambios desde último backup
   Future<List<Map<String, dynamic>>> getChangesSince(DateTime lastBackup) async {
     final tables = ['notes', 'folders', 'tags'];
     final changes = <Map<String, dynamic>>[];
-    
+
     for (final table in tables) {
       final rows = await _db.query(
         table,
         where: 'updated_at > ?',
         whereArgs: [lastBackup.toIso8601String()],
       );
-      
+
       for (final row in rows) {
         changes.add({
           'table': table,
@@ -612,14 +612,14 @@ class IncrementalBackupService {
           'data': row,
         });
       }
-      
+
       // Obtener eliminados (requiere tabla de deleted_items)
       final deleted = await _db.query(
         'deleted_items',
         where: 'table_name = ? AND deleted_at > ?',
         whereArgs: [table, lastBackup.toIso8601String()],
       );
-      
+
       for (final row in deleted) {
         changes.add({
           'table': table,
@@ -628,17 +628,17 @@ class IncrementalBackupService {
         });
       }
     }
-    
+
     return changes;
   }
-  
+
   /// Aplicar cambios incrementales
   Future<void> applyChanges(List<Map<String, dynamic>> changes) async {
     await _db.transaction((txn) async {
       for (final change in changes) {
         final table = change['table'] as String;
         final operation = change['operation'] as String;
-        
+
         if (operation == 'upsert') {
           final data = change['data'] as Map<String, dynamic>;
           await txn.insert(
@@ -671,19 +671,19 @@ class _BackupManagementScreenState extends State<BackupManagementScreen> {
   final _backupService = SqliteBackupService();
   List<BackupInfo> _backups = [];
   bool _isLoading = true;
-  
+
   @override
   void initState() {
     super.initState();
     _loadBackups();
   }
-  
+
   Future<void> _loadBackups() async {
     setState(() => _isLoading = true);
     _backups = await _backupService.listBackups();
     setState(() => _isLoading = false);
   }
-  
+
   Future<void> _createBackup() async {
     try {
       await _backupService.createBackup();
@@ -697,7 +697,7 @@ class _BackupManagementScreenState extends State<BackupManagementScreen> {
       );
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -752,6 +752,7 @@ class _BackupManagementScreenState extends State<BackupManagementScreen> {
 ## 📋 Checklist de Backup
 
 ### Implementación
+
 - [ ] Backup local automático
 - [ ] Rotación de backups antiguos
 - [ ] Backup en la nube (opcional)
@@ -759,11 +760,13 @@ class _BackupManagementScreenState extends State<BackupManagementScreen> {
 - [ ] Restauración funcional
 
 ### Seguridad
+
 - [ ] Encriptar backups sensibles
 - [ ] Verificar integridad del backup
 - [ ] Validar antes de restaurar
 
 ### UX
+
 - [ ] Indicador de progreso
 - [ ] Confirmación antes de restaurar
 - [ ] Mensajes de error claros

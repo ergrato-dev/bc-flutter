@@ -28,18 +28,18 @@ Las migraciones son necesarias cuando:
 class DatabaseHelper {
   static const String _dbName = 'app.db';
   static const int _dbVersion = 3; // Incrementar con cada migración
-  
+
   static Database? _database;
-  
+
   Future<Database> get database async {
     _database ??= await _initDatabase();
     return _database!;
   }
-  
+
   Future<Database> _initDatabase() async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, _dbName);
-    
+
     return openDatabase(
       path,
       version: _dbVersion,
@@ -48,7 +48,7 @@ class DatabaseHelper {
       onDowngrade: onDatabaseDowngradeDelete, // Recrear si baja versión
     );
   }
-  
+
   /// Crear estructura inicial (instalación nueva)
   Future<void> _onCreate(Database db, int version) async {
     // Crear todas las tablas con la estructura más reciente
@@ -62,7 +62,7 @@ class DatabaseHelper {
         created_at TEXT DEFAULT CURRENT_TIMESTAMP
       )
     ''');
-    
+
     await db.execute('''
       CREATE TABLE posts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -73,12 +73,12 @@ class DatabaseHelper {
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
       )
     ''');
-    
+
     // Crear índices
     await db.execute('CREATE INDEX idx_posts_user ON posts(user_id)');
     await db.execute('CREATE INDEX idx_posts_published ON posts(published_at)');
   }
-  
+
   /// Migrar de versión anterior a nueva
   Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
     // Ejecutar cada migración necesaria
@@ -86,7 +86,7 @@ class DatabaseHelper {
       await _runMigration(db, version);
     }
   }
-  
+
   Future<void> _runMigration(Database db, int version) async {
     switch (version) {
       case 2:
@@ -98,16 +98,16 @@ class DatabaseHelper {
       // Añadir más casos según sea necesario
     }
   }
-  
+
   /// Migración v1 -> v2: Añadir campo avatar a users
   Future<void> _migrateV1ToV2(Database db) async {
     await db.execute('ALTER TABLE users ADD COLUMN avatar TEXT');
   }
-  
+
   /// Migración v2 -> v3: Añadir campo is_premium y crear tabla posts
   Future<void> _migrateV2ToV3(Database db) async {
     await db.execute('ALTER TABLE users ADD COLUMN is_premium INTEGER DEFAULT 0');
-    
+
     await db.execute('''
       CREATE TABLE IF NOT EXISTS posts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -118,7 +118,7 @@ class DatabaseHelper {
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
       )
     ''');
-    
+
     await db.execute('CREATE INDEX IF NOT EXISTS idx_posts_user ON posts(user_id)');
   }
 }
@@ -139,15 +139,15 @@ abstract class Migration {
 class MigrationV2AddUserAvatar implements Migration {
   @override
   int get version => 2;
-  
+
   @override
   String get description => 'Add avatar column to users table';
-  
+
   @override
   Future<void> up(Database db) async {
     await db.execute('ALTER TABLE users ADD COLUMN avatar TEXT');
   }
-  
+
   @override
   Future<void> down(Database db) async {
     // SQLite no soporta DROP COLUMN directamente
@@ -159,17 +159,17 @@ class MigrationV2AddUserAvatar implements Migration {
 /// Gestor de migraciones
 class MigrationRunner {
   final List<Migration> _migrations;
-  
+
   MigrationRunner(this._migrations) {
     // Ordenar por versión
     _migrations.sort((a, b) => a.version.compareTo(b.version));
   }
-  
+
   Future<void> migrate(Database db, int oldVersion, int newVersion) async {
     final pendingMigrations = _migrations
         .where((m) => m.version > oldVersion && m.version <= newVersion)
         .toList();
-    
+
     for (final migration in pendingMigrations) {
       print('Running migration ${migration.version}: ${migration.description}');
       await db.transaction((txn) async {
@@ -233,17 +233,17 @@ Future<void> changeColumnType(Database db) async {
         age INTEGER  -- Antes era TEXT
       )
     ''');
-    
+
     // Copiar datos (con conversión)
     await txn.execute('''
       INSERT INTO users_new (id, name, age)
       SELECT id, name, CAST(age AS INTEGER)
       FROM users
     ''');
-    
+
     // Eliminar tabla original
     await txn.execute('DROP TABLE users');
-    
+
     // Renombrar nueva tabla
     await txn.execute('ALTER TABLE users_new RENAME TO users');
   });
@@ -259,12 +259,12 @@ Future<void> dropColumn(Database db) async {
         -- columna 'deprecated' omitida
       )
     ''');
-    
+
     await txn.execute('''
       INSERT INTO users_new (id, name)
       SELECT id, name FROM users
     ''');
-    
+
     await txn.execute('DROP TABLE users');
     await txn.execute('ALTER TABLE users_new RENAME TO users');
   });
@@ -283,18 +283,18 @@ Future<void> dropColumn(Database db) async {
 class User extends HiveObject {
   @HiveField(0)
   String name;
-  
+
   @HiveField(1)
   String email;
-  
+
   // Campo añadido después - necesita defaultValue
   @HiveField(2, defaultValue: false)
   bool isPremium;
-  
+
   // Otro campo nuevo
   @HiveField(3, defaultValue: '')
   String avatar;
-  
+
   User({
     required this.name,
     required this.email,
@@ -311,11 +311,11 @@ class User extends HiveObject {
 class HiveMigrationService {
   static const String _versionKey = 'hive_schema_version';
   static const int _currentVersion = 2;
-  
+
   Future<void> runMigrations() async {
     final settingsBox = Hive.box('settings');
     final currentVersion = settingsBox.get(_versionKey, defaultValue: 1) as int;
-    
+
     if (currentVersion < _currentVersion) {
       for (var v = currentVersion + 1; v <= _currentVersion; v++) {
         await _runMigration(v);
@@ -323,7 +323,7 @@ class HiveMigrationService {
       await settingsBox.put(_versionKey, _currentVersion);
     }
   }
-  
+
   Future<void> _runMigration(int version) async {
     switch (version) {
       case 2:
@@ -331,12 +331,12 @@ class HiveMigrationService {
         break;
     }
   }
-  
+
   /// Ejemplo: Migrar de modelo User v1 a v2
   Future<void> _migrateV1ToV2() async {
     final oldBox = await Hive.openBox('users_v1');
     final newBox = await Hive.openBox<UserV2>('users');
-    
+
     // Copiar datos con transformación
     for (final key in oldBox.keys) {
       final oldData = oldBox.get(key) as Map?;
@@ -350,7 +350,7 @@ class HiveMigrationService {
         await newBox.put(key, newUser);
       }
     }
-    
+
     // Eliminar box antiguo
     await oldBox.deleteFromDisk();
   }
@@ -377,14 +377,14 @@ Hive.registerAdapter(UserV2Adapter());  // typeId: 10
 Future<void> migrateUsers() async {
   final oldBox = await Hive.openBox<User>('users_old');
   final newBox = await Hive.openBox<UserV2>('users');
-  
+
   for (final user in oldBox.values) {
     final newUser = UserV2(
       // Mapear campos
     );
     await newBox.add(newUser);
   }
-  
+
   await oldBox.deleteFromDisk();
 }
 
@@ -402,14 +402,14 @@ Future<void> migrateUsers() async {
 class PreferencesMigration {
   static const String _versionKey = 'prefs_version';
   static const int _currentVersion = 3;
-  
+
   final SharedPreferences _prefs;
-  
+
   PreferencesMigration(this._prefs);
-  
+
   Future<void> migrate() async {
     final currentVersion = _prefs.getInt(_versionKey) ?? 1;
-    
+
     if (currentVersion < _currentVersion) {
       for (var v = currentVersion + 1; v <= _currentVersion; v++) {
         await _runMigration(v);
@@ -417,7 +417,7 @@ class PreferencesMigration {
       await _prefs.setInt(_versionKey, _currentVersion);
     }
   }
-  
+
   Future<void> _runMigration(int version) async {
     switch (version) {
       case 2:
@@ -428,7 +428,7 @@ class PreferencesMigration {
         break;
     }
   }
-  
+
   /// v1 -> v2: Renombrar clave
   Future<void> _migrateV1ToV2() async {
     // theme -> app_theme
@@ -438,7 +438,7 @@ class PreferencesMigration {
       await _prefs.remove('theme');
     }
   }
-  
+
   /// v2 -> v3: Cambiar formato de datos
   Future<void> _migrateV2ToV3() async {
     // Antes: fontSize era String ('small', 'medium', 'large')
@@ -460,10 +460,10 @@ class PreferencesMigration {
 // Uso en main
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   final prefs = await SharedPreferences.getInstance();
   await PreferencesMigration(prefs).migrate();
-  
+
   runApp(MyApp());
 }
 ```
@@ -480,15 +480,15 @@ Future<void> safeMigration(Database db) async {
   final dbPath = await getDatabasesPath();
   final originalPath = join(dbPath, 'app.db');
   final backupPath = join(dbPath, 'app_backup_${DateTime.now().millisecondsSinceEpoch}.db');
-  
+
   // Crear backup
   final originalFile = File(originalPath);
   await originalFile.copy(backupPath);
-  
+
   try {
     // Ejecutar migración
     await _performMigration(db);
-    
+
     // Si éxito, eliminar backup
     final backupFile = File(backupPath);
     if (await backupFile.exists()) {
@@ -514,21 +514,21 @@ Future<bool> validateMigration(Database db) async {
       "SELECT name FROM sqlite_master WHERE type='table'"
     );
     final tableNames = tables.map((t) => t['name'] as String).toSet();
-    
+
     final requiredTables = {'users', 'posts', 'categories'};
     if (!requiredTables.every(tableNames.contains)) {
       return false;
     }
-    
+
     // Verificar que las columnas existen
     final userColumns = await db.rawQuery('PRAGMA table_info(users)');
     final columnNames = userColumns.map((c) => c['name'] as String).toSet();
-    
+
     final requiredColumns = {'id', 'name', 'email', 'avatar', 'is_premium'};
     if (!requiredColumns.every(columnNames.contains)) {
       return false;
     }
-    
+
     return true;
   } catch (e) {
     return false;
@@ -544,13 +544,13 @@ Future<void> transactionalMigration(Database db) async {
   await db.transaction((txn) async {
     // Paso 1
     await txn.execute('ALTER TABLE users ADD COLUMN status TEXT DEFAULT "active"');
-    
+
     // Paso 2
     await txn.execute('UPDATE users SET status = "verified" WHERE verified = 1');
-    
+
     // Paso 3
     await txn.execute('CREATE INDEX idx_users_status ON users(status)');
-    
+
     // Si cualquier paso falla, todo se revierte
   });
 }
@@ -561,18 +561,21 @@ Future<void> transactionalMigration(Database db) async {
 ## 📋 Checklist de Migración
 
 ### Antes de Migrar
+
 - [ ] Incrementar versión de base de datos
 - [ ] Documentar los cambios
 - [ ] Crear backup de datos de prueba
 - [ ] Probar migración en desarrollo
 
 ### Durante la Migración
+
 - [ ] Usar transacciones donde sea posible
 - [ ] Manejar errores apropiadamente
 - [ ] Preservar datos existentes
 - [ ] Validar integridad de datos
 
 ### Después de Migrar
+
 - [ ] Verificar estructura de datos
 - [ ] Probar funcionalidad afectada
 - [ ] Limpiar datos temporales
@@ -582,13 +585,13 @@ Future<void> transactionalMigration(Database db) async {
 
 ## ⚠️ Errores Comunes
 
-| Error | Causa | Solución |
-|-------|-------|----------|
-| Pérdida de datos | Migración sin backup | Siempre hacer backup |
-| Migración incompleta | Sin transacción | Usar transacciones |
-| Versión incorrecta | Olvidar incrementar versión | Incrementar siempre |
-| TypeId duplicado (Hive) | Reutilizar typeId | Usar IDs únicos |
-| Campo sin default (Hive) | Nuevo campo sin defaultValue | Añadir defaultValue |
+| Error                    | Causa                        | Solución             |
+| ------------------------ | ---------------------------- | -------------------- |
+| Pérdida de datos         | Migración sin backup         | Siempre hacer backup |
+| Migración incompleta     | Sin transacción              | Usar transacciones   |
+| Versión incorrecta       | Olvidar incrementar versión  | Incrementar siempre  |
+| TypeId duplicado (Hive)  | Reutilizar typeId            | Usar IDs únicos      |
+| Campo sin default (Hive) | Nuevo campo sin defaultValue | Añadir defaultValue  |
 
 ---
 

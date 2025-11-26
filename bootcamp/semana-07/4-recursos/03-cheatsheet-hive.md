@@ -38,17 +38,17 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Inicializar Hive
   await Hive.initFlutter();
-  
+
   // Registrar adapters (antes de abrir boxes)
   Hive.registerAdapter(UserAdapter());
-  
+
   // Abrir boxes necesarios
   await Hive.openBox('settings');
   await Hive.openBox<User>('users');
-  
+
   runApp(MyApp());
 }
 ```
@@ -184,16 +184,16 @@ part 'user.g.dart'; // Archivo generado
 class User extends HiveObject {
   @HiveField(0)
   String name;
-  
+
   @HiveField(1)
   String email;
-  
+
   @HiveField(2)
   DateTime? createdAt;
-  
+
   @HiveField(3, defaultValue: false) // Valor por defecto
   bool isActive;
-  
+
   User({
     required this.name,
     required this.email,
@@ -277,11 +277,11 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 Future<List<int>> getEncryptionKey() async {
   const storage = FlutterSecureStorage();
   final keyString = await storage.read(key: 'hive_key');
-  
+
   if (keyString != null) {
     return base64Decode(keyString);
   }
-  
+
   // Generar nueva clave
   final key = Hive.generateSecureKey();
   await storage.write(key: 'hive_key', value: base64Encode(key));
@@ -336,13 +336,13 @@ ValueListenableBuilder<Box<User>>(
 
 ## 📊 Comparativa Box vs LazyBox
 
-| Característica | Box | LazyBox |
-|----------------|-----|---------|
-| Carga inicial | Todo en memoria | Solo metadata |
-| Lectura | Síncrona | Asíncrona |
-| Uso de memoria | Mayor | Menor |
-| Velocidad lectura | Más rápida | Más lenta |
-| Ideal para | Datos pequeños/medianos | Datos grandes |
+| Característica    | Box                     | LazyBox       |
+| ----------------- | ----------------------- | ------------- |
+| Carga inicial     | Todo en memoria         | Solo metadata |
+| Lectura           | Síncrona                | Asíncrona     |
+| Uso de memoria    | Mayor                   | Menor         |
+| Velocidad lectura | Más rápida              | Más lenta     |
+| Ideal para        | Datos pequeños/medianos | Datos grandes |
 
 ---
 
@@ -355,9 +355,9 @@ class HiveService {
   static HiveService? _instance;
   late Box _settingsBox;
   late Box<User> _usersBox;
-  
+
   HiveService._();
-  
+
   static Future<HiveService> getInstance() async {
     if (_instance == null) {
       _instance = HiveService._();
@@ -365,16 +365,16 @@ class HiveService {
     }
     return _instance!;
   }
-  
+
   Future<void> _init() async {
     _settingsBox = await Hive.openBox('settings');
     _usersBox = await Hive.openBox<User>('users');
   }
-  
+
   // Settings
   bool get darkMode => _settingsBox.get('darkMode', defaultValue: false);
   set darkMode(bool value) => _settingsBox.put('darkMode', value);
-  
+
   // Users
   List<User> get users => _usersBox.values.toList();
   Future<void> addUser(User user) => _usersBox.add(user);
@@ -393,19 +393,19 @@ abstract class UserRepository {
 
 class HiveUserRepository implements UserRepository {
   final Box<User> _box;
-  
+
   HiveUserRepository(this._box);
-  
+
   @override
   Future<List<User>> getAll() async {
     return _box.values.toList();
   }
-  
+
   @override
   Future<User?> getById(dynamic id) async {
     return _box.get(id);
   }
-  
+
   @override
   Future<void> save(User user) async {
     if (user.key != null) {
@@ -414,7 +414,7 @@ class HiveUserRepository implements UserRepository {
       await _box.add(user);
     }
   }
-  
+
   @override
   Future<void> delete(dynamic id) async {
     await _box.delete(id);
@@ -426,12 +426,12 @@ class HiveUserRepository implements UserRepository {
 
 ## ⚠️ Errores Comunes
 
-| Error | Causa | Solución |
-|-------|-------|----------|
-| `HiveError: Box not found` | Box no abierto | `await Hive.openBox()` primero |
-| `HiveError: TypeAdapter not registered` | Adapter no registrado | Registrar antes de abrir box |
-| `HiveError: TypeId already in use` | Dos tipos con mismo typeId | Usar typeId únicos |
-| `HiveError: Cannot write` | Box cerrado | Verificar que esté abierto |
+| Error                                   | Causa                      | Solución                       |
+| --------------------------------------- | -------------------------- | ------------------------------ |
+| `HiveError: Box not found`              | Box no abierto             | `await Hive.openBox()` primero |
+| `HiveError: TypeAdapter not registered` | Adapter no registrado      | Registrar antes de abrir box   |
+| `HiveError: TypeId already in use`      | Dos tipos con mismo typeId | Usar typeId únicos             |
+| `HiveError: Cannot write`               | Box cerrado                | Verificar que esté abierto     |
 
 ---
 
@@ -459,22 +459,22 @@ part 'task.g.dart';
 class Task extends HiveObject {
   @HiveField(0)
   String title;
-  
+
   @HiveField(1)
   String? description;
-  
+
   @HiveField(2)
   bool isCompleted;
-  
+
   @HiveField(3)
   DateTime createdAt;
-  
+
   @HiveField(4)
   DateTime? dueDate;
-  
+
   @HiveField(5)
   int priority; // 0: low, 1: medium, 2: high
-  
+
   Task({
     required this.title,
     this.description,
@@ -483,7 +483,7 @@ class Task extends HiveObject {
     this.dueDate,
     this.priority = 1,
   }) : createdAt = createdAt ?? DateTime.now();
-  
+
   Task copyWith({
     String? title,
     String? description,

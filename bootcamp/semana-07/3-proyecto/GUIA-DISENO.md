@@ -4,31 +4,31 @@
 
 ### Tema Claro
 
-| Uso | Color | Hex |
-|-----|-------|-----|
-| Primary | Indigo | `#3F51B5` |
+| Uso             | Color       | Hex       |
+| --------------- | ----------- | --------- |
+| Primary         | Indigo      | `#3F51B5` |
 | Primary Variant | Deep Indigo | `#303F9F` |
-| Secondary | Teal | `#009688` |
-| Background | White | `#FFFFFF` |
-| Surface | Gray 50 | `#FAFAFA` |
-| Error | Red | `#B00020` |
-| On Primary | White | `#FFFFFF` |
-| On Background | Gray 900 | `#212121` |
-| On Surface | Gray 700 | `#616161` |
+| Secondary       | Teal        | `#009688` |
+| Background      | White       | `#FFFFFF` |
+| Surface         | Gray 50     | `#FAFAFA` |
+| Error           | Red         | `#B00020` |
+| On Primary      | White       | `#FFFFFF` |
+| On Background   | Gray 900    | `#212121` |
+| On Surface      | Gray 700    | `#616161` |
 
 ### Tema Oscuro
 
-| Uso | Color | Hex |
-|-----|-------|-----|
-| Primary | Indigo 200 | `#9FA8DA` |
+| Uso             | Color      | Hex       |
+| --------------- | ---------- | --------- |
+| Primary         | Indigo 200 | `#9FA8DA` |
 | Primary Variant | Indigo 700 | `#5C6BC0` |
-| Secondary | Teal 200 | `#80CBC4` |
-| Background | Gray 900 | `#121212` |
-| Surface | Gray 850 | `#1E1E1E` |
-| Error | Red 200 | `#CF6679` |
-| On Primary | Black | `#000000` |
-| On Background | White | `#FFFFFF` |
-| On Surface | Gray 300 | `#E0E0E0` |
+| Secondary       | Teal 200   | `#80CBC4` |
+| Background      | Gray 900   | `#121212` |
+| Surface         | Gray 850   | `#1E1E1E` |
+| Error           | Red 200    | `#CF6679` |
+| On Primary      | Black      | `#000000` |
+| On Background   | White      | `#FFFFFF` |
+| On Surface      | Gray 300   | `#E0E0E0` |
 
 ### Colores de Notas
 
@@ -46,7 +46,7 @@ class NoteColors {
     0xFFD7CCC8, // Marrón claro
     0xFFCFD8DC, // Gris azulado
   ];
-  
+
   static const List<String> names = [
     'Blanco',
     'Amarillo',
@@ -68,18 +68,18 @@ class NoteColors {
 
 ### Escala Tipográfica
 
-| Estilo | Tamaño | Peso | Uso |
-|--------|--------|------|-----|
-| Headline Large | 32sp | Bold | Títulos principales |
-| Headline Medium | 28sp | SemiBold | Títulos de sección |
-| Headline Small | 24sp | SemiBold | Subtítulos |
-| Title Large | 22sp | Medium | Título de nota |
-| Title Medium | 16sp | Medium | Elementos de lista |
-| Body Large | 16sp | Regular | Contenido de nota |
-| Body Medium | 14sp | Regular | Texto secundario |
-| Body Small | 12sp | Regular | Captions, timestamps |
-| Label Large | 14sp | Medium | Botones |
-| Label Small | 11sp | Medium | Tags, badges |
+| Estilo          | Tamaño | Peso     | Uso                  |
+| --------------- | ------ | -------- | -------------------- |
+| Headline Large  | 32sp   | Bold     | Títulos principales  |
+| Headline Medium | 28sp   | SemiBold | Títulos de sección   |
+| Headline Small  | 24sp   | SemiBold | Subtítulos           |
+| Title Large     | 22sp   | Medium   | Título de nota       |
+| Title Medium    | 16sp   | Medium   | Elementos de lista   |
+| Body Large      | 16sp   | Regular  | Contenido de nota    |
+| Body Medium     | 14sp   | Regular  | Texto secundario     |
+| Body Small      | 12sp   | Regular  | Captions, timestamps |
+| Label Large     | 14sp   | Medium   | Botones              |
+| Label Small     | 11sp   | Medium   | Tags, badges         |
 
 ### Implementación
 
@@ -240,11 +240,11 @@ Font: Label Small
 
 ### Sync Status Indicator
 
-| Estado | Icono | Color | Tooltip |
-|--------|-------|-------|---------|
-| Synced | `cloud_done` | Green 500 | "Sincronizada" |
-| Pending | `cloud_upload` | Orange 500 | "Pendiente" |
-| Error | `cloud_off` | Red 500 | "Error de sync" |
+| Estado  | Icono          | Color      | Tooltip         |
+| ------- | -------------- | ---------- | --------------- |
+| Synced  | `cloud_done`   | Green 500  | "Sincronizada"  |
+| Pending | `cloud_upload` | Orange 500 | "Pendiente"     |
+| Error   | `cloud_off`    | Red 500    | "Error de sync" |
 
 ```dart
 // Tamaño: 16x16px
@@ -291,13 +291,13 @@ Icon color: On Surface variant
 
 ### Transiciones
 
-| Elemento | Animación | Duración |
-|----------|-----------|----------|
-| Página | Slide horizontal | 300ms |
-| Modal/Bottom Sheet | Slide vertical | 250ms |
-| Card tap | Scale (0.98) | 100ms |
-| FAB | Scale in/out | 200ms |
-| Snackbar | Slide up | 200ms |
+| Elemento           | Animación        | Duración |
+| ------------------ | ---------------- | -------- |
+| Página             | Slide horizontal | 300ms    |
+| Modal/Bottom Sheet | Slide vertical   | 250ms    |
+| Card tap           | Scale (0.98)     | 100ms    |
+| FAB                | Scale in/out     | 200ms    |
+| Snackbar           | Slide up         | 200ms    |
 
 ### Curvas
 
@@ -321,7 +321,7 @@ Curves.elasticOut
 class TapEffect extends StatefulWidget {
   final Widget child;
   final VoidCallback? onTap;
-  
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -345,35 +345,35 @@ class TapEffect extends StatefulWidget {
 
 ### Iconos Principales
 
-| Función | Icono Material |
-|---------|----------------|
-| Agregar | `add` |
-| Editar | `edit` |
-| Eliminar | `delete` |
-| Favorito | `star` / `star_border` |
-| Buscar | `search` |
-| Configuración | `settings` |
-| Filtrar | `filter_list` |
-| Ordenar | `sort` |
-| Vista Grid | `grid_view` |
-| Vista Lista | `view_list` |
-| Exportar | `file_upload` |
-| Importar | `file_download` |
-| Papelera | `delete_sweep` |
-| Restaurar | `restore_from_trash` |
-| Sync | `sync` |
-| Offline | `cloud_off` |
+| Función       | Icono Material         |
+| ------------- | ---------------------- |
+| Agregar       | `add`                  |
+| Editar        | `edit`                 |
+| Eliminar      | `delete`               |
+| Favorito      | `star` / `star_border` |
+| Buscar        | `search`               |
+| Configuración | `settings`             |
+| Filtrar       | `filter_list`          |
+| Ordenar       | `sort`                 |
+| Vista Grid    | `grid_view`            |
+| Vista Lista   | `view_list`            |
+| Exportar      | `file_upload`          |
+| Importar      | `file_download`        |
+| Papelera      | `delete_sweep`         |
+| Restaurar     | `restore_from_trash`   |
+| Sync          | `sync`                 |
+| Offline       | `cloud_off`            |
 
 ### Tamaños
 
-| Contexto | Tamaño |
-|----------|--------|
-| AppBar | 24px |
-| Lista | 24px |
-| FAB | 24px |
-| Badge/Indicator | 16px |
-| Tab Bar | 24px |
-| Bottom Nav | 24px |
+| Contexto        | Tamaño |
+| --------------- | ------ |
+| AppBar          | 24px   |
+| Lista           | 24px   |
+| FAB             | 24px   |
+| Badge/Indicator | 16px   |
+| Tab Bar         | 24px   |
+| Bottom Nav      | 24px   |
 
 ---
 

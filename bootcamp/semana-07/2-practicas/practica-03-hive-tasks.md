@@ -11,11 +11,13 @@ Crear una aplicación de gestión de tareas usando **Hive** como base de datos N
 ### Funcionales
 
 1. **Lista de Tareas**
+
    - Mostrar todas las tareas agrupadas por estado
    - Pendientes arriba, completadas abajo
    - Orden por prioridad y fecha
 
 2. **Agregar Tarea**
+
    - Título (requerido)
    - Descripción (opcional)
    - Prioridad (baja, normal, alta, urgente)
@@ -23,11 +25,13 @@ Crear una aplicación de gestión de tareas usando **Hive** como base de datos N
    - Etiquetas/tags
 
 3. **Marcar como Completada**
+
    - Checkbox en cada tarea
    - Animación al completar
    - Mover a sección completadas
 
 4. **Editar/Eliminar**
+
    - Editar cualquier campo
    - Eliminar con confirmación
    - Eliminar todas las completadas
@@ -44,25 +48,25 @@ Crear una aplicación de gestión de tareas usando **Hive** como base de datos N
 class Task extends HiveObject {
   @HiveField(0)
   String id;
-  
+
   @HiveField(1)
   String title;
-  
+
   @HiveField(2)
   String? description;
-  
+
   @HiveField(3)
   TaskPriority priority;
-  
+
   @HiveField(4)
   bool isCompleted;
-  
+
   @HiveField(5)
   DateTime createdAt;
-  
+
   @HiveField(6)
   DateTime? dueDate;
-  
+
   @HiveField(7)
   List<String> tags;
 }
@@ -114,16 +118,16 @@ part 'task.g.dart';
 enum TaskPriority {
   @HiveField(0)
   low,
-  
+
   @HiveField(1)
   normal,
-  
+
   @HiveField(2)
   high,
-  
+
   @HiveField(3)
   urgent;
-  
+
   String get label {
     switch (this) {
       case TaskPriority.low:
@@ -136,7 +140,7 @@ enum TaskPriority {
         return 'Urgente';
     }
   }
-  
+
   int get colorValue {
     switch (this) {
       case TaskPriority.low:
@@ -153,7 +157,7 @@ enum TaskPriority {
 
 /**
  * Task: Modelo de tarea con Hive.
- * 
+ *
  * Extiende HiveObject para tener acceso a:
  * - save(): Guardar cambios
  * - delete(): Eliminar del box
@@ -163,31 +167,31 @@ enum TaskPriority {
 class Task extends HiveObject {
   @HiveField(0)
   final String id;
-  
+
   @HiveField(1)
   String title;
-  
+
   @HiveField(2)
   String? description;
-  
+
   @HiveField(3)
   TaskPriority priority;
-  
+
   @HiveField(4)
   bool isCompleted;
-  
+
   @HiveField(5)
   final DateTime createdAt;
-  
+
   @HiveField(6)
   DateTime? dueDate;
-  
+
   @HiveField(7)
   List<String> tags;
-  
+
   @HiveField(8)
   DateTime? completedAt;
-  
+
   Task({
     String? id,
     required this.title,
@@ -201,26 +205,26 @@ class Task extends HiveObject {
   })  : id = id ?? const Uuid().v4(),
         createdAt = createdAt ?? DateTime.now(),
         tags = tags ?? [];
-  
+
   /// Verificar si está vencida
   bool get isOverdue {
     if (dueDate == null || isCompleted) return false;
     return DateTime.now().isAfter(dueDate!);
   }
-  
+
   /// Días restantes hasta vencimiento
   int? get daysUntilDue {
     if (dueDate == null) return null;
     return dueDate!.difference(DateTime.now()).inDays;
   }
-  
+
   /// Toggle completado y guardar
   Future<void> toggleComplete() async {
     isCompleted = !isCompleted;
     completedAt = isCompleted ? DateTime.now() : null;
     await save();
   }
-  
+
   /// Crear copia con modificaciones
   Task copyWith({
     String? id,
@@ -268,73 +272,73 @@ import '../models/task.dart';
  */
 class TaskRepository {
   static const String _boxName = 'tasks';
-  
+
   Box<Task> get _box => Hive.box<Task>(_boxName);
-  
+
   /// Inicializar box
   static Future<void> init() async {
     await Hive.openBox<Task>(_boxName);
   }
-  
+
   /// Obtener todas las tareas
   List<Task> getAll() {
     return _box.values.toList();
   }
-  
+
   /// Obtener tareas ordenadas
   List<Task> getAllSorted() {
     final tasks = _box.values.toList();
-    
+
     tasks.sort((a, b) {
       // Primero no completadas
       if (a.isCompleted != b.isCompleted) {
         return a.isCompleted ? 1 : -1;
       }
-      
+
       // Luego por prioridad (mayor primero)
       if (a.priority != b.priority) {
         return b.priority.index - a.priority.index;
       }
-      
+
       // Luego por fecha de vencimiento
       if (a.dueDate != null && b.dueDate != null) {
         return a.dueDate!.compareTo(b.dueDate!);
       }
       if (a.dueDate != null) return -1;
       if (b.dueDate != null) return 1;
-      
+
       // Finalmente por fecha de creación
       return b.createdAt.compareTo(a.createdAt);
     });
-    
+
     return tasks;
   }
-  
+
   /// Obtener pendientes
   List<Task> getPending() {
     return _box.values.where((t) => !t.isCompleted).toList();
   }
-  
+
   /// Obtener completadas
   List<Task> getCompleted() {
     return _box.values.where((t) => t.isCompleted).toList();
   }
-  
+
   /// Obtener por prioridad
   List<Task> getByPriority(TaskPriority priority) {
     return _box.values.where((t) => t.priority == priority).toList();
   }
-  
+
   /// Obtener por etiqueta
   List<Task> getByTag(String tag) {
     return _box.values.where((t) => t.tags.contains(tag)).toList();
   }
-  
+
   /// Obtener vencidas
   List<Task> getOverdue() {
     return _box.values.where((t) => t.isOverdue).toList();
   }
-  
+
   /// Buscar por texto
   List<Task> search(String query) {
     final lowerQuery = query.toLowerCase();
@@ -344,7 +348,7 @@ class TaskRepository {
              t.tags.any((tag) => tag.toLowerCase().contains(lowerQuery));
     }).toList();
   }
-  
+
   /// Obtener por ID
   Task? getById(String id) {
     try {
@@ -353,22 +357,22 @@ class TaskRepository {
       return null;
     }
   }
-  
+
   /// Agregar tarea
   Future<void> add(Task task) async {
     await _box.put(task.id, task);
   }
-  
+
   /// Actualizar tarea
   Future<void> update(Task task) async {
     await _box.put(task.id, task);
   }
-  
+
   /// Eliminar tarea
   Future<void> delete(String id) async {
     await _box.delete(id);
   }
-  
+
   /// Eliminar completadas
   Future<void> deleteCompleted() async {
     final completedIds = _box.values
@@ -377,12 +381,12 @@ class TaskRepository {
         .toList();
     await _box.deleteAll(completedIds);
   }
-  
+
   /// Limpiar todo
   Future<void> clear() async {
     await _box.clear();
   }
-  
+
   /// Obtener todas las etiquetas únicas
   List<String> getAllTags() {
     final tags = <String>{};
@@ -391,12 +395,12 @@ class TaskRepository {
     }
     return tags.toList()..sort();
   }
-  
+
   /// Escuchar cambios (para UI reactiva)
   ValueListenable<Box<Task>> listenable() {
     return _box.listenable();
   }
-  
+
   /// Estadísticas
   Map<String, int> getStats() {
     final tasks = _box.values.toList();
@@ -425,17 +429,17 @@ import 'screens/task_list_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Inicializar Hive
   await Hive.initFlutter();
-  
+
   // Registrar adapters
   Hive.registerAdapter(TaskAdapter());
   Hive.registerAdapter(TaskPriorityAdapter());
-  
+
   // Abrir boxes
   await TaskRepository.init();
-  
+
   runApp(
     ChangeNotifierProvider(
       create: (_) => TasksProvider()..loadTasks(),
@@ -446,7 +450,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -474,19 +478,19 @@ enum TaskFilter { all, pending, completed, overdue }
 
 /**
  * TasksProvider: Estado reactivo para tareas.
- * 
+ *
  * TODO: Completar implementación
  */
 class TasksProvider extends ChangeNotifier {
   final TaskRepository _repository = TaskRepository();
-  
+
   List<Task> _tasks = [];
   TaskFilter _filter = TaskFilter.all;
   TaskPriority? _priorityFilter;
   String? _tagFilter;
   String _searchQuery = '';
   bool _isLoading = false;
-  
+
   // Getters
   bool get isLoading => _isLoading;
   TaskFilter get filter => _filter;
@@ -494,11 +498,11 @@ class TasksProvider extends ChangeNotifier {
   String? get tagFilter => _tagFilter;
   List<String> get allTags => _repository.getAllTags();
   Map<String, int> get stats => _repository.getStats();
-  
+
   /// Obtener tareas filtradas
   List<Task> get tasks {
     List<Task> result = _tasks;
-    
+
     // Aplicar filtro de estado
     switch (_filter) {
       case TaskFilter.all:
@@ -513,17 +517,17 @@ class TasksProvider extends ChangeNotifier {
         result = result.where((t) => t.isOverdue).toList();
         break;
     }
-    
+
     // Aplicar filtro de prioridad
     if (_priorityFilter != null) {
       result = result.where((t) => t.priority == _priorityFilter).toList();
     }
-    
+
     // Aplicar filtro de etiqueta
     if (_tagFilter != null) {
       result = result.where((t) => t.tags.contains(_tagFilter)).toList();
     }
-    
+
     // Aplicar búsqueda
     if (_searchQuery.isNotEmpty) {
       final query = _searchQuery.toLowerCase();
@@ -532,48 +536,48 @@ class TasksProvider extends ChangeNotifier {
                (t.description?.toLowerCase().contains(query) ?? false);
       }).toList();
     }
-    
+
     return result;
   }
-  
+
   /// Tareas pendientes (para badge)
   int get pendingCount => _tasks.where((t) => !t.isCompleted).length;
-  
+
   /// Cargar tareas
   Future<void> loadTasks() async {
     _isLoading = true;
     notifyListeners();
-    
+
     _tasks = _repository.getAllSorted();
-    
+
     _isLoading = false;
     notifyListeners();
   }
-  
+
   /// Cambiar filtro
   void setFilter(TaskFilter filter) {
     _filter = filter;
     notifyListeners();
   }
-  
+
   /// Cambiar filtro de prioridad
   void setPriorityFilter(TaskPriority? priority) {
     _priorityFilter = priority;
     notifyListeners();
   }
-  
+
   /// Cambiar filtro de etiqueta
   void setTagFilter(String? tag) {
     _tagFilter = tag;
     notifyListeners();
   }
-  
+
   /// Buscar
   void search(String query) {
     _searchQuery = query;
     notifyListeners();
   }
-  
+
   /// Limpiar filtros
   void clearFilters() {
     _filter = TaskFilter.all;
@@ -582,30 +586,30 @@ class TasksProvider extends ChangeNotifier {
     _searchQuery = '';
     notifyListeners();
   }
-  
+
   /// Agregar tarea
   Future<void> addTask(Task task) async {
     // TODO: Implementar
     // 1. Guardar en repository
     // 2. Recargar lista
   }
-  
+
   /// Actualizar tarea
   Future<void> updateTask(Task task) async {
     // TODO: Implementar
   }
-  
+
   /// Toggle completado
   Future<void> toggleComplete(String id) async {
     // TODO: Implementar
     // Usar task.toggleComplete() y recargar
   }
-  
+
   /// Eliminar tarea
   Future<void> deleteTask(String id) async {
     // TODO: Implementar
   }
-  
+
   /// Eliminar completadas
   Future<void> deleteCompleted() async {
     // TODO: Implementar
@@ -623,17 +627,17 @@ import '../models/task.dart';
 class PriorityBadge extends StatelessWidget {
   final TaskPriority priority;
   final bool showLabel;
-  
+
   const PriorityBadge({
     super.key,
     required this.priority,
     this.showLabel = false,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     final color = Color(priority.colorValue);
-    
+
     if (showLabel) {
       return Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -652,7 +656,7 @@ class PriorityBadge extends StatelessWidget {
         ),
       );
     }
-    
+
     return Container(
       width: 12,
       height: 12,
@@ -678,7 +682,7 @@ class TaskTile extends StatelessWidget {
   final VoidCallback? onToggle;
   final VoidCallback? onTap;
   final VoidCallback? onDelete;
-  
+
   const TaskTile({
     super.key,
     required this.task,
@@ -686,7 +690,7 @@ class TaskTile extends StatelessWidget {
     this.onTap,
     this.onDelete,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     // TODO: Implementar UI completa
@@ -697,7 +701,7 @@ class TaskTile extends StatelessWidget {
     // - Tags como chips
     // - Indicador de fecha límite
     // - Swipe to delete
-    
+
     return ListTile(
       leading: Checkbox(
         value: task.isCompleted,
@@ -706,8 +710,8 @@ class TaskTile extends StatelessWidget {
       title: Text(
         task.title,
         style: TextStyle(
-          decoration: task.isCompleted 
-              ? TextDecoration.lineThrough 
+          decoration: task.isCompleted
+              ? TextDecoration.lineThrough
               : null,
         ),
       ),
@@ -723,17 +727,20 @@ class TaskTile extends StatelessWidget {
 ## ✅ Tareas a Completar
 
 ### Nivel 1: Básico
+
 - [ ] Generar TypeAdapters con build_runner
 - [ ] Completar métodos en `TasksProvider`
 - [ ] Implementar `TaskListScreen` básica
 
 ### Nivel 2: Intermedio
+
 - [ ] Implementar `TaskTile` completo con todos los elementos
 - [ ] Crear `TaskFormScreen` para agregar/editar
 - [ ] Implementar filtros funcionales
 - [ ] Añadir chips de etiquetas
 
 ### Nivel 3: Avanzado
+
 - [ ] UI reactiva con ValueListenableBuilder
 - [ ] Animaciones al completar/eliminar
 - [ ] Estadísticas en la pantalla principal
@@ -779,14 +786,14 @@ class TaskTile extends StatelessWidget {
 
 ## 📊 Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| Hive configurado correctamente | 20 |
-| CRUD completo | 25 |
-| Filtros funcionando | 20 |
-| UI completa y usable | 20 |
-| Código limpio | 15 |
-| **Total** | **100** |
+| Criterio                       | Puntos  |
+| ------------------------------ | ------- |
+| Hive configurado correctamente | 20      |
+| CRUD completo                  | 25      |
+| Filtros funcionando            | 20      |
+| UI completa y usable           | 20      |
+| Código limpio                  | 15      |
+| **Total**                      | **100** |
 
 ---
 

@@ -4,13 +4,13 @@
 
 Esta semana contiene 5 prácticas progresivas para dominar el almacenamiento local.
 
-| # | Práctica | Tecnología | Duración | Nivel |
-|---|----------|------------|----------|-------|
-| 01 | [Preferencias de Usuario](./practica-01-preferencias-usuario.md) | SharedPreferences | 30 min | ⭐ |
-| 02 | [Base de Datos de Contactos](./practica-02-sqlite-contactos.md) | SQLite | 45 min | ⭐⭐ |
-| 03 | [Lista de Tareas con Hive](./practica-03-hive-tasks.md) | Hive | 45 min | ⭐⭐ |
-| 04 | [Caché de Imágenes](./practica-04-cache-imagenes.md) | path_provider | 40 min | ⭐⭐ |
-| 05 | [Sincronización Offline](./practica-05-sync-offline.md) | SQLite + API | 50 min | ⭐⭐⭐ |
+| #   | Práctica                                                         | Tecnología        | Duración | Nivel  |
+| --- | ---------------------------------------------------------------- | ----------------- | -------- | ------ |
+| 01  | [Preferencias de Usuario](./practica-01-preferencias-usuario.md) | SharedPreferences | 30 min   | ⭐     |
+| 02  | [Base de Datos de Contactos](./practica-02-sqlite-contactos.md)  | SQLite            | 45 min   | ⭐⭐   |
+| 03  | [Lista de Tareas con Hive](./practica-03-hive-tasks.md)          | Hive              | 45 min   | ⭐⭐   |
+| 04  | [Caché de Imágenes](./practica-04-cache-imagenes.md)             | path_provider     | 40 min   | ⭐⭐   |
+| 05  | [Sincronización Offline](./practica-05-sync-offline.md)          | SQLite + API      | 50 min   | ⭐⭐⭐ |
 
 ---
 

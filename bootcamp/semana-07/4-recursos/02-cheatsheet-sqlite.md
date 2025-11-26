@@ -34,7 +34,7 @@ import 'package:path/path.dart';
 Future<Database> initDatabase() async {
   final dbPath = await getDatabasesPath();
   final path = join(dbPath, 'my_database.db');
-  
+
   return openDatabase(
     path,
     version: 1,
@@ -56,13 +56,13 @@ Future<Database> initDatabase() async {
 
 ## 🗃️ Tipos de Datos SQLite
 
-| SQLite | Dart | Ejemplo |
-|--------|------|---------|
-| `INTEGER` | `int` | `id INTEGER PRIMARY KEY` |
-| `TEXT` | `String` | `name TEXT NOT NULL` |
-| `REAL` | `double` | `price REAL` |
-| `BLOB` | `Uint8List` | `image BLOB` |
-| `NULL` | `null` | Cualquier columna nullable |
+| SQLite    | Dart        | Ejemplo                    |
+| --------- | ----------- | -------------------------- |
+| `INTEGER` | `int`       | `id INTEGER PRIMARY KEY`   |
+| `TEXT`    | `String`    | `name TEXT NOT NULL`       |
+| `REAL`    | `double`    | `price REAL`               |
+| `BLOB`    | `Uint8List` | `image BLOB`               |
+| `NULL`    | `null`      | Cualquier columna nullable |
 
 ---
 
@@ -378,18 +378,18 @@ CREATE TABLE post_tags (
 
 ## 🔍 Operadores SQL Comunes
 
-| Operador | Ejemplo | Descripción |
-|----------|---------|-------------|
-| `=` | `WHERE id = 1` | Igual |
-| `<>` o `!=` | `WHERE id <> 1` | Diferente |
-| `>`, `<`, `>=`, `<=` | `WHERE price > 10` | Comparación |
-| `LIKE` | `WHERE name LIKE '%juan%'` | Patrón |
-| `IN` | `WHERE id IN (1, 2, 3)` | Lista de valores |
-| `BETWEEN` | `WHERE price BETWEEN 10 AND 50` | Rango |
-| `IS NULL` | `WHERE email IS NULL` | Es nulo |
-| `IS NOT NULL` | `WHERE email IS NOT NULL` | No es nulo |
-| `AND` | `WHERE a = 1 AND b = 2` | Y lógico |
-| `OR` | `WHERE a = 1 OR b = 2` | O lógico |
+| Operador             | Ejemplo                         | Descripción      |
+| -------------------- | ------------------------------- | ---------------- |
+| `=`                  | `WHERE id = 1`                  | Igual            |
+| `<>` o `!=`          | `WHERE id <> 1`                 | Diferente        |
+| `>`, `<`, `>=`, `<=` | `WHERE price > 10`              | Comparación      |
+| `LIKE`               | `WHERE name LIKE '%juan%'`      | Patrón           |
+| `IN`                 | `WHERE id IN (1, 2, 3)`         | Lista de valores |
+| `BETWEEN`            | `WHERE price BETWEEN 10 AND 50` | Rango            |
+| `IS NULL`            | `WHERE email IS NULL`           | Es nulo          |
+| `IS NOT NULL`        | `WHERE email IS NOT NULL`       | No es nulo       |
+| `AND`                | `WHERE a = 1 AND b = 2`         | Y lógico         |
+| `OR`                 | `WHERE a = 1 OR b = 2`          | O lógico         |
 
 ---
 
@@ -398,18 +398,18 @@ CREATE TABLE post_tags (
 ```dart
 class UserDao {
   final Database _db;
-  
+
   UserDao(this._db);
-  
+
   Future<int> insert(User user) async {
     return await _db.insert('users', user.toMap());
   }
-  
+
   Future<List<User>> getAll() async {
     final maps = await _db.query('users', orderBy: 'name ASC');
     return maps.map((m) => User.fromMap(m)).toList();
   }
-  
+
   Future<User?> getById(int id) async {
     final maps = await _db.query(
       'users',
@@ -420,7 +420,7 @@ class UserDao {
     if (maps.isEmpty) return null;
     return User.fromMap(maps.first);
   }
-  
+
   Future<int> update(User user) async {
     return await _db.update(
       'users',
@@ -429,7 +429,7 @@ class UserDao {
       whereArgs: [user.id],
     );
   }
-  
+
   Future<int> delete(int id) async {
     return await _db.delete(
       'users',
@@ -450,14 +450,14 @@ class User {
   final String name;
   final String email;
   final DateTime createdAt;
-  
+
   User({
     this.id,
     required this.name,
     required this.email,
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
-  
+
   Map<String, dynamic> toMap() {
     return {
       if (id != null) 'id': id,
@@ -466,7 +466,7 @@ class User {
       'created_at': createdAt.toIso8601String(),
     };
   }
-  
+
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
       id: map['id'] as int?,
@@ -482,13 +482,13 @@ class User {
 
 ## ⚠️ Errores Comunes
 
-| Error | Causa | Solución |
-|-------|-------|----------|
-| `DatabaseException` | SQL inválido | Verificar sintaxis |
-| `UNIQUE constraint` | Duplicado en columna UNIQUE | Usar ConflictAlgorithm |
-| `FOREIGN KEY constraint` | Referencia inválida | Verificar que existe el registro |
-| `no such table` | Tabla no existe | Verificar onCreate |
-| `no such column` | Columna no existe | Verificar migración |
+| Error                    | Causa                       | Solución                         |
+| ------------------------ | --------------------------- | -------------------------------- |
+| `DatabaseException`      | SQL inválido                | Verificar sintaxis               |
+| `UNIQUE constraint`      | Duplicado en columna UNIQUE | Usar ConflictAlgorithm           |
+| `FOREIGN KEY constraint` | Referencia inválida         | Verificar que existe el registro |
+| `no such table`          | Tabla no existe             | Verificar onCreate               |
+| `no such column`         | Columna no existe           | Verificar migración              |
 
 ---
 

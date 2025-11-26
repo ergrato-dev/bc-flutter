@@ -11,21 +11,25 @@ Crear una aplicación de gestión de contactos con **SQLite** implementando oper
 ### Funcionales
 
 1. **Lista de Contactos**
+
    - Mostrar todos los contactos ordenados alfabéticamente
    - Mostrar avatar (iniciales), nombre y teléfono
    - Pull to refresh
 
 2. **Agregar Contacto**
+
    - Formulario: nombre, teléfono, email, notas
    - Validación de campos
    - Teléfono único
 
 3. **Ver/Editar Contacto**
+
    - Pantalla de detalle
    - Modo edición
    - Confirmación al guardar
 
 4. **Eliminar Contacto**
+
    - Swipe to delete en la lista
    - Diálogo de confirmación
    - Opción deshacer (Snackbar)
@@ -94,7 +98,7 @@ class Contact {
   final bool isFavorite;
   final DateTime createdAt;
   final DateTime? updatedAt;
-  
+
   Contact({
     this.id,
     required this.name,
@@ -105,7 +109,7 @@ class Contact {
     required this.createdAt,
     this.updatedAt,
   });
-  
+
   /// Convertir a Map para SQLite
   Map<String, dynamic> toMap() {
     return {
@@ -119,7 +123,7 @@ class Contact {
       'updated_at': updatedAt?.toIso8601String(),
     };
   }
-  
+
   /// Crear desde Map de SQLite
   factory Contact.fromMap(Map<String, dynamic> map) {
     return Contact(
@@ -130,12 +134,12 @@ class Contact {
       notes: map['notes'],
       isFavorite: map['is_favorite'] == 1,
       createdAt: DateTime.parse(map['created_at']),
-      updatedAt: map['updated_at'] != null 
-          ? DateTime.parse(map['updated_at']) 
+      updatedAt: map['updated_at'] != null
+          ? DateTime.parse(map['updated_at'])
           : null,
     );
   }
-  
+
   /// Obtener iniciales para avatar
   String get initials {
     final parts = name.trim().split(' ');
@@ -144,7 +148,7 @@ class Contact {
     }
     return name.substring(0, name.length >= 2 ? 2 : 1).toUpperCase();
   }
-  
+
   /// copyWith para inmutabilidad
   Contact copyWith({
     int? id,
@@ -167,7 +171,7 @@ class Contact {
       updatedAt: updatedAt ?? this.updatedAt,
     );
   }
-  
+
   @override
   String toString() => 'Contact(id: $id, name: $name, phone: $phone)';
 }
@@ -186,26 +190,26 @@ import 'package:path/path.dart';
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
   static Database? _database;
-  
+
   DatabaseHelper._init();
-  
+
   Future<Database> get database async {
     if (_database != null) return _database!;
     _database = await _initDB('contacts.db');
     return _database!;
   }
-  
+
   Future<Database> _initDB(String fileName) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, fileName);
-    
+
     return await openDatabase(
       path,
       version: 1,
       onCreate: _createDB,
     );
   }
-  
+
   Future<void> _createDB(Database db, int version) async {
     await db.execute('''
       CREATE TABLE contacts (
@@ -219,18 +223,18 @@ class DatabaseHelper {
         updated_at TEXT
       )
     ''');
-    
+
     // Índices para búsqueda rápida
     await db.execute('CREATE INDEX idx_contact_name ON contacts (name)');
     await db.execute('CREATE INDEX idx_contact_phone ON contacts (phone)');
-    
+
     // Datos de ejemplo
     await _insertSampleData(db);
   }
-  
+
   Future<void> _insertSampleData(Database db) async {
     final now = DateTime.now().toIso8601String();
-    
+
     await db.insert('contacts', {
       'name': 'María García',
       'phone': '+34 612 345 678',
@@ -239,7 +243,7 @@ class DatabaseHelper {
       'is_favorite': 1,
       'created_at': now,
     });
-    
+
     await db.insert('contacts', {
       'name': 'Carlos López',
       'phone': '+34 623 456 789',
@@ -247,7 +251,7 @@ class DatabaseHelper {
       'is_favorite': 0,
       'created_at': now,
     });
-    
+
     await db.insert('contacts', {
       'name': 'Ana Martínez',
       'phone': '+34 634 567 890',
@@ -257,7 +261,7 @@ class DatabaseHelper {
       'created_at': now,
     });
   }
-  
+
   Future<void> close() async {
     final db = await database;
     await db.close();
@@ -278,75 +282,75 @@ import '../models/contact.dart';
  */
 class ContactRepository {
   final DatabaseHelper _dbHelper = DatabaseHelper.instance;
-  
+
   /// Obtener todos los contactos
   Future<List<Contact>> getAll() async {
     final db = await _dbHelper.database;
-    
+
     final maps = await db.query(
       'contacts',
       orderBy: 'is_favorite DESC, name ASC',
     );
-    
+
     return maps.map((m) => Contact.fromMap(m)).toList();
   }
-  
+
   /// Obtener contacto por ID
   Future<Contact?> getById(int id) async {
     final db = await _dbHelper.database;
-    
+
     final maps = await db.query(
       'contacts',
       where: 'id = ?',
       whereArgs: [id],
       limit: 1,
     );
-    
+
     if (maps.isEmpty) return null;
     return Contact.fromMap(maps.first);
   }
-  
+
   /// Buscar contactos
   Future<List<Contact>> search(String query) async {
     final db = await _dbHelper.database;
-    
+
     final maps = await db.query(
       'contacts',
       where: 'name LIKE ? OR phone LIKE ?',
       whereArgs: ['%$query%', '%$query%'],
       orderBy: 'name ASC',
     );
-    
+
     return maps.map((m) => Contact.fromMap(m)).toList();
   }
-  
+
   /// Obtener favoritos
   Future<List<Contact>> getFavorites() async {
     final db = await _dbHelper.database;
-    
+
     final maps = await db.query(
       'contacts',
       where: 'is_favorite = 1',
       orderBy: 'name ASC',
     );
-    
+
     return maps.map((m) => Contact.fromMap(m)).toList();
   }
-  
+
   /// Crear contacto
   Future<int> create(Contact contact) async {
     final db = await _dbHelper.database;
     return await db.insert('contacts', contact.toMap());
   }
-  
+
   /// Actualizar contacto
   Future<int> update(Contact contact) async {
     final db = await _dbHelper.database;
-    
+
     final updatedContact = contact.copyWith(
       updatedAt: DateTime.now(),
     );
-    
+
     return await db.update(
       'contacts',
       updatedContact.toMap(),
@@ -354,19 +358,19 @@ class ContactRepository {
       whereArgs: [contact.id],
     );
   }
-  
+
   /// Toggle favorito
   Future<void> toggleFavorite(int id) async {
     final db = await _dbHelper.database;
-    
+
     await db.rawUpdate('''
-      UPDATE contacts 
+      UPDATE contacts
       SET is_favorite = CASE WHEN is_favorite = 1 THEN 0 ELSE 1 END,
           updated_at = ?
       WHERE id = ?
     ''', [DateTime.now().toIso8601String(), id]);
   }
-  
+
   /// Eliminar contacto
   Future<int> delete(int id) async {
     final db = await _dbHelper.database;
@@ -376,28 +380,28 @@ class ContactRepository {
       whereArgs: [id],
     );
   }
-  
+
   /// Verificar si teléfono existe
   Future<bool> phoneExists(String phone, {int? excludeId}) async {
     final db = await _dbHelper.database;
-    
+
     String where = 'phone = ?';
     List<dynamic> whereArgs = [phone];
-    
+
     if (excludeId != null) {
       where += ' AND id != ?';
       whereArgs.add(excludeId);
     }
-    
+
     final result = await db.query(
       'contacts',
       where: where,
       whereArgs: whereArgs,
     );
-    
+
     return result.isNotEmpty;
   }
-  
+
   /// Contar contactos
   Future<int> count() async {
     final db = await _dbHelper.database;
@@ -417,30 +421,30 @@ import '../repositories/contact_repository.dart';
 
 /**
  * ContactsProvider: Estado reactivo para contactos.
- * 
+ *
  * TODO: Implementar toda la lógica de estado
  */
 class ContactsProvider extends ChangeNotifier {
   final ContactRepository _repository = ContactRepository();
-  
+
   List<Contact> _contacts = [];
   List<Contact> _searchResults = [];
   bool _isLoading = false;
   String? _error;
   String _searchQuery = '';
-  
+
   // Getters
   List<Contact> get contacts => _searchQuery.isEmpty ? _contacts : _searchResults;
   bool get isLoading => _isLoading;
   String? get error => _error;
   bool get isSearching => _searchQuery.isNotEmpty;
-  
+
   /// Cargar todos los contactos
   Future<void> loadContacts() async {
     _isLoading = true;
     _error = null;
     notifyListeners();
-    
+
     try {
       _contacts = await _repository.getAll();
     } catch (e) {
@@ -450,29 +454,29 @@ class ContactsProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
-  
+
   /// Buscar contactos
   Future<void> search(String query) async {
     _searchQuery = query;
-    
+
     if (query.isEmpty) {
       _searchResults = [];
       notifyListeners();
       return;
     }
-    
+
     // TODO: Implementar búsqueda con debounce
     _searchResults = await _repository.search(query);
     notifyListeners();
   }
-  
+
   /// Limpiar búsqueda
   void clearSearch() {
     _searchQuery = '';
     _searchResults = [];
     notifyListeners();
   }
-  
+
   /// Agregar contacto
   Future<bool> addContact(Contact contact) async {
     // TODO: Implementar
@@ -482,24 +486,24 @@ class ContactsProvider extends ChangeNotifier {
     // 4. Retornar true/false según éxito
     return false;
   }
-  
+
   /// Actualizar contacto
   Future<bool> updateContact(Contact contact) async {
     // TODO: Implementar
     return false;
   }
-  
+
   /// Toggle favorito
   Future<void> toggleFavorite(int id) async {
     // TODO: Implementar
   }
-  
+
   /// Eliminar contacto
   Future<bool> deleteContact(int id) async {
     // TODO: Implementar
     return false;
   }
-  
+
   /// Restaurar contacto eliminado (para undo)
   Future<void> restoreContact(Contact contact) async {
     // TODO: Implementar
@@ -520,7 +524,7 @@ class ContactTile extends StatelessWidget {
   final VoidCallback? onTap;
   final VoidCallback? onFavoriteToggle;
   final VoidCallback? onDelete;
-  
+
   const ContactTile({
     super.key,
     required this.contact,
@@ -528,7 +532,7 @@ class ContactTile extends StatelessWidget {
     this.onFavoriteToggle,
     this.onDelete,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -560,7 +564,7 @@ class ContactTile extends StatelessWidget {
       ),
     );
   }
-  
+
   Future<bool> _confirmDelete(BuildContext context) async {
     return await showDialog<bool>(
       context: context,
@@ -593,19 +597,19 @@ import 'package:flutter/material.dart';
 class ContactAvatar extends StatelessWidget {
   final String initials;
   final double size;
-  
+
   const ContactAvatar({
     super.key,
     required this.initials,
     this.size = 48,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     // Color basado en las iniciales (consistente)
     final colorIndex = initials.codeUnits.fold<int>(0, (a, b) => a + b);
     final color = Colors.primaries[colorIndex % Colors.primaries.length];
-    
+
     return CircleAvatar(
       radius: size / 2,
       backgroundColor: color.withOpacity(0.2),
@@ -627,17 +631,20 @@ class ContactAvatar extends StatelessWidget {
 ## ✅ Tareas a Completar
 
 ### Nivel 1: Básico
+
 - [ ] Completar `ContactsProvider` (addContact, updateContact, deleteContact)
 - [ ] Implementar `ContactListScreen` con ListView
 - [ ] Implementar búsqueda básica
 
 ### Nivel 2: Intermedio
+
 - [ ] Implementar `ContactFormScreen` (crear/editar)
 - [ ] Validación de formulario (nombre requerido, teléfono válido, email válido)
 - [ ] Verificar teléfono único antes de guardar
 - [ ] Implementar `ContactDetailScreen`
 
 ### Nivel 3: Avanzado
+
 - [ ] Añadir función "Deshacer" al eliminar (Snackbar con acción)
 - [ ] Implementar grupos por letra inicial (SliverList)
 - [ ] Añadir filtro por favoritos
@@ -648,6 +655,7 @@ class ContactAvatar extends StatelessWidget {
 ## 🎨 UI Esperada
 
 ### Lista de Contactos
+
 ```
 ┌─────────────────────────────────────┐
 │ Contactos                      🔍   │
@@ -677,6 +685,7 @@ class ContactAvatar extends StatelessWidget {
 ```
 
 ### Formulario
+
 ```
 ┌─────────────────────────────────────┐
 │ ← Nuevo Contacto           Guardar  │
@@ -715,14 +724,14 @@ class ContactAvatar extends StatelessWidget {
 
 ## 📊 Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| CRUD completo funcionando | 35 |
-| Búsqueda implementada | 15 |
-| UI/UX de calidad | 20 |
-| Validaciones correctas | 15 |
-| Código limpio y documentado | 15 |
-| **Total** | **100** |
+| Criterio                    | Puntos  |
+| --------------------------- | ------- |
+| CRUD completo funcionando   | 35      |
+| Búsqueda implementada       | 15      |
+| UI/UX de calidad            | 20      |
+| Validaciones correctas      | 15      |
+| Código limpio y documentado | 15      |
+| **Total**                   | **100** |
 
 ---
 

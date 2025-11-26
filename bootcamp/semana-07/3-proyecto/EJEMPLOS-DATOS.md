@@ -75,7 +75,7 @@ Participantes:
     serverId: 'srv_123abc',
     tagIds: ['tag_work', 'tag_meeting'],
   ),
-  
+
   Note(
     id: 'note_002',
     title: 'Lista de Compras',
@@ -99,7 +99,7 @@ Farmacia:
     syncStatus: SyncStatus.pending,
     tagIds: ['tag_personal', 'tag_shopping'],
   ),
-  
+
   Note(
     id: 'note_003',
     title: 'Ideas App Flutter',
@@ -127,7 +127,7 @@ Tecnologías:
     errorMessage: 'Error de conexión al servidor',
     tagIds: ['tag_work', 'tag_ideas', 'tag_flutter'],
   ),
-  
+
   Note(
     id: 'note_004',
     title: 'Receta: Pasta Carbonara',
@@ -156,7 +156,7 @@ Preparación:
     serverId: 'srv_456def',
     tagIds: ['tag_personal', 'tag_recipes'],
   ),
-  
+
   Note(
     id: 'note_005',
     title: 'Nota Eliminada',
@@ -388,7 +388,7 @@ class AppStats {
   final int syncErrors;
   final int cacheSizeBytes;
   final DateTime? lastSyncTime;
-  
+
   static AppStats example = AppStats(
     totalNotes: 42,
     favoriteNotes: 8,
@@ -412,26 +412,26 @@ class AppStats {
 class SampleDataSeeder {
   final DatabaseHelper _db;
   final Box<Tag> _tagBox;
-  
+
   Future<void> seedData() async {
     // Verificar si ya hay datos
     final db = await _db.database;
     final count = Sqflite.firstIntValue(
       await db.rawQuery('SELECT COUNT(*) FROM notes')
     ) ?? 0;
-    
+
     if (count > 0) return; // Ya tiene datos
-    
+
     // Insertar etiquetas en Hive
     for (final tag in sampleTags) {
       await _tagBox.put(tag.id, tag);
     }
-    
+
     // Insertar notas en SQLite
     final batch = db.batch();
     for (final note in sampleNotes) {
       batch.insert('notes', note.toMap());
-      
+
       // Insertar relaciones con tags
       for (final tagId in note.tagIds) {
         batch.insert('note_tags', {
@@ -441,7 +441,7 @@ class SampleDataSeeder {
       }
     }
     await batch.commit();
-    
+
     print('✅ Datos de ejemplo insertados');
   }
 }
@@ -452,22 +452,22 @@ class SampleDataSeeder {
 ```dart
 Future<void> clearAllData() async {
   final db = await _db.database;
-  
+
   // Limpiar SQLite
   await db.delete('note_tags');
   await db.delete('notes');
   await db.delete('sync_queue');
-  
+
   // Limpiar Hive
   await _tagBox.clear();
-  
+
   // Limpiar SharedPreferences (excepto onboarding)
   final prefs = await SharedPreferences.getInstance();
   final keys = prefs.getKeys().where((k) => k != 'onboarding_complete');
   for (final key in keys) {
     await prefs.remove(key);
   }
-  
+
   print('🗑️ Todos los datos eliminados');
 }
 ```
@@ -479,9 +479,9 @@ Future<void> clearAllData() async {
 ### Notas más recientes
 
 ```sql
-SELECT * FROM notes 
-WHERE is_deleted = 0 
-ORDER BY updated_at DESC 
+SELECT * FROM notes
+WHERE is_deleted = 0
+ORDER BY updated_at DESC
 LIMIT 10;
 ```
 
@@ -497,27 +497,27 @@ ORDER BY n.updated_at DESC;
 ### Contar notas por estado de sync
 
 ```sql
-SELECT sync_status, COUNT(*) as count 
-FROM notes 
-WHERE is_deleted = 0 
+SELECT sync_status, COUNT(*) as count
+FROM notes
+WHERE is_deleted = 0
 GROUP BY sync_status;
 ```
 
 ### Notas en papelera antiguas (para auto-delete)
 
 ```sql
-SELECT * FROM notes 
-WHERE is_deleted = 1 
+SELECT * FROM notes
+WHERE is_deleted = 1
 AND deleted_at < datetime('now', '-30 days');
 ```
 
 ### Búsqueda full-text
 
 ```sql
-SELECT * FROM notes 
-WHERE is_deleted = 0 
+SELECT * FROM notes
+WHERE is_deleted = 0
 AND (title LIKE '%búsqueda%' OR content LIKE '%búsqueda%')
-ORDER BY 
+ORDER BY
   CASE WHEN title LIKE '%búsqueda%' THEN 0 ELSE 1 END,
   updated_at DESC;
 ```

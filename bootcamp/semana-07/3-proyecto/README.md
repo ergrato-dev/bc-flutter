@@ -23,13 +23,13 @@ Al completar este proyecto demostrarás dominio de:
 
 ## ⏱️ Tiempo Estimado
 
-| Fase | Tiempo |
-|------|--------|
-| Configuración inicial | 30 min |
-| Base de datos y modelos | 1h |
-| UI principal | 1h 30min |
-| Funcionalidades avanzadas | 1h |
-| **Total** | **4 horas** |
+| Fase                      | Tiempo      |
+| ------------------------- | ----------- |
+| Configuración inicial     | 30 min      |
+| Base de datos y modelos   | 1h          |
+| UI principal              | 1h 30min    |
+| Funcionalidades avanzadas | 1h          |
+| **Total**                 | **4 horas** |
 
 ---
 
@@ -38,18 +38,21 @@ Al completar este proyecto demostrarás dominio de:
 ### Core Features
 
 1. **Gestión de Notas**
+
    - Crear, editar, eliminar notas
    - Título, contenido, color
    - Fecha de creación/modificación
    - Marcar como favorita
 
 2. **Organización**
+
    - Etiquetas/categorías
    - Búsqueda por texto
    - Filtros (favoritas, por etiqueta, recientes)
    - Ordenamiento personalizable
 
 3. **Preferencias de Usuario** (SharedPreferences)
+
    - Tema claro/oscuro
    - Tamaño de fuente
    - Vista de lista/grid
@@ -64,11 +67,13 @@ Al completar este proyecto demostrarás dominio de:
 ### Features Avanzadas
 
 5. **Sincronización Offline**
+
    - Indicador de estado de sync
    - Cola de operaciones pendientes
    - Resolución de conflictos básica
 
 6. **Exportar/Importar**
+
    - Exportar todas las notas a JSON
    - Importar desde archivo JSON
    - Backup automático
@@ -208,13 +213,13 @@ class Note {
 class Tag extends HiveObject {
   @HiveField(0)
   final String id;
-  
+
   @HiveField(1)
   String name;
-  
+
   @HiveField(2)
   int color;
-  
+
   @HiveField(3)
   int usageCount;  // Para ordenar por popularidad
 }
@@ -335,31 +340,31 @@ class AppPreferences {
 
 ### Básico (60 puntos)
 
-| Requisito | Puntos |
-|-----------|--------|
-| CRUD de notas con SQLite | 15 |
-| Etiquetas con Hive | 10 |
-| Preferencias con SharedPreferences | 10 |
-| UI funcional (lista + editor) | 15 |
-| Búsqueda y filtros básicos | 10 |
+| Requisito                          | Puntos |
+| ---------------------------------- | ------ |
+| CRUD de notas con SQLite           | 15     |
+| Etiquetas con Hive                 | 10     |
+| Preferencias con SharedPreferences | 10     |
+| UI funcional (lista + editor)      | 15     |
+| Búsqueda y filtros básicos         | 10     |
 
 ### Intermedio (25 puntos)
 
-| Requisito | Puntos |
-|-----------|--------|
-| Tema dinámico (claro/oscuro) | 5 |
-| Vista grid/list toggleable | 5 |
-| Papelera con soft delete | 5 |
-| Exportar/importar JSON | 5 |
-| Favoritos y ordenamiento | 5 |
+| Requisito                    | Puntos |
+| ---------------------------- | ------ |
+| Tema dinámico (claro/oscuro) | 5      |
+| Vista grid/list toggleable   | 5      |
+| Papelera con soft delete     | 5      |
+| Exportar/importar JSON       | 5      |
+| Favoritos y ordenamiento     | 5      |
 
 ### Avanzado (15 puntos)
 
-| Requisito | Puntos |
-|-----------|--------|
-| Indicadores de sincronización | 5 |
-| Cola de sync offline | 5 |
-| Backup automático | 5 |
+| Requisito                     | Puntos |
+| ----------------------------- | ------ |
+| Indicadores de sincronización | 5      |
+| Cola de sync offline          | 5      |
+| Backup automático             | 5      |
 
 ---
 
@@ -402,10 +407,10 @@ class AppPreferences {
 dependencies:
   flutter:
     sdk: flutter
-    
+
   # Estado
   provider: ^6.1.1
-  
+
   # Persistencia
   sqflite: ^2.3.0
   path: ^1.8.3
@@ -413,7 +418,7 @@ dependencies:
   hive_flutter: ^1.1.0
   shared_preferences: ^2.2.2
   path_provider: ^2.1.1
-  
+
   # Utilidades
   uuid: ^4.2.1
   intl: ^0.18.1
@@ -432,6 +437,7 @@ dev_dependencies:
 ## ✅ Checklist de Entrega
 
 ### Funcionalidad
+
 - [ ] Crear nota con título, contenido, color
 - [ ] Editar y eliminar notas
 - [ ] Agregar/quitar etiquetas
@@ -445,6 +451,7 @@ dev_dependencies:
 - [ ] Importar desde JSON
 
 ### Código
+
 - [ ] Nomenclatura en inglés
 - [ ] Comentarios explicativos
 - [ ] Código modular y limpio
@@ -452,6 +459,7 @@ dev_dependencies:
 - [ ] Provider para estado
 
 ### Documentación
+
 - [ ] README del proyecto
 - [ ] Comentarios en código
 - [ ] Capturas de pantalla

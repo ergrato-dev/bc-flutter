@@ -39,12 +39,12 @@ final prefs = await SharedPreferences.getInstance();
 
 ## 💾 Guardar Datos
 
-| Tipo | Método | Ejemplo |
-|------|--------|---------|
-| `String` | `setString()` | `prefs.setString('name', 'Juan')` |
-| `int` | `setInt()` | `prefs.setInt('age', 25)` |
-| `double` | `setDouble()` | `prefs.setDouble('price', 19.99)` |
-| `bool` | `setBool()` | `prefs.setBool('darkMode', true)` |
+| Tipo           | Método            | Ejemplo                                   |
+| -------------- | ----------------- | ----------------------------------------- |
+| `String`       | `setString()`     | `prefs.setString('name', 'Juan')`         |
+| `int`          | `setInt()`        | `prefs.setInt('age', 25)`                 |
+| `double`       | `setDouble()`     | `prefs.setDouble('price', 19.99)`         |
+| `bool`         | `setBool()`       | `prefs.setBool('darkMode', true)`         |
 | `List<String>` | `setStringList()` | `prefs.setStringList('tags', ['a', 'b'])` |
 
 ### Ejemplos de Guardado
@@ -70,13 +70,13 @@ await prefs.setStringList('favorites', ['item1', 'item2', 'item3']);
 
 ## 📖 Leer Datos
 
-| Tipo | Método | Valor por Defecto |
-|------|--------|-------------------|
-| `String?` | `getString()` | `null` |
-| `int?` | `getInt()` | `null` |
-| `double?` | `getDouble()` | `null` |
-| `bool?` | `getBool()` | `null` |
-| `List<String>?` | `getStringList()` | `null` |
+| Tipo            | Método            | Valor por Defecto |
+| --------------- | ----------------- | ----------------- |
+| `String?`       | `getString()`     | `null`            |
+| `int?`          | `getInt()`        | `null`            |
+| `double?`       | `getDouble()`     | `null`            |
+| `bool?`         | `getBool()`       | `null`            |
+| `List<String>?` | `getStringList()` | `null`            |
 
 ### Ejemplos de Lectura
 
@@ -124,9 +124,9 @@ final allKeys = prefs.getKeys(); // Set<String>
 class PrefsService {
   static PrefsService? _instance;
   static late SharedPreferences _prefs;
-  
+
   PrefsService._();
-  
+
   /// Inicializar (llamar en main)
   static Future<PrefsService> getInstance() async {
     if (_instance == null) {
@@ -135,11 +135,11 @@ class PrefsService {
     }
     return _instance!;
   }
-  
+
   // Getters y Setters tipados
   bool get darkMode => _prefs.getBool('darkMode') ?? false;
   set darkMode(bool value) => _prefs.setBool('darkMode', value);
-  
+
   String get language => _prefs.getString('language') ?? 'es';
   set language(String value) => _prefs.setString('language', value);
 }
@@ -209,13 +209,13 @@ Future<ThemeMode> getTheme() async {
 
 ## ⚠️ Limitaciones
 
-| Limitación | Descripción |
-|------------|-------------|
-| **Tipos soportados** | Solo String, int, double, bool, List\<String\> |
-| **Sin encriptación** | Datos guardados en texto plano |
-| **No para datos sensibles** | NO usar para contraseñas o tokens |
-| **Tamaño** | No recomendado para grandes cantidades de datos |
-| **Sincronía** | Escritura es asíncrona |
+| Limitación                  | Descripción                                     |
+| --------------------------- | ----------------------------------------------- |
+| **Tipos soportados**        | Solo String, int, double, bool, List\<String\>  |
+| **Sin encriptación**        | Datos guardados en texto plano                  |
+| **No para datos sensibles** | NO usar para contraseñas o tokens               |
+| **Tamaño**                  | No recomendado para grandes cantidades de datos |
+| **Sincronía**               | Escritura es asíncrona                          |
 
 ---
 
@@ -255,7 +255,7 @@ void main() {
     'darkMode': true,
     'loginCount': 5,
   });
-  
+
   test('should read mocked values', () async {
     final prefs = await SharedPreferences.getInstance();
     expect(prefs.getString('username'), 'test_user');
@@ -268,14 +268,14 @@ void main() {
 
 ## 📊 Comparativa de Métodos
 
-| Operación | Código | Retorna |
-|-----------|--------|---------|
-| Guardar | `await prefs.setX('key', value)` | `Future<bool>` |
-| Leer | `prefs.getX('key')` | `T?` (nullable) |
-| Eliminar | `await prefs.remove('key')` | `Future<bool>` |
-| Limpiar | `await prefs.clear()` | `Future<bool>` |
-| Existe | `prefs.containsKey('key')` | `bool` |
-| Claves | `prefs.getKeys()` | `Set<String>` |
+| Operación | Código                           | Retorna         |
+| --------- | -------------------------------- | --------------- |
+| Guardar   | `await prefs.setX('key', value)` | `Future<bool>`  |
+| Leer      | `prefs.getX('key')`              | `T?` (nullable) |
+| Eliminar  | `await prefs.remove('key')`      | `Future<bool>`  |
+| Limpiar   | `await prefs.clear()`            | `Future<bool>`  |
+| Existe    | `prefs.containsKey('key')`       | `bool`          |
+| Claves    | `prefs.getKeys()`                | `Set<String>`   |
 
 ---
 

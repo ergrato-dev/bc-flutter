@@ -19,13 +19,13 @@ Al finalizar este módulo, serás capaz de:
 
 #### Características
 
-| Característica | Descripción |
-|----------------|-------------|
-| **Tipo** | Almacenamiento clave-valor |
-| **Datos** | Solo primitivos (String, int, double, bool, List<String>) |
-| **Persistencia** | Sobrevive al cierre de la app |
-| **Seguridad** | No encriptado (no usar para datos sensibles) |
-| **Plataforma** | iOS (NSUserDefaults), Android (SharedPreferences) |
+| Característica   | Descripción                                               |
+| ---------------- | --------------------------------------------------------- |
+| **Tipo**         | Almacenamiento clave-valor                                |
+| **Datos**        | Solo primitivos (String, int, double, bool, List<String>) |
+| **Persistencia** | Sobrevive al cierre de la app                             |
+| **Seguridad**    | No encriptado (no usar para datos sensibles)              |
+| **Plataforma**   | iOS (NSUserDefaults), Android (SharedPreferences)         |
 
 #### Casos de Uso Ideales
 
@@ -87,13 +87,13 @@ Future<void> initPreferences() async {
 ```dart
 /**
  * Guarda diferentes tipos de datos en SharedPreferences.
- * 
+ *
  * ¿Qué hace?
  * Persiste valores primitivos usando claves únicas.
- * 
+ *
  * ¿Para qué?
  * Mantener preferencias del usuario entre sesiones.
- * 
+ *
  * ¿Cómo funciona?
  * 1. Obtiene instancia de SharedPreferences
  * 2. Llama al método set apropiado según el tipo
@@ -101,24 +101,24 @@ Future<void> initPreferences() async {
  */
 Future<void> saveUserPreferences() async {
   final prefs = await SharedPreferences.getInstance();
-  
+
   // String - textos
   await prefs.setString('username', 'flutter_dev');
   await prefs.setString('language', 'es');
-  
+
   // int - números enteros
   await prefs.setInt('loginCount', 42);
   await prefs.setInt('fontSize', 16);
-  
+
   // double - números decimales
   await prefs.setDouble('volume', 0.75);
   await prefs.setDouble('rating', 4.5);
-  
+
   // bool - valores booleanos
   await prefs.setBool('isDarkMode', true);
   await prefs.setBool('notificationsEnabled', false);
   await prefs.setBool('hasSeenOnboarding', true);
-  
+
   // List<String> - lista de textos
   await prefs.setStringList('favoriteCategories', ['tech', 'sports', 'music']);
   await prefs.setStringList('recentSearches', ['flutter', 'dart', 'widgets']);
@@ -130,28 +130,28 @@ Future<void> saveUserPreferences() async {
 ```dart
 /**
  * Lee datos almacenados proporcionando valores por defecto.
- * 
+ *
  * Importante: Siempre proporcionar valores por defecto
  * ya que la clave podría no existir.
  */
 Future<void> loadUserPreferences() async {
   final prefs = await SharedPreferences.getInstance();
-  
+
   // Leer con valores por defecto usando ??
   final String username = prefs.getString('username') ?? 'guest';
   final String language = prefs.getString('language') ?? 'en';
-  
+
   final int loginCount = prefs.getInt('loginCount') ?? 0;
   final int fontSize = prefs.getInt('fontSize') ?? 14;
-  
+
   final double volume = prefs.getDouble('volume') ?? 1.0;
   final double rating = prefs.getDouble('rating') ?? 0.0;
-  
+
   final bool isDarkMode = prefs.getBool('isDarkMode') ?? false;
   final bool notifications = prefs.getBool('notificationsEnabled') ?? true;
-  
+
   final List<String> favorites = prefs.getStringList('favoriteCategories') ?? [];
-  
+
   print('Usuario: $username, Tema oscuro: $isDarkMode');
 }
 ```
@@ -164,17 +164,17 @@ Future<void> loadUserPreferences() async {
  */
 Future<void> clearPreferences() async {
   final prefs = await SharedPreferences.getInstance();
-  
+
   // Eliminar una clave específica
   await prefs.remove('username');
-  
+
   // Verificar si existe una clave
   final bool hasUsername = prefs.containsKey('username');
   print('¿Existe username?: $hasUsername'); // false
-  
+
   // Eliminar TODOS los datos (usar con cuidado)
   await prefs.clear();
-  
+
   // Obtener todas las claves almacenadas
   final Set<String> keys = prefs.getKeys();
   print('Claves restantes: $keys'); // {}
@@ -190,16 +190,16 @@ Future<void> clearPreferences() async {
 ```dart
 /**
  * PreferencesService: Servicio centralizado para preferencias.
- * 
+ *
  * ¿Qué hace?
  * Encapsula toda la lógica de SharedPreferences en un solo lugar.
- * 
+ *
  * ¿Para qué?
  * - Código más limpio y organizado
  * - Fácil de mantener y modificar
  * - Reutilizable en toda la app
  * - Testeable
- * 
+ *
  * ¿Cómo funciona?
  * 1. Singleton que se inicializa una vez
  * 2. Proporciona getters/setters tipados
@@ -209,10 +209,10 @@ class PreferencesService {
   // Singleton pattern
   static PreferencesService? _instance;
   static late SharedPreferences _prefs;
-  
+
   // Constructor privado
   PreferencesService._();
-  
+
   // Factory para obtener instancia
   static Future<PreferencesService> getInstance() async {
     if (_instance == null) {
@@ -221,7 +221,7 @@ class PreferencesService {
     }
     return _instance!;
   }
-  
+
   // ===== CLAVES (constantes para evitar typos) =====
   static const String _keyDarkMode = 'dark_mode';
   static const String _keyLanguage = 'language';
@@ -229,38 +229,38 @@ class PreferencesService {
   static const String _keyOnboardingComplete = 'onboarding_complete';
   static const String _keyUserId = 'user_id';
   static const String _keyLastSync = 'last_sync';
-  
+
   // ===== DARK MODE =====
   bool get isDarkMode => _prefs.getBool(_keyDarkMode) ?? false;
-  
+
   Future<void> setDarkMode(bool value) async {
     await _prefs.setBool(_keyDarkMode, value);
   }
-  
+
   // ===== LANGUAGE =====
   String get language => _prefs.getString(_keyLanguage) ?? 'es';
-  
+
   Future<void> setLanguage(String value) async {
     await _prefs.setString(_keyLanguage, value);
   }
-  
+
   // ===== FONT SIZE =====
   int get fontSize => _prefs.getInt(_keyFontSize) ?? 16;
-  
+
   Future<void> setFontSize(int value) async {
     await _prefs.setInt(_keyFontSize, value);
   }
-  
+
   // ===== ONBOARDING =====
   bool get isOnboardingComplete => _prefs.getBool(_keyOnboardingComplete) ?? false;
-  
+
   Future<void> setOnboardingComplete(bool value) async {
     await _prefs.setBool(_keyOnboardingComplete, value);
   }
-  
+
   // ===== USER ID =====
   String? get userId => _prefs.getString(_keyUserId);
-  
+
   Future<void> setUserId(String? value) async {
     if (value == null) {
       await _prefs.remove(_keyUserId);
@@ -268,24 +268,24 @@ class PreferencesService {
       await _prefs.setString(_keyUserId, value);
     }
   }
-  
+
   // ===== LAST SYNC =====
   DateTime? get lastSync {
     final timestamp = _prefs.getInt(_keyLastSync);
-    return timestamp != null 
-        ? DateTime.fromMillisecondsSinceEpoch(timestamp) 
+    return timestamp != null
+        ? DateTime.fromMillisecondsSinceEpoch(timestamp)
         : null;
   }
-  
+
   Future<void> setLastSync(DateTime value) async {
     await _prefs.setInt(_keyLastSync, value.millisecondsSinceEpoch);
   }
-  
+
   // ===== UTILITIES =====
   Future<void> clearAll() async {
     await _prefs.clear();
   }
-  
+
   Future<void> logout() async {
     // Solo eliminar datos de sesión, mantener preferencias
     await _prefs.remove(_keyUserId);
@@ -300,10 +300,10 @@ class PreferencesService {
 // En main.dart - Inicialización temprana
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Inicializar servicio de preferencias
   await PreferencesService.getInstance();
-  
+
   runApp(const MyApp());
 }
 
@@ -317,13 +317,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   late PreferencesService _prefs;
   bool _isDarkMode = false;
   String _language = 'es';
-  
+
   @override
   void initState() {
     super.initState();
     _loadPreferences();
   }
-  
+
   Future<void> _loadPreferences() async {
     _prefs = await PreferencesService.getInstance();
     setState(() {
@@ -331,7 +331,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _language = _prefs.language;
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -357,7 +357,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     );
   }
-  
+
   void _showLanguageDialog() {
     showDialog(
       context: context,
@@ -394,7 +394,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 ```dart
 /**
  * SettingsProvider: Gestión de preferencias con Provider.
- * 
+ *
  * Beneficios:
  * - Reactivo: La UI se actualiza automáticamente
  * - Accesible: Desde cualquier widget con context
@@ -402,50 +402,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
  */
 class SettingsProvider extends ChangeNotifier {
   late SharedPreferences _prefs;
-  
+
   // Estado
   bool _isDarkMode = false;
   String _language = 'es';
   int _fontSize = 16;
   bool _isInitialized = false;
-  
+
   // Getters
   bool get isDarkMode => _isDarkMode;
   String get language => _language;
   int get fontSize => _fontSize;
   bool get isInitialized => _isInitialized;
-  
+
   // Inicialización
   Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
-    
+
     _isDarkMode = _prefs.getBool('dark_mode') ?? false;
     _language = _prefs.getString('language') ?? 'es';
     _fontSize = _prefs.getInt('font_size') ?? 16;
-    
+
     _isInitialized = true;
     notifyListeners();
   }
-  
+
   // Setters con persistencia
   Future<void> setDarkMode(bool value) async {
     _isDarkMode = value;
     await _prefs.setBool('dark_mode', value);
     notifyListeners();
   }
-  
+
   Future<void> setLanguage(String value) async {
     _language = value;
     await _prefs.setString('language', value);
     notifyListeners();
   }
-  
+
   Future<void> setFontSize(int value) async {
     _fontSize = value;
     await _prefs.setInt('font_size', value);
     notifyListeners();
   }
-  
+
   Future<void> resetToDefaults() async {
     await setDarkMode(false);
     await setLanguage('es');
@@ -456,10 +456,10 @@ class SettingsProvider extends ChangeNotifier {
 // main.dart
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   final settingsProvider = SettingsProvider();
   await settingsProvider.init();
-  
+
   runApp(
     ChangeNotifierProvider.value(
       value: settingsProvider,
@@ -471,15 +471,15 @@ void main() async {
 // MyApp con tema dinámico
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Consumer<SettingsProvider>(
       builder: (context, settings, child) {
         return MaterialApp(
           title: 'Mi App',
-          theme: settings.isDarkMode 
-              ? ThemeData.dark() 
+          theme: settings.isDarkMode
+              ? ThemeData.dark()
               : ThemeData.light(),
           home: const HomeScreen(),
         );
@@ -505,14 +505,14 @@ class User {
   final String name;
   final String email;
   final DateTime createdAt;
-  
+
   User({
     required this.id,
     required this.name,
     required this.email,
     required this.createdAt,
   });
-  
+
   // Serialización a Map
   Map<String, dynamic> toJson() => {
     'id': id,
@@ -520,7 +520,7 @@ class User {
     'email': email,
     'createdAt': createdAt.toIso8601String(),
   };
-  
+
   // Deserialización desde Map
   factory User.fromJson(Map<String, dynamic> json) => User(
     id: json['id'],
@@ -541,9 +541,9 @@ Future<void> saveUser(User user) async {
 Future<User?> getUser() async {
   final prefs = await SharedPreferences.getInstance();
   final jsonString = prefs.getString('current_user');
-  
+
   if (jsonString == null) return null;
-  
+
   final Map<String, dynamic> json = jsonDecode(jsonString);
   return User.fromJson(json);
 }
@@ -559,9 +559,9 @@ Future<void> saveUsers(List<User> users) async {
 Future<List<User>> getUsers() async {
   final prefs = await SharedPreferences.getInstance();
   final jsonString = prefs.getString('users');
-  
+
   if (jsonString == null) return [];
-  
+
   final List<dynamic> jsonList = jsonDecode(jsonString);
   return jsonList.map((json) => User.fromJson(json)).toList();
 }
@@ -641,13 +641,13 @@ class VisitCounter extends StatefulWidget {
 
 class _VisitCounterState extends State<VisitCounter> {
   int _visits = 0;
-  
+
   @override
   void initState() {
     super.initState();
     _loadAndIncrementVisits();
   }
-  
+
   Future<void> _loadAndIncrementVisits() async {
     // TODO: Implementar
     // 1. Obtener SharedPreferences
@@ -656,11 +656,11 @@ class _VisitCounterState extends State<VisitCounter> {
     // 4. Guardar nuevo valor
     // 5. Actualizar estado con setState
   }
-  
+
   Future<void> _resetVisits() async {
     // TODO: Implementar reset
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

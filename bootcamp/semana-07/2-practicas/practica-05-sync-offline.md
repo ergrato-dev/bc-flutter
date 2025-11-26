@@ -11,16 +11,19 @@ Implementar una aplicación de **notas** con **sincronización offline-first**, 
 ### Funcionales
 
 1. **Gestión de Notas Offline**
+
    - CRUD completo sin conexión
    - Las operaciones se guardan en SQLite
    - Funcionamiento completo sin internet
 
 2. **Cola de Sincronización**
+
    - Registrar operaciones pendientes
    - Sincronizar cuando hay conexión
    - Resolver conflictos básicos
 
 3. **Indicadores de Estado**
+
    - Nota sincronizada ✓
    - Nota pendiente de sincronizar ⏳
    - Nota con error de sincronización ⚠️
@@ -108,7 +111,7 @@ class Note {
   final SyncStatus syncStatus;
   final String? serverId;    // ID en el servidor remoto
   final String? errorMessage; // Mensaje si hay error de sync
-  
+
   Note({
     String? id,
     required this.title,
@@ -121,7 +124,7 @@ class Note {
   })  : id = id ?? const Uuid().v4(),
         createdAt = createdAt ?? DateTime.now(),
         updatedAt = updatedAt ?? DateTime.now();
-  
+
   Map<String, dynamic> toMap() => {
     'id': id,
     'title': title,
@@ -132,7 +135,7 @@ class Note {
     'server_id': serverId,
     'error_message': errorMessage,
   };
-  
+
   factory Note.fromMap(Map<String, dynamic> map) => Note(
     id: map['id'],
     title: map['title'],
@@ -146,7 +149,7 @@ class Note {
     serverId: map['server_id'],
     errorMessage: map['error_message'],
   );
-  
+
   /// Para enviar al servidor
   Map<String, dynamic> toServerJson() => {
     'title': title,
@@ -155,7 +158,7 @@ class Note {
     'created_at': createdAt.toIso8601String(),
     'updated_at': updatedAt.toIso8601String(),
   };
-  
+
   Note copyWith({
     String? id,
     String? title,
@@ -194,7 +197,7 @@ class SyncOperation {
   final DateTime timestamp;
   final String? payload;    // JSON de la nota
   final int retryCount;
-  
+
   SyncOperation({
     String? id,
     required this.noteId,
@@ -204,7 +207,7 @@ class SyncOperation {
     this.retryCount = 0,
   })  : id = id ?? const Uuid().v4(),
         timestamp = timestamp ?? DateTime.now();
-  
+
   Map<String, dynamic> toMap() => {
     'id': id,
     'note_id': noteId,
@@ -213,7 +216,7 @@ class SyncOperation {
     'payload': payload,
     'retry_count': retryCount,
   };
-  
+
   factory SyncOperation.fromMap(Map<String, dynamic> map) => SyncOperation(
     id: map['id'],
     noteId: map['note_id'],
@@ -222,7 +225,7 @@ class SyncOperation {
     payload: map['payload'],
     retryCount: map['retry_count'] ?? 0,
   );
-  
+
   SyncOperation copyWith({int? retryCount}) => SyncOperation(
     id: id,
     noteId: noteId,
@@ -244,26 +247,26 @@ import 'package:path/path.dart';
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
   static Database? _database;
-  
+
   DatabaseHelper._init();
-  
+
   Future<Database> get database async {
     if (_database != null) return _database!;
     _database = await _initDB('notes_offline.db');
     return _database!;
   }
-  
+
   Future<Database> _initDB(String fileName) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, fileName);
-    
+
     return await openDatabase(
       path,
       version: 1,
       onCreate: _createDB,
     );
   }
-  
+
   Future<void> _createDB(Database db, int version) async {
     // Tabla de notas
     await db.execute('''
@@ -278,7 +281,7 @@ class DatabaseHelper {
         error_message TEXT
       )
     ''');
-    
+
     // Tabla de operaciones pendientes
     await db.execute('''
       CREATE TABLE sync_queue (
@@ -290,12 +293,12 @@ class DatabaseHelper {
         retry_count INTEGER DEFAULT 0
       )
     ''');
-    
+
     // Índices
     await db.execute('CREATE INDEX idx_notes_sync ON notes (sync_status)');
     await db.execute('CREATE INDEX idx_queue_timestamp ON sync_queue (timestamp)');
   }
-  
+
   Future<void> close() async {
     final db = await database;
     await db.close();
@@ -315,7 +318,7 @@ import '../models/note.dart';
 
 /**
  * ApiService: Simula un servidor remoto.
- * 
+ *
  * En producción, esto haría llamadas HTTP reales.
  * Aquí simulamos latencia y errores aleatorios.
  */
@@ -323,23 +326,23 @@ class ApiService {
   // Simular base de datos del servidor
   final Map<String, Map<String, dynamic>> _serverDb = {};
   final Random _random = Random();
-  
+
   // Simular latencia de red (200-500ms)
   Future<void> _simulateLatency() async {
     await Future.delayed(Duration(milliseconds: 200 + _random.nextInt(300)));
   }
-  
+
   // Simular error aleatorio (20% de probabilidad)
   bool _shouldFail() => _random.nextDouble() < 0.2;
-  
+
   /// Crear nota en servidor
   Future<Map<String, dynamic>> createNote(Map<String, dynamic> noteData) async {
     await _simulateLatency();
-    
+
     if (_shouldFail()) {
       throw Exception('Error de red: No se pudo crear la nota');
     }
-    
+
     // Generar ID de servidor
     final serverId = 'srv_${DateTime.now().millisecondsSinceEpoch}';
     final serverNote = {
@@ -347,57 +350,57 @@ class ApiService {
       'id': serverId,
       'synced_at': DateTime.now().toIso8601String(),
     };
-    
+
     _serverDb[serverId] = serverNote;
-    
+
     return {'server_id': serverId, 'status': 'created'};
   }
-  
+
   /// Actualizar nota en servidor
   Future<Map<String, dynamic>> updateNote(String serverId, Map<String, dynamic> noteData) async {
     await _simulateLatency();
-    
+
     if (_shouldFail()) {
       throw Exception('Error de red: No se pudo actualizar');
     }
-    
+
     if (!_serverDb.containsKey(serverId)) {
       throw Exception('Nota no encontrada en servidor');
     }
-    
+
     _serverDb[serverId] = {
       ..._serverDb[serverId]!,
       ...noteData,
       'synced_at': DateTime.now().toIso8601String(),
     };
-    
+
     return {'status': 'updated'};
   }
-  
+
   /// Eliminar nota del servidor
   Future<Map<String, dynamic>> deleteNote(String serverId) async {
     await _simulateLatency();
-    
+
     if (_shouldFail()) {
       throw Exception('Error de red: No se pudo eliminar');
     }
-    
+
     _serverDb.remove(serverId);
-    
+
     return {'status': 'deleted'};
   }
-  
+
   /// Obtener todas las notas del servidor
   Future<List<Map<String, dynamic>>> getAllNotes() async {
     await _simulateLatency();
-    
+
     if (_shouldFail()) {
       throw Exception('Error de red: No se pudieron obtener notas');
     }
-    
+
     return _serverDb.values.toList();
   }
-  
+
   /// Verificar conexión
   Future<bool> checkConnection() async {
     await Future.delayed(const Duration(milliseconds: 100));
@@ -415,21 +418,21 @@ import 'package:flutter/foundation.dart';
 
 /**
  * ConnectivityService: Monitorea estado de conexión.
- * 
+ *
  * En producción usar package: connectivity_plus
  * Aquí simulamos para simplificar.
  */
 class ConnectivityService extends ChangeNotifier {
   bool _isOnline = true;
   Timer? _checkTimer;
-  
+
   bool get isOnline => _isOnline;
-  
+
   ConnectivityService() {
     // Simular cambios de conectividad
     _startMonitoring();
   }
-  
+
   void _startMonitoring() {
     // En producción: escuchar connectivity_plus
     // Aquí simulamos verificación periódica
@@ -438,32 +441,32 @@ class ConnectivityService extends ChangeNotifier {
       (_) => _checkConnection(),
     );
   }
-  
+
   Future<void> _checkConnection() async {
     // Simular verificación
     // En producción: hacer ping real o usar connectivity_plus
-    
+
     // Por ahora, siempre online (cambiar manualmente para probar)
     _updateStatus(true);
   }
-  
+
   void _updateStatus(bool isOnline) {
     if (_isOnline != isOnline) {
       _isOnline = isOnline;
       notifyListeners();
     }
   }
-  
+
   /// Simular pérdida de conexión (para testing)
   void simulateOffline() {
     _updateStatus(false);
   }
-  
+
   /// Simular recuperación de conexión (para testing)
   void simulateOnline() {
     _updateStatus(true);
   }
-  
+
   @override
   void dispose() {
     _checkTimer?.cancel();
@@ -484,7 +487,7 @@ import 'api_service.dart';
 
 /**
  * SyncService: Gestiona la sincronización offline.
- * 
+ *
  * Responsabilidades:
  * 1. Encolar operaciones cuando está offline
  * 2. Procesar cola cuando hay conexión
@@ -494,31 +497,31 @@ import 'api_service.dart';
 class SyncService {
   final DatabaseHelper _db = DatabaseHelper.instance;
   final ApiService _api = ApiService();
-  
+
   /// Encolar operación de creación
   Future<void> enqueueCreate(Note note) async {
     final db = await _db.database;
-    
+
     final operation = SyncOperation(
       noteId: note.id,
       type: OperationType.create,
       payload: jsonEncode(note.toServerJson()),
     );
-    
+
     await db.insert('sync_queue', operation.toMap());
   }
-  
+
   /// Encolar operación de actualización
   Future<void> enqueueUpdate(Note note) async {
     final db = await _db.database;
-    
+
     // Verificar si ya hay una operación pendiente para esta nota
     final existing = await db.query(
       'sync_queue',
       where: 'note_id = ?',
       whereArgs: [note.id],
     );
-    
+
     if (existing.isNotEmpty) {
       // Actualizar payload existente
       await db.update(
@@ -540,18 +543,18 @@ class SyncService {
       await db.insert('sync_queue', operation.toMap());
     }
   }
-  
+
   /// Encolar operación de eliminación
   Future<void> enqueueDelete(String noteId) async {
     final db = await _db.database;
-    
+
     // Eliminar cualquier operación pendiente para esta nota
     await db.delete(
       'sync_queue',
       where: 'note_id = ?',
       whereArgs: [noteId],
     );
-    
+
     // Agregar operación de delete
     final operation = SyncOperation(
       noteId: noteId,
@@ -559,29 +562,29 @@ class SyncService {
     );
     await db.insert('sync_queue', operation.toMap());
   }
-  
+
   /// Obtener operaciones pendientes
   Future<List<SyncOperation>> getPendingOperations() async {
     final db = await _db.database;
     final maps = await db.query('sync_queue', orderBy: 'timestamp ASC');
     return maps.map((m) => SyncOperation.fromMap(m)).toList();
   }
-  
+
   /// Contar operaciones pendientes
   Future<int> getPendingCount() async {
     final db = await _db.database;
     final result = await db.rawQuery('SELECT COUNT(*) as count FROM sync_queue');
     return result.first['count'] as int;
   }
-  
+
   /// Procesar cola de sincronización
   Future<SyncResult> processQueue() async {
     final operations = await getPendingOperations();
-    
+
     int success = 0;
     int failed = 0;
     final errors = <String>[];
-    
+
     for (final op in operations) {
       try {
         await _processOperation(op);
@@ -593,7 +596,7 @@ class SyncService {
         await _incrementRetryCount(op);
       }
     }
-    
+
     return SyncResult(
       processed: operations.length,
       success: success,
@@ -601,11 +604,11 @@ class SyncService {
       errors: errors,
     );
   }
-  
+
   /// Procesar una operación
   Future<void> _processOperation(SyncOperation op) async {
     final db = await _db.database;
-    
+
     switch (op.type) {
       case OperationType.create:
         // TODO: Implementar
@@ -613,14 +616,14 @@ class SyncService {
         // 2. Actualizar nota local con server_id
         // 3. Cambiar sync_status a 'synced'
         break;
-        
+
       case OperationType.update:
         // TODO: Implementar
         // 1. Obtener server_id de la nota
         // 2. Llamar a _api.updateNote()
         // 3. Actualizar sync_status
         break;
-        
+
       case OperationType.delete:
         // TODO: Implementar
         // 1. Obtener server_id (si existe)
@@ -629,15 +632,15 @@ class SyncService {
         break;
     }
   }
-  
+
   Future<void> _removeFromQueue(String operationId) async {
     final db = await _db.database;
     await db.delete('sync_queue', where: 'id = ?', whereArgs: [operationId]);
   }
-  
+
   Future<void> _incrementRetryCount(SyncOperation op) async {
     final db = await _db.database;
-    
+
     // Si excede máximo de reintentos, marcar como error
     if (op.retryCount >= 3) {
       await db.update(
@@ -666,14 +669,14 @@ class SyncResult {
   final int success;
   final int failed;
   final List<String> errors;
-  
+
   SyncResult({
     required this.processed,
     required this.success,
     required this.failed,
     required this.errors,
   });
-  
+
   bool get hasErrors => failed > 0;
   String get summary => 'Sincronizadas: $success/$processed';
 }
@@ -689,13 +692,13 @@ import '../models/note.dart';
 class SyncStatusBadge extends StatelessWidget {
   final SyncStatus status;
   final String? errorMessage;
-  
+
   const SyncStatusBadge({
     super.key,
     required this.status,
     this.errorMessage,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return Tooltip(
@@ -707,7 +710,7 @@ class SyncStatusBadge extends StatelessWidget {
       ),
     );
   }
-  
+
   IconData _getIcon() {
     switch (status) {
       case SyncStatus.synced:
@@ -718,7 +721,7 @@ class SyncStatusBadge extends StatelessWidget {
         return Icons.cloud_off;
     }
   }
-  
+
   Color _getColor() {
     switch (status) {
       case SyncStatus.synced:
@@ -729,7 +732,7 @@ class SyncStatusBadge extends StatelessWidget {
         return Colors.red;
     }
   }
-  
+
   String _getMessage() {
     switch (status) {
       case SyncStatus.synced:
@@ -752,17 +755,17 @@ import 'package:flutter/material.dart';
 class ConnectivityBanner extends StatelessWidget {
   final bool isOnline;
   final VoidCallback? onRetry;
-  
+
   const ConnectivityBanner({
     super.key,
     required this.isOnline,
     this.onRetry,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     if (isOnline) return const SizedBox.shrink();
-    
+
     return MaterialBanner(
       content: const Text('Sin conexión. Los cambios se sincronizarán automáticamente.'),
       backgroundColor: Colors.orange[100],
@@ -783,17 +786,20 @@ class ConnectivityBanner extends StatelessWidget {
 ## ✅ Tareas a Completar
 
 ### Nivel 1: Básico
+
 - [ ] Completar `NoteRepository` con operaciones CRUD
 - [ ] Implementar `NotesProvider` con estado local
 - [ ] Crear UI básica de lista y editor
 
 ### Nivel 2: Intermedio
+
 - [ ] Completar `SyncService._processOperation()` para cada tipo
 - [ ] Implementar `SyncProvider` que escuche conectividad
 - [ ] Sincronización automática al cambiar a online
 - [ ] Mostrar indicadores de estado en cada nota
 
 ### Nivel 3: Avanzado
+
 - [ ] Resolver conflictos (última modificación gana)
 - [ ] Pull-to-sync manual
 - [ ] Sincronización selectiva (solo errores)
@@ -838,14 +844,14 @@ class ConnectivityBanner extends StatelessWidget {
 
 ## 📊 Criterios de Evaluación
 
-| Criterio | Puntos |
-|----------|--------|
-| CRUD offline funcional | 25 |
-| Cola de sincronización | 25 |
-| Procesamiento de cola | 20 |
-| Indicadores de estado | 15 |
-| Manejo de errores | 15 |
-| **Total** | **100** |
+| Criterio               | Puntos  |
+| ---------------------- | ------- |
+| CRUD offline funcional | 25      |
+| Cola de sincronización | 25      |
+| Procesamiento de cola  | 20      |
+| Indicadores de estado  | 15      |
+| Manejo de errores      | 15      |
+| **Total**              | **100** |
 
 ---
 
