@@ -1,517 +1,185 @@
-# Semana 6: Consumo de APIs y HTTP
+# 📡 Semana 06: Consumo de APIs y HTTP
+
+![HTTP](./0-assets/01-arquitectura-http.svg)
 
 ## 🎯 Objetivos de Aprendizaje
 
-- Realizar peticiones HTTP en Flutter
-- Consumir APIs REST
-- Parsear y serializar JSON
-- Manejar respuestas asíncronas
-- Gestionar errores de red
-- Implementar caché y optimizaciones
+Al finalizar esta semana, serás capaz de:
 
-## 📚 Contenido Teórico
+- [ ] Comprender el protocolo HTTP y arquitectura REST
+- [ ] Realizar peticiones GET, POST, PUT, PATCH, DELETE
+- [ ] Usar los packages `http` y `Dio` para networking
+- [ ] Serializar y deserializar JSON a modelos Dart
+- [ ] Manejar estados de carga, error y éxito
+- [ ] Implementar búsqueda con debounce y cancelación
+- [ ] Aplicar patrones de error handling robustos
+- [ ] Crear una app que consume una API real
 
-### 1. Fundamentos de HTTP (1.5 horas)
+---
 
-#### Protocolo HTTP
+## ⏱️ Distribución del Tiempo
 
-- Métodos: GET, POST, PUT, DELETE, PATCH
-- Headers y Body
-- Status codes (200, 404, 500, etc.)
-- REST API concepts
+**Total: 8 horas**
 
-#### Asincronía en Dart
+| Actividad | Tiempo | Descripción |
+|-----------|--------|-------------|
+| 📚 Teoría | 2h | HTTP, REST, async, serialización |
+| 💻 Prácticas | 2-3h | 5 ejercicios progresivos |
+| 🔨 Proyecto | 3-4h | News Reader App |
 
-```dart
-// Future
-Future<String> obtenerDatos() async {
-  await Future.delayed(Duration(seconds: 2));
-  return 'Datos';
-}
+---
 
-// async/await
-void cargarDatos() async {
-  final datos = await obtenerDatos();
-  print(datos);
-}
+## 📚 Contenido
 
-// then/catchError
-obtenerDatos()
-  .then((datos) => print(datos))
-  .catchError((error) => print(error));
-```
+### 1. Teoría
 
-### 2. HTTP Package (2 horas)
+| # | Módulo | Temas |
+|---|--------|-------|
+| 01 | [Fundamentos HTTP y REST](./1-teoria/01-fundamentos-http-rest.md) | Protocolo HTTP, métodos, códigos de estado, REST |
+| 02 | [http Package y Dio](./1-teoria/02-http-package-dio.md) | Peticiones HTTP, interceptores, configuración |
+| 03 | [Serialización JSON](./1-teoria/03-serializacion-json.md) | Modelos, fromJson/toJson, json_serializable |
 
-#### Instalación
+### 2. Prácticas
+
+| # | Práctica | Conceptos |
+|---|----------|-----------|
+| 01 | [JSONPlaceholder API](./2-practicas/practica-01-jsonplaceholder-api.md) | GET requests, modelos básicos |
+| 02 | [CRUD Completo](./2-practicas/practica-02-crud-completo.md) | POST, PUT, DELETE |
+| 03 | [FutureBuilder Lista](./2-practicas/practica-03-futurebuilder-lista.md) | Estados de carga/error/éxito |
+| 04 | [Dio e Interceptores](./2-practicas/practica-04-dio-interceptores.md) | Logging, auth, configuración |
+| 05 | [Búsqueda Tiempo Real](./2-practicas/practica-05-busqueda-tiempo-real.md) | Debounce, cancelación |
+
+### 3. Proyecto Integrador
+
+| Archivo | Contenido |
+|---------|-----------|
+| [README.md](./3-proyecto/README.md) | News Reader App - Especificaciones |
+| [GUIA-DISENO.md](./3-proyecto/GUIA-DISENO.md) | Wireframes, paleta de colores, UI |
+| [EJEMPLOS-DATOS.md](./3-proyecto/EJEMPLOS-DATOS.md) | Estructura JSON, mocks |
+
+### 4. Recursos
+
+| # | Recurso | Descripción |
+|---|---------|-------------|
+| 01 | [Cheatsheet HTTP](./4-recursos/01-cheatsheet-http-methods.md) | Métodos y códigos de estado |
+| 02 | [Guía http Package](./4-recursos/02-guia-rapida-http-package.md) | Referencia rápida |
+| 03 | [Guía Dio](./4-recursos/03-guia-rapida-dio.md) | Interceptores y configuración |
+| 04 | [Error Handling](./4-recursos/04-patrones-error-handling.md) | Result, Either, AsyncValue |
+| 05 | [JSON Patterns](./4-recursos/05-json-serialization-patterns.md) | Serialización avanzada |
+| 06 | [APIs Gratuitas](./4-recursos/06-apis-gratuitas-practicar.md) | Lista de APIs para practicar |
+| 07 | [Debugging](./4-recursos/07-debugging-network.md) | Herramientas de debug |
+| 08 | [Seguridad API Keys](./4-recursos/08-seguridad-api-keys.md) | Proteger credenciales |
+| 09 | [Caching](./4-recursos/09-caching-strategies.md) | Estrategias de caché |
+| 10 | [Best Practices REST](./4-recursos/10-mejores-practicas-rest.md) | Diseño de APIs |
+| 11 | [Testing](./4-recursos/11-testing-api-calls.md) | Tests de servicios |
+| 12 | [Referencias](./4-recursos/12-referencias-oficiales.md) | Documentación oficial |
+
+### 5. Glosario
+
+📖 [Glosario de términos](./5-glosario/README.md) - API, HTTP, REST, JSON, async, y más.
+
+---
+
+## 🔧 Stack Tecnológico
 
 ```yaml
 dependencies:
+  # HTTP
   http: ^1.1.0
-```
-
-#### GET Request
-
-```dart
-import 'package:http/http.dart' as http;
-
-Future<void> obtenerUsuarios() async {
-  final url = Uri.parse('https://api.example.com/users');
-  final response = await http.get(url);
-
-  if (response.statusCode == 200) {
-    print(response.body);
-  } else {
-    throw Exception('Error al cargar datos');
-  }
-}
-```
-
-#### POST Request
-
-```dart
-Future<void> crearUsuario(Map<String, dynamic> usuario) async {
-  final url = Uri.parse('https://api.example.com/users');
-  final response = await http.post(
-    url,
-    headers: {'Content-Type': 'application/json'},
-    body: jsonEncode(usuario),
-  );
-
-  if (response.statusCode == 201) {
-    print('Usuario creado');
-  }
-}
-```
-
-#### PUT y DELETE
-
-```dart
-// PUT
-Future<void> actualizarUsuario(String id, Map data) async {
-  final url = Uri.parse('https://api.example.com/users/$id');
-  await http.put(url, body: jsonEncode(data));
-}
-
-// DELETE
-Future<void> eliminarUsuario(String id) async {
-  final url = Uri.parse('https://api.example.com/users/$id');
-  await http.delete(url);
-}
-```
-
-### 3. Modelos y Serialización JSON (2.5 horas)
-
-#### Parsear JSON Manual
-
-```dart
-import 'dart:convert';
-
-class Usuario {
-  final int id;
-  final String nombre;
-  final String email;
-
-  Usuario({
-    required this.id,
-    required this.nombre,
-    required this.email,
-  });
-
-  // From JSON
-  factory Usuario.fromJson(Map<String, dynamic> json) {
-    return Usuario(
-      id: json['id'],
-      nombre: json['nombre'],
-      email: json['email'],
-    );
-  }
-
-  // To JSON
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'nombre': nombre,
-      'email': email,
-    };
-  }
-}
-
-// Uso
-final jsonString = '{"id": 1, "nombre": "Juan", "email": "juan@example.com"}';
-final jsonData = jsonDecode(jsonString);
-final usuario = Usuario.fromJson(jsonData);
-
-// Lista de objetos
-final jsonList = jsonDecode('[{"id": 1, "nombre": "Juan"}, ...]');
-final usuarios = (jsonList as List)
-    .map((json) => Usuario.fromJson(json))
-    .toList();
-```
-
-#### json_serializable
-
-```yaml
-dependencies:
+  dio: ^5.4.0
+  
+  # Serialización
   json_annotation: ^4.8.1
+  
+  # Estado
+  provider: ^6.1.1
+  
+  # Persistencia
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
-  build_runner: ^2.4.6
+  build_runner: ^2.4.8
   json_serializable: ^6.7.1
-```
-
-```dart
-import 'package:json_annotation/json_annotation.dart';
-
-part 'usuario.g.dart';
-
-@JsonSerializable()
-class Usuario {
-  final int id;
-  final String nombre;
-  final String email;
-
-  Usuario({required this.id, required this.nombre, required this.email});
-
-  factory Usuario.fromJson(Map<String, dynamic> json) => _$UsuarioFromJson(json);
-  Map<String, dynamic> toJson() => _$UsuarioToJson(this);
-}
-
-// Generar código
-// flutter pub run build_runner build
-```
-
-### 4. Manejo de Errores y Estados (2 horas)
-
-#### Try-Catch
-
-```dart
-Future<List<Usuario>> obtenerUsuarios() async {
-  try {
-    final response = await http.get(Uri.parse(url));
-
-    if (response.statusCode == 200) {
-      final List data = jsonDecode(response.body);
-      return data.map((json) => Usuario.fromJson(json)).toList();
-    } else {
-      throw HttpException('Error ${response.statusCode}');
-    }
-  } on SocketException {
-    throw Exception('Sin conexión a internet');
-  } on HttpException catch (e) {
-    throw Exception(e.message);
-  } catch (e) {
-    throw Exception('Error desconocido: $e');
-  }
-}
-```
-
-#### Estados de Carga
-
-```dart
-enum EstadoCarga { inicial, cargando, exito, error }
-
-class UsuariosProvider extends ChangeNotifier {
-  List<Usuario> _usuarios = [];
-  EstadoCarga _estado = EstadoCarga.inicial;
-  String _mensajeError = '';
-
-  List<Usuario> get usuarios => _usuarios;
-  EstadoCarga get estado => _estado;
-  String get mensajeError => _mensajeError;
-
-  Future<void> cargarUsuarios() async {
-    _estado = EstadoCarga.cargando;
-    notifyListeners();
-
-    try {
-      _usuarios = await obtenerUsuarios();
-      _estado = EstadoCarga.exito;
-    } catch (e) {
-      _estado = EstadoCarga.error;
-      _mensajeError = e.toString();
-    }
-
-    notifyListeners();
-  }
-}
-```
-
-#### FutureBuilder
-
-```dart
-FutureBuilder<List<Usuario>>(
-  future: obtenerUsuarios(),
-  builder: (context, snapshot) {
-    if (snapshot.connectionState == ConnectionState.waiting) {
-      return CircularProgressIndicator();
-    }
-
-    if (snapshot.hasError) {
-      return Text('Error: ${snapshot.error}');
-    }
-
-    if (!snapshot.hasData || snapshot.data!.isEmpty) {
-      return Text('No hay datos');
-    }
-
-    return ListView.builder(
-      itemCount: snapshot.data!.length,
-      itemBuilder: (context, index) {
-        final usuario = snapshot.data![index];
-        return ListTile(title: Text(usuario.nombre));
-      },
-    );
-  },
-)
-```
-
-## 💻 Ejercicios Prácticos
-
-### Ejercicio 1: JSONPlaceholder API
-
-Consume la API https://jsonplaceholder.typicode.com:
-
-- GET todos los posts
-- GET un post específico
-- POST crear nuevo post
-- Mostrar en ListView
-
-### Ejercicio 2: Modelos de Datos
-
-Crea modelos para:
-
-- Post (userId, id, title, body)
-- Comentario (postId, id, name, email, body)
-- Usuario (id, name, username, email, address)
-- Implementa fromJson y toJson
-
-### Ejercicio 3: Lista con FutureBuilder
-
-Desarrolla una pantalla que:
-
-- Cargue posts de la API
-- Muestre loading spinner
-- Maneje errores con mensajes
-- Implemente pull-to-refresh
-
-### Ejercicio 4: CRUD Completo
-
-Implementa todas las operaciones:
-
-- Create: Crear nuevo recurso
-- Read: Listar y ver detalle
-- Update: Editar recurso existente
-- Delete: Eliminar con confirmación
-
-### Ejercicio 5: Búsqueda en Tiempo Real
-
-Crea un buscador que:
-
-- Busque mientras el usuario escribe
-- Debounce para evitar muchas peticiones
-- Muestre resultados en tiempo real
-- Maneje estados de carga
-
-## 🔨 Proyecto de la Semana
-
-**App de Noticias (News Reader)**
-
-Desarrolla una aplicación de noticias consumiendo la API de NewsAPI o similar:
-
-**API Sugerida:** https://newsapi.org/
-
-**Características:**
-
-1. **Pantalla Principal**
-
-   - Top headlines por país
-   - Pull to refresh
-   - Indicador de carga
-   - Lista de noticias con imagen
-
-2. **Categorías**
-
-   - Business, Entertainment, Health, Science, Sports, Technology
-   - Tab bar o chips para filtrar
-   - Cargar noticias por categoría
-
-3. **Búsqueda**
-
-   - Campo de búsqueda
-   - Búsqueda por keyword
-   - Historial de búsquedas
-   - Debounce de 500ms
-
-4. **Detalle de Noticia**
-
-   - Imagen completa
-   - Título y descripción
-   - Fuente y autor
-   - Fecha de publicación
-   - Botón para abrir en navegador
-   - Compartir noticia
-
-5. **Favoritos**
-   - Guardar noticias favoritas localmente
-   - Lista de favoritos
-   - Eliminar de favoritos
-
-**Requisitos técnicos:**
-
-```dart
-// Modelos
-class Noticia {
-  final String? author;
-  final String title;
-  final String? description;
-  final String url;
-  final String? urlToImage;
-  final DateTime publishedAt;
-  final String? content;
-  final Source source;
-
-  factory Noticia.fromJson(Map<String, dynamic> json) { }
-  Map<String, dynamic> toJson() { }
-}
-
-class Source {
-  final String? id;
-  final String name;
-}
-
-// Servicio API
-class NoticiasService {
-  static const String _apiKey = 'TU_API_KEY';
-  static const String _baseUrl = 'https://newsapi.org/v2';
-
-  Future<List<Noticia>> obtenerTopHeadlines({
-    String country = 'us',
-    String? category,
-  }) async { }
-
-  Future<List<Noticia>> buscarNoticias(String query) async { }
-}
-
-// Provider
-class NoticiasProvider extends ChangeNotifier {
-  final NoticiasService _service = NoticiasService();
-
-  List<Noticia> _noticias = [];
-  EstadoCarga _estado = EstadoCarga.inicial;
-  String? _error;
-
-  Future<void> cargarNoticias() async { }
-  Future<void> buscar(String query) async { }
-}
-```
-
-**Pantallas:**
-
-1. Home (top headlines)
-2. Categorías
-3. Búsqueda
-4. Detalle
-5. Favoritos
-
-**Funcionalidades adicionales:**
-
-- Caché de imágenes
-- Manejo offline (mostrar favoritos)
-- Loading skeletons
-- Error retry
-- Paginación infinita (load more)
-
-## 📖 Recursos
-
-### Documentación
-
-- [HTTP Package](https://pub.dev/packages/http)
-- [JSON and Serialization](https://flutter.dev/docs/development/data-and-backend/json)
-- [Dio Package](https://pub.dev/packages/dio)
-
-### APIs Gratuitas para Practicar
-
-- [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
-- [NewsAPI](https://newsapi.org/)
-- [OpenWeather](https://openweathermap.org/api)
-- [The Movie DB](https://www.themoviedb.org/documentation/api)
-- [REST Countries](https://restcountries.com/)
-
-### Paquetes Útiles
-
-- [http](https://pub.dev/packages/http)
-- [dio](https://pub.dev/packages/dio)
-- [json_serializable](https://pub.dev/packages/json_serializable)
-- [retrofit](https://pub.dev/packages/retrofit)
-- [cached_network_image](https://pub.dev/packages/cached_network_image)
-
-## ✅ Checklist de Completitud
-
-- [ ] Ejercicio 1: JSONPlaceholder completado
-- [ ] Ejercicio 2: Modelos completados
-- [ ] Ejercicio 3: FutureBuilder completado
-- [ ] Ejercicio 4: CRUD completado
-- [ ] Ejercicio 5: Búsqueda completada
-- [ ] Proyecto: App de noticias completado
-- [ ] API key configurada
-- [ ] Modelos correctamente parseados
-- [ ] Manejo de errores implementado
-- [ ] Código subido al repositorio
-
-## 🎓 Evaluación
-
-- **Ejercicios prácticos (1-5):** 30%
-- **Proyecto de la semana:** 60%
-- **Manejo de errores y UX:** 10%
-
-## 📝 Notas Importantes
-
-- Nunca subir API keys al repositorio (usar .env)
-- Siempre manejar errores de red
-- Implementar timeouts en requests
-- Considerar límites de rate en APIs
-- Validar respuestas antes de parsear
-
-## 🔧 Tips y Trucos
-
-```dart
-// Timeout
-final response = await http.get(url).timeout(
-  Duration(seconds: 10),
-  onTimeout: () => throw TimeoutException('Request timeout'),
-);
-
-// Headers personalizados
-final headers = {
-  'Content-Type': 'application/json',
-  'Authorization': 'Bearer $token',
-};
-
-// Interceptors con Dio
-final dio = Dio();
-dio.interceptors.add(InterceptorsWrapper(
-  onRequest: (options, handler) {
-    print('Request: ${options.path}');
-    return handler.next(options);
-  },
-  onError: (error, handler) {
-    print('Error: ${error.message}');
-    return handler.next(error);
-  },
-));
-
-// Debounce para búsqueda
-Timer? _debounce;
-
-void onSearchChanged(String query) {
-  if (_debounce?.isActive ?? false) _debounce!.cancel();
-  _debounce = Timer(Duration(milliseconds: 500), () {
-    // Realizar búsqueda
-  });
-}
 ```
 
 ---
 
-**Dedicación:** 8 horas | **Anterior:** [← Semana 5](../semana-05/README.md) | **Siguiente:** [Semana 7 →](../semana-07/README.md)
+## 📊 Diagramas
+
+### Arquitectura HTTP en Flutter
+![Arquitectura](./0-assets/01-arquitectura-http.svg)
+
+### Ciclo Request-Response
+![Ciclo HTTP](./0-assets/02-ciclo-request-response.svg)
+
+### Métodos HTTP
+![Métodos](./0-assets/03-metodos-http.svg)
+
+---
+
+## ✅ Checklist de Completitud
+
+### Teoría
+- [ ] Leído y comprendido módulo 01 (HTTP/REST)
+- [ ] Leído y comprendido módulo 02 (http/Dio)
+- [ ] Leído y comprendido módulo 03 (JSON)
+
+### Prácticas
+- [ ] Práctica 01: JSONPlaceholder API
+- [ ] Práctica 02: CRUD Completo
+- [ ] Práctica 03: FutureBuilder Lista
+- [ ] Práctica 04: Dio e Interceptores
+- [ ] Práctica 05: Búsqueda Tiempo Real
+
+### Proyecto
+- [ ] Home con titulares de noticias
+- [ ] Categorías funcionales
+- [ ] Búsqueda con debounce
+- [ ] Detalle de noticia
+- [ ] Favoritos con persistencia
+- [ ] Navegación completa
+- [ ] README con instrucciones
+
+---
+
+## 🎓 Evaluación
+
+| Componente | Peso |
+|------------|------|
+| Teoría | 15% |
+| Prácticas | 35% |
+| Proyecto | 50% |
+
+📋 Ver [Rúbrica de Evaluación](./RUBRICA-EVALUACION.md) para criterios detallados.
+
+---
+
+## 🔗 Enlaces Rápidos
+
+- 📖 [Flutter Networking Cookbook](https://docs.flutter.dev/cookbook/networking)
+- 📦 [http package](https://pub.dev/packages/http)
+- 📦 [Dio package](https://pub.dev/packages/dio)
+- 🌐 [JSONPlaceholder](https://jsonplaceholder.typicode.com)
+- 📰 [NewsAPI](https://newsapi.org)
+
+---
+
+## 💡 Tips de la Semana
+
+1. **Empieza simple** - Usa http para peticiones básicas
+2. **Maneja todos los estados** - Loading, error, success, empty
+3. **Tipado fuerte** - Crea modelos para tus datos
+4. **Seguridad** - Nunca expongas API keys en el código
+5. **Testing** - Usa mocks para probar sin red
+
+---
+
+## 📅 Navegación
+
+| ⬅️ Anterior | Actual | Siguiente ➡️ |
+|-------------|--------|--------------|
+| [Semana 05: Gestión de Estado](../semana-05/README.md) | **Semana 06** | [Semana 07: Persistencia](../semana-07/README.md) |
+
+---
+
+📅 **Semana 06 de 10** | 🎯 **Dedicación:** 8 horas | 📱 **Flutter Bootcamp**
