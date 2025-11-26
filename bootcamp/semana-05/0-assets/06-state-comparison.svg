@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#1E1E1E"/>
+  
+  <text x="400" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Comparación de Soluciones</text>
+  <text x="400" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#B0B0B0" text-anchor="middle">setState vs Provider vs BLoC vs Riverpod</text>
+  
+  <rect x="30" y="75" width="170" height="380" rx="10" fill="#2D2D2D" stroke="#81C784" stroke-width="2"/>
+  <rect x="30" y="75" width="170" height="35" rx="10" fill="#388E3C"/>
+  <text x="115" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">setState</text>
+  
+  <text x="50" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#81C784">Complejidad</text>
+  <rect x="50" y="135" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="50" y="135" width="30" height="6" rx="3" fill="#81C784"/>
+  
+  <text x="50" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#81C784">Escalabilidad</text>
+  <rect x="50" y="165" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="50" y="165" width="30" height="6" rx="3" fill="#EF5350"/>
+  
+  <text x="50" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#81C784">Testabilidad</text>
+  <rect x="50" y="195" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="50" y="195" width="45" height="6" rx="3" fill="#FFB74D"/>
+  
+  <line x1="50" y1="215" x2="180" y2="215" stroke="#404040" stroke-width="1"/>
+  <text x="50" y="235" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">✅ Simple</text>
+  <text x="50" y="255" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">✅ Sin deps</text>
+  <text x="50" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#EF5350">❌ Solo local</text>
+  <text x="50" y="295" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#EF5350">❌ Prop drilling</text>
+  
+  <line x1="50" y1="310" x2="180" y2="310" stroke="#404040" stroke-width="1"/>
+  <text x="50" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B0B0B0">Ideal para:</text>
+  <text x="50" y="350" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Widgets aislados</text>
+  <text x="50" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Prototipos</text>
+  <text x="50" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Animaciones</text>
+  
+  <rect x="220" y="75" width="170" height="380" rx="10" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <rect x="220" y="75" width="170" height="35" rx="10" fill="#1565C0"/>
+  <text x="305" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Provider</text>
+  
+  <text x="240" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#64B5F6">Complejidad</text>
+  <rect x="240" y="135" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="240" y="135" width="60" height="6" rx="3" fill="#81C784"/>
+  
+  <text x="240" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#64B5F6">Escalabilidad</text>
+  <rect x="240" y="165" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="240" y="165" width="90" height="6" rx="3" fill="#81C784"/>
+  
+  <text x="240" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#64B5F6">Testabilidad</text>
+  <rect x="240" y="195" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="240" y="195" width="80" height="6" rx="3" fill="#81C784"/>
+  
+  <line x1="240" y1="215" x2="370" y2="215" stroke="#404040" stroke-width="1"/>
+  <text x="240" y="235" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">✅ Oficial</text>
+  <text x="240" y="255" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">✅ Fácil aprender</text>
+  <text x="240" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFB74D">⚠️ Context req.</text>
+  <text x="240" y="295" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFB74D">⚠️ Rebuild scope</text>
+  
+  <line x1="240" y1="310" x2="370" y2="310" stroke="#404040" stroke-width="1"/>
+  <text x="240" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B0B0B0">Ideal para:</text>
+  <text x="240" y="350" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Apps medianas</text>
+  <text x="240" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Principiantes</text>
+  <text x="240" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• MVPs</text>
+  
+  <rect x="410" y="75" width="170" height="380" rx="10" fill="#2D2D2D" stroke="#CE93D8" stroke-width="2"/>
+  <rect x="410" y="75" width="170" height="35" rx="10" fill="#7B1FA2"/>
+  <text x="495" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">BLoC/Cubit</text>
+  
+  <text x="430" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#CE93D8">Complejidad</text>
+  <rect x="430" y="135" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="430" y="135" width="100" height="6" rx="3" fill="#FFB74D"/>
+  
+  <text x="430" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#CE93D8">Escalabilidad</text>
+  <rect x="430" y="165" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="430" y="165" width="120" height="6" rx="3" fill="#81C784"/>
+  
+  <text x="430" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#CE93D8">Testabilidad</text>
+  <rect x="430" y="195" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="430" y="195" width="125" height="6" rx="3" fill="#81C784"/>
+  
+  <line x1="430" y1="215" x2="560" y2="215" stroke="#404040" stroke-width="1"/>
+  <text x="430" y="235" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">✅ Predecible</text>
+  <text x="430" y="255" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">✅ Muy testable</text>
+  <text x="430" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#EF5350">❌ Boilerplate</text>
+  <text x="430" y="295" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#EF5350">❌ Curva alta</text>
+  
+  <line x1="430" y1="310" x2="560" y2="310" stroke="#404040" stroke-width="1"/>
+  <text x="430" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B0B0B0">Ideal para:</text>
+  <text x="430" y="350" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Apps grandes</text>
+  <text x="430" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Equipos</text>
+  <text x="430" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Enterprise</text>
+  
+  <rect x="600" y="75" width="170" height="380" rx="10" fill="#2D2D2D" stroke="#FFB74D" stroke-width="2"/>
+  <rect x="600" y="75" width="170" height="35" rx="10" fill="#F57C00"/>
+  <text x="685" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Riverpod</text>
+  
+  <text x="620" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFB74D">Complejidad</text>
+  <rect x="620" y="135" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="620" y="135" width="75" height="6" rx="3" fill="#81C784"/>
+  
+  <text x="620" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFB74D">Escalabilidad</text>
+  <rect x="620" y="165" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="620" y="165" width="125" height="6" rx="3" fill="#81C784"/>
+  
+  <text x="620" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFB74D">Testabilidad</text>
+  <rect x="620" y="195" width="130" height="6" rx="3" fill="#404040"/>
+  <rect x="620" y="195" width="130" height="6" rx="3" fill="#81C784"/>
+  
+  <line x1="620" y1="215" x2="750" y2="215" stroke="#404040" stroke-width="1"/>
+  <text x="620" y="235" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">✅ Sin Context</text>
+  <text x="620" y="255" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">✅ Compile-safe</text>
+  <text x="620" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFB74D">⚠️ Sintaxis nueva</text>
+  <text x="620" y="295" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFB74D">⚠️ No oficial</text>
+  
+  <line x1="620" y1="310" x2="750" y2="310" stroke="#404040" stroke-width="1"/>
+  <text x="620" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B0B0B0">Ideal para:</text>
+  <text x="620" y="350" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Cualquier escala</text>
+  <text x="620" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• DI fuerte</text>
+  <text x="620" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#FFFFFF">• Testing focus</text>
+  
+  <rect x="50" y="470" width="700" height="35" rx="8" fill="#2D2D2D" stroke="#81C784" stroke-width="1"/>
+  <text x="400" y="493" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#81C784" text-anchor="middle">💡 Recomendación: Empieza con Provider → evoluciona según necesidad</text>
+</svg>

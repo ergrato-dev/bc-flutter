@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <text x="400" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Patrón BLoC</text>
+  <text x="400" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#B0B0B0" text-anchor="middle">Business Logic Component - Separación UI y lógica</text>
+  
+  <rect x="50" y="85" width="180" height="150" rx="12" fill="#2D2D2D" stroke="#CE93D8" stroke-width="2"/>
+  <text x="140" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="#CE93D8" text-anchor="middle">UI Layer</text>
+  <rect x="70" y="125" width="140" height="30" rx="6" fill="#1E1E1E"/>
+  <text x="140" y="145" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF" text-anchor="middle">CartScreen</text>
+  <rect x="70" y="165" width="140" height="30" rx="6" fill="#1E1E1E"/>
+  <text x="140" y="185" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF" text-anchor="middle">ProductCard</text>
+  <rect x="70" y="195" width="140" height="30" rx="6" fill="#1E1E1E"/>
+  <text x="140" y="215" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF" text-anchor="middle">CartBadge</text>
+  
+  <rect x="310" y="85" width="180" height="150" rx="12" fill="#1565C0"/>
+  <text x="400" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">BLoC / Cubit</text>
+  <rect x="330" y="125" width="140" height="45" rx="6" fill="#0D47A1"/>
+  <text x="400" y="145" font-family="Consolas, monospace" font-size="11" fill="#64B5F6" text-anchor="middle">CartCubit</text>
+  <text x="400" y="162" font-family="Consolas, monospace" font-size="9" fill="#B0B0B0" text-anchor="middle">extends Cubit&lt;State&gt;</text>
+  <rect x="330" y="180" width="140" height="45" rx="6" fill="#0D47A1"/>
+  <text x="400" y="198" font-family="Consolas, monospace" font-size="10" fill="#81C784" text-anchor="middle">addItem()</text>
+  <text x="400" y="215" font-family="Consolas, monospace" font-size="10" fill="#81C784" text-anchor="middle">removeItem()</text>
+  
+  <rect x="570" y="85" width="180" height="150" rx="12" fill="#2D2D2D" stroke="#FFB74D" stroke-width="2"/>
+  <text x="660" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFB74D" text-anchor="middle">Data Layer</text>
+  <rect x="590" y="125" width="140" height="30" rx="6" fill="#1E1E1E"/>
+  <text x="660" y="145" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF" text-anchor="middle">CartRepository</text>
+  <rect x="590" y="165" width="140" height="30" rx="6" fill="#1E1E1E"/>
+  <text x="660" y="185" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF" text-anchor="middle">ApiService</text>
+  <rect x="590" y="195" width="140" height="30" rx="6" fill="#1E1E1E"/>
+  <text x="660" y="215" font-family="Consolas, monospace" font-size="11" fill="#FFFFFF" text-anchor="middle">LocalStorage</text>
+  
+  <rect x="245" y="155" width="50" height="25" rx="4" fill="#F57C00"/>
+  <text x="270" y="172" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Event</text>
+  <path d="M 230 160 L 245 160" stroke="#FFB74D" stroke-width="2"/>
+  <polygon points="245,160 237,155 237,165" fill="#FFB74D"/>
+  
+  <rect x="245" y="185" width="50" height="25" rx="4" fill="#388E3C"/>
+  <text x="270" y="202" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">State</text>
+  <path d="M 310 200 L 295 200" stroke="#81C784" stroke-width="2"/>
+  <polygon points="295,200 303,195 303,205" fill="#81C784"/>
+  
+  <rect x="50" y="265" width="340" height="120" rx="8" fill="#2D2D2D" stroke="#64B5F6" stroke-width="1"/>
+  <text x="220" y="290" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">Cubit (Simplificado)</text>
+  <text x="70" y="315" font-family="Consolas, monospace" font-size="10" fill="#CE93D8">class CartCubit extends Cubit&lt;CartState&gt; {</text>
+  <text x="80" y="335" font-family="Consolas, monospace" font-size="10" fill="#81C784">void addItem(Item item) {</text>
+  <text x="90" y="355" font-family="Consolas, monospace" font-size="10" fill="#FFB74D">  emit(state.copyWith(items: [...]));</text>
+  <text x="80" y="375" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF">}}</text>
+  
+  <rect x="410" y="265" width="340" height="120" rx="8" fill="#2D2D2D" stroke="#CE93D8" stroke-width="1"/>
+  <text x="580" y="290" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#CE93D8" text-anchor="middle">BlocBuilder (UI)</text>
+  <text x="430" y="315" font-family="Consolas, monospace" font-size="10" fill="#64B5F6">BlocBuilder&lt;CartCubit, CartState&gt;(</text>
+  <text x="440" y="335" font-family="Consolas, monospace" font-size="10" fill="#FFB74D">builder: (context, state) {</text>
+  <text x="450" y="355" font-family="Consolas, monospace" font-size="10" fill="#CE93D8">  return ListView(</text>
+  <text x="460" y="375" font-family="Consolas, monospace" font-size="10" fill="#FFFFFF">    children: state.items.map(...);</text>
+  
+  <rect x="50" y="405" width="700" height="80" rx="8" fill="#2D2D2D" stroke="#404040" stroke-width="1"/>
+  <text x="400" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Cubit vs BLoC Completo</text>
+  <text x="200" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#81C784" text-anchor="middle">Cubit: métodos directos</text>
+  <text x="200" y="475" font-family="Consolas, monospace" font-size="10" fill="#B0B0B0" text-anchor="middle">cubit.addItem(item)</text>
+  <text x="600" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#64B5F6" text-anchor="middle">BLoC: eventos y streams</text>
+  <text x="600" y="475" font-family="Consolas, monospace" font-size="10" fill="#B0B0B0" text-anchor="middle">bloc.add(AddItemEvent(item))</text>
+</svg>
