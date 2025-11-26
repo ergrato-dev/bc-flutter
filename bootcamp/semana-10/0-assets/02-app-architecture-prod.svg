@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Inter, Roboto, sans-serif" font-size="24" font-weight="bold" fill="#E0E0E0" text-anchor="middle">Clean Architecture - Production</text>
+  
+  <!-- Outer Layer: Presentation -->
+  <rect x="50" y="70" width="700" height="480" rx="12" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <text x="400" y="100" font-family="Inter, Roboto, sans-serif" font-size="16" font-weight="bold" fill="#64B5F6" text-anchor="middle">PRESENTATION LAYER</text>
+  
+  <!-- Presentation components -->
+  <g transform="translate(70, 120)">
+    <rect x="0" y="0" width="140" height="60" rx="6" fill="#1E1E1E" stroke="#64B5F6" stroke-width="1.5"/>
+    <text x="70" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#64B5F6" text-anchor="middle">Screens</text>
+    <text x="70" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">UI Widgets</text>
+  </g>
+  
+  <g transform="translate(230, 120)">
+    <rect x="0" y="0" width="140" height="60" rx="6" fill="#1E1E1E" stroke="#64B5F6" stroke-width="1.5"/>
+    <text x="70" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#64B5F6" text-anchor="middle">BLoC / Cubit</text>
+    <text x="70" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">State Management</text>
+  </g>
+  
+  <g transform="translate(390, 120)">
+    <rect x="0" y="0" width="140" height="60" rx="6" fill="#1E1E1E" stroke="#64B5F6" stroke-width="1.5"/>
+    <text x="70" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#64B5F6" text-anchor="middle">Widgets</text>
+    <text x="70" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Reusable UI</text>
+  </g>
+  
+  <g transform="translate(550, 120)">
+    <rect x="0" y="0" width="140" height="60" rx="6" fill="#1E1E1E" stroke="#64B5F6" stroke-width="1.5"/>
+    <text x="70" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#64B5F6" text-anchor="middle">Routes</text>
+    <text x="70" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Navigation</text>
+  </g>
+  
+  <!-- Middle Layer: Domain -->
+  <rect x="100" y="200" width="600" height="160" rx="12" fill="#252525" stroke="#81C784" stroke-width="2"/>
+  <text x="400" y="230" font-family="Inter, Roboto, sans-serif" font-size="16" font-weight="bold" fill="#81C784" text-anchor="middle">DOMAIN LAYER</text>
+  
+  <!-- Domain components -->
+  <g transform="translate(120, 250)">
+    <rect x="0" y="0" width="160" height="90" rx="6" fill="#1E1E1E" stroke="#81C784" stroke-width="1.5"/>
+    <text x="80" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#81C784" text-anchor="middle">Entities</text>
+    <text x="80" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Habit, Task,</text>
+    <text x="80" y="60" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">JournalEntry</text>
+    <text x="80" y="80" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#666" text-anchor="middle">Business Objects</text>
+  </g>
+  
+  <g transform="translate(320, 250)">
+    <rect x="0" y="0" width="160" height="90" rx="6" fill="#1E1E1E" stroke="#81C784" stroke-width="1.5"/>
+    <text x="80" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#81C784" text-anchor="middle">Use Cases</text>
+    <text x="80" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">GetHabits</text>
+    <text x="80" y="60" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">CompleteTask</text>
+    <text x="80" y="80" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#666" text-anchor="middle">Business Logic</text>
+  </g>
+  
+  <g transform="translate(520, 250)">
+    <rect x="0" y="0" width="160" height="90" rx="6" fill="#1E1E1E" stroke="#81C784" stroke-width="1.5"/>
+    <text x="80" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#81C784" text-anchor="middle">Repository</text>
+    <text x="80" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Interfaces</text>
+    <text x="80" y="60" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">(Abstract)</text>
+    <text x="80" y="80" font-family="Inter, Roboto, sans-serif" font-size="8" fill="#666" text-anchor="middle">Contracts</text>
+  </g>
+  
+  <!-- Inner Layer: Data -->
+  <rect x="150" y="380" width="500" height="150" rx="12" fill="#1E1E1E" stroke="#FFB74D" stroke-width="2"/>
+  <text x="400" y="410" font-family="Inter, Roboto, sans-serif" font-size="16" font-weight="bold" fill="#FFB74D" text-anchor="middle">DATA LAYER</text>
+  
+  <!-- Data components -->
+  <g transform="translate(170, 430)">
+    <rect x="0" y="0" width="130" height="80" rx="6" fill="#2D2D2D" stroke="#FFB74D" stroke-width="1.5"/>
+    <text x="65" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#FFB74D" text-anchor="middle">Models</text>
+    <text x="65" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">DTOs</text>
+    <text x="65" y="60" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">JSON Mapping</text>
+  </g>
+  
+  <g transform="translate(320, 430)">
+    <rect x="0" y="0" width="130" height="80" rx="6" fill="#2D2D2D" stroke="#FFB74D" stroke-width="1.5"/>
+    <text x="65" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#FFB74D" text-anchor="middle">Repository</text>
+    <text x="65" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Implementation</text>
+    <text x="65" y="60" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">(Concrete)</text>
+  </g>
+  
+  <g transform="translate(470, 430)">
+    <rect x="0" y="0" width="130" height="80" rx="6" fill="#2D2D2D" stroke="#FFB74D" stroke-width="1.5"/>
+    <text x="65" y="25" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#FFB74D" text-anchor="middle">Data Sources</text>
+    <text x="65" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Local (SQLite)</text>
+    <text x="65" y="60" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Remote (API)</text>
+  </g>
+  
+  <!-- Dependency arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9E9E9E"/>
+    </marker>
+  </defs>
+  
+  <path d="M 400 185 L 400 200" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 400 365 L 400 380" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Legend -->
+  <g transform="translate(650, 550)">
+    <text x="0" y="0" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#9E9E9E" text-anchor="start">→ Dependency</text>
+  </g>
+</svg>

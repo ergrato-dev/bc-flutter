@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+  <!-- Background -->
+  <rect width="800" height="550" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Inter, Roboto, sans-serif" font-size="24" font-weight="bold" fill="#E0E0E0" text-anchor="middle">Store Publishing Flow</text>
+  
+  <!-- Flutter App (center) -->
+  <rect x="300" y="80" width="200" height="80" rx="10" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <text x="400" y="115" font-family="Inter, Roboto, sans-serif" font-size="16" font-weight="bold" fill="#64B5F6" text-anchor="middle">Flutter App</text>
+  <text x="400" y="140" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">Source Code</text>
+  
+  <!-- Build outputs -->
+  <!-- Android path -->
+  <g transform="translate(80, 200)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="#2D2D2D" stroke="#81C784" stroke-width="2"/>
+    <text x="80" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#81C784" text-anchor="middle">🤖 Android</text>
+    <text x="80" y="50" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">flutter build appbundle</text>
+  </g>
+  
+  <!-- iOS path -->
+  <g transform="translate(560, 200)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="#2D2D2D" stroke="#CE93D8" stroke-width="2"/>
+    <text x="80" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#CE93D8" text-anchor="middle">🍎 iOS</text>
+    <text x="80" y="50" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">flutter build ipa</text>
+  </g>
+  
+  <!-- Arrows from Flutter to builds -->
+  <path d="M 320 160 L 180 200" stroke="#9E9E9E" stroke-width="2"/>
+  <path d="M 480 160 L 620 200" stroke="#9E9E9E" stroke-width="2"/>
+  
+  <!-- Signing boxes -->
+  <!-- Android signing -->
+  <g transform="translate(80, 300)">
+    <rect x="0" y="0" width="160" height="60" rx="8" fill="#1E1E1E" stroke="#81C784" stroke-width="1.5"/>
+    <text x="80" y="25" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#81C784" text-anchor="middle">🔐 Keystore</text>
+    <text x="80" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">upload-keystore.jks</text>
+  </g>
+  
+  <!-- iOS signing -->
+  <g transform="translate(560, 300)">
+    <rect x="0" y="0" width="160" height="60" rx="8" fill="#1E1E1E" stroke="#CE93D8" stroke-width="1.5"/>
+    <text x="80" y="25" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#CE93D8" text-anchor="middle">🔐 Certificates</text>
+    <text x="80" y="45" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Provisioning Profile</text>
+  </g>
+  
+  <!-- Arrows to signing -->
+  <path d="M 160 270 L 160 300" stroke="#81C784" stroke-width="2"/>
+  <path d="M 640 270 L 640 300" stroke="#CE93D8" stroke-width="2"/>
+  
+  <!-- Store boxes -->
+  <!-- Play Store -->
+  <g transform="translate(80, 400)">
+    <rect x="0" y="0" width="160" height="100" rx="10" fill="#2D2D2D" stroke="#81C784" stroke-width="2"/>
+    <text x="80" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#81C784" text-anchor="middle">Play Store</text>
+    <text x="80" y="50" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Upload AAB</text>
+    <text x="80" y="65" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Store listing</text>
+    <text x="80" y="80" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Content rating</text>
+    <text x="80" y="95" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Review &amp; Publish</text>
+  </g>
+  
+  <!-- App Store -->
+  <g transform="translate(560, 400)">
+    <rect x="0" y="0" width="160" height="100" rx="10" fill="#2D2D2D" stroke="#CE93D8" stroke-width="2"/>
+    <text x="80" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#CE93D8" text-anchor="middle">App Store</text>
+    <text x="80" y="50" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Upload via Xcode</text>
+    <text x="80" y="65" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• App Store Connect</text>
+    <text x="80" y="80" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• TestFlight</text>
+    <text x="80" y="95" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Review &amp; Publish</text>
+  </g>
+  
+  <!-- Arrows to stores -->
+  <path d="M 160 360 L 160 400" stroke="#81C784" stroke-width="2"/>
+  <path d="M 640 360 L 640 400" stroke="#CE93D8" stroke-width="2"/>
+  
+  <!-- Center checklist -->
+  <rect x="280" y="200" width="240" height="280" rx="10" fill="#252525" stroke="#FFB74D" stroke-width="2"/>
+  <text x="400" y="230" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#FFB74D" text-anchor="middle">📋 Pre-Release Checklist</text>
+  
+  <g transform="translate(300, 250)">
+    <text x="0" y="0" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ Version bumped</text>
+    <text x="0" y="22" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ Code obfuscated</text>
+    <text x="0" y="44" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ App icon set</text>
+    <text x="0" y="66" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ Splash screen ready</text>
+    <text x="0" y="88" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ Privacy policy URL</text>
+    <text x="0" y="110" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ Screenshots prepared</text>
+    <text x="0" y="132" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ App description</text>
+    <text x="0" y="154" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ Keywords/Tags</text>
+    <text x="0" y="176" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ Content rating done</text>
+    <text x="0" y="198" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0">☑ Release notes written</text>
+  </g>
+</svg>

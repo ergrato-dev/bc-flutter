@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64B5F6"/>
+    </marker>
+    <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9E9E9E"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Inter, Roboto, sans-serif" font-size="24" font-weight="bold" fill="#E0E0E0" text-anchor="middle">CI/CD Deployment Pipeline</text>
+  
+  <!-- Pipeline stages -->
+  <!-- Stage 1: Commit -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+    <text x="60" y="35" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">📝 Commit</text>
+    <text x="60" y="55" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">Push to GitHub</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <path d="M 175 140 L 210 140" stroke="#64B5F6" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 2: Build -->
+  <g transform="translate(220, 100)">
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="#2D2D2D" stroke="#81C784" stroke-width="2"/>
+    <text x="60" y="35" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#81C784" text-anchor="middle">🔨 Build</text>
+    <text x="60" y="55" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">flutter build</text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <path d="M 345 140 L 380 140" stroke="#81C784" stroke-width="3" fill="none"/>
+  
+  <!-- Stage 3: Test -->
+  <g transform="translate(390, 100)">
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="#2D2D2D" stroke="#FFB74D" stroke-width="2"/>
+    <text x="60" y="35" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#FFB74D" text-anchor="middle">🧪 Test</text>
+    <text x="60" y="55" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">flutter test</text>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <path d="M 515 140 L 550 140" stroke="#FFB74D" stroke-width="3" fill="none"/>
+  
+  <!-- Stage 4: Deploy -->
+  <g transform="translate(560, 100)">
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="#2D2D2D" stroke="#CE93D8" stroke-width="2"/>
+    <text x="60" y="35" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#CE93D8" text-anchor="middle">🚀 Deploy</text>
+    <text x="60" y="55" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">Firebase/Store</text>
+  </g>
+  
+  <!-- Workflow detail box -->
+  <rect x="50" y="220" width="700" height="250" rx="12" fill="#252525" stroke="#404040" stroke-width="2"/>
+  
+  <!-- Workflow title -->
+  <text x="400" y="255" font-family="Inter, Roboto, sans-serif" font-size="16" font-weight="bold" fill="#E0E0E0" text-anchor="middle">GitHub Actions Workflow</text>
+  
+  <!-- Job boxes -->
+  <!-- Job 1: Setup -->
+  <g transform="translate(70, 280)">
+    <rect x="0" y="0" width="150" height="100" rx="6" fill="#1E1E1E" stroke="#64B5F6" stroke-width="1.5"/>
+    <text x="75" y="25" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#64B5F6" text-anchor="middle">Setup</text>
+    <text x="75" y="45" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Checkout code</text>
+    <text x="75" y="60" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Setup Java</text>
+    <text x="75" y="75" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Setup Flutter</text>
+    <text x="75" y="90" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Get dependencies</text>
+  </g>
+  
+  <!-- Job 2: Analyze & Test -->
+  <g transform="translate(240, 280)">
+    <rect x="0" y="0" width="150" height="100" rx="6" fill="#1E1E1E" stroke="#81C784" stroke-width="1.5"/>
+    <text x="75" y="25" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#81C784" text-anchor="middle">Analyze &amp; Test</text>
+    <text x="75" y="45" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• flutter analyze</text>
+    <text x="75" y="60" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• flutter test</text>
+    <text x="75" y="75" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Code coverage</text>
+    <text x="75" y="90" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Upload reports</text>
+  </g>
+  
+  <!-- Job 3: Build -->
+  <g transform="translate(410, 280)">
+    <rect x="0" y="0" width="150" height="100" rx="6" fill="#1E1E1E" stroke="#FFB74D" stroke-width="1.5"/>
+    <text x="75" y="25" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#FFB74D" text-anchor="middle">Build Release</text>
+    <text x="75" y="45" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Decode secrets</text>
+    <text x="75" y="60" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Sign app</text>
+    <text x="75" y="75" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Build APK/AAB</text>
+    <text x="75" y="90" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Upload artifact</text>
+  </g>
+  
+  <!-- Job 4: Deploy -->
+  <g transform="translate(580, 280)">
+    <rect x="0" y="0" width="150" height="100" rx="6" fill="#1E1E1E" stroke="#CE93D8" stroke-width="1.5"/>
+    <text x="75" y="25" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#CE93D8" text-anchor="middle">Deploy</text>
+    <text x="75" y="45" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Firebase Dist</text>
+    <text x="75" y="60" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Play Store</text>
+    <text x="75" y="75" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Notify team</text>
+    <text x="75" y="90" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">• Create release</text>
+  </g>
+  
+  <!-- Arrows between jobs -->
+  <path d="M 220 330 L 240 330" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+  <path d="M 390 330 L 410 330" stroke="#9E9E9E" stroke-width="2" fill="none"/>
+  <path d="M 560 330 L 580 330" stroke="#9E9E9E" stroke-width="2" fill="none"/>
+  
+  <!-- Trigger label -->
+  <rect x="300" y="400" width="200" height="50" rx="25" fill="#64B5F6"/>
+  <text x="400" y="430" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#1E1E1E" text-anchor="middle">on: push to main</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Inter, Roboto, sans-serif" font-size="24" font-weight="bold" fill="#E0E0E0" text-anchor="middle">Monitoring &amp; Analytics</text>
+  
+  <!-- App box -->
+  <rect x="300" y="70" width="200" height="60" rx="8" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <text x="400" y="100" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">📱 Flutter App</text>
+  <text x="400" y="118" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">firebase_core initialized</text>
+  
+  <!-- Firebase services -->
+  <!-- Analytics -->
+  <g transform="translate(50, 180)">
+    <rect x="0" y="0" width="200" height="140" rx="10" fill="#2D2D2D" stroke="#81C784" stroke-width="2"/>
+    <text x="100" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#81C784" text-anchor="middle">📊 Analytics</text>
+    <text x="100" y="55" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">firebase_analytics</text>
+    <line x1="20" y1="70" x2="180" y2="70" stroke="#404040" stroke-width="1"/>
+    <text x="100" y="90" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• User sessions</text>
+    <text x="100" y="105" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Screen views</text>
+    <text x="100" y="120" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Custom events</text>
+    <text x="100" y="135" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• User properties</text>
+  </g>
+  
+  <!-- Crashlytics -->
+  <g transform="translate(300, 180)">
+    <rect x="0" y="0" width="200" height="140" rx="10" fill="#2D2D2D" stroke="#EF5350" stroke-width="2"/>
+    <text x="100" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#EF5350" text-anchor="middle">🔥 Crashlytics</text>
+    <text x="100" y="55" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">firebase_crashlytics</text>
+    <line x1="20" y1="70" x2="180" y2="70" stroke="#404040" stroke-width="1"/>
+    <text x="100" y="90" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Fatal crashes</text>
+    <text x="100" y="105" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Non-fatal errors</text>
+    <text x="100" y="120" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Stack traces</text>
+    <text x="100" y="135" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Custom keys</text>
+  </g>
+  
+  <!-- Performance -->
+  <g transform="translate(550, 180)">
+    <rect x="0" y="0" width="200" height="140" rx="10" fill="#2D2D2D" stroke="#FFB74D" stroke-width="2"/>
+    <text x="100" y="30" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#FFB74D" text-anchor="middle">⚡ Performance</text>
+    <text x="100" y="55" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#B0B0B0" text-anchor="middle">firebase_performance</text>
+    <line x1="20" y1="70" x2="180" y2="70" stroke="#404040" stroke-width="1"/>
+    <text x="100" y="90" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• App startup time</text>
+    <text x="100" y="105" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• HTTP traces</text>
+    <text x="100" y="120" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Custom traces</text>
+    <text x="100" y="135" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">• Screen rendering</text>
+  </g>
+  
+  <!-- Arrows from app -->
+  <path d="M 350 130 L 180 180" stroke="#9E9E9E" stroke-width="2"/>
+  <path d="M 400 130 L 400 180" stroke="#9E9E9E" stroke-width="2"/>
+  <path d="M 450 130 L 620 180" stroke="#9E9E9E" stroke-width="2"/>
+  
+  <!-- Firebase Console -->
+  <rect x="200" y="370" width="400" height="100" rx="12" fill="#252525" stroke="#64B5F6" stroke-width="2"/>
+  <text x="400" y="400" font-family="Inter, Roboto, sans-serif" font-size="16" font-weight="bold" fill="#64B5F6" text-anchor="middle">🖥️ Firebase Console</text>
+  <text x="400" y="425" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">console.firebase.google.com</text>
+  <text x="400" y="450" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#666" text-anchor="middle">Dashboards • Reports • Alerts • Real-time data</text>
+  
+  <!-- Arrow to console -->
+  <path d="M 150 320 L 250 370" stroke="#81C784" stroke-width="2"/>
+  <path d="M 400 320 L 400 370" stroke="#EF5350" stroke-width="2"/>
+  <path d="M 650 320 L 550 370" stroke="#FFB74D" stroke-width="2"/>
+  
+  <!-- Metrics boxes -->
+  <g transform="translate(50, 400)">
+    <rect x="0" y="0" width="120" height="50" rx="6" fill="#1E1E1E" stroke="#81C784" stroke-width="1"/>
+    <text x="60" y="20" font-family="Inter, Roboto, sans-serif" font-size="18" font-weight="bold" fill="#81C784" text-anchor="middle">2.5K</text>
+    <text x="60" y="38" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Daily Users</text>
+  </g>
+  
+  <g transform="translate(630, 400)">
+    <rect x="0" y="0" width="120" height="50" rx="6" fill="#1E1E1E" stroke="#EF5350" stroke-width="1"/>
+    <text x="60" y="20" font-family="Inter, Roboto, sans-serif" font-size="18" font-weight="bold" fill="#EF5350" text-anchor="middle">99.2%</text>
+    <text x="60" y="38" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#B0B0B0" text-anchor="middle">Crash-free</text>
+  </g>
+</svg>

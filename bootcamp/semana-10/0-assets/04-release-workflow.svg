@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1E1E1E"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Inter, Roboto, sans-serif" font-size="24" font-weight="bold" fill="#E0E0E0" text-anchor="middle">Release Workflow</text>
+  
+  <!-- Git flow diagram -->
+  <!-- Main branch line -->
+  <line x1="100" y1="120" x2="700" y2="120" stroke="#64B5F6" stroke-width="4"/>
+  <text x="60" y="125" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#64B5F6">main</text>
+  
+  <!-- Develop branch line -->
+  <line x1="100" y1="200" x2="500" y2="200" stroke="#81C784" stroke-width="4"/>
+  <text x="40" y="205" font-family="Inter, Roboto, sans-serif" font-size="12" font-weight="bold" fill="#81C784">develop</text>
+  
+  <!-- Feature branch -->
+  <path d="M 200 200 Q 200 250 250 280 L 350 280 Q 400 280 400 200" stroke="#FFB74D" stroke-width="3" fill="none"/>
+  <text x="280" y="310" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#FFB74D" text-anchor="middle">feature/new-habit</text>
+  
+  <!-- Commits on main -->
+  <circle cx="150" cy="120" r="8" fill="#64B5F6"/>
+  <circle cx="550" cy="120" r="8" fill="#64B5F6"/>
+  <circle cx="650" cy="120" r="10" fill="#CE93D8" stroke="#E0E0E0" stroke-width="2"/>
+  <text x="650" y="100" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#CE93D8" text-anchor="middle">v1.0.0</text>
+  
+  <!-- Commits on develop -->
+  <circle cx="150" cy="200" r="8" fill="#81C784"/>
+  <circle cx="250" cy="200" r="8" fill="#81C784"/>
+  <circle cx="350" cy="200" r="8" fill="#81C784"/>
+  <circle cx="450" cy="200" r="8" fill="#81C784"/>
+  
+  <!-- Merge to main -->
+  <path d="M 500 200 L 550 120" stroke="#9E9E9E" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Version boxes -->
+  <rect x="50" y="350" width="200" height="120" rx="8" fill="#2D2D2D" stroke="#64B5F6" stroke-width="2"/>
+  <text x="150" y="380" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#64B5F6" text-anchor="middle">Versioning</text>
+  <text x="150" y="405" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">MAJOR.MINOR.PATCH</text>
+  <text x="150" y="425" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#666" text-anchor="middle">1.0.0 → 1.0.1 (bug fix)</text>
+  <text x="150" y="445" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#666" text-anchor="middle">1.0.0 → 1.1.0 (feature)</text>
+  <text x="150" y="465" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#666" text-anchor="middle">1.0.0 → 2.0.0 (breaking)</text>
+  
+  <!-- Build number box -->
+  <rect x="300" y="350" width="200" height="120" rx="8" fill="#2D2D2D" stroke="#81C784" stroke-width="2"/>
+  <text x="400" y="380" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#81C784" text-anchor="middle">Build Number</text>
+  <text x="400" y="405" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">Auto-increment</text>
+  <text x="400" y="430" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#666" text-anchor="middle">version: 1.0.0+42</text>
+  <text x="400" y="455" font-family="Inter, Roboto, sans-serif" font-size="10" fill="#666" text-anchor="middle">versionCode: 42</text>
+  <text x="400" y="470" font-family="Inter, Roboto, sans-serif" font-size="9" fill="#666" text-anchor="middle">(must always increase)</text>
+  
+  <!-- Release stages box -->
+  <rect x="550" y="350" width="200" height="120" rx="8" fill="#2D2D2D" stroke="#FFB74D" stroke-width="2"/>
+  <text x="650" y="380" font-family="Inter, Roboto, sans-serif" font-size="14" font-weight="bold" fill="#FFB74D" text-anchor="middle">Release Stages</text>
+  <text x="650" y="410" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">1. Internal Testing</text>
+  <text x="650" y="430" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">2. Closed Beta</text>
+  <text x="650" y="450" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">3. Open Beta</text>
+  <text x="650" y="470" font-family="Inter, Roboto, sans-serif" font-size="11" fill="#B0B0B0" text-anchor="middle">4. Production</text>
+  
+  <!-- Tag annotation -->
+  <rect x="580" y="70" width="140" height="30" rx="15" fill="#CE93D8"/>
+  <text x="650" y="90" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="bold" fill="#1E1E1E" text-anchor="middle">🏷️ Git Tag Release</text>
+</svg>
