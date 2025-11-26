@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500">
+  <defs>
+    <linearGradient id="presentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF9800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57C00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="domGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#388E3C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="datGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowLayers" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+  
+  <!-- Título -->
+  <text x="350" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">Capas de Clean Architecture</text>
+  
+  <!-- PRESENTATION LAYER -->
+  <rect x="30" y="70" width="200" height="380" rx="10" fill="url(#presentGrad)"/>
+  <text x="130" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">PRESENTATION</text>
+  
+  <!-- Presentation components -->
+  <rect x="45" y="110" width="170" height="40" rx="5" fill="white" opacity="0.9"/>
+  <text x="130" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#F57C00">Pages / Screens</text>
+  
+  <rect x="45" y="160" width="170" height="40" rx="5" fill="white" opacity="0.9"/>
+  <text x="130" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#F57C00">Widgets</text>
+  
+  <rect x="45" y="210" width="170" height="40" rx="5" fill="white" opacity="0.9"/>
+  <text x="130" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#F57C00">BLoC / Provider</text>
+  
+  <text x="130" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Responsabilidades:</text>
+  <text x="130" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Renderizar UI</text>
+  <text x="130" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Gestionar estado UI</text>
+  <text x="130" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Llamar casos de uso</text>
+  <text x="130" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Validación de inputs</text>
+  
+  <!-- DOMAIN LAYER -->
+  <rect x="250" y="70" width="200" height="380" rx="10" fill="url(#domGrad)"/>
+  <text x="350" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">DOMAIN</text>
+  
+  <!-- Domain components -->
+  <rect x="265" y="110" width="170" height="40" rx="5" fill="white" opacity="0.9"/>
+  <text x="350" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#388E3C">Entities</text>
+  
+  <rect x="265" y="160" width="170" height="40" rx="5" fill="white" opacity="0.9"/>
+  <text x="350" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#388E3C">Use Cases</text>
+  
+  <rect x="265" y="210" width="170" height="40" rx="5" fill="white" opacity="0.9" stroke="#388E3C" stroke-dasharray="4,2"/>
+  <text x="350" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#388E3C">Repository</text>
+  <text x="350" y="243" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#388E3C">(Interface)</text>
+  
+  <text x="350" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Responsabilidades:</text>
+  <text x="350" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Lógica de negocio</text>
+  <text x="350" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Reglas del dominio</text>
+  <text x="350" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Validaciones negocio</text>
+  <text x="350" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Sin dependencias ext.</text>
+  
+  <!-- DATA LAYER -->
+  <rect x="470" y="70" width="200" height="380" rx="10" fill="url(#datGrad)"/>
+  <text x="570" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">DATA</text>
+  
+  <!-- Data components -->
+  <rect x="485" y="110" width="170" height="40" rx="5" fill="white" opacity="0.9"/>
+  <text x="570" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1976D2">Models</text>
+  
+  <rect x="485" y="160" width="170" height="40" rx="5" fill="white" opacity="0.9"/>
+  <text x="570" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1976D2">Repository Impl</text>
+  <text x="570" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#1976D2">(Concrete)</text>
+  
+  <rect x="485" y="210" width="170" height="40" rx="5" fill="white" opacity="0.9"/>
+  <text x="570" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1976D2">Data Sources</text>
+  
+  <text x="570" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Responsabilidades:</text>
+  <text x="570" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Acceso a datos</text>
+  <text x="570" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• APIs remotas</text>
+  <text x="570" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Base de datos local</text>
+  <text x="570" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• Serialización JSON</text>
+  
+  <!-- Flechas de dependencia -->
+  <line x1="230" y1="230" x2="247" y2="230" stroke="#555" stroke-width="3" marker-end="url(#arrowLayers)"/>
+  <line x1="453" y1="230" x2="470" y2="230" stroke="#555" stroke-width="3" marker-end="url(#arrowLayers)" transform="rotate(180 461.5 230)"/>
+  
+  <!-- Etiquetas de flechas -->
+  <text x="350" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">← Las dependencias apuntan hacia el DOMAIN →</text>
+  
+  <!-- Footer -->
+  <rect x="100" y="430" width="500" height="50" rx="5" fill="#ECEFF1"/>
+  <text x="350" y="452" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333" font-weight="bold">El DOMAIN es el corazón de la aplicación</text>
+  <text x="350" y="468" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">No depende de frameworks externos (Flutter, SQLite, HTTP, etc.)</text>
+</svg>

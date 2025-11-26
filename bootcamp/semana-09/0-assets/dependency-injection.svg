@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <defs>
+    <linearGradient id="blocGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF9800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57C00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="usecaseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#388E3C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="repoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B1FA2;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowDI" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+  
+  <!-- Título -->
+  <text x="350" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">Inyección de Dependencias</text>
+  <text x="350" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">Dependency Injection en Clean Architecture</text>
+  
+  <!-- BLoC -->
+  <rect x="50" y="100" width="140" height="70" rx="10" fill="url(#blocGrad)"/>
+  <text x="120" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">TaskBloc</text>
+  <text x="120" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Presentation Layer</text>
+  
+  <!-- UseCase -->
+  <rect x="280" y="100" width="140" height="70" rx="10" fill="url(#usecaseGrad)"/>
+  <text x="350" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">GetTasks</text>
+  <text x="350" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Domain Layer</text>
+  
+  <!-- Repository Interface -->
+  <rect x="510" y="100" width="140" height="70" rx="10" fill="url(#repoGrad)" stroke="#1565C0" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="580" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">TaskRepository</text>
+  <text x="580" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(Interface)</text>
+  <text x="580" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Domain Layer</text>
+  
+  <!-- Repository Implementation -->
+  <rect x="510" y="220" width="140" height="70" rx="10" fill="url(#repoGrad)"/>
+  <text x="580" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">TaskRepositoryImpl</text>
+  <text x="580" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Data Layer</text>
+  
+  <!-- DataSource -->
+  <rect x="510" y="320" width="140" height="60" rx="10" fill="url(#dsGrad)"/>
+  <text x="580" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">LocalDataSource</text>
+  <text x="580" y="368" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Data Layer</text>
+  
+  <!-- GetIt Container -->
+  <rect x="200" y="280" width="180" height="100" rx="10" fill="#37474F"/>
+  <text x="290" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4FC3F7">GetIt Container</text>
+  <text x="290" y="325" font-family="Courier, monospace" font-size="9" fill="#A5D6A7">sl.registerFactory(</text>
+  <text x="290" y="340" font-family="Courier, monospace" font-size="9" fill="#fff">  () =&gt; TaskBloc(sl())</text>
+  <text x="290" y="355" font-family="Courier, monospace" font-size="9" fill="#A5D6A7">);</text>
+  <text x="290" y="372" font-family="Courier, monospace" font-size="9" fill="#CE93D8">// Resuelve deps</text>
+  
+  <!-- Flechas de dependencia -->
+  <!-- BLoC -> UseCase -->
+  <line x1="190" y1="135" x2="275" y2="135" stroke="#555" stroke-width="2" marker-end="url(#arrowDI)"/>
+  <text x="232" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#555">usa</text>
+  
+  <!-- UseCase -> Repository Interface -->
+  <line x1="420" y1="135" x2="505" y2="135" stroke="#555" stroke-width="2" marker-end="url(#arrowDI)"/>
+  <text x="462" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#555">usa</text>
+  
+  <!-- Repository Impl -> Interface (implements) -->
+  <line x1="580" y1="220" x2="580" y2="175" stroke="#1565C0" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowDI)"/>
+  <text x="610" y="200" text-anchor="start" font-family="Arial, sans-serif" font-size="9" fill="#1565C0">implements</text>
+  
+  <!-- Repository Impl -> DataSource -->
+  <line x1="580" y1="290" x2="580" y2="315" stroke="#555" stroke-width="2" marker-end="url(#arrowDI)"/>
+  <text x="610" y="305" text-anchor="start" font-family="Arial, sans-serif" font-size="9" fill="#555">usa</text>
+  
+  <!-- GetIt connections -->
+  <path d="M 250 280 Q 120 250 120 175" fill="none" stroke="#4FC3F7" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowDI)"/>
+  <path d="M 310 280 Q 350 230 350 175" fill="none" stroke="#4FC3F7" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowDI)"/>
+  <path d="M 380 330 Q 470 310 505 255" fill="none" stroke="#4FC3F7" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowDI)"/>
+  
+  <!-- Leyenda -->
+  <rect x="50" y="200" width="120" height="80" rx="5" fill="#f5f5f5" stroke="#ddd"/>
+  <text x="110" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">Beneficios DI</text>
+  <text x="60" y="240" font-family="Arial, sans-serif" font-size="9" fill="#333">• Testabilidad</text>
+  <text x="60" y="255" font-family="Arial, sans-serif" font-size="9" fill="#333">• Desacoplamiento</text>
+  <text x="60" y="270" font-family="Arial, sans-serif" font-size="9" fill="#333">• Flexibilidad</text>
+</svg>
