@@ -121,6 +121,18 @@ docker compose pull
 docker compose build --no-cache
 ```
 
+### Archivos generados (`.dart_tool/`, `build/`) quedan como propietario `root`
+
+El contenedor corre como `root` por defecto, así que `.dart_tool/` y `build/` generados dentro
+del volumen montado quedan con dueño `root` en tu máquina — no podrás borrarlos ni Flutter
+local podrá sobrescribirlos sin `sudo`. Corrígelo con:
+
+```bash
+docker compose run --rm flutter chown -R "$(id -u):$(id -g)" /app
+```
+
+> Ambos están en `.gitignore`, así que esto no afecta a git — solo a permisos locales.
+
 ---
 
 → Volver a [setup/README.md](README.md)

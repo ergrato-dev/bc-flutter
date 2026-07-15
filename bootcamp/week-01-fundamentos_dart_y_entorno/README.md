@@ -2,20 +2,29 @@
 
 > **Fase 0 — Lenguaje (Dart)** | Semana 1 de 19 | ⏱️ 16 horas
 
-## 🎯 Objetivos de aprendizaje
+Esta semana no toca Flutter todavía: dominarás Dart, el lenguaje sobre el que se construye todo
+el resto del bootcamp, siguiendo el mismo patrón "lenguaje puente → framework" que otros
+bootcamps de este catálogo (ej. TypeScript antes de React).
 
-> 🚧 **Contenido en desarrollo.** Usa el prompt `nueva-semana` para generar el contenido completo.
+## 🎯 Objetivos de aprendizaje
 
 Al finalizar esta semana, el estudiante será capaz de:
 
-- [ ] Objetivo 1
-- [ ] Objetivo 2
-- [ ] Objetivo 3
+- [ ] Declarar variables con `var`/`final`/`const` y justificar cuál usar en cada caso
+- [ ] Aplicar null safety (`?`, `?.`, `??`, `??=`, `!`, `late`) sin recurrir a `!` por defecto
+- [ ] Escribir funciones con parámetros nombrados/posicionales y usar `switch` como expresión
+- [ ] Manipular `List`, `Set` y `Map` con operadores de colección y métodos funcionales
+- [ ] Diseñar clases con constructores `const`, herencia y mixins
+- [ ] Escribir código asíncrono con `Future`/`async`/`await` y manejar errores con `try/catch`
+- [ ] Diferenciar cuándo usar `Future` y cuándo `Stream`
+- [ ] Ejecutar y validar código Dart con Docker (`dart analyze`/`dart test`) y con el SDK local
 
 ## 📚 Requisitos previos
 
-- Semana anterior completada
-- Flutter SDK local configurado (`flutter doctor` sin errores) + Docker
+- Programación básica orientada a objetos (no requiere Dart previo)
+- Docker instalado (ver [docs/setup/con-docker.md](../../docs/setup/con-docker.md))
+- Flutter SDK local instalado (`flutter --version` funcionando — incluye Dart; ver
+  [docs/setup/sdk-local.md](../../docs/setup/sdk-local.md))
 
 ## 🗂️ Estructura de la semana
 
@@ -29,15 +38,23 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ### Teoría
 
-> 🚧 Por generar — usa el prompt `nueva-teoria`
+1. [Introducción a Dart y al Entorno de Trabajo](1-teoria/01-introduccion-dart-y-entorno.md)
+2. [Variables, Tipos y Null Safety](1-teoria/02-variables-tipos-null-safety.md)
+3. [Funciones y Control de Flujo](1-teoria/03-funciones-y-control-de-flujo.md)
+4. [Colecciones: List, Set y Map](1-teoria/04-colecciones.md)
+5. [POO: Clases, Mixins y Extension Methods](1-teoria/05-poo-clases-mixins-extensiones.md)
+6. [Programación Asíncrona: Future, async/await y Stream](1-teoria/06-programacion-asincronica.md)
 
 ### Prácticas
 
-> 🚧 Por generar — usa el prompt `nuevo-ejercicio`
+1. [Ejercicio 01 — Variables, Tipos y Null Safety](2-practicas/ejercicio-01-variables-null-safety/README.md)
+2. [Ejercicio 02 — Colecciones y Funciones](2-practicas/ejercicio-02-colecciones-y-funciones/README.md)
+3. [Ejercicio 03 — POO y Programación Asíncrona](2-practicas/ejercicio-03-poo-y-async/README.md)
 
 ### Proyecto
 
-> 🚧 Por generar — usa el prompt `nuevo-proyecto`
+[Modelador de Dominio en Consola](3-proyecto/README.md) — integra null safety, colecciones,
+mixins y Future/async/await sobre el dominio único asignado.
 
 ## ⏱️ Distribución del tiempo (16 horas)
 
@@ -51,8 +68,9 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 - [ ] Ejercicios completados (prácticas descomentadas y funcionando)
 - [ ] Proyecto adaptado al dominio asignado
-- [ ] `flutter analyze` sin errores (verificable con Docker)
-- [ ] App corriendo en emulador/simulador iOS y/o Android
+- [ ] `dart analyze` sin errores (verificable con Docker)
+- [ ] `dart test` pasando
+- [ ] Programa ejecutándose por consola con `dart run` (sin emulador — esta semana es Dart puro)
 
 ## 🔗 Navegación
 

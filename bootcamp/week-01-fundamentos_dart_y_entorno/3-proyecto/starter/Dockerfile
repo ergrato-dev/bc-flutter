@@ -1,13 +1,12 @@
-# ponytail: Flutter CLI (analyze/test/build) preinstalled via cirruslabs image —
-# no reinventamos la instalación manual del SDK + Android cmdline-tools.
-# Este contenedor NO renderiza GUI: sirve para analyze/test/build headless y CI,
-# no para `flutter run` en un emulador/simulador (ver docs/docker-setup.md).
+# ponytail: semana 1 es Dart puro (sin Flutter todavía) — misma imagen base
+# que el resto del curso (incluye el SDK de Dart), pero CMD/deps usan
+# `dart` en vez de `flutter` porque este proyecto no depende del framework.
 FROM ghcr.io/cirruslabs/flutter:stable
 
 WORKDIR /app
 COPY pubspec.* ./
-RUN flutter pub get
+RUN dart pub get
 
 COPY . .
 
-CMD ["flutter", "test"]
+CMD ["dart", "test"]

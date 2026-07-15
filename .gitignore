@@ -82,6 +82,9 @@ firebase_options.dart
 # EDITORES / IDE
 # =============================================================================
 
+# Claude Code (estado local del harness, no del proyecto)
+.claude/
+
 # VS Code (mantener .vscode/extensions.json y settings.json del proyecto)
 .vscode/*
 !.vscode/extensions.json

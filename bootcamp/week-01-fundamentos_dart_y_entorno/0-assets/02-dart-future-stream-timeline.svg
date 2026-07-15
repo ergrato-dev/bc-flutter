@@ -1,0 +1,30 @@
+<svg width="900" height="350" viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Future vs Stream — línea de tiempo</title>
+  <desc id="desc">Comparación entre un Future que resuelve una vez y un Stream que emite varios valores a lo largo del tiempo</desc>
+  <rect width="900" height="350" fill="#0d1117"/>
+
+  <!-- Future timeline -->
+  <text x="60" y="60" fill="#54C5F8" font-size="18" font-weight="700" font-family="system-ui, sans-serif">Future&lt;T&gt;</text>
+  <line x1="60" y1="100" x2="820" y2="100" stroke="#30363d" stroke-width="2"/>
+  <circle cx="100" cy="100" r="6" fill="#8b949e"/>
+  <text x="100" y="125" fill="#8b949e" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">await fetchGreeting()</text>
+  <circle cx="600" cy="100" r="8" fill="#3fb950"/>
+  <text x="600" y="125" fill="#3fb950" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">un único valor resuelto</text>
+  <line x1="100" y1="100" x2="595" y2="100" stroke="#54C5F8" stroke-width="3" stroke-dasharray="4 4"/>
+
+  <!-- Stream timeline -->
+  <text x="60" y="200" fill="#54C5F8" font-size="18" font-weight="700" font-family="system-ui, sans-serif">Stream&lt;T&gt;</text>
+  <line x1="60" y1="240" x2="820" y2="240" stroke="#30363d" stroke-width="2"/>
+  <circle cx="100" cy="240" r="6" fill="#8b949e"/>
+  <text x="100" y="265" fill="#8b949e" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">await for</text>
+
+  <circle cx="300" cy="240" r="8" fill="#3fb950"/>
+  <text x="300" y="220" fill="#3fb950" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">yield 1</text>
+  <circle cx="500" cy="240" r="8" fill="#3fb950"/>
+  <text x="500" y="220" fill="#3fb950" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">yield 2</text>
+  <circle cx="700" cy="240" r="8" fill="#3fb950"/>
+  <text x="700" y="220" fill="#3fb950" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">yield 3</text>
+  <text x="700" y="265" fill="#8b949e" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">múltiples valores en el tiempo</text>
+
+  <text x="450" y="320" fill="#8b949e" font-size="13" text-anchor="middle" font-family="system-ui, sans-serif">Un Future resuelve una vez · un Stream puede emitir muchas veces (ej. notificaciones push, chat en vivo)</text>
+</svg>

@@ -534,7 +534,9 @@ Los assets SVG en `0-assets/` tienen un propósito educativo específico:
 1. Todo SVG debe estar **vinculado en al menos un archivo** de teoría o práctica
 2. Usar sintaxis markdown: `![Descripción](../0-assets/nombre.svg)`
 3. Incluir texto alternativo descriptivo para accesibilidad
-4. Nombrar descriptivamente: `widget-tree-flow.svg`, `riverpod-provider-graph.svg`
+4. **Numerar en orden lógico de lectura**: `01-nombre-descriptivo.svg`, `02-nombre-descriptivo.svg`
+   — el número refleja el orden en que aparecen vinculados en `1-teoria/`, no el orden en que se
+   crearon. Ej.: `01-widget-tree-flow.svg`, `02-riverpod-provider-graph.svg`
 
 ### Tema Visual
 

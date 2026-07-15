@@ -102,13 +102,18 @@ Todo SVG creado debe estar vinculado en al menos un archivo de teoría o prácti
 ![Descripción accesible del diagrama](../0-assets/nombre-del-diagrama.svg)
 ```
 
-Nombrar descriptivamente en kebab-case:
+Nombrar con **prefijo numérico según el orden lógico de lectura** (el orden en que aparecen
+vinculados en `1-teoria/`, no el orden en que se crean) + kebab-case descriptivo:
 
-- ✅ `widget-tree-flow.svg`
-- ✅ `riverpod-provider-graph.svg`
-- ✅ `jwt-auth-flow.svg`
+- ✅ `01-widget-tree-flow.svg`
+- ✅ `02-riverpod-provider-graph.svg`
+- ✅ `03-jwt-auth-flow.svg`
+- ❌ `widget-tree-flow.svg` (sin número — no indica orden de lectura)
 - ❌ `diagrama1.svg`
 - ❌ `image.svg`
+
+Si se agrega un SVG nuevo entre dos existentes, renumerar los que correspondan para mantener el
+orden — no reutilizar ni saltar números.
 
 ## Accesibilidad
 

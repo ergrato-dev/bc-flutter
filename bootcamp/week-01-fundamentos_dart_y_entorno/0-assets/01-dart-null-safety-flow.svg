@@ -1,0 +1,51 @@
+<svg width="800" height="420" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo de null safety en Dart</title>
+  <desc id="desc">Comparación entre un tipo no-nulable String y un tipo nulable String?, mostrando los operadores ??, ?., ??= y !</desc>
+  <rect width="800" height="420" fill="#0d1117"/>
+
+  <!-- Non-nullable branch -->
+  <rect x="40" y="60" width="320" height="120" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="200" y="90" fill="#54C5F8" font-size="18" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">String name</text>
+  <text x="200" y="115" fill="#8b949e" font-size="13" text-anchor="middle" font-family="system-ui, sans-serif">no puede ser null</text>
+  <text x="200" y="145" fill="#3fb950" font-size="13" text-anchor="middle" font-family="system-ui, sans-serif">✔ compila directo</text>
+  <text x="200" y="165" fill="#ffffff" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">name.length</text>
+
+  <!-- Nullable branch -->
+  <rect x="440" y="60" width="320" height="120" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="600" y="90" fill="#54C5F8" font-size="18" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">String? nickname</text>
+  <text x="600" y="115" fill="#8b949e" font-size="13" text-anchor="middle" font-family="system-ui, sans-serif">puede ser null</text>
+  <text x="600" y="145" fill="#f85149" font-size="13" text-anchor="middle" font-family="system-ui, sans-serif">✘ nickname.length no compila</text>
+  <text x="600" y="165" fill="#ffffff" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">requiere manejo explícito</text>
+
+  <!-- Arrows down from nullable to operators -->
+  <line x1="600" y1="180" x2="600" y2="220" stroke="#54C5F8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Operators row -->
+  <rect x="60" y="230" width="160" height="90" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+  <text x="140" y="260" fill="#3fb950" font-size="16" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">?.</text>
+  <text x="140" y="285" fill="#ffffff" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">acceso seguro</text>
+  <text x="140" y="302" fill="#8b949e" font-size="11" text-anchor="middle" font-family="system-ui, sans-serif">retorna null si es null</text>
+
+  <rect x="240" y="230" width="160" height="90" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+  <text x="320" y="260" fill="#3fb950" font-size="16" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">??</text>
+  <text x="320" y="285" fill="#ffffff" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">valor por defecto</text>
+  <text x="320" y="302" fill="#8b949e" font-size="11" text-anchor="middle" font-family="system-ui, sans-serif">x ?? 'fallback'</text>
+
+  <rect x="420" y="230" width="160" height="90" rx="8" fill="#161b22" stroke="#d29922" stroke-width="1"/>
+  <text x="500" y="260" fill="#d29922" font-size="16" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">??=</text>
+  <text x="500" y="285" fill="#ffffff" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">asigna si null</text>
+  <text x="500" y="302" fill="#8b949e" font-size="11" text-anchor="middle" font-family="system-ui, sans-serif">x ??= 'valor'</text>
+
+  <rect x="600" y="230" width="160" height="90" rx="8" fill="#161b22" stroke="#f85149" stroke-width="1"/>
+  <text x="680" y="260" fill="#f85149" font-size="16" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">!</text>
+  <text x="680" y="285" fill="#ffffff" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">"confío, no es null"</text>
+  <text x="680" y="302" fill="#8b949e" font-size="11" text-anchor="middle" font-family="system-ui, sans-serif">riesgo: excepción en runtime</text>
+
+  <text x="400" y="380" fill="#8b949e" font-size="13" text-anchor="middle" font-family="system-ui, sans-serif">Prefiere ?. y ?? — usa ! solo cuando estés seguro</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#54C5F8"/>
+    </marker>
+  </defs>
+</svg>

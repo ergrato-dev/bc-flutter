@@ -1,0 +1,13 @@
+name: domain_modeler_console
+description: Modelador de dominio en consola — proyecto semana 1 (Dart puro, sin Flutter)
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^5.0.0
