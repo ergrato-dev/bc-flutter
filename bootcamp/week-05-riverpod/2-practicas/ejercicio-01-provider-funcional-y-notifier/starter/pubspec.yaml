@@ -1,0 +1,23 @@
+name: ejercicio_01_provider_funcional_y_notifier
+description: Ejercicio 01 — Provider Funcional y Notifier
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: 3.3.2
+  riverpod_annotation: 4.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 5.0.0
+  build_runner: 2.15.1
+  riverpod_generator: 4.0.4
+
+flutter:
+  uses-material-design: true
