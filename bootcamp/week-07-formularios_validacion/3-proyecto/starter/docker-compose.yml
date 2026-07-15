@@ -1,0 +1,11 @@
+services:
+  flutter:
+    build: .
+    volumes:
+      - .:/app
+      - flutter-pub-cache:/root/.pub-cache
+    working_dir: /app
+    command: flutter test
+
+volumes:
+  flutter-pub-cache:

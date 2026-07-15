@@ -1,0 +1,44 @@
+{
+  // Extensiones recomendadas para el Bootcamp Flutter Zero to Hero
+  // Criterios: cuenta verificada en VS Code Marketplace + más de 1.000.000 de installs
+  // CVE: todas open-source y auditables en GitHub. Ejecutar `flutter pub outdated` en cada proyecto.
+  "recommendations": [
+    // ─── Dart / Flutter ──────────────────────────────────────────────────────
+    // Publisher: Dart Code (Dart-Code) ✓ | 15M+ installs
+    "Dart-Code.dart-code",
+    // Publisher: Dart Code (Dart-Code) ✓ | 15M+ installs
+    "Dart-Code.flutter",
+
+    // ─── Git & Colaboración ──────────────────────────────────────────────────
+    // Publisher: GitKraken ✓ | 22M+ installs
+    "eamodio.gitlens",
+
+    // ─── Productividad / DX ──────────────────────────────────────────────────
+    // Publisher: usernamehw | 5M+ installs
+    // Muestra errores del analyzer de Dart inline en el editor
+    "usernamehw.errorlens",
+
+    // Publisher: Christian Kohler | 9M+ installs
+    // Autocompletado de rutas de archivos en imports
+    "christian-kohler.path-intellisense",
+
+    // ─── Iconos / UI ─────────────────────────────────────────────────────────
+    // Publisher: Philipp Kief (PKief) ✓ | 17M+ installs
+    "PKief.material-icon-theme",
+
+    // ─── Markdown (contenido del bootcamp) ───────────────────────────────────
+    // Publisher: Yu Zhang | 5M+ installs
+    "yzhang.markdown-all-in-one",
+    // Publisher: David Anson (Microsoft) ✓ | 4M+ installs
+    "DavidAnson.vscode-markdownlint",
+
+    // ─── YAML (pubspec.yaml, GitHub Actions CI/CD) ──────────────────────────
+    // Publisher: Red Hat ✓ | 26M+ installs
+    "redhat.vscode-yaml",
+
+    // ─── Calidad de código ───────────────────────────────────────────────────
+    // Publisher: Street Side Software ✓ | 7M+ installs
+    "streetsidesoftware.code-spell-checker"
+  ],
+  "unwantedRecommendations": []
+}

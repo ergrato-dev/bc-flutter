@@ -1,0 +1,13 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Bootcamp Flutter Zero to Hero</title>
+  <desc id="desc">Encabezado del bootcamp de Flutter: 19 semanas, 304 horas, Dart y Flutter</desc>
+  <rect width="800" height="200" fill="#0d1117"/>
+  <rect x="0" y="0" width="800" height="200" fill="none" stroke="#0175C2" stroke-width="2"/>
+  <circle cx="90" cy="100" r="46" fill="#13B9FD" opacity="0.15"/>
+  <path d="M120 60 L160 60 L100 140 L60 140 Z" fill="#54C5F8"/>
+  <path d="M120 60 L160 60 L140 90 L100 90 Z" fill="#02569B"/>
+  <path d="M100 90 L140 90 L160 140 L120 140 Z" fill="#0175C2"/>
+  <text x="200" y="90" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#E6EDF3">Bootcamp Flutter</text>
+  <text x="200" y="130" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#8B949E">Zero to Hero — Dart · Flutter · 19 semanas · 304h</text>
+  <text x="200" y="160" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#54C5F8">Provider → Riverpod → Bloc/Cubit</text>
+</svg>

@@ -1,0 +1,150 @@
+# =============================================================================
+# BOOTCAMP: Flutter Zero to Hero
+# =============================================================================
+
+# ⚠️ POLÍTICA ANTICOPIA — Soluciones del instructor (NUNCA subir)
+**/solution/
+**/6-instructor/
+**/_instructor-only/
+**/_apprentices-only/
+
+# =============================================================================
+# FLUTTER / DART
+# =============================================================================
+
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.g.dart.bak
+
+# Flutter/Dart specific artifacts (no generados: *.g.dart y *.freezed.dart SÍ se commitean)
+.flutter-versions
+
+# Android
+android/.gradle/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/**/gradle-wrapper.jar
+android/key.properties
+*.keystore
+!debug.keystore
+**/android/app/*.jks
+
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Pods/
+ios/.symlinks/
+ios/Runner.xcworkspace/xcshareddata/
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcuserstate
+ios/ExportOptions.plist
+
+# Web
+web/manifest.json.bak
+
+# Symbolication
+app.*.symbols
+
+# Obfuscation
+app.*.map.json
+
+# FVM (Flutter Version Management)
+.fvm/flutter_sdk
+
+# =============================================================================
+# ENTORNOS Y SECRETOS
+# =============================================================================
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging
+
+# Mantener el archivo de ejemplo
+!.env.example
+
+# Firebase (configs con API keys — cada estudiante usa las suyas)
+google-services.json
+GoogleService-Info.plist
+firebase_options.dart
+
+# =============================================================================
+# EDITORES / IDE
+# =============================================================================
+
+# VS Code (mantener .vscode/extensions.json y settings.json del proyecto)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# SISTEMA OPERATIVO
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# =============================================================================
+# LOGS Y TEMPORALES
+# =============================================================================
+
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+.cache/
+tmp/
+temp/
+
+# =============================================================================
+# EXPORTACIONES PDF (generadas por export-pdf.sh)
+# =============================================================================
+
+_exports/
+*.pdf
+
+# =============================================================================
+# TESTING
+# =============================================================================
+
+coverage/
+.test_coverage.dart
+integration_test/.driver_temp/

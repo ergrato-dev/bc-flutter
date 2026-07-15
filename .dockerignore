@@ -1,0 +1,13 @@
+build/
+.dart_tool/
+.git/
+.idea/
+.vscode/
+*.iml
+android/.gradle/
+android/app/build/
+ios/Pods/
+ios/build/
+coverage/
+_exports/
+*.pdf
