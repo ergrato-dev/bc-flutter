@@ -2,20 +2,27 @@
 
 > **Fase 2 — Estado y Datos** | Semana 6 de 19 | ⏱️ 16 horas
 
-## 🎯 Objetivos de aprendizaje
+Esta semana conecta tu app a una API REST real usando **Dio**, y reemplaza el `Future.delayed`
+simulado de semana 5 por una llamada HTTP real dentro de un `AsyncNotifier` de Riverpod.
 
-> 🚧 **Contenido en desarrollo.** Usa el prompt `nueva-semana` para generar el contenido completo.
+## 🎯 Objetivos de aprendizaje
 
 Al finalizar esta semana, el estudiante será capaz de:
 
-- [ ] Objetivo 1
-- [ ] Objetivo 2
-- [ ] Objetivo 3
+- [ ] Explicar por qué Dio se prefiere sobre el paquete `http` para apps de producción
+- [ ] Configurar una instancia de Dio con `BaseOptions` (baseUrl, timeouts) e interceptors
+- [ ] Ejecutar peticiones GET y parsear la respuesta a modelos propios (`fromJson`)
+- [ ] Capturar y clasificar `DioException` por su `DioExceptionType`
+- [ ] Separar las llamadas HTTP de los providers usando el patrón Repository
+- [ ] Consumir un repository desde un `AsyncNotifier` de Riverpod, con estados loading/error/data
+- [ ] Implementar reintento y pull-to-refresh con `ref.invalidate()` / `ref.refresh()`
 
 ## 📚 Requisitos previos
 
-- Semana anterior completada
-- Flutter SDK local configurado (`flutter doctor` sin errores) + Docker
+- Semana 5 (Riverpod) completada — `AsyncNotifier`, `AsyncValue`, `.when()`
+- Flutter SDK local configurado (`flutter doctor` sin errores) + emulador/simulador corriendo
+- Docker (para `flutter analyze`/`flutter test` reproducibles)
+- Conexión a internet (las prácticas y el proyecto consumen una API REST pública real)
 
 ## 🗂️ Estructura de la semana
 
@@ -29,15 +36,24 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ### Teoría
 
-> 🚧 Por generar — usa el prompt `nueva-teoria`
+1. [Introducción a Dio y APIs REST](1-teoria/01-introduccion-a-dio-y-apis-rest.md)
+2. [Interceptors y Configuración Avanzada](1-teoria/02-interceptors-y-configuracion-avanzada.md)
+3. [Manejo de Errores con DioException](1-teoria/03-manejo-de-errores-dioexception.md)
+4. [Repository Pattern con Dio](1-teoria/04-repository-pattern-con-dio.md)
+5. [Riverpod Async para Networking](1-teoria/05-riverpod-async-para-networking.md)
+6. [Serialización JSON y Buenas Prácticas](1-teoria/06-serializacion-json-y-buenas-practicas.md)
 
 ### Prácticas
 
-> 🚧 Por generar — usa el prompt `nuevo-ejercicio`
+1. [Ejercicio 01 — Dio Básico e Interceptors](2-practicas/ejercicio-01-dio-basico-e-interceptors/README.md)
+2. [Ejercicio 02 — AsyncNotifier con Dio Real](2-practicas/ejercicio-02-asyncnotifier-con-dio-real/README.md)
+3. [Ejercicio 03 — Repository Pattern y Pull-to-Refresh](2-practicas/ejercicio-03-repository-pattern-y-refresh/README.md)
 
 ### Proyecto
 
-> 🚧 Por generar — usa el prompt `nuevo-proyecto`
+[Consumo de API REST con Dio + Riverpod](3-proyecto/README.md) — el `ItemsNotifier` de semana 5
+deja de simular datos y pasa a consumir una API REST real a través de un repository, con manejo
+de errores y pull-to-refresh, sobre tu dominio único asignado.
 
 ## ⏱️ Distribución del tiempo (16 horas)
 
@@ -49,8 +65,8 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ## 📌 Entregables
 
-- [ ] Ejercicios completados (prácticas descomentadas y funcionando)
-- [ ] Proyecto adaptado al dominio asignado
+- [ ] Ejercicios completados (prácticas descomentadas, código regenerado con `build_runner`)
+- [ ] Proyecto adaptado al dominio asignado, consumiendo la API REST vía repository
 - [ ] `flutter analyze` sin errores (verificable con Docker)
 - [ ] App corriendo en emulador/simulador iOS y/o Android
 
