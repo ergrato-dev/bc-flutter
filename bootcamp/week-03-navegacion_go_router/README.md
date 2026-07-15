@@ -2,20 +2,27 @@
 
 > **Fase 1 — Fundamentos Flutter** | Semana 3 de 19 | ⏱️ 16 horas
 
-## 🎯 Objetivos de aprendizaje
+Cierra la fase de fundamentos: le das navegación real a la app de semana 2, con tabs
+persistentes y una pantalla de detalle alcanzable por id.
 
-> 🚧 **Contenido en desarrollo.** Usa el prompt `nueva-semana` para generar el contenido completo.
+## 🎯 Objetivos de aprendizaje
 
 Al finalizar esta semana, el estudiante será capaz de:
 
-- [ ] Objetivo 1
-- [ ] Objetivo 2
-- [ ] Objetivo 3
+- [ ] Explicar la diferencia entre navegación imperativa (Navigator 1.0) y declarativa (2.0)
+- [ ] Configurar `MaterialApp.router` con un `GoRouter` y declarar rutas con `GoRoute`
+- [ ] Elegir correctamente entre `context.go()`, `context.push()` y `context.pop()`
+- [ ] Leer path parameters, query parameters, y usar `extra` como optimización (no como única
+      fuente del dato)
+- [ ] Construir una navegación con `ShellRoute` y bottom nav bar persistente
+- [ ] Proteger una ruta con `redirect`
+- [ ] Explicar qué es un deep link y cómo probarlo localmente
 
 ## 📚 Requisitos previos
 
-- Semana anterior completada
-- Flutter SDK local configurado (`flutter doctor` sin errores) + Docker
+- Semana 2 (Widgets y Layout) completada
+- Flutter SDK local configurado (`flutter doctor` sin errores) + emulador/simulador corriendo
+- Docker (para `flutter analyze`/`flutter test` reproducibles)
 
 ## 🗂️ Estructura de la semana
 
@@ -29,15 +36,23 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ### Teoría
 
-> 🚧 Por generar — usa el prompt `nueva-teoria`
+1. [Introducción a la Navegación y go_router](1-teoria/01-introduccion-a-la-navegacion-y-go_router.md)
+2. [Rutas Básicas y Configuración de GoRouter](1-teoria/02-rutas-basicas-y-gorouter-config.md)
+3. [Parámetros y Rutas Dinámicas](1-teoria/03-parametros-y-rutas-dinamicas.md)
+4. [Rutas Anidadas y ShellRoute](1-teoria/04-rutas-anidadas-y-shellroute.md)
+5. [Redirecciones con GoRouter](1-teoria/05-redirecciones.md)
+6. [Deep Links](1-teoria/06-deep-links.md)
 
 ### Prácticas
 
-> 🚧 Por generar — usa el prompt `nuevo-ejercicio`
+1. [Ejercicio 01 — Rutas Básicas con GoRouter](2-practicas/ejercicio-01-rutas-basicas/README.md)
+2. [Ejercicio 02 — Parámetros de Ruta y extra](2-practicas/ejercicio-02-parametros-de-ruta/README.md)
+3. [Ejercicio 03 — ShellRoute y Navegación por Tabs](2-practicas/ejercicio-03-shellroute-y-tabs/README.md)
 
 ### Proyecto
 
-> 🚧 Por generar — usa el prompt `nuevo-proyecto`
+[Navegación del Dominio](3-proyecto/README.md) — tabs Lista/Acerca de con `ShellRoute` +
+detalle por id sobre el dominio único asignado.
 
 ## ⏱️ Distribución del tiempo (16 horas)
 
