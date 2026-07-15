@@ -23,7 +23,7 @@ actualizan a mitad de curso (evita romper ejemplos ya publicados).
 | Fase | Paquete | Versión pineada | Rol |
 |---|---|---|---|
 | Navegación (S3) | `go_router` | **17.3.0** ✅ confirmada en pub.dev | Navegación declarativa |
-| Estado (S4) | `provider` | por confirmar en semana 4 | Gestión de estado local |
+| Estado (S4) | `provider` | **6.1.5+1** ✅ confirmada en pub.dev | Gestión de estado local |
 | Estado (S5+) | `flutter_riverpod`, `riverpod_annotation`, `riverpod_generator` | por confirmar en semana 5 | Estándar del curso |
 | Estado (S10+) | `flutter_bloc` | por confirmar en semana 10 | Alternativa orientada a eventos |
 | Networking (S6) | `dio` | por confirmar en semana 6 | Cliente HTTP |
