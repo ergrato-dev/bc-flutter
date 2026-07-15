@@ -603,6 +603,14 @@ String formatCurrency(double amount, String currencyCode) {
 - Evitar anidamiento profundo en el árbol de widgets (extraer sub-widgets)
 - Usar early returns en lógica de negocio
 
+### Testabilidad
+
+- **Providers/scopes de estado (`ChangeNotifierProvider`, `ProviderScope` de Riverpod, etc.)
+  siempre dentro de `MyApp.build()`, nunca en el `runApp()` de `main()`** — si quedan fuera,
+  `tester.pumpWidget(const MyApp())` en un test no los incluye y cualquier consumo de estado
+  lanza una excepción de "provider no encontrado" apenas se intenta pintar la pantalla. Bug
+  real detectado y corregido durante la verificación de la semana 4 de este bootcamp.
+
 ### Seguridad
 
 - Nunca almacenar tokens en SharedPreferences (usar `flutter_secure_storage`)

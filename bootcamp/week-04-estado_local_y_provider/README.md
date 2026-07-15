@@ -2,20 +2,27 @@
 
 > **Fase 2 — Estado y Datos** | Semana 4 de 19 | ⏱️ 16 horas
 
-## 🎯 Objetivos de aprendizaje
+Abre la fase de Estado y Datos, y con ella la progresión de gestión de estado del bootcamp:
+**Provider (esta semana) → Riverpod (semana 5, estándar del curso) → Bloc/Cubit (semana 10)**.
 
-> 🚧 **Contenido en desarrollo.** Usa el prompt `nueva-semana` para generar el contenido completo.
+## 🎯 Objetivos de aprendizaje
 
 Al finalizar esta semana, el estudiante será capaz de:
 
-- [ ] Objetivo 1
-- [ ] Objetivo 2
-- [ ] Objetivo 3
+- [ ] Explicar por qué `setState` no basta para estado compartido entre widgets lejanos
+- [ ] Explicar qué hace Provider por debajo (InheritedWidget) a nivel conceptual
+- [ ] Declarar un `ChangeNotifier` con estado privado y `notifyListeners()`
+- [ ] Exponerlo con `ChangeNotifierProvider` y consumirlo con `Consumer`/`context.watch`
+- [ ] Elegir correctamente entre `context.watch()` y `context.read()`
+- [ ] Optimizar rebuilds innecesarios con `Selector`
+- [ ] Combinar varios notifiers con `MultiProvider`
+- [ ] Nombrar al menos 2 limitaciones de Provider que motivan usar Riverpod
 
 ## 📚 Requisitos previos
 
-- Semana anterior completada
-- Flutter SDK local configurado (`flutter doctor` sin errores) + Docker
+- Semana 3 (Navegación con go_router) completada
+- Flutter SDK local configurado (`flutter doctor` sin errores) + emulador/simulador corriendo
+- Docker (para `flutter analyze`/`flutter test` reproducibles)
 
 ## 🗂️ Estructura de la semana
 
@@ -29,15 +36,23 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ### Teoría
 
-> 🚧 Por generar — usa el prompt `nueva-teoria`
+1. [El Problema del Estado Compartido](1-teoria/01-el-problema-del-estado-compartido.md)
+2. [InheritedWidget: la base de Provider](1-teoria/02-inheritedwidget.md)
+3. [ChangeNotifier y ChangeNotifierProvider](1-teoria/03-changenotifier-y-changenotifierprovider.md)
+4. [context.watch, context.read y Selector](1-teoria/04-watch-read-y-selector.md)
+5. [MultiProvider y Organización de Providers](1-teoria/05-multiprovider.md)
+6. [Buenas Prácticas y Límites de Provider](1-teoria/06-buenas-practicas-y-limites-de-provider.md)
 
 ### Prácticas
 
-> 🚧 Por generar — usa el prompt `nuevo-ejercicio`
+1. [Ejercicio 01 — ChangeNotifier Básico](2-practicas/ejercicio-01-changenotifier-basico/README.md)
+2. [Ejercicio 02 — context.watch, context.read y Selector](2-practicas/ejercicio-02-watch-read-selector/README.md)
+3. [Ejercicio 03 — MultiProvider](2-practicas/ejercicio-03-multiprovider/README.md)
 
 ### Proyecto
 
-> 🚧 Por generar — usa el prompt `nuevo-proyecto`
+[Favoritos del Dominio con Provider](3-proyecto/README.md) — marca/desmarca favoritos desde la
+lista o el detalle, con contador en el `AppBar`, sobre el dominio único asignado.
 
 ## ⏱️ Distribución del tiempo (16 horas)
 
