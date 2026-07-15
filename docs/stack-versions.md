@@ -24,7 +24,8 @@ actualizan a mitad de curso (evita romper ejemplos ya publicados).
 |---|---|---|---|
 | Navegación (S3) | `go_router` | **17.3.0** ✅ confirmada en pub.dev | Navegación declarativa |
 | Estado (S4) | `provider` | **6.1.5+1** ✅ confirmada en pub.dev | Gestión de estado local |
-| Estado (S5+) | `flutter_riverpod`, `riverpod_annotation`, `riverpod_generator` | por confirmar en semana 5 | Estándar del curso |
+| Estado (S5+) | `flutter_riverpod` 3.3.2, `riverpod_annotation` 4.0.3, `riverpod_generator` 4.0.4 | ✅ confirmadas en pub.dev | Estándar del curso |
+| Estado (S5+, dev) | `build_runner` | **2.15.1** ✅ — NO 2.15.2: incompatible con `riverpod_generator` 4.0.4 (conflicto de rango de `analyzer`, detectado al resolver dependencias) | Generación de código |
 | Estado (S10+) | `flutter_bloc` | por confirmar en semana 10 | Alternativa orientada a eventos |
 | Networking (S6) | `dio` | por confirmar en semana 6 | Cliente HTTP |
 | Formularios (S7) | `flutter_form_builder`, `form_builder_validators` | por confirmar en semana 7 | Formularios y validación |
