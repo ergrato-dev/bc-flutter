@@ -20,20 +20,20 @@ actualizan a mitad de curso (evita romper ejemplos ya publicados).
 
 ## Paquetes por fase
 
-| Fase | Paquete | Rol |
-|---|---|---|
-| Navegación | `go_router` | Navegación declarativa |
-| Estado (S4) | `provider` | Gestión de estado local |
-| Estado (S5+) | `flutter_riverpod`, `riverpod_annotation`, `riverpod_generator` | Estándar del curso |
-| Estado (S10+) | `flutter_bloc` | Alternativa orientada a eventos |
-| Networking | `dio` | Cliente HTTP |
-| Formularios | `flutter_form_builder`, `form_builder_validators` | Formularios y validación |
-| Persistencia | `shared_preferences`, `hive`/`isar`, `sqflite` | Almacenamiento local |
-| Seguridad | `flutter_secure_storage` | Tokens y credenciales |
-| Auth | `firebase_auth` | Autenticación |
-| Push | `firebase_messaging` | Notificaciones push |
-| Testing | `flutter_test` (SDK), `mocktail`, `integration_test` (SDK) | Unit/widget/E2E |
-| Lint | `flutter_lints` | Reglas de análisis estático |
+| Fase | Paquete | Versión pineada | Rol |
+|---|---|---|---|
+| Navegación (S3) | `go_router` | **17.3.0** ✅ confirmada en pub.dev | Navegación declarativa |
+| Estado (S4) | `provider` | por confirmar en semana 4 | Gestión de estado local |
+| Estado (S5+) | `flutter_riverpod`, `riverpod_annotation`, `riverpod_generator` | por confirmar en semana 5 | Estándar del curso |
+| Estado (S10+) | `flutter_bloc` | por confirmar en semana 10 | Alternativa orientada a eventos |
+| Networking (S6) | `dio` | por confirmar en semana 6 | Cliente HTTP |
+| Formularios (S7) | `flutter_form_builder`, `form_builder_validators` | por confirmar en semana 7 | Formularios y validación |
+| Persistencia (S8) | `shared_preferences`, `hive`/`isar`, `sqflite` | por confirmar en semana 8 | Almacenamiento local |
+| Seguridad (S9) | `flutter_secure_storage` | por confirmar en semana 9 | Tokens y credenciales |
+| Auth (S9) | `firebase_auth` | por confirmar en semana 9 | Autenticación |
+| Push (S14) | `firebase_messaging` | por confirmar en semana 14 | Notificaciones push |
+| Testing (S15) | `flutter_test` (SDK), `mocktail`, `integration_test` (SDK) | por confirmar en semana 15 | Unit/widget/E2E |
+| Lint | `flutter_lints` | 5.0.0 (rango de compatibilidad estándar, no pineo estricto) | Reglas de análisis estático |
 
 ## Política de pineo
 
