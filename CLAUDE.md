@@ -11,3 +11,5 @@
   semana 4, Riverpod desde semana 5, Bloc/Cubit desde semana 10).
 - Verifica ejemplos de código con `docker compose run --rm flutter flutter analyze` antes de
   darlos por finalizados.
+- Al terminar el contenido real de una semana, elimina el `.gitkeep` de cada carpeta que ya
+  tenga archivos — es solo un placeholder del scaffold, no debe quedar junto a contenido real.

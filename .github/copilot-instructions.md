@@ -772,6 +772,8 @@ Cuando crees contenido para una nueva semana:
 - [ ] Verificar coherencia con semanas anteriores (especialmente el gestor de estado vigente)
 - [ ] Revisar progresión de dificultad
 - [ ] Probar código de ejemplos en emulador/simulador y con `docker compose run --rm flutter flutter analyze`
+- [ ] **Eliminar `.gitkeep`** de toda carpeta que ya tenga contenido real — es solo un
+      placeholder del scaffold, no debe quedar junto a archivos reales
 
 ---
 

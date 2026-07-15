@@ -175,8 +175,12 @@ Términos técnicos clave introducidos esta semana, ordenados alfabéticamente.
 6. Crear `3-proyecto/README.md` con instrucciones genéricas adaptables a dominios
 7. Crear `3-proyecto/starter/` con estructura Flutter básica, `Dockerfile`/`docker-compose.yml` y TODOs genéricos
 8. Crear `5-glosario/README.md` con los términos clave del tema
-9. Crear `0-assets/.gitkeep` para que la carpeta quede trackeada por git
+9. Crear `0-assets/.gitkeep` para que la carpeta quede trackeada por git mientras esté vacía
 10. NO crear la carpeta `solution/` — está en `.gitignore`
+11. **Al terminar la semana** (cuando cada carpeta ya tenga contenido real): eliminar el
+    `.gitkeep` de toda carpeta que ya no esté vacía (`0-assets/`, `1-teoria/`,
+    `4-recursos/{ebooks-free,videografia,webgrafia}/`, etc.). `.gitkeep` es solo un placeholder
+    temporal del scaffold — no debe convivir con contenido real.
 
 ## Datos de la semana a crear
 
