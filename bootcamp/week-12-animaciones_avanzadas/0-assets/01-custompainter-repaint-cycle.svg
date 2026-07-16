@@ -1,0 +1,69 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Diagrama del ciclo de repintado de un CustomPainter animado: el AnimationController notifica en cada tick, Flutter llama paint() con el Canvas, se dibuja el frame, y el ciclo se repite mientras el controller esté activo.">
+  <rect width="800" height="460" fill="#12181f"/>
+
+  <text x="400" y="40" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="20" font-weight="600" fill="#e8edf2">CustomPainter animado: ciclo de repintado</text>
+
+  <!-- Node 1: AnimationController -->
+  <rect x="60" y="90" width="200" height="80" rx="12" fill="#1b232c" stroke="#54C5F8" stroke-width="2"/>
+  <text x="160" y="122" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="14" font-weight="600" fill="#e8edf2">AnimationController</text>
+  <text x="160" y="144" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#9fb0bf">Ticker ~60 veces/seg</text>
+
+  <!-- Node 2: notify listeners -->
+  <rect x="330" y="90" width="200" height="80" rx="12" fill="#1b232c" stroke="#3a4552" stroke-width="2"/>
+  <text x="430" y="122" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="14" font-weight="600" fill="#e8edf2">repaint: controller</text>
+  <text x="430" y="144" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#9fb0bf">notifica al Listenable</text>
+
+  <!-- Node 3: paint() -->
+  <rect x="600" y="90" width="150" height="80" rx="12" fill="#1b232c" stroke="#3a4552" stroke-width="2"/>
+  <text x="675" y="122" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="14" font-weight="600" fill="#e8edf2">paint(canvas)</text>
+  <text x="675" y="144" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#9fb0bf">Canvas.drawArc, etc.</text>
+
+  <!-- arrows top row -->
+  <path d="M 260 130 L 322 130" stroke="#54C5F8" stroke-width="2" fill="none"/>
+  <polygon points="330,130 316,124 316,136" fill="#54C5F8"/>
+  <path d="M 530 130 L 592 130" stroke="#54C5F8" stroke-width="2" fill="none"/>
+  <polygon points="600,130 586,124 586,136" fill="#54C5F8"/>
+
+  <!-- Node 4: frame on screen -->
+  <rect x="330" y="260" width="200" height="90" rx="12" fill="#0175C2" stroke="#54C5F8" stroke-width="2"/>
+  <text x="430" y="298" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="14" font-weight="600" fill="#ffffff">Frame dibujado</text>
+  <text x="430" y="320" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#dceaf5">visible en pantalla</text>
+
+  <!-- arrow down from paint to frame -->
+  <path d="M 675 170 C 675 220, 500 230, 440 258" stroke="#54C5F8" stroke-width="2" fill="none"/>
+  <polygon points="435,262 448,254 448,268" fill="#54C5F8"/>
+
+  <!-- loop arrow back to controller -->
+  <path d="M 330 300 C 150 300, 100 220, 130 172" stroke="#6b7a89" stroke-width="2"
+        stroke-dasharray="6 6" fill="none"/>
+  <polygon points="130,172 118,182 138,186" fill="#6b7a89"/>
+
+  <text x="230" y="400" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="12" fill="#6b7a89">mientras el controller esté activo (forward/repeat), el ciclo se repite en cada tick</text>
+
+  <!-- dispose note -->
+  <rect x="600" y="260" width="150" height="90" rx="12" fill="#1b232c" stroke="#e57373" stroke-width="2"/>
+  <text x="675" y="292" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="13" font-weight="600" fill="#f2b8b5">dispose()</text>
+  <text x="675" y="312" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="10" fill="#d9a8a6">detiene el Ticker —</text>
+  <text x="675" y="326" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="10" fill="#d9a8a6">sin esto, el ciclo</text>
+  <text x="675" y="340" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="10" fill="#d9a8a6">sigue huérfano</text>
+
+  <path d="M 430 350 L 620 320" stroke="#e57373" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+
+  <text x="400" y="440" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="12" fill="#6b7a89">El AnimationController pasado a `repaint:` dispara paint() automáticamente — sin AnimatedBuilder ni setState manual.</text>
+</svg>

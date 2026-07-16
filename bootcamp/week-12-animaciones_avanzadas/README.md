@@ -4,13 +4,14 @@
 
 ## 🎯 Objetivos de aprendizaje
 
-> 🚧 **Contenido en desarrollo.** Usa el prompt `nueva-semana` para generar el contenido completo.
-
 Al finalizar esta semana, el estudiante será capaz de:
 
-- [ ] Objetivo 1
-- [ ] Objetivo 2
-- [ ] Objetivo 3
+- [ ] Controlar el tiempo de una animación explícitamente con `AnimationController`
+- [ ] Transformar el rango 0.0–1.0 de un controller en valores reales con `Tween`/`ColorTween`
+- [ ] Reconstruir solo el subárbol necesario con `AnimatedBuilder` y los `*Transition`
+- [ ] Secuenciar animaciones en un mismo controller con `Interval` y `TweenSequence`
+- [ ] Dibujar formas custom animadas con `CustomPainter` conectado a un `AnimationController`
+- [ ] Evitar fugas de memoria liberando controllers en `dispose()`
 
 ## 📚 Requisitos previos
 
@@ -29,15 +30,24 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ### Teoría
 
-> 🚧 Por generar — usa el prompt `nueva-teoria`
+1. [AnimationController y Ticker](1-teoria/01-animationcontroller-y-ticker.md)
+2. [Tween y Animation&lt;T&gt;](1-teoria/02-tween-y-animation.md)
+3. [AnimatedBuilder](1-teoria/03-animatedbuilder.md)
+4. [Animaciones Encadenadas: Interval y TweenSequence](1-teoria/04-animaciones-encadenadas.md)
+5. [CustomPainter Animado](1-teoria/05-custompainter-animado.md)
+6. [Buenas Prácticas: Ciclo de Vida y Performance](1-teoria/06-buenas-practicas-ciclo-de-vida.md)
 
 ### Prácticas
 
-> 🚧 Por generar — usa el prompt `nuevo-ejercicio`
+1. [Ejercicio 01 — AnimationController Básico](2-practicas/ejercicio-01-animationcontroller-basico/README.md)
+2. [Ejercicio 02 — Tween y AnimatedBuilder Encadenado](2-practicas/ejercicio-02-tween-animatedbuilder-encadenado/README.md)
+3. [Ejercicio 03 — CustomPainter Animado](2-practicas/ejercicio-03-custompainter-animado/README.md)
 
 ### Proyecto
 
-> 🚧 Por generar — usa el prompt `nuevo-proyecto`
+[Animaciones Avanzadas](3-proyecto/README.md) — agrega un indicador de carga custom
+(`LoadingRing`, `CustomPainter` + `AnimationController.repeat()`) y un "pop" de escala al marcar
+favoritos, sobre el proyecto Clean Architecture de semanas 10-11.
 
 ## ⏱️ Distribución del tiempo (16 horas)
 
