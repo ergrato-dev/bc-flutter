@@ -1,0 +1,64 @@
+<svg width="900" height="320" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Las tres capas de Clean Architecture aplicadas a la feature items</title>
+  <desc id="desc">Presentation (HomeScreen, ItemsCubit) depende de Domain (GetItems, ItemsRepository como contrato, entidad Item). Data (ItemsRepositoryImpl) implementa el contrato de Domain y depende de ItemsRemoteDataSource (Dio) e ItemsLocalDataSource (Hive). Domain nunca depende de Data ni de Presentation — las flechas siempre apuntan hacia el centro.</desc>
+  <rect width="900" height="320" fill="#0d1117"/>
+
+  <text x="450" y="26" fill="#8b949e" font-size="12" text-anchor="middle" font-family="system-ui, sans-serif">Las flechas de dependencia siempre apuntan hacia domain — nunca al revés</text>
+
+  <!-- Presentation column -->
+  <text x="130" y="55" fill="#3fb950" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">PRESENTATION</text>
+  <rect x="40" y="70" width="180" height="60" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="130" y="95" fill="#3fb950" font-size="11" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">HomeScreen</text>
+  <text x="130" y="112" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">BlocBuilder</text>
+
+  <rect x="40" y="150" width="180" height="60" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="130" y="175" fill="#3fb950" font-size="11" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">ItemsCubit</text>
+  <text x="130" y="192" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">fetchItems()</text>
+
+  <line x1="130" y1="130" x2="130" y2="150" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <line x1="220" y1="180" x2="270" y2="180" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Domain column (center) -->
+  <text x="450" y="55" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">DOMAIN — sin dependencias externas</text>
+  <rect x="360" y="70" width="180" height="55" rx="8" fill="#161b22" stroke="#d29922" stroke-width="1.5"/>
+  <text x="450" y="93" fill="#d29922" font-size="11" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">Item</text>
+  <text x="450" y="110" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">entidad pura</text>
+
+  <rect x="270" y="150" width="170" height="60" rx="8" fill="#161b22" stroke="#54C5F8" stroke-width="1.5"/>
+  <text x="355" y="172" fill="#54C5F8" font-size="11" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">GetItems</text>
+  <text x="355" y="189" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">use case</text>
+
+  <line x1="440" y1="180" x2="470" y2="180" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="470" y="150" width="180" height="60" rx="8" fill="#161b22" stroke="#0175C2" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="560" y="172" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">ItemsRepository</text>
+  <text x="560" y="189" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">contrato (interfaz)</text>
+
+  <!-- implements line, dashed, pointing from Data up to the contract -->
+  <line x1="560" y1="240" x2="560" y2="210" stroke="#3fb950" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+  <text x="630" y="228" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">implementa</text>
+
+  <!-- Data column -->
+  <text x="770" y="55" fill="#54C5F8" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">DATA</text>
+  <rect x="470" y="240" width="180" height="60" rx="8" fill="#161b22" stroke="#54C5F8" stroke-width="1.5"/>
+  <text x="560" y="262" fill="#54C5F8" font-size="11" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">ItemsRepositoryImpl</text>
+  <text x="560" y="279" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">red + cache fallback</text>
+
+  <line x1="650" y1="255" x2="690" y2="235" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="650" y1="270" x2="690" y2="285" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="690" y="200" width="180" height="50" rx="8" fill="#161b22" stroke="#54C5F8" stroke-width="1.5"/>
+  <text x="780" y="220" fill="#54C5F8" font-size="10" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">ItemsRemoteDataSource</text>
+  <text x="780" y="236" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">Dio</text>
+
+  <rect x="690" y="260" width="180" height="50" rx="8" fill="#161b22" stroke="#d29922" stroke-width="1.5"/>
+  <text x="780" y="280" fill="#d29922" font-size="10" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">ItemsLocalDataSource</text>
+  <text x="780" y="296" fill="#8b949e" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">Hive</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+</svg>

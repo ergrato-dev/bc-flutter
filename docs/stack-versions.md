@@ -26,7 +26,7 @@ actualizan a mitad de curso (evita romper ejemplos ya publicados).
 | Estado (S4) | `provider` | **6.1.5+1** ✅ confirmada en pub.dev | Gestión de estado local |
 | Estado (S5+) | `flutter_riverpod` 3.3.2, `riverpod_annotation` 4.0.3, `riverpod_generator` 4.0.4 | ✅ confirmadas en pub.dev | Estándar del curso |
 | Estado (S5+, dev) | `build_runner` | **2.15.1** ✅ — NO 2.15.2: incompatible con `riverpod_generator` 4.0.4 (conflicto de rango de `analyzer`, detectado al resolver dependencias) | Generación de código |
-| Estado (S10+) | `flutter_bloc` | por confirmar en semana 10 | Alternativa orientada a eventos |
+| Estado (S10+) | `flutter_bloc` 9.1.1, `equatable` 2.1.0, `get_it` 9.2.1 (DI, reemplaza a Riverpod) | ✅ confirmadas en pub.dev | Cierre de la progresión — Cubit en el proyecto, Bloc solo en teoría; ver semana 10 |
 | Networking (S6) | `dio` | **5.10.0** ✅ confirmada en pub.dev | Cliente HTTP |
 | Formularios (S7) | `flutter_form_builder` 10.3.0+2, `form_builder_validators` 11.3.0 | ✅ confirmadas en pub.dev | Formularios y validación |
 | Persistencia (S8) | `shared_preferences` 2.5.5, `hive_ce_flutter` 2.3.4, `hive_ce_generator` 1.11.2, `sqflite` (solo teoría, sin código) | ✅ confirmadas en pub.dev | Almacenamiento local — `hive_ce` en vez de `hive` (sin release estable en años) o `isar` (última estable de hace 3 años); ver teoría 01 de semana 8 |
