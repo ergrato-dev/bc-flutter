@@ -1,0 +1,21 @@
+name: ejercicio_02_validadores_compuestos_y_tipos_de_campo
+description: Ejercicio 02 — Validadores Compuestos y Tipos de Campo
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_form_builder: 10.3.0+2
+  form_builder_validators: 11.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 5.0.0
+
+flutter:
+  uses-material-design: true
