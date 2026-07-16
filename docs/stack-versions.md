@@ -30,8 +30,8 @@ actualizan a mitad de curso (evita romper ejemplos ya publicados).
 | Networking (S6) | `dio` | **5.10.0** ✅ confirmada en pub.dev | Cliente HTTP |
 | Formularios (S7) | `flutter_form_builder` 10.3.0+2, `form_builder_validators` 11.3.0 | ✅ confirmadas en pub.dev | Formularios y validación |
 | Persistencia (S8) | `shared_preferences` 2.5.5, `hive_ce_flutter` 2.3.4, `hive_ce_generator` 1.11.2, `sqflite` (solo teoría, sin código) | ✅ confirmadas en pub.dev | Almacenamiento local — `hive_ce` en vez de `hive` (sin release estable en años) o `isar` (última estable de hace 3 años); ver teoría 01 de semana 8 |
-| Seguridad (S9) | `flutter_secure_storage` | por confirmar en semana 9 | Tokens y credenciales |
-| Auth (S9) | `firebase_auth` | por confirmar en semana 9 | Autenticación |
+| Seguridad (S9) | `flutter_secure_storage` 10.3.1 | ✅ confirmada en pub.dev | Tokens y credenciales |
+| Auth (S9) | JWT propio (Dio, API `dummyjson.com`) — `firebase_auth` cubierto solo en teoría como alternativa | ✅ confirmado | Autenticación — ver teoría 01 y 06 de semana 9 |
 | Push (S14) | `firebase_messaging` | por confirmar en semana 14 | Notificaciones push |
 | Testing (S15) | `flutter_test` (SDK), `mocktail`, `integration_test` (SDK) | por confirmar en semana 15 | Unit/widget/E2E |
 | Lint | `flutter_lints` | 5.0.0 (rango de compatibilidad estándar, no pineo estricto) | Reglas de análisis estático |
