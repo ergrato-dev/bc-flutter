@@ -1,0 +1,19 @@
+name: ejercicio_03_animatedswitcher_y_animatedlist
+description: Ejercicio 03 — AnimatedSwitcher y AnimatedList
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 5.0.0
+
+flutter:
+  uses-material-design: true

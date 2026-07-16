@@ -1,0 +1,57 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Diagrama del vuelo Hero entre una pantalla de lista y una pantalla de detalle, mostrando la imagen interpolando tamaño y posición entre ambas mientras comparte el mismo tag.">
+  <rect width="800" height="420" fill="#12181f"/>
+
+  <text x="400" y="40" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="20" font-weight="600" fill="#e8edf2">Hero: mismo tag, dos pantallas</text>
+
+  <!-- Phone A: list screen -->
+  <rect x="60" y="80" width="220" height="300" rx="18" fill="#1b232c" stroke="#3a4552" stroke-width="2"/>
+  <text x="170" y="108" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="14" fill="#9fb0bf">HomeScreen (lista)</text>
+
+  <!-- list rows -->
+  <rect x="80" y="126" width="180" height="64" rx="8" fill="#232d38"/>
+  <rect x="90" y="136" width="44" height="44" rx="6" fill="#0175C2" stroke="#54C5F8" stroke-width="2"/>
+  <rect x="144" y="142" width="100" height="10" rx="3" fill="#3a4552"/>
+  <rect x="144" y="160" width="70" height="8" rx="3" fill="#2c3742"/>
+
+  <rect x="80" y="198" width="180" height="64" rx="8" fill="#232d38"/>
+  <rect x="90" y="208" width="44" height="44" rx="6" fill="#2c3742"/>
+  <rect x="144" y="214" width="100" height="10" rx="3" fill="#3a4552"/>
+  <rect x="144" y="232" width="70" height="8" rx="3" fill="#2c3742"/>
+
+  <rect x="80" y="270" width="180" height="64" rx="8" fill="#232d38"/>
+  <rect x="90" y="280" width="44" height="44" rx="6" fill="#2c3742"/>
+  <rect x="144" y="286" width="100" height="10" rx="3" fill="#3a4552"/>
+  <rect x="144" y="304" width="70" height="8" rx="3" fill="#2c3742"/>
+
+  <text x="170" y="358" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#6b7a89">Hero(tag: 'item-image-42')</text>
+
+  <!-- Phone B: detail screen -->
+  <rect x="520" y="80" width="220" height="300" rx="18" fill="#1b232c" stroke="#3a4552" stroke-width="2"/>
+  <text x="630" y="108" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="14" fill="#9fb0bf">DetailScreen</text>
+
+  <rect x="540" y="122" width="180" height="140" rx="10" fill="#0175C2" stroke="#54C5F8" stroke-width="2"/>
+  <rect x="540" y="278" width="180" height="12" rx="3" fill="#3a4552"/>
+  <rect x="540" y="298" width="130" height="10" rx="3" fill="#2c3742"/>
+  <rect x="540" y="316" width="150" height="10" rx="3" fill="#2c3742"/>
+  <rect x="540" y="334" width="90" height="10" rx="3" fill="#2c3742"/>
+
+  <text x="630" y="358" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#6b7a89">Hero(tag: 'item-image-42')</text>
+
+  <!-- flight path -->
+  <path d="M 134 158 C 320 40, 420 40, 630 130" fill="none" stroke="#54C5F8" stroke-width="2"
+        stroke-dasharray="6 6"/>
+  <polygon points="630,130 616,122 620,138" fill="#54C5F8"/>
+
+  <text x="400" y="55" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="12" fill="#54C5F8">el mismo tag conecta ambos widgets → Flutter anima el vuelo</text>
+
+  <!-- caption -->
+  <text x="400" y="405" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="12" fill="#6b7a89">Al navegar, la imagen interpola posición y tamaño entre las dos pantallas — no son dos widgets independientes.</text>
+</svg>

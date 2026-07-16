@@ -4,13 +4,14 @@
 
 ## 🎯 Objetivos de aprendizaje
 
-> 🚧 **Contenido en desarrollo.** Usa el prompt `nueva-semana` para generar el contenido completo.
-
 Al finalizar esta semana, el estudiante será capaz de:
 
-- [ ] Objetivo 1
-- [ ] Objetivo 2
-- [ ] Objetivo 3
+- [ ] Diferenciar animaciones implícitas de explícitas y elegir la correcta para cada caso
+- [ ] Animar propiedades de un widget con `AnimatedContainer` y la familia `Animated*`
+- [ ] Elegir `Curves` y `Duration` con criterio, en vez de valores arbitrarios
+- [ ] Implementar transiciones `Hero` entre pantallas de lista y detalle
+- [ ] Animar reemplazos de widgets con `AnimatedSwitcher` y altas/bajas con `AnimatedList`
+- [ ] Aplicar buenas prácticas de rendimiento (`const`, `RepaintBoundary`) en widgets animados
 
 ## 📚 Requisitos previos
 
@@ -29,15 +30,24 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ### Teoría
 
-> 🚧 Por generar — usa el prompt `nueva-teoria`
+1. [Introducción a Animaciones Implícitas](1-teoria/01-introduccion-a-animaciones-implicitas.md)
+2. [AnimatedContainer y Widgets Animados Implícitos](1-teoria/02-animatedcontainer-y-widgets-animados.md)
+3. [Curves y Duration](1-teoria/03-curves-y-duration.md)
+4. [Hero Animations](1-teoria/04-hero-animations.md)
+5. [AnimatedSwitcher y AnimatedList](1-teoria/05-animatedswitcher-y-animatedlist.md)
+6. [Buenas Prácticas y Rendimiento en Animaciones](1-teoria/06-buenas-practicas-y-rendimiento.md)
 
 ### Prácticas
 
-> 🚧 Por generar — usa el prompt `nuevo-ejercicio`
+1. [Ejercicio 01 — AnimatedContainer](2-practicas/ejercicio-01-animatedcontainer-tarjeta-expandible/README.md)
+2. [Ejercicio 02 — Hero entre Pantallas](2-practicas/ejercicio-02-hero-entre-pantallas/README.md)
+3. [Ejercicio 03 — AnimatedSwitcher y AnimatedList](2-practicas/ejercicio-03-animatedswitcher-y-animatedlist/README.md)
 
 ### Proyecto
 
-> 🚧 Por generar — usa el prompt `nuevo-proyecto`
+[Animaciones Básicas](3-proyecto/README.md) — agrega `Hero`, `AnimatedContainer` y
+`AnimatedSwitcher` al proyecto Clean Architecture de semana 10, sin romper su arquitectura ni
+cambiar de gestor de estado.
 
 ## ⏱️ Distribución del tiempo (16 horas)
 
