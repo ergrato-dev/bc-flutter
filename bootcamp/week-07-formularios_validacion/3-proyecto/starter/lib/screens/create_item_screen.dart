@@ -33,10 +33,10 @@ class _CreateItemScreenState extends ConsumerState<CreateItemScreen> {
     // TODO: lee el estado del envío y agrega el listener de efectos
     // secundarios (ver teoría 05 y ejercicio 03, PASO 3):
     //
-    // final submitState = ref.watch(createItemNotifierProvider);
+    // final submitState = ref.watch(createItemProvider);
     // final isLoading = submitState.isLoading;
     //
-    // ref.listen(createItemNotifierProvider, (previous, next) {
+    // ref.listen(createItemProvider, (previous, next) {
     //   if (next.hasError && !next.isLoading) {
     //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${next.error}')));
     //   }
@@ -93,7 +93,7 @@ class _CreateItemScreenState extends ConsumerState<CreateItemScreen> {
                 //             name: values['name'] as String,
                 //             description: values['description'] as String,
                 //           );
-                //           ref.read(createItemNotifierProvider.notifier).create(item);
+                //           ref.read(createItemProvider.notifier).create(item);
                 //         }
                 //       },
                 onPressed: () {},

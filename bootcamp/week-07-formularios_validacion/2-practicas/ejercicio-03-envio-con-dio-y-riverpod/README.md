@@ -80,10 +80,10 @@ build_runner.
 ## Paso 3: UI reactiva al estado del envío
 
 ```dart
-final submitState = ref.watch(createNotifierProvider);
+final submitState = ref.watch(createProvider);
 final isLoading = submitState.isLoading;
 
-ref.listen(createNotifierProvider, (previous, next) {
+ref.listen(createProvider, (previous, next) {
   if (next.hasError && !next.isLoading) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${next.error}')));
   }

@@ -47,10 +47,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO temporal: en el PASO 3 agrega aquí, al inicio de build():
-    // final submitState = ref.watch(createNotifierProvider);
+    // final submitState = ref.watch(createProvider);
     // final isLoading = submitState.isLoading;
     //
-    // ref.listen(createNotifierProvider, (previous, next) {
+    // ref.listen(createProvider, (previous, next) {
     //   if (next.hasError && !next.isLoading) {
     //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${next.error}')));
     //   }
@@ -84,7 +84,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 //     : () {
                 //         if (_formKey.currentState!.saveAndValidate()) {
                 //           final values = _formKey.currentState!.value;
-                //           ref.read(createNotifierProvider.notifier).create(values['title'] as String);
+                //           ref.read(createProvider.notifier).create(values['title'] as String);
                 //         }
                 //       },
                 onPressed: () {

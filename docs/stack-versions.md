@@ -29,7 +29,7 @@ actualizan a mitad de curso (evita romper ejemplos ya publicados).
 | Estado (S10+) | `flutter_bloc` | por confirmar en semana 10 | Alternativa orientada a eventos |
 | Networking (S6) | `dio` | **5.10.0** ✅ confirmada en pub.dev | Cliente HTTP |
 | Formularios (S7) | `flutter_form_builder` 10.3.0+2, `form_builder_validators` 11.3.0 | ✅ confirmadas en pub.dev | Formularios y validación |
-| Persistencia (S8) | `shared_preferences`, `hive`/`isar`, `sqflite` | por confirmar en semana 8 | Almacenamiento local |
+| Persistencia (S8) | `shared_preferences` 2.5.5, `hive_ce_flutter` 2.3.4, `hive_ce_generator` 1.11.2, `sqflite` (solo teoría, sin código) | ✅ confirmadas en pub.dev | Almacenamiento local — `hive_ce` en vez de `hive` (sin release estable en años) o `isar` (última estable de hace 3 años); ver teoría 01 de semana 8 |
 | Seguridad (S9) | `flutter_secure_storage` | por confirmar en semana 9 | Tokens y credenciales |
 | Auth (S9) | `firebase_auth` | por confirmar en semana 9 | Autenticación |
 | Push (S14) | `firebase_messaging` | por confirmar en semana 14 | Notificaciones push |

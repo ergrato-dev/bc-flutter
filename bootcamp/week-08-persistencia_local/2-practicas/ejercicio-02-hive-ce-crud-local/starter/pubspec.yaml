@@ -1,0 +1,20 @@
+name: ejercicio_02_hive_ce_crud_local
+description: Ejercicio 02 — Hive/hive_ce CRUD Local
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hive_ce_flutter: 2.3.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 5.0.0
+
+flutter:
+  uses-material-design: true

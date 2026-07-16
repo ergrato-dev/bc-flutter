@@ -2,20 +2,29 @@
 
 > **Fase 2 — Estado y Datos** | Semana 8 de 19 | ⏱️ 16 horas
 
-## 🎯 Objetivos de aprendizaje
+Esta semana agrega persistencia local al proyecto de semana 7 — los favoritos y la lista de
+elementos de tu dominio sobreviven al cierre de la app y quedan disponibles sin conexión.
 
-> 🚧 **Contenido en desarrollo.** Usa el prompt `nueva-semana` para generar el contenido completo.
+## 🎯 Objetivos de aprendizaje
 
 Al finalizar esta semana, el estudiante será capaz de:
 
-- [ ] Objetivo 1
-- [ ] Objetivo 2
-- [ ] Objetivo 3
+- [ ] Elegir entre `shared_preferences`, Hive/`hive_ce` y `sqflite` según el tipo de dato a
+      persistir
+- [ ] Leer y escribir valores primitivos con `SharedPreferences`
+- [ ] Abrir y usar un `Box` de Hive para cachear datos estructurados
+- [ ] Cargar instancias async (`SharedPreferences`, `Box`) antes de `runApp()` e inyectarlas en
+      Riverpod con `overrideWithValue()`
+- [ ] Implementar un repository con cache local (network-first con fallback), sin modificar la
+      UI que lo consume
+- [ ] Aplicar buenas prácticas de persistencia móvil (nunca datos sensibles sin cifrar,
+      migraciones seguras, limpieza al cerrar sesión)
 
 ## 📚 Requisitos previos
 
-- Semana anterior completada
-- Flutter SDK local configurado (`flutter doctor` sin errores) + Docker
+- Semana 7 (Formularios y Validación) completada — `FormBuilder`, `AsyncNotifier` de acción
+- Flutter SDK local configurado (`flutter doctor` sin errores) + emulador/simulador corriendo
+- Docker (para `flutter analyze`/`flutter test` reproducibles)
 
 ## 🗂️ Estructura de la semana
 
@@ -29,15 +38,24 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ### Teoría
 
-> 🚧 Por generar — usa el prompt `nueva-teoria`
+1. [Introducción a Persistencia Local en Flutter](1-teoria/01-introduccion-a-persistencia-local-en-flutter.md)
+2. [SharedPreferences — Clave-Valor Simple](1-teoria/02-shared-preferences-clave-valor.md)
+3. [Hive/hive_ce — NoSQL Local](1-teoria/03-hive-ce-nosql-local.md)
+4. [sqflite y Cuándo Usar SQL](1-teoria/04-sqflite-y-cuando-usar-sql.md)
+5. [Repository Pattern con Cache Local](1-teoria/05-repository-pattern-con-cache-local.md)
+6. [Buenas Prácticas de Persistencia Móvil](1-teoria/06-buenas-practicas-de-persistencia-movil.md)
 
 ### Prácticas
 
-> 🚧 Por generar — usa el prompt `nuevo-ejercicio`
+1. [Ejercicio 01 — SharedPreferences Básico](2-practicas/ejercicio-01-shared-preferences-basico/README.md)
+2. [Ejercicio 02 — Hive/hive_ce CRUD Local](2-practicas/ejercicio-02-hive-ce-crud-local/README.md)
+3. [Ejercicio 03 — Repository con Cache Offline](2-practicas/ejercicio-03-repository-con-cache-offline/README.md)
 
 ### Proyecto
 
-> 🚧 Por generar — usa el prompt `nuevo-proyecto`
+[Persistencia Local](3-proyecto/README.md) — persiste favoritos con `SharedPreferences` y cachea
+la lista de elementos de tu dominio con `CachedItemsRepository` (Hive), sobre el proyecto de
+semana 7.
 
 ## ⏱️ Distribución del tiempo (16 horas)
 
@@ -50,7 +68,7 @@ Al finalizar esta semana, el estudiante será capaz de:
 ## 📌 Entregables
 
 - [ ] Ejercicios completados (prácticas descomentadas y funcionando)
-- [ ] Proyecto adaptado al dominio asignado
+- [ ] Proyecto adaptado al dominio asignado, con favoritos y lista persistidos localmente
 - [ ] `flutter analyze` sin errores (verificable con Docker)
 - [ ] App corriendo en emulador/simulador iOS y/o Android
 

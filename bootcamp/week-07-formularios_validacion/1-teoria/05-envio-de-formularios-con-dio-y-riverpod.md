@@ -50,10 +50,10 @@ class CreateItemScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final submitState = ref.watch(createItemNotifierProvider);
+    final submitState = ref.watch(createItemProvider);
     final isLoading = submitState.isLoading;
 
-    ref.listen(createItemNotifierProvider, (previous, next) {
+    ref.listen(createItemProvider, (previous, next) {
       if (next.hasError && !next.isLoading) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('${next.error}')),
@@ -78,7 +78,7 @@ class CreateItemScreen extends ConsumerWidget {
                 : () {
                     if (_formKey.currentState!.saveAndValidate()) {
                       final values = _formKey.currentState!.value;
-                      ref.read(createItemNotifierProvider.notifier).create(
+                      ref.read(createItemProvider.notifier).create(
                         Item(id: '', name: values['name'] as String, description: ''),
                       );
                     }
