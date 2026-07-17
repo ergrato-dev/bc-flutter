@@ -76,4 +76,4 @@ mock.metodo()).thenReturn(valor)` para valores síncronos, `.thenAnswer((_) asyn
 
 ---
 
-> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../docs/plan-estudios.md)
+> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../../docs/plan-estudios.md)

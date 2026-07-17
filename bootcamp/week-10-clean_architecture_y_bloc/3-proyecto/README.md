@@ -53,4 +53,4 @@ case, `emit()` del estado final — ver teoría 03.
 
 ## 📊 Criterios de Evaluación
 
-Ver [../../rubrica-evaluacion.md](../../rubrica-evaluacion.md)
+Ver [../../rubrica-evaluacion.md](../rubrica-evaluacion.md)

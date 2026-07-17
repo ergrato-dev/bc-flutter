@@ -65,4 +65,4 @@ a un Box guardar instancias de una clase Dart directamente, con seguridad de tip
 
 ---
 
-> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../docs/plan-estudios.md)
+> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../../docs/plan-estudios.md)

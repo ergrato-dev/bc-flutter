@@ -52,4 +52,4 @@ docker compose run --rm flutter flutter test
 
 ## 📊 Criterios de Evaluación
 
-Ver [../../rubrica-evaluacion.md](../../rubrica-evaluacion.md)
+Ver [../../rubrica-evaluacion.md](../rubrica-evaluacion.md)

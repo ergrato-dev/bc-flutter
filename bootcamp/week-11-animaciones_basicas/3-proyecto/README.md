@@ -58,4 +58,4 @@ Los tres siguen el patrón de las teorías 02, 04 y 05: mismo `tag` en ambos `He
 
 ## 📊 Criterios de Evaluación
 
-Ver [../../rubrica-evaluacion.md](../../rubrica-evaluacion.md)
+Ver [../../rubrica-evaluacion.md](../rubrica-evaluacion.md)

@@ -55,4 +55,4 @@ sobre la que están construidos todos los plugins de pub.dev que acceden a hardw
 
 ---
 
-> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../docs/plan-estudios.md)
+> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../../docs/plan-estudios.md)

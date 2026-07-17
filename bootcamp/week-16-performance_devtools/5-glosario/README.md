@@ -6,4 +6,4 @@ Términos técnicos clave introducidos esta semana, ordenados alfabéticamente.
 
 ---
 
-> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../docs/plan-estudios.md)
+> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../../docs/plan-estudios.md)

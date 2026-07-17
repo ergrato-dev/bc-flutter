@@ -55,4 +55,4 @@ sobre escribir el `AnimatedBuilder` manual cuando el caso encaja en uno de ellos
 
 ---
 
-> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../docs/plan-estudios.md)
+> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../../docs/plan-estudios.md)

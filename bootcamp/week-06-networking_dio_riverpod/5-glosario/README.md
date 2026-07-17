@@ -65,4 +65,4 @@ etc.) — no conoce Riverpod ni `AsyncValue`. Se expone a través de una interfa
 
 ---
 
-> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../docs/plan-estudios.md)
+> 📚 Glosario global del bootcamp: [docs/plan-estudios.md](../../../docs/plan-estudios.md)

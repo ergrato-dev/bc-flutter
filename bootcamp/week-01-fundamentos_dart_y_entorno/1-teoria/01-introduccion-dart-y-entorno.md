@@ -46,7 +46,7 @@ emulador/simulador y activa hot reload.
 ### 3. Entorno de trabajo: Docker + SDK local
 
 Este bootcamp usa **dos entornos complementarios**, no uno u otro (ver
-[docs/docker-setup.md](../../../../docs/docker-setup.md)):
+[docs/docker-setup.md](../../../docs/docker-setup.md)):
 
 ```dart
 // Válido tanto corriendo con Docker como con el SDK local —
