@@ -32,7 +32,7 @@ actualizan a mitad de curso (evita romper ejemplos ya publicados).
 | Persistencia (S8) | `shared_preferences` 2.5.5, `hive_ce_flutter` 2.3.4, `hive_ce_generator` 1.11.2, `sqflite` (solo teoría, sin código) | ✅ confirmadas en pub.dev | Almacenamiento local — `hive_ce` en vez de `hive` (sin release estable en años) o `isar` (última estable de hace 3 años); ver teoría 01 de semana 8 |
 | Seguridad (S9) | `flutter_secure_storage` 10.3.1 | ✅ confirmada en pub.dev | Tokens y credenciales |
 | Auth (S9) | JWT propio (Dio, API `dummyjson.com`) — `firebase_auth` cubierto solo en teoría como alternativa | ✅ confirmado | Autenticación — ver teoría 01 y 06 de semana 9 |
-| Push (S14) | `firebase_messaging` | por confirmar en semana 14 | Notificaciones push |
+| Push (S14) | `firebase_core` 4.12.1, `firebase_messaging` 16.4.3, `flutter_local_notifications` 22.0.1 | ✅ confirmadas en pub.dev | Notificaciones push — `flutter_local_notifications` muestra el mensaje en foreground (FCM no lo hace solo en Android) |
 | Testing (S15) | `flutter_test` (SDK), `mocktail`, `integration_test` (SDK) | por confirmar en semana 15 | Unit/widget/E2E |
 | Lint | `flutter_lints` | 5.0.0 (rango de compatibilidad estándar, no pineo estricto) | Reglas de análisis estático |
 
