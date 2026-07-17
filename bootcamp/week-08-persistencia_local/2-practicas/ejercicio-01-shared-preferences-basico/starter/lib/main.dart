@@ -6,6 +6,7 @@
 library;
 
 import 'package:flutter/material.dart';
+// ignore: unused_import — se usa al descomentar el PASO 1 (SharedPreferences).
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
