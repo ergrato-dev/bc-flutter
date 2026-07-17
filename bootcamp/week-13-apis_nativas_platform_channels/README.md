@@ -4,13 +4,15 @@
 
 ## 🎯 Objetivos de aprendizaje
 
-> 🚧 **Contenido en desarrollo.** Usa el prompt `nueva-semana` para generar el contenido completo.
-
 Al finalizar esta semana, el estudiante será capaz de:
 
-- [ ] Objetivo 1
-- [ ] Objetivo 2
-- [ ] Objetivo 3
+- [ ] Solicitar y manejar permisos en runtime con `permission_handler` (incluida la denegación
+      permanente)
+- [ ] Capturar o elegir una foto con `image_picker` y mostrarla con `Image.file`
+- [ ] Obtener la ubicación actual con `geolocator`, manejando su propia API de permisos
+- [ ] Invocar código nativo Android desde Dart con un `MethodChannel` propio
+- [ ] Manejar `PlatformException`/`MissingPluginException` y divergencia entre plataformas
+- [ ] Envolver una API nativa en un repository para poder simularla en tests
 
 ## 📚 Requisitos previos
 
@@ -29,15 +31,23 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ### Teoría
 
-> 🚧 Por generar — usa el prompt `nueva-teoria`
+1. [Permisos con permission_handler](1-teoria/01-permisos-con-permission-handler.md)
+2. [Cámara con image_picker](1-teoria/02-camara-con-image-picker.md)
+3. [Geolocalización con geolocator](1-teoria/03-geolocalizacion-con-geolocator.md)
+4. [Platform Channels: MethodChannel](1-teoria/04-platform-channels-methodchannel.md)
+5. [Manejo de Errores de Plataforma](1-teoria/05-manejo-de-errores-de-plataforma.md)
+6. [Buenas Prácticas: Permisos y Testing](1-teoria/06-buenas-practicas-permisos-y-testing.md)
 
 ### Prácticas
 
-> 🚧 Por generar — usa el prompt `nuevo-ejercicio`
+1. [Ejercicio 01 — permission_handler: Permiso de Cámara](2-practicas/ejercicio-01-permission-handler-camara/README.md)
+2. [Ejercicio 02 — geolocator: Ubicación Actual](2-practicas/ejercicio-02-geolocator-ubicacion/README.md)
+3. [Ejercicio 03 — Platform Channel: Nivel de Batería](2-practicas/ejercicio-03-platform-channel-bateria/README.md)
 
 ### Proyecto
 
-> 🚧 Por generar — usa el prompt `nuevo-proyecto`
+[APIs Nativas y Platform Channels](3-proyecto/README.md) — agrega captura/selección de foto
+(`permission_handler` + `image_picker`) al proyecto Clean Architecture de semanas 10-12.
 
 ## ⏱️ Distribución del tiempo (16 horas)
 

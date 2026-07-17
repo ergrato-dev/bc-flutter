@@ -1,0 +1,62 @@
+<svg viewBox="0 0 820 380" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Diagrama de un platform channel: Dart llama invokeMethod, el mensaje cruza el binary messenger hacia el código nativo (Kotlin o Swift), el MethodCallHandler nativo procesa la llamada y responde con success, error o notImplemented, que vuelve a Dart como el resultado del Future o una excepción.">
+  <rect width="820" height="380" fill="#12181f"/>
+
+  <text x="410" y="38" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="20" font-weight="600" fill="#e8edf2">MethodChannel: Dart ↔ nativo</text>
+
+  <!-- Dart side -->
+  <rect x="50" y="80" width="220" height="100" rx="12" fill="#0175C2" stroke="#54C5F8" stroke-width="2"/>
+  <text x="160" y="115" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="14" font-weight="600" fill="#ffffff">Dart</text>
+  <text x="160" y="136" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#dceaf5">MethodChannel</text>
+  <text x="160" y="154" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#dceaf5">.invokeMethod('getBatteryLevel')</text>
+
+  <!-- Bridge -->
+  <rect x="320" y="90" width="180" height="80" rx="12" fill="#1b232c" stroke="#3a4552" stroke-width="2"/>
+  <text x="410" y="122" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="13" font-weight="600" fill="#e8edf2">binary messenger</text>
+  <text x="410" y="142" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#9fb0bf">serializa el mensaje</text>
+
+  <!-- Native side -->
+  <rect x="550" y="80" width="220" height="100" rx="12" fill="#1b232c" stroke="#54C5F8" stroke-width="2"/>
+  <text x="660" y="112" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="14" font-weight="600" fill="#e8edf2">Nativo (Kotlin/Swift)</text>
+  <text x="660" y="133" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#9fb0bf">setMethodCallHandler</text>
+  <text x="660" y="151" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="11" fill="#9fb0bf">if (call.method == ...)</text>
+
+  <!-- arrows forward -->
+  <path d="M 270 130 L 318 130" stroke="#54C5F8" stroke-width="2" fill="none"/>
+  <polygon points="320,130 306,124 306,136" fill="#54C5F8"/>
+  <path d="M 500 130 L 548 130" stroke="#54C5F8" stroke-width="2" fill="none"/>
+  <polygon points="550,130 536,124 536,136" fill="#54C5F8"/>
+
+  <!-- response paths -->
+  <rect x="500" y="230" width="270" height="110" rx="12" fill="#1b232c" stroke="#3a4552" stroke-width="2"/>
+  <text x="635" y="256" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="13" font-weight="600" fill="#e8edf2">result.success(value)</text>
+  <text x="635" y="278" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="13" fill="#f2b8b5">result.error(code, msg)</text>
+  <text x="635" y="300" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="13" fill="#9fb0bf">result.notImplemented()</text>
+
+  <rect x="50" y="230" width="270" height="110" rx="12" fill="#1b232c" stroke="#3a4552" stroke-width="2"/>
+  <text x="185" y="256" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="13" font-weight="600" fill="#e8edf2">Future&lt;T&gt; se completa</text>
+  <text x="185" y="278" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="13" fill="#f2b8b5">PlatformException</text>
+  <text x="185" y="300" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="13" fill="#9fb0bf">MissingPluginException</text>
+
+  <!-- arrow back -->
+  <path d="M 660 230 C 660 200, 400 200, 320 260" stroke="#6b7a89" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+  <polygon points="320,260 334,258 328,272" fill="#6b7a89"/>
+
+  <text x="410" y="360" text-anchor="middle" font-family="Inter, Roboto, system-ui, sans-serif"
+        font-size="12" fill="#6b7a89">El nombre del canal debe ser idéntico en Dart y en el lado nativo — es lo único que los empareja.</text>
+</svg>
