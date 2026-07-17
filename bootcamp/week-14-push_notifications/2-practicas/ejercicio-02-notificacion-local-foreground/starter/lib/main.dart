@@ -113,10 +113,10 @@ class _HomeScreenState extends State<HomeScreen> {
 //   if (notification == null) return;
 //
 //   _localNotifications.show(
-//     notification.hashCode,
-//     notification.title,
-//     notification.body,
-//     const NotificationDetails(
+//     id: notification.hashCode,
+//     title: notification.title,
+//     body: notification.body,
+//     notificationDetails: const NotificationDetails(
 //       android: AndroidNotificationDetails(
 //         'high_importance_channel',
 //         'Notificaciones importantes',

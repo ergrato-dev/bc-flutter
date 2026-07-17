@@ -101,10 +101,10 @@ class NotificationRepositoryImpl implements NotificationRepository {
 //     final notification = message.notification;
 //     if (notification == null) return;
 //     _localNotifications.show(
-//       notification.hashCode,
-//       notification.title,
-//       notification.body,
-//       NotificationDetails(
+//       id: notification.hashCode,
+//       title: notification.title,
+//       body: notification.body,
+//       notificationDetails: NotificationDetails(
 //         android: AndroidNotificationDetails(_channel.id, _channel.name),
 //       ),
 //     );
@@ -127,10 +127,10 @@ class NotificationRepositoryImpl implements NotificationRepository {
 //     final notification = message.notification;
 //     if (notification == null) return;
 //     _localNotifications.show(
-//       notification.hashCode,
-//       notification.title,
-//       notification.body,
-//       NotificationDetails(
+//       id: notification.hashCode,
+//       title: notification.title,
+//       body: notification.body,
+//       notificationDetails: NotificationDetails(
 //         android: AndroidNotificationDetails(_channel.id, _channel.name),
 //       ),
 //     );

@@ -60,11 +60,13 @@ Future<void> _showLocalNotification(String? title, String? body) async {
     importance: Importance.max,
   );
 
+  // flutter_local_notifications 22+: show() usa parámetros nombrados —
+  // solo `id` es posicional-requerido, el resto es opcional.
   await _localNotifications.show(
-    0,
-    title,
-    body,
-    const NotificationDetails(android: androidDetails),
+    id: 0,
+    title: title,
+    body: body,
+    notificationDetails: const NotificationDetails(android: androidDetails),
   );
 }
 ```
