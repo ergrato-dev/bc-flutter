@@ -33,7 +33,7 @@ actualizan a mitad de curso (evita romper ejemplos ya publicados).
 | Seguridad (S9) | `flutter_secure_storage` 10.3.1 | ✅ confirmada en pub.dev | Tokens y credenciales |
 | Auth (S9) | JWT propio (Dio, API `dummyjson.com`) — `firebase_auth` cubierto solo en teoría como alternativa | ✅ confirmado | Autenticación — ver teoría 01 y 06 de semana 9 |
 | Push (S14) | `firebase_core` 4.12.1, `firebase_messaging` 16.4.3, `flutter_local_notifications` 22.0.1 | ✅ confirmadas en pub.dev | Notificaciones push — `flutter_local_notifications` muestra el mensaje en foreground (FCM no lo hace solo en Android) |
-| Testing (S15) | `flutter_test` (SDK), `mocktail`, `integration_test` (SDK) | por confirmar en semana 15 | Unit/widget/E2E |
+| Testing (S15) | `flutter_test`/`integration_test` (SDK, versión ligada al SDK de Flutter), `mocktail` 1.0.5, `bloc_test` 10.0.0 | ✅ confirmadas en pub.dev | Unit/widget/E2E — `bloc_test` requiere `bloc` ^9.0.0, compatible con `flutter_bloc` 9.1.1 ya pineado en S10 |
 | Lint | `flutter_lints` | 5.0.0 (rango de compatibilidad estándar, no pineo estricto) | Reglas de análisis estático |
 
 ## Política de pineo
